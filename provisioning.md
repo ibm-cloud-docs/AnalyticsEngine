@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-31"
+lastupdated: "2017-08-02"
 
 ---
 
@@ -191,7 +191,7 @@ You can create a service instance through one of the following ways:
 1. Log into Bluemix console: [https://console.ng.bluemix.net](https://console.ng.bluemix.net).
 Once logged in, make sure that you have chosen `US South` as the region (on top right corner of the console), `IAEDEV` as the org and the space name allotted to you.
 
-2. Click the following link to open the service instance creation page: [IBM Analytics Engine](https://console.ng.bluemix.net/catalog/services/ibm-analytics-engine?env_id=ibm:yp:us-south&taxonomyNavigation=apps). 
+2. Click the following link to open the service instance creation page: [IBM Analytics Engine](https://console.ng.bluemix.net/catalog/services/ibm-analytics-engine?env_id=ibm:yp:us-south&taxonomyNavigation=apps).
 
 3. Specify the number of compute nodes you require, choose a `Software package` and click **`Create`**.
 
@@ -200,7 +200,7 @@ Once logged in, make sure that you have chosen `US South` as the region (on top 
 **Software packages**:
 * Choose _`ae-1.0-SparkPack`_ , if you are planning to run only Spark workloads.
 * Choose _`ae-1.0-HadoopPack`_ , if you are planning to run Hadoop workloads in addition to Spark workloads. In addition to the components you get with Spark pack, you also get Oozie, HBase and Hive, as part of the components of the Spark pack.
- 
+
 ## Creating a service instance using Cloudfoundry Command Line Interface
 Link to download CF CLI: https://github.com/cloudfoundry/cli#downloads
 
@@ -231,11 +231,11 @@ Sample cluster parameters json file
 ```
 {: codeblock}
 
-### Brief description of cluster parameters 
+### Brief description of cluster parameters
 1. **`num_compute_nodes`** (Required): Number of compute nodes required in the cluster. Max value: _`2`_   
 2. **`hardware_config`** (Required): Represents the instance size of the cluster. Accepted value: _`Standard`_  
-3. **`software_package`** (Required): Determines set of services to be installed on the cluster. Accepted value: _`ae-0.1-SparkPack`_ and _`ae-0.1-HadoopPack`_ 
-4. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](./customizing-cluster.html). 
+3. **`software_package`** (Required): Determines set of services to be installed on the cluster. Accepted value: _`ae-0.1-SparkPack`_ and _`ae-0.1-HadoopPack`_
+4. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](./customizing-cluster.html).
 <br>
 
 **cf CLI Response** <br>
@@ -269,7 +269,7 @@ Usage:
 {: codeblock}
 
 *Response:*
-The respnse is in JSON format. 
+The respnse is in JSON format.
 If the create cluster request is accepted, the property `metadata.guid` has the new service instance's ID.
 If the request is rejected, the property `description` contains a helpful message.
 
@@ -280,15 +280,15 @@ Sample Response -
 ```
 Service instance: MYSERVICE1
 Service: IBMAnalyticsEngine
-Bound apps: 
-Tags: 
+Bound apps:
+Tags:
 Plan: Lite
 
 Last Operation
 Status: create in progress
-Message: 
+Message:
 Started: 2017-04-04T21:13:40Z
-Updated: 
+Updated:
 
 Note: 'The Last Operation' section indicates the service provisioning status. When provisioning is ongoing, it's 'create in progress'. When provisioning has completed, it will be 'create succeeded'.
 ```
@@ -298,7 +298,7 @@ Note: 'The Last Operation' section indicates the service provisioning status. Wh
 curl --request GET \
   --url https://api.ng.bluemix.net/v2/service_instances/<service_instance_guid> \
   --header 'accept: application/json' \
-  --header 'authorization: <user's UAA bearer token>' 
+  --header 'authorization: <user's UAA bearer token>'
 
 ```
 {: codeblock}
