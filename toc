@@ -28,13 +28,14 @@ Analytics Engine
     Creating and customizing clusters
         provisioning.md
         customizing-cluster.md
-        hadoop-mapreduce-jobs.md
+        integrate-COS-S3-and-Swift-object-storage.md
         Retrieve-IAM-access-token.md
+        hadoop-mapreduce-jobs.md
         Resize-clusters.md
         delete-instance.md
 
     {: .topicgroup}
-    Connecting with clusters
+    Accessing clusters
         Retrieve-service-credentials-and-service-end-points.md
         Connect-using-SSH.md
 
@@ -93,6 +94,7 @@ Analytics Engine
     {: .navgroup-end}
 
     {: .navgroup id="help"}
+    release-notes.md
     troubleshooting.md
     Known-issues.md
     {: .navgroup-end}

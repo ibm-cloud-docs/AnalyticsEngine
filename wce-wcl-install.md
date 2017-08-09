@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-17"
+lastupdated: "2017-07-23"
 
 ---
 
@@ -13,13 +13,13 @@ lastupdated: "2017-07-17"
 {:screen: .screen}
 {:pre: .pre}
 
-# Installing the Analytics Engine command line interface 
+# Installing the Analytics Engine command line interface
 
 ## Pre-Requisites
 
-- Install the [Cloud Foundry CLI](https://github.com/cloudfoundry/cli/releases)
+- Install the [Cloud Foundry CLI](https://github.com/cloudfoundry/cli/blob/master/README.md#installing-using-a-package-manager)
 
-- Install the [Bluemix Engine CLI](http://clis.ng.bluemix.net/ui/home.html)
+- Install the [Bluemix Engine CLI](https://console.bluemix.net/docs/cli/reference/bluemix_cli/index.html#install_bluemix_cli)
 
 ## Installing the Analytics Engine CLI
 For details about Bluemix CLI plugin installation, see the [documentation](https://console.bluemix.net/docs/cli/reference/bluemix_cli/index.html#install_plug-in).

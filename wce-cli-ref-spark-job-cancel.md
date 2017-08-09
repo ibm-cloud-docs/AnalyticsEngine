@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-13"
+lastupdated: "2017-07-27"
 
 ---
 
@@ -39,8 +39,8 @@ Flag       | Description
 $ bx ae spark-job-cancel 10
 User (clsadmin)>
 Password>
-Contacting endpoint 'https://169.54.195.210:8443'...
-Finished contacting endpoint 'https://169.54.195.210:8443'
+Contacting endpoint 'https://chs-xxx-xxx-mn001.bi.services.us-south.bluemix.net:8443'...
+Finished contacting endpoint 'https://chs-xxx-xxx-mn001.bi.services.us-south.bluemix.net:8443'
 OK
 deleted
 ```

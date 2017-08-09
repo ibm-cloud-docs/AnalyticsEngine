@@ -1,5 +1,11 @@
 ---
 
+copyright:
+  years: 2017
+lastupdated: "2017-08-04"
+
+---
+
 <!-- Attribute definitions -->
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
@@ -7,53 +13,48 @@
 {:screen: .screen}
 {:pre: .pre}
 
-# Retrieving service credentials and service end points
+# Retrieve service credentials and service end points
 
-The cluster credentials and various service end points that the cluster exposes are made available to you as `service keys`. As described below, you need to create a `service key` on the Cloud Foundry service instance you [provisioned](./provisioning.html#how-to-provision-a-service-instance).
+The cluster credentials and various service end points that the cluster exposes are made available to you as `service keys`. As described below, you need to create a `service key` on the cloudfoundry service instance that you [provisioned](./provisioning.html#how-to-provision-a-service-instance).
 
-You can fetch the cluster credentials and the service end points by:
-* [Using CF CLI](#obtaining-credentials-using-cfcli)
-* [Using CF REST API](#obtaining-credentials-using-cloud-foundry-rest-apis)
+You can fetch the cluster credentials and the service end points through one of the following ways:
+* [Using cf CLI](#fetch-credentials-using-the-cf-cli)
+* [Using cf REST API](#fetch-credentials-using-the-cf-rest-api)
 
-## Obtaining credentials using cf CLI
-
-You need to create a service key for the Analytics Engine service instance to obtain the cluster credentials and service endpoints.
+## Fetch credentials using the cf CLI
+Cluster credentials and service endpoints by creating and viewing a service key for the IBM Analytics Engine service instance created by the user.
 
 ### Creating a service key
-To create a service key, enter the following command: 
- 
 ```
 cf create-service-key <your_service_instance_name> <your_service_key_name>
 ```
-`<your_service_instance_name>` is the name of the service instance you  specified when creating the cluster.
+For `<your_service_instance_name>`, specify the name of the service you had specified when creating the cluster.
 
-`<your_service_key_name>` is any name that you want to refer your key as. This name is used to retrieve service keys.  
+You can use `cf services` to find all your service instance names.
 
-Expected response:
+For `<your_service_key_name>`, specify any name that you want to refer your key as. This can be used later to retrieve service keys.
 
+Expected Response:
 ```
-Creating service key <service key name> for service instance <service instance name> as user...
+Creating service key <service_key_name> for service instance <service_instance_name> as user...
 OK
 ```
 
-### Viewing the service key
-To view your service key, enter the following command:
-
+*Viewing the service key:*
 ```
-cf service-key <service instance name> <service key name>
+cf service-key <service_instance_name> <service_key_name>
 ```
+For `<service_instance_name>`, specify the name of the service instance you had specified when creating the cluster.
 
-`<service instance name>` is the the name of the service instance you  specified when creating the cluster.
+For `<service_key_name>`, specify the name of the service key that you entered when creating the key.
 
-`<service key name>` is the name of the service key that you entered when creating the key.
-
-Sample Response:
+### Sample Response
 
 ```
 {
   "cluster": {
     "cluster_id": "XXXXX",
-    "user": "iaeadmin",
+    "user": "clsadmin",
     "password": "XXXXX",
     "password_expiry_date": "null",
     "service_endpoints": {
@@ -61,26 +62,25 @@ Sample Response:
       "notebook_gateway": "https://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkg/",
       "notebook_gateway_websocket": "wss://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkgws/",
       "webhdfs": "https://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/webhdfs/v1/",
-      "ssh": "ssh iaeadmin@XXXXX-mn003.bi.services.us-south.bluemix.net",
+      "ssh": "ssh clsadmin@XXXXX-mn003.bi.services.us-south.bluemix.net",
       "livy": "https://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
     }
   },
   "cluster_management": {
-    "api_url": "https://ibmae-api.ng.bluemix.net/v2/analytics_engines/XXXXX",
+    "api_url": "https://ibmae-api.mybluemix.net/v2/analytics_engines/XXXXX",
     "instance_id": "XXXXX",
     "api_key": "XXXXX"
   }
 }
 ```
-In the sample response, the properties under `cluster` name the cluster user name, the password, and cluster service endpoints.
+In the sample response above, properties under `cluster` give the cluster user name, password and cluster service endpoints.
 
+***
 
-### Obtaining credentials using Cloud Foundry REST APIs
+### Fetch credentials using the cf REST API
 
-The API endpoint that handles API service keys is `https://api.ng.bluemix.net/v2/service_keys`.
-
-Enter the following API to creating a service key:
-
+URL: `https://api.ng.bluemix.net/v2/service_keys`<br>
+Creating a service key:
 ```
 curl -X POST \
   https://api.ng.bluemix.net/v2/service_keys \
@@ -89,11 +89,7 @@ curl -X POST \
   -H 'content-type: application/json' \
   -d '{"name":"<key name>","service_instance_guid":"<service instance id>"}'
 ```
-{:codeblock}
-
-Sample response:
-
-
+Sample Response:
 ```
 {
   "metadata": {
@@ -108,7 +104,7 @@ Sample response:
     "credentials": {
       "cluster": {
          "cluster_id": "XXXXX",
-         "user": "iaeadmin",
+         "user": "clsadmin",
          "password": "XXXXX",
          "password_expiry_date": "null",
          "service_endpoints": {
@@ -116,7 +112,7 @@ Sample response:
                "notebook_gateway": "https://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkg/",
                "notebook_gateway_websocket": "wss://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkgws/",
                "webhdfs": "https://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/webhdfs/v1/",
-               "ssh": "ssh iaeadmin@XXXXX-mn003.bi.services.us-south.bluemix.net",
+               "ssh": "ssh clsadmin@XXXXX-mn003.bi.services.us-south.bluemix.net",
                "livy": "https://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
          }
       },

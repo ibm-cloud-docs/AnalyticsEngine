@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-13"
+lastupdated: "2017-07-27"
 
 ---
 
@@ -13,10 +13,16 @@ lastupdated: "2017-07-13"
 {:screen: .screen}
 {:pre: .pre}
 
-# spark‐endpoint
+# endpoint
 ## Description
 
 Sets the IBM Analytics Engine server endpoint.
+
+**To create the ENDPOINT URI**
+1. Get the hostname from [vcap](https://console.stage1.bluemix.net/docs/services/AnalyticsEngine/Retrieve-service-credentials-and-service-end-points.html#retrieve-service-credentials-and-service-end-points).
+
+2. ENDPOINT_URI=https://hostname
+
 
 ## Usage
 
@@ -44,12 +50,12 @@ Flag    | Description
 ### Set an endpoint
 
 ```
-$ bx ae endpoint https://169.54.195.210
-Registering endpoint 'https://169.54.195.210'...
+$ bx ae endpoint https://chs-xxx-xxx-mn001.bi.services.us-south.bluemix.net
+Registering endpoint 'https://chs-xxx-xxx-mn001.bi.services.us-south.bluemix.net'...
 Ambari Port Number [Optional: Press enter for default value] (9443)>
 Knox Port Number [Optional: Press enter for default value] (8443)>
 OK
-Endpoint 'https://169.54.195.210' set.
+Endpoint ''https://chs-xxx-xxx-mn001.bi.services.us-south.bluemix.net' set.
 ```
 
 ### Erase an endpoint

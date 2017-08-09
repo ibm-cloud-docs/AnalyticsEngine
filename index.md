@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-13"
+lastupdated: "2017-07-20"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-07-13"
 {:pre: .pre}
 
 # Introduction
-With IBM Analytics Engine you can create Apache Spark and Apache Hadoop clusters in minutes and customize these clusters by using scripts. You can work with data in IBM Cloud Object Storage, as well as integrate other Watson Data Platform services like IBM Data Science Experience and Machine Learning. 
+With IBM Analytics Engine you can create Apache Spark and Apache Hadoop clusters in minutes and customize these clusters by using scripts. You can work with data in IBM Cloud Object Storage, as well as integrate other Watson Data Platform services like IBM Data Science Experience and Machine Learning.
 
 You can define clusters based on your application's requirements choosing the appropriate software pack, version and size of the clusters
 
@@ -23,7 +23,7 @@ The cluster is based on IBM Open Platform for Apache Hadoop and Apache Spark 4.3
 
 Apache Spark 2.1<br>
 Hadoop 2.7.3<br>
-Jupyter Kernel Gateway 0.2.0<br>
+Jupyter Notebook Gateway(JNBG)/Jupyter Kernel Gateway 0.2.0<br>
 Apache Livy 0.3.0<br>
 Knox 0.11.0<br>
 Ambari 2.4.2<br>
@@ -37,7 +37,7 @@ Flume 1.7.0 &#42; <br>
 
 ## Hardware configuration
 
-Only one hardware size is supported for the experimental period.<br> 
+Only one hardware size is supported for the experimental period.<br>
 **Size: Standard**
 
 | Node Type | vCPU | Memory | HDFS Disks |

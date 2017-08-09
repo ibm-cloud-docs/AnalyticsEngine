@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-13"
+lastupdated: "2017-07-23"
 
 ---
 
@@ -34,7 +34,7 @@ bx ae file-system [--user <user>] [--password <password>] mkdir DIR
 bx ae file-system [--user <user>] [--password <password>] mv SRC DST
   SRC and DST are the HDFS file or directory
 
-bx ae file-system [--user <user>] [--password <password>] put SRC DST
+bx ae file-system [--user <user>] [--password <password>]  SRC DST
   SRC is the local file
   DST is the HDFS file
 
@@ -57,7 +57,7 @@ Flag       | Description
 - [ls](#ls)
 - [mkdir](#mkdir)
 - [mv](#mv)
-- [put](#put)
+- [](#)
 - [rm](#rm)
 
 ### Get
@@ -67,7 +67,7 @@ Copies a single file to the local file system from a remote HDFS file system.
 Usage:
 
 ```
-bx ae file-system [--user <user>] [--password <password>] ls SRC DST
+bx ae file-system [--user <user>] [--password <password>] get [SRC] [DST]
 ```
 
 Args:
@@ -129,7 +129,7 @@ Creates a directory on remote HDFS file system.
 Usage:
 
 ```
-bx ae file-system [--user <user>] [--password <password>] get SRC DST
+bx ae file-system [--user <user>] [--password <password>] mkdir [DIR]
 ```
 
 Args:
@@ -153,7 +153,7 @@ Moves a single file from source to destination on remote HDFS file system.
 Usage:
 
 ```
-bx ae file-system [--user <user>] [--password <password>] mv SRC DST
+bx ae file-system [--user <user>] [--password <password>] mv [SRC] [DST]
 ```
 
 Args:
@@ -185,7 +185,7 @@ Copies a single file from local file system to remote HDFS file system.
 Usage:
 
 ```
-bx ae file-system [--user <user>] [--password <password>] put SRC DST
+bx ae file-system [--user <user>] [--password <password>] put [SRC] [DST]
 ```
 
 Args:

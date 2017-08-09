@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-12"
+lastupdated: "2017-07-23"
 
 ---
 
@@ -13,15 +13,15 @@ lastupdated: "2017-07-12"
 {:screen: .screen}
 {:pre: .pre}
 
-# Monitor Applications
+# Monitoring applications
 
 On the IBM Analytics Engine cluster you can use YARN, Spark and Spark History Server web interfaces to monitor running and completed applications.
 
-You can launch YARN's resource manager web interface by opening the Ambari console and navigating to YARN > Quick Links > ResourceManager UI. Use your cluster administrator credentials when prompted for a user id and password. 
+You can launch YARN's resource manager web interface by opening the Ambari console and navigating to YARN > Quick Links > ResourceManager UI. Use your cluster user credentials when prompted for a user id and password.
 
 YARN ResourceManager UI lists all applications on the `All Applications` page where,
 
-* successfully completed applications show with the state `FINISHED` 
+* successfully completed applications show with the state `FINISHED`
 * running applications such as currently active Notebooks/interactive sessions show with the state `RUNNING`
 * applications that have been accepted by YARN for execution but are waiting to be allocated resources to run them show with the state `ACCEPTED`
 

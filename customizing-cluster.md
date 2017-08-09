@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-02"
+lastupdated: "2017-08-08"
 
 ---
 
@@ -65,7 +65,7 @@ A sample parameters json is given below:
 
 Where:
 * `name` is the name of your customization action.
-* `type` is either `bootstrap` or `teardown`. Currently only `bootstrap`is supported.
+* `type` is either `bootstrap` or `teardown`. Currently only `bootstrap` is supported.
 
 **Note:** Presently, only one custom action can be specified in the `customization` array.
 
@@ -75,7 +75,7 @@ Review the example for creating a cluster with customization by using the Cloud 
 
 ```
   curl --request POST \
-  --url 'https://api.my.bluemix.net/v2/service_instances?accepts_incomplete=true' \
+  --url 'https://api.ng.bluemix.net/v2/service_instances?accepts_incomplete=true' \
   --header 'accept: application/json' \
   --header 'authorization: <User's UAA bearer token>' \
   --header 'cache-control: no-cache' \
@@ -85,33 +85,33 @@ Review the example for creating a cluster with customization by using the Cloud 
 {: codeblock}
 
 **Notes:**
-* If you need to find your UAA bearer token, see [Retrieving IAM access tokens](./Retrieve-IAM-access-token.html#retrieving-iam-access-tokens).
-* If you need to find your space guids, see [Provisioning an Analytics Engine service instance](./provisioning.html#creating-a-service-instance-using-the-Cloud-Foundry-REST-API).
+* If you need to find your UAA bearer token, see [Obtaining the Bearer Token for API authentication](./provisioning.html#obtaining-the-bearer-token-for-api-authentication).
+* If you need to find your space GUIDs, see [Obtaining the space GUID](./provisioning.html#obtaining-the-space-guid).
 
 ## Customization options
 
 You can customize the following options:
 
-- Operating system packages. You can install or remove operating system packages by using the package-admin tool.
+### Operating system packages
 
-The IBM Analytics Engine cluster comes bundled with a utility named `package-admin` that you can use to install or remove yum packages.
+You can install or remove operating system packages by using the package-admin tool. The IBM Analytics Engine cluster comes bundled with a utility named `package-admin` that you can use to install or remove yum packages.
 ```
  sudo package-admin -c [install | remove] -p [package name]
 ```
-{: codeblock}
+### Install Python and R libraries
 
-- Install Python and R libraries. There are two versions of Anaconda installed on all nodes:
+There are two versions of Anaconda installed on all nodes:
 
-	* Anaconda with Python 2.7 at `/home/common/conda/anaconda2`
-	* Anaconda with Python 3.5 at `/home/common/conda/anaconda3`
+* Anaconda with Python 2.7 at `/home/common/conda/anaconda2`
+* Anaconda with Python 3.5 at `/home/common/conda/anaconda3`
 
-  In your script,  use commands like:
+In your script, use commands like:
 ```
 /home/common/conda/anaconda[2|3]/bin/pip install [python or R packages]
 ```   
-{: codeblock}
+### Change Ambari configurations
 
-- Change Ambari configurations. Ambari configurations are only applicable for the management node. To ensure that these commands run only on the management node, add the following check to your script:
+Ambari configurations are only applicable for the management node. To ensure that these commands run only on the management node, add the following check to your script:
 
 `if [ "x$NODE_TYPE" == "xmanagement" ]`
 
@@ -129,9 +129,9 @@ then
     curl -k -v --user $AMBARI_USER:$AMBARI_PASSWORD -H "X-Requested-By: ambari" -i -X PUT -d '{"RequestInfo": {"context": "Start MAPREDUCE2"}, "ServiceInfo": {"state": "STARTED"}}' https://$AMBARI_HOST:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/services/MAPREDUCE2
 fi
 ```
-{: codeblock}
+### Configure either Swift or COS/S3 Object Storage as a data source for Hadoop/Spark
 
-- Configure either Swift or COS/S3 Object Storage as a data source for Hadoop/Spark. For details see [Integrating IBM COS S3 and IBM Swift object stores](./integrate-COS-S3-and-Swift-object-storage.html).
+For details see [Integrating IBM COS S3 and IBM Swift object stores](./integrate-COS-S3-and-Swift-object-storage.html).
 
 ## Location of the customization script
 
@@ -144,7 +144,7 @@ You can add a customization script to the following sources:
 
 The following sections provide sample actions for the various sources.
 
-- HTTP (with or without basic authentication)
+### HTTP (with or without basic authentication)
 ```       
 "customization":[ {
     "name": "action1",
@@ -156,9 +156,7 @@ The following sections provide sample actions for the various sources.
     "script_params": ["arg1", "arg2"]
   }]
 ```
-{: codeblock}
-
-- HTTPS
+### HTTPS
 ```      
 "customization":[{
     "name": "action1",
@@ -174,9 +172,7 @@ The following sections provide sample actions for the various sources.
     "script_params": ["arg1", "arg2"]
   }]
 ```
-{: codeblock}
-
-- Bluemix object store
+### Bluemix object store
 ```
 "customization":[ {
     "name": "action1",
@@ -195,11 +191,9 @@ The following sections provide sample actions for the various sources.
     "script_params": ["arg1", "arg2"]
   }]
 ```
-{: codeblock}
-
 For more detail on how to store your script and artifacts in Bluemix object store and use the same script during customization see the [samples page](./Customization-script-on-Bluemix-Object-Store.html).
 
-- SoftLayer Swift
+### SoftLayer Swift
 ```
 "customization":[ {
     "name": "action1",
@@ -216,9 +210,7 @@ For more detail on how to store your script and artifacts in Bluemix object stor
     "script_params": ["arg1", "arg2"]
   }]
 ```
-{: codeblock}
-
-- Softlayer COS S3
+### Softlayer COS S3
 ```
 "customization":[ {
     "name": "action1",
@@ -235,8 +227,6 @@ For more detail on how to store your script and artifacts in Bluemix object stor
     "script_params": ["arg1", "arg2"]
   }]
 ```
-{: codeblock}
-
 ## Pre-requisites for all cluster management API calls
 
 To run cluster management REST APIs, you need to pass your IAM access token. To obtain the token, follow these [steps](./Retrieve-IAM-access-token.html).
@@ -246,7 +236,7 @@ To run cluster management REST APIs, you need to pass your IAM access token. To 
 A persisted customization script is registered during cluster creation and can be rerun. Enter the following command to rerun a persisted customization script:
 
 ```
-curl -X POST -v "https://ibmae-api.my.bluemix.net/v2/analytics_engines/<service_instance_id>/customization_requests" -d '{"target":"all"}'  -H "Authorization: Bearer <user's IAM access token>" -H "Content-Type: application/json"
+curl -X POST -v "https://ibmae-api.mybluemix.net/v2/analytics_engines/<service_instance_id>/customization_requests" -d '{"target":"all"}'  -H "Authorization: Bearer <user's IAM access token>" -H "Content-Type: application/json"
 ```
 {: codeblock}
 
@@ -269,7 +259,7 @@ curl -X POST -v "https://ibmae-api.my.bluemix.net/v2/analytics_engines/<service_
 An adhoc customization script can be run after the cluster was created and can only be run once. Enter the following command to run an adhoc customization script:
 
 ```
-curl -X POST -v "https://ibmae-api.my.bluemix.net/v2/analytics_engines/<service_instance_id>/customization_requests" -d
+curl -X POST -v "https://ibmae-api.mybluemix.net/v2/analytics_engines/<service_instance_id>/customization_requests" -d
 '{
 	"target": "all",
 	"custom_actions": [{
@@ -291,7 +281,7 @@ curl -X POST -v "https://ibmae-api.my.bluemix.net/v2/analytics_engines/<service_
 Enter the following cluster management REST API to get cluster status information:
 
 ```
-curl -i -X GET https://ibmae-api.my.bluemix.net/v2/analytics_engines/<service_instance_id>/state -H 'Authorization: Bearer <user's IAM access token>'
+curl -i -X GET https://ibmae-api.mybluemix.net/v2/analytics_engines/<service_instance_id>/state -H 'Authorization: Bearer <user's IAM access token>'
 
 ```
 {: codeblock}
@@ -303,7 +293,7 @@ Expected response: The cluster state is returned in JSON format, for example, ` 
 Enter the following cluster management REST API to get the customization requests for the given instance ID:
 
 ```
-curl -X GET https://ibmae-api.my.bluemix.net/v2/analytics_engines/<service_instance_id>/customization_requests -H 'Authorization: Bearer <user's IAM access token>'
+curl -X GET https://ibmae-api.mybluemix.net/v2/analytics_engines/<service_instance_id>/customization_requests -H 'Authorization: Bearer <user's IAM access token>'
 
 ```
 {: codeblock}
@@ -319,7 +309,7 @@ Expected response: The customization requests for the given service instance ID 
 Enter the following cluster management REST API to get the details of a specific customization request:
 
 ```
-curl -X GET https://ibmae-api.my.bluemix.net/v2/analytics_engines/<service_instance_id>/customization_requests/<request_id> -H 'Authorization: Bearer <user's IAM access token>'
+curl -X GET https://ibmae-api.mybluemix.net/v2/analytics_engines/<service_instance_id>/customization_requests/<request_id> -H 'Authorization: Bearer <user's IAM access token>'
 
 ```
 {: codeblock}

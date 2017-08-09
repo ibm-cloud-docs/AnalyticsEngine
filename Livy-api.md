@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-17"
+lastupdated: "2017-07-31"
 
 ---
 
@@ -13,13 +13,48 @@ lastupdated: "2017-07-17"
 {:screen: .screen}
 {:pre: .pre}
 
+To submit a spark batch using the Livy API
+
 # Livy API
 
-On the Analytics Engine cluster, Livy batches REST API is exposed at:
+[Livy](https://github.com/cloudera/livy) is an open source REST interface for submitting batch jobs to Apache Spark on an IBM Analytics Engine cluster.
+
+The Livy API is routed through Apache Knox, so all URLs should be modified to include prefix `/gateway/default/livy/v1` before the API URL.
+
+For example, `/batches` becomes `/gateway/default/livy/v1/batches`. On the Analytics Engine cluster, Livy batches REST API is exposed at:
 
 ```
 https://<management-node>:8443/gateway/default/livy/v1/batches/
 ```
+The following example commands are piped through [jq](https://stedolan.github.io/jq/) to pretty print the JSON output.
+
+**To submit a spark batch using the Livy API**
+
+```bash
+curl -k \
+-u "<user>:<password>" \
+-H 'Content-Type: application/json' \
+-d '{ "file":"local:/usr/iop/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi" }' \
+"https://wce-tmp-867-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
+```
+{: codeblock}
+
+Successful response:
+
+```json
+{
+  "id": 21,
+  "state": "starting",
+  "appId": null,
+  "appInfo": {
+    "driverLogUrl": null,
+    "sparkUiUrl": null
+  },
+  "log": []
+}
+```
+
+For more information see the [Spark App in Object Store](./Spark-App-in-Object-Store.html).
 
 For interactive workloads see [Spark Interactive](./spark-interactive-notebooks-api.html).
 
@@ -46,11 +81,11 @@ In the following curl requests, response headers are printed along with the JSON
 Request:
 
 ```
-curl -k -i -s \
+curl -i -s \
 -u "<username>:<password>" \
 -H 'Content-Type: application/json' \
 -d '{ "file":"local:/usr/iop/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi" }' \
-"https://169.54.195.210:8443/gateway/default/livy/v1/batches"
+"https://x.x.x.x:8443/gateway/default/livy/v1/batches"
 ```
 
 Response:
@@ -84,9 +119,9 @@ Content-Length: 100
 Request:
 
 ```
-curl -k -s -i \
+curl -s -i \
 -u "<username>:<password>" \
-https://169.54.195.210:8443/gateway/default/livy/v1/batches/
+https://x.x.x.x:8443/gateway/default/livy/v1/batches/
 ```
 
 Response:
@@ -136,9 +171,9 @@ Content-Length: 10042
 Request:
 
 ```
-curl -k -s -i \
+curl -s -i \
 -u "<username>:<password>" \
-https://169.54.195.210:8443/gateway/default/livy/v1/batches/34
+https://x.x.x.x:8443/gateway/default/livy/v1/batches/34
 ```
 
 Response:
@@ -182,9 +217,9 @@ Content-Length: 1013
 Request:
 
 ```
-curl -k -s -i \
+curl -s -i \
 -u "<username>:<password>" \
-https://169.54.195.210:8443/gateway/default/livy/v1/batches/34/state
+https://x.x.x.x:8443/gateway/default/livy/v1/batches/34/state
 ```
 
 Response:
@@ -211,9 +246,9 @@ Content-Length: 27
 Request:
 
 ```
-curl -k -s -i \
+curl -s -i \
 -u "<username>:<password>" \
-https://169.54.195.210:8443/gateway/default/livy/v1/batches/34/log
+https://x.x.x.x:8443/gateway/default/livy/v1/batches/34/log
 ```
 
 Response:
@@ -275,10 +310,10 @@ Content-Length: 3313
 Request:
 
 ```
-curl -k -s -i \
+curl -s -i \
 -u "<username>:<password>" \
 -X DELETE \
-https://169.54.195.210:8443/gateway/default/livy/v1/batches/34
+https://x.x.x.x:8443/gateway/default/livy/v1/batches/34
 ```
 
 Response:

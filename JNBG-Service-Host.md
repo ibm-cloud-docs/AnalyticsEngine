@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-12"
+lastupdated: "2017-07-23"
 
 ---
 
@@ -15,15 +15,10 @@ lastupdated: "2017-07-12"
 
 # JNBG Service Host
 
-The JNBG service is only accessible via the published service endpoints of the cluster. 
+The JNBG service is only accessible via the published service endpoints of the cluster.
 
 The host on which the service runs is currently not published in the cluster service endpoints. If you need to SSH to this host, such as to access the kernel gateway or kernel logs, follow these steps:
 
-1. Obtain the SSH endpoint from the cluster service endpoint details.
-2. SSH to the SSH endpoint which is the JNBG service hostname.
+**To SSH to a host**
 
-For example, if the SSH hostname from the cluster service endpoints is: `chs-zbh-288-mn003.bi.services.us-south.bluemix.net` and SSH username as `iaeadmin`, the ssh to the JNBG host is:
-
-  ```
-  ssh iaeadmin@chs-zbh-288-mn003.bi.services.us-south.bluemix.net
-  ```
+* Obtain the SSH endpoint from your cluster service key json. When you SSH to this endpoint, it leads to the host where JNBG is running.

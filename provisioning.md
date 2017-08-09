@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-02"
+lastupdated: "2017-08-04"
 
 ---
 
@@ -71,7 +71,7 @@ Sample cluster parameters json file
 {: codeblock}
 
 ### Brief description of cluster parameters
-1. **`num_compute_nodes`** (Required): Number of compute nodes required in the cluster. Max value: _`2`_   
+1. **`num_compute_nodes`** (Required): Number of compute nodes required in the cluster. Max value: _`3`_   
 2. **`hardware_config`** (Required): Represents the instance size of the cluster. Accepted value: _`Standard`_  
 3. **`software_package`** (Required): Determines set of services to be installed on the cluster. Accepted value: _`ae-1.0-SparkPack`_ and _`ae-1.0-HadoopPack`_
 4. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](./customizing-cluster.html).
@@ -119,8 +119,6 @@ The output returned by the following command is the space GUID that you would us
 cf target -o <your organization name> -s <your space name>
 cf space --guid <your space name>
 ```
-{: codeblock}
-
 Create the service request url: `https://api.ng.bluemix.net/v2/service_instances?accepts_incomplete=true`
 
 Usage:
