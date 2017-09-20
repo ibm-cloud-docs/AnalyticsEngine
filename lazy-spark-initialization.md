@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-23"
+lastupdated: "2017-09-06"
 
 ---
 
@@ -39,7 +39,7 @@ When working in a notebook, the notebook may display these messages when you exe
 
 ## Python kernel
 
-The Python kernel initialises Spark whenever the first code execution request is submitted to it. In a notebook, this means the moment when the first cell is executed after launching a notebook. If Spark is initialized as a result of code being submitted for execution, the kernel outputs messages on the `stdout` stream of the request to indicate it is initialising a Spark session. The kernel outputs the following message when it begins Spark initialization:
+The Python kernel initialises Spark whenever the first code execution request is submitted to it. This means the moment when the first cell is executed after launching a notebook. If Spark is initialized as a result of code being submitted for execution, the kernel outputs messages on the `stdout` stream of the request to indicate it is initialising a Spark session. The kernel outputs the following message when it begins Spark initialization:
 
 ```
 Waiting for a Spark session to start...
@@ -53,4 +53,10 @@ Still waiting for Spark session to start. Request could be waiting with YARN for
 
 ## Scala kernel
 
-The Scala kernel currently does not support Lazy Spark initialization.  It is however expected that in future such support will be available.
+With the Scala kernel the Spark session is not initialized until code is executed that requires one to be created. If Spark is initialized as a result of the code being submitted, the kernel outputs a display_data message to indicate it is initializing a Spark session. The kernel outputs the following message when Spark is being initialized:
+
+```
+Waiting for a Spark session to start...
+```
+
+If you see any of the above Spark initialization messages in a notebook or interactive session, and the code does not execute for a long time (well over a minute) then refer to [Troubleshooting (JNBG)](./Troubleshooting-JKG.html) for the possible cause and its solution.

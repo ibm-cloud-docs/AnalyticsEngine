@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-27"
+lastupdated: "2017-09-07"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2017-07-27"
 # Viewing Spark history
 Spark history provides access to job history information and various job metrics. You can also use the Spark history REST API. See the [Spark documentation](https://spark.apache.org/docs/latest/monitoring.html#rest-api) for information on the REST API.
 
-## Openning and using Spark history
+## Opening and using Spark history
 
 **To open Spark History**
 
@@ -31,7 +31,7 @@ Spark history provides access to job history information and various job metrics
 * The API is accessible via the Knox end point. For example a call to retrieve the list of applications:
 ```
 curl -u "clsadmin:<password>" https://XXXXX-mn001.\
-bi.services.us-south.bluemix.net:8443/gateway/sparkui/spark/sparkui/spark/api/v1/applications
+bi.services.us-south.bluemix.net:8443/gateway/default/sparkhistory/api/v1/applications
 ```
 
 **Note:** When you use the API with the YARN cluster mode, [app-id] will be [base-app-id]/[attempt-id], where [base-app-id] is the YARN application ID.

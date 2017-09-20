@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-23"
+lastupdated: "2017-09-07"
 
 ---
 
@@ -17,8 +17,4 @@ lastupdated: "2017-07-23"
 
 The JNBG service is only accessible via the published service endpoints of the cluster.
 
-The host on which the service runs is currently not published in the cluster service endpoints. If you need to SSH to this host, such as to access the kernel gateway or kernel logs, follow these steps:
-
-**To SSH to a host**
-
-* Obtain the SSH endpoint from your cluster service key json. When you SSH to this endpoint, it leads to the host where JNBG is running.
+However, if you need to access the host on which JNBG runs, for example to access the kernel gateway logs or the kernel driver logs, follow the steps [here](./Connect-using-SSH.html) to SSH to the cluster. When you SSH to this endpoint, it leads to the same host where the JNBG service is running.

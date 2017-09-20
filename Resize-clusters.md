@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-04"
+lastupdated: "2017-09-12"
 
 ---
 
@@ -29,17 +29,19 @@ You can resize the cluster using one of the following modes:
 3. On the right hand side of the page, click **Manage**. The cluster management page shows you the number of compute nodes in your cluster.
 4. Click ‘+’ next to the number of compute nodes and click **Save**.
 5. Wait for a few seconds for the clusters to be resized, and then refresh the page to verify that your resize request was handled successfully.
-  The Nodes tab of the cluster management page shows a list of all nodes of the cluster. You can identify the newly added nodes from the creation time shown in the **Nodes** tab.  
+  The Nodes section of the cluster management page shows a list of all nodes of the cluster. You can identify the newly added nodes from the creation time shown in the **Nodes** section.  
 
 ## Resizing clusters using the REST API
 
-The API call to resize the cluster requires your IAM bearer token. To obtain the token, follow these [steps](./Retrieve-IAM-access-token.html).
+**Pre-requisites**:
+* To resize a cluster, you should have Editor access to the service instance. Reach out to your Bluemix account owner, if you do not have sufficient permissions. For more details refer to [Retrieving IAM access tokens](./Retrieving-IAM-access-tokens.html).
+* The API call to resize the cluster requires your IAM bearer token. To obtain the token, follow these [steps](./Retrieve-IAM-access-token.html).
 
 **To resize a cluster**
 
 * Enter the following command. For example, to increase the cluster by one node:  
 ```
-curl -i -X POST https://ibmae-api.mybluemix.net/v2/analytics_engines/<service_instance_guid>/resize -H 'Authorization: Bearer <user's IAM token>' -d '{"compute_nodes_count":2}' -H "Content-Type:application/json"
+curl -i -X POST https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_guid>/resize -H 'Authorization: Bearer <user's IAM token>' -d '{"compute_nodes_count":2}' -H "Content-Type:application/json"
 ```
 
 For the parameter `compute_nodes_count`, you need to pass the expected size of the cluster, after the resize operation. For example, if your cluster current has one compute node and you want to add two more nodes to it, then the value for `compute_nodes_count` parameter should be 3.

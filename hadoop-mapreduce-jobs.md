@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-24"
+lastupdated: "2017-09-05"
 
 ---
 
@@ -17,34 +17,52 @@ lastupdated: "2017-07-24"
 
 **Pre-requisite**: Obtain the cluster user credentials, ssh and oozie_rest end point details from the service credentials of your service instance.
 
+## Analyzing data by opening the ssh connection
+
 You can work with your data by analyzing the data with a Hadoop MapReduce program by opening the ssh connection to the cluster through a yarn command. For example:
 
 ```
-yarn jar /usr/iop/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar  \
-teragen  10000000   /user/clsadmin/teragen/test10G
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar  \
+teragen  1000000   /user/clsadmin/teragen/test1G
 ```
 {: codeblock}
 
-If you are running MapReduce jobs with large workloads, consider enabling compression for the output to reduce the size of the intermediate data. To enable such compression, set the mapreduce.map.output.compress property to true in your command string. For example:
+## Compressing output from large workloads
+
+If you are running MapReduce jobs with large workloads, consider enabling compression for the output to reduce the size of the intermediate data. To enable such compression, set the ```mapreduce.map.output.compress``` property to ```true``` in your command string. For example:
 
 ```
-yarn jar /usr/iop/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort \
-  -Dmapred.map.tasks=18 -Dmapred.reduce.tasks=36  \
-  /user/clsadmin/teragen/test10G /user/clsadmin/terasort/test10Gsort
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort \
+  -D mapreduce.map.output.compress=true  \
+  /user/clsadmin/teragen/test10G /user/clsadmin/terasort/test1Gsort
 ```
 {: codeblock}
 
-You can also run a MapReduce job by submitting the MapReduce job with Oozie through the oozie_rest endpoint URL. Complete the following steps to run a sample word count script.
+## Running wordcount on data stored in S3-based object stores
 
-**To run a sample word count script**
-
-1. Create a MapReduce application directory in the HDFS and upload the application JAR file into the HDFS. SSH to the cluster as clsadmin and run the following commands:
+### Example running Wordcount using s3a
 ```
-[clsadmin@chs-xxxxx-mn003 ~]$ hdfs dfs -mkdir /user/clsadmin/examples
-[clsadmin@chs-xxxxx-mn003 ~]$ hdfs dfs -mkdir /user/clsadmin/examples/apps
-[clsadmin@chs-xxxxx-mn003 ~]$ hdfs dfs -mkdir /user/clsadmin/examples/apps/mapreduce
-[clsadmin@chs-xxxxx-mn003 ~]$ hdfs dfs -mkdir /user/clsadmin/examples/apps/mapreduce/lib
-[clsadmin@chs-xxxxx-mn003 ~]$ hdfs dfs -put /usr/iop/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
+wordcount s3a://<mybucketname>/input s3a://<mybucketname>/output
+```
+
+### Example running Wordcount using s3d
+```
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
+wordcount s3d://<mybucketname>.softlayer/input s3d://<mybucketname>.softlayer/output
+```
+
+**Note**: For more information on configuring the cluster to work with S3 object stores, see [Configuring clusters to work with IBM COS S3 object stores](./integrate-COS-S3-and-Swift-object-storage.html).
+
+## Submitting MapReduce jobs with Oozie
+You can also run a MapReduce job by submitting the MapReduce job with Oozie through the oozie_rest endpoint URL. Complete the following steps to run a sample word count job.
+
+**To run a sample word count job**
+
+1. Create a MapReduce application directory in the HDFS and upload the application JAR file into the HDFS. SSH to the cluster as cluster user and run the following commands:
+```
+[clsadmin@chs-xxxxx-mn003 ~]$ hdfs dfs -mkdir -p /user/clsadmin/examples/apps/mapreduce/lib
+[clsadmin@chs-xxxxx-mn003 ~]$ hdfs dfs -put /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
  /user/clsadmin/examples/apps/mapreduce/lib
 ```
 2. Create a workflow definition (workflow.xml) that runs a MapReduce job with Oozie. For example:
@@ -109,18 +127,15 @@ You can also run a MapReduce job by submitting the MapReduce job with Oozie thro
 ```
  For more information about workflow definitions, see the [Oozie Specification](https://oozie.apache.org/docs/4.2.0/WorkflowFunctionalSpec.html), a Hadoop Workflow System.
 
-3. Using the webhdfs REST API by using the curl command, upload workflow.xml into the Oozie application directory in the HDFS (/user/clsamdin/examples/apps/mapreduce).
+3. Upload workflow.xml into the Oozie application directory in the HDFS (/user/clsadmin/examples/apps/mapreduce).
 ```
-curl -i -L  -s --user clsadmin:your_password --max-time 45 -X PUT -T workflow.xml \
-https://XXXXX:8443/gateway/default/webhdfs/v1/\
-user/clsadmin/examples/apps/mapreduce/workflow.xml?op=CREATE
+hdfs dfs -put workflow.xml /user/clsadmin/examples/apps/mapreduce/
 ```  
 
-4. Using the webhdfs REST API, upload sample data into the HDFS. Create /user/clsadmin/examples/input-data/mapreduce and upload a sample file that is named sampledata.txt that contains your sample text.
+4. Upload sample data into the HDFS. Create /user/clsadmin/examples/input-data/mapreduce and upload a sample file that is named sampledata.txt that contains your sample text.
 ```
-curl -i -L  -s --user clsadmin:your_password --max-time 45 -X PUT -T sampledata.txt \
-https://XXXXX:8443/gateway/default/webhdfs/v1/\
-user/clsadmin/examples/input-data/mapreduce/sampledata.txt?op=CREATE
+hdfs dfs -mkdir -p /user/clsadmin/examples/input-data/mapreduce
+hdfs dfs -put sampledata.txt /user/clsadmin/examples/input-data/mapreduce
 ```
 
 5. Create an Oozie job configuration file named oozie-mrjob-config.xml. Replace chs-XXXX-mn002 with the actual hostname of your cluster. For example:
@@ -148,9 +163,9 @@ user/clsadmin/examples/input-data/mapreduce/sampledata.txt?op=CREATE
  </property>
 </configuration>
 ```
- The value of xxxx is a unique number that is assigned to your cluster to identify the host name of your cluster's management node.
+ The value of xxxx is a unique identifier of your cluster. You can get this identifier by inspecting your cluster’s service credentials.
 
-6. Start an Oozie job through the Oozie REST API by passing oozie-mrjob-config.xml (Oozie job configuration file) to the following curl command:
+6. Submit an Oozie job through the Oozie REST API by passing oozie-mrjob-config.xml (Oozie job configuration file) to the following curl command:
 ```
 curl -i -s --user clsadmin:password -X POST \
 -H "Content-Type: application/xml" -d@/path to oozie-mrjob-config.xml

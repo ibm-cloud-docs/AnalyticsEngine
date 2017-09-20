@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-23"
+lastupdated: "2017-09-07"
 
 ---
 
@@ -21,7 +21,7 @@ The IBM Analytics Engine cluster comes with a set of libraries pre-installed on 
 |-------------|--------|-----------|
 | Python 2.7 | Python 2.7 with Spark 2.1 | Python libraries packaged with Anaconda2 4.3.0 at /home/common/conda/anaconda2/ |
 | Python 3.5 | Python 3.5 with Spark 2.1 | Python libraries packaged with Anaconda3 4.2.0 at /home/common/conda/anaconda3/|
-| Scala 2.11 | Scala 2.11 with Spark 2.1 | Scala/Java libraries (Scala 2.11 and Java 1.8) under  /home/common/lib/ and /home/common/lib/scala/common |
+| Scala 2.11 | Scala 2.11 with Spark 2.1 | Scala/Java libraries (Scala 2.11 and Java 1.8) under /home/common/lib/scala/spark2 |
 
 For installed Spark connectors refer to [this page](./supported-connectors.html).
 
@@ -48,7 +48,7 @@ and, to list Python 3.5 packages:
 
 ## R
 
-R version 3.3.x is installed with the base and all recommended packages corresponding to the release. In addition a number of common data science R packages are installed and placed in the `/home/common/lib/R` directory.
+R version 3.4.x is installed with the base and all recommended packages corresponding to the release. In addition a number of common data science R packages are installed and placed in the `/home/common/lib/R` directory.
 
 The `/home/common/lib/R` directory serves the purpose of what is referred to as [R_LIBS_USER](https://stat.ethz.ch/R-manual/R-devel/library/base/html/libPaths.html) in R.
 
@@ -65,16 +65,15 @@ To get a detailed description of the installed packages you can use the followin
   `installed.packages(lib.loc='/home/common/lib/R')`
 
 ## Scala/Java
-Scala/Java libraries are placed into the following directories that get added to the CLASSPATH of Spark drivers and executors:
+Scala/Java libraries are placed into the following directory that get added to the CLASSPATH of Spark drivers and executors:
 
-* `/home/common/lib/scala/common` - Scala/Java libraries that are not Spark version specific
-* `/home/common/lib/scala/spark2` - Scala/Java libraries that are specific to Spark version 2.x
+/home/common/lib/scala/spark2 - Scala/Java libraries that are included by default in the Spark2 environment.
 
 To view the list of libraries, simply list the content of these directories by issuing the corresponding commands in a notebook or on the command line after SSH-ing to the cluster.
 
-For example, in a Scala notebook executing the below command will list the contents of the `/home/common/lib/scala/common` directory:
+For example, in a Scala notebook executing the below command will list the contents of the `/home/common/lib/scala/spark2` directory:
 ```
 import sys.process._
-"ls -al /home/common/lib/scala/common" !
+"ls -al /home/common/lib/scala/spark2" !
 ```
 {: codeblock}

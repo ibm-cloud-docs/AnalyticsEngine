@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-12"
+lastupdated: "2017-09-06"
 
 ---
 
@@ -14,10 +14,12 @@ lastupdated: "2017-07-12"
 {:pre: .pre}
 
 
-# Troubleshooting (JKG)
+# Troubleshooting (JNBG)
 
 ## Common Issues
 
-**The notebook user interface launches, but the kernel remains in a busy state (filled circle) before executing any cell/code.**
- 
- Because we don't have the lazy spark initialization in the cluster yet, the most likely cause is that you don't have any more available YARN containers on the cluster. Verify this by checking that the 'state' of your application is 'ACCEPTED' in the YARN RM UI. To fix this issue, shut down the existing running kernels or other YARN applications to free up resources.
+**Executing code in a notebook cell displays a message “Waiting for a Spark session to start...” or “Obtaining Spark session...” and the kernel indicator remains in a busy state (filled circle) for a very long time (over a minute).**
+
+The most likely cause is that you don't have sufficient YARN containers available on the cluster to initiate a new Spark session. The notebook request is waiting for YARN resources to free up. You can verify this by checking that the state of your application reported by YARN is 'ACCEPTED'. You can access YARN via its Resource Manager web interface (accessible using the cluster’s Ambari console) or using its command line utility (accessible once you SSH to the cluster).
+
+To fix this issue, free up resources by shutting down any other running notebooks, interactive sessions (via JNBG, Livy etc.) or YARN applications.

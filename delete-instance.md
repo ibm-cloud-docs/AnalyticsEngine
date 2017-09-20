@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-04"
+lastupdated: "2017-09-12"
 
 ---
 
@@ -38,6 +38,8 @@ cf delete-service <service_instance_name>
 ```
 curl --request DELETE \
   --url 'https://api.ng.bluemix.net/v2/service_instances/<service_instance_id>' \
-  --header 'authorization: <User's bearer token>' \
+  --header 'authorization: <User's UAA bearer token>' \
 ```
 {: codeblock}
+
+**Note**: To retrieve the Cloud Foundry UAA bearer token, see [Obtaining the Cloud Foundry UAA bearer token](./provisioning.html#Obtaining-the-Cloud-Foundry-UAA-bearer-token).

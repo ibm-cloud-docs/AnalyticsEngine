@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-28"
+lastupdated: "2017-09-06"
 
 ---
 
@@ -13,9 +13,9 @@ lastupdated: "2017-07-28"
 {:screen: .screen}
 {:pre: .pre}
 
-# Accessing the Jupyter Kernel Gateway service
+# Accessing the Jupyter Notebook Gateway service
 
-## Jupyter Kernel Gateway (JNBG) service endpoint
+## Jupyter Notebook Gateway (JNBG) service endpoint
 
 The JNBG service on the cluster provides two endpoints: HTTP operations and Websocket:
 
@@ -38,7 +38,7 @@ Refer to the instructions [here](./Retrieve-service-credentials-and-service-end-
           "notebook_gateway": "https://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkg/",
           "notebook_gateway_websocket": "wss://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkgws/",
           "webhdfs": "https://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/webhdfs/v1/",
-          "ssh": "ssh iaeadmin@chs-zbh-288-mn003.bi.services.us-south.bluemix.net",
+          "ssh": "ssh clsadmin@chs-zbh-288-mn003.bi.services.us-south.bluemix.net",
           "livy": "https://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
         }
       }
@@ -71,7 +71,7 @@ As per the sample IBM Analytics Engine cluster response details above, the confi
 ```
 KG_URL=https://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkg/
 KG_WS_URL=wss://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkgws/
-KG_HTTP_USER=iaeadmin
+KG_HTTP_USER=clsadmin
 KG_HTTP_PASS=5auuF5SU3e0G
 ```
 
@@ -345,11 +345,11 @@ Here are code snippets to show how the `kernel_name` and `code` variables can be
 ```
 kernel_name = "python2-spark21"
 code = '\n'.join((
-"print(\"Spark Version: {}\".format(sc.version))",
-"print(\"Application Name: {}\".format(sc._jsc.sc().appName()))",
-"print(\"Application ID: {} \".format(sc._jsc.sc().applicationId()))",
-"sc.parallelize([1,2,3,4,5]).count()"
-    ))
+    "print(\"Spark Version: {}\".format(sc.version))",
+    "print(\"Application Name: {}\".format(sc._jsc.sc().appName()))",
+    "print(\"Application ID: {} \".format(sc._jsc.sc().applicationId()))",
+    "sc.parallelize([1,2,3,4,5]).count()"
+))
 ```
 {: codeblock}
 
@@ -357,12 +357,12 @@ code = '\n'.join((
 ```
 kernel_name = "r-spark21"
 code = """
-cat("Spark Version: ", sparkR.version())
-conf = sparkR.callJMethod(spark, "conf")
-cat("Application Name: ", sparkR.callJMethod(conf, "get", "spark.app.name"))
-cat("Application ID:", sparkR.callJMethod(conf, "get", "spark.app.id"))
-df <- as.DataFrame(list(1,2,3,4,5))
-cat(count(df))
-"""
+ cat("Spark Version: ", sparkR.version())
+ conf = sparkR.callJMethod(spark, "conf")
+ cat("Application Name: ", sparkR.callJMethod(conf, "get", "spark.app.name"))
+ cat("Application ID:", sparkR.callJMethod(conf, "get", "spark.app.id"))
+ df <- as.DataFrame(list(1,2,3,4,5))
+ cat(count(df))
+ """
 ```
 {: codeblock}

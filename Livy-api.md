@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-31"
+lastupdated: "2017-09-06"
 
 ---
 
@@ -34,7 +34,7 @@ The following example commands are piped through [jq](https://stedolan.github.io
 curl -k \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
--d '{ "file":"local:/usr/iop/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi" }' \
+-d '{ "file":"local:/usr/hdp/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi" }' \
 "https://wce-tmp-867-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
 ```
 {: codeblock}
@@ -53,8 +53,6 @@ Successful response:
   "log": []
 }
 ```
-
-For more information see the [Spark App in Object Store](./Spark-App-in-Object-Store.html).
 
 For interactive workloads see [Spark Interactive](./spark-interactive-notebooks-api.html).
 
@@ -84,7 +82,7 @@ Request:
 curl -i -s \
 -u "<username>:<password>" \
 -H 'Content-Type: application/json' \
--d '{ "file":"local:/usr/iop/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi" }' \
+-d '{ "file":"local:/usr/hdp/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi" }' \
 "https://x.x.x.x:8443/gateway/default/livy/v1/batches"
 ```
 
@@ -112,6 +110,26 @@ Content-Length: 100
   },
   "log": []
 }
+```
+### Submit Spark applications from object storage or on data in object stores
+
+Refer to [Configuring clusters to work with IBM COS S3 object stores](./integrate-COS-S3-and-Swift-object-storage.html) for instructions on configuring your cluster to use object storage. Once configured, you can directly submit Spark applications from the object storage. You can also submit Spark applications on data residing in the object store.
+
+Using Livy to submit a Spark application that exists in object storeObject Storage is basically the same as submitting any Spark application. The only difference is the "file" reference will be an object storage URL:
+```
+curl -k \
+-u "<user>:<password>" \
+-H 'Content-Type: application/json' \
+-d '{ "file":"swift2ds3a://mybucketMyApps.ObjStrA/PiEx.py" }' \
+"https://iae-tmp-867-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
+```
+If the application was Java/Scala-based and the jar file was stored in object storerage, the command would need to specify both a reference to the jar file and the class you wanted to run like in the example below. Note that this example also makes use of a Stocator connector so the URI varies accordingly and the commands assume that the object storage referenced is already configured on the cluster.
+```
+curl -k \
+-u "<user>:<password>" \
+-H 'Content-Type: application/json' \
+-d '{ "file":"swift2ds3d://MyAppsmybucket.ObjStrAsoftlayer/spark-examples_2.10-2.1.0.jar", "className":"org.apache.spark.examples.SparkPi" }' \
+"https://iae-tmp-867-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
 ```
 
 ### List all jobs
@@ -278,7 +296,7 @@ Content-Length: 3313
     "17/04/14 19:32:13 INFO Client: Setting up container launch context for our AM",
     "17/04/14 19:32:13 INFO Client: Setting up the launch environment for our AM container",
     "17/04/14 19:32:13 INFO Client: Preparing resources for our AM container",
-    "17/04/14 19:32:14 INFO Client: Source and destination file systems are the same. Not copying hdfs:/iop/apps/4.3.0.0-0000/spark2/spark2-iop-yarn-archive.tar.gz",
+    "17/04/14 19:32:14 INFO Client: Source and destination file systems are the same. Not copying hdfs:/hdp/apps/4.3.0.0-0000/spark2/spark2-hdp-yarn-archive.tar.gz",
     "17/04/14 19:32:14 INFO Client: Uploading resource file:/tmp/spark-358a7c98-4efc-4ba5-975b-3d9a2d1f8995/__spark_conf__3057122678989565497.zip -> hdfs://enterprise-mn001.rocmg01.wdp-chs.ibm.com:8020/user/clsadmin/.sparkStaging/application_1491850285904_0043/__spark_conf__.zip",
     "17/04/14 19:32:14 WARN Client: spark.yarn.am.extraJavaOptions will not take effect in cluster mode",
     "17/04/14 19:32:14 INFO SecurityManager: Changing view acls to: clsadmin",

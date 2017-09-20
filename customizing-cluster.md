@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-08"
+lastupdated: "2017-09-18"
 
 ---
 
@@ -40,7 +40,7 @@ You can [track the status of customization through a REST API](#getting-cluster-
 
 Review the example for creating a cluster with customization in JSON format.
 ```
-cf create-service IBMAnalyticsEngine Lite <service instance name> -c <cluster parameters as json string or path to cluster parameters json file>
+cf create-service IBMAnalyticsEngine Standard <service instance name> -c <cluster parameters as json string or path to cluster parameters json file>
 ```
 {: codeblock}
 
@@ -49,7 +49,7 @@ A sample parameters json is given below:
 {
 	"num_compute_nodes": 1,
 	"hardware_config": "Standard",
-	"software_package": "ae-1.0-SparkPack",
+	"software_package": "ae-1.0-spark",
 	"customization": [{
 		"name": "action1",
 		"type": "bootstrap",
@@ -80,12 +80,12 @@ Review the example for creating a cluster with customization by using the Cloud 
   --header 'authorization: <User's UAA bearer token>' \
   --header 'cache-control: no-cache' \
   --header 'content-type: application/json' \
-  --data '{"name":"<Service instance name>", "space_guid":"<User's space guid>", "service_plan_guid":"febf38af-bb11-4d55-8732-49a9b67a480f", "parameters": { "hardware_config":"Standard", "num_compute_nodes":1, "software_package":"ae-1.0-SparkPack", "customization":[<customization-details>]}}'
+  --data '{"name":"<Service instance name>", "space_guid":"<User's space guid>", "service_plan_guid":"febf38af-bb11-4d55-8732-49a9b67a480f", "parameters": { "hardware_config":"Standard", "num_compute_nodes":1, "software_package":"ae-1.0-spark", "customization":[<customization-details>]}}'
 ```
 {: codeblock}
 
 **Notes:**
-* If you need to find your UAA bearer token, see [Obtaining the Bearer Token for API authentication](./provisioning.html#obtaining-the-bearer-token-for-api-authentication).
+* If you need to find your UAA bearer token, see [Obtaining the Cloud Foundry UAA bearer token](./provisioning.html#Obtaining-the-Cloud-Foundry-UAA-bearer-token).
 * If you need to find your space GUIDs, see [Obtaining the space GUID](./provisioning.html#obtaining-the-space-guid).
 
 ## Customization options
@@ -111,13 +111,13 @@ In your script, use commands like:
 ```   
 ### Change Ambari configurations
 
-Ambari configurations are only applicable for the management node. To ensure that these commands run only on the management node, add the following check to your script:
+Ambari configurations are only applicable for the master management node. To ensure that these commands run only on the master management node, add the following check to your script:
 
-`if [ "x$NODE_TYPE" == "xmanagement" ]`
+`if [ "x$NODE_TYPE" == "xmaster-management" ]`
 
 For example:
 ```
-if [ "x$NODE_TYPE" == "xmanagement" ]
+if [ "x$NODE_TYPE" == "xmaster-management" ]
 then
     echo "Updating ambari config properties"
     #change mapreduce.map.memory to 8192mb
@@ -131,7 +131,7 @@ fi
 ```
 ### Configure either Swift or COS/S3 Object Storage as a data source for Hadoop/Spark
 
-For details see [Integrating IBM COS S3 and IBM Swift object stores](./integrate-COS-S3-and-Swift-object-storage.html).
+For details see [Configuring clusters to work with IBM COS S3 object stores](./integrate-COS-S3-and-Swift-object-storage.html).
 
 ## Location of the customization script
 
@@ -236,7 +236,7 @@ To run cluster management REST APIs, you need to pass your IAM access token. To 
 A persisted customization script is registered during cluster creation and can be rerun. Enter the following command to rerun a persisted customization script:
 
 ```
-curl -X POST -v "https://ibmae-api.mybluemix.net/v2/analytics_engines/<service_instance_id>/customization_requests" -d '{"target":"all"}'  -H "Authorization: Bearer <user's IAM access token>" -H "Content-Type: application/json"
+curl -X POST -v "https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d '{"target":"all"}'  -H "Authorization: Bearer <user's IAM access token>" -H "Content-Type: application/json"
 ```
 {: codeblock}
 
@@ -247,7 +247,7 @@ curl -X POST -v "https://ibmae-api.mybluemix.net/v2/analytics_engines/<service_i
 - `all `: reruns the customization on all nodes
 
 
-- `management`: reruns the customization only on the master management node
+- `master-management`: reruns the customization only on the master management node
 
 
 - `data`: reruns the customization on all data nodes  
@@ -259,7 +259,7 @@ curl -X POST -v "https://ibmae-api.mybluemix.net/v2/analytics_engines/<service_i
 An adhoc customization script can be run after the cluster was created and can only be run once. Enter the following command to run an adhoc customization script:
 
 ```
-curl -X POST -v "https://ibmae-api.mybluemix.net/v2/analytics_engines/<service_instance_id>/customization_requests" -d
+curl -X POST -v "https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d
 '{
 	"target": "all",
 	"custom_actions": [{
@@ -281,7 +281,7 @@ curl -X POST -v "https://ibmae-api.mybluemix.net/v2/analytics_engines/<service_i
 Enter the following cluster management REST API to get cluster status information:
 
 ```
-curl -i -X GET https://ibmae-api.mybluemix.net/v2/analytics_engines/<service_instance_id>/state -H 'Authorization: Bearer <user's IAM access token>'
+curl -i -X GET https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/state -H 'Authorization: Bearer <user's IAM access token>'
 
 ```
 {: codeblock}
@@ -293,7 +293,7 @@ Expected response: The cluster state is returned in JSON format, for example, ` 
 Enter the following cluster management REST API to get the customization requests for the given instance ID:
 
 ```
-curl -X GET https://ibmae-api.mybluemix.net/v2/analytics_engines/<service_instance_id>/customization_requests -H 'Authorization: Bearer <user's IAM access token>'
+curl -X GET https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests -H 'Authorization: Bearer <user's IAM access token>'
 
 ```
 {: codeblock}
@@ -309,7 +309,7 @@ Expected response: The customization requests for the given service instance ID 
 Enter the following cluster management REST API to get the details of a specific customization request:
 
 ```
-curl -X GET https://ibmae-api.mybluemix.net/v2/analytics_engines/<service_instance_id>/customization_requests/<request_id> -H 'Authorization: Bearer <user's IAM access token>'
+curl -X GET https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests/<request_id> -H 'Authorization: Bearer <user's IAM access token>'
 
 ```
 {: codeblock}
@@ -321,31 +321,31 @@ Expected response: The customization request details are returned in JSON format
 	"id": "37",
 	"run_status": "Completed",
 	"run_details": {
-		"overallStatus": "success",
+		"overall_status": "success",
 		"details": [{
-			"nodeName": "chs-fpw-933-mn001.bi.services.us-south.bluemix.net",
-			"nodeType": "master-management",
-			"startTime": "2017-06-06 11:46:35.519000",
-			"endTime": "2017-06-06 11:47:46.687000",
-			"timeTaken": "71 secs",
+			"node_name": "chs-fpw-933-mn001.bi.services.us-south.bluemix.net",
+			"node_type": "master-management",
+			"start_time": "2017-06-06 11:46:35.519000",
+			"end_time": "2017-06-06 11:47:46.687000",
+			"time_taken": "71 secs",
 			"status": "CustomizeSuccess",
-			"logFile": "/var/log/chs-fpw-933-mn001.bi.services.us-south.bluemix.net_37.log"
+			"log_file": "/var/log/chs-fpw-933-mn001.bi.services.us-south.bluemix.net_37.log"
 		}, {
-			"nodeName": "chs-fpw-933-mn002.bi.services.us-south.bluemix.net",
-			"nodeType": "management-slave1",
-			"startTime": "2017-06-06 11:46:36.190000",
-			"endTime": "2017-06-06 11:47:46.864000",
-			"timeTaken": "70 secs",
+			"node_name": "chs-fpw-933-mn002.bi.services.us-south.bluemix.net",
+			"node_type": "management-slave1",
+			"start_time": "2017-06-06 11:46:36.190000",
+			"end_time": "2017-06-06 11:47:46.864000",
+			"time_taken": "70 secs",
 			"status": "CustomizeSuccess",
-			"logFile": "/var/log/chs-fpw-933-mn002.bi.services.us-south.bluemix.net_37.log"
+			"log_file": "/var/log/chs-fpw-933-mn002.bi.services.us-south.bluemix.net_37.log"
 		}, {
-			"nodeName": "chs-fpw-933-dn001.bi.services.us-south.bluemix.net",
-			"nodeType": "data",
-			"startTime": "2017-06-06 11:46:36.693000",
-			"endTime": "2017-06-06 11:47:47.271000",
-			"timeTaken": "70 secs",
+			"node_name": "chs-fpw-933-dn001.bi.services.us-south.bluemix.net",
+			"node_type": "data",
+			"start_time": "2017-06-06 11:46:36.693000",
+			"end_time": "2017-06-06 11:47:47.271000",
+			"time_taken": "70 secs",
 			"status": "CustomizeSuccess",
-			"logFile": "/var/log/chs-fpw-933-dn001.bi.services.us-south.bluemix.net_37.log"
+			"log_file": "/var/log/chs-fpw-933-dn001.bi.services.us-south.bluemix.net_37.log"
 		}]
 	}
 }

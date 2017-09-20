@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-27"
+lastupdated: "2017-09-19"
 
 ---
 
@@ -18,7 +18,7 @@ lastupdated: "2017-07-27"
 There are three ways to submit a Spark batch job to an IBM Analytics Engine cluster.
 
 1. [IBM Analytics Engine Command Line Interface (CLI)](#IBM-Analytics-Engine-cli) (recommended)
-2. [Livy API](./livy-api.html)
+2. [Livy API](./Livy-api.html)
 3. [SSH](#ssh)
 
 The instructions below provide a simple example of submitting a Spark batch application using each mechanism.
@@ -55,7 +55,7 @@ To submit a spark batch job
 3. Run [spark-submit](./wce-cli-ref-spark-submit.html) command.
 
   ```
-  $ bx ae spark-submit --className org.apache.spark.examples.SparkPi local:/usr/iop/current/spark2-client/jars/spark-examples.jar
+  $ bx ae spark-submit --className org.apache.spark.examples.SparkPi local:/usr/hdp/current/spark2-client/jars/spark-examples.jar
   ```
 
   Enter the IBM Analytics Engine cluster login credentials at the prompts. To set the default username for command execution see [`username`](./wce-cli-ref-username.html) command.
@@ -85,7 +85,9 @@ For more information see the following:
 
 You can run spark-submit by logging to the cluster using [SSH](./Connect-using-SSH.html).
 
-1. Log on to cluster management node.
+***To log on to the cluster using SSH***
+
+1. Log on to the cluster management node.
 
   ```
   $ ssh clsadmin@iae-tmp-867-mn003.bi.services.us-south.bluemix.net
@@ -98,8 +100,25 @@ You can run spark-submit by logging to the cluster using [SSH](./Connect-using-S
   --master yarn \
   --deploy-mode cluster \
   --class org.apache.spark.examples.SparkPi \
-  /usr/iop/current/spark2-client/jars/spark-examples.jar
+  /usr/hdp/current/spark2-client/jars/spark-examples.jar
   ```
+
+***To run spark-submit with Anaconda Python 2***
+
+  ```
+  PYSPARK_PYTHON=/home/common/conda/anaconda2/bin/python spark-submit \
+  --master yarn \
+  --deploy-mode cluster  \
+  /usr/hdp/current/spark2-client/examples/src/main/python/pi.py
+  ```
+
+***To run spark-submit with Anaconda Python 3***
+  ```
+  PYSPARK_PYTHON=/home/common/conda/anaconda3/bin/python spark-submit \
+  --master yarn \
+  --deploy-mode cluster  \
+  /usr/hdp/current/spark2-client/examples/src/main/python/pi.py```
+```
 
 For more information see the following:
   * [Connect using SSH](./Connect-using-SSH.html).

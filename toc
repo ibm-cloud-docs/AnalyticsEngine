@@ -13,22 +13,23 @@ Analytics Engine
     {: .topicgroup}
     Information for advanced users
         <!-- [REST API Reference](https://console.ng.bluemix.net/apidocs/) -->
+        [IBM Analytics Engine API reference](https://developer.ibm.com/api/view/id-1084:title-Watson_Data_Platform_Core_Services#doc)
         [Jupyter Kernel Gateway Reference Doc](https://jupyter-kernel-gateway.readthedocs.io/en/latest)
-        [Livy Source Code](https://github.com/cloudera/livy)
-        [Livy REST API](https://github.com/cloudera/livy#rest-api)
-        [Spark History REST API](https://spark.apache.org/docs/latest/monitoring.html#rest-api)
-        [Submitting applications](http://spark.apache.org/docs/latest/submitting-applications.html)
-        [Uploading files to HDFS](http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-hdfs/WebHDFS.html)
+        [Livy Reference](https://github.com/cloudera/livy/blob/master/README.rst)
+        [Spark History REST API](https://spark.apache.org/docs/2.1.1/monitoring.html#rest-api)
+        [Submitting applications](http://spark.apache.org/docs/2.1.1/submitting-applications.html)
+        [Uploading files to HDFS](http://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/WebHDFS.html)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     getting-started.md
-
+    
     {: .topicgroup}
     Creating and customizing clusters
         provisioning.md
         customizing-cluster.md
         integrate-COS-S3-and-Swift-object-storage.md
+        external-hive-metastore.md
         Retrieve-IAM-access-token.md
         hadoop-mapreduce-jobs.md
         Resize-clusters.md
@@ -42,7 +43,6 @@ Analytics Engine
     {: .topicgroup}
     Storing data files
         Upload-files-to-HDFS.md
-        Customizing-Cluster-to-use-Swift-and-COS-object-stores-as-data-source.md
 
     {: .topicgroup}
     Administering clusters
@@ -52,7 +52,6 @@ Analytics Engine
     Running Spark batch jobs
         Spark-Batch.md
         Livy-api.md
-        Spark-App-in-Object-Store.md
 
     {: .topicgroup}
     Running Spark interactive jobs
@@ -61,11 +60,10 @@ Analytics Engine
         Monitor-Applications.md
         Kernel-Settings.md
         lazy-spark-initialization.md
-        Logs--(JNBG).md
+        Logs-JNBG.md
         JNBG-Service-Host.md
         Installed-Libraries.md
         installing-additional-libraries.md
-        Customization-script-on-Bluemix-Object-Store.md
         Stop,-Start,-Restart-JNBG-Service.md
 
     {: .topicgroup}
@@ -81,9 +79,9 @@ Analytics Engine
         WCE-CLI.md
         Retrieve-IAM-access-token.md
         wce-wcl-install.md
-        wce-cli-reference.md
-        wce-cli-ref-file-system.md
         wce-cli-ref-spark-endpoint.md
+        wce-cli-ref-file-system.md
+        wce-cli-ref-kernels.md
         wce-cli-ref-spark-job-cancel.md
         wce-cli-reg-spark-job-status.md
         wce-cli-ref-spark-job-statuses.md

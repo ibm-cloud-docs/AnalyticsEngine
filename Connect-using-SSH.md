@@ -18,9 +18,9 @@ lastupdated: "2017-07-20"
 
 IBM Analytics Engine supports password based SSH connectivity.
 
-From the [service credentials](./Retrieve-service-credentials-and-service-end-points.html#sample-response) that you created in the previous step, look for the SSH connection string under `service_endpoints` json. It would look something similar to the following:
+In the [service credentials](./Retrieve-service-credentials-and-service-end-points.html#viewing-the-service-key) that you created, look for the SSH connection string under `service_endpoints` in the JSON output. It would look something similar to the following:
 
 ```
 "ssh": "ssh clsadmin@XXXXX-mn002.bi.services.us-south.bluemix.net",
 ```
-SSH to the cluster using the command given above. When prompted, enter the `password` retrieved from the [service key json](./Retrieve-service-credentials-and-service-end-points.html#sample-response).
+Enter this SSH command to access the cluster. When prompted, enter the `password` that you can retrieved from the [service key JSON output](./Retrieve-service-credentials-and-service-end-points.html#viewing-the-service-key).

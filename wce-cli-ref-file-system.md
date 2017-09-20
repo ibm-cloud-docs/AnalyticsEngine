@@ -57,7 +57,7 @@ Flag       | Description
 - [ls](#ls)
 - [mkdir](#mkdir)
 - [mv](#mv)
-- [](#)
+- [put](#put)
 - [rm](#rm)
 
 ### Get

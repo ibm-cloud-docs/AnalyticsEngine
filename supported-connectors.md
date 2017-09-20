@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-31"
+lastupdated: "2017-09-07"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2017-07-31"
 #  Spark connectors
 The following connectors are currently provided by default on all IBM Analytics Engine clusters:
 
- * dashdDB(#dashDB-and_Db2-Connector)
+ * Db2 and dashdDB
   * DB2 JDBC
   * DB2 ODBC
   * dashDB Idax Data Source(com.ibm.idax.spark.idaxsource)
@@ -25,11 +25,11 @@ The following connectors are currently provided by default on all IBM Analytics 
  * Stocator COS
  * OpenStack COS
 
-## dashDB and Db2 Connector
+## Db2 and dashDB Connector
 
-dashDB is a fully managed cloud data warehouse, purpose-built for analytics. It offers massively parallel processing (MPP) scale, and compatibility with a wide range of business intelligence (BI) tools.
+dashDB (now also known as Db2 on Cloud and Db2 Warehouse on Cloud) is a fully managed cloud data warehouse, purpose-built for analytics. It offers massively parallel processing (MPP) scale, and compatibility with a wide range of business intelligence (BI) tools.
 
-### Sample python code to access dashdb using JDBC
+### Sample python code to access dashDB using JDBC
 ```
 credentials_1 = {
 'jdbcurl':'jdbc:db2://YOUR_DATABASE_HOSTNAME:50000/YOUR_DATABASE_NAME',

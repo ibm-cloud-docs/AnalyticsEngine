@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-20"
+lastupdated: "2017-09-12"
 
 ---
 
@@ -19,25 +19,25 @@ With IBM Analytics Engine you can create Apache Spark and Apache Hadoop clusters
 You can define clusters based on your application's requirements choosing the appropriate software pack, version and size of the clusters
 
 ## Software components of the cluster
-The cluster is based on IBM Open Platform for Apache Hadoop and Apache Spark 4.3. The following components are made available.
+The cluster is based on Hortonworks Data Platform 2.6.2. The following components are made available.
 
-Apache Spark 2.1<br>
+Apache Spark 2.1.1
 Hadoop 2.7.3<br>
 Jupyter Notebook Gateway(JNBG)/Jupyter Kernel Gateway 0.2.0<br>
 Apache Livy 0.3.0<br>
-Knox 0.11.0<br>
-Ambari 2.4.2<br>
+Knox 0.12.0<br>
+Ambari 2.54.2<br>
 Anaconda with Python 2.7.13 and 3.5.2 <br>
-HBase 1.2.4 &#42; <br>
+HBase 1.1.2 &#42; <br>
 Hive 1.2.1 &#42;<br>
-Oozie 4.3.0 &#42;<br>
-Flume 1.7.0 &#42; <br>
+Oozie 4.2.0 &#42;<br>
+Flume 1.5.2 &#42; <br>
 
-&#42;Available in _ae-1.0-HadoopPack_ only
+&#42;Available in _AE 1.0 Hadoop and Spark pack_ only
 
 ## Hardware configuration
 
-Only one hardware size is supported for the experimental period.<br>
+Only one hardware size is supported for the beta period.<br>
 **Size: Standard**
 
 | Node Type | vCPU | Memory | HDFS Disks |

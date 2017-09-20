@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-04"
+lastupdated: "2017-09-12"
 
 ---
 
@@ -23,22 +23,24 @@ You can create an Analytics Engine service instance through one of the following
 
 **Pre-requisite**: You must have access to Bluemix US-South region.
 
-**Restriction**: Currently, in each Bluemix space, you can create at most one service instance (one cluster) with a maximum of three compute nodes.
+**Restriction**: Currently, in each Bluemix organization, you can create at most one service instance (one cluster) with a maximum of three compute nodes.
 
 ## Creating a service instance from Bluemix console
 
 1. Log into Bluemix console: [https://console.ng.bluemix.net](https://console.ng.bluemix.net).
-Once logged in, make sure that you have chosen `US South` as the region (on top right corner of the console), choose the Bluemix organization and the space name allotted to you.
+Once logged in, make sure that you have chosen `US South` as the region (on top right corner of the console), choose the Bluemix organization and where you have access to create service instances.
 
 2. Click the following link to open the service instance creation page: [IBM Analytics Engine](https://console.ng.bluemix.net/catalog/services/ibm-analytics-engine?env_id=ibm:yp:us-south&taxonomyNavigation=apps).
 
 3. Specify the number of compute nodes you require, choose a `Software package` and click **`Create`**.
 
-**Restriction**: You can specify a maximum of three compute nodes.
+**Restrictions**:
+* You can specify a maximum of three compute nodes.
+* During beta, your service instance expires within 7 days of creation. If you want to try the service after the previous service instance expires, you can delete the expired service instance and create a new service.
 
 **Software packages**:
-* Choose _`ae-1.0-SparkPack`_ , if you are planning to run only Spark workloads.
-* Choose _`ae-1.0-HadoopPack`_ , if you are planning to run Hadoop workloads in addition to Spark workloads. In addition to the components you get with Spark pack, you also get Oozie, HBase and Hive, as part of the components of the Hadoop pack.
+* Choose _`AE 1.0 Spark`_, if you are planning to run only Spark workloads.
+* Choose _`AE 1.0 Hadoop and Spark`_, if you are planning to run Hadoop workloads in addition to Spark workloads. In addition to the components you get with Spark pack, you also get Oozie, HBase and Hive, as part of the components of the Hadoop pack.
 
 ## Creating a service instance using the Cloud Foundry Command Line Interface
 
@@ -56,7 +58,7 @@ cf login
 
 ### Creating a service instance:
 ```
-cf create-service IBMAnalyticsEngine Lite <service instance name> -c <cluster parameters as json string enclosed in single quotes or path to cluster parameters json file>
+cf create-service IBMAnalyticsEngine Standard <service instance name> -c <cluster parameters as json string enclosed in single quotes or path to cluster parameters json file>
 ```
 {: codeblock}
 
@@ -65,7 +67,7 @@ Sample cluster parameters json file
 {
         "num_compute_nodes": 1,
         "hardware_config": "Standard",
-        "software_package": "ae-1.0-SparkPack"
+        "software_package": "ae-1.0-spark"
 }
 ```
 {: codeblock}
@@ -73,7 +75,7 @@ Sample cluster parameters json file
 ### Brief description of cluster parameters
 1. **`num_compute_nodes`** (Required): Number of compute nodes required in the cluster. Max value: _`3`_   
 2. **`hardware_config`** (Required): Represents the instance size of the cluster. Accepted value: _`Standard`_  
-3. **`software_package`** (Required): Determines set of services to be installed on the cluster. Accepted value: _`ae-1.0-SparkPack`_ and _`ae-1.0-HadoopPack`_
+3. **`software_package`** (Required): Determines set of services to be installed on the cluster. Accepted value: _`ae-1.0-spark`_ and _`ae-1.0-hadoop-spark`_
 4. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](./customizing-cluster.html).
 <br>
 
@@ -91,7 +93,7 @@ Service instance: MYSERVICE1
 Service: IBMAnalyticsEngine
 Bound apps:
 Tags:
-Plan: Lite
+Plan: Standard
 
 Last Operation
 Status: create in progress
@@ -102,7 +104,7 @@ Updated:
 Note: 'The Last Operation' section indicates the service provisioning status. When provisioning is ongoing, it's 'create in progress'. When provisioning has completed, it will be 'create succeeded'.
 ```
 
-### Obtaining the Bearer Token for API authentication
+### Obtaining the Cloud Foundry UAA bearer token
 
 * Log in to `cf` CLI and run the command `cf oauth-token`. The output of this command is the UAA access token to be passed to CF REST APIs for creating a service instance.
 
@@ -132,7 +134,7 @@ Create the cluster without customization
   --header 'authorization: Bearer <User's bearer token>' \
   --header 'cache-control: no-cache' \
   --header 'content-type: application/json' \
-  --data '{"name":"<Service instance name>", "space_guid":"<User's space guid>", "service_plan_guid":"febf38af-bb11-4d55-8732-49a9b67a480f", "parameters": { "hardware_config":"Standard", "num_compute_nodes":1, "software_package":"ae-1.0-SparkPack"}}'
+  --data '{"name":"<Service instance name>", "space_guid":"<User's space guid>", "service_plan_guid":"febf38af-bb11-4d55-8732-49a9b67a480f", "parameters": { "hardware_config":"Standard", "num_compute_nodes":1, "software_package":"ae-1.0-spark"}}'
 ```
 {: codeblock}
 
@@ -152,6 +154,7 @@ curl --request GET \
   --url https://api.ng.bluemix.net/v2/service_instances/<service_instance_guid> \
   --header 'accept: application/json' \
   --header 'authorization: bearer <user's UAA bearer token>'
-
 ```
 {: codeblock}
+
+**Note**: If the service instance failed to be created, delete the service instance and try creating it again. If the problem persists, contact IBM Support.
