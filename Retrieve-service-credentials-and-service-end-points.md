@@ -1,14 +1,11 @@
 ---
 
-<<<<<<< HEAD
-=======
 copyright:
   years: 2017
 lastupdated: "2017-09-12"
 
 ---
 
->>>>>>> refs/remotes/Bluemix-Docs/staging
 <!-- Attribute definitions -->
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
@@ -20,7 +17,6 @@ lastupdated: "2017-09-12"
 
 The cluster credentials and various service end points that the cluster exposes are made available to you as `service keys`. As described below, you need to create a `service key` on the Cloud Foundry service instance you [provisioned](./provisioning.html#how-to-provision-a-service-instance).
 
-<<<<<<< HEAD
 You can fetch the cluster credentials and the service end points by:
 * [Using CF CLI](#obtaining-credentials-using-cfcli)
 * [Using CF REST API](#obtaining-credentials-using-cloud-foundry-rest-apis)
@@ -30,8 +26,8 @@ You can fetch the cluster credentials and the service end points by:
 You need to create a service key for the Analytics Engine service instance to obtain the cluster credentials and service endpoints.
 
 ### Creating a service key
-To create a service key, enter the following command: 
- 
+To create a service key, enter the following command:
+
 ```
 cf create-service-key <your_service_instance_name> <your_service_key_name>
 ```
