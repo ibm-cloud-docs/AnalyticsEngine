@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-09-06"
+lastupdated: "2017-09-27"
 
 ---
 
@@ -31,9 +31,10 @@ The following example commands are piped through [jq](https://stedolan.github.io
 **To submit a spark batch using the Livy API**
 
 ```bash
-curl -k \
+curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
+-H 'X-Requested-By: livy'  \
 -d '{ "file":"local:/usr/hdp/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi" }' \
 "https://wce-tmp-867-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
 ```
@@ -82,6 +83,7 @@ Request:
 curl -i -s \
 -u "<username>:<password>" \
 -H 'Content-Type: application/json' \
+-H 'X-Requested-By: livy'  \
 -d '{ "file":"local:/usr/hdp/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi" }' \
 "https://x.x.x.x:8443/gateway/default/livy/v1/batches"
 ```
@@ -113,22 +115,24 @@ Content-Length: 100
 ```
 ### Submit Spark applications from object storage or on data in object stores
 
-Refer to [Configuring clusters to work with IBM COS S3 object stores](./integrate-COS-S3-and-Swift-object-storage.html) for instructions on configuring your cluster to use object storage. Once configured, you can directly submit Spark applications from the object storage. You can also submit Spark applications on data residing in the object store.
+Refer to [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-and-Swift-object-storage.html) for instructions on configuring your cluster to use object storage. Once configured, you can directly submit Spark applications from the object storage. You can also submit Spark applications on data residing in the object store.
 
 Using Livy to submit a Spark application that exists in object storeObject Storage is basically the same as submitting any Spark application. The only difference is the "file" reference will be an object storage URL:
 ```
-curl -k \
+curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
--d '{ "file":"swift2ds3a://mybucketMyApps.ObjStrA/PiEx.py" }' \
+-H 'X-Requested-By: livy'  \
+-d '{ "file":"s3a://mybucket/PiEx.py" }' \
 "https://iae-tmp-867-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
 ```
 If the application was Java/Scala-based and the jar file was stored in object storerage, the command would need to specify both a reference to the jar file and the class you wanted to run like in the example below. Note that this example also makes use of a Stocator connector so the URI varies accordingly and the commands assume that the object storage referenced is already configured on the cluster.
 ```
-curl -k \
+curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
--d '{ "file":"swift2ds3d://MyAppsmybucket.ObjStrAsoftlayer/spark-examples_2.10-2.1.0.jar", "className":"org.apache.spark.examples.SparkPi" }' \
+-H 'X-Requested-By: livy'  \
+-d '{ "file":"s3d://mybucket.softlayer/spark-examples_2.10-2.1.0.jar", "className":"org.apache.spark.examples.SparkPi" }' \
 "https://iae-tmp-867-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
 ```
 
@@ -330,6 +334,7 @@ Request:
 ```
 curl -s -i \
 -u "<username>:<password>" \
+-H 'X-Requested-By: livy'  \
 -X DELETE \
 https://x.x.x.x:8443/gateway/default/livy/v1/batches/34
 ```
