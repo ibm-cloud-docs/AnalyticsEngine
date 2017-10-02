@@ -13,8 +13,6 @@ lastupdated: "2017-09-27"
 {:screen: .screen}
 {:pre: .pre}
 
-To submit a spark batch using the Livy API
-
 # Livy API
 
 [Livy](https://github.com/cloudera/livy) is an open source REST interface for submitting batch jobs to Apache Spark on an IBM Analytics Engine cluster.
