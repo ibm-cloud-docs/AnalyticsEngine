@@ -23,12 +23,12 @@ Analytics Engine
 
     {: .navgroup id="howto"}
     getting-started.md
-    
+
     {: .topicgroup}
     Creating and customizing clusters
         provisioning.md
         customizing-cluster.md
-        integrate-COS-S3-and-Swift-object-storage.md
+        configure-COS-S3-and-Swift-object-storage.md
         external-hive-metastore.md
         Retrieve-IAM-access-token.md
         hadoop-mapreduce-jobs.md
