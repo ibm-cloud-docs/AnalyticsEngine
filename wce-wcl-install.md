@@ -50,7 +50,7 @@ bx plugin repo-add Bluemix https://plugins.ng.bluemix.net
 Run the following command to uninstall the command line interface:
 
 ```
-$ bx plugin uninstall ae
+$ bx plugin uninstall analytics-engine 
   Uninstalling plug-in 'ae'...
   OK
   Plug-in 'ae' was successfully uninstalled.

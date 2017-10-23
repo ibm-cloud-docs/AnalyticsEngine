@@ -30,26 +30,28 @@ You can create an Analytics Engine service instance through one of the following
 1. Log into Bluemix console: [https://console.ng.bluemix.net](https://console.ng.bluemix.net).
 Once logged in, make sure that you have chosen `US South` as the region (on top right corner of the console), choose the Bluemix organization and where you have access to create service instances.
 
-2. Click the following link to open the service instance creation page: [IBM Analytics Engine](https://console.ng.bluemix.net/catalog/services/ibm-analytics-engine?env_id=ibm:yp:us-south&taxonomyNavigation=apps).
+2. Click the following link to open the service instance creation page: [Analytics Engine](https://console.ng.bluemix.net/catalog/services/ibm-analytics-engine?env_id=ibm:yp:us-south&taxonomyNavigation=apps).
 
 3. Specify the number of compute nodes you require, choose a `Software package` and click **`Create`**.
 
 **Restrictions**:
+
 * You can specify a maximum of three compute nodes.
-* During beta, your service instance expires within 7 days of creation. If you want to try the service after the previous service instance expires, you can delete the expired service instance and create a new service.
+* During beta, your service instance expires within 7 days of creation. If you want to work with the service again after the previous service instance expired, you can delete the expired service instance and create a new service.
 
 **Software packages**:
-* Choose _`AE 1.0 Spark`_, if you are planning to run only Spark workloads.
-* Choose _`AE 1.0 Hadoop and Spark`_, if you are planning to run Hadoop workloads in addition to Spark workloads. In addition to the components you get with Spark pack, you also get Oozie, HBase and Hive, as part of the components of the Hadoop pack.
+
+* Choose _`AE 1.0 Spark`_ if you are planning to run only Spark workloads.
+* Choose _`AE 1.0 Hadoop and Spark`_ if you are planning to run Hadoop workloads in addition to Spark workloads. In addition to the components you get with Spark package, you also get Oozie, HBase and Hive, as part of the components of the Hadoop package.
 
 ## Creating a service instance using the Cloud Foundry Command Line Interface
 
-* Use this link to download the cf CLI: https://github.com/cloudfoundry/cli#downloads.
+* Download the Cloud Foundry CLI from [here](https://github.com/cloudfoundry/cli#downloads).
 
 ### First-time setup:
 
-1. Install cf CLI by running the [downloaded installer](https://github.com/cloudfoundry/cli#downloads).
-2. Set the API end point and log in.
+1. Install the Cloud Foundry CLI by running the [downloaded installer](https://github.com/cloudfoundry/cli#downloads).
+2. To set the API end point and log in, enter:
 ```
 cf api https://api.ng.bluemix.net
 cf login
@@ -103,12 +105,6 @@ Updated:
 
 Note: 'The Last Operation' section indicates the service provisioning status. When provisioning is ongoing, it's 'create in progress'. When provisioning has completed, it will be 'create succeeded'.
 ```
-
-### Obtaining the Cloud Foundry UAA bearer token
-
-* Log in to `cf` CLI and run the command `cf oauth-token`. The output of this command is the UAA access token to be passed to CF REST APIs for creating a service instance.
-
-**Very Important:** You should not share this token with other users. Use this as the value for request header 'authorization' in your cloudfoundry REST API calls.
 
 ### Obtaining the space GUID
 
