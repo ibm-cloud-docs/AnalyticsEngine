@@ -19,9 +19,11 @@ lastupdated: "2017-10-02"
 ## Memory settings for kernels
 
 ### Default
+
   No explicit memory limit set on a per Kernel basis. 6 GB free memory available on the container where kernels are run.
 
-### How to change  
+### How to change 
+ 
   Refer to [overriding kernel settings section](./Kernel-Settings.html#overriding-kernel-settings---kernel_spark_args) to see how you can pass settings to control driver and executor memory limits. By default there is no limit applied to the driver process and the Spark default is used for executors (~ 1 GB). Note that for Python and R kernels, the Python and R native process can consume it's own memory which may not be governed by the `--driver-memory` option. There is no memory limit applied to these processes.
 
 ## Executor settings for kernel applications  
