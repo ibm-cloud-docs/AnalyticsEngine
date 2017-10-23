@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-09-25"
+lastupdated: "2017-09-05"
 
 ---
 
@@ -52,7 +52,7 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 wordcount s3d://<mybucketname>.softlayer/input s3d://<mybucketname>.softlayer/output
 ```
 
-**Note**: For more information on configuring the cluster to work with S3 object stores, see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-and-Swift-object-storage.html).
+**Note**: For more information on configuring the cluster to work with S3 object stores, see [Configuring clusters to work with IBM COS S3 object stores](./integrate-COS-S3-and-Swift-object-storage.html).
 
 ## Submitting MapReduce jobs with Oozie
 You can also run a MapReduce job by submitting the MapReduce job with Oozie through the oozie_rest endpoint URL. Complete the following steps to run a sample word count job.

@@ -7,12 +7,12 @@ Analytics Engine
 
     {: .navgroup id="learn"}
     index.md
-	  {: .navgroup-end}
+    {: .navgroup-end}
 
     {: .navgroup id="reference"}
     {: .topicgroup}
     Information for advanced users
-        <!-- [REST API Reference](https://console.ng.bluemix.ne/apidocs/) -->
+        <!-- [REST API Reference](https://console.ng.bluemix.net/apidocs/) -->
         [IBM Analytics Engine API reference](https://developer.ibm.com/api/view/id-1084:title-Watson_Data_Platform_Core_Services#doc)
         [Jupyter Kernel Gateway Reference Doc](https://jupyter-kernel-gateway.readthedocs.io/en/latest)
         [Livy Reference](https://github.com/cloudera/livy/blob/master/README.rst)
@@ -25,35 +25,33 @@ Analytics Engine
     getting-started.md
 
     {: .topicgroup}
-    Provisioning a service
-		  provisioning.md
-
-    {: .topicgroup}
-    Customizing a service
+    Creating and customizing clusters
+        provisioning.md
         customizing-cluster.md
         configure-COS-S3-and-Swift-object-storage.md
         external-hive-metastore.md
-
-    {: .topicgroup}
-    Managing the service
+        Retrieve-IAM-access-token.md
+        hadoop-mapreduce-jobs.md
         Resize-clusters.md
         delete-instance.md
-        Administer-cluster-using-Ambari-console.md
 
     {: .topicgroup}
-    Working with a service
+    Accessing clusters
         Retrieve-service-credentials-and-service-end-points.md
         Connect-using-SSH.md
+
+    {: .topicgroup}
+    Storing data files
         Upload-files-to-HDFS.md
-        hadoop-mapreduce-jobs.md
-		working-with-hive.md
-		working-with-hbase.md
+
+    {: .topicgroup}
+    Administering clusters
+        Administer-cluster-using-Ambari-console.md
 
     {: .topicgroup}
     Running Spark batch jobs
         Spark-Batch.md
-		Livy-api.md
-		SSH-connection.md
+        Livy-api.md
 
     {: .topicgroup}
     Running Spark interactive jobs
@@ -77,28 +75,20 @@ Analytics Engine
         supported-connectors.md
 
     {: .topicgroup}
-    Using the command line interface
+    Using the Cloud Foundry Command Line Interface
         WCE-CLI.md
+        Retrieve-IAM-access-token.md
         wce-wcl-install.md
-
-    {: .topicgroup}
-    Using CLI commands
         wce-cli-ref-spark-endpoint.md
         wce-cli-ref-file-system.md
         wce-cli-ref-kernels.md
-        wce-cli-ref-spark-submit.md
-        wce-cli-ref-spark-logs.md
-		    wce-cli-reg-spark-job-status.md
-        wce-cli-ref-spark-job-statuses.md
         wce-cli-ref-spark-job-cancel.md
+        wce-cli-reg-spark-job-status.md
+        wce-cli-ref-spark-job-statuses.md
+        wce-cli-ref-spark-logs.md
+        wce-cli-ref-spark-submit.md
         wce-cli-ref-username.md
         wce-cli-versions.md
-
-    {: .topicgroup}
-    Miscellaneous
-        Retrieve-IAM-access-token.md
-		retrieving-uaa-access-token.md
-		granting-permissions-to-users.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}

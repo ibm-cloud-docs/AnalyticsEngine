@@ -13,7 +13,7 @@ lastupdated: "2017-07-13"
 {:screen: .screen}
 {:pre: .pre}
 
-# Troubleshooting
+# Analytics Engine troubleshooting
 
 You can find the answers to common questions about how to use IBM Analytics Engine.
 
