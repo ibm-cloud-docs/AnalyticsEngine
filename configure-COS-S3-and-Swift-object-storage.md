@@ -17,13 +17,18 @@ lastupdated: "2017-09-26"
 
 An application, such as Spark job or a Yarn job, can read data from or write data to an object store. Alternatively, the application itself, such as a Python file or a Yarn job jar, can reside in the object store. 
 
-This section explains how to configure an IBM Analytics Engine cluster to connect to an object store to access data and applications stored in one of the following IBM object stores.
+This section explains how to configure an IBM Analytics Engine cluster to connect to an object store to access data and applications stored in one of the following IBM object stores. The following options are displayed when you search for “Object Storage”  in the {{site.data.keyword.Bluemix_notm}} catalog:
 
-- Cloud Object Storage (COS S3) hosted on {{site.data.keyword.Bluemix_notm}}. This supports IBM IAM authentication which can be done by using the IAM API Key or the IAM token.
+ - **Cloud Object Storage (COS S3)**. This supports IBM IAM authentication which can be done by using the IAM API Key or the IAM token. This object store can be accessed by IBM connectors using the `cos://` schema.
 
-- Cloud Object Storage (COS S3) hosted on SoftLayer. This supports Amazon Web Services (AWS) style authentication.
+	Restriction: In the current release, this will work only for Spark.
 
-**Restriction**: Starting with this release, Spark is the only component that can be used with IAM-based COS and Spark connects to the object store by using IBM Stocator. For more information about Stocator, see this [documentation](https://developer.ibm.com/open/openprojects/stocator/).
+ - **Cloud Object Storage (COS S3) IAA** . This supports Amazon Web Services (AWS) style authentication. This object store can be accessed using:
+ 
+   - Open source AWS connectors by using the `s3a://` schema. 
+   - Or IBM connectors by using the `cos://`schema. For IAAS object stores, the stocator connectors offers better performance for large object reads and writes as compared to the open source AWS connectors.
+   
+		Restriction: The stocator connectors will work only for Spark, MR, and Hive.
 
 ## Configuration options
 
@@ -33,8 +38,7 @@ In order for an application to connect to an object store, the cluster configura
 * [Customize the cluster using a customization script](#Customize-the-cluster-using-a-customization-script).
 * [Specify the properties at runtime](#Specify-the-properties-at-runtime).
 
-Note that if you use the IAM token for IAM authentication to the object store, it is advisable to configure the core-site.xml file. If you are using the IAM token, it makes more sense to specify the properties at runtime as the token is temporary. Refer to examples for the IAM token based authentication parameters.
-
+After you configured the cluster, you can access objects in the object store using HDFS commands, and run MR, Hive and Spark jobs on them.
 
 ### Configure via the Ambari UI _after_ the cluster was created
 
@@ -78,19 +82,34 @@ fi
 {: codeblock}
 
 ### Specify the properties at runtime
+
 Alternatively, the properties can be specified at runtime in the Python, Scala or R code when executing jobs.
 
 ## Properties needed for various object stores
+
 Each Object Storage has a different set of properties to be configured in the core-site.xml file.
 
-### AWS style authentication parameters for IBM COS S3
-Refer to https://ibm-public-cos.github.io/crs-docs/endpoints to help you decide on the endpoints you need to use based on your COS bucket type, such as regional vs cross-regional. Choose the PRIVATE endpoint listed. Using the public endpoint will be slower and more expensive.
+NOTE: Refer to [Selecting endpoints](https://ibm-public-cos.github.io/crs-docs/endpoints) to help you decide on the endpoints you need to use based on your COS bucket type, such as regional versus cross-regional. In the case of an IAM authenticated object store, you can refer to the EndPoints tab of the service instance page. Choose the PRIVATE endpoint listed. Using the public endpoint is  slower and more expensive.
 
-An example of an EndPoint URL is `s3-api.us-geo.objectstorage.service.networklayer.com`.
+An example of an endpoint URL is `s3-api.us-geo.objectstorage.service.networklayer.com`.
+
+
+### AWS style authentication parameters for IBM COS/S3 using the open source AWS connector
+
+```  
+fs.s3a.access.key=<Access Key ID>
+fs.s3a.endpoint=<EndPoint URL>
+fs.s3a.secret.key=<Secret Access Key>
 ```
-fs.s3d.service.access.key=<Access Key ID>
-fs.s3d.service.endpoint=<EndPoint URL>
-fs.s3d.service.secret.key=<Secret Access Key>
+{: codeblock}
+
+### AWS style authentication parameters for IBM COS/S3 using the IBM connector 
+Note that the value for <servicename> can be any literal such as `awsservice` or `myobjectstore`.
+
+```
+fs.cos.<servicename>.access.key=<Access Key ID>
+fs.cos.<servicename>.endpoint=<EndPoint URL>
+fs.cos.<servicename>.secret.key=<Secret Access Key>
 ```
 {: codeblock}
 
@@ -99,9 +118,9 @@ Refer to https://ibm-public-cos.github.io/crs-docs/endpoints to help you decide 
 
 An example of an EndPoint URL is `s3-api.us-geo.objectstorage.service.networklayer.com`.
 
-Sample parameters are listed in the following section. Note that the value for <servicename> can be any literal such as `iamservice` or `myprodservice`. 
+Note that the value for <servicename> can be any literal such as `iamservice` or `myprodservice`. 
 
- - `fs.cos.<servicename>.v2.signer.type=false`. This must be set to false.
+ - `fs.cos.<servicename>.v2.signer.type=false`. This must always be set to false.
 
  - `fs.cos.<servicename>.endpoint=<EndPoint>`. For example, `s3-api.us-geo.objectstorage.service.networklayer.com`. This is the object store service’s endpoint.
 
@@ -125,7 +144,7 @@ The core site configuration is pre-configured with the following properties. The
 ```
 {:codeblock}
 
-## URI patterns for objects in AWS authentication style object stores
+## URI pattern for objects in AWS authentication style object stores
 
 `s3a://<bucket_name>/<object_name>` 
 
