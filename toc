@@ -46,6 +46,8 @@ Analytics Engine
         Connect-using-SSH.md
         Upload-files-to-HDFS.md
         hadoop-mapreduce-jobs.md
+		working-with-hive.md
+		working-with-hbase.md
 
     {: .topicgroup}
     Running Spark batch jobs
