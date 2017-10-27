@@ -17,8 +17,8 @@ lastupdated: "2017-09-22"
 
 An application, such as Spark job or a Yarn job, can read data from or write data to an object store. Alternatively, the application itself, such as a python file or a yarn job jar, can reside on the object store. This section will explain how to configure an IBM Analytics Engine cluster to connect to an object store to access data and applications stored in one of the following IBM object stores.
 
-- Cloud Object Storage(COS S3) hosted on Bluemix/SL using Open Stack connectors
-- Cloud Object Storage(COS S3) hosted on Bluemix/SL using IBM Stocator connectors
+- Cloud Object Storage(COS S3) hosted on {{site.data.keyword.Bluemix_notm}}/SL using Open Stack connectors
+- Cloud Object Storage(COS S3) hosted on {{site.data.keyword.Bluemix_notm}}/SL using IBM Stocator connectors
 
 **Restriction**: Integration for object store using the Stocator connector is supported only for the Spark and MapReduce components for this release. While some of the other Hadoop components might work partially using the Stocator connector, there are some restrictions from using it fully and will not be supported for this release. To understand more about Stocator, go [here](https://developer.ibm.com/open/openprojects/stocator/).
 

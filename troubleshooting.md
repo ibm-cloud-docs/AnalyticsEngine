@@ -34,13 +34,13 @@ To fix this issue, stop the existing running notebook kernels or any other YARN 
 
 You might not be able to access the cluster management page for the following reasons:
 
-1) You do not have developer access to the Bluemix space.
+1) You do not have developer access to the {{site.data.keyword.Bluemix_notm}} space.
 
 2) Cookies are not enabled in your browser.
 
 To fix this issue:
 
-1) Work with the manager of your Bluemix organization or space and get yourself developer privilege to the space containing the service instance you are attempting to access.
+1) Work with the manager of your {{site.data.keyword.Bluemix_notm}} organization or space and get yourself developer privilege to the space containing the service instance you are attempting to access.
 
 2) Ensure that cookies are enabled in your browser.
 

@@ -19,16 +19,16 @@ lastupdated: "2017-07-12"
 
 a. You must have a valid IBM ID.
 
-b. Download and install the [Bluemix CLI](https://console.bluemix.net/docs/cli/reference/bluemix_cli/all_versions.html#bluemix-cli-installer-downloads).
+b. Download and install the [{{site.data.keyword.Bluemix_notm}} CLI](https://console.bluemix.net/docs/cli/reference/bluemix_cli/all_versions.html#bluemix-cli-installer-downloads).
 
-### Step 1: Log into the Bluemix CLI.
+### Step 1: Log into the {{site.data.keyword.Bluemix_notm}} CLI.
 
 ```
 bx api https://api.ng.bluemix.net
 bx login
 <enter your credentials>
 
-<If you are part of multiple Bluemix accounts, you'll be asked to choose an account for the current session. Also, you'll need to choose a Bluemix organization and space.>
+<If you are part of multiple {{site.data.keyword.Bluemix_notm}} accounts, you'll be asked to choose an account for the current session. Also, you'll need to choose an organization and space in {{site.data.keyword.Bluemix_notm}}.>
 ```
 
 ### Step 2: Fetch the IAM access token.

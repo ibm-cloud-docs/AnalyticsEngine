@@ -15,7 +15,7 @@ lastupdated: "2017-09-22"
 
 # Getting started
 
-IBM Analytics Engine provides a flexible framework to develop and deploy analytics applications in Apache Hadoop and Apache Spark. It allows you to create and manage clusters using the Bluemix interface or using the Cloud Foundry CLI and REST APIs.
+IBM Analytics Engine provides a flexible framework to develop and deploy analytics applications in Apache Hadoop and Apache Spark. It allows you to create and manage clusters using the {{site.data.keyword.Bluemix_short}} interface or using the Cloud Foundry CLI and REST APIs.
 
 Learn how IBM Analytics Engine can help you complete your tasks in the following ways:
 
@@ -27,12 +27,12 @@ Learn how IBM Analytics Engine can help you complete your tasks in the following
 Two scenarios provide tasks that show you how to query data using the Spark SQL through a Data Science Experience (DSX) notebook and how to run a Spark application using Spark submit. An open data set from the City of New York containing calls to the 311 number to report issues with infrastructure will be used as sample data for the scenarios.
 
 ### Uploading data
-Before you start executing a scenario, you need to upload the sample data. IBM Analytics Engine is based on Apache Hadoop and Spark. While it provides the HDFS file system and a limited amount of storage in the cluster, we recommend using IBM Cloud Object Store or the Swift-based Bluemix Object Storage service to store data.
+Before you start executing a scenario, you need to upload the sample data. IBM Analytics Engine is based on Apache Hadoop and Spark. While it provides the HDFS file system and a limited amount of storage in the cluster, we recommend using IBM Cloud Object Store or the Swift-based {{site.data.keyword.objectstoragefull}} to store data.
 
 Jobs from an Analytics Engine compute cluster can be run against data in object stores, and results of jobs can be written back to the object store.
 The sample data set (.zip) is available [here](https://github.com/wdp-beta/get-started/blob/master/data/IAE_examples_data_311NYC.zip).
 
-To upload data into the object store, refer to documentation of the respective offerings: [IBM Cloud Object Store](https://ibm-public-cos.github.io/crs-docs/) / [Bluemix Object Storage service](https://console.bluemix.net/docs/services/ObjectStorage/index.html).
+To upload data into the object store, refer to documentation of the respective offerings: [IBM Cloud Object Store](https://ibm-public-cos.github.io/crs-docs/) / [{{site.data.keyword.objectstoragefull}}](https://console.bluemix.net/docs/services/ObjectStorage/index.html).
 
 ### Scenarios
 
@@ -41,7 +41,7 @@ To upload data into the object store, refer to documentation of the respective o
 
 **To connect your DSX instance to an IBM Analytics Engine cluster:**
 
-1. Log in to [DSX](https://datascience.ibm.com/). Ensure that your DSX account is associated with the same Bluemix account, organization, and space that you created the IBM Analytics Engine cluster with.
+1. Log in to [DSX](https://datascience.ibm.com/). Ensure that your DSX account is associated with the same {{site.data.keyword.Bluemix_short}} account, organization, and space that you created the IBM Analytics Engine cluster with.
 
 2. Create a new project in DSX or open an existing DSX project that you want to use with IBM Analytics Engine.
 
@@ -51,7 +51,7 @@ To upload data into the object store, refer to documentation of the respective o
 
 5. Select **IBM Analytics Engine**.
 
-6. On the next screen, select your IBM Analytics Engine instance that you created in Bluemix.
+6. On the next screen, select your IBM Analytics Engine instance that you created in {{site.data.keyword.Bluemix_short}}.
 
 Now this project has been associated with the instance of IBM Analytics Engine that you previously created. You are ready to start running queries and jobs from a DSX notebook using Apache Spark in IBM Analytics Engine.
 
@@ -68,9 +68,7 @@ You can run Spark applications locally or distributed across a cluster, either b
 
 3. Copy the script wordcount.py provided [here](https://github.com/wdp-beta/get-started/blob/master/notebooks/wordcount.py) to /home/wce/clsadmin/.
 
-4. Go to **Manage Cluster** in Bluemix and click the **nodes** tab to get the name node host name. It's the host name of the **management-slave1** node type.
-
-4. Go to dir /usr/iop/current/spark2-client/bin.
+4. Go to **Manage Cluster** in {{site.data.keyword.Bluemix_short}} and click the **nodes** tab to get the name node host name. It's the host name of the **management-slave1** node type.
 
 5. Submit the script using the spark-submit command:<br>
 ```spark-submit --master yarn --deploy-mode client --executor-memory 1g --name wordcount --conf "spark.app.id=wordcount" /home/wce/clsadmin/wordcount.py hdfs://<name_node_host_name>:8020/input_file_path 2```
