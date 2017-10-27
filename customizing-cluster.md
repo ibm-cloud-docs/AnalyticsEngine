@@ -30,7 +30,7 @@ The main differences between these customization methods is shown in the followi
 <tr><td>Automatically run on with newly-added nodes</td><td>Not run on nodes added to the cluster</td></tr>
 </table>
 
-Customization options specified during cluster creation can be [rerun](#rerunning-a-bootstrap-customization-script-registered-during-cluster-creation) at a later point in time, for example, after a custom action fails to run. However, if you do not specify customization options during cluster creation, you can still customize your cluster by using the [adhoc customization](#running-an-adhoc-customization-script). The bootstrap customization action specified during cluster creation is automatically executed on any new node added during the cluster resize operation.
+Customization options specified during create cluster are executed after the cluster is installed and becomes active. The same action can be [rerun](#rerunning-a-bootstrap-customization-script-registered-during-cluster-creation) at a later point in time, for example, after a custom action fails to run. However, if you do not specify customization options during cluster creation, you can still customize your cluster by using the [adhoc customization](#running-an-adhoc-customization-script). The bootstrap customization action specified during cluster creation is automatically executed on any new node added during the cluster resize operation.
 
 **Note:** Presently, bootstrap customization is possible using the cf CLI or the cf REST API modes for creating a cluster.
 
@@ -94,10 +94,14 @@ You can customize the following options:
 
 ### Operating system packages
 
-You can install or remove operating system packages by using the package-admin tool. The IBM Analytics Engine cluster comes bundled with a utility named `package-admin` that you can use to install or remove yum packages.
+You can install or remove operating system packages by using the package-admin tool. The IBM Analytics Engine cluster comes bundled with a utility named `package-admin` that you can use to install or remove yum packages from supported repos(only centOS base and updates).
+
 ```
  sudo package-admin -c [install | remove] -p [package name]
 ```
+
+You must execute all customization actions as the non root user (clsadmin). To use package-admin you must use sudo.
+
 ### Install Python and R libraries
 
 There are two versions of Anaconda installed on all nodes:
@@ -136,10 +140,11 @@ For details see [Configuring clusters to work with IBM COS S3 object stores](./c
 ## Location of the customization script
 
 You can add a customization script to the following sources:
-* Http with or without basic authentication
+
+*	Http with or without basic authentication
 *	Https
-*	Bluemix object storage
-*	Softlayer swift
+*	{{site.data.keyword.objectstoragefull}}
+*	Softlayer Swift
 *	Softlayer COS S3
 
 The following sections provide sample actions for the various sources.
@@ -191,7 +196,7 @@ The following sections provide sample actions for the various sources.
     "script_params": ["arg1", "arg2"]
   }]
 ```
-For more detail on how to store your script and artifacts in Bluemix object store and use the same script during customization see the [samples page](./Customization-script-on-Bluemix-Object-Store.html).
+For more detail on how to store your script and artifacts in a Bluemix object store and use the same script during customization see the [samples page](./Customization-script-on-Bluemix-Object-Store.html).
 
 ### SoftLayer Swift
 ```
@@ -227,7 +232,7 @@ For more detail on how to store your script and artifacts in Bluemix object stor
     "script_params": ["arg1", "arg2"]
   }]
 ```
-## Pre-requisites for all cluster management API calls
+## Prerequisites for all cluster management API calls
 
 To run cluster management REST APIs, you need to pass your IAM access token. To obtain the token, follow these [steps](./Retrieve-IAM-access-token.html).
 

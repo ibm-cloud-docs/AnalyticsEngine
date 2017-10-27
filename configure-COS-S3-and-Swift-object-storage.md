@@ -15,12 +15,15 @@ lastupdated: "2017-09-26"
 
 # Configuring clusters to work with IBM COS S3 object stores  
 
-An application, such as Spark job or a Yarn job, can read data from or write data to an object store. Alternatively, the application itself, such as a python file or a yarn job jar, can reside on the object store. This section will explain how to configure an IBM Analytics Engine cluster to connect to an object store to access data and applications stored in one of the following IBM object stores.
+An application, such as Spark job or a Yarn job, can read data from or write data to an object store. Alternatively, the application itself, such as a Python file or a Yarn job jar, can reside in the object store. 
 
-- Cloud Object Storage(COS S3) hosted on Bluemix/SL using Open Stack connectors
-- Cloud Object Storage(COS S3) hosted on Bluemix/SL using IBM Stocator connectors
+This section explains how to configure an IBM Analytics Engine cluster to connect to an object store to access data and applications stored in one of the following IBM object stores.
 
-**Restriction**: Integration for object store using the Stocator connector is supported only for the Spark and MapReduce components for this release. While some of the other Hadoop components might work partially using the Stocator connector, there are some restrictions from using it fully and will not be supported for this release. To understand more about Stocator, go [here](https://developer.ibm.com/open/openprojects/stocator/).
+- Cloud Object Storage (COS S3) hosted on {{site.data.keyword.Bluemix_notm}}. This supports IBM IAM authentication which can be done by using the IAM API Key or the IAM token.
+
+- Cloud Object Storage (COS S3) hosted on SoftLayer. This supports Amazon Web Services (AWS) style authentication.
+
+**Restriction**: Starting with this release, Spark is the only component that can be used with IAM-based COS and Spark connects to the object store by using IBM Stocator. For more information about Stocator, see this [documentation](https://developer.ibm.com/open/openprojects/stocator/).
 
 ## Configuration options
 
@@ -30,22 +33,24 @@ In order for an application to connect to an object store, the cluster configura
 * [Customize the cluster using a customization script](#Customize-the-cluster-using-a-customization-script).
 * [Specify the properties at runtime](#Specify-the-properties-at-runtime).
 
+Note that if you use the IAM token for IAM authentication to the object store, it is advisable to configure the core-site.xml file. If you are using the IAM token, it makes more sense to specify the properties at runtime as the token is temporary. Refer to examples for the IAM token based authentication parameters.
+
 
 ### Configure via the Ambari UI _after_ the cluster was created
 
 #### Add properties and values to the core-site.xml file
 
-**To add the properties and values to your core-site.xml file on your cluster instance**
+To add the properties and values to your core-site.xml file on your cluster instance:
 
 1. Open the Ambari console, and then the advanced configuration for HDFS.<br>
 ``` Ambari dashboard > HDFS > Configs > Advanced > Custom core-site > Add Property```
 2. Add the properties and values.
-3. Save your changes and restart any affected services. The cluster will have access to your object store.
+3. Save your changes and restart any affected services. The cluster will have access to  your object store.
 
 ### Customize the cluster using a customization script
 A customization script can be used when the cluster is created. This script includes the properties that need to be configured in the core-site.xml file and use the Ambari configs.sh to make the required changes.
 
-#### Sample script for a cluster customization script
+#### Sample cluster customization script to configure the cluster with an AWS style authenticated object store
 
 The following is a sample script for S3 COS object store. You can modify the script for various object stores that can be used based on the properties given in the following sections.
 ```
@@ -73,26 +78,15 @@ fi
 {: codeblock}
 
 ### Specify the properties at runtime
-Alternatively, the properties can be specified at runtime in the python/scala/R code when executing jobs.
+Alternatively, the properties can be specified at runtime in the Python, Scala or R code when executing jobs.
 
 ## Properties needed for various object stores
 Each Object Storage has a different set of properties to be configured in the core-site.xml file.
 
-### IBM COS/S3 OpenStack connector
+### AWS style authentication parameters for IBM COS S3
 Refer to https://ibm-public-cos.github.io/crs-docs/endpoints to help you decide on the endpoints you need to use based on your COS bucket type, such as regional vs cross-regional. Choose the PRIVATE endpoint listed. Using the public endpoint will be slower and more expensive.
 
-An example of an EndPoint URL is: s3-api.us-geo.objectstorage.service.networklayer.com.
-```
-fs.s3a.access.key=<Access Key ID>
-fs.s3a.endpoint=<EndPoint URL>
-fs.s3a.secret.key=<Secret Access Key>
-```
-{: codeblock}
-
-### IBM COS/S3 with IBM Stocator connector
-Refer to https://ibm-public-cos.github.io/crs-docs/endpoints to help you decide on the endpoints you need to use based on your COS bucket type, such as regional vs cross-regional. Choose the PRIVATE endpoint listed. Using the public endpoint will be slower and more expensive.
-
-An example of an EndPoint URL is: s3-api.us-geo.objectstorage.service.networklayer.com.
+An example of an EndPoint URL is `s3-api.us-geo.objectstorage.service.networklayer.com`.
 ```
 fs.s3d.service.access.key=<Access Key ID>
 fs.s3d.service.endpoint=<EndPoint URL>
@@ -100,29 +94,54 @@ fs.s3d.service.secret.key=<Secret Access Key>
 ```
 {: codeblock}
 
-## Pre-configured properties
+### IBM IAM authentication parameters for IBM COS/S3 
+Refer to https://ibm-public-cos.github.io/crs-docs/endpoints to help you decide on the endpoints you need to use based on your COS bucket type, such as regional vs cross-regional. Choose the PRIVATE endpoint listed. Using the public endpoint will be slower and more expensive.
+
+An example of an EndPoint URL is `s3-api.us-geo.objectstorage.service.networklayer.com`.
+
+Sample parameters are listed in the following section. Note that the value for <servicename> can be any literal such as `iamservice` or `myprodservice`. 
+
+ - `fs.cos.<servicename>.v2.signer.type=false`. This must be set to false.
+
+ - `fs.cos.<servicename>.endpoint=<EndPoint>`. For example, `s3-api.us-geo.objectstorage.service.networklayer.com`. This is the object store service’s endpoint.
+
+ - `fs.cos.<servicename>.iam.service.id=<ServiceId>`. For example, `ServiceId-6f06c935-ffffff-3333dddd`. This is the IAM object store service’s ID.
+ 
+ - `fs.cos.<servicename>.iam.endpoint=https://iam.bluemix.net/identity/token–`. This is the IAM server’s end point. This value is always fixed as shown here.
+
+ - `fs.cos.<servicename>.iam.api.key=<IAM API Key>`. This is the IAM object store service’s API Key defined in the credentials of the service.
+
+ - `fs.cos.<servicename>.iam.token=<IAM Token e.g -2342342sdfasf34234234asf……..>`. This will be the IAM token of an individual user that is obtained from the BX CLI oauth-tokens command. 
+
+NOTE : You need to specify either the API key or the token. Keep in mind that the token  expires which means that it better to specify it at runtime rather than to define it in the core-site.xml file.
+
+## Preconfigured properties
 The core site configuration is pre-configured with the following properties. The relevant properties are provided below.
 ```
-"fs.s3a.impl":"org.apache.hadoop.fs.s3a.S3AFileSystem"
-"fs.s3d.impl":"com.ibm.stocator.fs.ObjectStoreFileSystem"
+"fs.stocator.scheme.list":"cos" 
+"fs.cos.impl":"com.ibm.stocator.fs.ObjectStoreFileSystem" 
+"fs.stocator.cos.impl":"com.ibm.stocator.fs.cos.COSAPIClient" 
+"fs.stocator.cos.scheme":"cos"
 ```
 {:codeblock}
 
-## URI patterns to access files on the object store
+## URI patterns for objects in AWS authentication style object stores
 
-### S3a/COS objects
- ```
- - s3a://<bucket_name>/<object_name>
- - e.g:- s3a://mybucket/detail.txt
- ```
-### S3a/COS objects using stocator connector
- ```
- - s3d://<bucket_name>.softlayer/<object_name>
- - e.g:- s3d://mybucket.softlayer/detail.txt
- ```
+`s3a://<bucket_name>/<object_name>` 
+
+For example, `s3a://mybucket/detail.txt`
+
+## URI pattern for objects in IBM IAM authenticated object stores
+
+`cos://<bucket_name>.<servicename>/<object_name>`
+ 
+For example, `cos://mybucket.myprodservice/detail.txt`
+
+Note: Starting with this release, this will work only with Spark.
+ 
 ## Location of Stocator jars
 
-If there is a need to test a patch, you can replace the jar in this location
+If there is a need to test a patch, you can replace the jar at this location:
 ```
 /home/common/lib/dataconnectorStocator
 ```

@@ -15,7 +15,7 @@ lastupdated: "2017-07-12"
 
 # Analytics Engine command line interface
 
-The Bluemix Analytics Engine command line interface can be used to interact with the IBM Analytics Engine cluster.
+The {{site.data.keyword.Bluemix_notm}} Analytics Engine command line interface can be used to interact with the IBM Analytics Engine cluster.
 
 # Getting Started
 

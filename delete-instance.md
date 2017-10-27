@@ -15,9 +15,9 @@ lastupdated: "2017-09-12"
 
 # Deleting a service instance
 
-You can delete a service instance by using the Bluemix user interface, the Cloud Foundry CLI, or the Cloud Foundry REST API. The underlying cluster gets deleted as part of service instance deletion. Any data and metadata, including logs, in the cluster will be lost once you delete the cluster.
+You can delete a service instance by using the {{site.data.keyword.Bluemix_notm}} user interface, the Cloud Foundry CLI, or the Cloud Foundry REST API. The underlying cluster gets deleted as part of service instance deletion. Any data and metadata, including logs, in the cluster will be lost once you delete the cluster.
 
-## Bluemix UI
+## {{site.data.keyword.Bluemix_notm}} UI
 a. Navigate to your organization's dashboard page [https://console.ng.bluemix.net/dashboard/services](https://console.ng.bluemix.net/dashboard/services) and switch to the space where you had created the service instance.  
 b. From the service instance's Action menu choose 'Delete Service'
 

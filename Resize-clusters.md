@@ -24,7 +24,7 @@ You can resize the cluster using one of the following modes:
 
 **To resize a cluster**
 
-1. On Bluemix console, switch to the organization and space where your service instance was created.
+1. On {{site.data.keyword.Bluemix_notm}} console, switch to the organization and space where your service instance was created.
 2. Click the service instance tile to access the service dashboard.
 3. On the right hand side of the page, click **Manage**. The cluster management page shows you the number of compute nodes in your cluster.
 4. Click ‘+’ next to the number of compute nodes and click **Save**.
@@ -34,7 +34,7 @@ You can resize the cluster using one of the following modes:
 ## Resizing clusters using the REST API
 
 **Pre-requisites**:
-* To resize a cluster, you should have Editor access to the service instance. Reach out to your Bluemix account owner, if you do not have sufficient permissions. For more details refer to [Retrieving IAM access tokens](./Retrieving-IAM-access-tokens.html).
+* To resize a cluster, you should have Editor access to the service instance. Reach out to your {{site.data.keyword.Bluemix_notm}} account owner, if you do not have sufficient permissions. For more details refer to [Retrieving IAM access tokens](./Retrieving-IAM-access-tokens.html).
 * The API call to resize the cluster requires your IAM bearer token. To obtain the token, follow these [steps](./Retrieve-IAM-access-token.html).
 
 **To resize a cluster**

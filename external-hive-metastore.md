@@ -17,7 +17,7 @@ lastupdated: "2017-09-07"
 The hive metastore is where the schemas of the hive tables are stored. By default, it is within a MySQL instance within the cluster. You could choose to externalize the metastore to an external MySQL instance outside of the cluster so that you can tear down your cluster without losing the metadata. This, in combination with data in the object store, can preserve the data across clusters.
 
 ## Compose for MySQL
-Compose for MySQL is a Bluemix service that can be used to externalize the metadata of the cluster. You can choose between the Standard or Enterprise version depending on your requirement. Once you create the Compose for MySQL instance, you will need to note the administrative user, password, database name and the JDBC URL.
+Compose for MySQL is a service in {{site.data.keyword.Bluemix_notm}} that can be used to externalize the metadata of the cluster. You can choose between the Standard or Enterprise version depending on your requirement. Once you create the Compose for MySQL instance, you will need to note the administrative user, password, database name and the JDBC URL.
 
 ### Compose for MySQL parameters to set in the hive metastore
 
