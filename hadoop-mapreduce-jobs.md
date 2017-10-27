@@ -15,7 +15,7 @@ lastupdated: "2017-09-25"
 
 # Running Hadoop MapReduce jobs
 
-**Pre-requisite**: Obtain the cluster user credentials, ssh and oozie_rest end point details from the service credentials of your service instance.
+**Prerequisite**: Obtain the cluster user credentials, ssh and oozie_rest end point details from the service credentials of your service instance.
 
 ## Analyzing data by opening the ssh connection
 
@@ -46,10 +46,10 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 wordcount s3a://<mybucketname>/input s3a://<mybucketname>/output
 ```
 
-### Example running Wordcount using s3d
+### Example running Wordcount using cos
 ```
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
-wordcount s3d://<mybucketname>.softlayer/input s3d://<mybucketname>.softlayer/output
+wordcount cos://<mybucketname>.softlayer/input cos://<mybucketname>.softlayer/output
 ```
 
 **Note**: For more information on configuring the cluster to work with S3 object stores, see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-and-Swift-object-storage.html).
