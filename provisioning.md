@@ -168,13 +168,7 @@ You need the  following information to create a service instance:
 	  * For Lite use: `acb06a56-fab1-4cb1-a178-c811bc676164`
 	  * For Standard-Hourly use: `9ba7e645-fce1-46ad-90dc-12655bc45f9e`
 	  * For Standard-Monthly use: `f801e166-2c73-4189-8ebb-ef7c1b586709`
-•	The cf API end point: `https://api.ng.bluemix.net/v2`
 
-To create a service instance, enter:
-
-```
-https://api.ng.bluemix.net/v2/service_instances?accepts_incomplete=true
-```
 
 *Response:*
 The response is in JSON format. If the create cluster request is accepted, the property `metadata.guid` has the new service instance's ID. If the request is rejected, the property `description` contains a helpful message.
