@@ -37,13 +37,20 @@ Flume 1.5.2 &#42; <br>
 
 ## Hardware configuration
 
-Only one hardware size is supported for the beta period.<br>
-**Size: Standard**
+IBM Analytics Engine supports two node sizes for spinning up clusters.<br>
+**Size: Default Node**
 
 | Node Type | vCPU | Memory | HDFS Disks |
 |---------|------------|-----------|-----------|
 | Master Node | 4| 16 GB | NA |
 | Data Node | 4| 16 GB | 2 x 300 GB |
+
+**Size: Memory Intensive Node**
+
+| Node Type | vCPU | Memory | HDFS Disks |
+|---------|------------|-----------|-----------|
+| Master Node | 32| 128 GB | NA |
+| Data Node | 32| 128 GB | 3 x 300 GB |
 
 ## Operating System
 The operating system used is Cent OS 7.
