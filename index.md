@@ -23,10 +23,10 @@ The cluster is based on Hortonworks Data Platform 2.6.2. The following component
 
 Apache Spark 2.1.1
 Hadoop 2.7.3<br>
-Jupyter Notebook Gateway(JNBG)/Jupyter Kernel Gateway 0.2.0<br>
+Jupyter Enterprise Gateway 0.5.0<br>
 Apache Livy 0.3.0<br>
 Knox 0.12.0<br>
-Ambari 2.54.2<br>
+Ambari 2.5.2<br>
 Anaconda with Python 2.7.13 and 3.5.2 <br>
 HBase 1.1.2 &#42; <br>
 Hive 1.2.1 &#42;<br>
