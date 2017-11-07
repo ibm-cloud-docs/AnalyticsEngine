@@ -135,7 +135,7 @@ fi
 ```
 ### Configure either Swift or COS/S3 Object Storage as a data source for Hadoop/Spark
 
-For details see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-and-Swift-object-storage.html).
+For details see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html).
 
 ## Location of the customization script
 
@@ -177,7 +177,7 @@ The following sections provide sample actions for the various sources.
     "script_params": ["arg1", "arg2"]
   }]
 ```
-### Bluemix object store
+### {{site.data.keyword.Bluemix_notm}} object store
 ```
 "customization":[ {
     "name": "action1",
@@ -196,7 +196,7 @@ The following sections provide sample actions for the various sources.
     "script_params": ["arg1", "arg2"]
   }]
 ```
-For more detail on how to store your script and artifacts in a Bluemix object store and use the same script during customization see the [samples page](./Customization-script-on-Bluemix-Object-Store.html).
+For more detail on how to store your script and artifacts in a {{site.data.keyword.Bluemix_short}} object store and use the same script during customization see the [samples page](./Customization-script-on-Bluemix-Object-Store.html).
 
 ### SoftLayer Swift
 ```
