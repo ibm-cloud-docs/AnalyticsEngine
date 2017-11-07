@@ -28,10 +28,15 @@ Apache Livy 0.3.0<br>
 Knox 0.12.0<br>
 Ambari 2.5.2<br>
 Anaconda with Python 2.7.13 and 3.5.2 <br>
+Elyra 0.50 &#42; <br>
 HBase 1.1.2 &#42; <br>
 Hive 1.2.1 &#42;<br>
 Oozie 4.2.0 &#42;<br>
 Flume 1.5.2 &#42; <br>
+Tez 0.7.0 &#42; <br>
+Pig 0.16.0 &#42; <br>
+Sqoop 1.4.6 &#42; <br>
+Slider 0.92.0 &#42; <br>
 
 &#42;Available in _AE 1.0 Hadoop and Spark pack_ only
 
