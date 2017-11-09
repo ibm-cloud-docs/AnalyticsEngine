@@ -133,7 +133,7 @@ then
     curl -v --user $AMBARI_USER:$AMBARI_PASSWORD -H "X-Requested-By: ambari" -i -X PUT -d '{"RequestInfo": {"context": "Start MAPREDUCE2"}, "ServiceInfo": {"state": "STARTED"}}' https://$AMBARI_HOST:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/services/MAPREDUCE2
 fi
 ```
-### Configure either Swift or COS/S3 Object Storage as a data source for Hadoop/Spark
+### Configure COS/S3 Object Storage as a data source for Hadoop/Spark
 
 For details see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html).
 
