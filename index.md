@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-09-12"
+lastupdated: "2017-11-09"
 
 ---
 
@@ -27,7 +27,7 @@ Apache Livy 0.3.0<br>
 Knox 0.12.0<br>
 Ambari 2.5.2<br>
 Anaconda with Python 2.7.13 and 3.5.2 <br>
-Jupyter Enterprise Gateway 0.5.0 &#42; <br>
+Jupyter Enterprise Gateway 0.5.0 <br>
 HBase 1.1.2 &#42; <br>
 Hive 1.2.1 &#42;<br>
 Oozie 4.2.0 &#42;<br>
@@ -41,13 +41,20 @@ Slider 0.92.0 &#42; <br>
 
 ## Hardware configuration
 
-Only one hardware size is supported for the beta period.<br>
-**Size: Standard**
+IBM Analytics Engine supports two node sizes for spinning up clusters.<br>
+**Size: Default Node**
 
 | Node Type | vCPU | Memory | HDFS Disks |
 |---------|------------|-----------|-----------|
 | Master Node | 4| 16 GB | NA |
 | Data Node | 4| 16 GB | 2 x 300 GB |
+
+**Size: Memory Intensive Node**
+
+| Node Type | vCPU | Memory | HDFS Disks |
+|---------|------------|-----------|-----------|
+| Master Node | 32| 128 GB | NA |
+| Data Node | 32| 128 GB | 3 x 300 GB |
 
 ## Operating System
 The operating system used is Cent OS 7.
