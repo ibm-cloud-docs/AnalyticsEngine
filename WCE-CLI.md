@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-12"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -21,7 +21,7 @@ The {{site.data.keyword.Bluemix_notm}} Analytics Engine command line interface c
 ## Getting Started
 
 1. [Install the CLI plugin](./wce-wcl-install.html)
-1. Run the [spark-endpoint](./wce-cli-ref-spark-endpoint.html) command to set the cluster endpoint. The argument for `endpoint` is the IP or hostname of the cluster management node. 
+1. Run the [spark-endpoint](./wce-cli-ref-spark-endpoint.html) command to set the cluster endpoint. The argument for `endpoint` is the IP or hostname of the cluster management node.
   ```
   $ bx ae endpoint https://iae-tmp-867-mn001.bi.services.us-south.bluemix.net
   ```
@@ -105,5 +105,3 @@ Enter 'bx ae help [command]' for more information about a command.
 
 - [Enable tracing](./wce-cli-troubleshoot.html#enable-tracing)
 - [Endpoint was not set or found](./wce-cli-troubleshoot.html#endpoint-was-not-set-or-found-call-endpoint-first)
-
-

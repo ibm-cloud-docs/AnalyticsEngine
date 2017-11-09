@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-09-12"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -44,7 +44,7 @@ Hardware specifications:
 
  - 	Default: 4 vCPU, 16 GB RAM, 2 x 300 GB HDFS disk on each compute node
  -	Memory intensive: 32 vCPU, 128 GB RAM, 3 x 300 GB HDFS disk on each compute node
- 
+
 Software packages:
 
  - Choose AE 1.0 Spark if you are planning to run only Spark workloads.
@@ -92,7 +92,7 @@ Sample cluster specification JSON file
 
 ### Brief description of cluster specification parameters
 
-1. **`num_compute_nodes`** (Required): Number of compute nodes required in the cluster. 
+1. **`num_compute_nodes`** (Required): Number of compute nodes required in the cluster.
 2. **`hardware_config`** (Required): Represents the instance size of the cluster. Accepted value: _`default, -memory-intensive`_  
 3. **`software_package`** (Required): Determines set of services to be installed on the cluster. Accepted value: _`ae-1.0-spark`_ and _`ae-1.0-hadoop-spark`_
 4. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](./customizing-cluster.html).
@@ -199,12 +199,8 @@ To upgrade a Lite plan using the Analytics Engine dashboard in IBM Cloud:
 
 To upgrade using the cf CLI:
 
-1. Enter the following command: 
- 
+1. Enter the following command:
+
 	```
 	cf update-service <your tileservice instance name> -p standard-hourly
 	```
-
-
-
-

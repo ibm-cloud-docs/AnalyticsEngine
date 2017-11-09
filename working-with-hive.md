@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-12"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -13,18 +13,18 @@ lastupdated: "2017-07-12"
 {:screen: .screen}
 {:pre: .pre}
 
-# Working with Hive 
+# Working with Hive
 
-The Apache Hive data warehousing software facilitates reading, writing, and managing large datasets that reside in distributed storage by using the SQL-like query language called HiveQL. 
+The Apache Hive data warehousing software facilitates reading, writing, and managing large datasets that reside in distributed storage by using the SQL-like query language called HiveQL.
 
-A compiler translates HiveQL statements into a directed acyclic graph of MapReduce or Tez jobs, which are submitted to Hadoop. In an IBM Analytics Engine service, Hive commands can be executed through the Beeline client and by default, the Hive uses Tez as its execution engine. Note that Hive is not available in the Analytics Engine Spark package. 
+A compiler translates HiveQL statements into a directed acyclic graph of MapReduce or Tez jobs, which are submitted to Hadoop. In an IBM Analytics Engine service, Hive commands can be executed through the Beeline client and by default, the Hive uses Tez as its execution engine. Note that Hive is not available in the Analytics Engine Spark package.
 
 ## Prerequisites
 To work with Hive, you need your cluster user credentials and the ssh and hive_jdbc end point details. You can get this information from the service credentials of your Analytics Engine service instance.
 
 ## Connecting to the Hive server
 
-Connect to the Hive server by using with beeline client. 
+Connect to the Hive server by using with beeline client.
 
 Issue the following SSH command to the cluster:
 
@@ -49,15 +49,15 @@ The following examples show useful HiveQL statements.
 
 - Example of a CREATE TABLE statement with data in COS object store:
 
-	`CREATE EXTERNAL TABLE s3aTable( no INT, name STRING) 
-	ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
-	LOCATION 's3a://mybucket/myhivedir';` 
+	`CREATE EXTERNAL TABLE s3aTable( no INT, name STRING)
+	ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+	LOCATION 's3a://mybucket/myhivedir';`
 
 
 ## Changing the Hive execution engine
 
 To change the hive execution engine from Tez to MR, run the following command in the beeline client prompt:
- 
+
 `set hive.execution.engine=mr;`
 
 ## Externalizing the Hive metastore to IBM Compose for MySQL
@@ -132,6 +132,3 @@ fi
 
 
 For further information on Hive and its features, see [Apache Hive](https://hortonworks.com/apache/hive/).
-
-
-

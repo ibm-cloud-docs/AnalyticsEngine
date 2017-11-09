@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-12"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -13,12 +13,12 @@ lastupdated: "2017-07-12"
 {:screen: .screen}
 {:pre: .pre}
 
-# Retrieving UAA access tokens 
+# Retrieving UAA access tokens
 
 To retrieve an UAA access token:
 
 1. Log in to Cloud Foundry CLI.
-2. Run the command: `cf oauth-token` 
+2. Run the command: `cf oauth-token`
 
 	The output of this command is the UAA access token to pass to CLoud Foundry REST APIs for creating a service instance.
 

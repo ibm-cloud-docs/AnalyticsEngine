@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-23"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -19,7 +19,7 @@ Interact with Jupyter Kernel Gateway (JKG) kernels on IBM Analytics Engine clust
 
 ## Usage
 
-``` 
+```
 bx ae kernels [--user <user>] [--password <password>] create SPEC_NAME
     SPEC_NAME is the name of a kernel specification.
     Use 'bx ae kernels specs' for available kernel specification names.
@@ -122,11 +122,11 @@ Usage:
 
 ```
 bx ae kernels [--user <user>] [--password <password>] ls
-``` 
+```
 
 Args:
 
-- none 
+- none
 
 ### restart
 
@@ -150,7 +150,7 @@ Usage:
 ```
 bx ae kernels [--user <user>] [--password <password>] specs
 ```
- 
+
 Args:
 
-- none 
+- none
