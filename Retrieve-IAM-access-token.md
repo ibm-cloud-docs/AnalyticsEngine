@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-12"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -38,4 +38,3 @@ bx iam oauth-tokens
 ```
 
 Two tokens will be produced: one named `IAM token` and the other one named `UAA token`. Use `IAM token` for making cluster management REST API calls and `UAA token` to programmatically provision an instance of the IBM Analytics Engine service.
-

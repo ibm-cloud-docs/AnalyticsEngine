@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-09-19"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -17,6 +17,25 @@ lastupdated: "2017-09-19"
 Use these notes to learn about the latest features, additions and changes to IBM Analytics Engine.
 {: shortdesc}
 ## IBM Analytics Engine information
+
+### 1 November 2017 GA
+- IBM Analytics Engine offers the following new service plans:
+  - Lite 
+  - Standard-Hourly
+  - Standard-Monthly
+
+  The Beta Standard plan is no longer supported.
+
+- You can now select to configure a memory intensive hardware type
+
+### 23 Oct 2017
+
+- The ibmos2spark (0.0.9) package for Scala and the imbos2spark (1.0.1) package for Python were updated to support the insert to code feature in IBM Data Science Experience (DSX)
+- Jupyter Enterprise Gateway support 0.5.0 was added
+- Stocator 1.0.10 support for COS IAM using Spark was added
+- The Hortonworks Data Platform build was moved from non-GA (HDP-2.6.2.0-198) to GA (HDP-2.6.2.0-205)
+- Support of a Spark job progress bar was added to IBM Analytics Engine. This enables monitoring Spark job progress in notebooks run in DSX.
+- The Spark History UI fix for downloading Spark job logs (KNOX Issue) was added
 
 ### 19 September 2017
 

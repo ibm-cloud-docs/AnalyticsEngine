@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-09-27"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -121,7 +121,7 @@ curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
--d '{ "file":"s3a://mybucket/PiEx.py" }' \
+-d '{ "file":"cos://mybucket/PiEx.py" }' \
 "https://iae-tmp-867-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
 ```
 If the application was Java/Scala-based and the jar file was stored in object storerage, the command would need to specify both a reference to the jar file and the class you wanted to run like in the example below. Note that this example also makes use of a Stocator connector so the URI varies accordingly and the commands assume that the object storage referenced is already configured on the cluster.
@@ -130,7 +130,7 @@ curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
--d '{ "file":"s3d://mybucket.softlayer/spark-examples_2.10-2.1.0.jar", "className":"org.apache.spark.examples.SparkPi" }' \
+-d '{ "file":"cos://mybucket.softlayer/spark-examples_2.10-2.1.0.jar", "className":"org.apache.spark.examples.SparkPi" }' \
 "https://iae-tmp-867-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
 ```
 

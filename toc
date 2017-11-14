@@ -31,8 +31,10 @@ Analytics Engine
     {: .topicgroup}
     Customizing a service instance
         customizing-cluster.md
-        configure-COS-S3-and-Swift-object-storage.md
-        external-hive-metastore.md
+	
+    {: .topicgroup}
+    Configuring a cluster to work with object storage
+        configure-COS-S3-object-storage.md
 
     {: .topicgroup}
     Managing a service instance
@@ -46,6 +48,8 @@ Analytics Engine
         Connect-using-SSH.md
         Upload-files-to-HDFS.md
         hadoop-mapreduce-jobs.md
+		working-with-hive.md
+		working-with-hbase.md
 
     {: .topicgroup}
     Running Spark batch jobs

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-23"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2017-07-23"
 
 ## Prerequisites
 To use the IBM Analytics Engine  command line interface, download and install the following packages on local machine. Do not install the packages on the cluster.
- 
+
 - The [Cloud Foundry CLI](https://github.com/cloudfoundry/cli/blob/master/README.md#installing-using-a-package-manager)
 
 - The [{{site.data.keyword.Bluemix_notm}} Engine CLI](https://console.bluemix.net/docs/cli/index.html#cli)
@@ -40,7 +40,7 @@ bx plugin install -r Bluemix analytics-engine
 {: codeblock}
 
 Note: If the default {{site.data.keyword.Bluemix_notm}} repository is not available from your {{site.data.keyword.Bluemix_notm}} CLI, you might need to add the repository. This only needs to be done once.
- 
+
 ```
 bx plugin repo-add Bluemix https://plugins.ng.bluemix.net
 ```
@@ -51,7 +51,7 @@ bx plugin repo-add Bluemix https://plugins.ng.bluemix.net
 Run the following command to uninstall the command line interface:
 
 ```
-$ bx plugin uninstall analytics-engine 
+$ bx plugin uninstall analytics-engine
   Uninstalling plug-in 'ae'...
   OK
   Plug-in 'ae' was successfully uninstalled.
