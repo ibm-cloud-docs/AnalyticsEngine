@@ -36,19 +36,19 @@ Once logged in, make sure that you have chosen `US South` as the region (on top 
 
 | Plan | Hardware types | Software packages | Restrictions |
 |------|----------------|-------------------|------------- |
-| Lite | Default | AE 1.0 Spark, AE 1.0 Spark and Hadoop | 1.	Maximum of one tile per IBM Cloud organization every 30 days </br> 2.	Maximum of one cluster with up to 3 compute nodes </br> 3.	After 50 node hours, the cluster will be disabled. During disable period, the cluster cannot be scaled up or customized. A grace period of 24 hours is given for the user to upgrade his account to a Paid account, and to upgrade the service instance to Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted.|
-| Standard-Hourly | Default, memory intensive |	AE 1.0 Spark, AE 1.0 Spark and Hadoop | NA |
-| Standard-Monthly | Default, memory intensive | AE 1.0 Spark, AE 1.0 Spark and Hadoop | NA |
+| **Lite** | Default | AE 1.0 Spark, AE 1.0 Spark and Hadoop | 1.	Maximum of one tile per IBM Cloud organization every 30 days </br> 2.	Maximum of one cluster with up to 3 compute nodes </br> 3.	After 50 node hours, the cluster will be disabled. During disable period, the cluster cannot be scaled up or customized. A grace period of 24 hours is given for the user to upgrade his account to a Paid account, and to upgrade the service instance to Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted.|
+| **Standard-Hourly** | Default, memory intensive |	AE 1.0 Spark, AE 1.0 Spark and Hadoop | NA |
+| **Standard-Monthly** | Default, memory intensive | AE 1.0 Spark, AE 1.0 Spark and Hadoop | NA |
 
 Hardware specifications:
 
- - 	Default: 4 vCPU, 16 GB RAM, 2 x 300 GB HDFS disk on each compute node
- -	Memory intensive: 32 vCPU, 128 GB RAM, 3 x 300 GB HDFS disk on each compute node
+ - 	**Default**: 4 vCPU, 16 GB RAM, 2 x 300 GB HDFS disk on each compute node
+ -	**Memory intensive**: 32 vCPU, 128 GB RAM, 3 x 300 GB HDFS disk on each compute node
 
 Software packages:
 
- - Choose AE 1.0 Spark if you are planning to run only Spark workloads.
- - Choose AE 1.0 Hadoop and Spark if you are planning to run Hadoop workloads in addition to Spark workloads. In addition to the components you get with the Spark package, you also get Oozie, HBase and Hive, as part of the components of the Hadoop package.
+ - Choose **AE 1.0 Spark** if you are planning to run only Spark workloads.
+ - Choose **AE 1.0 Hadoop and Spark** if you are planning to run Hadoop workloads in addition to Spark workloads. In addition to the components you get with the Spark package, you also get Oozie, HBase and Hive, as part of the components of the Hadoop package.
 
 
 ## Creating a service instance using the Cloud Foundry Command Line Interface
