@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-11-20"
 
 ---
 
@@ -19,9 +19,9 @@ IBM Analytics Engine provides a flexible framework to develop and deploy analyti
 
 Learn how IBM Analytics Engine can help you complete your tasks in the following ways:
 
-* [Review scenarios](#scenario-examples) that show you how to query data using the Spark SQL through a Data Science Experience (DSX) notebook and how to run a Spark application using Spark submit.
+* [Review scenarios](/docs/services/AnalyticsEngine/getting-started.html#scenario-examples) that show you how to query data using the Spark SQL through a Data Science Experience (DSX) notebook and how to run a Spark application using Spark submit.
 * Watch a [video](https://youtu.be/kGkPmCY8nQw) that provides an overview of IBM Analytics Engine.
-* [Create an IBM Analytics Engine cluster](#creating-an-ibm-analytics-engine-cluster).
+* [Create an IBM Analytics Engine cluster](/docs/services/AnalyticsEngine/getting-started.html#creating-an-ibm-analytics-engine-cluster).
 
 ## Scenario examples
 Two scenarios provide tasks that show you how to query data using the Spark SQL through a Data Science Experience (DSX) notebook and how to run a Spark application using Spark submit. An open data set from the City of New York containing calls to the 311 number to report issues with infrastructure will be used as sample data for the scenarios.
@@ -37,7 +37,8 @@ To upload data into the object store, refer to documentation of the respective o
 ### Scenarios
 
 #### Querying data using Spark SQL through a DSX notebook
-**Spark SQL** is a **Spark** module for structured data processing. Unlike the basic **Spark** RDD API, the interfaces provided by Spark SQL provide **Spark** with more information about the structure of both the data and the computation being performed. You can interact with **Spark** SQL using SQL and the Dataset API.
+
+**Spark SQL** is a Spark module for structured data processing. Unlike the basic Spark RDD API, the interfaces provided by Spark SQL provide Spark with more information about the structure of both the data and the computation being performed. You can interact with Spark SQL using SQL and the Dataset API.
 
 **To connect your DSX instance to an IBM Analytics Engine cluster:**
 
@@ -55,7 +56,7 @@ To upload data into the object store, refer to documentation of the respective o
 
 Now this project has been associated with the instance of IBM Analytics Engine that you previously created. You are ready to start running queries and jobs from a DSX notebook using Apache Spark in IBM Analytics Engine.
 
-A Jupyter notebook [here](https://github.com/wdp-beta/get-started/blob/master/notebooks/iae-scenario-part-1.ipynb) includes steps and instructions get you started with analyzing data by using SparkSQL. Add the notebook to your project in DSX and run it.
+The Jupyter notebook [here](https://github.com/wdp-beta/get-started/blob/master/notebooks/iae-scenario-part-1.ipynb) includes steps and instructions to get you started with analyzing data by using SparkSQL. Add the notebook to your project in DSX and run it.
 
 #### Running a simple Spark application using Spark submit
 You can run Spark applications locally or distributed across a cluster, either by using an interactive shell or by submitting an application. In this task, you will learn how to submit a batch job to count words in a text file on HDFS.
@@ -75,7 +76,7 @@ You can run Spark applications locally or distributed across a cluster, either b
 
 After the program runs, the output will be at /home/wce/clsadmin/output.txt in your local directory of the management node that you SSH into.
 
-For more information on submitting Spark jobs, refer to [spark-submit](https://console.bluemix.net/docs/services/AnalyticsEngine/wce-cli-ref-spark-submit.html#spark-submit) in the documentation.
+For more information on submitting Spark jobs, refer to [spark-submit](/docs/services/AnalyticsEngine/wce-cli-ref-spark-submit.html#spark-submit) in the documentation.
 
 ## Creating an IBM Analytics Engine cluster
 

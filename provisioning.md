@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-11-20"
 
 ---
 
@@ -34,9 +34,13 @@ Once logged in, make sure that you have chosen `US South` as the region (on top 
 
 ### Supported plans
 
+IBM Analytics Engine offers three plans: **Lite**, **Standard-Hourly**, and **Standard-Monthly**.  
+
+An Analytics Engine service instance comprises one cluster made up of one management node and N compute nodes, where N is the number of compute nodes that you specify when creating the cluster. A cluster with 3 compute nodes, for example, has 4 nodes in total and all 4 nodes are billed on an hourly basis.
+
 | Plan | Hardware types | Software packages | Restrictions |
 |------|----------------|-------------------|------------- |
-| **Lite** | Default | AE 1.0 Spark, AE 1.0 Spark and Hadoop | 1.	Maximum of one tile per IBM Cloud organization every 30 days </br> 2.	Maximum of one cluster with up to 3 compute nodes </br> 3.	After 50 node hours, the cluster will be disabled. During disable period, the cluster cannot be scaled up or customized. A grace period of 24 hours is given for the user to upgrade his account to a Paid account, and to upgrade the service instance to Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted.|
+| **Lite** | Default | AE 1.0 Spark, AE 1.0 Spark and Hadoop | 1.	Maximum of one tile per IBM Cloud organization every 30 days. </br> 2.	Maximum of one cluster with up to 3 compute nodes. </br> 3.	Free usage limit is 50 node hours. After 50 node hours, the cluster will be disabled. This means, for example, that a cluster with 4 nodes (3 compute node and 1 management node) will be disabled after 12.5 hours. While the cluster is disabled, it cannot be scaled up or customized. </br> A grace period of 24 hours is given to upgrade your user account to a paid account, and to upgrade the service instance to the Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted.|
 | **Standard-Hourly** | Default, memory intensive |	AE 1.0 Spark, AE 1.0 Spark and Hadoop | NA |
 | **Standard-Monthly** | Default, memory intensive | AE 1.0 Spark, AE 1.0 Spark and Hadoop | NA |
 
