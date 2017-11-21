@@ -25,6 +25,8 @@ Note that the customization scripts should install libraries/packages into the s
 
 _Installation of libraries in this manner is permanent i.e, the libraries are always available to all interactive sessions by default._
 
+**Note:** You cannot use the `--user` option in `pip` install commands in Analytics Engine.
+
 ### Python 2
 
 To install Python 2.7 libraries, your script must install into the `/home/common/conda/anaconda2` environment by using:
