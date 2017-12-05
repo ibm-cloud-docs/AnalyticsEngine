@@ -31,7 +31,7 @@ Analytics Engine
     {: .topicgroup}
     Customizing a service instance
         customizing-cluster.md
-	
+
     {: .topicgroup}
     Configuring a cluster to work with object storage
         configure-COS-S3-object-storage.md
@@ -107,4 +107,5 @@ Analytics Engine
     release-notes.md
     troubleshooting.md
     Known-issues.md
+    workaround-oozie-jobs.md
     {: .navgroup-end}
