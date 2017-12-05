@@ -202,7 +202,6 @@ To run PySpark jobs through Oozie:
   master=yarn-cluster
   queueName=default
   examplesRoot=examples
-  oozie.use.system.libpath=true
   oozie.wf.application.path=${nameNode}/user/${user.name}/${examplesRoot}/apps/pyspark
   oozie.use.system.libpath=true
   oozie.libpath=/tmp/spark2
@@ -216,7 +215,7 @@ To run PySpark jobs through Oozie:
 ```
 hadoop fs -copyFromLocal pi.py /user/<userName>/examples/apps/pyspark/lib ```
 
-6. Copy the `workflow.xlm`file to  `/user/<userName>/examples/apps/pyspark/`.
+6. Copy the `workflow.xlm`file to  `/user/<userName>/examples/apps/pyspark/`
 ```
 hadoop fs -copyFromLocal workflow.xml /user/<userName>/examples/apps/pyspark/workflow.xml```
 
