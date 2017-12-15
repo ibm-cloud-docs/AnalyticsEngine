@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-20"
+lastupdated: "2017-12-14"
 
 ---
 
@@ -13,310 +13,115 @@ lastupdated: "2017-11-20"
 {:screen: .screen}
 {:pre: .pre}
 
-
 # Customizing a cluster
 
-When you create a cluster, you can customize the cluster. Custom actions include installing additional analytics libraries or updating existing cluster configuration parameters. There are two customization methods:
+Sometime you might have to customize a cluster specifically to suit your needs, over and above what is provisioned on a default basis. For example, you might want to install custom analytics third-party libraries or you might want to fine-tune some cluster configurations, for example, the Hadoop MapReduce heap size.
 
-- Bootstrap customization
-- Adhoc customization
+These customizations might need to be applied and executed every time a new cluster is created or be executed iteratively on an existing cluster as needed. To this end, a shell script with all the required customizations can be placed at some source, such as HTTP or S3 location, and given as input to be executed to customize the cluster.
+The customization feature can be invoked in two ways, namely as:
+- **Bootstrap customization**: specified at the time the cluster is created
+- **Adhoc customization**: run on a need basis after the cluster is created
 
-The main differences between these customization methods is shown in the following table:  
+## Bootstrap Customization
+In this method, the customization script can be specified as part of the input JSON to the create cluster commands as is shown in the examples later. In this case, the script is executed as a final step after the cluster is created. Even if the customization fails the cluster is still available for use.
+
+**Rerunning a bootstrap customization script**: If the customization fails due to any reason, the same action can be rerun at a later point in time on the required targets.
+
+**Note:**
+- The bootstrap customization script is executed on all nodes of the cluster including the management and compute nodes.
+-	The bootstrap customization action specified during cluster creation is automatically executed on any new compute node added during the cluster resize operation.
+- Currently, bootstrap customization is possible only using the Cloud Foundry CLI or the Cloud Foundry REST API modes for creating a cluster. That is, it cannot be specified via the GUI.
+
+## Adhoc Customization
+If you do not want, or forgot to specify the customization options during cluster creation, you can still customize your cluster by using the adhoc customization anytime you want.
+The cluster must be in an active state to enable customization and you need to specify the target for execution of the script.
+
+## Differences between bootstrap and adhoc customization
+The main differences between these customization methods is shown in the following table:
 
 <table>
 <tr><th>Bootstrap customization</th><th>Adhoc customization</th></tr>
 <tr><td>Defined during cluster creation</td><td>Defined and executed on an active cluster</td></tr>
-<tr><td>Can be rerun later (without specifying script details) on a given target list</td><td>Can be rerun as often as is needed by specifying a full script</td></tr>
-<tr><td>Automatically run on newly-added nodes</td><td>Not run on nodes added to the cluster</td></tr>
+<tr><td>By default executed on all nodes of the cluster</td><td>Need to specify target of execution</td></tr>
+<tr><td>Can be rerun later, if needed, on a given target list. (There is no need to specify the script details)</td><td>Can be run as often as is needed by specifying the script location details</td></tr>
+<tr><td>Automatically run on newly-added nodes</td><td>Not run automatically on nodes added to the cluster</td></tr>
 </table>
 
-Customization options specified during create cluster are executed after the cluster is installed, configured, the  Ambari services are started and the cluster becomes active. The same action can be [rerun](#rerunning-a-bootstrap-customization-script-registered-during-cluster-creation) at a later point in time, for example, after a custom action fails to run. However, if you do not specify customization options during cluster creation, you can still customize your cluster by using the [adhoc customization](#running-an-adhoc-customization-script). The bootstrap customization action specified during cluster creation is automatically executed on any new node added during the cluster resize operation.
-
-**Note:** Currently, bootstrap customization is possible using the Cloud Foundry CLI or the Cloud Foundry REST API modes for creating a cluster.
-
-You can [track the status of customization through a REST API](#getting-cluster-status) as described in the sections below.
-
-## Creating a cluster with customization in JSON format
-
-Review the following example for creating a cluster with customization in JSON format.
-```
-cf create-service IBMAnalyticsEngine Standard <service instance name> -c <cluster parameters as json string or path to cluster parameters json file>
-```
-{: codeblock}
-
-The following sample shows the parameters in JSON format:
-```
-{
-	"num_compute_nodes": 1,
-	"hardware_config": "Standard",
-	"software_package": "ae-1.0-spark",
-	"customization": [{
-		"name": "action1",
-		"type": "bootstrap",
-		"script": {
-			"source_type": "http",
-			"script_path": "http://path/to/your/script"
-			},
-		"script_params": []
-        }]
-}
-```
-{: codeblock}
-
-Where:
-* `name` is the name of your customization action.
-* `type` is either `bootstrap` or `teardown`. Currently only `bootstrap` is supported.
-
-**Note:** Currently, only one custom action can be specified in the `customization` array.
-
-## Creating a cluster with customization by using the Cloud Foundry API
-
-Review the following example for creating a cluster with customization by using the Cloud Foundry API.
-
-```
-  curl --request POST \
-  --url 'https://api.ng.bluemix.net/v2/service_instances?accepts_incomplete=true' \
-  --header 'accept: application/json' \
-  --header 'authorization: <User's UAA bearer token>' \
-  --header 'cache-control: no-cache' \
-  --header 'content-type: application/json' \
-  --data '{"name":"<Service instance name>", "space_guid":"<User's space guid>", "service_plan_guid":"febf38af-bb11-4d55-8732-49a9b67a480f", "parameters": { "hardware_config":"Standard", "num_compute_nodes":1, "software_package":"ae-1.0-spark", "customization":[<customization-details>]}}'
-```
-{: codeblock}
-
-**Note:**
-* If you need to find your UAA bearer token, see [Obtaining the Cloud Foundry UAA bearer token](./provisioning.html#Obtaining-the-Cloud-Foundry-UAA-bearer-token).
-* If you need to find your space GUIDs, see [Obtaining the space GUID](./provisioning.html#obtaining-the-space-guid).
-
-## Customization options
-
-You can customize the following options:
-
-### Operating system packages
-
-You can install or remove operating system packages by using the package-admin tool. The IBM Analytics Engine cluster comes bundled with a utility named `package-admin` that you can use to install or remove YUM packages from supported repos (only centOS base and updates).
-
-```
- sudo package-admin -c [install | remove] -p [package name]
-```
-
-You must execute all customization actions as the non root user (clsadmin). To use package-admin you must use `sudo`.
-
-### Install Python and R libraries
-
-There are two versions of Anaconda installed on all nodes:
-
-* Anaconda with Python 2.7 at `/home/common/conda/anaconda2`
-* Anaconda with Python 3.5 at `/home/common/conda/anaconda3`
-
-In your script, use commands like:
-```
-/home/common/conda/anaconda[2|3]/bin/pip install [python or R packages]
-```   
-### Change Ambari configurations
-
-Ambari configurations only apply to the  management node. To ensure that these commands run only on the relevant  management node, add the following check to your script:
-
-`if [ "x$NODE_TYPE" == "xmanagement-slave2" ]`
-
-For example:
-```
-if [ "x$NODE_TYPE" == "xmanagement-slave2" ]
-then
-    echo "Updating ambari config properties"
-    #change mapreduce.map.memory to 8192mb
-    /var/lib/ambari-server/resources/scripts/configs.sh -u $AMBARI_USER -p $AMBARI_PASSWORD -port $AMBARI_PORT -s set $AMBARI_HOST $CLUSTER_NAME mapred-site "mapreduce.map.memory.mb" "8192"
-    # stop MAPREDUCE2 service
-    curl -v --user $AMBARI_USER:$AMBARI_PASSWORD -H "X-Requested-By: ambari" -i -X PUT -d '{"RequestInfo": {"context": "Stop MAPREDUCE2"}, "ServiceInfo": {"state": "INSTALLED"}}' https://$AMBARI_HOST:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/services/MAPREDUCE2
-    sleep 60
-    # start MAPREDUCE2 service
-    curl -v --user $AMBARI_USER:$AMBARI_PASSWORD -H "X-Requested-By: ambari" -i -X PUT -d '{"RequestInfo": {"context": "Start MAPREDUCE2"}, "ServiceInfo": {"state": "STARTED"}}' https://$AMBARI_HOST:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/services/MAPREDUCE2
-fi
-```
-As you notice in the above example, `AMBARI_HOST`, `AMBARI_PORT`, `AMBARI_USER`, `AMBARI_PASSWORD`, `CLUSTER_NAME`, `NODE_TYPE` are the exposed environment variables, which can be used in the script.
-
-### Configure COS/S3 Object Storage as a data source for Hadoop/Spark
-
-For details see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html).
-
 ## Location of the customization script
-
 You can add a customization script to the following sources:
-
 *	Http with or without basic authentication
-*	Https
-*	{{site.data.keyword.objectstoragefull}}
+*	Https with or without basic authentication
+*	Bluemix Swift
 *	Softlayer Swift
 *	Softlayer COS S3
 
-The following sections provide sample actions for the various sources.
+Examples for each type are given in the following sections.
 
-### HTTP (with or without basic authentication)
-```       
-"customization":[ {
-    "name": "action1",
-    "type": "bootstrap",
-    "script": {
-        "source_type": "http",
-        "script_path": "http://host:port/bootstrap.sh"
-    },
-    "script_params": ["arg1", "arg2"]
-  }]
-```
-### HTTPS
-```      
-"customization":[{
-    "name": "action1",
-    "type": "bootstrap",
-    "script": {
-        "source_type": "https",
-        "source_props": {
-             "username": "user",
-             "password": "pwd"
-         },
-         "script_path": "https://host:port/bootstrap.sh"
-    },
-    "script_params": ["arg1", "arg2"]
-  }]
-```
-### {{site.data.keyword.Bluemix_notm}} object store
-```
-"customization":[ {
-    "name": "action1",
-    "type": "bootstrap",
-    "script": {
-        "source_type": "BluemixSwift",
-        "source_props": {
-           "auth_url": "https://identity.open.softlayer.com",
-            "user_id": "xxxxxxxx",
-           "password": "yyyyyyyyyyj",
-           "project_id": "zzzzzzzzz",
-           "region": "dallas"
-         },
-         "script_path": "/myContainer/myFolder/bootstrap.sh"
-    },
-    "script_params": ["arg1", "arg2"]
-  }]
-```
-For more detail on how to store your script and artifacts in a {{site.data.keyword.Bluemix_short}} object store and use the same script during customization see the [samples page](./Customization-script-on-Bluemix-Object-Store.html).
+## Specifying the target for runnning customization
 
-### SoftLayer Swift
-```
-"customization":[ {
-    "name": "action1",
-    "type": "bootstrap",
-    "script": {
-        "source_type": "SoftLayerSwift",
-        "source_props": {
-           "auth_endpoint": "https://dal05.objectstorage.service.networklayer.com/auth/v1.0/",
-           "username": "xxxxxxx",
-           "api_key": "yyyyyyy"
-         },
-         "script_path": "/myContainer/myFolder/bootstrap.sh"
-     },
-    "script_params": ["arg1", "arg2"]
-  }]
-```
-### Softlayer COS S3
-```
-"customization":[ {
-    "name": "action1",
-    "type": "bootstrap",
-    "script": {
-        "source_type": "CosS3",
-        "source_props": {
-            "auth_endpoint": "s3-api.dal-us-geo.objectstorage.service.networklayer.com",
-            "access_key_id": "xxxxxxx",
-           "secret_access_key": "yyyyyy"
-         },
-         "script_path": "/myBucket/myFolder/bootstrap.sh"
-    },
-    "script_params": ["arg1", "arg2"]
-  }]
-```
-## Prerequisites for all cluster management API calls
+As mentioned before, in the case of boostrap customization, the script runs on all nodes.
+You need to specify a target only when you run:
+ - an adhoc customization
+ - or when you need to rerun a bootstrap customization script
 
-To run cluster management REST APIs, you need to pass your IAM access token. To obtain the token, follow these [steps](./Retrieve-IAM-access-token.html).
+The target can be one of the following four types
+  - `all`: runs the customization on all nodes of the cluster including management and compute
+  - `data`: runs the customization on all compute nodes
+  - `management-slave1` or `management-slave2`: This is run on the management slave node as specified. You may need this, for configuring Ambari parameters as give in the example section.
+  - A comma separated list of fully qualified node names: This runs on the given list of nodes only.
 
-### Rerunning a bootstrap customization script registered during cluster creation
+If the target is multiple nodes, the customization scripts are executed in parallel.
 
-A persisted customization script is registered during cluster creation and can be rerun. Enter the following command to rerun a persisted customization script:
+**Note:** You cannot name the management master node as a target.
 
-```
-curl -X POST -v "https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d '{"target":"all"}'  -H "Authorization: Bearer <user's IAM access token>" -H "Content-Type: application/json"
-```
-{: codeblock}
+## Predefined environment variables available for use in the customization script
+The following predefined environment variables are available that can be used in the customization script:
+`AMBARI_HOST`, `AMBARI_PORT`, `AMBARI_USER`, `AMBARI_PASSWORD`, `CLUSTER_NAME`, and `NODE_TYPE`.
+The node type can be any of these values : `data`, `management-slave1`, or `manangement-slave2`.
 
-`target` can be:
-- `all `: reruns the customization on all nodes
-- `data`: reruns the customization on all data nodes
-- `management-slave2`: This is a special case target for the Ambari configurations
-- a comma separated list of fully qualified node names: reruns on the given list of nodes only.
+## Package Admin tool
+The customization script is always executed as `cluster user`. However, the default rights of the cluster user do not allow all operations, for example, a YUM install. In such cases, you need to use the `package-admin` tool.
+The `package-admin` tool is a special utility tool available for use in the Analytics Engine cluster, which you can use to install or remove operating system packages. You can use it to install or remove YUM packages from supported repos (only centOS base and updates).
 
-### Running an adhoc customization script
+`sudo package-admin -c [install | remove] -p [package name]`
 
-An adhoc customization script can be run any time after the cluster is created and becomes active. Enter the following command to run an adhoc customization script:
+This is something you can use in the customization script or even directly on any of the cluster nodes, after you [ssh](https://console.bluemix.net/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to it.
+Note the use of `sudo` in order to execute the utililty.
 
-```
-curl -X POST -v "https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d
-'{
-	"target": "all",
-	"custom_actions": [{
-		"name": "action1",
-		"script": {
-			"source_type": "http",
-			"script_path": "http://host:port/bootstrap.sh"
-		},
-		"script_params": ["arg1", "arg2"]
-	}]
-}'  
--H "Authorization: Bearer <User's IAM access token>" -H "Content-Type: application/json"
-```
-{: codeblock}
+## What can you customize?
+- Install or remove operating system packages
+- Install analytics Python and R libraries
+- Ambari configurations
 
+**Note:** The customization script will run as long as it contains code that can be executed by the cluster user. It cannot execute code that requires root access, for example, it cannot execute code such as opening ports or changing IP table rules.
 
-### Getting cluster status
+## Tracking the status of customizaton
+This is a three step process. First you need to get the customization request ID for your instance and then invoke a second API to get the status of that particular ID. From the second invocation, you will get location details of the customization logs for each target node executed. Finally, if you need to look at the log details, you will need to [ssh](https://console.bluemix.net/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to the specific node.
 
-Enter the following cluster management REST API to get cluster status information:
-```
-curl -i -X GET https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/state -H 'Authorization: Bearer <user's IAM access token>'
-
-```
-{: codeblock}
-
-Expected response: The overall cluster state is returned in JSON format, for example, ` {"state":"Active"}`
-
-Possible states include:
-`Active`, `Customizing`, `Deleting`, `Deleted`, `Failed`, `Preparing`, `Resizing`, `Restarting`, and `Maintenance`.
-
-
-### Getting all customization requests for the given instance ID
+### Step 1 - Getting all customization requests for the given instance ID
 
 Enter the following cluster management REST API to get the customization requests for the given instance ID:
 
-```
-curl -X GET https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests -H 'Authorization: Bearer <user's IAM access token>'
+```curl -X GET https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests -H 'Authorization: Bearer <user's IAM access token>'```
 
-```
-{: codeblock}
+**Expected response:** The customization requests for the given service instance ID are returned in JSON format. For example:
 
-Expected response: The customization requests for the given service instance ID are returned in JSON format. For example:
+`[{"id":"37"},{"id":"38"}]`
 
-```
-[{"id":"37"},{"id":"38"}]
-```
-
-### Getting the details of a specific customization request
+### Step 2 - Getting the details of a specific customization request
 
 Enter the following cluster management REST API to get the details of a specific customization request:
 
-```
-curl -X GET https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests/<request_id> -H 'Authorization: Bearer <user's IAM access token>'
+```curl -X GET https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests/<request_id> -H 'Authorization: Bearer <user's IAM access token>'```
 
-```
-{: codeblock}
+**Expected response:** The customization request details are returned in JSON format.
+- The `run_status` is the overall status of execution of the script. It can be `InProgress` or `Failed` or `Completed`. If for instance, the script could not be executed because an invalid location was specified, the run_status would be `Failed`
+- The `overall_status` of customization is a summary of the customization status on the individual nodes. It can be in `progress`, `failed` or `success`. If all nodes are successful, the `overall_status` would be `success`, otherwise if one or more failed, it would be `fail`.
+- The individual status for each node's customization is given in the `status` attribute of each node. It could be `Customizing`,  `CustomizeSuccess` or  `CustomizeFailed`. For instance, if a wrong environment variable was specified for a node, then the customization for that node could have failed.
 
-Expected response: The customization request details are returned in JSON format. For example:
+If there is a failure, you may need to rerun the customization for that target or once again for all targets depending on at which point the customization failed.
+
+For example:
 
 ```
 {
@@ -353,6 +158,15 @@ Expected response: The customization request details are returned in JSON format
 }
 ```
 
-You can retrieve the log file in `log_file` by entering `ssh/scp` to the corresponding node.
+### Step 3 - Getting the details of a specific node's customization
 
-**RESTRICTION:** You might see a reference to `mn001` logs in the response if you specified `{"target":"all"}`. However, you will notice that you cannot access the corresponding log file because you do not have access to the `mn001` node. This is a spurious log and can be ignored.
+You can retrieve the log file in `log_file` by using [`ssh/scp`](https://console.bluemix.net/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to the corresponding node. This log captures the output of script execution, including the `echo` statements. If the script could not be executed due to a bad location or bad credentials specified, you will see details of the error in the log. The following example shows the log for such a case.
+
+```
+[clsadmin@chs-mwb-189-mn003 ~]$ cat /var/log/chs-mwb-189-mn003.bi.services.us-south.bluemix.net_28.log
+Error while downloading customization script, ResponseCode: 0, Please verify source_props and  script_path properties in bootstrap action
+```
+
+For examples of how to customize a cluster, see [Examples of customizations](./example-of-customizations.html).
+
+For an overview of how a cluster is provisioned and check your cluster provisioning state, see [Track cluster provisioning](./track-instance-provisioning.html).

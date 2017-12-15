@@ -31,10 +31,13 @@ Analytics Engine
     {: .topicgroup}
     Customizing a service instance
         customizing-cluster.md
+        examples-of-customizations.md
+        track-instance-provisioning.md
 
     {: .topicgroup}
     Configuring a cluster to work with object storage
         configure-COS-S3-object-storage.md
+        data-movement-on-cos.md
 
     {: .topicgroup}
     Managing a service instance
