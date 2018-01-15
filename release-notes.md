@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2018-01-12"
 
 ---
 
@@ -18,9 +18,14 @@ Use these notes to learn about the latest features, additions and changes to IBM
 {: shortdesc}
 ## IBM Analytics Engine information
 
+### 12 January 2018
+
+- IBM Analytics Engine now supports Apache Phoenix 4.7
+- Jupyter Enterprise Gateway 0.7.0 was added 
+
 ### 1 November 2017 GA
 - IBM Analytics Engine offers the following new service plans:
-  - Lite 
+  - Lite
   - Standard-Hourly
   - Standard-Monthly
 
@@ -28,7 +33,7 @@ Use these notes to learn about the latest features, additions and changes to IBM
 
 - You can now select to configure a memory intensive hardware type
 
-### 23 Oct 2017
+### 23 October 2017
 
 - The ibmos2spark (0.0.9) package for Scala and the imbos2spark (1.0.1) package for Python were updated to support the insert to code feature in IBM Data Science Experience (DSX)
 - Jupyter Enterprise Gateway support 0.5.0 was added
