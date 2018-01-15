@@ -26,13 +26,13 @@ Analytics Engine
 
     {: .topicgroup}
     Provisioning a service instance
-		  provisioning.md
+    	  provisioning.md
+        track-instance-provisioning.md
 
     {: .topicgroup}
     Customizing a service instance
         customizing-cluster.md
-        examples-of-customizations.md
-        track-instance-provisioning.md
+        example-of-customizations.md
 
     {: .topicgroup}
     Configuring a cluster to work with object storage
@@ -93,11 +93,11 @@ Analytics Engine
         wce-cli-ref-kernels.md
         wce-cli-ref-spark-submit.md
         wce-cli-ref-spark-logs.md
-		    wce-cli-reg-spark-job-status.md
+        wce-cli-ref-spark-job-status.md
         wce-cli-ref-spark-job-statuses.md
         wce-cli-ref-spark-job-cancel.md
         wce-cli-ref-username.md
-        wce-cli-versions.md
+        wce-cli-ref-versions.md
 
     {: .topicgroup}
     Miscellaneous

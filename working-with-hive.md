@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2018-01-09"
 
 ---
 
@@ -49,9 +49,9 @@ The following examples show useful HiveQL statements.
 
 - Example of a CREATE TABLE statement with data in COS object store:
 
-	`CREATE EXTERNAL TABLE s3aTable( no INT, name STRING)
+	`CREATE EXTERNAL TABLE myhivetable( no INT, name STRING)
 	ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-	LOCATION 's3a://mybucket/myhivedir';`
+	LOCATION 'cos://mybucket.myprodservice/myhivedir';`
 
 
 ## Changing the Hive execution engine

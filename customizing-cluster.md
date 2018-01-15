@@ -15,7 +15,7 @@ lastupdated: "2017-12-14"
 
 # Customizing a cluster
 
-Sometime you might have to customize a cluster specifically to suit your needs, over and above what is provisioned on a default basis. For example, you might want to install custom analytics third-party libraries or you might want to fine-tune some cluster configurations, for example, the Hadoop MapReduce heap size.
+Sometimes you might have to customize a cluster specifically to suit your needs, over and above what is provisioned on a default basis. For example, you might want to install custom analytics third-party libraries or you might want to fine-tune some cluster configurations, for example, the Hadoop MapReduce heap size.
 
 These customizations might need to be applied and executed every time a new cluster is created or be executed iteratively on an existing cluster as needed. To this end, a shell script with all the required customizations can be placed at some source, such as HTTP or S3 location, and given as input to be executed to customize the cluster.
 The customization feature can be invoked in two ways, namely as:
@@ -95,7 +95,7 @@ Note the use of `sudo` in order to execute the utililty.
 
 **Note:** The customization script will run as long as it contains code that can be executed by the cluster user. It cannot execute code that requires root access, for example, it cannot execute code such as opening ports or changing IP table rules.
 
-## Tracking the status of customizaton
+## Tracking the status of the customizaton
 This is a three step process. First you need to get the customization request ID for your instance and then invoke a second API to get the status of that particular ID. From the second invocation, you will get location details of the customization logs for each target node executed. Finally, if you need to look at the log details, you will need to [ssh](https://console.bluemix.net/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to the specific node.
 
 ### Step 1 - Getting all customization requests for the given instance ID
@@ -167,6 +167,5 @@ You can retrieve the log file in `log_file` by using [`ssh/scp`](https://console
 Error while downloading customization script, ResponseCode: 0, Please verify source_props and  script_path properties in bootstrap action
 ```
 
+## Customization examples
 For examples of how to customize a cluster, see [Examples of customizations](./example-of-customizations.html).
-
-For an overview of how a cluster is provisioned and check your cluster provisioning state, see [Track cluster provisioning](./track-instance-provisioning.html).

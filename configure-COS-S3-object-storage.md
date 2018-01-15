@@ -21,7 +21,9 @@ This section explains how to configure an IBM Analytics Engine cluster to connec
 
  - **Cloud Object Storage (COS S3)**. This supports IBM IAM authentication which can be done by using the IAM API Key or the IAM token. Using IAM tokens gives you a fine grained control over user access to buckets.   
 
- - **Cloud Object Storage (COS S3) IAA-3** . This supports Amazon Web Services (AWS) style authentication.
+ - **Cloud Object Storage (COS S3) IAAS** . This supports Amazon Web Services (AWS) style authentication.
+
+
  To learn more about COS and its authentication mechanisms, click [here](https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage).  
 
  Both of these styles of IBM S3 COS object store instances can be accessed using the `cos://` scheme. Details of the configuration parameters you need and the URI to access objects is described in the following sections. You can also access Amazon AWS object store instances from the cluster using the `s3a://` scheme.

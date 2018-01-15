@@ -108,6 +108,12 @@ Create in progress. Use `cf services` or `cf service <service instance name>` to
 ```
 Service provisioning happens asynchronously. Successful response just means that the provisioning request has been accepted. Service provisioning is considered complete only when the associated cluster is created and made Active.
 
+## Provisioning overview
+
+For an overview of how a cluster is provisioned and how to check your cluster provisioning state, see [Track cluster provisioning](./track-instance-provisioning.html).
+
+
+
 ## Querying for service provisioning status
 Command - `cf service <service instance name>`
 Sample Response -

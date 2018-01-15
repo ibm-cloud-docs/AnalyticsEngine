@@ -40,16 +40,10 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 ## Running wordcount on data stored in S3-based object stores
 
-### Example running Wordcount using s3a
-```
-yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
-wordcount s3a://<mybucketname>/input s3a://<mybucketname>/output
-```
-
 ### Example running Wordcount using cos
 ```
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
-wordcount cos://<mybucketname>.softlayer/input cos://<mybucketname>.softlayer/output
+wordcount cos://mybucket.myprodservice/output
 ```
 
 **Note**: For more information on configuring the cluster to work with S3 object stores, see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-and-Swift-object-storage.html).

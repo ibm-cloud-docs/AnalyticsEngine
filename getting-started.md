@@ -20,7 +20,7 @@ IBM Analytics Engine provides a flexible framework to develop and deploy analyti
 Learn how IBM Analytics Engine can help you complete your tasks in the following ways:
 
 * [Review scenarios](/docs/services/AnalyticsEngine/getting-started.html#scenario-examples) that show you how to query data using the Spark SQL through a Data Science Experience (DSX) notebook and how to run a Spark application using Spark submit.
-* Watch a [video](https://youtu.be/kGkPmCY8nQw) that provides an overview of IBM Analytics Engine.
+* Watch a [video](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/) that provides an overview of IBM Analytics Engine.
 * [Create an IBM Analytics Engine cluster](/docs/services/AnalyticsEngine/getting-started.html#creating-an-ibm-analytics-engine-cluster).
 
 ## Scenario examples
