@@ -111,10 +111,10 @@ DB_PWD=<SADFZCZVXZVC>
 DB_NAME=<compose>
 DB_CXN_URL=<jdbc:mysql://bluemix-sandbox-dal-9-portal.6.dblayer.com:12121?createDatabaseIfNotExist=true>
 
-if [ "x$NODE_TYPE" == "xmanagement" ]
+if [ "x$NODE_TYPE" == "xmanagement-slave2" ]
 then
 
-    echo "Node type is xmanagement hence updating ambari properties"
+    echo "Updating ambari properties"
     /var/lib/ambari-server/resources/scripts/configs.sh -u $AMBARI_USER -p $AMBARI_PASSWORD -port $AMBARI_PORT -s set $AMBARI_HOST  $CLUSTER_NAME hive-site "javax.jdo.option.ConnectionURL" $DB_CXN_URL /var/lib/ambari-server/resources/scripts/configs
     /var/lib/ambari-server/resources/scripts/configs.sh -u $AMBARI_USER -p $AMBARI_PASSWORD -port $AMBARI_PORT -s set $AMBARI_HOST  $CLUSTER_NAME hive-site "javax.jdo.option.ConnectionUserName" $DB_USER_NAME
     /var/lib/ambari-server/resources/scripts/configs.sh -u $AMBARI_USER -p $AMBARI_PASSWORD -port $AMBARI_PORT -s set $AMBARI_HOST  $CLUSTER_NAME hive-site "javax.jdo.option.ConnectionPassword" $DB_PWD
