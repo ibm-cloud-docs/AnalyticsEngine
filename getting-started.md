@@ -42,21 +42,21 @@ To upload data into the object store, refer to documentation of the respective o
 
 **To connect your DSX instance to an IBM Analytics Engine cluster:**
 
-1. Log in to [DSX](https://datascience.ibm.com/). Ensure that your DSX account is associated with the same {{site.data.keyword.Bluemix_short}} account, organization, and space that you created the IBM Analytics Engine cluster with.
+1. Log in to [DSX](https://datascience.ibm.com/). Ensure that your DSX account is associated with the same {{site.data.keyword.Bluemix_short}} account, region, organization, and space where your IBM Analytics Engine cluster resides.
 
 2. Create a new project in DSX or open an existing DSX project that you want to use with IBM Analytics Engine.
 
-3. Select the project's **Settings** tab and scroll down to see the **Associated Services** list.
+3. Select the project's **Settings** tab and scroll down to see the **Associated services** list.
 
-4. Click **add associated service**. A menu of services is displayed.
+4. Click **Add service** and select **IBM Analytics Engine**.
 
-5. Select **IBM Analytics Engine**.
+6. On the next screen, select the IBM Analytics Engine instance that you created in {{site.data.keyword.Bluemix_short}}.
 
-6. On the next screen, select your IBM Analytics Engine instance that you created in {{site.data.keyword.Bluemix_short}}.
+ You are ready to start running queries and jobs from a DSX notebook using Apache Spark in IBM Analytics Engine.
 
-Now this project has been associated with the instance of IBM Analytics Engine that you previously created. You are ready to start running queries and jobs from a DSX notebook using Apache Spark in IBM Analytics Engine.
+ **Note:** If you want the IBM Analytics Engine service that you created to be the default service for your project, you must remove any Spark services in the **Associated services** list on the project's **Settings** tab. If you don't want to remove any existing services, you can select to run a designated notebook in IBM Analytics Engine. Select this notebook on the project's **Assets** tab and then click **Actions > Change Service** to select your IBM Analytics Engine service.
 
-The Jupyter notebook [here](https://github.com/wdp-beta/get-started/blob/master/notebooks/iae-scenario-part-1.ipynb) includes steps and instructions to get you started with analyzing data by using SparkSQL. Add the notebook to your project in DSX and run it.
+ The Jupyter notebook [here](https://github.com/wdp-beta/get-started/blob/master/notebooks/iae-scenario-part-1.ipynb) includes steps and instructions to get you started with analyzing data by using SparkSQL. Add the notebook to your project in DSX and run it using IBM Analytics Engine.
 
 #### Running a simple Spark application using Spark submit
 You can run Spark applications locally or distributed across a cluster, either by using an interactive shell or by submitting an application. In this task, you will learn how to submit a batch job to count words in a text file on HDFS.
