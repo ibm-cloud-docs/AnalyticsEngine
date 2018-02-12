@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-14"
+  years: 2017, 2018
+lastupdated: "2018-02-12"
 
 ---
 
@@ -21,7 +21,7 @@ This section explains how to configure an IBM Analytics Engine cluster to connec
 
  - **Cloud Object Storage (COS S3)**. This supports IBM IAM authentication which can be done by using the IAM API Key or the IAM token. Using IAM tokens gives you a fine grained control over user access to buckets.   
 
- - **Cloud Object Storage (COS S3) IAAS** . This supports Amazon Web Services (AWS) style authentication.
+ - **Cloud Object Storage (infrastructure)** . This supports Amazon Web Services (AWS) style authentication.
 
 
  To learn more about COS and its authentication mechanisms, click [here](https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage).  
@@ -34,25 +34,14 @@ This section explains how to configure an IBM Analytics Engine cluster to connec
 
 In order for an application to connect to an object store, the cluster configuration must be updated with object store credentials and other values. For this, object store data like the credentials, URL, etc. must be added to the core-site.xml file as a set of key/value pairs. You can configure the object store by using one of the following three options:
 
-* [Configure via the Ambari UI after the cluster was created](#configure-via-the-ambari-ui-after-the-cluster-was-created)
+* [Configure via the Ambari UI after the cluster was created](./configure-cos-via-ambari.html)
 * [Customize the cluster using a customization script](#customize-the-cluster-using-a-customization-script)
 * [Specify the properties at runtime](#specify-the-properties-at-runtime)
 
 After you configured the cluster, you can access objects in the object store using HDFS commands, and run MR, Hive and Spark jobs on them.
 
-### Configure via the Ambari UI after the cluster was created
-
-#### Add properties and values to the core-site.xml file
-
-To add the properties and values to your core-site.xml file on your cluster instance:
-
-1. Open the Ambari console, and then the advanced configuration for HDFS.<br>
-``` Ambari dashboard > HDFS > Configs > Advanced > Custom core-site > Add Property```
-2. Add the properties and values.
-3. Save your changes and restart any affected services. The cluster will have access to  your object store.
-
 ### Customize the cluster using a customization script
-You can use s customization script when the cluster is created. This script includes the properties that need to be configured in the core-site.xml file and use the Ambari configs.sh file to make the required changes.
+You can use a customization script when the cluster is created. This script includes the properties that need to be configured in the core-site.xml file and use the Ambari configs.sh file to make the required changes.
 
 #### Sample cluster customization script to configure the cluster with an AWS style authenticated object store
 

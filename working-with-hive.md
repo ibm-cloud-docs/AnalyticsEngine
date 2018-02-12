@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2018-01-09"
+  years: 2017, 2018
+lastupdated: "2018-02-12"
 
 ---
 
@@ -47,11 +47,13 @@ The following examples show useful HiveQL statements.
 
 	`SELECT * from doc;`
 
-- Example of a CREATE TABLE statement with data in COS object store:
+## Accessing data in IBM CLoud Object Storage S3 from Hive  
 
-	`CREATE EXTERNAL TABLE myhivetable( no INT, name STRING)
-	ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-	LOCATION 'cos://mybucket.myprodservice/myhivedir';`
+Use the following example statement to access data in IBM Cloud Object Storage (COS) from Hive:
+```
+CREATE EXTERNAL TABLE myhivetable( no INT, name STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+LOCATION 'cos://<bucketname>.<servicename>/dir1'; ```
 
 
 ## Changing the Hive execution engine

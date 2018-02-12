@@ -37,6 +37,7 @@ Analytics Engine
     {: .topicgroup}
     Configuring a cluster to work with object storage
         configure-COS-S3-object-storage.md
+        configure-cos-via-ambari.md
         data-movement-on-cos.md
 
     {: .topicgroup}
@@ -108,6 +109,7 @@ Analytics Engine
 
     {: .navgroup id="help"}
     release-notes.md
+    faq.md
     troubleshooting.md
     Known-issues.md
     workaround-oozie-jobs.md
