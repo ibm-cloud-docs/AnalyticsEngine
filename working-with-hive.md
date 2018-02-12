@@ -55,6 +55,8 @@ CREATE EXTERNAL TABLE myhivetable( no INT, name STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 LOCATION 'cos://<bucketname>.<servicename>/dir1'; ```
 
+`<bucketname>` is the COS bucket. The value for `<servicename>` can be any literal such as `iamservice` or `myprodservice`.
+
 
 ## Changing the Hive execution engine
 
