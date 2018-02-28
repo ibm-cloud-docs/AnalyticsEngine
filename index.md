@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-11-02"
+  years: 2017, 2018
+lastupdated: "2018-02-28"
 
 ---
 
@@ -36,6 +36,7 @@ Tez 0.7.0 &#42; <br>
 Pig 0.16.0 &#42; <br>
 Sqoop 1.4.6 &#42; <br>
 Slider 0.92.0 &#42; <br>
+Apache Phoenix 4.7 &#42; <br>
 
 &#42;Available in _AE 1.0 Hadoop and Spark pack_ only
 
