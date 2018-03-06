@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-11-02"
+  years: 2017, 2018
+lastupdated: "2018-03-06"
 
 ---
 
@@ -46,7 +46,7 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 wordcount cos://mybucket.myprodservice/output
 ```
 
-**Note**: For more information on configuring the cluster to work with S3 object stores, see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-and-Swift-object-storage.html).
+**Note**: For more information on configuring the cluster to work with S3 object stores, see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html).
 
 ## Submitting MapReduce jobs with Oozie
 You can also run a MapReduce job by submitting the MapReduce job with Oozie through the oozie_rest endpoint URL. Complete the following steps to run a sample word count job.
@@ -119,7 +119,7 @@ You can also run a MapReduce job by submitting the MapReduce job with Oozie thro
  <end name="end"/>
 </workflow-app>
 ```
- For more information about workflow definitions, see the [Oozie Specification](https://oozie.apache.org/docs/4.2.0/WorkflowFunctionalSpec.html), a Hadoop Workflow System.
+ For more information about workflow definitions, see the [Oozie Specification](https://oozie.apache.org/docs/4.2.0/WorkflowFunctionalSpec.html), a Hadoop workflow system.
 
 3. Upload workflow.xml into the Oozie application directory in the HDFS (/user/clsadmin/examples/apps/mapreduce).
 ```
