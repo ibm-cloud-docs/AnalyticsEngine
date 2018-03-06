@@ -19,7 +19,9 @@ lastupdated: "2018-03-06"
 
 ## Analyzing data by opening the ssh connection
 
-You can work with your data by analyzing the data with a Hadoop MapReduce program by opening the ssh connection to the cluster through a yarn command. For example:
+You can work with your data by analyzing the data with a Hadoop MapReduce program by opening the ssh connection to the cluster through a yarn command.
+
+### Example with TeraGen
 
 ```
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar  \
@@ -29,18 +31,22 @@ teragen  1000000   /user/clsadmin/teragen/test1G
 
 ## Compressing output from large workloads
 
-If you are running MapReduce jobs with large workloads, consider enabling compression for the output to reduce the size of the intermediate data. To enable such compression, set the ```mapreduce.map.output.compress``` property to ```true``` in your command string. For example:
+If you are running MapReduce jobs with large workloads, consider enabling compression for the output to reduce the size of the intermediate data. To enable such compression, set the `mapreduce.map.output.compress` property to `true` in your command string.
+
+You must run the TeraGen sample code in the previous section before you run the following TeraSort sample code.
+
+### Example with TeraSort
 
 ```
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort \
   -D mapreduce.map.output.compress=true  \
-  /user/clsadmin/teragen/test10G /user/clsadmin/terasort/test1Gsort
+  /user/clsadmin/teragen/test1G /user/clsadmin/terasort/test1Gsort
 ```
 {: codeblock}
 
 ## Running wordcount on data stored in S3-based object stores
 
-### Example running Wordcount using cos
+### Example running Wordcount using COS
 ```
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 wordcount cos://mybucket.myprodservice/output
