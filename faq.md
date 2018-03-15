@@ -67,7 +67,7 @@ lastupdated: "2018-01-25"
 <li><b>Integration</b>
 <ul>
 <li>[Which other IBM Cloud services can I use with IBM Analytics Engine?](#which-other-ibm-cloud-services-can-i-use-with-ibm-analytics-engine-)</li>
-<li>[How is IBM Analytics Engine integrated with Data Science Experience?](#how-is-ibm-analytics-engine-integrated-with-data-science-experience-)</li>
+<li>[How is IBM Analytics Engine integrated with {{site.data.keyword.DSX_short}}?](#how-is-ibm-analytics-engine-integrated-with-watson-data-platform-)</li>
 <li>[Can I use Kafka for data  ingestion?](#can-i-use-kafka-for-data-ingestion-)</li>
 <li>[Can I set ACID properties for Hive in IBM Analytics Engine?](#can-i-set-acid-properties-for-hive-in-ibm-analytics-engine-)</li>
 </ul></li>
@@ -155,7 +155,7 @@ How do I add more users to my cluster?
 All clusters in IBM Analytics Engine are single user, in other words, each cluster has only one Hadoop user ID with which all jobs
 are executed. User authentication and access control is managed by the IBM Cloud Identity and Access Management (IAM) service. After a user has logged on to IBM Cloud, access to IBM Analytics Engine is given or denied based on the IAM permissions set by the administrator.
 
-A user can share his or her cluster’s user ID and password with other users; note however that in this case the other users have full access to the cluster. Sharing a cluster through a project in IBM Data Science Experience is the recommended approach. In this scenario, an administrator sets up the cluster through the IBM Cloud portal and *associates* it with a project in Data Science Experience. After this is done, users who have been granted access to that project can submit jobs through notebooks or other tools that requires a Spark or Hadoop runtime. An advantage of this approach is that user access to the IBM Analytics Engine cluster or to any data to be analyzed can be controlled within Data Science Experience.
+A user can share his or her cluster’s user ID and password with other users; note however that in this case the other users have full access to the cluster. Sharing a cluster through a project in {{site.data.keyword.DSX_short}} is the recommended approach. In this scenario, an administrator sets up the cluster through the IBM Cloud portal and *associates* it with a project in {{site.data.keyword.DSX_short}}. After this is done, users who have been granted access to that project can submit jobs through notebooks or other tools that requires a Spark or Hadoop runtime. An advantage of this approach is that user access to the IBM Analytics Engine cluster or to any data to be analyzed can be controlled within {{site.data.keyword.DSX_short}}.
 
 ### How is data access control enforced in IBM Analytics Engine?
 
@@ -163,7 +163,7 @@ Data access control can be enforced by using IBM Cloud Object Storage ACLs (acce
 
 An administrator can set permissions on a Cloud Object Storage bucket or on stored files. Once these permissions are set, the credentials of a user determine whether access to a data object through IBM Analytics Engine can be granted or not.
 
-In addition, all data in Cloud Object Storage can be cataloged using the Watson Data Platform (WDP) Data Catalog functionality. Governance policies can be defined and enforced using Data Catalog after the data was cataloged. Projects created in WDP can be used for a better management of user access control.
+In addition, all data in Cloud Object Storage can be cataloged using the IBM Watson Knowledge Catalog functionality. Governance policies can be defined and enforced using Data Catalog after the data was cataloged. Projects created in WDP can be used for a better management of user access control.
 
 ### Can I run a cluster or job for a long time?
 
@@ -256,13 +256,13 @@ cluster:
 ## Integration
 
 ### Which other IBM Cloud services can I use with IBM Analytics Engine?
-IBM Analytics Engine is a compute engine offered in Watson Data Platform. It integrates with important offerings in Watson Data Platform, for example, Data Science Experience can be used to push jobs to IBM Analytics Engine. Data can be written to Cloudant or Db2 Warehouse on Cloud after being processed by using Spark.
+IBM Analytics Engine is a compute engine offered in {{site.data.keyword.DSX_short}} and can be used to push {{site.data.keyword.DSX_short}} jobs to IBM Analytics Engine. Data can be written to Cloudant or Db2 Warehouse on Cloud after being processed by using Spark.
 
-### How is IBM Analytics Engine integrated with Data Science Experience?
+### How is IBM Analytics Engine integrated with IBM Watson Studio?
 
-IBM Analytics Engine is a first class citizen in Data Science Experience (DSX). Projects (or individual notebooks) in
-DSX can be associated with IBM Analytics Engine. Once you have an
-IBM Analytics cluster running in IBM Cloud, log in to DSX using the same IBM Cloud credentials you used for IBM Analytics Engine, create a project, go to the project's Settings page, and then add  the IBM Analytics Engine service instance you created to the  project. For details, including videos and tutorials, see [Watson Data Platform Learning ](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/).
+IBM Analytics Engine is a first class citizen in {{site.data.keyword.DSX_short}}. Projects (or individual notebooks) in
+{{site.data.keyword.DSX_short}} can be associated with IBM Analytics Engine. Once you have an
+IBM Analytics cluster running in IBM Cloud, log in to {{site.data.keyword.DSX_short}} using the same IBM Cloud credentials you used for IBM Analytics Engine, create a project, go to the project's Settings page, and then add  the IBM Analytics Engine service instance you created to the  project. For details, including videos and tutorials, see [IBM Watson Learning ](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/).
 After you have added the IBM Analytics Engine service to the project, you can select to run a notebook on the service. For details on how to run code in a notebook, see [Code and run notebooks](https://dataplatform.ibm.com/docs/content/analyze-data/code-run-notebooks.html?audience=wdp&context=analytics).
 
 ### Can I use Kafka for data ingestion?

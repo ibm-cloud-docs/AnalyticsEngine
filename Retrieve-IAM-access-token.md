@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-11-02"
+  years: 2017,2018
+lastupdated: "2018-03-07"
 
 ---
 
@@ -15,9 +15,9 @@ lastupdated: "2017-11-02"
 
 # Retrieving IAM access tokens
 
-## Pre-requisites
+## Prerequisites
 
-a. You must have a valid IBM ID.
+a. You must have a valid IBMid.
 
 b. Download and install the [{{site.data.keyword.Bluemix_notm}} CLI](https://console.bluemix.net/docs/cli/reference/bluemix_cli/all_versions.html#bluemix-cli-installer-downloads).
 

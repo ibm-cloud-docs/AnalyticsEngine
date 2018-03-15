@@ -16,7 +16,7 @@ lastupdated: "2017-11-02"
 # Beta scenarios: Using Spark SQL and running a Spark application
 IBM Analytics Engine provides a flexible framework to develop and deploy analytics applications in Apache Hadoop and Apache Spark. It allows you to create and manage clusters using the {{site.data.keyword.Bluemix_notm}} interface or using the Cloud Foundry CLI and REST APIs.
 
-Two scenarios provide tasks that show you how to query data using the Spark SQL through a Data Science Experience (DSX) notebook and how to run a Spark application using Spark submit. An open data set from the City of New York containing calls to the 311 number to report issues with infrastructure will be used as sample data for the scenarios.
+Two scenarios provide tasks that show you how to query data using the Spark SQL through a {{site.data.keyword.DSX_short}} notebook and how to run a Spark application using Spark submit. An open data set from the City of New York containing calls to the 311 number to report issues with infrastructure will be used as sample data for the scenarios.
 
 ## Uploading data
 Before you start executing the scenario, you need to bring in the sample data. IBM Analytics Engine is based on Apache Hadoop and Spark. While it provides the HDFS file system and a limited amount of storage in the cluster, we recommend using IBM Cloud Object Store or the Swift-based {{site.data.keyword.objectstoragefull}} service to store data.
@@ -28,14 +28,14 @@ To upload data into the object store, refer to documentation of the respective o
 
 ## Scenarios
 
-### Querying data using Spark SQL through a DSX notebook
+### Querying data using Spark SQL through a Watson Studio notebook
 **Spark SQL** is a **Spark** module for structured data processing. Unlike the basic **Spark** RDD API, the interfaces provided by Spark SQL provide **Spark** with more information about the structure of both the data and the computation being performed. You can interact with **Spark** SQL using SQL and the Dataset API.
 
-**To connect your DSX instance to an IBM Analytics Engine cluster**
+**To connect your {{site.data.keyword.DSX_short}} instance to an IBM Analytics Engine cluster**
 
-1. Log in to [DSX](https://datascience.ibm.com/). Ensure that your DSX account is associated with the same {{site.data.keyword.Bluemix_notm}} account, organization, and space that you created the IBM Analytics Engine cluster with.
+1. Log in to [{{site.data.keyword.DSX_short}}](https://datascience.ibm.com/). Ensure that your {{site.data.keyword.DSX_short}} account is associated with the same {{site.data.keyword.Bluemix_notm}} account, organization, and space that you created the IBM Analytics Engine cluster with.
 
-2. Create a new project in DSX or open an existing DSX project that you want to use with IBM Analytics Engine.
+2. Create a new project in {{site.data.keyword.DSX_short}} or open an existing {{site.data.keyword.DSX_short}} project that you want to use with IBM Analytics Engine.
 
 3. Select the project's **Settings** tab and scroll down to see the **Associated Services** list.
 
@@ -45,9 +45,9 @@ To upload data into the object store, refer to documentation of the respective o
 
 6. On the next screen, select your IBM Analytics Engine instance that you created in {{site.data.keyword.Bluemix_notm}}.
 
-Now this project has been associated with the instance of IBM Analytics Engine that you previously created. You are ready to start running queries and jobs from a DSX notebook using Apache Spark in IBM Analytics Engine.
+Now this project has been associated with the instance of IBM Analytics Engine that you previously created. You are ready to start running queries and jobs from a {{site.data.keyword.DSX_short}} notebook using Apache Spark in IBM Analytics Engine.
 
-A Jupyter notebook [here](https://github.com/wdp-beta/get-started) includes steps and instructions get you started with analyzing data by using SparkSQL. Add the notebook to your project in DSX and run it.
+A Jupyter notebook [here](https://github.com/wdp-beta/get-started) includes steps and instructions get you started with analyzing data by using SparkSQL. Add the notebook to your project in {{site.data.keyword.DSX_short}} and run it.
 
 
 ### Running a simple Spark application using Spark submit

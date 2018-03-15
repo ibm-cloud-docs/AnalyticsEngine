@@ -35,18 +35,18 @@ Use these notes to learn about the latest features, additions and changes to IBM
 
 ### 23 October 2017
 
-- The ibmos2spark (0.0.9) package for Scala and the imbos2spark (1.0.1) package for Python were updated to support the insert to code feature in IBM Data Science Experience (DSX)
+- The ibmos2spark (0.0.9) package for Scala and the imbos2spark (1.0.1) package for Python were updated to support the insert to code feature in {{site.data.keyword.DSX_short}} 
 - Jupyter Enterprise Gateway support 0.5.0 was added
 - Stocator 1.0.10 support for COS IAM using Spark was added
 - The Hortonworks Data Platform build was moved from non-GA (HDP-2.6.2.0-198) to GA (HDP-2.6.2.0-205)
-- Support of a Spark job progress bar was added to IBM Analytics Engine. This enables monitoring Spark job progress in notebooks run in DSX.
+- Support of a Spark job progress bar was added to IBM Analytics Engine. This enables monitoring Spark job progress in notebooks run in {{site.data.keyword.DSX_short}}.
 - The Spark History UI fix for downloading Spark job logs (KNOX Issue) was added
 
 ### 19 September 2017
 
 * The IBM Analytics Engine service is in beta program
 * IBM Analytics Engine is now based on Hortonworks Data Platform (HDP 2.6)
-* You can seamlessly integrate IBM Analytics Engine from DSX.
+* You can seamlessly integrate IBM Analytics Engine from {{site.data.keyword.DSX_short}}.
 * You can use external MySQL to store Hive metadata. For details see [Externalizing the Hive Metastore to Compose for MySQL](./external-hive-metastore.html).
 * Spark lazy initialization for Scala is supported, in addition to existing support for R and Python. For details see [Lazy Spark initialization](./lazy-spark-initialization.html).
 * You can use IAM for both authentication and authorization of Cluster Manager UI

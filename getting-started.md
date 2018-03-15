@@ -24,7 +24,7 @@ IBM Analytics Engine provides a flexible framework to develop and deploy analyti
 ## Provision an instance and create a cluster
 * Watch how to [get started using IBM Analytics Engine](https://www.youtube.com/watch?time_continue=1&v=MWA-eLXzt3A).
 
-  In this video you will learn how to provision an IBM Analytics Engine cluster from IBM Cloud, find out about options to manage the cluster, and see how to connect Data Science Experience to IBM Analytics Engine to analyze data.
+  In this video you will learn how to provision an IBM Analytics Engine cluster from IBM Cloud, find out about options to manage the cluster, and see how to connect {{site.data.keyword.DSX_short}} to IBM Analytics Engine to analyze data.
 
  For details about the supported plans and on how to provision and configure your cluster, see the [IBM Analytics Engine documentation](./provisioning.html#provisioning-an-analytics-engine-service-instance).
 

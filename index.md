@@ -14,7 +14,7 @@ lastupdated: "2018-02-28"
 {:pre: .pre}
 
 # Introduction
-With IBM Analytics Engine you can create Apache Spark and Apache Hadoop clusters in minutes and customize these clusters by using scripts. You can work with data in IBM Cloud Object Storage, as well as integrate other Watson Data Platform services like IBM Data Science Experience and Machine Learning.
+With IBM Analytics Engine you can create Apache Spark and Apache Hadoop clusters in minutes and customize these clusters by using scripts. You can work with data in IBM Cloud Object Storage, as well as integrate other IBM Watson services like {{site.data.keyword.DSX_short}} and Machine Learning.
 
 You can define clusters based on your application's requirements choosing the appropriate software pack, version and size of the clusters
 

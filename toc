@@ -26,7 +26,8 @@ Analytics Engine
 
     {: .topicgroup}
     Provisioning a service instance
-    	  provisioning.md
+    	provisioning.md
+        provisioning_deprecated.md
         track-instance-provisioning.md
 
     {: .topicgroup}
@@ -103,7 +104,8 @@ Analytics Engine
     {: .topicgroup}
     Miscellaneous
         Retrieve-IAM-access-token.md
-		retrieving-uaa-access-token.md
+        retrieving-uaa-access-token.md
+        retrieve-service-instance-id.md
 		granting-permissions-to-users.md
     {: .navgroup-end}
 
