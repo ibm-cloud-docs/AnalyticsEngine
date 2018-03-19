@@ -21,7 +21,7 @@ Use these notes to learn about the latest features, additions and changes to IBM
 ### 12 January 2018
 
 - IBM Analytics Engine now supports Apache Phoenix 4.7
-- Jupyter Enterprise Gateway 0.7.0 was added 
+- Jupyter Enterprise Gateway 0.7.0 was added
 
 ### 1 November 2017 GA
 - IBM Analytics Engine offers the following new service plans:
