@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -15,11 +15,11 @@ lastupdated: "2017-11-02"
 
 # Livy API
 
-[Livy](https://github.com/cloudera/livy) is an open source REST interface for submitting batch jobs to Apache Spark on an IBM Analytics Engine cluster.
+[Livy](https://github.com/cloudera/livy) is an open source REST interface for submitting batch jobs to Apache Spark on an {{site.data.keyword.iae_full_notm}} cluster.
 
 The Livy API is routed through Apache Knox, so all URLs should be modified to include prefix `/gateway/default/livy/v1` before the API URL.
 
-For example, `/batches` becomes `/gateway/default/livy/v1/batches`. On the Analytics Engine cluster, Livy batches REST API is exposed at:
+For example, `/batches` becomes `/gateway/default/livy/v1/batches`. On the {{site.data.keyword.iae_full_notm}}, Livy batches REST API is exposed at:
 
 ```
 https://<management-node>:8443/gateway/default/livy/v1/batches/
@@ -121,7 +121,7 @@ curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
--d '{ "file":"cos://mybucket/PiEx.py" }' \
+-d '{ "file":"cos://mybucket.myprodservice/PiEx.py" }' \
 "https://iae-tmp-867-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
 ```
 If the application was Java/Scala-based and the jar file was stored in object storerage, the command would need to specify both a reference to the jar file and the class you wanted to run like in the example below. Note that this example also makes use of a Stocator connector so the URI varies accordingly and the commands assume that the object storage referenced is already configured on the cluster.

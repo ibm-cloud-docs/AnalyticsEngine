@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -16,7 +16,7 @@ lastupdated: "2017-11-02"
 # versions
 ## Description
 
-Gets the versions of the services running in the IBM Analytics Engine cluster.
+Gets the versions of the services running in the {{site.data.keyword.iae_full_notm}} cluster.
 
 ## Usage
 

@@ -24,6 +24,8 @@ You can track the status of your cluster provisioning by using the following RES
 ```curl -i -X GET  https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/state -H 'Authorization: Bearer <user's IAM access token>'
 ```  
 
+**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.dataplatform.ibm.com`.
+
 To retrieve the service instance ID, see [Retrieviving the service instance ID](./retrieve-service-instance-id.html). For the IAM access token, see [Retrieving IAM access tokens](./Retrieve-IAM-access-token.html).
 
 Expected response:

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -15,7 +15,7 @@ lastupdated: "2017-11-02"
 
 # Monitoring applications
 
-On the IBM Analytics Engine cluster you can use YARN, Spark and Spark History Server web interfaces to monitor running and completed applications.
+On the {{site.data.keyword.iae_full_notm}} cluster you can use YARN, Spark and Spark History Server web interfaces to monitor running and completed applications.
 
 You can launch YARN's resource manager web interface by opening the Ambari console and navigating to YARN > Quick Links > ResourceManager UI. Use your cluster user credentials when prompted for a user id and password.
 

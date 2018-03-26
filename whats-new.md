@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-07-12"
 
 ---
@@ -17,7 +17,7 @@ lastupdated: "2017-07-12"
 
 Key new features in this release include:
 
-1) [Support for the new Hadoop-pack](./getting-started.html#software-components-of-the-cluster). 
+1) [Support for the new Hadoop-pack](./getting-started.html#software-components-of-the-cluster).
 
 2) [Adhoc Cluster Customization](./customizing-cluster.html#persisted-customization-vs-adhoc-customization).
 

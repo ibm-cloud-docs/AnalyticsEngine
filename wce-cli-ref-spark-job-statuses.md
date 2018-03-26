@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -16,7 +16,7 @@ lastupdated: "2017-11-02"
 # spark‐job‐statuses
 ## Description
 
-Retrieves the status of all Spark jobs on the IBM Analytics Engine cluster.
+Retrieves the status of all Spark jobs on the {{site.data.keyword.iae_full_notm}} cluster.
 
 ## Usage
 

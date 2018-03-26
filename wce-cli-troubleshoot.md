@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -13,7 +13,7 @@ lastupdated: "2017-11-02"
 {:screen: .screen}
 {:pre: .pre}
 
-#  Analytics Engine command line interface troubleshooting
+#  {{site.data.keyword.iae_full_notm}} command line interface troubleshooting
 ## Enable tracing
 
 Tracing can be enabled by setting `BLUEMIX_TRACE` environment variable to `true` (case ignored). When trace enabled additional debugging information will be printed on the terminal.
@@ -34,7 +34,7 @@ To disable tracing set `BLUEMIX_TRACE` environment variable to `false` (case ign
 
 ## Endpoint was not set or found. Call endpoint first.
 
-The Analytics Engine command line interface requires a cluster endpoint to be first set. This enables the tool to talk to the cluster. The endpoint is the ip or hostname of the management node.
+The {{site.data.keyword.iae_full_notm}} command line interface requires a cluster endpoint to be first set. This enables the tool to talk to the cluster. The endpoint is the ip or hostname of the management node.
 
 To set the cluster endpoint:
 

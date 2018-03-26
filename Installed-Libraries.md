@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -15,7 +15,7 @@ lastupdated: "2017-11-02"
 
 # Installed libraries
 
-The IBM Analytics Engine cluster comes with a set of libraries pre-installed on each of the cluster nodes that are available by default with corresponding kernels. The table below lists the locations of these libraries:
+The {{site.data.keyword.iae_full_notm}} cluster comes with a set of libraries pre-installed on each of the cluster nodes that are available by default with corresponding kernels. The table below lists the locations of these libraries:
 
 | Environment | Kernel | Libraries |                 
 |-------------|--------|-----------|

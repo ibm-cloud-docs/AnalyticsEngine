@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-12-14"
 
 ---
@@ -21,13 +21,13 @@ For details on what to consider when customizing a cluster, see [Customizing a c
 
 ### Example of creating a cluster with bootstrap customization using the Cloud Foundry CLI
 
-`cf create-service IBMAnalyticsEngine Standard <service instance name> -c <cluster parameters as json string or path to cluster parameters json file>`
+`cf create-service IBMAnalyticsEngine lite <service instance name> -c <cluster parameters as json string or path to cluster parameters json file>`
 
 The following sample shows the parameters in JSON format:
 ```
 {
 	"num_compute_nodes": 1,
-	"hardware_config": "Standard",
+	"hardware_config": "default",
 	"software_package": "ae-1.0-spark",
 	"customization": [{
 		"name": "action1",
@@ -57,13 +57,14 @@ Where:
   --header 'authorization: <User's UAA bearer token>' \
   --header 'cache-control: no-cache' \
   --header 'content-type: application/json' \
-  --data '{"name":"<Service instance name>", "space_guid":"<User's space guid>", "service_plan_guid":"febf38af-bb11-4d55-8732-49a9b67a480f", "parameters": { "hardware_config":"Standard", "num_compute_nodes":1, "software_package":"ae-1.0-spark", "customization":[<customization-details>]}}'
+  --data '{"name":"<Service instance name>", "space_guid":"<User's space guid>", "service_plan_guid":"acb06a56-fab1-4cb1-a178-c811bc676164", "parameters": { "hardware_config":"default", "num_compute_nodes":1, "software_package":"ae-1.0-spark", "customization":[<customization-details>]}}'
 ```
 
 **Note:**
 * If you need to find your UAA bearer token, see [Obtaining the Cloud Foundry UAA bearer token](./provisioning.html#Obtaining-the-Cloud-Foundry-UAA-bearer-token).
 * If you need to find your space GUIDs, see [Obtaining the space GUID](./provisioning.html#obtaining-the-space-guid).
 * To run cluster management REST APIs, you need to pass your IAM access token. To obtain the token, follow these [steps](./Retrieve-IAM-access-token.html).
+* For the United Kingdom region use the end point  `https://api.eu-gb.bluemix.net`.
 
 ### Example of running an adhoc customization script
 
@@ -85,6 +86,8 @@ curl -X POST -v "https://api.dataplatform.ibm.com/v2/analytics_engines/<service_
 -H "Authorization: Bearer <User's IAM access token>" -H "Content-Type: application/json"
 ```
 `name` is the name of your customization action. It can be any literal without special characters.
+
+**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.dataplatform.ibm.com`.
 
 ### Example of customizing Ambari configurations
 
@@ -194,3 +197,4 @@ A persisted customization script is registered during cluster creation and can b
 ```
 curl -X POST -v "https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d '{"target":"all"}'  -H "Authorization: Bearer <user's IAM access token>" -H "Content-Type: application/json"
 ```
+**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.dataplatform.ibm.com`.

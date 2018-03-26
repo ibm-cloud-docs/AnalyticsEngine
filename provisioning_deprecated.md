@@ -13,11 +13,11 @@ lastupdated: "2018-03-15"
 {:screen: .screen}
 {:pre: .pre}
 
-# Provisioning an Analytics Engine service instance using Cloud Foundry (deprecated)
+# Provisioning an {{site.data.keyword.iae_full_notm}} service instance using Cloud Foundry (deprecated)
 
-Creating an Analytics Engine service instance by using Cloud Foundry is deprecated. You should now use the [Resource Controller option](./provisioning.html) to provision instances.
+Creating an {{site.data.keyword.iae_short}} service instance by using Cloud Foundry is deprecated. You should now use the [Resource Controller option](./provisioning.html) to provision instances.
 
-In Cloud Foundry, you can provision an Analytics Engine service instance through one of the following ways:
+In Cloud Foundry, you can provision an {{site.data.keyword.iae_short}} service instance through one of the following ways:
 
 * [Using the Cloud Foundry (cf) command-line interface (CLI)](#creating-a-service-instance-using-the-cloud-foundry-command-line-interface)
 * [Using the Cloud Foundry (cf) REST API](#creating-a-service-instance-using-the-cloud-foundry-rest-api)
@@ -36,6 +36,7 @@ In Cloud Foundry, you can provision an Analytics Engine service instance through
 cf api https://api.ng.bluemix.net
 cf login
 ```
+ **Note:** For the United Kingdom region, use the end point `https://api.eu-gb.bluemix.net`.
 3. Enter your IBM Cloud credentials. When prompted, choose your organization and space.
 
 ### Creating a service instance:
@@ -97,7 +98,7 @@ Message:
 Started: 2017-04-04T21:13:40Z
 Updated:
 
-Note: 'The Last Operation' section indicates the service provisioning status. When provisioning is ongoing, it's 'create in progress'. When provisioning has completed, it will be 'create succeeded'.
+**Note:** 'The Last Operation' section indicates the service provisioning status. When provisioning is ongoing, it's 'create in progress'. When provisioning has completed, it will be 'create succeeded'.
 ```
 
 ### Obtaining the space GUID
@@ -127,6 +128,8 @@ Create the cluster without customization
   --data '{"name":"<Service instance name>", "space_guid":"<User's space guid>", "service_plan_guid":"acb06a56-fab1-4cb1-a178-c811bc676164", "parameters": { "hardware_config":"default", "num_compute_nodes":1, "software_package":"ae-1.0-spark"}}'
 ```
 {: codeblock}
+
+**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.bluemix.net`.
 
 ## Creating a service instance using the Cloud Foundry REST API
 
@@ -160,7 +163,9 @@ curl --request GET \
 ```
 {: codeblock}
 
-**Note**: If the service instance was not successfully created, delete the service instance and try creating it again. If the problem persists, contact IBM Support.
+**Note**:
+1. If the service instance was not successfully created, delete the service instance and try creating it again. If the problem persists, contact IBM Support.
+2. For United Kingdom region, use the end point `https://api.eu-gb.bluemix.net`.
 
 ## Plan upgrading
 

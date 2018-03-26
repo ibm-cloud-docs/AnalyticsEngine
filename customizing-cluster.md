@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-12-14"
 
 ---
@@ -81,7 +81,7 @@ The node type can be any of these values : `data`, `management-slave1`, or `mana
 
 ## Package Admin tool
 The customization script is always executed as `cluster user`. However, the default rights of the cluster user do not allow all operations, for example, a YUM install. In such cases, you need to use the `package-admin` tool.
-The `package-admin` tool is a special utility tool available for use in the Analytics Engine cluster, which you can use to install or remove operating system packages. You can use it to install or remove YUM packages from supported repos (only centOS base and updates).
+The `package-admin` tool is a special utility tool available for use in the {{site.data.keyword.iae_full_notm}} cluster, which you can use to install or remove operating system packages. You can use it to install or remove YUM packages from supported repos (only centOS base and updates).
 
 `sudo package-admin -c [install | remove] -p [package name]`
 

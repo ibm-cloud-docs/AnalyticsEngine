@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -16,7 +16,7 @@ lastupdated: "2017-11-02"
 # spark‐job‐cancel
 ## Description
 
-Cancels a Spark job submitted on the IBM Analytics Engine cluster.
+Cancels a Spark job submitted on the {{site.data.keyword.iae_full_notm}} cluster.
 
 ## Usage
 

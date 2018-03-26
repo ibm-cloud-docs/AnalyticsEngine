@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -15,7 +15,7 @@ lastupdated: "2017-11-02"
 
 # Analytics Engine command line interface
 
-The {{site.data.keyword.Bluemix_notm}} Analytics Engine command line interface can be used to interact with the IBM Analytics Engine cluster.
+The {{site.data.keyword.Bluemix_notm}} command line interface can be used to interact with the {{site.data.keyword.iae_full_notm}} cluster.
 
 
 ## Getting Started
@@ -42,7 +42,7 @@ The {{site.data.keyword.Bluemix_notm}} Analytics Engine command line interface c
   $ bx ae spark-submit --className org.apache.spark.examples.SparkPi local:/usr/hdp/current/spark2-client/jars/spark-examples.jar
   ```
 
-	  Enter the IBM Analytics Engine cluster login credentials at the prompts. To set the default username for command execution see [`username`](./wce-cli-ref-username.html) command.
+	  Enter the {{site.data.keyword.iae_full_notm}} cluster login credentials at the prompts. To set the default username for command execution see [`username`](./wce-cli-ref-username.html) command.
 
 	  Response:
   ```
@@ -63,21 +63,21 @@ The {{site.data.keyword.Bluemix_notm}} Analytics Engine command line interface c
 ```
 $ bx ae
 NAME:
-   bx ae - IBM Analytics Engine commands
+   bx ae - {{site.data.keyword.iae_full_notm}} commands
 USAGE:
    bx ae command [arguments...] [command options]
 
 COMMANDS:
    endpoint             Set the server endpoint
-   file-system          Interact with HDFS on IBM Analytics Engine cluster
-   kernels              Interact with kernels on IBM Analytics Engine cluster
-   spark-job-cancel     Cancel a Spark job submitted on the IBM Analytics Engine cluster
-   spark-job-status     Retrieve the status of the Spark job from the IBM Analytics Engine cluster
-   spark-job-statuses   Retrieve the status of the Spark job from the IBM Analytics Engine cluster
+   file-system          Interact with HDFS on {{site.data.keyword.iae_full_notm}} cluster
+   kernels              Interact with kernels on {{site.data.keyword.iae_full_notm}} cluster
+   spark-job-cancel     Cancel a Spark job submitted on the {{site.data.keyword.iae_full_notm}} cluster
+   spark-job-status     Retrieve the status of the Spark job from the {{site.data.keyword.iae_full_notm}} cluster
+   spark-job-statuses   Retrieve the status of the Spark job from the {{site.data.keyword.iae_full_notm}} cluster
    spark-logs           Get Spark job logs
-   spark-submit         Submit a Spark job to the IBM Analytics Engine cluster
-   username             Set the default username for IBM Analytics Engine commands
-   versions             Get the versions of the services running in IBM Analytics Engine cluster
+   spark-submit         Submit a Spark job to the {{site.data.keyword.iae_full_notm}} cluster
+   username             Set the default username for {{site.data.keyword.iae_full_notm}} commands
+   versions             Get the versions of the services running in {{site.data.keyword.iae_full_notm}} cluster
    help                 
 
 

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -15,13 +15,13 @@ lastupdated: "2017-11-02"
 
 # Spark Interactive (Notebooks and API)
 
-There are two ways to run spark applications interactively in an IBM Analytics Engine cluster:
+There are two ways to run spark applications interactively in an {{site.data.keyword.iae_full_notm}} cluster:
 * Jupyter Notebook Gateway (JNBG)
 * SSH
 
 ## Jupyter Notebook Gateway (JNBG)
 
-The IBM Analytics Engine cluster runs a JNBG service which is a Jupyter Kernel Gateway to allow interactive clients like Jupyter Notebook servers to connect to the cluster and submit code for execution.
+The {{site.data.keyword.iae_full_notm}} cluster runs a JNBG service which is a Jupyter Kernel Gateway to allow interactive clients like Jupyter Notebook servers to connect to the cluster and submit code for execution.
 
 ### Supported Kernels
 

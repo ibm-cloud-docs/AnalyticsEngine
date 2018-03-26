@@ -15,24 +15,24 @@ lastupdated: "2018-02-12"
 
 # Getting started tutorial
 
-IBM Analytics Engine provides a flexible framework to develop and deploy analytics applications in Apache Hadoop and Apache Spark. It allows you to create and manage clusters using the {{site.data.keyword.Bluemix_short}} interface or using the Cloud Foundry CLI and REST APIs.
+{{site.data.keyword.iae_full_notm}} provides a flexible framework to develop and deploy analytics applications in Apache Hadoop and Apache Spark. It allows you to create and manage clusters using the {{site.data.keyword.Bluemix_short}} interface or using the Cloud Foundry CLI and REST APIs.
 
 ## Before you begin
 
-* Get a quick overview of IBM Analytics Engine in this short [video](https://developer.ibm.com/clouddataservices/docs/analytics-engine/).
+* Get a quick overview of {{site.data.keyword.iae_full_notm}} in this short [video](https://developer.ibm.com/clouddataservices/docs/analytics-engine/).
 
 ## Provision an instance and create a cluster
-* Watch how to [get started using IBM Analytics Engine](https://www.youtube.com/watch?time_continue=1&v=MWA-eLXzt3A).
+* Watch how to [get started using {{site.data.keyword.iae_full_notm}}](https://www.youtube.com/watch?time_continue=1&v=MWA-eLXzt3A).
 
-  In this video you will learn how to provision an IBM Analytics Engine cluster from IBM Cloud, find out about options to manage the cluster, and see how to connect {{site.data.keyword.DSX_short}} to IBM Analytics Engine to analyze data.
+  In this video you will learn how to provision an {{site.data.keyword.iae_full_notm}} cluster from IBM Cloud, find out about options to manage the cluster, and see how to connect {{site.data.keyword.DSX_short}} to {{site.data.keyword.iae_full_notm}} to analyze data.
 
- For details about the supported plans and on how to provision and configure your cluster, see the [IBM Analytics Engine documentation](./provisioning.html#provisioning-an-analytics-engine-service-instance).
+ For details about the supported plans and on how to provision and configure your cluster, see the [{{site.data.keyword.iae_full_notm}} documentation](./provisioning.html#provisioning-an-analytics-engine-service-instance).
 
 ## Run applications on the cluster
 
 * Watch a [demo](https://www.youtube.com/watch?time_continue=6&v=yfG70DfMwBU) and run through the tutorial using sample code and data. Download this [notebook](https://github.com/sharynr/notebooks/blob/master/Exploring%20Heating%20Problems%20in%20Manhattan.ipynb) and [sample data file](https://github.com/wdp-beta/get-started/blob/master/data/IAE_examples_data_311NYC.zip) to try it for yourself!
-* Learn how to programmatically use IBM Analytics Engine through this [tutorial](https://github.com/IBM-Cloud/IBM-Analytics-Engine). Get access to sample scripts to start operationalizing your first applications.
-* Get answers to some [frequently asked questions](./faq.html#frequently-asked-questions) about using IBM Analytics Engine.
+* Learn how to programmatically use {{site.data.keyword.iae_full_notm}} through this [tutorial](https://github.com/IBM-Cloud/IBM-Analytics-Engine). Get access to sample scripts to start operationalizing your first applications.
+* Get answers to some [frequently asked questions](./faq.html#frequently-asked-questions) about using {{site.data.keyword.iae_full_notm}}.
 
 ## Next steps
 Now that you have provisioned a service instance and have created a cluster, you can start running jobs and managing your cluster:

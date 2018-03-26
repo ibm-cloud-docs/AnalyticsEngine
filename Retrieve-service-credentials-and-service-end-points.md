@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -23,7 +23,7 @@ You can fetch the cluster credentials and the service end points by:
 
 ## Obtaining credentials using cf CLI
 
-You need to create a service key for the Analytics Engine service instance to obtain the cluster credentials and service endpoints.
+You need to create a service key for the {{site.data.keyword.iae_full_notm}} service instance to obtain the cluster credentials and service endpoints.
 
 ### Creating a service key
 To create a service key, enter the following command:
@@ -43,7 +43,7 @@ You can fetch the cluster credentials and the service end points through one of 
 * [Using cf REST API](#fetch-credentials-using-the-cf-rest-api)
 
 ## Fetch credentials using the cf CLI
-Cluster credentials and service endpoints by creating and viewing a service key for the IBM Analytics Engine service instance created by the user.
+Cluster credentials and service endpoints by creating and viewing a service key for the {{site.data.keyword.iae_full_notm}} service instance created by the user.
 
 ### Creating a service key
 ```

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -15,7 +15,7 @@ lastupdated: "2017-11-02"
 
 # Lazy Spark initialization
 
-When a kernel is acquired on the IBM Analytics Engine cluster, handles to Spark context, Spark SQL context, and Spark session are provided. A client application can safely assume these handles exist when a kernel is acquired by it and so can reference them directly in it's code for interacting with the Spark cluster. This makes using the cluster simpler for applications as they can remain independent of the specifics around how a Spark session needs to be initialized.
+When a kernel is acquired on the {{site.data.keyword.iae_full_notm}} cluster, handles to Spark context, Spark SQL context, and Spark session are provided. A client application can safely assume these handles exist when a kernel is acquired by it and so can reference them directly in it's code for interacting with the Spark cluster. This makes using the cluster simpler for applications as they can remain independent of the specifics around how a Spark session needs to be initialized.
 
 With Lazy Spark initialization a kernel is created and returned to a client with handles to  SparkContext, SQLContext, and SparkSession. However, these handles become active only when the application attempts to execute some code on the kernel. This means that the initialization of the Spark session is delayed until code execution. This speeds up time taken for kernel creation while adding a little extra code execution time later on when the Spark session is activated.
 

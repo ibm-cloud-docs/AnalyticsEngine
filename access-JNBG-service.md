@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -23,7 +23,7 @@ The JNBG service on the cluster provides two endpoints: HTTP operations and Webs
 
 * [Websocket resources](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html#websocket-resources) of the Jupyter Kernel Gateway API connection to a running kernel to submit code and communicate with the kernel.
 
-Refer to the instructions [here](./Retrieve-service-credentials-and-service-end-points.html#retrieving-service-credentials-and-service-end-points) on retrieving service end points for the IBM Analytics Engine cluster. In the JSON service endpoint details, the HTTP endpoint URL of the JNBG service is listed in `notebook_gateway` and the Websocket endpoint in `notebook_gateway_websocket`. Here is a representative sample of a cluster's service endpoint details:
+Refer to the instructions [here](./Retrieve-service-credentials-and-service-end-points.html#retrieving-service-credentials-and-service-end-points) on retrieving service end points for the {{site.data.keyword.iae_full_notm}} cluster. In the JSON service endpoint details, the HTTP endpoint URL of the JNBG service is listed in `notebook_gateway` and the Websocket endpoint in `notebook_gateway_websocket`. Here is a representative sample of a cluster's service endpoint details:
 
 ```
 .
@@ -66,7 +66,7 @@ The IBM Open Platform provides an updated `nb2kg` package [here](http://ibm-open
 * configure the `KG_HTTP_USER` to the cluster user
 * configure the `KG_HTTP_PASS` to the cluster password
 
-As per the sample IBM Analytics Engine cluster response details above, the configuration would be:
+As per the sample {{site.data.keyword.iae_full_notm}} cluster response details above, the configuration would be:
 
 ```
 KG_URL=https://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkg/

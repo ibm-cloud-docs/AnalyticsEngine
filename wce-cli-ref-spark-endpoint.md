@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -16,7 +16,7 @@ lastupdated: "2017-11-02"
 # endpoint
 ## Description
 
-Sets the IBM Analytics Engine server endpoint.
+Sets the {{site.data.keyword.iae_full_notm}} server endpoint.
 
 **To create the ENDPOINT URI**
 1. Get the hostname from [vcap](https://console.stage1.bluemix.net/docs/services/AnalyticsEngine/Retrieve-service-credentials-and-service-end-points.html#retrieve-service-credentials-and-service-end-points).

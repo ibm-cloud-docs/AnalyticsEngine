@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2018-01-09"
 
 ---
@@ -18,10 +18,10 @@ Apache HBase is a column-oriented database management system that runs on top of
 
 HBase applications are written in Java, much like a typical MapReduce application. HBase allows many attributes to be grouped into column families so that the elements of a column family are all stored together. This approach is different from a row-oriented relational database, where all columns of a row are stored together.
 
-**Note:** HBase and Apache Phoenix are only available in the Analytics Engine Hadoop package.
+**Note:** HBase and Apache Phoenix are only available in the {{site.data.keyword.iae_short}} Hadoop package.
 
 ## Accessing HBase through the HBase shell
-To work with HBase, you need your cluster user credentials and the SSH credentials. You can get this information from the service credentials of your Analytics Engine service instance.
+To work with HBase, you need your cluster user credentials and the SSH credentials. You can get this information from the service credentials of your {{site.data.keyword.iae_short}} service instance.
 
 To connect to the HBase server:
 1.	Issue the SSH command to access the cluster.
@@ -35,7 +35,7 @@ hbase shell```
 For further information on HBase and its features refer to [Apache HBase](https://hortonworks.com/apache/hbase/).
 
 ## Accessing Phoenix through client tools
-Apache Phoenix enables SQL-based OLTP and operational analytics for Apache Hadoop using Apache HBase as its backing store. It is based on the [Avatica](https://calcite.apache.org/avatica) component of [Apache Calcite](https://calcite.apache.org/). The Phoenix Query Server is comprised of a Java server that manages the Phoenix connections on the client’s behalf. The client implementation is currently a JDBC driver with few dependencies. It supports two transport mechanisms currently: JSON and Protocol Buffers (PROTOBUF). The query server on the IBM Analytics Engine cluster uses PROTOBUF serialization by default, which is more efficient compared to JSON serialization.
+Apache Phoenix enables SQL-based OLTP and operational analytics for Apache Hadoop using Apache HBase as its backing store. It is based on the [Avatica](https://calcite.apache.org/avatica) component of [Apache Calcite](https://calcite.apache.org/). The Phoenix Query Server is comprised of a Java server that manages the Phoenix connections on the client’s behalf. The client implementation is currently a JDBC driver with few dependencies. It supports two transport mechanisms currently: JSON and Protocol Buffers (PROTOBUF). The query server on the {{site.data.keyword.iae_full_notm}} cluster uses PROTOBUF serialization by default, which is more efficient compared to JSON serialization.
 
 Apache Phoenix enables you to interact with HBase using SQL through Phoenix client tools like `sqlline.py` and `psql.py`.
 

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -15,11 +15,11 @@ lastupdated: "2017-11-02"
 
 # Analytics Engine command line interface
 
-The {{site.data.keyword.Bluemix_notm}} Analytics Engine command line interface can be used to interact with the IBM Analytics Engine cluster.
+The {{site.data.keyword.Bluemix_notm}} command line interface can be used to interact with the {{site.data.keyword.iae_full_notm}} cluster.
 
 # Getting Started
 
-- For details, see [Installing the Analytics Engine CLI plugin](./wce-wcl-install.html).
+- For details, see [Installing the {{site.data.keyword.iae_short}} CLI plugin](./wce-wcl-install.html).
 
 # Usage
 
@@ -31,15 +31,15 @@ USAGE:
    bx iae command [arguments...] [command options]
 
 COMMANDS:
-   file-system            Interact with HDFS on Analytics Engine cluster
+   file-system            Interact with HDFS on {{site.data.keyword.iae_short}} cluster
    spark-endpoint         Set the server endpoint
-   spark-job-cancel       Cancel a Spark Job submitted on the Analytics Engine cluster
-   spark-job-status       Retrieve the status of the Spark job from the Analytics Engine cluster
-   spark-job-statuses     Retrieve the status of the Spark job from the Analytics Engine cluster
+   spark-job-cancel       Cancel a Spark Job submitted on the {{site.data.keyword.iae_short}} cluster
+   spark-job-status       Retrieve the status of the Spark job from the {{site.data.keyword.iae_short}} cluster
+   spark-job-statuses     Retrieve the status of the Spark job from the {{site.data.keyword.iae_short}} cluster
    spark-logs             Get spark job logs
-   spark-submit           Submit a Spark job to the Analytics Engine cluster
-   username               Set the default username for Analytics Engine commands.
-   versions               Get the versions of the services running in Analytics Engine cluster
+   spark-submit           Submit a Spark job to the {{site.data.keyword.iae_short}} cluster
+   username               Set the default username for {{site.data.keyword.iae_short}} commands.
+   versions               Get the versions of the services running in {{site.data.keyword.iae_short}} cluster
    help
 
 Enter 'bx iae help [command]' for more information about a command.

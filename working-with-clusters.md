@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -21,6 +21,6 @@ The following cluster operations are supported:
 * [Upload files to HDFS](./Upload-files-to-HDFS.html).
 * [Run Spark interactive jobs using Notebooks and APIs](./spark-interactive-notebooks-api.html).
 * [Submit Spark batch jobs](./Spark-Batch.html).
-* [Use Analytics Engine CLI for various actions](./WCE-CLI.html).
+* [Use the {{site.data.keyword.iae_full_notm}} CLI for various actions](./WCE-CLI.html).
 
-**Pre-requisites:** You must [retrieve cluster credentials and service end points](./Retrieve-service-credentials-and-service-end-points.html) before you can perform any of the above mentioned operations.
+**Prerequisites:** You must [retrieve cluster credentials and service end points](./Retrieve-service-credentials-and-service-end-points.html) before you can perform any of the above mentioned operations.

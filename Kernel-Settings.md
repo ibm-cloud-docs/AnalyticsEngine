@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -70,9 +70,9 @@ Therefore, with these defaults, a Kernel will require 1 + 2 * 1.5 = 4 GB.
 
 ## Interactive application name
 
-The IBM Analytics Engine cluster will typically be used to submit code for execution on Spark. Every notebook or interactive client will launch a long running Spark session to execute Spark code. Often a user will want to monitor the Spark jobs, executors or kernel logs related to the interactive session. The usual method of retrieving the Spark application ID and using it to look up the corresponding entries in YARN or Spark History Server UI etc is not very user friendly on it's own.
+The {{site.data.keyword.iae_full_notm}} cluster will typically be used to submit code for execution on Spark. Every notebook or interactive client will launch a long running Spark session to execute Spark code. Often a user will want to monitor the Spark jobs, executors or kernel logs related to the interactive session. The usual method of retrieving the Spark application ID and using it to look up the corresponding entries in YARN or Spark History Server UI etc is not very user friendly on it's own.
 
-To make this easier, the JKG service and all the kernels on the IBM Analytics Engine cluster are configured to accept a `KERNEL_APPNAME` parameter from interactive clients. When this parameter is provided, its value is used to set the YARN/Spark application name associated with the session. Similarly, the kernel log files generated for the session include the `KERNEL_APPNAME` value in the file name.
+To make this easier, the JKG service and all the kernels on the {{site.data.keyword.iae_full_notm}} cluster are configured to accept a `KERNEL_APPNAME` parameter from interactive clients. When this parameter is provided, its value is used to set the YARN/Spark application name associated with the session. Similarly, the kernel log files generated for the session include the `KERNEL_APPNAME` value in the file name.
 
 It is expected that all interactive clients specify the `KERNEL_APPNAME` parameter. Notebook servers are expected to pass the notebook name as the value of the `KERNEL_APPNAME` parameter.
 

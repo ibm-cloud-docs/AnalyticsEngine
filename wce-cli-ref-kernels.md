@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -15,7 +15,7 @@ lastupdated: "2017-11-02"
 
 # kernels
 ## Description
-Interact with Jupyter Kernel Gateway (JKG) kernels on IBM Analytics Engine cluster.
+Interact with Jupyter Kernel Gateway (JKG) kernels on {{site.data.keyword.iae_full_notm}} cluster.
 
 ## Usage
 

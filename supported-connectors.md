@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -14,7 +14,7 @@ lastupdated: "2017-11-02"
 {:pre: .pre}
 
 #  Spark connectors
-The following connectors are currently provided by default on all IBM Analytics Engine clusters:
+The following connectors are currently provided by default on all {{site.data.keyword.iae_full_notm}} clusters:
 
  * Db2 and dashdDB
   * DB2 JDBC

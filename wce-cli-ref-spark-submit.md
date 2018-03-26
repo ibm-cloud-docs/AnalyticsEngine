@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -16,7 +16,7 @@ lastupdated: "2017-11-02"
 # spark‐submit
 ## Description
 
-Submits a Spark job to the Analytics Engine cluster.
+Submits a Spark job to the {{site.data.keyword.iae_full_notm}} cluster.
 
 ## Usage
 

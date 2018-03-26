@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -23,7 +23,7 @@ b. From the service instance's Action menu choose 'Delete Service'
 
 ## cf CLI
 
-**Pre-requisite**: If you have any service keys for your service instance, you need to delete them first, before attempting to delete the service instance.
+**Prerequisite**: If you have any service keys for your service instance, you need to delete them first, before attempting to delete the service instance.
 
 ```
 cf api https://api.ng.bluemix.net

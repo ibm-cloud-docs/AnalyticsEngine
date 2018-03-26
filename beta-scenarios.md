@@ -14,14 +14,14 @@ lastupdated: "2017-11-02"
 {:pre: .pre}
 
 # Beta scenarios: Using Spark SQL and running a Spark application
-IBM Analytics Engine provides a flexible framework to develop and deploy analytics applications in Apache Hadoop and Apache Spark. It allows you to create and manage clusters using the {{site.data.keyword.Bluemix_notm}} interface or using the Cloud Foundry CLI and REST APIs.
+{{site.data.keyword.iae_full_notm}} provides a flexible framework to develop and deploy analytics applications in Apache Hadoop and Apache Spark. It allows you to create and manage clusters using the {{site.data.keyword.Bluemix_notm}} interface or using the Cloud Foundry CLI and REST APIs.
 
 Two scenarios provide tasks that show you how to query data using the Spark SQL through a {{site.data.keyword.DSX_short}} notebook and how to run a Spark application using Spark submit. An open data set from the City of New York containing calls to the 311 number to report issues with infrastructure will be used as sample data for the scenarios.
 
 ## Uploading data
 Before you start executing the scenario, you need to bring in the sample data. IBM Analytics Engine is based on Apache Hadoop and Spark. While it provides the HDFS file system and a limited amount of storage in the cluster, we recommend using IBM Cloud Object Store or the Swift-based {{site.data.keyword.objectstoragefull}} service to store data.
 
-Jobs from an Analytics Engine compute cluster can be run against data in object stores, and results of jobs can be written back to the object store.
+Jobs from an {{site.data.keyword.iae_full_notm}} compute cluster can be run against data in object stores, and results of jobs can be written back to the object store.
 The sample data set is available [here](https://github.com/wdp-beta/get-started).
 
 To upload data into the object store, refer to documentation of the respective offerings: [IBM Cloud Object Store](https://ibm-public-cos.github.io/crs-docs/) / [{{site.data.keyword.objectstoragefull}}](https://console.bluemix.net/docs/services/ObjectStorage/index.html).

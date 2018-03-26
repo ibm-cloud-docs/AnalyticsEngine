@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -16,7 +16,7 @@ lastupdated: "2017-11-02"
 # username
 ## Description
 
-Sets the default username for IBM Analytics Engine commands.
+Sets the default username for {{site.data.keyword.iae_full_notm}} commands.
 
 ## Usage
 

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -25,7 +25,7 @@ Note that the customization scripts should install libraries/packages into the s
 
 _Installation of libraries in this manner is permanent i.e, the libraries are always available to all interactive sessions by default._
 
-**Note:** You cannot use the `--user` option in `pip` install commands in Analytics Engine.
+**Note:** You cannot use the `--user` option in `pip` install commands in {{site.data.keyword.iae_full_notm}}.
 
 ### Python 2
 

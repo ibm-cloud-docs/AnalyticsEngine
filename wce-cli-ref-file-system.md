@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017,2018
 lastupdated: "2017-11-02"
 
 ---
@@ -16,7 +16,7 @@ lastupdated: "2017-11-02"
 # file-system
 ## Description
 
-Interact with HDFS on the IBM Analytics Engine cluster.
+Interact with HDFS on the {{site.data.keyword.iae_full_notm}} cluster.
 
 ## Usage
 
