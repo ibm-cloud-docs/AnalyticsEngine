@@ -22,13 +22,13 @@ Spark history provides access to job history information and various job metrics
 
 1. Log in to Ambari.
 2. Choose Spark2 service (left side).
-3. Open Quick Links (top middle). chs-XXXXX-mn002.bi.services.us-south.bluemix.net
+3. Open Quick Links (top middle). If your  {{site.data.keyword.Bluemix_short}} hosting location is Dallas: `chs-XXXXX-mn002.bi.services.us-south.bluemix.net`
 4. Choose Spark2 History Server UI.
 
 
 ** To use the Spark history REST API**
 
-* The API is accessible via the Knox end point. For example a call to retrieve the list of applications:
+ The API is accessible via the Knox end point. For example, the call to retrieve the list of applications if your  {{site.data.keyword.Bluemix_short}} hosting location is Dallas:
 ```
 curl -u "clsadmin:<password>" https://XXXXX-mn001.\
 bi.services.us-south.bluemix.net:8443/gateway/default/sparkhistory/api/v1/applications

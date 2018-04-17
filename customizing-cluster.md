@@ -130,42 +130,45 @@ For example:
 	"run_details": {
 		"overall_status": "success",
 		"details": [{
-			"node_name": "chs-fpw-933-mn003.bi.services.us-south.bluemix.net",
+			"node_name": "chs-fpw-933-mn003.bi.services.<changeme>.bluemix.net",
 			"node_type": "management-slave2",
 			"start_time": "2017-06-06 11:46:35.519000",
 			"end_time": "2017-06-06 11:47:46.687000",
 			"time_taken": "71 secs",
 			"status": "CustomizeSuccess",
-			"log_file": "/var/log/chs-fpw-933-mn003.bi.services.us-south.bluemix.net_37.log"
+			"log_file": "/var/log/chs-fpw-933-mn003.bi.services.<changeme>.bluemix.net_37.log"
 		}, {
-			"node_name": "chs-fpw-933-mn002.bi.services.us-south.bluemix.net",
+			"node_name": "chs-fpw-933-mn002.bi.services.<changeme>.bluemix.net",
 			"node_type": "management-slave1",
 			"start_time": "2017-06-06 11:46:36.190000",
 			"end_time": "2017-06-06 11:47:46.864000",
 			"time_taken": "70 secs",
 			"status": "CustomizeSuccess",
-			"log_file": "/var/log/chs-fpw-933-mn002.bi.services.us-south.bluemix.net_37.log"
+			"log_file": "/var/log/chs-fpw-933-mn002.bi.services.<changeme>.bluemix.net_37.log"
 		}, {
-			"node_name": "chs-fpw-933-dn001.bi.services.us-south.bluemix.net",
+			"node_name": "chs-fpw-933-dn001.bi.services.<changeme>.bluemix.net",
 			"node_type": "data",
 			"start_time": "2017-06-06 11:46:36.693000",
 			"end_time": "2017-06-06 11:47:47.271000",
 			"time_taken": "70 secs",
 			"status": "CustomizeSuccess",
-			"log_file": "/var/log/chs-fpw-933-dn001.bi.services.us-south.bluemix.net_37.log"
+			"log_file": "/var/log/chs-fpw-933-dn001.bi.services.<changeme>.bluemix.net_37.log"
 		}]
 	}
 }
 ```
+
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
 ### Step 3 - Getting the details of a specific node's customization
 
 You can retrieve the log file in `log_file` by using [`ssh/scp`](https://console.bluemix.net/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to the corresponding node. This log captures the output of script execution, including the `echo` statements. If the script could not be executed due to a bad location or bad credentials specified, you will see details of the error in the log. The following example shows the log for such a case.
 
 ```
-[clsadmin@chs-mwb-189-mn003 ~]$ cat /var/log/chs-mwb-189-mn003.bi.services.us-south.bluemix.net_28.log
+[clsadmin@chs-mwb-189-mn003 ~]$ cat /var/log/chs-mwb-189-mn003.bi.services.<changeme>.bluemix.net_28.log
 Error while downloading customization script, ResponseCode: 0, Please verify source_props and  script_path properties in bootstrap action
 ```
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
 ## Customization examples
 For examples of how to customize a cluster, see [Examples of customizations](./example-of-customizations.html).

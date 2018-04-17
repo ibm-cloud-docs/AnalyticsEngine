@@ -91,11 +91,11 @@ BODY:
 }
 ```
 
-A sample POST request would look so:
+A sample POST request:
 
 ```
 POST /gateway/default/jkg/api/kernels HTTP/1.1
-Host: chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443
+Host: chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443
 Authorization: Basic d2NlYWRtaW46NWF1dUY1U1UzZTBH
 Connection: close
 Accept-Encoding: gzip,deflate
@@ -104,6 +104,7 @@ Content-Length: 63
 
 {"name": "r-spark21", "env": {"KERNEL_APPNAME": "ExampleName"}}
 ```
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
 Note that currently the Apache Toree - Scala kernel will accept the `KERNEL_APPNAME` parameter and include it in the kernel log file name, but the YARN/Spark application name will show as `Apache Toree`. This issue will be fixed in future ensuring the application name matches the specified `KERNEL_APPNAME`.
 

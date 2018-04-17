@@ -1,4 +1,4 @@
----
+Response if your {{site.data.keyword.Bluemix_short}} hosting location is `us-south`---
 
 copyright:
   years: 2017,2018
@@ -48,6 +48,8 @@ Flag    | Description
 ## Examples
 
 ### Set an endpoint
+
+The following command shows how to set the endpoint if your {{site.data.keyword.Bluemix_short}} hosting location is `us-south`.
 
 ```
 $ bx ae endpoint https://chs-xxx-xxx-mn001.bi.services.us-south.bluemix.net

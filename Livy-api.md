@@ -34,9 +34,11 @@ curl \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
 -d '{ "file":"local:/usr/hdp/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi" }' \
-"https://wce-tmp-867-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
+"https://wce-tmp-867-mn001.bi.services.ychangeme>.bluemix.net:8443/gateway/default/livy/v1/batches"
 ```
 {: codeblock}
+
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
 Successful response:
 
@@ -115,24 +117,27 @@ Content-Length: 100
 
 Refer to [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-and-Swift-object-storage.html) for instructions on configuring your cluster to use object storage. Once configured, you can directly submit Spark applications from the object storage. You can also submit Spark applications on data residing in the object store.
 
-Using Livy to submit a Spark application that exists in object storeObject Storage is basically the same as submitting any Spark application. The only difference is the "file" reference will be an object storage URL:
+Using Livy to submit a Spark application that exists in Object Storage is basically the same as submitting any Spark application. The only difference is the "file" reference will be an object storage URL:
 ```
 curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
 -d '{ "file":"cos://mybucket.myprodservice/PiEx.py" }' \
-"https://iae-tmp-867-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
+"https://iae-tmp-867-mn001.bi.services.<changeme>.net:8443/gateway/default/livy/v1/batches"
 ```
-If the application was Java/Scala-based and the jar file was stored in object storerage, the command would need to specify both a reference to the jar file and the class you wanted to run like in the example below. Note that this example also makes use of a Stocator connector so the URI varies accordingly and the commands assume that the object storage referenced is already configured on the cluster.
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
+
+If the application was Java/Scala-based and the jar file was stored in object storage, the command would need to specify both a reference to the jar file and the class you wanted to run like in the example below. Note that this example also makes use of a Stocator connector so the URI varies accordingly and the commands assume that the object storage referenced is already configured on the cluster.
 ```
 curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
 -d '{ "file":"cos://mybucket.softlayer/spark-examples_2.10-2.1.0.jar", "className":"org.apache.spark.examples.SparkPi" }' \
-"https://iae-tmp-867-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
+"https://iae-tmp-867-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/livy/v1/batches"
 ```
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
 ### List all jobs
 

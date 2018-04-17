@@ -35,6 +35,7 @@ Flag                    | Description
 ## Examples
 
 To view the status of all jobs:
+The following command shows how to contact the endpoint if your {{site.data.keyword.Bluemix_short}} hosting location is `us-south`.
 
 ```
 $ bx ae spark-job-statuses
@@ -57,7 +58,9 @@ App Info 'driverLogUrl' = ''
 App Info 'sparkUiUrl' = 'http://chs-xxx-xxx-mn002.bi.services.us-south.bluemix.net:8088/proxy/application_1491850285904_0004/'
 ```
 
-## To show the logs with the status of all jobs:
+## To show the logs with the status of all jobs
+
+The following command shows how to show the logs if the  {{site.data.keyword.Bluemix_short}} hosting location is `us-south`.
 
 ```
 $ bx ae spark-job-statuses --includeSubmissionLogs

@@ -34,6 +34,7 @@ Flag       | Description
 --password | The password for the selected user
 
 ## Examples
+The following example shows how to cancel a Spark job if your {{site.data.keyword.Bluemix_short}} hosting location is `us-south`.
 
 ```
 $ bx ae spark-job-cancel 10

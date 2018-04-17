@@ -38,7 +38,7 @@ bx resource service-instances ```
 
 Sample response:
 ```
-Retrieving service instances in resource group Default and all location under account ...
+Retrieving service instances in resource group Default and all locations under account ...
 OK
 Name                                     Location   State    Type              Tags
 MyServiceInstance                        us-south   active   service_instance ```

@@ -15,24 +15,33 @@ lastupdated: "2017-11-02"
 
 # Uploading files to HDFS
 
-You can choose to upload your data in HDFS or an object store. Data can be loaded into HDFS using the HDFS CLI or the WebHDFS API. For sensitive data, it is recommended to use a secure  location that is previously created in HDFS.
+You can choose to upload your data in HDFS or an object store. Data can be loaded into HDFS using the HDFS CLI or the WebHDFS API. For sensitive data, it is recommended to use a secure location that is previously created in HDFS.
 
 **Remember:** You can upload files to your home directory (/user/clsadmin). It is not recommended that you upload files under the /tmp directory.
 
 ## Uploading your data by using the HDFS CLI
 
-**Pre-requisite**: Obtain the user credentials and ssh endpoint from cluster service credentials.
+**Prerequisite**: Obtain the user credentials and ssh endpoint from cluster service credentials.
 
 To use the HDFS CLI, ssh to the cluster using the credentials obtained earlier. You can access the HDFS CLI using the HDFS command. Refer to the following examples for using the HDFS CLI:
 
-### Creating an empty directory
-Create a directory under the user home: `hdfs dfs –mkdir –p /user/clsadmin/test-dir
+- Creating an empty directory
 
-### Uploading a file to HDFS
-Upload a file to an existing HDFS directory: `hdfs dfs –put test-file /user/clsadmin/test-dir`
+ Create a directory under the user home:
 
-### Deleting a file/directory from HDFS
-Delete file/directory from HDFS: `hdfs dfs –rm –f /user/clsadmin/test-dir`
+ ```hdfs dfs –mkdir –p /user/clsadmin/test-dir```
+
+- Uploading a file to HDFS
+
+ Upload a file to an existing HDFS directory:
+
+ ```hdfs dfs –put test-file /user/clsadmin/test-dir```
+
+- Deleting a file/directory from HDFS
+
+ Delete file/directory from HDFS:
+
+ ```hdfs dfs –rm –f /user/clsadmin/test-dir```
 
 ## Uploading your data by using the WebHDFS REST API
 
@@ -40,7 +49,7 @@ For programmatic access to the HDFS, use the WebHDFS REST API.
 
 **To upload your data to the HDFS by using the WebHDFS REST API**
 
-**Pre-requisites:** Obtain the user credentials and the WebHDFS URL from the [service credentials and end points](./Retrieve-service-credentials-and-service-end-points.html) of your service instance.
+**Prerequisites:** Obtain the user credentials and the WebHDFS URL from the [service credentials and end points](./Retrieve-service-credentials-and-service-end-points.html) of your service instance.
 
 1. Open a command prompt.
 2. Change directory to the location of the data files that you want to upload.
@@ -56,7 +65,7 @@ The value of XXXXX is the host name of your cluster retrieved from the service e
 
 **To upload a file**
 
-* Run the following command:
+Run the following command:
 
 ```
 curl -i -L  -s --user clsadmin:your_password --max-time 45 -X PUT -T file_name.txt \
@@ -70,7 +79,7 @@ Run more cURL commands, one for each file that you want to upload.
 
 **To create an empty directory**
 
-* If you want to create an output directory, for example, run the following command:
+To create an output directory, for example, run the following command:
 
 ```
 curl -i  -s --user clsadmin:your_password --max-time 45 -X PUT
@@ -80,7 +89,7 @@ curl -i  -s --user clsadmin:your_password --max-time 45 -X PUT
 
 **To remove a file**
 
-* Run the following command:
+Run the following command:
 
 ```
 curl -i -s --user clsadmin:your_password --max-time 45 -X DELETE
@@ -93,9 +102,12 @@ You cannot remove a directory that is not empty.
 An alternative way to look at the directory structure, contents, owners, and size is to navigate to the following URL:
 
 ```
+https://<changeme>:8443/gateway/default/hdfs/explorer.html
+```
+where `<changeme>`  is the URL to the cluster. For example, for data  on a cluster in Dallas, use:
+```
 https://XXXXX.services.us-south.bluemix.net:8443/gateway/default/hdfs/explorer.html
 ```
-
 For more information, see the [WebHDFS REST API documentation](http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-hdfs/WebHDFS.html).
 
 ## Working with encrypted data

@@ -59,7 +59,7 @@ OK
 
 ### Getting the driver log
 
-Using the `--driver` flag will retrieve the spark driver logs.
+Using the `--driver` flag will retrieve the spark driver logs. The following example shows how to get the Spark logs if your {{site.data.keyword.Bluemix_short}} hosting location is `us-south`.
 
 ```
 $ bx ae spark-logs --driver --outputDir driverlogs 2
@@ -92,7 +92,7 @@ OK
 
 ### Getting the executor log
 
-Using the `--executor` flag will retrieve the spark executor logs.
+Using the `--executor` flag will retrieve the spark executor logs. The following examples shows how to get the executor logs if your {{site.data.keyword.Bluemix_short}} hosting location is `us-south`.
 
 ```
 $ bx ae spark-logs --executor --outputDir executorlogs 2
@@ -136,6 +136,7 @@ OK
 
 Because the job ID is short lived, you can also obtain logs that use the YARN application ID by using the `--applicationID` flag. The applicationID value is printed to the console when the job is submitted in synchronous mode (`spark-submit` without `--asynchronous` flag).
 
+The following examples shows how to get logs by using YARN if your {{site.data.keyword.Bluemix_short}} hosting location is `us-south`.
 ```
 $ bx ae spark-logs --driver --applicationID application_1491850285904_0003
 User (clsadmin)>

@@ -137,7 +137,7 @@ hdfs dfs -mkdir -p /user/clsadmin/examples/input-data/mapreduce
 hdfs dfs -put sampledata.txt /user/clsadmin/examples/input-data/mapreduce
 ```
 
-5. Create an Oozie job configuration file named oozie-mrjob-config.xml. Replace chs-XXXX-mn002 with the actual hostname of your cluster. For example:
+5. Create an Oozie job configuration file named oozie-mrjob-config.xml. Replace chs-XXXX-mn002 with the actual hostname of your cluster and  `<changeme>` with the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 ```
 <configuration>
  <property>
@@ -146,7 +146,7 @@ hdfs dfs -put sampledata.txt /user/clsadmin/examples/input-data/mapreduce
  </property>
  <property>
   <name>jobTracker</name>
-  <value>chs-XXXX-mn002.bi.services.us-south.bluemix.net:8050</value>
+  <value>chs-XXXX-mn002.bi.services.<changeme>.bluemix.net:8050</value>
  </property>
  <property>
   <name>oozie.wf.application.path</name>
@@ -158,7 +158,7 @@ hdfs dfs -put sampledata.txt /user/clsadmin/examples/input-data/mapreduce
  </property>
  <property>
   <name>nameNode</name>
-  <value>hdfs://chs-XXXX-mn002.bi.services.us-south.bluemix.net:8020</value>
+  <value>hdfs://chs-XXXX-mn002.bi.services.<changeme>.bluemix.net:8020</value>
  </property>
 </configuration>
 ```

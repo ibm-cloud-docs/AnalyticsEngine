@@ -85,12 +85,12 @@ Sample Response:
     "password": "XXXXX",
     "password_expiry_date": "null",
     "service_endpoints": {
-      "ambari_console": "https://XXXXX-mn001.bi.services.us-south.bluemix.net:9443",
-      "notebook_gateway": "https://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkg/",
-      "notebook_gateway_websocket": "wss://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkgws/",
-      "webhdfs": "https://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/webhdfs/v1/",
-      "ssh": "ssh clsadmin@XXXXX-mn003.bi.services.us-south.bluemix.net",
-      "livy": "https://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
+      "ambari_console": "https://XXXXX-mn001.bi.services.<changeme>.bluemix.net:9443",
+      "notebook_gateway": "https://XXXXX-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/",
+      "notebook_gateway_websocket": "wss://XXXXX-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkgws/",
+      "webhdfs": "https://XXXXX-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/webhdfs/v1/",
+      "ssh": "ssh clsadmin@XXXXX-mn003.bi.services.<changeme>.bluemix.net",
+      "livy": "https://XXXXX-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/livy/v1/batches"
     }
   },
   "cluster_management": {
@@ -100,22 +100,18 @@ Sample Response:
   }
 }
 ```
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
+
 In the sample response, the properties under `cluster` name the cluster user name, the password, and cluster service endpoints.
 
 
 ### Obtaining credentials using Cloud Foundry REST APIs
 
+**Prerequisite**: You need the Cloud Foundry UAA bearer token. For more information, see [Obtaining the Cloud Foundry UAA bearer token](./provisioning.html#Obtaining-the-Cloud-Foundry-UAA-bearer-token).
+
 The API endpoint that handles API service keys is `https://api.ng.bluemix.net/v2/service_keys`.
 
-Enter the following API to creating a service key:
-
-### Fetch credentials using the cf REST API
-
-**Pre-requisite**: You need the Cloud Foundry UAA bearer token. For more information, see [Obtaining the Cloud Foundry UAA bearer token](./provisioning.html#Obtaining-the-Cloud-Foundry-UAA-bearer-token).
-
-URL: `https://api.ng.bluemix.net/v2/service_keys`<br>
-
-Creating a service key:
+To create a service key, enter:
 ```
 curl -X POST \
   https://api.ng.bluemix.net/v2/service_keys \
@@ -145,12 +141,12 @@ Sample response:
          "password": "XXXXX",
          "password_expiry_date": "null",
          "service_endpoints": {
-               "ambari_console": "https://XXXXX-mn001.bi.services.us-south.bluemix.net:9443",
-               "notebook_gateway": "https://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkg/",
-               "notebook_gateway_websocket": "wss://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkgws/",
-               "webhdfs": "https://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/webhdfs/v1/",
-               "ssh": "ssh clsadmin@XXXXX-mn003.bi.services.us-south.bluemix.net",
-               "livy": "https://XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
+               "ambari_console": "https://XXXXX-mn001.bi.services.<changeme>.bluemix.net:9443",
+               "notebook_gateway": "https://XXXXX-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/",
+               "notebook_gateway_websocket": "wss://XXXXX-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkgws/",
+               "webhdfs": "https://XXXXX-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/webhdfs/v1/",
+               "ssh": "ssh clsadmin@XXXXX-mn003.bi.services.<changeme>.bluemix.net",
+               "livy": "https://XXXXX-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/livy/v1/batches"
          }
       },
      "cluster_management": {
@@ -163,3 +159,4 @@ Sample response:
   }
 }
 ```
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.

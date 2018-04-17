@@ -51,9 +51,9 @@ Flag             | Description
 
 ## Examples
 
-### Submitting a spark job - app on cluster
+### Submitting a Spark job - app on cluster
 
-In this example `/user/clsadmin/jobs/spark-examples_2.11-2.1.0.jar` is a file on HDFS.
+In this example `/user/clsadmin/jobs/spark-examples_2.11-2.1.0.jar` is a file on HDFS. The example shows submitting a Spark job if your {{site.data.keyword.Bluemix_short}} hosting location is `us-south`.
 
 ```
 $ bx ae spark-submit --className org.apache.spark.examples.SparkPi /user/clsadmin/jobs/spark-examples_2.11-2.1.0.jar
@@ -69,7 +69,7 @@ Application ID 'application_1491850285904_0005'
 Done
 ```
 
-When HDFS `host` and `port` is known, HDFS file scheme can be used in `FILE` argument.
+When HDFS `host` and `port` is known, HDFS file scheme can be used in `FILE` argument. The example uses the {{site.data.keyword.Bluemix_short}} hosting location `us-south`.
 
 ```
 $ bx ae spark-submit --className org.apache.spark.examples.SparkPi hdfs://chs-xxx-xxx-mn001.bi.services.us-south.bluemix.net:8020/user/clsadmin/jobs/spark-examples_2.11-2.1.0.jar
@@ -77,7 +77,7 @@ $ bx ae spark-submit --className org.apache.spark.examples.SparkPi hdfs://chs-xx
 
 ### Submitting a local Spark job or app (not on cluster)
 
-The Spark job `spark-examples_2.11-2.1.0.jar` is located on the user's local system remote from the cluster. By using the `--upload` flag the Spark job is copied to a unique directory in the user's HDFS home directory.
+The Spark job `spark-examples_2.11-2.1.0.jar` is located on the user's local system remote from the cluster. By using the `--upload` flag the Spark job is copied to a unique directory in the user's HDFS home directory. The example uses the {{site.data.keyword.Bluemix_short}} hosting location `us-south`.
 
 ```
 $ bx ae spark-submit --className org.apache.spark.examples.SparkPi --upload spark-examples_2.11-2.1.0.jar
@@ -103,7 +103,7 @@ In this example, the Spark job is copied to `hdfs://chs-xxx-xxx-mn001.bi.service
 
 ### Submitting a job without waiting for the application ID
 
-By default, the `spark-submit` command waits (polls) for  status to get the YARN application ID before returning.  If you want to submit a job and not wait for the application ID, you can provide the `--asynchronous` option.
+By default, the `spark-submit` command waits (polls) for  status to get the YARN application ID before returning.  If you want to submit a job and not wait for the application ID, you can provide the `--asynchronous` option. The example uses the {{site.data.keyword.Bluemix_short}} hosting location `us-south`
 
 ```
 $ bx ae spark-submit --asynchronous --upload pi.py

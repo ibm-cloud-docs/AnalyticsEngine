@@ -40,8 +40,10 @@ To run Spark applications interactively:
 
 1. Log on to the cluster management node.
 ```
- $ ssh clsadmin@iae-tmp-867-mn003.bi.services.us-south.bluemix.net
+ $ ssh clsadmin@iae-tmp-867-mn003.bi.services.<changeme>.bluemix.net
 ```
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
+
 2. You can start Python 2, Python 3, Scala and R interactive shells on the cluster:
 
   * Run Spark applications interactively with Python 2:

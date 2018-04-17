@@ -25,20 +25,19 @@ For details on what to consider when customizing a cluster, see [Customizing a c
 
 The following sample shows the parameters in JSON format:
 ```
-{
-	"num_compute_nodes": 1,
+"num_compute_nodes": 1,
 	"hardware_config": "default",
 	"software_package": "ae-1.0-spark",
 	"customization": [{
 		"name": "action1",
 		"type": "bootstrap",
 		"script": {
-			"source_type": "http",
-			"script_path": "http://path/to/your/script"
-			},
-		"script_params": []
-        }]
-}
+			"source_type": "https",
+			"source_props": {},
+			"script_path": "https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-cos.sh"
+		},
+		"script_params": ["<s3_endpoint>", "<s3_access_key>", "<s3_secret_key>"]
+	}]
 ```
 
 Where:
@@ -51,13 +50,13 @@ Where:
 ### Example of creating a cluster with bootstrap customization using the Cloud Foundry (cf) REST API
 
 ```
-  curl --request POST \
-  --url 'https://api.ng.bluemix.net/v2/service_instances?accepts_incomplete=true' \
-  --header 'accept: application/json' \
-  --header 'authorization: <User's UAA bearer token>' \
-  --header 'cache-control: no-cache' \
-  --header 'content-type: application/json' \
-  --data '{"name":"<Service instance name>", "space_guid":"<User's space guid>", "service_plan_guid":"acb06a56-fab1-4cb1-a178-c811bc676164", "parameters": { "hardware_config":"default", "num_compute_nodes":1, "software_package":"ae-1.0-spark", "customization":[<customization-details>]}}'
+curl --request POST \
+--url 'https://api.ng.bluemix.net/v2/service_instances?accepts_incomplete=true' \
+--header 'accept: application/json' \
+--header 'authorization: <User's UAA bearer token>' \
+--header 'cache-control: no-cache' \
+--header 'content-type: application/json' \
+--data '{"name":"<Service instance name>", "space_guid":"<User's space guid>", "service_plan_guid":"acb06a56-fab1-4cb1-a178-c811bc676164", "parameters": { "hardware_config":"default", "num_compute_nodes":1, "software_package":"ae-1.0-spark", "customization":[<customization-details>]}}'
 ```
 
 **Note:**
@@ -124,18 +123,26 @@ For details see [Configuring clusters to work with IBM COS S3 object stores](./c
 
 ### Examples of different kinds of locations of the customization script
 
-The following examples show snippets of the `script` and `script_params` attributes for various locations of the customization's JSON input. The value of source_type is fixed. It can be one of the following: `http`, `https`, `BluemixSwift`, `SoftLayerSwift` or `CosS3`.
+The following examples show snippets of the `script` and `script_params` attributes for various locations of the customization's JSON input. The customization script can be hosted on a Github repository (source_type:https) or in a bucket on S3 storage (source_type:CosS3). It can also be a Swift object store. (Note however that the Swift location is deprecated)
+
 
 **Note:** The maximum number of characters that can be used in the `"script"` attribute of the JSON input is limited to 4096 chars.
 
-#### Example of the script hosted in an HTTP location (with or without basic authentication)
+#### Example of the script hosted in an Github repository
 ```
-    "script": {
-        "source_type": "http",
-        "script_path": "http://host:port/bootstrap.sh"
-    },
-    "script_params": ["arg1", "arg2"]
+"script": {
+    "source_type": "https",
+    "source_props": {},
+    "script_path": "https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-cos.sh"
+},
+"script_params": ["CHANGEME_ENDPOINT", "CHANGE_ACCESS_KEY", "CHANGE_SECRET"]
 ```
+`<CHANGEME_ENDPOINT>` is the endpoint of the IBM S3 instance, for example, `s3-api.sjc-us-geo.objectstorage.softlayer.net`.
+`<CHANGE_ACCESS_KEY>` is the access key of the IBM S3 instance.
+`<CHANGE_SECRET>` is the secret of the IBM S3 instance.
+
+**NOTE:** The script path should be the raw content path of your script. The example uses a script that associates an S3 COS instance with the cluster so that data in S3 COS can be used in Hadoop and Spark jobs.
+
 ####  Example of the script hosted in an HTTPS location (with or without basic authentication)
 ```
     "script": {
@@ -148,7 +155,21 @@ The following examples show snippets of the `script` and `script_params` attribu
     },
     "script_params": ["arg1", "arg2"]
 ```
-#### Example of the script hosted in a Bluemix Swift object store
+#### Example of the customization script hosted in Softlayer COS S3
+```
+   "script": {
+        "source_type": "CosS3",
+        "source_props": {
+            "auth_endpoint": "s3-api.dal-us-geo.objectstorage.service.networklayer.com",
+            "access_key_id": "xxxxxxx",
+           "secret_access_key": "yyyyyy"
+         },
+         "script_path": "/myBucket/myFolder/bootstrap.sh"
+    },
+    "script_params": ["arg1", "arg2"]
+```
+
+#### Example of the script hosted in a Bluemix Swift object store (deprecated)
 ```
     "script": {
         "source_type": "BluemixSwift",
@@ -164,7 +185,7 @@ The following examples show snippets of the `script` and `script_params` attribu
     "script_params": ["arg1", "arg2"]
 ```
 
-#### Example of the script hosted in a SoftLayer Swift object store
+#### Example of the script hosted in a SoftLayer Swift object store (deprecated)
 ```
  "script": {
         "source_type": "SoftLayerSwift",
@@ -175,19 +196,6 @@ The following examples show snippets of the `script` and `script_params` attribu
          },
          "script_path": "/myContainer/myFolder/bootstrap.sh"
      },
-    "script_params": ["arg1", "arg2"]
-```
-#### Example of the customization script hosted in Softlayer COS S3
-```
-   "script": {
-        "source_type": "CosS3",
-        "source_props": {
-            "auth_endpoint": "s3-api.dal-us-geo.objectstorage.service.networklayer.com",
-            "access_key_id": "xxxxxxx",
-           "secret_access_key": "yyyyyy"
-         },
-         "script_path": "/myBucket/myFolder/bootstrap.sh"
-    },
     "script_params": ["arg1", "arg2"]
 ```
 

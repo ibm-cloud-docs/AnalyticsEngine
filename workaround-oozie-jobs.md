@@ -177,7 +177,7 @@ To run PySpark jobs through Oozie:
       <end name='end' />
     </workflow-app>```
 
-3. Create the `job.properties`file:
+3. Create the `job.properties`file. The example uses the {{site.data.keyword.Bluemix_short}} hosting location `us-south`:
 
   ```
   # Licensed to the Apache Software Foundation (ASF) under one
@@ -223,7 +223,7 @@ hadoop fs -copyFromLocal workflow.xml /user/<userName>/examples/apps/pyspark/wor
 ```
 hadoop fs -copyFromLocal /usr/hdp/current/spark2-client/python/lib/p* /user/<userName>/examples/apps/pyspark/lib```
 
-8. Run the Oozie job:
+8. Run the Oozie job. The example uses the {{site.data.keyword.Bluemix_short}} hosting location `us-south`:
 ```
 oozie job -oozie http://chs-gwn-425-mn002.bi.services.us-south.bluemix.net:11000/oozie -config pi/job.properties -run```
 

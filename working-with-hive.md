@@ -29,9 +29,10 @@ Connect to the Hive server by using with beeline client.
 Issue the following SSH command to the cluster:
 
 ```
-ssh clsadmin@chs-xxxxx-mn003.bi.services.us-south.bluemix.net
-beeline -u 'jdbc:hive2://chs-xxxxx-mn001.bi.services.us-south.bluemix.net:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p **********
+ssh clsadmin@chs-xxxxx-mn003.bi.services.<changeme>.bluemix.net
+beeline -u 'jdbc:hive2://chs-xxxxx-mn001.bi.services.<changeme>.bluemix.net:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p **********
 ```
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
 The following examples show useful HiveQL statements.
 
@@ -60,7 +61,7 @@ LOCATION 'cos://<bucketname>.<servicename>/dir1'; ```
 
 ## Changing the Hive execution engine
 
-To change the hive execution engine from Tez to MR, run the following command in the beeline client prompt:
+To change the Hive execution engine from Tez to MR, run the following command in the beeline client prompt:
 
 `set hive.execution.engine=mr;`
 
@@ -79,14 +80,20 @@ Compose for MySQL is a service in {{site.data.keyword.Bluemix_notm}} that can be
 
 **DB_NAME**: The database name, which is typically *compose*.
 
-**DB_CXN_URL**: The complete database connection URL. For example: ```jdbc:mysql://bluemix-sandbox-dal-9-portal.6.dblayer.com:12121?createDatabaseIfNotExist=true```.
+**DB_CXN_URL**: The complete database connection URL.
+```
+jdbc:mysql://<changeme>:12121?createDatabaseIfNotExist=true ```
 
-**Note**: Make sure that you append ```“?createDatabaseIfNotExist=true”``` to the database connection URL or it might try to create tables again resulting in errors.
+where `<changeme>` is the endpoint to a database connection, for example to an instance of Compose in Dallas.
+
+``` jdbc:mysql://bluemix-sandbox-dal-9-portal.6.dblayer.com:12121?createDatabaseIfNotExist=true ```
+
+**Note**: Make sure that you append `?createDatabaseIfNotExist=true` to the database connection URL or it might try to create tables again resulting in errors.
 
 #### Configuring clusters to work with Compose for MySQL
 There are two ways in which you can configure your cluster with the Compose for MySQL parameters:
 
-* Using the Ambari user interface after the cluster has been created.
+* By using the Ambari user interface after the cluster has been created.
 * Configuring the cluster as part of the cluster customization script.
 
 ##### Using the Ambari user interface after the cluster has been created
@@ -96,7 +103,7 @@ To configure the cluster:
 1. Add the properties and values to the hive-site.xml file on your cluster instance by opening the Ambari console.
 2. Open the advanced configuration for HIVE:
 
-  `Ambari dashboard > Hive > Config > Advanced Tab > Hive Metastore > Existing MySQL / MariaDB Database`
+  **Ambari dashboard > Hive > Config > Advanced Tab > Hive Metastore > Existing MySQL / MariaDB Database**
 
 3. Make the appropriate changes for the following parameters: Database Name, Database Username, Database Password, Database URL.
 4. Save your changes.
@@ -109,6 +116,7 @@ To configure the cluster:
 A customization script can be provided when the cluster is created. This script can provide the properties to be configured in the Hive site. It makes use of the Ambari configs.sh file to make the required changes. The script restarts only Hive, and tracks the progress instead of sleeping for a long random interval.
 
 The following is a sample script configuring the Hive metastore:
+
 ```
 #!/bin/bash
 #-----------------------------------------------------------------------
@@ -211,4 +219,5 @@ For the complete source code to the customization script to point an {{site.data
 
 ## Learn more
 
-For further information on Hive and its features, see [Apache Hive](https://hortonworks.com/apache/hive/).
+- [Hive and its features](https://hortonworks.com/apache/hive/).
+- [Sample JDBC program that shows you how to use the Hive endpoints](https://github.com/IBM-Cloud/IBM-Analytics-Engine/tree/master/jdbcsamples/TestHive)

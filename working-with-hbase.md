@@ -129,7 +129,7 @@ For the complete list of supported SQL statements, see [Apache Phoenix](https://
 
 You can also access Apache Phoenix securely via the Knox Gateway. The cluster user credentials and the phoenix_jdbc endpoint are required as well as the [Phoenix 4.9 client Java libraries](https://archive.apache.org/dist/phoenix/apache-phoenix-4.9.0-HBase-1.1/bin/apache-phoenix-4.9.0-HBase-1.1-bin.tar.gz), which must be added to the Java classpath.
 
-The following code snippet for a JDBC client program shows you how to connect to Apache Phoenix through the Knox Gateway:
+The following code snippet for a JDBC client program shows you how to connect to Apache Phoenix through the Knox Gateway. The example uses the {{site.data.keyword.Bluemix_short}} hosting location `us-south`:
 
 ```
 String phoenix_jdbc_url = “jdbc:phoenix:thin:url=https://chs-XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/avatica;authentication=BASIC;serialization=PROTOBUF”;
@@ -144,3 +144,7 @@ DriverManager.getConnection(phoenix_jdbc_url, props);
 - The Apache Phoenix 4.7 client libraries that are  shipped with HDP 2.6.2 do not support the HTTPS protocol. This is a known [Knox issue](https://issues.apache.org/jira/browse/KNOX-893) and a workaround is to use the Phoenix 4.9 client libraries instead.
 - The tool `sqlline-thin.py` (v1.1.8), which is shipped with HDP 2.6.2 does not support the HTTPS protocol either because of the same known issue mentioned for the Apache Phoenix 4.7 client libraries.
 -	The Hortonworks Phoenix ODBC driver currently does not support access to the Apache Phoenix server through the  Knox Gateway.
+
+## Learn more
+
+[Sample JDBC program that shows you how to use the Phoenix endpoints](https://github.com/IBM-Cloud/IBM-Analytics-Engine/tree/master/jdbcsamples/TestPhoenix)

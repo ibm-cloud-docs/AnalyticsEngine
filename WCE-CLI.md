@@ -23,14 +23,15 @@ The {{site.data.keyword.Bluemix_notm}} command line interface can be used to int
 1. [Install the CLI plugin](./wce-wcl-install.html)
 1. Run the [spark-endpoint](./wce-cli-ref-spark-endpoint.html) command to set the cluster endpoint. The argument for `endpoint` is the IP or hostname of the cluster management node.
   ```
-  $ bx ae endpoint https://iae-tmp-867-mn001.bi.services.us-south.bluemix.net
+  $ bx ae endpoint https://iae-tmp-867-mn001.bi.services.<changeme>.bluemix.net
   ```
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
   	When prompted, accept the default port numbers for the Ambari(9443) and Knox(8443) services.
 
-	  Response:
+	  Response if your {{site.data.keyword.Bluemix_short}} hosting location is `us-south`:
   ```
-  Registering endpoint 'https://iae-tmp-867-mn001.bi.services.us-south.bluemix.net'...
+  Registering endpoint 'https://iae-tmp-867-mn001.bi.services.<changeme>.bluemix.net'...
   Ambari Port Number [Optional: Press enter for default value] (9443)>
   Knox Port Number [Optional: Press enter for default value] (8443)>
   OK
@@ -44,7 +45,7 @@ The {{site.data.keyword.Bluemix_notm}} command line interface can be used to int
 
 	  Enter the {{site.data.keyword.iae_full_notm}} cluster login credentials at the prompts. To set the default username for command execution see [`username`](./wce-cli-ref-username.html) command.
 
-	  Response:
+	  Response if your {{site.data.keyword.Bluemix_short}} hosting location is `us-south`:
   ```
   User (clsadmin)>
   Password>

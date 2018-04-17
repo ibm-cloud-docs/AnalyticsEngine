@@ -43,7 +43,7 @@ hdfs dfs –rm cos://mybucket.myprodservice/myfile1```
 hadoop distcp /tmp/test.data  cos://mybucket.myprodservice/mydir/
 hadoop distcp cos://mybucket.myprodservice/mydir/ /tmp/test.data```
 
-  `hdfs://`` is implied. It can also be explicitly specified, for example:
+  `hdfs://`` is implied. It can also be explicitly specified, if the {{site.data.keyword.Bluemix_short}} hosting location is `us-south`:
 ```
 hdfs://chs-czq-182-mn002.bi.services.us-south.bluemix.net:8020/tmp/test.data```
 

@@ -34,22 +34,23 @@ Refer to the instructions [here](./Retrieve-service-credentials-and-service-end-
         "password": "5auuF5SU3e0G",
         "password_expiry_date": "null",
         "service_endpoints": {
-          "ambari_console": "https://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:9443",
-          "notebook_gateway": "https://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkg/",
-          "notebook_gateway_websocket": "wss://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkgws/",
-          "webhdfs": "https://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/webhdfs/v1/",
-          "ssh": "ssh clsadmin@chs-zbh-288-mn003.bi.services.us-south.bluemix.net",
-          "livy": "https://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/livy/v1/batches"
+          "ambari_console": "https://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:9443",
+          "notebook_gateway": "https://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/",
+          "notebook_gateway_websocket": "wss://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkgws/",
+          "webhdfs": "https://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/webhdfs/v1/",
+          "ssh": "ssh clsadmin@chs-zbh-288-mn003.bi.services.<changeme>.bluemix.net",
+          "livy": "https://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/livy/v1/batches"
         }
       }
 .
 .
 ```
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
 In this sample, notice the following information:
 
-* the JNBG HTTP REST API is accessible on the `https://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkg/` endpoint and,
-* Websocket calls can be made on `wss://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkgws/` endpoint
+* The JNBG HTTP REST API is accessible on the `https://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/` endpoint and,
+* Websocket calls can be made on `wss://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkgws/` endpoint
 
 ## Authentication
 
@@ -69,11 +70,12 @@ The IBM Open Platform provides an updated `nb2kg` package [here](http://ibm-open
 As per the sample {{site.data.keyword.iae_full_notm}} cluster response details above, the configuration would be:
 
 ```
-KG_URL=https://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkg/
-KG_WS_URL=wss://chs-zbh-288-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkgws/
+KG_URL=https://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/
+KG_WS_URL=wss://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkgws/
 KG_HTTP_USER=clsadmin
 KG_HTTP_PASS=5auuF5SU3e0G
 ```
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
 ## REST API access
 
@@ -83,14 +85,14 @@ Here are some commonly used REST APIs:
 
 | Method | Endpoint | Description |
 |---------|------------|-----------|
-| GET | /api | Get API info (e.g. returns {"version": "4.3.1"}) |
-| GET | /api/kernelspecs | Get kernel specs which is useful to know during kernel creation  |
-| GET |  /api/kernels | List Kernels |
-| POST |  /api/kernels | Start a kernel and return the uuid |
-| GET | /api/kernels/{kernel_id} | Get kernel information |
-| DELETE | /api/kernels/{kernel_id} | Kill a kernel and delete the kernel id |
-| POST | /kernels/{kernel_id}/interrupt |  interrupt a kernel |
-| POST | /kernels/{kernel_id}/restart | restarts a kernel |
+| GET | /api | Get API info (For example, returns `{"version": "4.3.1"}`) |
+| GET | /api/kernelspecs | Gets kernel specs which is useful to know during kernel creation  |
+| GET |  /api/kernels | Lists kernels |
+| POST |  /api/kernels | Starts a kernel and return the UUID |
+| GET | /api/kernels/{kernel_id} | Gets kernel information |
+| DELETE | /api/kernels/{kernel_id} | Kills a kernel and delete the kernel ID |
+| POST | /kernels/{kernel_id}/interrupt | Interrupts a kernel |
+| POST | /kernels/{kernel_id}/restart | Restarts a kernel |
 
 For complete details about the API refer the documentation and swagger specifications provided [here](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html).
 
@@ -129,8 +131,8 @@ yum install -y epel-release nodejs npm; npm install
   For authentication, set the environment variables: BASE_GATEWAY_USERNAME and BASE_GATEWAY_PASSWORD, fetch username and password from VCAP.
 ```
 // Access variables with the notebook_gateway VCAP information from your IBM Analytics Engine service.
-var notebook_gateway = 'https://chs-zys-882-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkg/';
-var notebook_gateway_ws = 'wss://chs-zys-882-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/jkgws/';
+var notebook_gateway = 'https://chs-zys-882-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/';
+var notebook_gateway_ws = 'wss://chs-zys-882-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkgws/';
 // Client program variables.
 var xmlhttprequest =require('xmlhttprequest');
 var ws =require('ws');
@@ -169,7 +171,9 @@ jupyter.startNewKernel({
     process.exit(1);
 });
 ```
-For more information on jupyter-js-services, see https://github.com/jupyterlab/services.
+ where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
+
+ For more information on jupyter-js-services, see https://github.com/jupyterlab/services.
 
 3. Run the sample application. Enter the following command to run the Node client:
 ```
