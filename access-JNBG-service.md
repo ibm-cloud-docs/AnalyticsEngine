@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-04-19"
 
 ---
 
@@ -17,11 +17,15 @@ lastupdated: "2017-11-02"
 
 ## Jupyter Notebook Gateway (JNBG) service endpoint
 
-The JNBG service on the cluster provides two endpoints: HTTP operations and Websocket:
+The JNBG service on the cluster provides two endpoints for HTTP operations and Websocket resource.
 
-* [HTTP resources](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html#http-resources) of the Jupyter Kernel Gateway API for operations like retrieving kernel specifications, listing running kernels, and starting, stopping and deleting kernels.
+* [HTTP resources](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html#http-resources)
 
-* [Websocket resources](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html#websocket-resources) of the Jupyter Kernel Gateway API connection to a running kernel to submit code and communicate with the kernel.
+ The HTTP API consists of resources for operations like retrieving kernel specifications, listing running kernels, and starting, stopping, and deleting kernels.
+
+* [Websocket resource](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html#websocket-resources)
+
+ The Websocket resource multiplexes the Jupyter kernel messaging protocol over a single Websocket connection to submit code and communicate with the running kernel.
 
 Refer to the instructions [here](./Retrieve-service-credentials-and-service-end-points.html#retrieving-service-credentials-and-service-end-points) on retrieving service end points for the {{site.data.keyword.iae_full_notm}} cluster. In the JSON service endpoint details, the HTTP endpoint URL of the JNBG service is listed in `notebook_gateway` and the Websocket endpoint in `notebook_gateway_websocket`. Here is a representative sample of a cluster's service endpoint details:
 
@@ -50,11 +54,11 @@ where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, 
 In this sample, notice the following information:
 
 * The JNBG HTTP REST API is accessible on the `https://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/` endpoint and,
-* Websocket calls can be made on `wss://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkgws/` endpoint
+* Websocket calls can be made on the  `wss://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkgws/` endpoint.
 
 ## Authentication
 
-Access to the JNBG service endpoints is SSL secured and requires `BASIC` authentication. Use the `user` and `password` included in the cluster's json service endpoint to add the `BASIC` authentication header in your HTTP and Websocket connection calls to the JNBG service.
+Access to the JNBG service endpoints is SSL secured and requires `BASIC` authentication. Use the `user` and `password` included in the cluster's JSON service endpoint to add the `BASIC` authentication header in your HTTP and Websocket connection calls to the JNBG service.
 
 ## Example configuration: notebook server with `nb2kg` extension
 
@@ -62,12 +66,11 @@ Typically, Jupyter Notebook servers use the `nb2kg` extension to connect with re
 
 The IBM Open Platform provides an updated `nb2kg` package [here](http://ibm-open-platform.ibm.com:8080/simple/nb2kg/) which is modified to accept additional endpoint and authentication details needed to access a Jupyter Kernel Gateway instance requiring authentication. When using this version of `nb2kg`, the following configuration is needed to access the cluster's JNBG service:
 
-* configure the `KG_URL` to the HTTP endpoint URL of the JKG service
-* configure the `KG_WS_URL` to the Websocket endpoint URL of the JKG service
-* configure the `KG_HTTP_USER` to the cluster user
-* configure the `KG_HTTP_PASS` to the cluster password
+* Configure the `KG_WS_URL` to the Websocket endpoint URL of the JKG service
+* Configure the `KG_HTTP_USER` to the cluster user
+* Configure the `KG_HTTP_PASS` to the cluster password
 
-As per the sample {{site.data.keyword.iae_full_notm}} cluster response details above, the configuration would be:
+For the previous  {{site.data.keyword.iae_full_notm}} cluster response details, the configuration would be:
 
 ```
 KG_URL=https://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/
@@ -104,7 +107,7 @@ Refer to the following sample applications written for Node.js and Python 2.
 
 **Example 1: Creating an Node.js Spark application using the IBM Analytics Engine interactive API**
 
-This sample application creates the Spark kernel using the IBM Analytics Engine interactive API service and runs a simple Spark code against the kernel.
+This sample application creates the Spark kernel using the IBM Analytics Engine interactive API service and runs Spark code against the kernel.
 
 **To create a sample application that runs on a Linux system:**
 
@@ -128,7 +131,7 @@ yum install -y epel-release nodejs npm; npm install
 ```
 2. Create the sample application file. Create a file named spark-interactive-demo.js and copy the following content to the file. Adjust the `notebook_gateway` and `notebook_gateway_ws`  host variable values to use the VCAP credentials of the IBM Analytics Engine service instance that you have created.
 
-  For authentication, set the environment variables: BASE_GATEWAY_USERNAME and BASE_GATEWAY_PASSWORD, fetch username and password from VCAP.
+  For authentication, set the environment variables: BASE_GATEWAY_USERNAME and BASE_GATEWAY_PASSWORD. Fetch the username and password values from VCAP.
 ```
 // Access variables with the notebook_gateway VCAP information from your IBM Analytics Engine service.
 var notebook_gateway = 'https://chs-zys-882-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/';
@@ -180,14 +183,14 @@ jupyter.startNewKernel({
 node ~/spark-example/spark-interactive-demo.js
 ```
 
-  The sample Python code sourceToExecute that runs against the Spark kernel takes five numbers and then displays them in the JSON output. Example:
+  The sample Python code `sourceToExecute` that runs against the Spark kernel takes five numbers and then displays them in the JSON output. Example:
 ```
 content: { text: '[882, 635, 978, 219, 773]\n', name: 'stdout' },
 ```
 
 **Example 2: Creating a Python 2 Spark application using the IBM Analytics Engine Interactive API**
 
-This Python 2 sample code uses tornado libraries to make HTTP and WebSocket calls to a Jupyter Kernel Gateway service. You need a Python 2 runtime environment with the Tornado package installed to run this sample code.
+This Python 2 sample code uses Tornado libraries to make HTTP and WebSocket calls to a Jupyter Kernel Gateway service. You need a Python 2 runtime environment with the Tornado package installed to run this sample code.
 
 **To create a Python 2 Spark application:**
 
@@ -203,8 +206,8 @@ from tornado.websocket import websocket_connect
 
 @gen.coroutine
 def main():
-    kg_http_url = "https://10.160.61.65:8443/gateway/default/jkg"
-    kg_ws_url = "wss://10.160.61.65:8443/gateway/default/jkgws"
+    kg_http_url = "https://chs-xxx-yyy-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/"
+    kg_ws_url = "wss://chs-xxx-yyy-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkgws/"
     auth_username = 'clsadmin'
     auth_password = '1qazxsw23edc'
     validate_cert = True
@@ -219,6 +222,12 @@ def main():
 
     print("Using kernel gateway URL: {}".format(kg_http_url))
     print("Using kernel websocket URL: {}".format(kg_ws_url))
+
+    # Remove "/" if exists in JKG url's
+    if kg_http_url.endswith("/"):
+        kg_http_url=kg_http_url.rstrip('/')
+    if kg_ws_url.endswith("/"):
+        kg_ws_url=kg_ws_url.rstrip('/')
 
     client = AsyncHTTPClient()
 
@@ -295,11 +304,11 @@ def main():
 
         # evaluate messages that correspond to our request
         if 'msg_id' in msg['parent_header'] and \
-                msg['parent_header']['msg_id'] == msg_id:
+                        msg['parent_header']['msg_id'] == msg_id:
             if msg_type == 'stream':
                 print("  Content: {}".format(msg['content']['text']))
             elif msg_type == 'status' and \
-                    msg['content']['execution_state'] == 'idle':
+                            msg['content']['execution_state'] == 'idle':
                 kernel_idle = True
 
     # close websocket
@@ -320,16 +329,17 @@ def main():
 
 if __name__ == '__main__':
     IOLoop.current().run_sync(main)
+
 ```
 {: codeblock}
 
-Update the `client.py` per your cluster VCAP:
+Update `client.py` using your cluster VCAP:
 
-* Set the kg_ws_url variable to the notebook_gateway_websocket value in your cluster VCAP.
-* Set the auth_username variable to the user value in your cluster VCAP.
-* Set the auth_password variable to the password value in your cluster VCAP.
+* Set the `kg_ws_url` variable to the notebook_gateway_websocket value in your cluster VCAP.
+* Set the `auth_username` variable to the user value in your cluster VCAP.
+* Set the `auth_password` variable to the password value in your cluster VCAP.
 
-Install pip. If you don't have it, install the python tornado package using this command:
+Install pip. If you don't have it, install the Python Tornado package using this command:
 ```
 yum install –y python-pip; pip install tornado.
 ```
@@ -339,23 +349,20 @@ Run the demo Python client:
 ```
 python client.py
 ```
+
 {: codeblock}
 
 The code above creates a Spark 2.1 Scala kernel and submits Scala code to it for execution.
 
-Here are code snippets to show how the `kernel_name` and `code` variables can be modified in `client.py` to do the same for Python 2 and R kernels.
+Here are code snippets to show how the kernel name and code variables can be modified in `client.py` to do the same for Python 2 and R kernels.
 
 * Python 2
 ```
 kernel_name = "python2-spark21"
-code = '\n'.join((
-    "print(\"Spark Version: {}\".format(sc.version))",
-    "print(\"Application Name: {}\".format(sc._jsc.sc().appName()))",
-    "print(\"Application ID: {} \".format(sc._jsc.sc().applicationId()))",
-    "sc.parallelize([1,2,3,4,5]).count()"
-))
+code = '\n'.join(( "print(\"Spark Version: {}\".format(sc.version))", "print(\"Application Name: {}\".format(sc._jsc.sc().appName()))", "print(\"Application ID: {} \".format(sc._jsc.sc().applicationId()))", "sc.parallelize([1,2,3,4,5]).count()" ))
 ```
-{: codeblock}
+
+ {: codeblock}
 
 * R
 ```
