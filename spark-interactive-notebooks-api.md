@@ -84,7 +84,7 @@ sparkR \
   * [Overriding kernel settings](./Kernel-Settings.html#overriding-kernel-settings---kernel_spark_args)
 * [Lazy Spark initialization](./lazy-spark-initialization.html)
 * [Logs](./Logs-JNBG.html)
-  * [Jupyter Notebook Gateway server log](./Logs-JNBG.html#accessing-jupyter-kernel-gateway-losg)
+  * [Jupyter Notebook Gateway server log](./Logs-JNBG.html#accessing-jupyter-kernel-gateway-logs)
   * [Accessing kernel and driver logs](./Logs-JNBG.html#accessing-kernel-or-driver-logs)
   * [Accessing Spark executor logs](./Logs-JNBG.html#accessing-spark-executor-logs)
 * [Installed libraries](./Installed-Libraries.html)
