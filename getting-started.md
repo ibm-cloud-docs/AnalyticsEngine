@@ -32,7 +32,7 @@ lastupdated: "2018-05-15"
 
 ## Run applications on the cluster
 
-* Watch a [demo](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/#spark-notebook) and run through the tutorial using sample code and data. Download this [notebook](https://github.com/sharynr/notebooks/blob/master/Exploring%20Heating%20Problems%20in%20Manhattan.ipynb) and [sample data file](https://github.com/wdp-beta/get-started/blob/master/data/IAE_examples_data_311NYC.zip) to try it for yourself!
+* Watch a [demo](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/#spark-notebook) and run through the tutorial using sample code and data. Copy or download this [notebook](https://datascience.ibm.com/exchange/public/entry/view/e2e70feb00a65760eb1bd683da285364) from the {{site.data.keyword.DSX_short}} community to try it for yourself!
 * Learn how to use [spark-submit](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/#spark-submit) to execute a Python script on an {{site.data.keyword.iae_full_notm}} cluster.
 * Learn how to programmatically use {{site.data.keyword.iae_full_notm}} through this [tutorial](https://github.com/IBM-Cloud/IBM-Analytics-Engine). Get access to sample scripts to start operationalizing your first applications.
 * Get answers to some [frequently asked questions](./faq.html) about using {{site.data.keyword.iae_full_notm}}.
