@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -32,7 +32,7 @@ SET BLUEMIX_TRACE=true
 
 To disable tracing set `BLUEMIX_TRACE` environment variable to `false` (case ignored)
 
-## Endpoint was not set or found. Call endpoint first.
+## Endpoint was not set or found
 
 The {{site.data.keyword.iae_full_notm}} command line interface requires a cluster endpoint to be first set. This enables the tool to talk to the cluster. The endpoint is the ip or hostname of the management node.
 

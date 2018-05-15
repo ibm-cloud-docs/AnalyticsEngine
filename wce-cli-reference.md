@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -64,4 +64,4 @@ Enter 'bx iae help [command]' for more information about a command.
 # Troubleshoot
 
 - [Enable tracing](./WCE-CLI-Troubleshoot.html#enable-tracing)
-- [Endpoint was not set or found](./WCE-CLI-Troubleshoot.html#endpoint-was-not-set-or-found-call-endpoint-first)
+- [Endpoint was not set or found](./WCE-CLI-Troubleshoot.html#endpoint-was-not-set-or-found)

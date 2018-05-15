@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -15,43 +15,27 @@ lastupdated: "2017-11-02"
 
 # Retrieving service credentials and service end points
 
-The cluster credentials and various service end points that the cluster exposes are made available to you as `service keys`. As described below, you need to create a `service key` on the Cloud Foundry service instance you [provisioned](./provisioning.html#how-to-provision-a-service-instance).
+The cluster credentials and various service end points that the cluster exposes are made available to you as `service keys`.
 
 You can fetch the cluster credentials and the service end points by:
-* [Using CF CLI](#obtaining-credentials-using-cfcli)
-* [Using CF REST API](#obtaining-credentials-using-cloud-foundry-rest-apis)
+* [Using cf CLI](#obtaining-the-credentials-using-the-cf-cli)
+* [Using cf REST API](#obtaining-the-credentials-using-the-cf-rest-api)
 
-## Obtaining credentials using cf CLI
+## Obtaining the credentials using the cf CLI
 
 You need to create a service key for the {{site.data.keyword.iae_full_notm}} service instance to obtain the cluster credentials and service endpoints.
 
-### Creating a service key
+### Creating the service key
+
 To create a service key, enter the following command:
 
 ```
 cf create-service-key <your_service_instance_name> <your_service_key_name>
 ```
-`<your_service_instance_name>` is the name of the service instance you  specified when creating the cluster.
+`<your_service_instance_name>` is the name of the service instance you  specified when creating the cluster. You can use `cf services` to find all your service instance names.
 
 `<your_service_key_name>` is any name that you want to refer your key as. This name is used to retrieve service keys.  
 
-The cluster credentials and various service end points that the cluster exposes are made available to you as `service keys`. As described below, you need to create a `service key` on the cloudfoundry service instance that you [provisioned](./provisioning.html#how-to-provision-a-service-instance).
-
-You can fetch the cluster credentials and the service end points through one of the following ways:
-
-* [Using cf CLI](#fetch-credentials-using-the-cf-cli)
-* [Using cf REST API](#fetch-credentials-using-the-cf-rest-api)
-
-## Fetch credentials using the cf CLI
-Cluster credentials and service endpoints by creating and viewing a service key for the {{site.data.keyword.iae_full_notm}} service instance created by the user.
-
-### Creating a service key
-```
-cf create-service-key <your_service_instance_name> <your_service_key_name>
-```
-For `<your_service_instance_name>`, specify the name of the service you had specified when creating the cluster.
-
-You can use `cf services` to find all your service instance names.
 
 Expected response:
 
@@ -68,10 +52,6 @@ cf service-key <service_instance_name> <service_key_name>
 ```
 
 `<service instance name>` is the the name of the service instance you  specified when creating the cluster.
-
-For `<service_instance_name>`, specify the name of the service instance you had specified when creating the cluster.
-
-For `<service_key_name>`, specify the name of the service key that you entered when creating the key.
 
 `<service key name>` is the name of the service key that you entered when creating the key.
 
@@ -105,11 +85,13 @@ where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, 
 In the sample response, the properties under `cluster` name the cluster user name, the password, and cluster service endpoints.
 
 
-### Obtaining credentials using Cloud Foundry REST APIs
+## Obtaining the credentials using the cf REST API
 
-**Prerequisite**: You need the Cloud Foundry UAA bearer token. For more information, see [Obtaining the Cloud Foundry UAA bearer token](./provisioning.html#Obtaining-the-Cloud-Foundry-UAA-bearer-token).
+**Prerequisite**: You need the Cloud Foundry UAA bearer token. For more information, see [Obtaining the Cloud Foundry UAA access  token](./retrieving-uaa-access-token.html).
 
 The API endpoint that handles API service keys is `https://api.ng.bluemix.net/v2/service_keys`.
+
+### Creating the service key
 
 To create a service key, enter:
 ```

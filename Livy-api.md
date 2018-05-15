@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -113,11 +113,11 @@ Content-Length: 100
   "log": []
 }
 ```
-### Submit Spark applications from object storage or on data in object stores
+### Submit Spark applications from Object Storage or on data in object stores
 
-Refer to [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-and-Swift-object-storage.html) for instructions on configuring your cluster to use object storage. Once configured, you can directly submit Spark applications from the object storage. You can also submit Spark applications on data residing in the object store.
+Refer to [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html) for instructions on configuring your cluster to use Object Storage. Once configured, you can directly submit Spark applications from Object Storage. You can also submit Spark applications on data residing in Object Storage.
 
-Using Livy to submit a Spark application that exists in Object Storage is basically the same as submitting any Spark application. The only difference is the "file" reference will be an object storage URL:
+Using Livy to submit a Spark application that exists in Object Storage is basically the same as submitting any Spark application. The only difference is the "file" reference is an Object Storage URL:
 ```
 curl \
 -u "<user>:<password>" \
@@ -128,7 +128,7 @@ curl \
 ```
 where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
-If the application was Java/Scala-based and the jar file was stored in object storage, the command would need to specify both a reference to the jar file and the class you wanted to run like in the example below. Note that this example also makes use of a Stocator connector so the URI varies accordingly and the commands assume that the object storage referenced is already configured on the cluster.
+If the application was Java/Scala-based and the jar file was stored in Object Storage, the command would need to specify both a reference to the jar file and the class you wanted to run like in the example below. Note that this example also makes use of a Stocator connector so the URI varies accordingly and the commands assume that the Object Storage referenced is already configured on the cluster.
 ```
 curl \
 -u "<user>:<password>" \

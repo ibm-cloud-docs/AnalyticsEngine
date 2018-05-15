@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -42,4 +42,4 @@ curl --request DELETE \
 ```
 {: codeblock}
 
-**Note**: To retrieve the Cloud Foundry UAA bearer token, see [Obtaining the Cloud Foundry UAA bearer token](./provisioning.html#Obtaining-the-Cloud-Foundry-UAA-bearer-token).
+**Note**: To retrieve the Cloud Foundry UAA access token, see [Retrieving the Cloud Foundry UAA access  token](./retrieving-uaa-access-token.html).

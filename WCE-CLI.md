@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -38,7 +38,7 @@ where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, 
   Endpoint 'https://ae-tmp-867-mn001.bi.services.us-south.bluemix.net' set.
   ```
 
-1. Run the [spark-submit](./wce-cli-ref-spark-submit.html) command. For example:
+1. Run [spark-submit](./wce-cli-ref-spark-submit.html) command. For example:
   ```
   $ bx ae spark-submit --className org.apache.spark.examples.SparkPi local:/usr/hdp/current/spark2-client/jars/spark-examples.jar
   ```
@@ -100,9 +100,9 @@ Enter 'bx ae help [command]' for more information about a command.
 
 ## FAQs
 
-- [How to submit a job?](./Spark-Batch.html#wce-cli)
+- [How to submit a job?](./Spark-Batch.html)
 
 ## Troubleshooting
 
 - [Enable tracing](./wce-cli-troubleshoot.html#enable-tracing)
-- [Endpoint was not set or found](./wce-cli-troubleshoot.html#endpoint-was-not-set-or-found-call-endpoint-first)
+- [Endpoint was not set or found](./wce-cli-troubleshoot.html#endpoint-was-not-set-or-found)

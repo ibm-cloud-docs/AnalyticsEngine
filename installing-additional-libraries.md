@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -21,9 +21,9 @@ In addition to the libraries that come pre-installed, there may be a need to use
 
 For distributed operations such as Spark jobs that execute on any node of the cluster, the dependency libraries need to be available on all nodes of the cluster. Refer the instructions [here](./customizing-cluster.html) for such cluster wide installation of libraries through customization scripts.
 
-Note that the customization scripts should install libraries/packages into the same environments as listed below to make sure they get picked up by the JNBG service. The scripts need not rely only on public repositories like pypi, maven central, CRAN (or other publicly accessible URLs) to install the libraries/packages. Instead, you may choose to package your libraries/packages into archive files and place them in object storage, which the customization script can pull down and install. Refer to [this page](./Customization-script-on-Bluemix-Object-Store.html) for examples on how to place your scripts and related artefacts in an object store for customizing your cluster.
+Note that the customization scripts should install the libraries or packages into the same environments as listed below to make sure they get picked up by the JNBG service. The scripts need not rely only on public repositories like pypi, maven central, CRAN (or other publicly accessible URLs) to install the libraries or packages. Instead, you can choose to package your libraries or packages into archive files and place them in Object Storage, which the customization script retrieves and installs. Refer to [this page](./example-of-customizations.html) for examples on how to place your scripts and related artefacts in an object store for customizing your cluster.
 
-_Installation of libraries in this manner is permanent i.e, the libraries are always available to all interactive sessions by default._
+Installing the libraries in this manner is permanent; the libraries are always available to all interactive sessions by default.
 
 **Note:** You cannot use the `--user` option in `pip` install commands in {{site.data.keyword.iae_full_notm}}.
 
@@ -55,9 +55,9 @@ To install Python 3.5 libraries, your script must install into the `/home/common
  /home/common/conda/anaconda3/bin/pip install <archive url or or local file path>
  ```
 
-### Scala/Java
+### Scala or Java
 
-Scala/Java libraries must be copied into the following designated directories:
+Scala or Java libraries must be copied into the following designated directories:
 
  * `/home/common/lib/scala/common` - Scala/Java libraries that are not Spark version specific
  * `/home/common/lib/scala/spark2` - Scala/Java libraries that are specific to Spark version 2.x
@@ -110,7 +110,7 @@ R -e "install.packages('ibmdbR', repos='https://cran.r-project.org/', lib='/home
 Note that in each case, the packages are installed into the `/home/common/lib/R` directory. This is important as otherwise, the R packages won't be available in your R notebook/Spark environments.
 
 
-## Notebook / Interactive session specific installation
+## Notebook or Interactive session specific installation
 
 The Apache Toree based Scala kernel supports the `%AddDeps` and `%AddJar` line magics that can be used to add Scala/Java libraries to the running session.
 

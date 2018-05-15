@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -60,4 +60,4 @@ Log lines '     diagnostics: [Tue Apr 11 17:33:16 +0000 2017] Application is Act
 17/04/11 17:33:16 INFO ShutdownHookManager: Deleting directory /tmp/spark-6fbb8870-edea-47e0-9e2b-be2901b4bc2f'
 ```
 
-To view the status of all jobs, see command [spark-job-statuses](./staging/wce-cli-ref-spark-job-statuses.html).
+To view the status of all jobs, see command [spark-job-statuses](./wce-cli-ref-spark-job-statuses.html).

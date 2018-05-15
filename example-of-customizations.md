@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-12-14"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -60,8 +60,8 @@ curl --request POST \
 ```
 
 **Note:**
-* If you need to find your UAA bearer token, see [Obtaining the Cloud Foundry UAA bearer token](./provisioning.html#Obtaining-the-Cloud-Foundry-UAA-bearer-token).
-* If you need to find your space GUIDs, see [Obtaining the space GUID](./provisioning.html#obtaining-the-space-guid).
+* If you need to find your UAA bearer token, see [Retrieving the Cloud Foundry UAA access token](./retrieving-uaa-access-token.html).
+* If you need to find your space GUIDs, see [Obtaining the space GUID](./provisioning_deprecated.html#obtaining-the-space-guid).
 * To run cluster management REST APIs, you need to pass your IAM access token. To obtain the token, follow these [steps](./Retrieve-IAM-access-token.html).
 * For the United Kingdom region use the end point  `https://api.eu-gb.bluemix.net`.
 

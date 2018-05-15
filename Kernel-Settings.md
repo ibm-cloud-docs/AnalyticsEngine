@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -22,7 +22,7 @@ lastupdated: "2017-11-02"
   No explicit memory limit set on a per Kernel basis. 6 GB free memory available on the container where kernels are run.
 
 ### How to change  
-  Refer to [overriding kernel settings section](./Kernel-Settings.html#overriding-kernel-settings---kernel_spark_args) to see how you can pass settings to control driver and executor memory limits. By default there is no limit applied to the driver process and the Spark default is used for executors (~ 1 GB). Note that for Python and R kernels, the Python and R native process can consume it's own memory which may not be governed by the `--driver-memory` option. There is no memory limit applied to these processes.
+  Refer to the [overriding kernel settings section](./Kernel-Settings.html#overriding-kernel-settings) to see how you can pass settings to control driver and executor memory limits. By default there is no limit applied to the driver process and the Spark default is used for executors (~ 1 GB). Note that for Python and R kernels, the Python and R native process can consume it's own memory which may not be governed by the `--driver-memory` option. There is no memory limit applied to these processes.
 
 ## Executor settings for kernel applications  
 
@@ -46,7 +46,7 @@ Advanced spark2-env:
 
 Then save and restart all the affected components.
 
-To change settings per notebook and kernel, refer to the [overriding kernel settings section](./Kernel-Settings.html#overriding-kernel-settings---kernel_spark_args).
+To change settings per notebook and kernel, refer to the [overriding kernel settings section](./Kernel-Settings.html#overriding-kernel-settings).
 
 ## Number of concurrent kernels
   There is no explicit limit set on numbers of kernels.The max number of kernel depends on the containers available in cluster.  
@@ -57,7 +57,7 @@ To change settings per notebook and kernel, refer to the [overriding kernel sett
   On a 2 Data Node Cluster with above defaults  
    Max concurrent kernels - 7
 
-  _The Math_ :
+  _The math_ :
 
 A Data node has 4 vcores and 14 GB Memory.
 
@@ -109,7 +109,7 @@ where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, 
 Note that currently the Apache Toree - Scala kernel will accept the `KERNEL_APPNAME` parameter and include it in the kernel log file name, but the YARN/Spark application name will show as `Apache Toree`. This issue will be fixed in future ensuring the application name matches the specified `KERNEL_APPNAME`.
 
 
-## Overriding Kernel Settings - KERNEL_SPARK_ARGS
+## Overriding kernel settings
 
 The desired kernel settings can be specified when requesting a new kernel from the Jupyter Notebook Gateway service. To do this, include a `KERNEL_SPARK_ARGS` key in the `env` object of the kernel request POST body. The value of the `KERNEL_SPARK_ARGS` can be a string containing any of the valid Spark options that can generally be specified on the Spark command line when launching a Spark application.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2017-11-02"
 
 # Installed libraries
 
-The {{site.data.keyword.iae_full_notm}} cluster comes with a set of libraries pre-installed on each of the cluster nodes that are available by default with corresponding kernels. The table below lists the locations of these libraries:
+The {{site.data.keyword.iae_full_notm}} cluster comes with a set of libraries which are pre-installed on each of the cluster nodes that are available by default with corresponding kernels. The table below lists the locations of these libraries:
 
 | Environment | Kernel | Libraries |                 
 |-------------|--------|-----------|
@@ -23,7 +23,7 @@ The {{site.data.keyword.iae_full_notm}} cluster comes with a set of libraries pr
 | Python 3.5 | Python 3.5 with Spark 2.1 | Python libraries packaged with Anaconda3 4.2.0 at /home/common/conda/anaconda3/|
 | Scala 2.11 | Scala 2.11 with Spark 2.1 | Scala/Java libraries (Scala 2.11 and Java 1.8) under /home/common/lib/scala/spark2 |
 
-For installed Spark connectors refer to [this page](./supported-connectors.html).
+For installed Spark connectors, see this [ documentation](./supported-connectors.html).
 
 ## Python
 
@@ -64,8 +64,8 @@ To get a detailed description of the installed packages you can use the followin
 
   `installed.packages(lib.loc='/home/common/lib/R')`
 
-## Scala/Java
-Scala/Java libraries are placed into the following directory that get added to the CLASSPATH of Spark drivers and executors:
+## Scala or Java
+Scala or Java libraries are placed into the following directory that get added to the CLASSPATH of Spark drivers and executors:
 
 /home/common/lib/scala/spark2 - Scala/Java libraries that are included by default in the Spark2 environment.
 
