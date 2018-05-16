@@ -25,8 +25,6 @@ You can fetch the cluster credentials and the service end points by:
 
 You need to create a service key for the {{site.data.keyword.iae_full_notm}} service instance to obtain the cluster credentials and service endpoints.
 
-### Creating the service key
-
 To create a service key, enter the following command:
 
 ```
@@ -44,7 +42,6 @@ Creating service key <service_key_name> for service instance <service_instance_n
 OK
 ```
 
-### Viewing the service key
 To view your service key, enter the following command:
 
 ```
@@ -91,7 +88,6 @@ In the sample response, the properties under `cluster` name the cluster user nam
 
 The API endpoint that handles API service keys is `https://api.ng.bluemix.net/v2/service_keys`.
 
-### Creating the service key
 
 To create a service key, enter:
 ```
