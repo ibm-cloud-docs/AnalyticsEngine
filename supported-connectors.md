@@ -62,7 +62,7 @@ ida_df_1.head()
 {: codeblock}
 
 
-## Cloudant connector
+## Cloudant
 
 Sample Python code to access Cloudant:
 
