@@ -20,6 +20,10 @@ HBase applications are written in Java, much like a typical MapReduce applicatio
 
 **Note:** HBase and Apache Phoenix are only available in the {{site.data.keyword.iae_short}} Hadoop package.
 
+- [Accessing HBase through the HBase shell](#accessing-hbase-through-the-hbase-shell)
+- [Accessing Phoenix through client tools](#accessing-phoenix-through-client-tools)
+- [Accessing Phoenix through JDBC via the Knox Gateway](#accessing-phoenix-through-jdbc-via-the-knox-gateway)
+
 ## Accessing HBase through the HBase shell
 To work with HBase, you need your cluster user credentials and the SSH credentials. You can get this information from the service credentials of your {{site.data.keyword.iae_short}} service instance.
 
@@ -49,8 +53,8 @@ Apache Phoenix enables you to interact with HBase using SQL through Phoenix clie
  -	By entering: `./sqlline.py` (which will launch a query prompt)
  - By entering: `./sqlline.py /local_path_to_folder/createTable.sql`
 
-### Using the psql client
-`Psql.py` is a client tool for loading CSV formatted data on your local file system by using the psql command.
+### Using the PSQL client
+`psql.py` is a client tool for loading CSV formatted data on your local file system by using the `psql` command.
 
 To load data via `psql.py`:
 

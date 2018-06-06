@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-01-12"
+lastupdated: "2018-06-06"
 
 ---
 
@@ -18,6 +18,17 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
 
+### 6 June 2018
+ - You can no longer provision {{site.data.keyword.iae_full_notm}} service instances using the Cloud Foundry CLI. You must use the Bluemix CLI.
+ - The following software packages were added:
+   - **AE 1.1 Spark**
+   - **AE 1.1 Spark and Hadoop**
+   - **AE 1.1 Spark and Hive**
+
+  These packages are based on Hortonworks Data Platform 2.6.5 and  include Spark 2.3.
+
+
+
 ### 26 March 2018
   -	{{site.data.keyword.iae_full_notm}} service instances can now also be deployed in the United Kingdom region
   - Support for Resource Controller APIs and CLI tools to create an {{site.data.keyword.iae_full_notm}} service instance has been added. Resource controller based service instances help you to provide fine grained access control to other users when you want to share your service instance.
@@ -28,7 +39,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 ### 12 January 2018
 
 - {{site.data.keyword.iae_full_notm}} now supports Apache Phoenix 4.7. With this support, you can query HBase through SQL.
-- Jupyter Enterprise Gateway 0.7.0 was added
+- Jupyter Enterprise Gateway 0.8.0 was added
 
 ### 1 November 2017 GA
 - {{site.data.keyword.iae_full_notm}} offers the following new service plans:

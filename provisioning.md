@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-06-05"
 
 ---
 
@@ -41,9 +41,9 @@ An {{site.data.keyword.iae_short}} service instance comprises one cluster made u
 
 | Plan | Hardware types | Software packages | Restrictions |
 |------|----------------|-------------------|------------- |
-| **Lite** | Default | AE 1.0 Spark, AE 1.0 Spark and Hadoop, AE 1.0 Spark and Hive  | 1.	Maximum of one tile per IBM Cloud account every 30 days. </br> 2.	Maximum of one cluster with up to 3 compute nodes. </br> 3.	Free usage limit is 50 node hours. After 50 node hours, the cluster will be disabled. This means, for example, that a cluster with 4 nodes (3 compute node and 1 management node) will be disabled after 12.5 hours. While the cluster is disabled, it cannot be scaled up or customized. </br> A grace period of 24 hours is given to upgrade your user account to a paid account, and to upgrade the service instance to the Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted. </br> **Note:** You are entitled to one service instance per month. If you delete the service instance or it expires after the free 50 node hours, you will not be able to create a new one until after the month has passed.|
-| **Standard-Hourly** | Default, memory intensive |	AE 1.0 Spark, AE 1.0 Spark and Hadoop, AE 1.0 Spark and Hive  | NA |
-| **Standard-Monthly** | Default, memory intensive | AE 1.0 Spark, AE 1.0 Spark and Hadoop, AE 1.0 Spark and Hive  | NA |
+| **Lite** | Default |-  AE 1.1 Spark </br> - AE 1.1 Spark and Hadoop </br> - AE 1.1 Spark and Hive </br> - AE 1.0 Spark </br> - AE 1.0 Spark and Hadoop </br> - AE 1.0 Spark and Hive  | 1.	Maximum of one tile per IBM Cloud account every 30 days. </br> 2.	Maximum of one cluster with up to 3 compute nodes. </br> 3.	Free usage limit is 50 node hours. After 50 node hours, the cluster will be disabled. This means, for example, that a cluster with 4 nodes (3 compute node and 1 management node) will be disabled after 12.5 hours. While the cluster is disabled, it cannot be scaled up or customized. </br> A grace period of 24 hours is given to upgrade your user account to a paid account, and to upgrade the service instance to the Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted. </br> **Note:** You are entitled to one service instance per month. If you delete the service instance or it expires after the free 50 node hours, you will not be able to create a new one until after the month has passed.|
+| **Standard-Hourly** | Default, memory intensive |	- AE 1.1 Spark </br> - AE 1.1 Spark and Hadoop </br> - AE 1.1 Spark and Hive </br> - AE 1.0 Spark </br> - AE 1.0 Spark and Hadoop </br> - AE 1.0 Spark and Hive  | NA |
+| **Standard-Monthly** | Default, memory intensive | - AE 1.1 Spark </br> - AE 1.1 Spark and Hadoop </br> - AE 1.1 Spark and Hive </br> - AE 1.0 Spark </br> - AE 1.0 Spark and Hadoop </br> - AE 1.0 Spark and Hive  | NA |
 
 Hardware specifications:
 
@@ -52,9 +52,11 @@ Hardware specifications:
 
 Software packages:
 
- - Choose **AE 1.0 Spark** if you are planning to run only Spark workloads.
- - Choose **AE 1.0 Spark and Hive** if you are planning to run Hive and/or Spark workloads. In addition to the components you get with the Spark package, you also get Hive, as part of the components of the Hive package.
- - Choose **AE 1.0 Spark and Hadoop** if you are planning to run Hadoop workloads in addition to Spark workloads. In addition to the components you get with the Spark package, you also get Oozie, HBase and Hive, as part of the components of the Hadoop package.
+The **`AE 1.1`** software packages include components for Horton Dataworks Platform 2.6.5, whereas the **`AE 1.0`**  software packages include components for Horton Dataworks Platform 2.6.2.
+
+ - Choose **`AE <version> Spark`** if you are planning to run only Spark workloads.
+ - Choose **`AE <version> Spark and Hive`** if you are planning to run Hive and/or Spark workloads. In addition to the components you get with the Spark package, you also get Hive, as part of the components of the Hive package.
+ - Choose **`AE <version> Spark and Hadoop`** if you are planning to run Hadoop workloads in addition to Spark workloads. In addition to the components you get with the Spark package, you also get Oozie, HBase and Hive, as part of the components of the Hadoop package.
 
 
 ## Creating a service instance using the IBM Cloud command-line interface
@@ -93,7 +95,7 @@ Sample cluster specification JSON file
 {
   "num_compute_nodes": 1,
   "hardware_config": "default",
-  "software_package": "ae-1.0-spark"
+  "software_package": "ae-1.1-spark"
 }
 ```
 {: codeblock}
@@ -102,7 +104,7 @@ Sample cluster specification JSON file
 
 1. **`num_compute_nodes`** (Required): Number of compute nodes required in the cluster.
 2. **`hardware_config`** (Required): Represents the instance size of the cluster. Accepted value: _`default`_ and _`memory-intensive`_  
-3. **`software_package`** (Required): Determines set of services to be installed on the cluster. Accepted value: _`ae-1.0-spark`_,  _`ae-1.0-hive-spark`_ and _`ae-1.0-hadoop-spark`_
+3. **`software_package`** (Required): Determines the set of services to be installed on the cluster. Accepted value: _`ae-1.1-spark`_, _` ae-1.1-hive-spark`_, _`ae-1.1-hadoop-spark`_, _`ae-1.0-spark`_,  _`ae-1.0-hive-spark`_ and _`ae-1.0-hadoop-spark`_
 4. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](./customizing-cluster.html).
 <br>
 
@@ -186,7 +188,7 @@ cat provision.json
     "parameters": {
         "hardware_config": "default",
         "num_compute_nodes": "1",
-        "software_package": "ae-1.0-spark"
+        "software_package": "ae-1.1-spark"
     }    
 }
 
@@ -202,7 +204,7 @@ To get the IAM token, perform the following [steps](./Retrieve-IAM-access-token.
 
 You can only upgrade from a Lite plan to a Standard-Hourly plan. You can upgrade by using the {{site.data.keyword.iae_full_notm}} UI or by using the {{site.data.keyword.Bluemix_short}} CLI.
 
-To upgrade a Lite plan using the {{site.data.keyword.iae_short}}Analytics Engine dashboard in IBM Cloud:
+To upgrade a Lite plan using the {{site.data.keyword.iae_short}}  dashboard in {{site.data.keyword.Bluemix_short}}:
 
 1. Open your {{site.data.keyword.iae_full_notm}} service dashboard page.
 

@@ -27,7 +27,6 @@ Analytics Engine
     {: .topicgroup}
     Provisioning a service instance
     	provisioning.md
-        provisioning_deprecated.md
         track-instance-provisioning.md
 
     {: .topicgroup}

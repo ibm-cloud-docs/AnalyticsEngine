@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-02-28"
+lastupdated: "2018-06-05"
 
 ---
 
@@ -21,31 +21,35 @@ You can define clusters based on your application's requirements choosing the ap
 You can deploy {{site.data.keyword.iae_full_notm}} service instances in the US South or United Kingdom regions. The {{site.data.keyword.iae_full_notm}} service is deployed in a data centre which is physically located in the chosen region.
 
 ## Software components of the cluster
-The cluster is based on Hortonworks Data Platform 2.6.2. The following components are made available.
+You can create a cluster based on Hortonworks Data Platform 2.6.2 and 2.6.5. The following components are made available.
 
-Apache Spark 2.1.1<br>
-Hadoop 2.7.3<br>
-Apache Livy 0.3.0<br>
-Knox 0.12.0<br>
-Ambari 2.5.2<br>
-Anaconda with Python 2.7.13 and 3.5.2 <br>
-Jupyter Enterprise Gateway 0.5.0 <br>
-HBase 1.1.2 &#42; <br>
-Hive 1.2.1 &#42;&#42;<br>
-Oozie 4.2.0 &#42;<br>
-Flume 1.5.2 &#42; <br>
-Tez 0.7.0 &#42; <br>
-Pig 0.16.0 &#42; <br>
-Sqoop 1.4.6 &#42; <br>
-Slider 0.92.0 &#42; <br>
-Apache Phoenix 4.7 &#42; <br>
+| HDP 2.6.2       | HDP 2.6.5        |
+|---------------------|------------------------|
+| Apache Spark 2.1.1 | Apache Spark 2.3.0 |
+| Hadoop 2.7.3 | Hadoop 2.7.3|
+| Apache Livy 0.3.0 | Apache Livy 0.3.0|
+| Knox 0.12.0 | Knox 0.12.0|
+| Ambari 2.5.2 | Ambari 2.6.2|
+| Anaconda with Python 2.7.13 and 3.5.2 | Anaconda with Python 2.7.13 and 3.5.2|
+| Jupyter Enterprise Gateway 0.8.0 | Jupyter Enterprise Gateway 0.8.0|
+| HBase 1.1.2 &#42; | HBase 1.1.2 &#42;|
+| Hive 1.2.1 &#42;&#42; | Hive 1.2.1 &#42;&#42;|
+| Oozie 4.2.0 &#42; | Oozie 4.2.0 &#42;|
+| Flume 1.5.2 &#42; | Flume 1.5.2 &#42;|
+| Tez 0.7.0 &#42; | Tez 0.7.0 &#42;|
+| Pig 0.16.0 &#42; | Pig 0.16.0 &#42;|
+| Sqoop 1.4.6 &#42; | Sqoop 1.4.6 &#42;|
+| Slider 0.92.0 &#42; | Slider 0.92.0 &#42;|
+| Apache Phoenix 4.7 &#42; | Apache Phoenix 4.7 &#42;|
 
-&#42; Available in the AE 1.0 Spark and Hadoop pack only <br>
-&#42;&#42; Available in the _AE 1.0 Spark and Hadoop_ and _AE 1.0 Spark and Hive_ packs only
+
+&#42; Available in the _AE 1.0/1.1 Spark and Hadoop_ pack only <br>
+&#42;&#42; Available in the _AE 1.0/1.1 Spark and Hadoop_ and _AE 1.0/1.1 Spark and Hive_ packs only
 
 ## Hardware configuration
 
-{{site.data.keyword.iae_full_notm}} supports two node sizes for spinning up clusters.<br>
+{{site.data.keyword.iae_full_notm}} supports two node sizes for spinning up clusters.
+
 **Size: Default Node**
 
 | Node Type | vCPU | Memory | HDFS Disks |
