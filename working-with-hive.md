@@ -90,12 +90,14 @@ jdbc:mysql://<changeme>:<mySQLPortNumber>/compose ```
  jdbc:mysql://bluemix-sandbox-dal-9-portal.6.dblayer.com:12121/compose ```
 
 #### Configuring clusters to work with Compose for MySQL
+
 There are two ways in which you can configure your cluster with the Compose for MySQL parameters:
 
-* By using the Ambari user interface after the cluster has been created.
-* Configuring the cluster as part of the cluster customization script.
+* By using the Ambari user interface after the cluster has been created
+* By configuring the cluster as part of the cluster customization script
+ <br>
 
-##### Using the Ambari user interface after the cluster has been created
+##### Using the Ambari user interface after the cluster was created
 
 To configure the cluster:
 
