@@ -93,13 +93,11 @@ jdbc:mysql://<changeme>:<mySQLPortNumber>/compose ```
 
 There are two ways in which you can configure your cluster with the Compose for MySQL parameters:
 
-* By using the Ambari user interface after the cluster has been created
-* By configuring the cluster as part of the cluster customization script
+-  By using the Ambari user interface after the cluster has been created
+-  By configuring the cluster as part of the cluster customization script
  <br>
 
-##### Using the Ambari user interface after the cluster was created
-
-To configure the cluster:
+To configure the cluster using the Ambari user interface after the cluster was created:
 
 1. Add the properties and values to the hive-site.xml file on your cluster instance by opening the Ambari console.
 2. Open the advanced configuration for HIVE:
@@ -109,15 +107,15 @@ To configure the cluster:
 3. Make the appropriate changes for the following parameters: Database Name, Database Username, Database Password, Database URL.
 4. Save your changes.
 
-**Important**: You will need to restart affected services as indicated in the Ambari user interface so that the changes take effect. This could take approximately three minutes.
+ **Important**: You will need to restart affected services as indicated in the Ambari user interface so that the changes take effect. This could take approximately three minutes.
 
-**Note**: You might not be able to click **Test Connection** because of a known issue in the Ambari user interface.
+ **Note**: You might not be able to click **Test Connection** because of a known issue in the Ambari user interface.
 
-##### Configuring the cluster as part of the cluster customization script
+To configuring the cluster as part of the cluster customization script:
 
-You can use a customization script when the cluster is created. This script includes the properties that need to be configured in the Hive site and uses the Ambari configs.py file to make the required changes.
+1. Use a customization script after the cluster is created. This script includes the properties that need to be configured in the Hive site and uses the Ambari configs.py file to make the required changes.
 
-Use this [sample script](https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-external-metastore.sh) to configure the Hive metastore.
+ You can use this [sample script](https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-external-metastore.sh) to configure the Hive metastore.
 
 ## Learn more
 
