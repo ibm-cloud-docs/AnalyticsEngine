@@ -92,17 +92,22 @@ curl -X POST -v "https://api.dataplatform.ibm.com/v2/analytics_engines/<service_
 
 The following section shows you a snippet of a customization script that you can use to customize Ambari configurations. This is also an example of how to use the predefined environment variable `NODE_TYPE`.
 
-The example makes use of Ambari's in-built `configs.sh` script to change the value for `mapreduce.map.memory`. This script is available only on the management nodes. If you specified `target` as `all` for adhoc customization or if `all` target is implied because of a bootstrap customization, you might want to specify the `NODE_TYPE` so that the code will be executed only once and from the management slave2 node.
+The following example makes use of Ambari's in-built `configs.py` script to change the value for `mapreduce.map.memory`. This script is available only on the management nodes. If you specified `target` as `all` for adhoc customization or if `all` target is implied because of a bootstrap customization, you might want to specify the `NODE_TYPE` so that the code will be executed only once and from the management slave2 node.
+
+**Note:** The following sample using the `configs.py` script only works for new HDP 2.6.2 or 2.6.5 clusters. For existing HDP 2.6.2 clusters, you must use the `configs.sh` script for cluster customization.
 
 ```
 if [ "x$NODE_TYPE" == "xmanagement-slave2" ]
 then
     echo "Updating ambari config properties"
     #change mapreduce.map.memory to 8192mb
-    /var/lib/ambari-server/resources/scripts/configs.sh -u $AMBARI_USER -p $AMBARI_PASSWORD -port $AMBARI_PORT -s set $AMBARI_HOST $CLUSTER_NAME mapred-site "mapreduce.map.memory.mb" "8192"
+
+    python /var/lib/ambari-server/resources/scripts/configs.py -s https --user=$AMBARI_USER --password=$AMBARI_PASSWORD --port=$AMBARI_PORT --action=set --host=$AMBARI_HOST --cluster=$CLUSTER_NAME --config-type=mapred-site -k "mapreduce.map.memory.mb" -v "8192"
+
     # stop MAPREDUCE2 service
     curl -v --user $AMBARI_USER:$AMBARI_PASSWORD -H "X-Requested-By: ambari" -i -X PUT -d '{"RequestInfo": {"context": "Stop MAPREDUCE2"}, "ServiceInfo": {"state": "INSTALLED"}}' https://$AMBARI_HOST:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/services/MAPREDUCE2
     sleep 60
+
     # start MAPREDUCE2 service
     curl -v --user $AMBARI_USER:$AMBARI_PASSWORD -H "X-Requested-By: ambari" -i -X PUT -d '{"RequestInfo": {"context": "Start MAPREDUCE2"}, "ServiceInfo": {"state": "STARTED"}}' https://$AMBARI_HOST:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/services/MAPREDUCE2
 fi

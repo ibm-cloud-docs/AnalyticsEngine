@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-06-11"
 
 ---
 
@@ -72,23 +72,22 @@ The Hive metastore is where the schemas of the Hive tables are stored. By defaul
 ### Compose for MySQL
 Compose for MySQL is a service in {{site.data.keyword.Bluemix_notm}} that can be used to externalize the metadata of the cluster. You can choose between the Standard or Enterprise version depending on your requirement. Once you create the Compose for MySQL instance, you will need to note the administrative user, password, database name, and the JDBC URL.
 
-#### Compose for MySQL parameters to set in the Hive metastore
+The Compose for MySQL parameters to set in the Hive metastore include:
 
-**DB_USER_NAME**: The database user name to connect to the instance, which is typically *admin*.
+- **DB_USER_NAME**: The database user name to connect to the instance, which is typically *admin*.
 
-**DB_PWD**: The database user password to connect to the instance.
+- **DB_PWD**: The database user password to connect to the instance.
 
-**DB_NAME**: The database name, which is typically *compose*.
+- **DB_NAME**: The database name, which is typically *compose*.
 
-**DB_CXN_URL**: The complete database connection URL.
+- **DB_CXN_URL**: The complete database connection URL.
 ```
-jdbc:mysql://<changeme>:12121?createDatabaseIfNotExist=true ```
+jdbc:mysql://<changeme>:<mySQLPortNumber>/compose ```
 
-where `<changeme>` is the endpoint to a database connection, for example to an instance of Compose in Dallas.
+ where `<changeme>` is the endpoint to a database connection, for example to an instance of Compose in Dallas and `<mySQLPortNumber>` is your port number.
 
-``` jdbc:mysql://bluemix-sandbox-dal-9-portal.6.dblayer.com:12121?createDatabaseIfNotExist=true ```
-
-**Note**: Make sure that you append `?createDatabaseIfNotExist=true` to the database connection URL or it might try to create tables again resulting in errors.
+ ```
+ jdbc:mysql://bluemix-sandbox-dal-9-portal.6.dblayer.com:12121/compose ```
 
 #### Configuring clusters to work with Compose for MySQL
 There are two ways in which you can configure your cluster with the Compose for MySQL parameters:
@@ -113,109 +112,10 @@ To configure the cluster:
 **Note**: You might not be able to click **Test Connection** because of a known issue in the Ambari user interface.
 
 ##### Configuring the cluster as part of the cluster customization script
-A customization script can be provided when the cluster is created. This script can provide the properties to be configured in the Hive site. It makes use of the Ambari configs.sh file to make the required changes. The script restarts only Hive, and tracks the progress instead of sleeping for a long random interval.
 
-The following is a sample script configuring the Hive metastore:
+You can use a customization script when the cluster is created. This script includes the properties that need to be configured in the Hive site and uses the Ambari configs.py file to make the required changes.
 
-```
-#!/bin/bash
-#-----------------------------------------------------------------------
-# Customization script to point an IAE cluster's, Hive meta-store to an
-# external mysql database. It is recommended to use Compose for MySQL
-# as an external db. This scripts expects following four arguments:
-# <db_user> <db_password> <db_name> <db_conn_url>
-# Connection url shall be specified in the following format
-# jdbc:mysql://<dbHost>:<dbPort>/<dbName>?createDatabaseIfNotExist=true
-#-----------------------------------------------------------------------
-
-# Helper functions
-
-# Parse json and return value for the specified json path
-parseJson ()
-{
-	jsonString=$1
-	jsonPath=$2
-
-	echo $(echo $jsonString | python -c "import json,sys; print json.load(sys.stdin)$jsonPath")
-}
-
-# Track progress using the call back returned by Ambari restart API
-trackProgress ()
-{
-	response=$1
-	# Extract call back to from response to track progress
-	progressUrl=$(parseJson "$response" '["href"]')
-	echo "Link to track progress: $progressUrl"
-
-	# Progress tracking loop
-	tempPercent=0
-    while [ "$tempPercent" != "100.0" ]
-	do
-        progressResp=`curl -k -u $AMBARI_USER:$AMBARI_PASSWORD -H 'X-Requested-By:ambari' -X GET $progressUrl --silent`
-		tempPercent=$(parseJson "$progressResp" '["Requests"]["progress_percent"]')
-		echo "Progress: $tempPercent"
-		sleep 5s
-	done
-
-	# Validate if restart has really succeeded
-	if [ "$tempPercent" == "100.0" ]
-	then
-		# Validate that the request is completed
-		progressResp=`curl -k -u $AMBARI_USER:$AMBARI_PASSWORD -H 'X-Requested-By:ambari' -X GET $progressUrl --silent`
-		finalStatus=$(parseJson "$progressResp" '["Requests"]["request_status"]')
-		if [ "$finalStatus" == "COMPLETED" ]
-        then
-        	echo 'Restart of affected service succeeded.'
-            exit 0
-        else
-        	echo 'Restart of affected service failed'
-            exit 1
-        fi
-	else
-		echo 'Restart of affected service failed'
-		exit 1
-	fi
-}
-
-# Validate input
-if [ $# -ne 4 ]
-then
-	 echo "Usage: $0 <db_user> <db_password> <db_name> <db_conn_url>"
-else
-	DB_USER_NAME="$1"
-	DB_PWD="$2"
-	DB_NAME="$3"
-	DB_CXN_URL="$4"
-fi
-
-
-# Actual customization starts here
-if [ "x$NODE_TYPE" == "xmanagement-slave2" ]
-then    
-
-	echo "Updating Ambari properties"
-    /var/lib/ambari-server/resources/scripts/configs.sh -u $AMBARI_USER -p $AMBARI_PASSWORD -port $AMBARI_PORT -s set $AMBARI_HOST $CLUSTER_NAME hive-site "javax.jdo.option.ConnectionURL" $DB_CXN_URL
-    /var/lib/ambari-server/resources/scripts/configs.sh -u $AMBARI_USER -p $AMBARI_PASSWORD -port $AMBARI_PORT -s set $AMBARI_HOST $CLUSTER_NAME hive-site "javax.jdo.option.ConnectionUserName" $DB_USER_NAME
-    /var/lib/ambari-server/resources/scripts/configs.sh -u $AMBARI_USER -p $AMBARI_PASSWORD -port $AMBARI_PORT -s set $AMBARI_HOST $CLUSTER_NAME hive-site "javax.jdo.option.ConnectionPassword" $DB_PWD
-    /var/lib/ambari-server/resources/scripts/configs.sh -u $AMBARI_USER -p $AMBARI_PASSWORD -port $AMBARI_PORT -s set $AMBARI_HOST $CLUSTER_NAME hive-site "ambari.hive.db.schema.name" $DB_NAME
-
-    echo 'Restart services/components affected by Hive configuration change'
-    response=`curl -k -u $AMBARI_USER:$AMBARI_PASSWORD -H 'X-Requested-By: ambari' --silent -w "%{http_code}" -X POST -d '{"RequestInfo":{"command":"RESTART","context":"Restart all required services","operation_level":"host_component"},"Requests/resource_filters":[{"hosts_predicate":"HostRoles/stale_configs=true"}]}' https://$AMBARI_HOST:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/requests`
-
-    httpResp=${response:(-3)}
-    if [[ "$httpResp" != "202" ]]
-    then
-		echo "Error initiating restart for the affected services, API response: $httpResp"
-		exit 1
-    else
-		echo "Request accepted. Hive restart in progress...${response::-3}"
-		trackProgress "${response::-3}"
-    fi
-fi  
-```
-{:codeblock}
-
-For the complete source code to the customization script to point an {{site.data.keyword.iae_full_notm}} cluster's Hive meta-store to an external MySQL database, see [here]( https://github.com/IBM-Cloud/IBM-Analytics-Engine/blob/master/customization-examples/associate-external-metastore.sh).
+Use this [sample script](https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-external-metastore.sh) to configure the Hive metastore.
 
 ## Learn more
 

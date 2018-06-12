@@ -41,102 +41,14 @@ In order for an application to connect to an object store, the cluster configura
 After you configured the cluster, you can access objects in the object store using HDFS commands, and run MR, Hive and Spark jobs on them.
 
 ### Customize the cluster using a customization script
-You can use a customization script when the cluster is created. This script includes the properties that need to be configured in the core-site.xml file and use the Ambari configs.sh file to make the required changes.
+
+You can use a customization script when the cluster is created. This script includes the properties that need to be configured in the core-site.xml file and uses the Ambari configs.py file to make the required changes.
 
 #### Sample cluster customization script to configure the cluster with an AWS style authenticated object store
 
-The following example shows a sample script for an AWS authentication style S3 COS object store. You can modify the script for IAM authentication style object stores that can be used based on the properties given in the following sections. The  sample restarts only the affected services and, instead of sleeping for a long random interval after firing the Ambari API,  the progress is polled via the Ambari API.
-```
-#!/bin/bash
-#------------------------------------------------------------------------------
-# Customization script to associate a COS instance with an IAE
-# cluster. It expects COS credentials in AWS style. Specifically these three
-# arguments: <s3_endpoint> <s3_access_key> <s3_secret_key>
-#------------------------------------------------------------------------------
+Use this [customization sample script](https://github.com/IBM-Cloud/IBM-Analytics-Engine/blob/master/customization-examples/associate-cos.sh) to configure the {{site.data.keyword.iae_full_notm}} cluster for an AWS authentication style S3 COS object store.
 
-# Helper functions
-
-# Parse json and return value for the specified json path
-parseJson ()
-{
-	jsonString=$1
-	jsonPath=$2
-
-	echo $(echo $jsonString | python -c "import json,sys; print json.load(sys.stdin)$jsonPath")
-}
-
-# Track progress using the call back returned by Ambari restart API
-trackProgress ()
-{
-	response=$1
-	# Extract call back to from response to track progress
-	progressUrl=$(parseJson "$response" '["href"]')
-	echo "Link to track progress: $progressUrl"
-
-	# Progress tracking loop
-	tempPercent=0
-    while [ "$tempPercent" != "100.0" ]
-	do
-        progressResp=`curl -u $AMBARI_USER:$AMBARI_PASSWORD -H 'X-Requested-By:ambari' -X GET $progressUrl --silent`
-		tempPercent=$(parseJson "$progressResp" '["Requests"]["progress_percent"]')
-		echo "Progress: $tempPercent"
-		sleep 5s
-	done
-
-	# Validate if restart has really succeeded
-	if [ "$tempPercent" == "100.0" ]
-	then
-		# Validate that the request is completed
-		progressResp=`curl -u $AMBARI_USER:$AMBARI_PASSWORD -H 'X-Requested-By:ambari' -X GET $progressUrl --silent`
-		finalStatus=$(parseJson "$progressResp" '["Requests"]["request_status"]')
-		if [ "$finalStatus" == "COMPLETED" ]
-        then
-        	echo 'Restart of affected service succeeded.'
-            exit 0
-        else
-        	echo 'Restart of affected service failed'
-            exit 1
-        fi
-	else
-		echo 'Restart of affected service failed'
-		exit 1
-	fi
-}
-
-# Validate input
-if [ $# -ne 3 ]
-then
-	 echo "Usage: $0 <s3_endpoint> <s3_access_key> <s3_secret_key>"
-else
-	S3_ENDPOINT="$1"
-	S3_ACCESS_KEY="$2"
-	S3_SECRET_KEY="$3"
-fi
-
-# Actual customization starts here
-if [ "x$NODE_TYPE" == "xmanagement-slave2" ]
-then    
-    /var/lib/ambari-server/resources/scripts/configs.sh -u $AMBARI_USER -p $AMBARI_PASSWORD -port $AMBARI_PORT -s set $AMBARI_HOST $CLUSTER_NAME core-site "fs.cos.myprodservice.access.key" $S3_ACCESS_KEY
-    /var/lib/ambari-server/resources/scripts/configs.sh -u $AMBARI_USER -p $AMBARI_PASSWORD -port $AMBARI_PORT -s set $AMBARI_HOST $CLUSTER_NAME core-site "fs.cos.myprodservice.endpoint" $S3_ENDPOINT
-    /var/lib/ambari-server/resources/scripts/configs.sh -u $AMBARI_USER -p $AMBARI_PASSWORD -port $AMBARI_PORT -s set $AMBARI_HOST $CLUSTER_NAME core-site "fs.cos.myprodservice.secret.key" $S3_SECRET_KEY
-
-    echo 'Restart affected services'
-    response=`curl -u $AMBARI_USER:$AMBARI_PASSWORD -H 'X-Requested-By: ambari' --silent -w "%{http_code}" -X POST -d '{"RequestInfo":{"command":"RESTART","context":"Restart all required services","operation_level":"host_component"},"Requests/resource_filters":[{"hosts_predicate":"HostRoles/stale_configs=true"}]}' https://$AMBARI_HOST:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/requests`
-
-    httpResp=${response:(-3)}
-    if [[ "$httpResp" != "202" ]]
-    then
-		echo "Error initiating restart for the affected services, API response: $httpResp"
-		exit 1
-    else
-		echo "Request accepted. Service restart in progress...${response::-3}"
-		trackProgress "${response::-3}"
-    fi
-fi
-```     
-{: codeblock}
-
-For the complete source code of the customization script to associate a COS instance with an  {{site.data.keyword.iae_full_notm}} cluster, see [here]( https://github.com/IBM-Cloud/IBM-Analytics-Engine/blob/master/customization-examples/associate-cos.sh).
+The example shows the complete source code of the customization script. You can modify the script for IAM authentication style object stores that can be used based on the properties given in the following sections. The sample restarts only the affected services and, instead of sleeping for a long random interval after firing the Ambari API, the progress is polled via the Ambari API.
 
 ### Specify the properties at runtime
 
