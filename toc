@@ -54,6 +54,7 @@ Analytics Engine
         hadoop-mapreduce-jobs.md
 		working-with-hive.md
 		working-with-hbase.md
+        working-with-sqoop.md
 
     {: .topicgroup}
     Running Spark batch jobs
@@ -81,6 +82,7 @@ Analytics Engine
     {: .topicgroup}
     Supported connectors on clusters
         supported-connectors.md
+        database-connectors.md
 
     {: .topicgroup}
     Using the command line interface

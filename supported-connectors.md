@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-05-02"
+lastupdated: "2018-06-19"
 
 ---
 
@@ -16,18 +16,19 @@ lastupdated: "2018-05-02"
 #  Spark connectors
 The following connectors are currently provided by default on all {{site.data.keyword.iae_full_notm}} clusters:
 
- * [Db2 and dashdDB](#db2-and-dashdb-connector)
-  * DB2 JDBC
-  * DB2 ODBC
-  * dashDB Idax Data Source(com.ibm.idax.spark.idaxsource)
+ * [Db2 and {{site.data.keyword.dashdbshort_notm}}](#db2-and-db2-warehouse-on-cloud-connector)
+  * Db2 JDBC
+  * Db2 ODBC
+  * {{site.data.keyword.dashdbshort_notm}} Idax Data Source(com.ibm.idax.spark.idaxsource)
  * [Cloudant](#cloudant)
 
-## Db2 and dashDB connector
+## Db2 and {{site.data.keyword.dashdbshort_notm}} connector
 
-dashDB (now also known as Db2 on Cloud and Db2 Warehouse on Cloud) is a fully managed cloud data warehouse, purpose-built for analytics. It offers massively parallel processing (MPP) scale, and compatibility with a wide range of business intelligence (BI) tools.
+{{site.data.keyword.dashdbshort_notm}} (now also known as dashDB) is a fully managed cloud data warehouse, purpose-built for analytics. It offers massively parallel processing (MPP) scale, and compatibility with a wide range of business intelligence (BI) tools.
 
-### Sample Python code to access dashDB using JDBC
-Use the following sample code to access dashDB using JDBC:
+### Sample Python code to access {{site.data.keyword.dashdbshort_notm}}  using JDBC
+
+Use the following sample code to access {{site.data.keyword.dashdbshort_notm}} using JDBC:
 
  ```
 credentials_1 = {
@@ -40,9 +41,9 @@ transportation.show()
 ```
 {: codeblock}
 
-### Sample Python code to access dashDB using ODBC
+### Sample Python code to access {{site.data.keyword.dashdbshort_notm}}  using ODBC
 
-Use the following sample code to access dashDB using ODBC:
+Use the following sample code to access {{site.data.keyword.dashdbshort_notm}} using ODBC:
 
  ```
 from ibmdbpy import IdaDataBase, IdaDataFrame
@@ -52,9 +53,9 @@ ida_df_1.head()
 ```
 {: codeblock}
 
-### Sample Python code to access dashDB using the IDAX connector
+### Sample Python code to access {{site.data.keyword.dashdbshort_notm}} using the IDAX connector
 
-Use the following code sample to access dashDB using the IDAX connector:
+Use the following code sample to access {{site.data.keyword.dashdbshort_notm}} using the IDAX connector:
 
  ```
  credentials_1 = {
