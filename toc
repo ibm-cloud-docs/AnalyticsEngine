@@ -55,6 +55,7 @@ Analytics Engine
 		working-with-hive.md
 		working-with-hbase.md
         working-with-sqoop.md
+        working-with-oozie.md
 
     {: .topicgroup}
     Running Spark batch jobs
