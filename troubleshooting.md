@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-07-09"
 
 ---
 
@@ -43,6 +43,12 @@ To fix this issue:
 1) Work with the manager of your {{site.data.keyword.Bluemix_notm}} organization or space and get yourself developer privilege to the space containing the service instance you are attempting to access.
 
 2) Ensure that cookies are enabled in your browser.
+
+### No cluster is associated with my {{site.data.keyword.iae_full_notm}} service instance although I've waited for more than 30 minutes
+
+No cluster was associated with your newly-created service instance although the service status shows that it was provisioned because the provisioning request didn't complete successfully.
+
+You should delete your service instance and create a new one by using the {{site.data.keyword.Bluemix_notm}} Catalog.
 
 ## Command line interface
 
