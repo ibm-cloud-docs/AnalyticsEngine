@@ -19,7 +19,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 ## {{site.data.keyword.iae_full_notm}} information
 
 ### 6 June 2018
- - You can no longer provision {{site.data.keyword.iae_full_notm}} service instances using the Cloud Foundry CLI. You must use the Bluemix CLI.
+ - You can no longer provision {{site.data.keyword.iae_full_notm}} service instances using the Cloud Foundry CLI. You must use the {{site.data.keyword.Bluemix_short}} CLI.
  - The following software packages were added:
    - **AE 1.1 Spark**
    - **AE 1.1 Spark and Hadoop**
