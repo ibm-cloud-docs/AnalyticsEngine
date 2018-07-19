@@ -79,13 +79,13 @@ The API end points for the supported regions are as follows:
 
 ### Creating a service instance:
 ```
-bx resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p <path to JSON file with cluster parameters> ```
+bx resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters> ```
 
 {: codeblock}
 
 For example:
 ```
-bx resource service-instance-create MyServiceInstance ibmanalyticsengine lite us-south -p /usr/testuser/cluster_specification.json
+bx resource service-instance-create MyServiceInstance ibmanalyticsengine lite us-south -p @/usr/testuser/cluster_specification.json
 ```
 Supported plan names are **lite**, **standard-hourly**, and **standard-monthly**.
 Supported regions are: **us-south** and **eu-gb**.
@@ -177,7 +177,7 @@ curl \
   --url 'https://resource-controller.ng.bluemix.net/v1/resource_instances'   \
   --header 'accept: application/json'   \
   --header 'authorization: Bearer <IAM token>'   \
-  --data  @provision.json
+  --data @provision.json
 
 cat provision.json
 {
@@ -207,10 +207,7 @@ You can only upgrade from a Lite plan to a Standard-Hourly plan. You can upgrade
 To upgrade a Lite plan using the {{site.data.keyword.iae_short}}  dashboard in {{site.data.keyword.Bluemix_short}}:
 
 1. Open your {{site.data.keyword.iae_full_notm}} service dashboard page.
-
-1. Select the **Plan** tab and then select the Standard-Hourly plan.
-
-1. Click Save.
+1. Select the **Plan** tab, select the Standard-Hourly plan and save your changes.
 
 To upgrade using the {{site.data.keyword.Bluemix_short}} CLI enter the following command:
 

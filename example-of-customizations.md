@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-05-15"
+lastupdated: "2018-07-05"
 
 ---
 
@@ -19,15 +19,15 @@ The following sections show you different examples of how you can customize a cl
 
 For details on what to consider when customizing a cluster, see [Customizing a cluster](./customizing-cluster.html).
 
-### Example of creating a cluster with bootstrap customization using the Cloud Foundry CLI
+### Example of creating a cluster with bootstrap customization using the {{site.data.keyword.Bluemix_short}} CLI
 
-`cf create-service IBMAnalyticsEngine lite <service instance name> -c <cluster parameters as json string or path to cluster parameters json file>`
+`bx resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters>`
 
 The following sample shows the parameters in JSON format:
 ```
 "num_compute_nodes": 1,
 	"hardware_config": "default",
-	"software_package": "ae-1.0-spark",
+	"software_package": "ae-1.1-spark",
 	"customization": [{
 		"name": "action1",
 		"type": "bootstrap",
@@ -47,23 +47,35 @@ Where:
 
 **Note:** Currently, only one custom action can be specified in the `customization` array.
 
-### Example of creating a cluster with bootstrap customization using the Cloud Foundry (cf) REST API
+### Example of creating a cluster with bootstrap customization using the {{site.data.keyword.Bluemix_short}} Resource Controller (rc) REST API
 
 ```
-curl --request POST \
---url 'https://api.ng.bluemix.net/v2/service_instances?accepts_incomplete=true' \
---header 'accept: application/json' \
---header 'authorization: <User's UAA bearer token>' \
---header 'cache-control: no-cache' \
---header 'content-type: application/json' \
---data '{"name":"<Service instance name>", "space_guid":"<User's space guid>", "service_plan_guid":"acb06a56-fab1-4cb1-a178-c811bc676164", "parameters": { "hardware_config":"default", "num_compute_nodes":1, "software_package":"ae-1.0-spark", "customization":[<customization-details>]}}'
+curl \
+  --request POST \
+  --url 'https://resource-controller.bluemix.net/v1/resource_instances'   \
+  --header 'accept: application/json'   \
+  --header 'authorization: Bearer <IAM token>'   \
+  --data  @provision.json
+
+cat provision.json
+{
+    "name": "MyServiceInstance",
+    "resource_plan_id": "7715aa8d-fb59-42e8-951e-5f1103d8285e ",
+    "resource_group_id": "XXXXX",
+    "region_id": "us-south",
+    "parameters": {
+        "hardware_config": "default",
+        "num_compute_nodes": "1",
+        "software_package": "ae-1.1-spark",
+	  “customization”: [<customization details>]
+    }    
+}
+
 ```
 
 **Note:**
-* If you need to find your UAA bearer token, see [Retrieving the Cloud Foundry UAA access token](./retrieving-uaa-access-token.html).
-* If you need to find your space GUIDs, see [Obtaining the space GUID](./provisioning_deprecated.html#obtaining-the-space-guid).
-* To run cluster management REST APIs, you need to pass your IAM access token. To obtain the token, follow these [steps](./Retrieve-IAM-access-token.html).
-* For the United Kingdom region use the end point  `https://api.eu-gb.bluemix.net`.
+* Possible values for `resource_plan_id` and instructions on how to get the resource group ID are specified [here](./provisioning.html#creating-a-service-instance-using-the-resource-controller-rest-api).
+* To obtain an IAM token, follow these [steps](./Retrieve-IAM-access-token.html). You also need this token for authentication when using cluster management REST APIs.
 
 ### Example of running an adhoc customization script
 
@@ -92,7 +104,7 @@ curl -X POST -v "https://api.dataplatform.ibm.com/v2/analytics_engines/<service_
 
 The following section shows you a snippet of a customization script that you can use to customize Ambari configurations. This is also an example of how to use the predefined environment variable `NODE_TYPE`.
 
-The following example makes use of Ambari's in-built `configs.py` script to change the value for `mapreduce.map.memory`. This script is available only on the management nodes. If you specified `target` as `all` for adhoc customization or if `all` target is implied because of a bootstrap customization, you might want to specify the `NODE_TYPE` so that the code will be executed only once and from the management slave2 node.
+The following example makes use of Ambari's in-built `configs.py` script to change the value for `mapreduce.map.memory`. This script is available only on the management nodes. If you specified `target` as `all`  for adhoc customization or if `all` target is implied because of a bootstrap customization, you might want to specify the `NODE_TYPE` so that the code will be executed only once and from the management slave2 node.
 
 **Note:** The following sample using the `configs.py` script only works for new HDP 2.6.2 or 2.6.5 clusters. For existing HDP 2.6.2 clusters, you must use the `configs.sh` script for cluster customization.
 
