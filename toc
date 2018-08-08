@@ -45,6 +45,7 @@ Analytics Engine
         Resize-clusters.md
         delete-instance.md
         Administer-cluster-using-Ambari-console.md
+        reset-cluster-password.md
 
     {: .topicgroup}
     Working with a service instance

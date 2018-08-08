@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-07-11"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -20,6 +20,7 @@ The cluster credentials and various service end points that the cluster exposes 
 You can fetch the cluster credentials and the service end points by:
 * [Using the {{site.data.keyword.Bluemix_notm}} CLI](#obtaining-the-credentials-using-the-ibm-cloud-cli)
 * [Using the {{site.data.keyword.Bluemix_notm}} REST API](#obtaining-the-credentials-using-the-ibm-cloud-rest-api)
+* [From the {{site.data.keyword.Bluemix_notm}} console](#obtaining-the-credentials-from-the-ibm-cloud-console)
 
 ## Obtaining the credentials using the {{site.data.keyword.Bluemix_notm}} CLI
 
@@ -174,3 +175,13 @@ Sample response:
 }  
 ```
 where `<region>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
+
+## Obtaining the credentials from the {{site.data.keyword.Bluemix_notm}} console
+
+To create a service key from the {{site.data.keyword.Bluemix_notm}} console:
+1. Select the provisioned service instance.
+2. Click **Service credentials** in the left side bar.
+3. Then click **New credential** to create a new service credential.
+4. Enter a name, add configuration parameters (if any) and click **Add**.
+
+The newly created credentials are listed on this page. Click **View Credentials** to see the details.
