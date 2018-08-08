@@ -28,11 +28,11 @@ curl -X  POST  \
 https://api.dataplatform.cloud.ibm.com/v2/analytics_engines/<service_instance_guid>/reset_password
 \ -H 'authorization: Bearer  <user's IAM token>' ```
 
-**Note:** To retrieve the
-IAM access token, see [Retrieving IAM access
-tokens](./Retrieve-IAM-access-token.html).
-
 The expected response is the changed password in JSON format. For example:
 ```
 {"id":"5259c951-689a-4eac-a48e-0ae22b45b786","user_credentials":{"user":"clsadmin","password":"modifiedpassword"}}
 ```
+
+**Note:** To retrieve the
+IAM access token, see [Retrieving IAM access
+tokens](./Retrieve-IAM-access-token.html).
