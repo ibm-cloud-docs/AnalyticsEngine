@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-06-05"
+lastupdated: "2018-06-09"
 
 ---
 
@@ -16,9 +16,81 @@ lastupdated: "2018-06-05"
 # Introduction
 With {{site.data.keyword.iae_full_notm}} you can create Apache Spark and Apache Hadoop clusters in minutes and customize these clusters by using scripts. You can work with data in IBM Cloud Object Storage, as well as integrate other IBM Watson services like {{site.data.keyword.DSX_short}} and Machine Learning.
 
-You can define clusters based on your application's requirements choosing the appropriate software pack, version and size of the clusters.
+You can define clusters based on your application's requirements,  choosing the appropriate software pack, version and size of the clusters.
 
 You can deploy {{site.data.keyword.iae_full_notm}} service instances in the US South or United Kingdom regions. The {{site.data.keyword.iae_full_notm}} service is deployed in a data centre which is physically located in the chosen region.
+
+- [Cluster architecture](#cluster-architecture)
+- [Outbound and inbound access](#outbound-and-inbound-access)
+- [Software components of the cluster](#software-component-of-the-cluster)
+- [Hardware configuration](#hardware-configuration)
+- [Operating system](#operating-system)
+- [Best practices when creating clusters](./best-practices.html)
+
+## Cluster architecture
+
+A cluster consists of a management instance and one or more compute instances. The management instance itself consists of three management nodes, which run in the management instance. Each of the compute nodes runs in a separate compute instance.
+
+Note: You are billed only at the instance level. For more details on billing, see [{{site.data.keyword.iae_full_notm}}   Pricing](https://www.ibm.com/cloud/analytics-engine/pricing).
+
+### Management nodes
+
+The three management nodes include:
+- The master management node (`mn001`)
+- Two management slave nodes (`mn002` and `mn003`).
+
+Ambari and all of the Hadoop and Spark components of the cluster run on the management nodes. To find out which components run on which of the management nodes, click the **hosts** link on the upper right-hand corner of the Ambari UI. Drill down further to get to the listing of the components running on each node.
+
+### Compute nodes
+
+Compute nodes are where the execution of jobs happens. You define the number of compute nodes at the time of cluster creation. Each of the compute nodes is designated as `dn001`, `dn002` and so on.
+
+### Summary of cluster nodes
+
+The following cluster nodes exist:
+
+- `mn001`: master management node
+- `mn002`: management slave 1
+- `mn003`: management slave 2
+- `dn001`: compute node 1
+- `dn002`: compute node 2
+
+## Outbound and inbound access
+
+Cluster services are made available through various endpoints as described in this [section](./Retrieve-service-credentials-and-service-end-points.html).
+
+From the endpoint list, you can see that the following ports are open for inbound traffic:
+
+-	**9443**: this is the Admin port.
+
+ The Ambari UI Console and APIs are exposed at port 9443 (`https://xxxxx-mn001.bi.services.<region>.bluemix.net:9443`).
+-	**8443**: cluster services like Hive, Spark, Livy, Phoenix, and so on are made available for programmatic consumption through the Knox gateway on port 8443
+
+-	**22**: the cluster itself is accessible via SSH at standard port 22.
+
+ When you SSH to a cluster (as described [here](./Connect-using-SSH.html)) you essentially log in to `mn003`. Once you have logged in to `mn003`, you can SSH to the compute nodes (referred to as `dn001`, `dn002` etc) and to `mn002`.
+
+For example, to log in to the cluster, as given in the endpoint listing, enter:
+```
+ssh clsadmin@chs-tnu-499-mn003.bi.services.us-south.bluemix.net```
+
+Once you are on `mn003`, enter the following to log in to `mn002`:
+```
+ssh clsadmin@chs-tnu-499-mn002```
+
+and to log in to `dn001` enter:
+
+```
+ssh clsadmin@chs-tnu-499-dn001```
+
+**Note:**
+- You can't SSH to the master management node `mn001`.
+- You can ssh to the compute nodes only from within other nodes of the cluster.
+- Outbound traffic is open from all nodes.
+
+![Shows the {{site.data.keyword.iae_full_notm}} cluster architecture.](images/AnalyticsEngineCluster.png)
+
+
 
 ## Software components of the cluster
 You can create a cluster based on Hortonworks Data Platform 2.6.2 and 2.6.5. The following components are made available.

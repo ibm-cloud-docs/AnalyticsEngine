@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-21"
+lastupdated: "2018-08-07"
 
 ---
 
@@ -23,12 +23,11 @@ This section explains how to configure an {{site.data.keyword.iae_full_notm}} cl
 
  - **Cloud Object Storage (infrastructure)** . This supports Amazon Web Services (AWS) style authentication.
 
+By default, Cloud Object Storage uses IAM-style credentials. If you want to work with AWS-style credentials, you need to provide the inline configuration parameter `{"HMAC":true}` as shown [here](https://console.bluemix.net/docs/services/cloud-object-storage/iam/service-credentials.html#service-credentials).
 
- To learn more about COS and its authentication mechanisms, click [here](https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage).  
+Both of these styles of IBM S3 COS object store instances can be accessed using the `cos://` scheme. Details of the configuration parameters you need and the URI to access objects is described in the following sections. You can also access Amazon AWS object store instances from the cluster using the `s3a://` scheme.
 
- Both of these styles of IBM S3 COS object store instances can be accessed using the `cos://` scheme. Details of the configuration parameters you need and the URI to access objects is described in the following sections. You can also access Amazon AWS object store instances from the cluster using the `s3a://` scheme.
-
- Spark jobs in particular use open source Stocator libraries and offer better performance for large object reads and writes as compared to the default AWS connectors. To learn more about Stocator, see [here](https://github.com/SparkTC/stocator).
+Spark jobs in particular use open source Stocator libraries and offer better performance for large object reads and writes as compared to the default AWS connectors. To learn more about Stocator, see [here](https://github.com/SparkTC/stocator).
 
 ## Configuration options
 

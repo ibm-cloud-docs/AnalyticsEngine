@@ -17,6 +17,11 @@ lastupdated: "2018-07-09"
 
 You can find the answers to common questions about how to use IBM Analytics Engine.
 
+- [Jupyter Kernel Gateway](#jupyter-kernel-gateway)
+- [Cluster management](#cluster-management)
+- [Command line interface](#command-line-interface)
+- [Log locations on cluster for various components](#log-locations-on-cluster-for-various-components)
+
 ## Jupyter Kernel Gateway
 
 ### When the notebook user interface opens, the kernel remains in a busy state (filled circle) although no code is running
@@ -84,3 +89,25 @@ Knox Port Number [Optional: Press enter for default value] (8443)>
 OK
 Endpoint 'https://169.54.195.210' set.
 ```
+
+## Log locations on cluster for various components
+
+| Component | Node name | Log location |
+|-----------|-----------|--------------|
+|Ambari|mn003|`/var/log/ambari-server` </br> `/var/log/ambari-agent`|
+|Apache Hadoop|mn003|History logs:`/var/log/hadoop-mapreduce/mapred/`</br>hadoop-mapreduce.jobsummary.log: `/var/log/hadoop-yarn/yarn`|
+|Apache Livy|mn002|`/var/log/livy2`|
+|Apache Phoenix|mn002|`/var/log/hbase/phoenix-hbase-server.log`|
+|Apache Spark|mn003|`yarn logs –applicationID <appid>`</br>Spark History logs: `hadoop fs -ls /spark2-history`|
+|Anaconda with Python|mn003|`/var/log/jnbg/kernel-log`|
+|Flume|mn003|`/var/log/flume`|
+|HBase|mn002|`/var/log/hbase`|
+|Hive|mn003|`/var/log/hive2`|
+|Jupyter Enterprise Gateway|mn003|Jupyter Kernel Gateway logs: `/var/log/jnbg/jupyter_kernel_gateway.log`</br>Kernel or driver logs: `/var/log/jnbg/kernel-.log`|
+|Knox|mn002|`/var/log/knox/gateway.log`|
+|Oozie|mn002|`/var/log/oozie`|
+|Pig|mn003|`/var/log/ambari-server/tez-view`|
+|Slider|mn003|`yarn logs -applicationId <applicationId>`|
+|Sqoop|mn003|`/var/log/sqoop`|
+|Tez|mn003|`/var/log/ambari-server/tez-view`|
+|Yarn|mn003|`yarn logs -applicationId <applicationId>`|

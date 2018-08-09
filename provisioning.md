@@ -58,6 +58,14 @@ The **`AE 1.1`** software packages include components for Horton Dataworks Platf
  - Choose **`AE <version> Spark and Hive`** if you are planning to run Hive and/or Spark workloads. In addition to the components you get with the Spark package, you also get Hive, as part of the components of the Hive package.
  - Choose **`AE <version> Spark and Hadoop`** if you are planning to run Hadoop workloads in addition to Spark workloads. In addition to the components you get with the Spark package, you also get Oozie, HBase and Hive, as part of the components of the Hadoop package.
 
+**Recommendation:**
+ - Choose the right plan:
+  - For deploy, run and discard use-cases, select hourly plan clusters.
+  - For long running clusters, select monthly plan clusters.
+
+ - Choose the appropriate hardware configuration:  
+
+   For running parallel jobs, choose the memory-intensive node size. For example, if the number of concurrent notebooks (connected from IBM Watson Studio to {{site.data.keyword.iae_full_notm}}) is greater than 2, you should select the memory-intensive node size and not  the default node size.
 
 ## Creating a service instance using the IBM Cloud command-line interface
 
