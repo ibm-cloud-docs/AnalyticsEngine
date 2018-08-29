@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-07"
+lastupdated: "2018-08-28"
 
 ---
 
@@ -31,11 +31,13 @@ Spark jobs in particular use open source Stocator libraries and offer better per
 
 ## Configuration options
 
-In order for an application to connect to an object store, the cluster configuration must be updated with object store credentials and other values. For this, object store data like the credentials, URL, etc. must be added to the core-site.xml file as a set of key/value pairs. You can configure the object store by using one of the following three options:
+In order for an application to connect to an object store, the cluster configuration must be updated with the object store credentials and other values. For this, any object store data like the credentials or  any URLs, must be added to the core-site.xml file as a set of key/value pairs. You can configure the object store by using one of the following three options:
 
-* [Configure via the Ambari UI after the cluster was created](./configure-cos-via-ambari.html)
-* [Customize the cluster using a customization script](#customize-the-cluster-using-a-customization-script)
+* [Create an {{site.data.keyword.iae_full_notm}} service instance using advanced custom provisioning options](./advanced-provisioning-options.html)
 * [Specify the properties at runtime](#specify-the-properties-at-runtime)
+* [Customize the cluster using a customization script](#customize-the-cluster-using-a-customization-script)
+* [Configure the cluster via the Ambari UI after it was created](./configure-cos-via-ambari.html)
+
 
 After you configured the cluster, you can access objects in the object store using HDFS commands, and run MR, Hive and Spark jobs on them.
 

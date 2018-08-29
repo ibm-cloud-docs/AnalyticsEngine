@@ -23,7 +23,9 @@ The customization feature can be invoked in two ways, namely as:
 - **Adhoc customization**: run on a need basis after the cluster is created
 
 ## Bootstrap Customization
-In this method, the customization script can be specified as part of the input JSON to the create cluster commands as is shown in the examples later. In this case, the script is executed as a final step after the cluster is created. Even if the customization fails the cluster is still available for use.
+In this method, the customization script can be specified as part of the input JSON to the create cluster command as is shown in the examples later. In this case, the script is executed as a final step after the cluster is created. Even if the customization fails the cluster is still available for use.
+
+**Note:** Bootstrap customization is not recommended for customizing Ambari components like Hadoop or Spark. Instead you should specify  [advanced provisioning options](advanced-provisioning-options.html).
 
 **Rerunning a bootstrap customization script**: If the customization fails due to any reason, the same action can be rerun at a later point in time on the required targets.
 
@@ -89,11 +91,13 @@ This is something you can use in the customization script or even directly on an
 Note the use of `sudo` in order to execute the utililty.
 
 ## What can you customize?
-- Install or remove operating system packages
-- Install analytics Python and R libraries
-- Ambari configurations
 
-**Note:** The customization script will run as long as it contains code that can be executed by the cluster user. It cannot execute code that requires root access, for example, it cannot execute code such as opening ports or changing IP table rules.
+You can customize:
+- The installation or removal of operating system packages
+- The installation of analytics Python and R libraries
+- Ambari configuration parameters
+
+**Note:** The customization script will run as long as it contains code that the user of the cluster is authorized to execute. It cannot execute code that requires root access. For example, it cannot execute code such as opening ports or changing IP table rules.
 
 ## Tracking the status of the customizaton
 This is a three step process. First you need to get the customization request ID for your instance and then invoke a second API to get the status of that particular ID. From the second invocation, you will get location details of the customization logs for each target node executed. Finally, if you need to look at the log details, you will need to [ssh](https://console.bluemix.net/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to the specific node.

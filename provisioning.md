@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-06-05"
+lastupdated: "2018-08-28"
 
 ---
 
@@ -114,6 +114,7 @@ Sample cluster specification JSON file
 2. **`hardware_config`** (Required): Represents the instance size of the cluster. Accepted value: _`default`_ and _`memory-intensive`_  
 3. **`software_package`** (Required): Determines the set of services to be installed on the cluster. Accepted value: _`ae-1.1-spark`_, _` ae-1.1-hive-spark`_, _`ae-1.1-hadoop-spark`_, _`ae-1.0-spark`_,  _`ae-1.0-hive-spark`_ and _`ae-1.0-hadoop-spark`_
 4. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](./customizing-cluster.html).
+5. **`advanced_options`** (Optional): JSON object with nested JSON objects for various custom configurations for components installed with the cluster. Advantage here is that the custom configurations are baked during cluster creation time which means that the cluster is created based on the provided custom configurations. For details on how to create a cluster with `advanced_options`, see [Using advanced provisioning options](./advanced-provisioning-options.html).
 <br>
 
 Sample bx CLI response for the create instance command example previously shown: <br>

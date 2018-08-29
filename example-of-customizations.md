@@ -19,6 +19,8 @@ The following sections show you different examples of how you can customize a cl
 
 For details on what to consider when customizing a cluster, see [Customizing a cluster](./customizing-cluster.html).
 
+**Note:** The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](./advanced-provisioning-options.html).
+
 ### Example of creating a cluster with bootstrap customization using the {{site.data.keyword.Bluemix_short}} CLI
 
 `bx resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters>`
@@ -82,7 +84,7 @@ cat provision.json
 An adhoc customization script can be run any time after the cluster is created and becomes active. Enter the following command to run an adhoc customization script for target `all`:
 
 ```
-curl -X POST -v "https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d
+curl -X POST -v "https:// https://api.dataplatform.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d
 '{
 	"target": "all",
 	"custom_actions": [{
@@ -103,6 +105,8 @@ curl -X POST -v "https://api.dataplatform.ibm.com/v2/analytics_engines/<service_
 ### Example of customizing Ambari configurations
 
 The following section shows you a snippet of a customization script that you can use to customize Ambari configurations. This is also an example of how to use the predefined environment variable `NODE_TYPE`.
+
+**Note:** The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](./advanced-provisioning-options.html).
 
 The following example makes use of Ambari's in-built `configs.py` script to change the value for `mapreduce.map.memory`. This script is available only on the management nodes. If you specified `target` as `all`  for adhoc customization or if `all` target is implied because of a bootstrap customization, you might want to specify the `NODE_TYPE` so that the code will be executed only once and from the management slave2 node.
 
@@ -137,6 +141,8 @@ In your customization script, use commands like:
 ### Example of configuring COS/S3 Object Storage as a data source for Hadoop/Spark
 
 For details see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html).
+
+**Note:** The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](./advanced-provisioning-options.html).
 
 ### Examples of different kinds of locations of the customization script
 
@@ -220,6 +226,6 @@ The following examples show snippets of the `script` and `script_params` attribu
 
 A persisted customization script is registered during cluster creation and can be rerun. Enter the following command to rerun a persisted customization script:
 ```
-curl -X POST -v "https://api.dataplatform.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d '{"target":"all"}'  -H "Authorization: Bearer <user's IAM access token>" -H "Content-Type: application/json"
+curl -X POST -v "https:// https://api.dataplatform.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d '{"target":"all"}'  -H "Authorization: Bearer <user's IAM access token>" -H "Content-Type: application/json"
 ```
 **Note:** For the United Kingdom region, use the end point `https://api.eu-gb.dataplatform.ibm.com`.

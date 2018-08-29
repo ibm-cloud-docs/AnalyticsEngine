@@ -14,7 +14,7 @@ Analytics Engine
     {: .topicgroup}
     Helpful links
         <!-- [REST API Reference](https://console.ng.bluemix.ne/apidocs/) -->
-        [IBM Analytics Engine API reference](https://developer.ibm.com/api/view/id-1084:title-Watson_Data_Platform_Core_Services#doc)
+        [IBM Analytics Engine API reference](https://console.bluemix.net/apidocs/ibm-analytics-engine)
         [Jupyter Kernel Gateway Reference Doc](https://jupyter-kernel-gateway.readthedocs.io/en/latest)
         [Livy Reference](https://github.com/cloudera/livy/blob/master/README.rst)
         [Spark History REST API](https://spark.apache.org/docs/2.1.1/monitoring.html#rest-api)
@@ -28,6 +28,7 @@ Analytics Engine
     {: .topicgroup}
     Provisioning a service instance
     	provisioning.md
+        advanced-provisioning-options.md
         track-instance-provisioning.md
 
     {: .topicgroup}
