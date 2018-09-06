@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-01-09"
+lastupdated: "2018-09-05"
 
 ---
 
@@ -21,6 +21,7 @@ HBase applications are written in Java, much like a typical MapReduce applicatio
 **Note:** HBase and Apache Phoenix are only available in the {{site.data.keyword.iae_short}} Hadoop package.
 
 - [Accessing HBase through the HBase shell](#accessing-hbase-through-the-hbase-shell)
+- [Moving data between the cluster and Cloud Object Storage](#moving-data-between-the-cluster-and-cloud-object-storage)
 - [Accessing Phoenix through client tools](#accessing-phoenix-through-client-tools)
 - [Accessing Phoenix through JDBC via the Knox Gateway](#accessing-phoenix-through-jdbc-via-the-knox-gateway)
 
@@ -37,6 +38,95 @@ hbase shell```
 **Restriction:** The HBase REST interface through Knox is not supported.
 
 For further information on HBase and its features refer to [Apache HBase](https://hortonworks.com/apache/hbase/).
+
+## Moving data between the cluster and Cloud Object Storage
+
+If you need to move data in HBase tables between clusters, HBase offers the following export and import utilities:
+
+- **Export Table** set of tools which use MapReduce to scan and copy tables. Be aware when copying large data volumes that this method has a direct impact on the region server performance.
+  - [Exporting an HBase table from HDFS to Cloud Object Storage](#exporting-an-hbase-table-from-hdfs-to-cloud-object-storage)
+
+  - [Importing an HBase table from Cloud Object Storage to HDFS](#importing-an-hbase-table-from-cloud-object-storage-to-hdfs)
+
+- **HBase Snapshot** tool which allows you to take a copy of a table (both contents and metadata) with a very small performance impact. Exporting the snapshot to another cluster does not directly affect any of the region servers; export is just a `distcp` with an extra bit of logic.
+
+ HBase snapshots can be stored in IBM Cloud Object Storage (COS S3)  instead of in HDFS. To allow for this, your cluster must be configured with IBM Cloud Object Storage. See [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html#configuring-clusters-to-work-with-ibm-cos-s3-object-stores).  
+
+ - [Exporting a snapshot of an HBase table to Cloud Object storage](#exporting-a-snapshot-of-an-hbase-table-to-cloud-object-storage)
+
+ - [Importing a snapshot from Cloud Object Storage to HDFS](#importing-a-snapshot-from-cloud-object-storage-to-hdfs)
+
+### Exporting an HBase table from HDFS to Cloud Object Storage
+
+To export an HBase table from HDFS to Cloud Object Storage:
+
+1. Launch the HBase shell, create a table, and add some data into the table:
+```
+# su hbase
+   # hbase shell
+   hbase> create 'testexport', 'cf1'
+   hbase> put 'testexport', 'row1', 'cf1', 'test-data'
+   hbase> quit
+```
+2. Export the newly created table to the Cloud Object Storage configured to work with your cluster:
+```
+# hbase org.apache.hadoop.hbase.mapreduce.Export testexport cos://mybucket.myprodservice/testexport
+```
+3. Verify that the table was exported to Cloud Object Storage:
+```
+# hadoop fs –ls cos://mybucket.myprodservice/testexport
+```
+
+### Importing an HBase table from Cloud Object Storage to HDFS
+
+To import an HBase table stored in Cloud Object Storage to HDFS:
+
+1. Create an empty HBase table to which to add the data to import. Verify that this table is empty:
+```
+   # hbase shell
+   hbase> create 'testimport', 'cf1'
+   hbase> scan 'testimport'
+```
+2. Import the table you exported to Cloud Object Store:
+```
+# hbase org.apache.hadoop.hbase.mapreduce.Import testimport cos://mybucket.myprodservice/testexport
+```
+
+3. Verify the data was imported by scanning the table:
+```
+# hbase shell
+   hbase> scan 'testimport'
+```
+
+### Exporting a snapshot of an HBase table to Cloud Object storage
+
+To export a snapshot of an HBase table to the Cloud Object storage configured to work with your cluster:
+
+1. Create a snapshot of the created table. The snapshot is temporarily saved in the HBase database:
+```
+# hbase shell
+   hbase> snapshot 'testexport', 'mysnapshot'
+   hbase> list_snapshots
+```
+2. Export the snapshot from the HBase database to Cloud Object Storage:
+```
+# hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot mysnapshot -copy-to cos://mybucket.myprodservice/snapshotdir -mappers 16 ```
+
+3. Verify that the snapshot was exported to Cloud Object Storage:
+```
+# hadoop fs –ls cos://mybucket.myprodservice/snapshotdir ```
+
+### Importing a snapshot from Cloud Object Storage to HDFS
+
+To import the snapshot od a HBase table from Cloud Object Storage to HDFS:
+
+1. Import the snapshot from Cloud Object Storage to HDFS on the cluster:
+```
+# hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot mysnapshot -copy-from cos://mybucket.myprodservice/snapshotdir -copy-to hdfs://XXXXX-mn002.bi.services.<changeme>.bluemix.net:8020/user/hbase/ -mappers 16 ```
+
+2. Verify the snapshot was exported:
+```
+# hadoop fs –ls /user/hbase ```
 
 ## Accessing Phoenix through client tools
 Apache Phoenix enables SQL-based OLTP and operational analytics for Apache Hadoop using Apache HBase as its backing store. It is based on the [Avatica](https://calcite.apache.org/avatica) component of [Apache Calcite](https://calcite.apache.org/). The Phoenix Query Server is comprised of a Java server that manages the Phoenix connections on the client’s behalf. The client implementation is currently a JDBC driver with few dependencies. It supports two transport mechanisms currently: JSON and Protocol Buffers (PROTOBUF). The query server on the {{site.data.keyword.iae_full_notm}} cluster uses PROTOBUF serialization by default, which is more efficient compared to JSON serialization.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-06-11"
+lastupdated: "2018-09-05"
 
 ---
 
@@ -116,6 +116,82 @@ To configuring the cluster as part of the cluster customization script:
 1. Use a customization script after the cluster is created. This script includes the properties that need to be configured in the Hive site and uses the Ambari configs.py file to make the required changes.
 
  You can use this [sample script](https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-external-metastore.sh) to configure the Hive metastore.
+
+## Parquet file format in Hive
+
+Parquet is an open source file format for Hadoop. Parquet stores nested data structures in a flat columnar format. Compared to the traditional approach where data is stored in rows, Parquet is more efficient in terms of storage and performance.
+
+### Creating Hive tables in Parquet format
+
+To create Hive tables in Parquet format:
+
+1. SSH to the cluster.
+
+2. Launch Beeline:
+```
+beeline -u 'jdbc:hive2://XXXX-mn001.bi.services.<changeme>.bluemix.net:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword> ```
+
+3. Create a Hive table in Parquet format:
+```
+CREATE TABLE parquet_test (
+ id int,
+ str string,
+ mp MAP<STRING,STRING>,
+ lst ARRAY<STRING>,
+ strct STRUCT<A:STRING,B:STRING>)
+PARTITIONED BY (part string)
+STORED AS PARQUET;
+```
+4. Create an external table in Parguet format in IBM Cloud Object Storage. Your cluster needs to be configured to use Cloud Object Store. See [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html#configuring-clusters-to-work-with-ibm-cos-s3-object-stores).
+```
+CREATE EXTERNAL TABLE parquet_test1 (
+ id int,
+ str string,
+ mp MAP<STRING,STRING>,
+ lst ARRAY<STRING>,
+ strct STRUCT<A:STRING,B:STRING>)
+PARTITIONED BY (part string)
+STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir1';
+```
+
+1. Create another external table in IBM Cloud Object Storage and view the values stored in Parquet format in the Cloud Object Storage directory:
+
+ ```
+CREATE EXTERNAL TABLE parquet_test2 (x INT, y STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir2';
+insert into parquet_test2 values (1,'Alex');
+select * from parquet_test2;
+```
+
+1. Load data from a Parquet file stored in Cloud Object Storage to an external Parguet table. users-parquet is a Parquet file stored in the Cloud Object Storage bucket.
+```
+CREATE EXTERNAL TABLE extparquettable1 (id INT, name STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir3';
+LOAD DATA INPATH 'cos://mybucket.myprodservice/dir6/users-parquet';
+OVERWRITE INTO TABLE extparquettable1;
+select * from extparquettable1;
+```   
+The result is the following:
+```
+| extparquettable1.id  | extparquettable1.name  |
+|----------------------|------------------------|
+| NULL                 | Alyssa                 |
+| NULL                 | Ben                    |```
+
+1. Load data from a Parquet file stored in HDFS into an external Parquet table. The users.parquet file is stored in the HDFS path `/user/hive`.
+```
+CREATE EXTERNAL TABLE extparquettable2 (id INT, name STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir1';
+LOAD DATA INPATH 'users-parquet';
+OVERWRITE INTO TABLE extparquettable2;
+select * from extparquettable2;
+```   
+The result is the following:
+```
+| extparquettable2.id  | extparquettable2.name  |
+|----------------------|------------------------|
+| NULL                 | Alyssa                 |
+| NULL                 | Ben                    |```
+
+
+
 
 ## Learn more
 
