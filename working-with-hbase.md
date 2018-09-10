@@ -41,7 +41,7 @@ For further information on HBase and its features refer to [Apache HBase](https:
 
 ## Moving data between the cluster and Cloud Object Storage
 
-If you need to move data in HBase tables between clusters, HBase offers the following export and import utilities:
+HBase cannot work directly with IBM Cloud Object Storage at this time, that is you cannot create an HBase table with Cloud Object Storage as the storage. By default, the storage is HDFS. However, you can export data from HBase to Cloud Object Storage and import it back again into another cluster with the same HBase table definitions. HBase offers the following export and import utilities:
 
 - **Export Table** set of tools which use MapReduce to scan and copy tables. Be aware when copying large data volumes that this method has a direct impact on the region server performance.
   - [Exporting an HBase table from HDFS to Cloud Object Storage](#exporting-an-hbase-table-from-hdfs-to-cloud-object-storage)
