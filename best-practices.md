@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-06-09"
+lastupdated: "2018-09-03"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-06-09"
 
 # Best practices
 
-You should use the {{site.data.keyword.iae_full_notm}} cluster as a compute-only engine. Ideally, you should not store any data on the cluster; you should try to keep the cluster as stateless as possible. This deployment model is recommended so that you can delete and create clusters often to either save on costs, or to pick up new features or work with new packages.
+You should use the {{site.data.keyword.iae_full_notm}} cluster as a compute-only engine. Ideally, you should not store any data on the cluster; you should try to keep the cluster as stateless as possible. This deployment model is recommended so that you can delete and create clusters often to either save on costs, pick up new features, or work with new packages.
 
 The following types of data stored on a cluster contribute towards making the cluster stateful and should preferably not be stored on the cluster:
 - Data you want to analyze, and any results of your analysis
@@ -35,6 +35,7 @@ To help you create and maintain a stateless cluster, you should try to keep to t
  ![Shows separating compute from storage in the {{site.data.keyword.iae_full_notm}} cluster.](images/SeparateComputeFromStorage.png)
 
 - **Choose the right Cloud Object Storage configuration**
+{: #encryption}
 
  Consider the following configuration aspects:
 
@@ -81,3 +82,9 @@ To help you create and maintain a stateless cluster, you should try to keep to t
  Although you should use IBM Cloud Object Storage as your primary storage for all data files and job binaries, you might want to create and store some temporary data or files on the cluster itself. If you need to do that, you can store this data under the `/home/wce/clsadmin` directory on any of the nodes of the cluster. Note that you have about 20 GB capacity under `/home` across all the three management nodes. However, you should not use more than 80% of this total capacity so as to not disrupt the normal functioning on the cluster. You should avoid saving data under the `/tmp` directory because this space is used as the scratch directory for job execution.
 
  Note that any data stored on the cluster is not persistent outside the cluster lifecycle. If the cluster is deleted, the data will be expunged too. So make sure you backup any important data you store on the cluster.
+
+- **Switch regions for disaster recovery**
+
+ You can create {{site.data.keyword.iae_full_notm}} service instances in different regions, for example, in the US South and the United Kingdom. In the event that you cannot create a service instance in one region, you can switch to an alternate region which hosts  {{site.data.keyword.iae_full_notm}}. You will not be able to access any existing clusters from the new region. However, creating a new cluster in a new region should not be a problem if you followed the recommended best practices described in this topic and kept your existing cluster as stateless as possible with data and jobs residing outside the cluster.
+
+ See the [list of supported regions and the endpoints to use](https://console.bluemix.net/docs/services/AnalyticsEngine/provisioning.html#creating-a-service-instance-using-the-ibm-cloud-command-line-interface) or refer to the {{site.data.keyword.Bluemix_short}} catalog for {{site.data.keyword.iae_full_notm}}.

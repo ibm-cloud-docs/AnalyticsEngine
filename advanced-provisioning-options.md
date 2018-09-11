@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-08-28"
+lastupdated: "2018-09-03"
 
 ---
 
@@ -33,19 +33,18 @@ The service creation JSON object has an optional `advanced_options` JSON object 
 	"hardware_config": "<hwconfig>",
 	"software_package": "<ibmae-package>",
 	"advanced_options": {
-"ambari_config":
-{
+		"ambari_config": {
 			"config-group1": {
 				"<key1>": "<value1>",
 				"<key2>": "<value2>",
 				"<key3>": "<value3>"
-},
-"config-group2": {
+			},
+			"config-group2": {
 				"<key1>": "<value1>",
 				"<key2>": "<value2>",
 				"<key3>": "<value3>"
 			},
-"config-group3": {
+			"config-group3": {
 				"<key1>": "<value1>",
 				"<key2>": "<value2>",
 				"<key3>": "<value3>"
@@ -58,6 +57,11 @@ The service creation JSON object has an optional `advanced_options` JSON object 
 
 The following examples show JSON payloads for `advanced_options` with custom Ambari configurations for cluster creation.
 
+- [Sample I. Associate Cloud Object Storage during cluster creation using AWS style authentication](#sample-i-associate-cloud-object-storage-during-cluster-creation-using-aws-style-authentication)
+- [Sample II. Associate Cloud Object Storage during cluster creation using IAM Style authentication](#sample-ii-associate-cloud-object-storage-during-cluster-creation-using-iam-style-authentication)
+- [Sample III. Enable dynamic resource allocation for Spark during cluster creation](#sample-iii-enable-dynamic-resource-allocation-for-spark-during-cluster-creation)
+- [Sample IV. Externalize the Hive metastore to IBM Compose for MySQL during cluster creation](#sample-iv-externalize-the-hive-metastore-to-ibm-compose-for-mysql-during-cluster-creation)
+
 ## Sample I. Associate Cloud Object Storage during cluster creation using AWS style authentication
 
 You must add the configuration properties that are relevant to Cloud Object Storage in the `core-site` config-group. In AWS style authentication, the following properties are required:
@@ -69,25 +73,25 @@ Note that the value for the variable `<servicename>` can be any literal such as 
 
 ```
 {
-"num_compute_nodes": 1,
-"hardware_config": "default",
-"software_package": "ae-1.1-spark",
-"advanced_options": {
-"ambari_config": {
-		"core-site": {
-				 "fs.cos.<servicename1>.access.key": "<userKey>",
-				 "fs.cos.<servicename1>.endpoint": "<cosEndpoint>",
-				 "fs.cos.<servicename1>.secret.key": "<SecretKey>",
-				 "fs.cos.<servicename2>.access.key": "<userKey>",
-				 "fs.cos.<servicename2>.endpoint": "<cosEndpoint>",
-				 "fs.cos.<servicename2>.secret.key": "<SecretKey>"
-			       }
-			  }
-     }
+	"num_compute_nodes": 1,
+	"hardware_config": "default",
+	"software_package": "ae-1.1-spark",
+	"advanced_options": {
+		"ambari_config": {
+			"core-site": {
+				"fs.cos.<servicename1>.access.key": "<userKey>",
+				"fs.cos.<servicename1>.endpoint": "<cosEndpoint>",
+				"fs.cos.<servicename1>.secret.key": "<SecretKey>",
+				"fs.cos.<servicename2>.access.key": "<userKey>",
+				"fs.cos.<servicename2>.endpoint": "<cosEndpoint>",
+				"fs.cos.<servicename2>.secret.key": "<SecretKey>"
+			}
+		}
+	}
 }
 ```
 
-### Sample II. Associate Cloud Object Storage during cluster creation using IAM Style authentication
+## Sample II. Associate Cloud Object Storage during cluster creation using IAM style authentication
 
 You must add the configuration properties that are relevant to Cloud Object Storage in the `core-site` config-group. In IAM style authentication, the following properties are required:
 
@@ -98,23 +102,23 @@ You must add the configuration properties that are relevant to Cloud Object Stor
  You must specify either the api key or the token. Keep in mind that the token expires.
 
 ```
- {
-"num_compute_nodes": 1,
-"hardware_config": "default",
-"software_package": "ae-1.1-spark",
-"advanced_options": {
-"ambari_config": {
-"core-site": {
-"fs.cos.<servicename>.v2.signer.type": false,
-"fs.cos.<servicename>.endpoint": "<cosEndpoint>",
-"fs.cos.<servicename>.iam.api.key": "<cosKey>"
-             }
-         }
+{
+ "num_compute_nodes": 1,
+ "hardware_config": "default",
+ "software_package": "ae-1.1-spark",
+ "advanced_options": {
+   "ambari_config": {
+     "core-site": {
+       "fs.cos.<servicename>.v2.signer.type": false,
+       "fs.cos.<servicename>.endpoint": "<cosEndpoint>",
+       "fs.cos.<servicename>.iam.api.key": "<cosKey>"
      }
+   }
+ }
 }
 ```
 
-### Sample III. Enable dynamic resource allocation during cluster creation
+## Sample III. Enable dynamic resource allocation for Spark during cluster creation
 
 Spark provides a mechanism to dynamically adjust the resources your application occupies based on the workload. The following properties must be set to enable dynamic resource allocation in the `spark2-defaults` config-group:
 
@@ -128,24 +132,24 @@ Spark provides a mechanism to dynamically adjust the resources your application 
 
 ```
 {
-"num_compute_nodes": 1,
-"hardware_config": "default",
-"software_package": "ae-1.1-spark",
-"advanced_options": {
-"ambari_config": {
-"spark2-defaults": {
-					"spark.dynamicAllocation.enabled" : true,
-					"spark.shuffle.service.enabled" : true,
-					"spark.dynamicAllocation.minExecutors": <x>,
-					"spark.dynamicAllocation.maxExecutors": <y>
-          }
-      }
-  }
+	"num_compute_nodes": 1,
+	"hardware_config": "default",
+	"software_package": "ae-1.1-spark",
+	"advanced_options": {
+		"ambari_config": {
+			"spark2-defaults": {
+				"spark.dynamicAllocation.enabled": true,
+				"spark.shuffle.service.enabled": true,
+				"spark.dynamicAllocation.minExecutors": < x > ,
+				"spark.dynamicAllocation.maxExecutors": < y >
+			}
+		}
+	}
 }
 ```
-**Note:** The values for <x> and <y> are the values you select when you choose the hardware configuration of the worker and job nodes during cluster creation.
+**Note:** Values for `<x>`  and `<y>` can be specified based on the hardware configuration of the compute node and job requirements.
 
-### Sample IV. Externalize the Hive metastore to IBM Compose for MySQL during cluster creation
+## Sample IV. Externalize the Hive metastore to IBM Compose for MySQL during cluster creation
 
 To create a cluster with an external Hive metastore, you must provide the following properties in the `hive-site` config-group:
 - `javax.jdo.option.ConnectionURL`
@@ -157,19 +161,19 @@ To create a cluster with an external Hive metastore, you must provide the follow
 
 ```
 {
-"num_compute_nodes": 1,
-"hardware_config": "default",
-"software_package": " ae-1.1-hadoop-spark ",
-"advanced_options": {
-	"ambari_config": {
-			"hive-site": 	{
-				 "javax.jdo.option.ConnectionURL": "<jdbcUrl>",
-				 "javax.jdo.option.ConnectionUserName": "<mysqlUname>",
-				 "javax.jdo.option.ConnectionPassword": "<mysqlPassword>",
-				 "ambari.hive.db.schema.name": "hiveDBName"
-                    }
-                  }
-                }
+	"num_compute_nodes": 1,
+	"hardware_config": "default",
+	"software_package": " ae-1.1-hadoop-spark ",
+	"advanced_options": {
+		"ambari_config": {
+			"hive-site": {
+				"javax.jdo.option.ConnectionURL": "<jdbcUrl>",
+				"javax.jdo.option.ConnectionUserName": "<mysqlUname>",
+				"javax.jdo.option.ConnectionPassword": "<mysqlPassword>",
+				"ambari.hive.db.schema.name": "hiveDBName"
+			}
+		}
+	}
 }
 ```
 

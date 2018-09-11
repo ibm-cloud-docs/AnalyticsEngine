@@ -6,8 +6,10 @@
 Analytics Engine
 
     {: .navgroup id="learn"}
+    getting-started.md
     index.md
     best-practices.md
+    security-model.md
 	  {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -23,8 +25,6 @@ Analytics Engine
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
-    getting-started.md
-
     {: .topicgroup}
     Provisioning a service instance
     	provisioning.md
