@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-03"
+lastupdated: "2018-09-17"
 
 ---
 
@@ -57,12 +57,12 @@ The service creation JSON object has an optional `advanced_options` JSON object 
 
 The following examples show JSON payloads for `advanced_options` with custom Ambari configurations for cluster creation.
 
-- [Sample I. Associate Cloud Object Storage during cluster creation using AWS style authentication](#sample-i-associate-cloud-object-storage-during-cluster-creation-using-aws-style-authentication)
+- [Sample I. Associate Cloud Object Storage during cluster creation using HMAC style authentication using access key and secret key](#associate-cloud-object-storage-during-cluster-creation-using-HMAC-style-authentication-using-access-key-and-secret-key)
 - [Sample II. Associate Cloud Object Storage during cluster creation using IAM Style authentication](#sample-ii-associate-cloud-object-storage-during-cluster-creation-using-iam-style-authentication)
 - [Sample III. Enable dynamic resource allocation for Spark during cluster creation](#sample-iii-enable-dynamic-resource-allocation-for-spark-during-cluster-creation)
 - [Sample IV. Externalize the Hive metastore to IBM Compose for MySQL during cluster creation](#sample-iv-externalize-the-hive-metastore-to-ibm-compose-for-mysql-during-cluster-creation)
 
-## Sample I. Associate Cloud Object Storage during cluster creation using AWS style authentication
+## Sample I. Associate Cloud Object Storage during cluster creation using HMAC style authentication using access key and secret key
 
 You must add the configuration properties that are relevant to Cloud Object Storage in the `core-site` config-group. In AWS style authentication, the following properties are required:
 - `fs.cos.<servicename>.access.key`
@@ -97,9 +97,8 @@ You must add the configuration properties that are relevant to Cloud Object Stor
 
 - `fs.cos.<servicename>.v2.signer.type`
 - `fs.cos.<servicename>.endpoint`
-- `fs.cos.<servicename>.iam.api.key` or `fs.cos.<servicename>.iam.token`
+- `fs.cos.<servicename>.iam.api.key`
 
- You must specify either the api key or the token. Keep in mind that the token expires.
 
 ```
 {

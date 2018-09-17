@@ -96,7 +96,7 @@ fs.cos.<servicename>.endpoint=<EndPoint e.g:s3-api.us-geo.objectstorage.service.
 fs.cos.<servicename>.iam.api.key=<IAM API Key> #This is the IAM object store service’s API Key defined in the credentials of the service.
 fs.cos.<servicename>.iam.token=<IAM Token e.g:- 2342342sdfasf34234234asf……..> #This will be the IAM token of an individual user that is obtained from the BX CLI oauth-tokens command.
 ```
-**NOTE:** You need to specify either the API key or the token. Keep in mind that the token expires which means that it is better to specify it at runtime rather than to define it in the core-site.xml file.
+**NOTE:** You need to specify either the API key or the token. Keep in mind that the token expires in an hour which means that it is better to specify it at runtime rather than to define it in the core-site.xml file.
 
 ## URI pattern for accessing objects using IBM COS connectors
 
