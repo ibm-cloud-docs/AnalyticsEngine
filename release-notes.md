@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-06-06"
+lastupdated: "2018-09-17"
 
 ---
 
@@ -17,6 +17,27 @@ lastupdated: "2018-06-06"
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 14 September 2018
+
+ - Support for advanced provisioning options to customize Ambari component configurations at the time the {{site.data.keyword.iae_full_notm}} service instance is created was added. See [Advanced provisioning options](./advanced-provisioning-options.html#advanced-provisioning-options).
+ - The {{site.data.keyword.iae_full_notm}} REST API documentation can now be accessed at the following new location: https://console.bluemix.net/apidocs/ibm-analytics-engine
+ - The {site.data.keyword.iae_full_notm}} REST API end points have a new domain suffix:
+  - us-south: https://api.us-south.ae.cloud.ibm.com
+  - eu-gb: https://api.eu-gb.ae.cloud.ibm.com
+
+   The older end points https://api.dataplatform.ibm.com and https://api.eu-gb.dataplatform.ibm.com are deprecated and will no longer be supported after the end of September 2018. You can create  new service credentials from the {{site.data.keyword.Bluemix_short}} console to fetch the new end point.
+
+- You can set up cron jobs on the mn003 node (management slave 2).
+ **Restriction:** You can set this up only on the mn003 node.
+- Support for Spark SQL JDBC endpoint was added. See [Working with Spark SQL to query data](./working-with-spark-sql.html).
+- The Stocator library was updated to 1.0.24.
+- Broken Spark History links were fixed.
+- Changes were made at the backend networking level for optimized performance of Cloud Object Storage workloads.
+- Documented more examples for using HBase and Parquet-Hive. See [Working with HBase.html](./working-with-hbase.html#moving-data-between-the-cluster-and-cloud-object-storage) and [Working with Hive](./working-with-hive.html).
+- Added the {{site.data.keyword.iae_full_notm}} security model. See [Security model](./security-model.html).
+- Documented best practices for creating and maintaining a stateless cluster. See [Best practices](.7best-practices.html).
+
 
 ### 6 June 2018
  - You can no longer provision {{site.data.keyword.iae_full_notm}} service instances using the Cloud Foundry CLI. You must use the {{site.data.keyword.Bluemix_short}} CLI.

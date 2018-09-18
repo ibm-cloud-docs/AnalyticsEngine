@@ -118,7 +118,7 @@ To export a snapshot of an HBase table to the Cloud Object storage configured to
 
 ### Importing a snapshot from Cloud Object Storage to HDFS
 
-To import the snapshot od a HBase table from Cloud Object Storage to HDFS:
+To import the snapshot of a HBase table from Cloud Object Storage to HDFS:
 
 1. Import the snapshot from Cloud Object Storage to HDFS on the cluster:
 ```
