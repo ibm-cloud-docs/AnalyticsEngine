@@ -34,7 +34,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 - The Stocator library was updated to 1.0.24.
 - Broken Spark History links were fixed.
 - Changes were made at the backend networking level for optimized performance of Cloud Object Storage workloads.
-- Documented more examples for using HBase and Parquet-Hive. See [Working with HBase](./working-with-hbase.html#moving-data-between-the-cluster-and-cloud-object-storage) and [Working with Hive](./working-with-hive.html#parquet-file-format-in-hive).
+- Documented more examples for using HBase and Parquet-Hive. See [Working with HBase](./working-with-hbase.html#moving-data-between-the-cluster-and-cloud-object-storage) and [Working with Hive](./working-with-hive.html#parquet).
 - Added the {{site.data.keyword.iae_full_notm}} security model. See [Security model](./security-model.html).
 - Documented best practices for creating and maintaining a stateless cluster. See [Best practices](./best-practices.html).
 
