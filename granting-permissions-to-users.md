@@ -17,7 +17,7 @@ lastupdated: "2017-11-02"
 
 With an IBM {{site.data.keyword.Bluemix_notm}} account, you have administrative privileges in the organization or space under your account, which enables you to perform all operations on an {{site.data.keyword.iae_full_notm}} service. However, when you onboard other users to your account, you need to manage their permissions so that they have the required privileges to operate service instances under your account.
 
-In {{site.data.keyword.iae_full_notm}}s service, access to cluster life cycle management operations is governed by the following permission levels:
+In {{site.data.keyword.iae_full_notm}}, access to cluster life cycle management operations is governed by the following permission levels:
 
 | Operation | Required {{site.data.keyword.Bluemix_notm}} permissions | Required IAM permissions |
 |-----------|------------------------------|--------------------------|
@@ -25,8 +25,8 @@ In {{site.data.keyword.iae_full_notm}}s service, access to cluster life cycle ma
 | View the service dashboard (Cluster Management UI) | Developer role to the {{site.data.keyword.Bluemix_notm}} space | Viewer and above to your Resource Group and Reader, or above to the service instance |
 | Resize a cluster by using the Cluster Management UI | Developer role to the {{site.data.keyword.Bluemix_notm}} space | Editor and above to the service instance |
 | Generate service keys by using the CF CLI or the {{site.data.keyword.Bluemix_notm}} UI | Developer role to the {{site.data.keyword.Bluemix_notm}} space | Editor or above to the service instance |
-| Invoke  GET REST APIs on `https:// api.dataplatform.ibm.com/v2/analytics_engines` | NA | Reader and above |
-| Invoke POST  REST APIs on `https:// api.dataplatform.ibm.com/v2/analytics_engines`| NA | Writer and above |
+| Invoke  GET REST APIs on `https:// api.us-south.ae.cloud.ibm.com/v2/analytics_engines` <br>  For the United Kingdom region, use the endpoint https://api.eu-gb.ae.cloud.ibm.com | NA | Reader and above |
+| Invoke POST  REST APIs on `https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines` <br>  For the United Kingdom region, use the endpoint https://api.eu-gb.ae.cloud.ibm.com| NA | Writer and above |
 
 To onboard new users to your account:
 
