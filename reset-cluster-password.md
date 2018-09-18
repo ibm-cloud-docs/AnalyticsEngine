@@ -25,8 +25,10 @@ To reset the cluster's password by using the Cloud Foundry REST API, enter the
 following cURL command:  
 ```
 curl -X  POST  \
-https://api.dataplatform.cloud.ibm.com/v2/analytics_engines/<service_instance_guid>/reset_password
+https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_guid>/reset_password
 \ -H 'authorization: Bearer  <user's IAM token>' ```
+
+For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`
 
 The expected response is the changed password in JSON format. For example:
 ```

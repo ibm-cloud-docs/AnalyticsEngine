@@ -21,10 +21,10 @@ The following diagram illustrates the various states of a cluster during cluster
 
 You can track the status of your cluster provisioning by using the following REST API:
 
-```curl -i -X GET   https://api.dataplatform.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/state -H 'Authorization: Bearer <user's IAM access token>'
+```curl -i -X GET   https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/state -H 'Authorization: Bearer <user's IAM access token>'
 ```  
 
-**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.dataplatform.ibm.com`.
+**Note:** For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`.
 
 To retrieve the service instance ID, see [Retrieviving the service instance ID](./retrieve-service-instance-id.html). For the IAM access token, see [Retrieving IAM access tokens](./Retrieve-IAM-access-token.html).
 

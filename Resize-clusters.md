@@ -42,9 +42,11 @@ You can resize the cluster by using one of the following modes:
 
 * Enter the following command. For example, to increase the cluster by one node:  
 ```
-curl -i -X POST  https://api.dataplatform.cloud.ibm.com/v2/analytics_engines/<service_instance_guid>/resize -H 'Authorization: Bearer <user's IAM token>' -d '{"compute_nodes_count":2}' -H "Content-Type:application/json"
+curl -i -X POST  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_guid>/resize -H 'Authorization: Bearer <user's IAM token>' -d '{"compute_nodes_count":2}' -H "Content-Type:application/json"
 ```
 
  For the parameter `compute_nodes_count`, you need to pass the expected size of the cluster, after the resize operation. For example, if your cluster currently has one compute node and you want to add two more nodes to it, then the value for `compute_nodes_count` parameter should be 3.
+
+ For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`
 
 **Restriction**: Currently, only the scale up operation is supported. Removing nodes from a cluster is not supported.

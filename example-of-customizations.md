@@ -84,7 +84,7 @@ cat provision.json
 An adhoc customization script can be run any time after the cluster is created and becomes active. Enter the following command to run an adhoc customization script for target `all`:
 
 ```
-curl -X POST -v "https:// https://api.dataplatform.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d
+curl -X POST -v " https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d
 '{
 	"target": "all",
 	"custom_actions": [{
@@ -100,7 +100,7 @@ curl -X POST -v "https:// https://api.dataplatform.cloud.ibm.com/v2/analytics_en
 ```
 `name` is the name of your customization action. It can be any literal without special characters.
 
-**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.dataplatform.ibm.com`.
+**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.ae.cloud.ibm.com`.
 
 ### Example of customizing Ambari configurations
 
@@ -226,6 +226,6 @@ The following examples show snippets of the `script` and `script_params` attribu
 
 A persisted customization script is registered during cluster creation and can be rerun. Enter the following command to rerun a persisted customization script:
 ```
-curl -X POST -v "https:// https://api.dataplatform.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d '{"target":"all"}'  -H "Authorization: Bearer <user's IAM access token>" -H "Content-Type: application/json"
+curl -X POST -v " https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d '{"target":"all"}'  -H "Authorization: Bearer <user's IAM access token>" -H "Content-Type: application/json"
 ```
-**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.dataplatform.ibm.com`.
+**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.ae.cloud.ibm.com`.

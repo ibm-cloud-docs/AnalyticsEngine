@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-09-18"
 
 ---
 
@@ -118,6 +118,7 @@ To configuring the cluster as part of the cluster customization script:
  You can use this [sample script](https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-external-metastore.sh) to configure the Hive metastore.
 
 ## Parquet file format in Hive
+{: #parquet}
 
 Parquet is an open source file format for Hadoop. Parquet stores nested data structures in a flat columnar format. Compared to the traditional approach where data is stored in rows, Parquet is more efficient in terms of storage and performance.
 

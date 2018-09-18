@@ -22,7 +22,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
  - Support for advanced provisioning options to customize Ambari component configurations at the time the {{site.data.keyword.iae_full_notm}} service instance is created was added. See [Advanced provisioning options](./advanced-provisioning-options.html#advanced-provisioning-options).
  - The {{site.data.keyword.iae_full_notm}} REST API documentation can now be accessed at the following new location: https://console.bluemix.net/apidocs/ibm-analytics-engine
- - The {site.data.keyword.iae_full_notm}} REST API end points have a new domain suffix:
+ - The {{site.data.keyword.iae_full_notm}} REST API end points have a new domain suffix:
   - us-south: https://api.us-south.ae.cloud.ibm.com
   - eu-gb: https://api.eu-gb.ae.cloud.ibm.com
 
@@ -34,9 +34,9 @@ Use these notes to learn about the latest features, additions and changes to {{s
 - The Stocator library was updated to 1.0.24.
 - Broken Spark History links were fixed.
 - Changes were made at the backend networking level for optimized performance of Cloud Object Storage workloads.
-- Documented more examples for using HBase and Parquet-Hive. See [Working with HBase](./working-with-hbase.html#moving-data-between-the-cluster-and-cloud-object-storage) and [Working with Hive](./working-with-hive.html).
+- Documented more examples for using HBase and Parquet-Hive. See [Working with HBase](./working-with-hbase.html#moving-data-between-the-cluster-and-cloud-object-storage) and [Working with Hive](./working-with-hive.html#parquet-file-format-in-hive).
 - Added the {{site.data.keyword.iae_full_notm}} security model. See [Security model](./security-model.html).
-- Documented best practices for creating and maintaining a stateless cluster. See [Best practices](.7best-practices.html).
+- Documented best practices for creating and maintaining a stateless cluster. See [Best practices](./best-practices.html).
 
 
 ### 6 June 2018
