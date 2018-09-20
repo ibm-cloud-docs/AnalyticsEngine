@@ -50,4 +50,10 @@ The {{site.data.keyword.iae_full_notm}} security model manages the access to and
 
  IBM uses the multi-pass DoD grade algorithm (5220.22M standard) for data destruction on the server when a cluster is deleted.
 
- **Note:** You are advised to be cautious when applying libraries or package customizations on the cluster. You must use secure code from trusted sources only so as not to compromise the overall security of the cluster.
+- **Ensuring the security of your cluster with your code**
+
+ You are advised to be cautious when applying libraries or package customization to your cluster. You must use secure code from trusted sources only so as not to compromise the overall security of the cluster.
+
+ IBM recommends that you scan any source, libraries, and packages you use before uploading them to your cluster.
+
+ While the use of non-trusted code will not impact other customers, it might impact you.
