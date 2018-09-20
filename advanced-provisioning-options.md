@@ -64,7 +64,7 @@ The following examples show JSON payloads for `advanced_options` with custom Amb
 
 ## Sample I. Associate Cloud Object Storage during cluster creation using HMAC style authentication using access key and secret key
 
-You must add the configuration properties that are relevant to Cloud Object Storage in the `core-site` config-group. In AWS style authentication, the following properties are required:
+You must add the configuration properties that are relevant to Cloud Object Storage in the `core-site` config-group. In HMAC style authentication, the following properties are required:
 - `fs.cos.<servicename>.access.key`
 - `fs.cos.<servicename>.endpoint`
 - `fs.cos.<servicename>.secret.key`
