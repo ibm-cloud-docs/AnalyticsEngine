@@ -5,6 +5,13 @@
 {: .toc subcollection="AnalyticsEngine" audience="service" href="/docs/services/AnalyticsEngine/index.html"}
 Analytics Engine
 
+    {:navgroup: .navgroup}
+    {:topicgroup: .topicgroup}
+    {:download .download}
+
+    {: .toc subcollection="overview" audience="platform" arm="3248326" href="/docs/overview/ibm-cloud.html"}
+    Getting started with IBM Cloud
+
     {: .navgroup id="learn"}
     getting-started.md
     index.md
