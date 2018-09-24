@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-07-05"
+lastupdated: "2018-09-24"
 
 ---
 
@@ -77,6 +77,7 @@ cat provision.json
 
 **Note:**
 * Possible values for `resource_plan_id` and instructions on how to get the resource group ID are specified [here](./provisioning.html#creating-a-service-instance-using-the-resource-controller-rest-api).
+* For the United Kingdom region, use the endpoint `https://resource-controller.eu-gb.bluemix.net`. For Germany, use the endpoint `https://resource-controller.eu-de.bluemix.net`.
 * To obtain an IAM token, follow these [steps](./Retrieve-IAM-access-token.html). You also need this token for authentication when using cluster management REST APIs.
 
 ### Example of running an adhoc customization script
@@ -100,7 +101,7 @@ curl -X POST -v " https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<se
 ```
 `name` is the name of your customization action. It can be any literal without special characters.
 
-**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.ae.cloud.ibm.com`.
+**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use the endpoint `https://api.eu-de.ae.cloud.ibm.com`.
 
 ### Example of customizing Ambari configurations
 
@@ -228,4 +229,4 @@ A persisted customization script is registered during cluster creation and can b
 ```
 curl -X POST -v " https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d '{"target":"all"}'  -H "Authorization: Bearer <user's IAM access token>" -H "Content-Type: application/json"
 ```
-**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.ae.cloud.ibm.com`.
+**Note:** For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use the endpoint `https://api.eu-de.ae.cloud.ibm.com`.

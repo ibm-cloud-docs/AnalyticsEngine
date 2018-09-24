@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-08-28"
+lastupdated: "2018-09-24"
 
 ---
 
@@ -21,14 +21,18 @@ You can create an {{site.data.keyword.iae_full_notm}} service instance through o
 * [Using the {{site.data.keyword.Bluemix_short}}  command-line interface (CLI)](#creating-a-service-instance-using-the-ibm-cloud-command-line-interface)
 * [Using the Resource Controller REST API](#creating-a-service-instance-using-the-resource-controller-rest-api)
 
-**Prerequisite**: You must have access to the {{site.data.keyword.Bluemix_short}} US-South or United Kingdom  region.
+**Prerequisite**: You must have access to one of the following {{site.data.keyword.Bluemix_short}} regions:
+
+- US-South
+- United Kingdom
+- Germany
 
 ## Creating a service instance from the IBM Cloud console
 
 To create an {{site.data.keyword.iae_full_notm}} instance:
 1. Log into the [{{site.data.keyword.Bluemix_short}} console]( https://console.bluemix.net).
 1. Click **Create resource**, search for `{{site.data.keyword.iae_short}}` and then click on the tile to open the service instance creation page.
-1. On the catalog page, choose the region in which you want the service instance to be deployed. {{site.data.keyword.iae_short}}  deployments are available in US South and United Kingdom.
+1. On the catalog page, choose the region in which you want the service instance to be deployed. {{site.data.keyword.iae_short}}  deployments are available in US South, United Kingdom, and Germany.
 1. Choose the resource group under which you want to create the service instance. Select a plan and click **Configure**.
 1. On the configuration page, choose the hardware configuration, number of compute nodes and software package of your choice. Click **Create**.
 1. The service instance is provisioned in the background and can take anywhere between 10 to 20 minutes to provision depending on the hardware type and software package you chose. Visit the {{site.data.keyword.Bluemix_short}} page after some time to check the status of the provisioned instance.
@@ -80,10 +84,11 @@ bx login
 ```
 {: codeblock}
 
-The API end points for the supported regions are as follows:
+The API endpoints for the supported regions are as follows:
 
  - US South: https://api.ng.bluemix.net
  - United Kingdom: https://api.eu-gb.bluemix.net
+ - Germany: https://api.eu-de.ae.cloud.ibm.com
 
 ### Creating a service instance:
 ```
@@ -96,7 +101,7 @@ For example:
 bx resource service-instance-create MyServiceInstance ibmanalyticsengine lite us-south -p @/usr/testuser/cluster_specification.json
 ```
 Supported plan names are **lite**, **standard-hourly**, and **standard-monthly**.
-Supported regions are: **us-south** and **eu-gb**.
+Supported regions are: **us-south**, **eu-gb** and **eu-de**.
 
 Sample cluster specification JSON file  
 ```
@@ -204,7 +209,7 @@ cat provision.json
 ```
 {: codeblock}
 
-For the United Kingdom region, use the end point `https://resource-controller.eu-gb.bluemix.net`.
+For the United Kingdom region, use the endpoint `https://resource-controller.eu-gb.bluemix.net`. For Germany, use the endpoint `https://resource-controller.eu-de.bluemix.net`.
 
 To get the IAM token, perform the following [steps](./Retrieve-IAM-access-token.html).
 

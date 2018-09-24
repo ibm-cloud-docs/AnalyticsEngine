@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-01-25"
+lastupdated: "2018-09-24"
 
 ---
 
@@ -54,6 +54,7 @@ lastupdated: "2018-01-25"
 <li>[Can I monitor the cluster?](#can-i-monitor-the-cluster-)</li>
 <li>[How do I scale my cluster?](#how-do-i-scale-my-cluster-)</li>
 <li>[Can I scale my cluster while jobs are running on  it?](#can-i-scale-my-cluster-while-jobs-are-running-on-it-)</li>
+<li>[Can I adjust resource allocation in a Spark interactive application?](#can-i-adjust-resource-allocation-in-a-spark-interactive-application-)
 <li>[Does the {{site.data.keyword.iae_full_notm}} operations team monitor and manage all service  instances?](#does-the-ibm-analytics-engine-operations-team-monitor-and-manage-all-service-instances-)</li>
 <li>[Where are my job log files?](#where-are-my-job-log-files-)</li>
 </ul>
@@ -225,6 +226,10 @@ You can scale a cluster by adding nodes to it. Nodes can be added through the {{
 ### Can I scale my cluster while jobs are running on it?
 
 Yes, you can add new nodes to your cluster while jobs are still running. As soon as the new nodes are ready, they will be used to execute further steps of the running job.
+
+### Can I adjust resource allocation in a Spark interactive application?
+
+If you need to run large Spark interactive jobs, you can adjust the kernel settings to tune resource allocation, for example, if your Spark container is too small for your input work load. To get the maximum performance from your cluster for a Spark job, see [Kernel settings](Kernel-Settings.html).
 
 ### Does the {{site.data.keyword.iae_full_notm}} operations team monitor and manage all service instances?
 

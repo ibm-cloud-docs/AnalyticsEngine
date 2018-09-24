@@ -108,7 +108,7 @@ Enter the following cluster management REST API to get the customization request
 
 ```curl -X GET  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests -H 'Authorization: Bearer <user's IAM access token>'```
 
-**Note:** For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`
+**Note:** For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use `https://api.eu-de.ae.cloud.ibm.com`.
 
 **Expected response:** The customization requests for the given service instance ID are returned in JSON format. For example:
 

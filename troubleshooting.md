@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-07-09"
+lastupdated: "2018-09-24"
 
 ---
 
@@ -21,6 +21,7 @@ You can find the answers to common questions about how to use IBM Analytics Engi
 - [Cluster management](#cluster-management)
 - [Command line interface](#command-line-interface)
 - [Log locations on cluster for various components](#log-locations-on-cluster-for-various-components)
+- [Working with Hive](#working-with-hive)
 
 ## Jupyter Kernel Gateway
 
@@ -111,3 +112,11 @@ Endpoint 'https://169.54.195.210' set.
 |Sqoop|mn003|`/var/log/sqoop`|
 |Tez|mn003|`/var/log/ambari-server/tez-view`|
 |Yarn|mn003|`yarn logs -applicationId <applicationId>`|
+
+## Working with Hive
+
+### Changes to the custom core-site.xml file are not shown
+
+When Hive is run with Cloud Object Storage with HMAC style authentication, changes to the core-site.xml file are not shown when viewed. The reason is that the Hive component is not restarted by default after changes were made in the custom core-site.xml file.
+
+To fix this issue, restart the Hive component.

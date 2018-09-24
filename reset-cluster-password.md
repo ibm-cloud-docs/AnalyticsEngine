@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-08-07"
+lastupdated: "2018-09-24"
 
 ---
 
@@ -28,7 +28,7 @@ curl -X  POST  \
 https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_guid>/reset_password
 \ -H 'authorization: Bearer  <user's IAM token>' ```
 
-For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`
+For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use `https://api.eu-de.ae.cloud.ibm.com`.
 
 The expected response is the changed password in JSON format. For example:
 ```

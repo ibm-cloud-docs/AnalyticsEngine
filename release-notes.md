@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-09-24"
 
 ---
 
@@ -17,6 +17,27 @@ lastupdated: "2018-09-17"
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 24 September 2018
+
+ - {{site.data.keyword.iae_full_notm}} is now available in a new region namely Germany, in addition to US-South and the United Kingdom regions.
+ - The {{site.data.keyword.iae_full_notm}} REST API endpoint for Germany is
+
+    -	eu-de: https://api.eu-de.ae.cloud.ibm.com
+
+- The {{site.data.keyword.iae_full_notm}} cluster is now created using  a new domain name to align with {{site.data.keyword.Bluemix_short}} domain name standards. It has the following format:
+
+ ``` <clustername>.<region>.appdomain.cloud```
+
+  where region is us-south, eu-gb, or eu-de.
+
+  For example:  
+  `https://xxxxx-mn001.bi.services.<region>.appdomain.cloud:9443`
+
+  **Note:** Old clusters can still exist and will function using the old cluster name format.
+
+
+
 
 ### 14 September 2018
 

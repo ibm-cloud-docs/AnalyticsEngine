@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-03"
+lastupdated: "2018-09-24"
 
 ---
 
@@ -76,6 +76,10 @@ To help you create and maintain a stateless cluster, you should try to keep to t
 - **Choose the appropriate hardware configuration**
 
   For running parallel jobs, choose the memory-intensive node size. For example, if the number of concurrent notebooks (connected from IBM Watson Studio to {{site.data.keyword.iae_full_notm}}) is greater than 2, you should select the memory-intensive node size and not the default node size.
+
+- **Tune kernel settings for Spark interactive jobs**
+
+  When running large Spark interactive jobs, you might need to adjust kernel settings to tune resource allocation. To get the maximum performance from your cluster for a Spark job, see [Kernel settings](Kernel-Settings.html).
 
 - **Store temporary files on the cluster prudently**
 
