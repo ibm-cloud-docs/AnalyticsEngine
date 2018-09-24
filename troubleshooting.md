@@ -117,6 +117,6 @@ Endpoint 'https://169.54.195.210' set.
 
 ### Changes to the custom core-site.xml file are not shown
 
-When Hive is run with Cloud Object Storage with HMAC style authentication, changes to the core-site.xml file are not shown when viewed. The reason is that the Hive component is not restarted by default after changes were made in the custom core-site.xml file.
+When Hive is run with Cloud Object Storage with HMAC style authentication, changes to the core-site.xml file are not shown when viewed. The reason is that Hive does not recognize Cloud Object Storage unless Hive is restarted which does not happen by default.
 
-To fix this issue, restart the Hive component.
+To fix this issue, restart Hive.

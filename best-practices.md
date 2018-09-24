@@ -79,7 +79,7 @@ To help you create and maintain a stateless cluster, you should try to keep to t
 
 - **Tune kernel settings for Spark interactive jobs**
 
-  When running large Spark interactive jobs, you might need to adjust kernel settings to tune resource allocation. To get the maximum performance from your cluster for a Spark job, see [Kernel settings](Kernel-Settings.html).
+  When running large Spark interactive jobs, you might need to adjust kernel settings to tune resource allocation. To get the maximum performance from your cluster for a Spark job, make sure the kernel settings for memory and executor are correct. See [Kernel settings](Kernel-Settings.html).
 
 - **Store temporary files on the cluster prudently**
 
@@ -89,6 +89,6 @@ To help you create and maintain a stateless cluster, you should try to keep to t
 
 - **Switch regions for disaster recovery**
 
- You can create {{site.data.keyword.iae_full_notm}} service instances in different regions, for example, in the US South and the United Kingdom. In the event that you cannot create a service instance in one region, you can switch to an alternate region which hosts  {{site.data.keyword.iae_full_notm}}. You will not be able to access any existing clusters from the new region. However, creating a new cluster in a new region should not be a problem if you followed the recommended best practices described in this topic and kept your existing cluster as stateless as possible with data and jobs residing outside the cluster.
+ You can create {{site.data.keyword.iae_full_notm}} service instances in different regions, for example, in the US South, the United Kingdom and Germany. In the event that you cannot create a service instance in one region, you can switch to an alternate region which hosts  {{site.data.keyword.iae_full_notm}}. You will not be able to access any existing clusters from the new region. However, creating a new cluster in a new region should not be a problem if you followed the recommended best practices described in this topic and kept your existing cluster as stateless as possible with data and jobs residing outside the cluster.
 
  See the [list of supported regions and the endpoints to use](https://console.bluemix.net/docs/services/AnalyticsEngine/provisioning.html#creating-a-service-instance-using-the-ibm-cloud-command-line-interface) or refer to the {{site.data.keyword.Bluemix_short}} catalog for {{site.data.keyword.iae_full_notm}}.

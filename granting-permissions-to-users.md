@@ -25,7 +25,7 @@ In {{site.data.keyword.iae_full_notm}}, access to cluster life cycle management 
 | View the service dashboard (Cluster Management UI) | Developer role to the {{site.data.keyword.Bluemix_notm}} space | Viewer and above to your Resource Group and Reader, or above to the service instance |
 | Resize a cluster by using the Cluster Management UI | Developer role to the {{site.data.keyword.Bluemix_notm}} space | Editor and above to the service instance |
 | Generate service keys by using the CF CLI or the {{site.data.keyword.Bluemix_notm}} UI | Developer role to the {{site.data.keyword.Bluemix_notm}} space | Editor or above to the service instance |
-| Invoke  GET REST APIs on `https:// api.us-south.ae.cloud.ibm.com/v2/analytics_engines` <br>  For the United Kingdom region, use the endpoint https://api.eu-gb.ae.cloud.ibm.com <br> For Germany, use the endpoint https://api.eu-de.ae.cloud.ibm.com | NA | Reader and above |
+| Invoke  GET REST APIs on `https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines` <br>  For the United Kingdom region, use the endpoint https://api.eu-gb.ae.cloud.ibm.com <br> For Germany, use the endpoint https://api.eu-de.ae.cloud.ibm.com | NA | Reader and above |
 | Invoke POST  REST APIs on `https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines` <br>  For the United Kingdom region, use the endpoint https://api.eu-gb.ae.cloud.ibm.com <br> For Germany, use the endpoint https://api.eu-de.ae.cloud.ibm.com.  | NA | Writer and above |
 
 To onboard new users to your account:
