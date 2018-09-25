@@ -27,16 +27,14 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 - The {{site.data.keyword.iae_full_notm}} cluster is now created using  a new domain name to align with {{site.data.keyword.Bluemix_short}} domain name standards. It has the following format:
 
- ``` <clustername>.<region>.appdomain.cloud```
+ ``` <clustername>.<region>.ae.appdomain.cloud```
 
   where region is us-south, eu-gb, or eu-de.
 
   For example:  
-  `https://xxxxx-mn001.bi.services.<region>.appdomain.cloud:9443`
+  `https://xxxxx-mn001.bi.services.<region>.ae.appdomain.cloud:9443`
 
   **Note:** Old clusters can still exist and will function using the old cluster name format.
-
-
 
 
 ### 14 September 2018
