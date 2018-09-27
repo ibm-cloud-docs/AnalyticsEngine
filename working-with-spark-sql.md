@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -27,18 +27,18 @@ You can connect to the Spark SQL server by using the Beeline client.
 
 Issue the following SSH command to connect to Spark SQL on the cluster:
 ```
-ssh clsadmin@chs-xxxxx-mn003.bi.services.<changeme>.bluemix.net
-beeline -u 'jdbc:hive2://chs-xxxxx-mn001.bi.services.<changeme>.bluemix.net:8443/;ssl=true;transportMode=http;httpPath=gateway/default/spark' -n clsadmin -p **********
+ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
+beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/spark' -n clsadmin -p **********
 ```
 `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
 After you have connected to Spark SQL on the cluster, the following message is displayed which shows that your connection was a success.
 
 ```
-Connecting to jdbc:hive2://chs-qya-139-mn001.bi.services.us-south.bluemix.net:8443/;ssl=true;transportMode=http;httpPath=gateway/default/spark
+Connecting to jdbc:hive2://chs-qya-139-mn001.us-south.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/spark
 Connected to: Spark SQL (version 2.3.0.2.6.5.0-292)
 Driver: Hive JDBC (version 1.2.1000.2.6.5.0-292)
 Transaction isolation: TRANSACTION_REPEATABLE_READ
 Beeline version 1.2.1000.2.6.5.0-292 by Apache Hive
-0: jdbc:hive2://<changeme>-mn003.bi.services>
+0: jdbc:hive2://<changeme>-mn003>
 ```

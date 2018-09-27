@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-06-09"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -63,16 +63,17 @@ From the endpoint list, you can see that the following ports are open for inboun
 
 -	**9443**: this is the Admin port.
 
- The Ambari UI Console and APIs are exposed at port 9443 (`https://xxxxx-mn001.bi.services.<region>.bluemix.net:9443`).
+ The Ambari UI Console and APIs are exposed at port 9443 (`https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443`).
 -	**8443**: cluster services like Hive, Spark, Livy, Phoenix, and so on are made available for programmatic consumption through the Knox gateway on port 8443
 
 -	**22**: the cluster itself is accessible via SSH at standard port 22.
 
  When you SSH to a cluster (as described [here](./Connect-using-SSH.html)) you essentially log in to `mn003`. Once you have logged in to `mn003`, you can SSH to the compute nodes (referred to as `dn001`, `dn002` etc) and to `mn002`.
 
-For example, to log in to the cluster, as given in the endpoint listing, enter:
+For example, to log in to a cluster in the US-South region, as given in the endpoint listing, enter:
 ```
-ssh clsadmin@chs-tnu-499-mn003.bi.services.us-south.bluemix.net```
+ssh clsadmin@chs-tnu-499-mn003.us-south.ae.appdomain.cloud
+```
 
 Once you are on `mn003`, enter the following to log in to `mn002`:
 ```
@@ -85,11 +86,10 @@ ssh clsadmin@chs-tnu-499-dn001```
 
 **Note:**
 - You can't SSH to the master management node `mn001`.
-- You can ssh to the compute nodes only from within other nodes of the cluster.
+- You can SSH to the compute nodes only from within other nodes of the cluster.
 - Outbound traffic is open from all nodes.
 
 ![Shows the {{site.data.keyword.iae_full_notm}} cluster architecture.](images/AnalyticsEngineCluster.png)
-
 
 
 ## Software components of the cluster

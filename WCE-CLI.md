@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-05-15"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -22,20 +22,21 @@ The {{site.data.keyword.Bluemix_notm}} command line interface can be used to int
 
 1. [Install the CLI plugin](./wce-wcl-install.html)
 1. Run the [spark-endpoint](./wce-cli-ref-spark-endpoint.html) command to set the cluster endpoint. The argument for `endpoint` is the IP or hostname of the cluster management node.
-  ```
-  $ bx ae endpoint https://iae-tmp-867-mn001.bi.services.<changeme>.bluemix.net
-  ```
-where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
+```
+bx ae endpoint https://iae-tmp-867-mn001.<changeme>.ae.appdomain.cloud```
+
+ where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
   	When prompted, accept the default port numbers for the Ambari(9443) and Knox(8443) services.
 
 	  Response if your {{site.data.keyword.Bluemix_short}} hosting location is `us-south`:
-  ```
-  Registering endpoint 'https://iae-tmp-867-mn001.bi.services.<changeme>.bluemix.net'...
+
+   ```
+  Registering endpoint 'https://iae-tmp-867-mn001.us-south.ae.appdomain.cloud'...
   Ambari Port Number [Optional: Press enter for default value] (9443)>
   Knox Port Number [Optional: Press enter for default value] (8443)>
   OK
-  Endpoint 'https://ae-tmp-867-mn001.bi.services.us-south.bluemix.net' set.
+  Endpoint 'https://iae-tmp-867-mn001.us-south.ae.appdomain.cloud' set.
   ```
 
 1. Run [spark-submit](./wce-cli-ref-spark-submit.html) command. For example:
@@ -46,18 +47,18 @@ where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, 
 	  Enter the {{site.data.keyword.iae_full_notm}} cluster login credentials at the prompts. To set the default username for command execution see [`username`](./wce-cli-ref-username.html) command.
 
 	  Response if your {{site.data.keyword.Bluemix_short}} hosting location is `us-south`:
-  ```
+    ```
   User (clsadmin)>
-  Password>
-  Contacting endpoint 'https://iae-tmp-867-mn001.bi.services.us-south.bluemix.net:8443'...
-  Job ID '17'
-  Waiting for job to return application ID. Will check every 10 seconds, and stop checking after 2 minutes. Press Control C to stop waiting.
-  Finished contacting endpoint 'https://iae-tmp-867-mn001.bi.services.us-south.bluemix.net:8443'
-  OK
-  Job ID '17'
-  Application ID 'application_1491850285904_0023'
-  Done
-  ```
+Password>
+Contacting endpoint 'https://iae-tmp-867-mn001.us-south.ae.appdomain.cloud:8443'...
+Job ID '17'
+Waiting for job to return application ID. Will check every 10 seconds, and stop checking after 2 minutes. Press Control C to stop waiting.
+Finished contacting endpoint 'https://iae-tmp-867-mn001.us-south.ae.appdomain.cloud:8443'
+OK
+Job ID '17'
+Application ID 'application_1491850285904_0023'
+Done
+```
 
 ## Usage
 

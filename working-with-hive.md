@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -24,15 +24,15 @@ To work with Hive, you need your cluster user credentials and the ssh and hive_j
 
 ## Connecting to the Hive server
 
-Connect to the Hive server by using with beeline client.
+Connect to the Hive server by using with Beeline client.
 
 Issue the following SSH command to the cluster:
 
 ```
-ssh clsadmin@chs-xxxxx-mn003.bi.services.<changeme>.bluemix.net
-beeline -u 'jdbc:hive2://chs-xxxxx-mn001.bi.services.<changeme>.bluemix.net:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p **********
+ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
+beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p **********
 ```
-where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), or `eu-de` (for Germany).
 
 The following examples show useful HiveQL statements.
 
@@ -130,7 +130,7 @@ To create Hive tables in Parquet format:
 
 2. Launch Beeline:
 ```
-beeline -u 'jdbc:hive2://XXXX-mn001.bi.services.<changeme>.bluemix.net:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword> ```
+beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword> ```
 
 3. Create a Hive table in Parquet format:
 ```

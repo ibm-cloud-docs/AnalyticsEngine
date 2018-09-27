@@ -2,7 +2,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="AnalyticsEngine" audience="service" arm="3248326" href="/docs/services/AnalyticsEngine/index.html"}
+{: .toc subcollection="AnalyticsEngine" audience="service" href="/docs/services/AnalyticsEngine/index.html"}
 Analytics Engine
 
     {:navgroup: .navgroup}
@@ -46,6 +46,8 @@ Analytics Engine
     {: .topicgroup}
     Configuring a cluster to work with object storage
         configure-COS-S3-object-storage.md
+        specify-properties-at-runtime.md
+        customizing-using-script.md
         configure-cos-via-ambari.md
         data-movement-on-cos.md
 

@@ -32,11 +32,12 @@ Use these notes to learn about the latest features, additions and changes to {{s
   where region is us-south, eu-gb, or eu-de.
 
   For example:  
-  `https://xxxxx-mn001.bi.services.<region>.ae.appdomain.cloud:9443`
+  `For example:
+https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443`
 
   **Note:** Old clusters can still exist and will function using the old cluster name format.
 - Broken HBase quick links are fixed on the Ambari UI.
-- Broken stderr/stdout links are fixed for Spark History on the Ambari UI. 
+- Broken stderr/stdout links are fixed for Spark History on the Ambari UI.
 
 
 ### 14 September 2018

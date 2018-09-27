@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -52,12 +52,12 @@ Flag    | Description
 The following command shows how to set the endpoint if your {{site.data.keyword.Bluemix_short}} hosting location is `us-south`.
 
 ```
-$ bx ae endpoint https://chs-xxx-xxx-mn001.bi.services.us-south.bluemix.net
-Registering endpoint 'https://chs-xxx-xxx-mn001.bi.services.us-south.bluemix.net'...
+$ bx ae endpoint https://chs-xxx-xxx-mn001.us-south.ae.appdomain.cloud
+Registering endpoint 'https://chs-xxx-xxx-mn001.us-south.ae.appdomain.cloud'...
 Ambari Port Number [Optional: Press enter for default value] (9443)>
 Knox Port Number [Optional: Press enter for default value] (8443)>
 OK
-Endpoint ''https://chs-xxx-xxx-mn001.bi.services.us-south.bluemix.net' set.
+Endpoint ''https://chs-xxx-xxx-mn001.us-south.ae.appdomain.cloud' set.
 ```
 
 ### Erase an endpoint

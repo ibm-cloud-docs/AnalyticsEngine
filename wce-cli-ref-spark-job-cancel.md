@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -40,8 +40,8 @@ The following example shows how to cancel a Spark job if your {{site.data.keywor
 $ bx ae spark-job-cancel 10
 User (clsadmin)>
 Password>
-Contacting endpoint 'https://chs-xxx-xxx-mn001.bi.services.us-south.bluemix.net:8443'...
-Finished contacting endpoint 'https://chs-xxx-xxx-mn001.bi.services.us-south.bluemix.net:8443'
+Contacting endpoint 'https://chs-xxx-xxx-mn001.us-south.ae.appdomain.cloud:8443'...
+Finished contacting endpoint 'https://chs-xxx-xxx-mn001.us-south.ae.appdomain.cloud:8443'
 OK
 deleted
 ```

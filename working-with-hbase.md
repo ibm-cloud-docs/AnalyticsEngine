@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -122,7 +122,7 @@ To import the snapshot of a HBase table from Cloud Object Storage to HDFS:
 
 1. Import the snapshot from Cloud Object Storage to HDFS on the cluster:
 ```
-# hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot mysnapshot -copy-from cos://mybucket.myprodservice/snapshotdir -copy-to hdfs://XXXXX-mn002.bi.services.<changeme>.bluemix.net:8020/user/hbase/ -mappers 16 ```
+# hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot mysnapshot -copy-from cos://mybucket.myprodservice/snapshotdir -copy-to hdfs://XXXXX-mn002.<changeme>.ae.appdomain.cloud:8020/user/hbase/ -mappers 16 ```
 
 2. Verify the snapshot was exported:
 ```
@@ -226,7 +226,7 @@ You can also access Apache Phoenix securely via the Knox Gateway. The cluster us
 The following code snippet for a JDBC client program shows you how to connect to Apache Phoenix through the Knox Gateway. The example uses the {{site.data.keyword.Bluemix_short}} hosting location `us-south`:
 
 ```
-String phoenix_jdbc_url = “jdbc:phoenix:thin:url=https://chs-XXXXX-mn001.bi.services.us-south.bluemix.net:8443/gateway/default/avatica;authentication=BASIC;serialization=PROTOBUF”;
+String phoenix_jdbc_url = “jdbc:phoenix:thin:url=https://chs-XXXXX-mn001.us-south.ae.appdomain.cloud:8443/gateway/default/avatica;authentication=BASIC;serialization=PROTOBUF”;
 Connection conn;
 Class.forName("org.apache.phoenix.jdbc.PhoenixDriver");
 Properties props = new Properties();
@@ -234,6 +234,7 @@ props.setProperty("avatica_user", "clsadmin");
 props.setProperty("avatica_password", "XXXXX");
 DriverManager.getConnection(phoenix_jdbc_url, props);
 ```
+
 **Restrictions:**
 - The Apache Phoenix 4.7 client libraries that are  shipped with HDP 2.6.2 do not support the HTTPS protocol. This is a known [Knox issue](https://issues.apache.org/jira/browse/KNOX-893) and a workaround is to use the Phoenix 4.9 client libraries instead.
 - The tool `sqlline-thin.py` (v1.1.8), which is shipped with HDP 2.6.2 does not support the HTTPS protocol either because of the same known issue mentioned for the Apache Phoenix 4.7 client libraries.

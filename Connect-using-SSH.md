@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -21,7 +21,7 @@ lastupdated: "2017-11-02"
 In the [service credentials](./Retrieve-service-credentials-and-service-end-points.html) that you created, look for the SSH connection string under `service_endpoints` in the JSON output. For example, enter the following SSH command to access the cluster:
 
 ```
-"ssh": "ssh clsadmin@XXXXX-mn003.bi.services.<changeme>.bluemix.net"
+"ssh": "ssh clsadmin@XXXXX-mn003.<changeme>.ae.appdomain.cloud"
 ```
 where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 

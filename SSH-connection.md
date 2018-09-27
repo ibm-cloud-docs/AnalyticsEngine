@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -19,9 +19,8 @@ You can run spark-submit jobs by logging on to the cluster  using the SSH protoc
 
 
 1. Log on to the cluster management node using [SSH](./Connect-using-SSH.html). For example:
-  ```
-  $ ssh clsadmin@iae-tmp-867-mn003.bi.services.us-south.bluemix.net
-  ```
+```
+$ ssh clsadmin@iae-tmp-867-mn003.us-south.ae.appdomain.cloud```
 
 2. Run spark-submit. For example:
   ```

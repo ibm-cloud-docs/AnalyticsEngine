@@ -26,7 +26,7 @@ You can track the status of your cluster provisioning by using the following RES
 
 **Note:** For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use the endpoint `https://api.eu-de.ae.cloud.ibm.com`.
 
-To retrieve the service instance ID, see [Retrieviving the service instance ID](./retrieve-service-instance-id.html). For the IAM access token, see [Retrieving IAM access tokens](./Retrieve-IAM-access-token.html).
+To retrieve the service instance ID, see [Retrieving the service instance ID](./retrieve-service-instance-id.html). For the IAM access token, see [Retrieving IAM access tokens](./Retrieve-IAM-access-token.html).
 
 Expected response:
 

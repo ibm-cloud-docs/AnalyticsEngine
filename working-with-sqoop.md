@@ -68,7 +68,7 @@ sqoop import --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort
 
  - To import a table VERSION to Cloud Object Store bucket, enter:
  ```
- sqoop import --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword>  --table VERSION -m 1 --target-dir cos://< changeMeCOSbucket>.myprodservice/VERSION ```
+ sqoop import --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword>  --table VERSION -m 1 --target-dir cos://<changeMeCOSbucket>.myprodservice/VERSION ```
 
   - To connect to Db2, enter:
  ```

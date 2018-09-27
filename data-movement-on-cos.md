@@ -1,6 +1,6 @@
 copyright:
   years: 2017,2018
-lastupdated: "2017-12-14"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -43,9 +43,9 @@ hdfs dfs –rm cos://mybucket.myprodservice/myfile1```
 hadoop distcp /tmp/test.data  cos://mybucket.myprodservice/mydir/
 hadoop distcp cos://mybucket.myprodservice/mydir/ /tmp/test.data```
 
-  `hdfs://`` is implied. It can also be explicitly specified, if the {{site.data.keyword.Bluemix_short}} hosting location is `us-south`:
+  `hdfs://`` is implied. It can also be explicitly specified, if the {{site.data.keyword.Bluemix_short}} hosting location is `us-south` for example:
 ```
-hdfs://chs-czq-182-mn002.bi.services.us-south.bluemix.net:8020/tmp/test.data```
+hdfs://chs-czq-182-mn002.us-south.ae.appdomain.cloud:8020/tmp/test.data```
 
 ## Operations outside the cluster
 

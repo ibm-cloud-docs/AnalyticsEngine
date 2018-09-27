@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -96,7 +96,7 @@ A sample POST request:
 
 ```
 POST /gateway/default/jkg/api/kernels HTTP/1.1
-Host: chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443
+Host: chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:8443
 Authorization: Basic d2NlYWRtaW46NWF1dUY1U1UzZTBH
 Connection: close
 Accept-Encoding: gzip,deflate

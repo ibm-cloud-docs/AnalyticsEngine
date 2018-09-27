@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-06-26"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -111,7 +111,7 @@ hdfs dfs -put sampledata.txt /user/clsadmin/examples/input-data/mapreduce
  </property>
  <property>
   <name>jobTracker</name>
-  <value>chs-XXXX-mn002.bi.services.<changeme>.bluemix.net:8050</value>
+  <value>chs-XXXX-mn002.<changeme>.ae.appdomain.cloud:8050</value>
  </property>
  <property>
   <name>oozie.wf.application.path</name>
@@ -123,7 +123,7 @@ hdfs dfs -put sampledata.txt /user/clsadmin/examples/input-data/mapreduce
  </property>
  <property>
   <name>nameNode</name>
-  <value>hdfs://chs-XXXX-mn002.bi.services.<changeme>.bluemix.net:8020</value>
+  <value>hdfs://chs-XXXX-mn002.<changeme>.ae.appdomain.cloud:8020</value>
  </property>
 </configuration>
 ```

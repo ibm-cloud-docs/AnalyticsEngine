@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-12-04"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -197,8 +197,8 @@ To run PySpark jobs through Oozie:
   # limitations under the License.
   #
 
-  nameNode=hdfs://chs-gwn-425-mn002.bi.services.us-south.bluemix.net:8020
-  jobTracker=chs-gwn-425-mn002.bi.services.us-south.bluemix.net:8050
+  nameNode=hdfs://chs-gwn-425-mn002.us-south.ae.appdomain.cloud.net:8020
+  jobTracker=chs-gwn-425-mn002.us-south.ae.appdomain.cloud.net:8050
   master=yarn-cluster
   queueName=default
   examplesRoot=examples
@@ -225,6 +225,6 @@ hadoop fs -copyFromLocal /usr/hdp/current/spark2-client/python/lib/p* /user/<use
 
 8. Run the Oozie job. The example uses the {{site.data.keyword.Bluemix_short}} hosting location `us-south`:
 ```
-oozie job -oozie http://chs-gwn-425-mn002.bi.services.us-south.bluemix.net:11000/oozie -config pi/job.properties -run```
+oozie job -oozie http://chs-gwn-425-mn002.us-south.ae.appdomain.cloud:11000/oozie -config pi/job.properties -run```
 
 9. Open the Oozie Web UI (Ambari Console/Oozie/Oozie Web UI) and monitor the job.  If there are errors check the application ID and run the YARN command to check the logs.

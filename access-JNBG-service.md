@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-04-19"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -38,12 +38,12 @@ Refer to the instructions [here](./Retrieve-service-credentials-and-service-end-
         "password": "5auuF5SU3e0G",
         "password_expiry_date": "null",
         "service_endpoints": {
-          "ambari_console": "https://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:9443",
-          "notebook_gateway": "https://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/",
-          "notebook_gateway_websocket": "wss://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkgws/",
-          "webhdfs": "https://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/webhdfs/v1/",
-          "ssh": "ssh clsadmin@chs-zbh-288-mn003.bi.services.<changeme>.bluemix.net",
-          "livy": "https://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/livy/v1/batches"
+          "ambari_console": "https://chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:9443",
+          "notebook_gateway": "https://chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkg/",
+          "notebook_gateway_websocket": "wss://chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkgws/",
+          "webhdfs": "https://chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/webhdfs/v1/",
+          "ssh": "ssh clsadmin@chs-zbh-288-mn003.<changeme>.ae.appdomain.cloud",
+          "livy": "https://chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
         }
       }
 .
@@ -53,8 +53,8 @@ where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, 
 
 In this sample, notice the following information:
 
-* The JNBG HTTP REST API is accessible on the `https://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/` endpoint and,
-* Websocket calls can be made on the  `wss://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkgws/` endpoint.
+* The JNBG HTTP REST API is accessible on the `https://chs-zbh-288-mn001.<changme>.ae.appdomain.cloud:8443/gateway/default/jkg/` endpoint and,
+* Websocket calls can be made on the  `wss://chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkgws/` endpoint.
 
 ## Authentication
 
@@ -73,8 +73,8 @@ The IBM Open Platform provides an updated `nb2kg` package [here](http://ibm-open
 For the previous  {{site.data.keyword.iae_full_notm}} cluster response details, the configuration would be:
 
 ```
-KG_URL=https://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/
-KG_WS_URL=wss://chs-zbh-288-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkgws/
+KG_URL=https://chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkg/
+KG_WS_URL=wss://chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkgws/
 KG_HTTP_USER=clsadmin
 KG_HTTP_PASS=5auuF5SU3e0G
 ```
@@ -134,8 +134,8 @@ yum install -y epel-release nodejs npm; npm install
   For authentication, set the environment variables: BASE_GATEWAY_USERNAME and BASE_GATEWAY_PASSWORD. Fetch the username and password values from VCAP.
 ```
 // Access variables with the notebook_gateway VCAP information from your IBM Analytics Engine service.
-var notebook_gateway = 'https://chs-zys-882-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/';
-var notebook_gateway_ws = 'wss://chs-zys-882-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkgws/';
+var notebook_gateway = 'https://chs-zys-882-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkg/';
+var notebook_gateway_ws = 'wss://chs-zys-882-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkgws/';
 // Client program variables.
 var xmlhttprequest =require('xmlhttprequest');
 var ws =require('ws');
@@ -206,8 +206,8 @@ from tornado.websocket import websocket_connect
 
 @gen.coroutine
 def main():
-    kg_http_url = "https://chs-xxx-yyy-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkg/"
-    kg_ws_url = "wss://chs-xxx-yyy-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/jkgws/"
+    kg_http_url = "https://chs-xxx-yyy-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkg/"
+    kg_ws_url = "wss://chs-xxx-yyy-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkgws/"
     auth_username = 'clsadmin'
     auth_password = '1qazxsw23edc'
     validate_cert = True

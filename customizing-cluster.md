@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2017-12-14"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -16,7 +16,8 @@ lastupdated: "2017-12-14"
 # Customizing a cluster
 
 Sometimes you might have to customize a cluster specifically to suit your needs, over and above what is provisioned on a default basis. For example, you might want to install custom analytics third-party libraries or you might want to fine-tune some cluster configurations, for example, the Hadoop MapReduce heap size.
-
+For example:
+`https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443`.
 These customizations might need to be applied and executed every time a new cluster is created or be executed iteratively on an existing cluster as needed. To this end, a shell script with all the required customizations can be placed at some source, such as HTTP or S3 location, and given as input to be executed to customize the cluster.
 The customization feature can be invoked in two ways, namely as:
 - **Bootstrap customization**: specified at the time the cluster is created
@@ -87,7 +88,7 @@ The `package-admin` tool is a special utility tool available for use in the {{si
 
 `sudo package-admin -c [install | remove] -p [package name]`
 
-This is something you can use in the customization script or even directly on any of the cluster nodes, after you [ssh](https://console.bluemix.net/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to it.
+This is something you can use in the customization script or even directly on any of the cluster nodes, after you [SSH](https://console.bluemix.net/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to it.
 Note the use of `sudo` in order to execute the utililty.
 
 ## What can you customize?
@@ -100,7 +101,7 @@ You can customize:
 **Note:** The customization script will run as long as it contains code that the user of the cluster is authorized to execute. It cannot execute code that requires root access. For example, it cannot execute code such as opening ports or changing IP table rules.
 
 ## Tracking the status of the customizaton
-This is a three step process. First you need to get the customization request ID for your instance and then invoke a second API to get the status of that particular ID. From the second invocation, you will get location details of the customization logs for each target node executed. Finally, if you need to look at the log details, you will need to [ssh](https://console.bluemix.net/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to the specific node.
+This is a three step process. First you need to get the customization request ID for your instance and then invoke a second API to get the status of that particular ID. From the second invocation, you will get location details of the customization logs for each target node executed. Finally, if you need to look at the log details, you will need to [SSH](https://console.bluemix.net/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to the specific node.
 
 ### Step 1 - Getting all customization requests for the given instance ID
 
@@ -136,29 +137,29 @@ For example:
 	"run_details": {
 		"overall_status": "success",
 		"details": [{
-			"node_name": "chs-fpw-933-mn003.bi.services.<changeme>.bluemix.net",
+			"node_name": "chs-fpw-933-mn003.<region>.ae.appdomain.cloud",
 			"node_type": "management-slave2",
 			"start_time": "2017-06-06 11:46:35.519000",
 			"end_time": "2017-06-06 11:47:46.687000",
 			"time_taken": "71 secs",
 			"status": "CustomizeSuccess",
-			"log_file": "/var/log/chs-fpw-933-mn003.bi.services.<changeme>.bluemix.net_37.log"
+			"log_file": "/var/log/chs-fpw-933-mn003.<region>.ae.appdomain.cloud_37.log"
 		}, {
-			"node_name": "chs-fpw-933-mn002.bi.services.<changeme>.bluemix.net",
+			"node_name": "chs-fpw-933-mn002.<region>.ae.appdomain.cloud",
 			"node_type": "management-slave1",
 			"start_time": "2017-06-06 11:46:36.190000",
 			"end_time": "2017-06-06 11:47:46.864000",
 			"time_taken": "70 secs",
 			"status": "CustomizeSuccess",
-			"log_file": "/var/log/chs-fpw-933-mn002.bi.services.<changeme>.bluemix.net_37.log"
+			"log_file": "/var/log/chs-fpw-933-mn002.<region>.ae.appdomain.cloud_37.log"
 		}, {
-			"node_name": "chs-fpw-933-dn001.bi.services.<changeme>.bluemix.net",
+			"node_name": "chs-fpw-933-dn001.<region>.ae.appdomain.cloud",
 			"node_type": "data",
 			"start_time": "2017-06-06 11:46:36.693000",
 			"end_time": "2017-06-06 11:47:47.271000",
 			"time_taken": "70 secs",
 			"status": "CustomizeSuccess",
-			"log_file": "/var/log/chs-fpw-933-dn001.bi.services.<changeme>.bluemix.net_37.log"
+			"log_file": "/var/log/chs-fpw-933-dn001.<region>.ae.appdomain.cloud_37.log"
 		}]
 	}
 }
@@ -171,7 +172,7 @@ where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, 
 You can retrieve the log file in `log_file` by using [`ssh/scp`](https://console.bluemix.net/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to the corresponding node. This log captures the output of script execution, including the `echo` statements. If the script could not be executed due to a bad location or bad credentials specified, you will see details of the error in the log. The following example shows the log for such a case.
 
 ```
-[clsadmin@chs-mwb-189-mn003 ~]$ cat /var/log/chs-mwb-189-mn003.bi.services.<changeme>.bluemix.net_28.log
+[clsadmin@chs-mwb-189-mn003 ~]$ cat /var/log/chs-mwb-189-mn003.<region>.ae.appdomain.cloud_28.log
 Error while downloading customization script, ResponseCode: 0, Please verify source_props and  script_path properties in bootstrap action
 ```
 where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.

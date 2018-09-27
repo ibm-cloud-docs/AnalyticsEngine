@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-08-06"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -69,13 +69,13 @@ Sample Response:
     "user": "xxxxxxx"
     "password": "xxxxxxxxxxxxxx",
     "service_endpoints": {
-      "ambari_console": "https://xxxxx-mn001.bi.services.<region>.bluemix.net:9443",
-      "livy": "https://xxxxx-mn001.bi.services.<region>.bluemix.net:8443/gateway/default/livy/v1/batches",
-      "notebook_gateway": "https://xxxxx-102-mn001.bi.services.<region>.bluemix.net:8443/gateway/default/jkg/",
-      "notebook_gateway_websocket": "wss://xxxxx-mn001.bi.services.<region>.bluemix.net:8443/gateway/default/jkgws/",
-      "spark_history_server": "https://xxxxx-mn001.bi.services.<region>.bluemix.net:8443/gateway/default/sparkhistory",
-      "ssh": "ssh xxxxxxx@xxxxx-mn003.bi.services.<region>.bluemix.net",
-        "webhdfs": "https://xxxxx-mn001.bi.services.<region>.bluemix.net:8443/gateway/default/webhdfs/v1/"
+      "ambari_console": "https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443",
+      "livy": "https://xxxxx-mn001.<region>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches",
+      "notebook_gateway": "https://xxxxx-102-mn001.<region>.ae.appdomain.cloud:8443/gateway/default/jkg/",
+      "notebook_gateway_websocket": "wss://xxxxx-mn001.<region>.ae.appdomain.cloud:8443/gateway/default/jkgws/",
+      "spark_history_server": "https://xxxxx-mn001.<region>.ae.appdomain.cloud:8443/gateway/default/sparkhistory",
+      "ssh": "ssh xxxxxxx@xxxxx-mn003.<region>.ae.appdomain.cloud",
+        "webhdfs": "https://xxxxx-mn001.<region>.ae.appdomain.cloud:8443/gateway/default/webhdfs/v1/"
       },
       "service_endpoints_ip": {
         "ambari_console": "https://xxx.xxx.xxx.xxx:9443",
@@ -94,6 +94,7 @@ Sample Response:
   }
 }
 ```
+
 where `<region>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
 In the sample response, the properties under `cluster` specify the cluster user name, the password, and cluster service endpoints.
@@ -150,13 +151,13 @@ Sample response:
       "ssh": "ssh xxxxxxx@xxx.xxx.xxx.xxx "
       },
     "service_endpoints": {
-      "spark_history_server": "https://xxxxx-mn001.bi.services.<region>.bluemix.net:8443/gateway/default/sparkhistory",
-      "notebook_gateway": "https://xxxxx-mn001.bi.services.<region>.bluemix.net:8443/gateway/default/jkg/",
-      "livy": "https://xxxxx-mn001.bi.services.<region>.bluemix.net:8443/gateway/default/livy/v1/batches",
-      "webhdfs": "https://xxxxx-mn001.bi.services.<region>.bluemix.net:8443/gateway/default/webhdfs/v1/",
-      "ambari_console": "https://xxxxx-mn001.bi.services.<region>.bluemix.net:9443",
-      "notebook_gateway_websocket": "wss://xxxxx-mn001.bi.services.<region>.bluemix.net:8443/gateway/default/jkgws/",
-      "ssh": "ssh xxxxxx@xxxxx-mn003.bi.services.<region>.bluemix.net"
+      "spark_history_server": "https://xxxxx-mn001.<region>.ae.appdomain.cloud:8443/gateway/default/sparkhistory",
+      "notebook_gateway": "https://xxxxx-mn001.<region>.ae.appdomain.cloud:8443/gateway/default/jkg/",
+      "livy": "https://xxxxx-mn001.<region>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches",
+      "webhdfs": "https://xxxxx-mn001.<region>.ae.appdomain.cloud:8443/gateway/default/webhdfs/v1/",
+      "ambari_console": "https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443",
+      "notebook_gateway_websocket": "wss://xxxxx-mn001.<region>.ae.appdomain.cloud:8443/gateway/default/jkgws/",
+      "ssh": "ssh xxxxxx@xxxxx-mn003.<region>.ae.appdomain.cloud"
       }
     },
     "cluster_management": {
@@ -172,7 +173,7 @@ Sample response:
   "crn": "<crn of service key>",
   "id": "<crn of service key>",
   "account_id": "<user’s account id>"
-}  
+}
 ```
 where `<region>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-05-15"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -26,15 +26,15 @@ https://<management-node>:8443/gateway/default/livy/v1/batches/
 ```
 The following example commands are piped through [jq](https://stedolan.github.io/jq/) to pretty print the JSON output.
 
-**To submit a spark batch using the Livy API**
+To submit a spark batch job by using the Livy API, enter:
 
-```bash
+```
 curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
 -d '{ "file":"local:/usr/hdp/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi" }' \
-"https://wce-tmp-867-mn001.bi.services.ychangeme>.bluemix.net:8443/gateway/default/livy/v1/batches"
+"https://wce-tmp-867-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
 ```
 {: codeblock}
 
@@ -71,9 +71,9 @@ GET    | [/batches/{batchId}/log](https://github.com/cloudera/livy#get-batchesba
 
 See [livy documentation](https://github.com/cloudera/livy#rest-api) for complete details on request parameters and responses.
 
-## Curl Examples
+## cURL examples
 
-In the following curl requests, response headers are printed along with the JSON output to show the http response status codes.
+In the following cURL requests, response headers are printed along with the JSON output to show the HTTP response status codes.
 
 ### Submit a Spark job
 
@@ -124,7 +124,7 @@ curl \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
 -d '{ "file":"cos://mybucket.myprodservice/PiEx.py" }' \
-"https://iae-tmp-867-mn001.bi.services.<changeme>.net:8443/gateway/default/livy/v1/batches"
+"https://iae-tmp-867-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
 ```
 where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
@@ -135,7 +135,7 @@ curl \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
 -d '{ "file":"cos://mybucket.softlayer/spark-examples_2.10-2.1.0.jar", "className":"org.apache.spark.examples.SparkPi" }' \
-"https://iae-tmp-867-mn001.bi.services.<changeme>.bluemix.net:8443/gateway/default/livy/v1/batches"
+"https://iae-tmp-867-mn001<changeme>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
 ```
 where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 20172018
-lastupdated: "2017-11-02"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -17,29 +17,29 @@ lastupdated: "2017-11-02"
 
 You can choose to upload your data in HDFS or an object store. Data can be loaded into HDFS using the HDFS CLI or the WebHDFS API. For sensitive data, it is recommended to use a secure location that is previously created in HDFS.
 
-**Remember:** You can upload files to your home directory (/user/clsadmin). It is not recommended that you upload files under the /tmp directory.
+**Remember:** You can upload files to your home directory (`/user/clsadmin`). It is not recommended that you upload files under the `/tmp` directory.
 
 ## Uploading your data by using the HDFS CLI
 
 **Prerequisite**: Obtain the user credentials and ssh endpoint from cluster service credentials.
 
-To use the HDFS CLI, ssh to the cluster using the credentials obtained earlier. You can access the HDFS CLI using the HDFS command. Refer to the following examples for using the HDFS CLI:
+To use the HDFS CLI, SSH to the cluster using the credentials obtained earlier. You can access the HDFS CLI using the HDFS command. Refer to the following examples for using the HDFS CLI:
 
-- Creating an empty directory
+- **Creating an empty directory**
 
- Create a directory under the user home:
+ To create a directory under the user home:
 
  ```hdfs dfs –mkdir –p /user/clsadmin/test-dir```
 
-- Uploading a file to HDFS
+- **Uploading a file to HDFS**
 
- Upload a file to an existing HDFS directory:
+ To upload a file to an existing HDFS directory:
 
  ```hdfs dfs –put test-file /user/clsadmin/test-dir```
 
-- Deleting a file/directory from HDFS
+- **Deleting a file/directory from HDFS**
 
- Delete file/directory from HDFS:
+ To delete file/directory from HDFS:
 
  ```hdfs dfs –rm –f /user/clsadmin/test-dir```
 
@@ -47,66 +47,60 @@ To use the HDFS CLI, ssh to the cluster using the credentials obtained earlier. 
 
 For programmatic access to the HDFS, use the WebHDFS REST API.
 
-**To upload your data to the HDFS by using the WebHDFS REST API**
+### Uploading your data to the HDFS by using the WebHDFS REST API
 
 **Prerequisites:** Obtain the user credentials and the WebHDFS URL from the [service credentials and end points](./Retrieve-service-credentials-and-service-end-points.html) of your service instance.
 
+To upload data to HDFS by using the WebHDFS REST API:
 1. Open a command prompt.
-2. Change directory to the location of the data files that you want to upload.
-Using the webhdfs URL that is identified above, make a REST API call by using the cURL command to show directory contents, create directories, and upload files. For example, to show the current contents of your cluster's top-level HDFS directory that is named /user, run the following command:
+2. Change directory to the location of the data files that you want to upload. Using the WebHDFS URL that is identified above, make a REST API call by using the cURL command to show directory contents, create directories, and upload files. For example, to show the current contents of your cluster's top-level HDFS directory that is named `/user`, run the following command:
 
-```
+ ```
 curl -i -s --user clsadmin:your_password --max-time 45 \
  https://XXXXX:8443/gateway/default/webhdfs/v1/user?op=LISTSTATUS
 ```
 {: codeblock}
 
-The value of XXXXX is the host name of your cluster retrieved from the service end points json. If the call completes successfully, JSON returns `200 OK`.
+ The value of XXXXX is the host name of your cluster retrieved from the service end points json. If the call completes successfully, JSON returns `200 OK`.
 
-**To upload a file**
+1. To upload a file, run the following command:
 
-Run the following command:
-
-```
+ ```
 curl -i -L  -s --user clsadmin:your_password --max-time 45 -X PUT -T file_name.txt \
  https://XXXXX:8443/gateway/default/webhdfs/v1/user/clsadmin/path_to_file/file_name?op=CREATE
 ```
 {: codeblock}
 
-If the directories do not exist, they are created. If the call completes successfully, JSON returns `201 Created`.
+ If the directories do not exist, they are created. If the call completes successfully, JSON returns `201 Created`.
 
-Run more cURL commands, one for each file that you want to upload.
+ Run more cURL commands, one for each file that you want to upload.
 
-**To create an empty directory**
+1. To create an empty directory, for example an output directory, run the following command:
 
-To create an output directory, for example, run the following command:
-
-```
+ ```
 curl -i  -s --user clsadmin:your_password --max-time 45 -X PUT
  https://XXXXX:8443/gateway/default/webhdfs/v1/user/clsadmin/path_to_directory?op=MKDIRS
 ```
 {: codeblock}
 
-**To remove a file**
+1. To remove a file, run the following command:
 
-Run the following command:
-
-```
+ ```
 curl -i -s --user clsadmin:your_password --max-time 45 -X DELETE
  https://XXXXX:8443/gateway/default/webhdfs/v1/user/clsadmin/path_to_file?op=DELETE
 ```
 {: codeblock}
 
-You cannot remove a directory that is not empty.
+ You cannot remove a directory that is not empty.
 
 An alternative way to look at the directory structure, contents, owners, and size is to navigate to the following URL:
 
 ```
 https://<changeme>:8443/gateway/default/hdfs/explorer.html
 ```
-where `<changeme>`  is the URL to the cluster. For example, for data  on a cluster in Dallas, use:
+where `<changeme>`  is the URL to the cluster. For example, for data on a cluster in the US-South region, use:
 ```
-https://XXXXX.services.us-south.bluemix.net:8443/gateway/default/hdfs/explorer.html
+https://XXXXX.us-south.ae.appdomain.cloud:8443/gateway/default/hdfs/explorer.html
 ```
 For more information, see the [WebHDFS REST API documentation](http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-hdfs/WebHDFS.html).
 
@@ -114,4 +108,4 @@ For more information, see the [WebHDFS REST API documentation](http://hadoop.apa
 
 Hadoop transparent data encryption is automatically enabled for your cluster. Your cluster comes with a predefined HDFS encryption zone, which is identified by the HDFS path/securedir. Files that are placed in the encryption zone are automatically encrypted. The files are automatically decrypted when they are accessed through various Hadoop client applications, such as HDFS shell commands, WebHDFS APIs, and the Ambari file browser.
 
-Data encryption and decryption are transparent to your Hadoop applications. A file that is stored in the encryption zone can be referenced in Hadoop applications by specifying the file's complete HDFS path, just like any regular HDFS file. The data that is stored in the encryption zone is accessible only to an accredited user. It is important to remember that when you copy an encrypted file from /securedir to another location on the HDFS that is outside of the encryption zone, to your local file system, or to external storage such as object storage, the file in those locations is not encrypted.
+Data encryption and decryption are transparent to your Hadoop applications. A file that is stored in the encryption zone can be referenced in Hadoop applications by specifying the file's complete HDFS path, just like any regular HDFS file. The data that is stored in the encryption zone is accessible only to an accredited user. It is important to remember that when you copy an encrypted file from `/securedir` to another location on the HDFS that is outside of the encryption zone, to your local file system, or to external storage such as object storage, the file in those locations is not encrypted.
