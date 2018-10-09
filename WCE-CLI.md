@@ -13,7 +13,7 @@ lastupdated: "2018-09-26"
 {:screen: .screen}
 {:pre: .pre}
 
-# Analytics Engine command line interface
+# {{site.data.keyword.Bluemix_notm}} command line interface
 
 The {{site.data.keyword.Bluemix_notm}} command line interface can be used to interact with the {{site.data.keyword.iae_full_notm}} cluster.
 

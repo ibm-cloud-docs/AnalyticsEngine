@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-24"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -57,6 +57,7 @@ lastupdated: "2018-09-24"
 <li>[Can I adjust resource allocation in a Spark interactive application?](#can-i-adjust-resource-allocation-in-a-spark-interactive-application-)
 <li>[Does the {{site.data.keyword.iae_full_notm}} operations team monitor and manage all service  instances?](#does-the-ibm-analytics-engine-operations-team-monitor-and-manage-all-service-instances-)</li>
 <li>[Where are my job log files?](#where-are-my-job-log-files-)</li>
+<li>[How can I debug a Hive query on {{site.data.keyword.iae_full_notm}}?](#how-can-i-debug-a-hive-query-on-ibm-analytics-engine-)</li>
 </ul>
 </li>
 <li><b>Security</b>
@@ -238,6 +239,17 @@ Yes, the {{site.data.keyword.Bluemix_notm}} operations team ensures that all ser
 ### Where are my job log files?
 
 For most components, the log files can be retrieved by using the Ambari GUI. Navigate to the respective component, click **Quick Links** and select the respective component GUI.  An alternative method is to ssh to the node where the component is running and access the `/var/log/<component>` directory.
+
+### How can I debug a Hive query on {{site.data.keyword.iae_full_notm}}?
+
+To debug a Hive query on {{site.data.keyword.iae_full_notm}}:
+
+1. Open the Ambari console, and then on the dashboard, click **Hive > Advanced**.
+2. Select `hive-log4j` and change `hive.root.logger=INFO,RFA` to `hive.root.logger=DEBUG,RFA`.
+3. Run the Hive query.
+4. SSH to the {{site.data.keyword.iae_full_notm}} cluster. The Hive logs are located in `/tmp/clsadmin/hive.log`.
+
+
 
 ## Security
 

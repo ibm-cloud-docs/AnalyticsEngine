@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-26"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -18,6 +18,16 @@ lastupdated: "2018-09-26"
 The Apache Hive data warehousing software facilitates reading, writing, and managing large datasets that reside in distributed storage by using the SQL-like query language called HiveQL.
 
 A compiler translates HiveQL statements into a directed acyclic graph of MapReduce or Tez jobs, which are submitted to Hadoop. In an {{site.data.keyword.iae_full_notm}} service, Hive commands can be executed through the Beeline client and by default, the Hive uses Tez as its execution engine. Note that Hive is not available in the {{site.data.keyword.iae_short}} Spark package.
+
+- [Prerequisites](#prerequesites)
+- [Connecting to the Hive server](#connecting-to-the-hive-server)
+- [Accessing data in IBM CLoud Object Storage S3 from Hive](#accessing-data-in-ibm-cloud-object-storage-s3-from-hive)
+- [Changing the Hive execution engine](#changing-the-hive-execution-engine)
+- [Externalizing the Hive metastore to IBM Compose for MySQL](#externalizing-the-hive-metastore-to-ibm-compose-for-mysql)
+- [Parquet file format in Hive](#parquet)
+- [ORC file format in Hive](#orc-format)
+- [Learn more](#learn-more)
+
 
 ## Prerequisites
 To work with Hive, you need your cluster user credentials and the ssh and hive_jdbc end point details. You can get this information from the service credentials of your {{site.data.keyword.iae_short}} service instance.
@@ -48,7 +58,7 @@ The following examples show useful HiveQL statements.
 
 	`SELECT * from doc;`
 
-## Accessing data in IBM CLoud Object Storage S3 from Hive  
+## Accessing data in IBM Cloud Object Storage S3 from Hive  
 
 Use the following example statement to access data in IBM Cloud Object Storage (COS) from Hive:
 ```
@@ -192,9 +202,33 @@ The result is the following:
 | NULL                 | Ben                    |```
 
 
+## ORC file format in Hive
+{: #orc-format}
+
+The Optimized Row Columnar (ORC) file format provides a highly efficient way to store Hive data. It is designed to overcome the limitations of other Hive file formats. Using ORC files improves performance when Hive is reading, writing, and processing data.
+
+### Creating Hive tables in ORC format
+
+To create Hive tables in ORC format:
+
+ 1. SSH to the cluster.
+ 2. Launch Beeline:
+ ```
+ beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword>```
+ 3. Create an external table in ORC format in IBM Cloud Object Storage. To be able to do this, your cluster must have been [configured to work with Cloud Object Storage](./configure-COS-S3-object-storage.html#configuring-clusters-to-work-with-ibm-cos-s3-object-stores).
+ ```
+ CREATE EXTERNAL TABLE orc_table(line STRING) STORED AS ORC LOCATION 'cos://mybucket.myprodservice/ORC'; ```
+ 4. Load data from an ORC file stored in Cloud Object Storage into an external parquet table:
+ ```
+ LOAD DATA INPATH 'cos://mybucket.myprodservice/orc-file-11-format.orc' OVERWRITE INTO TABLE orc_table;
+select * from orc_table;
+```
+`orc-file-11-format.orc` is an ORC file stored in the Cloud Object Storage bucket.
+
 
 
 ## Learn more
 
 - [Hive and its features](https://hortonworks.com/apache/hive/).
 - [Sample JDBC program that shows you how to use the Hive endpoints](https://github.com/IBM-Cloud/IBM-Analytics-Engine/tree/master/jdbcsamples/TestHive)
+- [Connecting SQuirrel with JDBC to Hive on IBM Analytics Engine](https://medium.com/@rakhi.sa/ibm-analytics-engine-how-to-connect-squirrel-with-jdbc-to-hive-on-ibm-analytics-engine-a23866961a63)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -64,7 +64,7 @@ Access to the JNBG service endpoints is SSL secured and requires `BASIC` authent
 
 Typically, Jupyter Notebook servers use the `nb2kg` extension to connect with remote kernel gateways such as JNBG.
 
-The IBM Open Platform provides an updated `nb2kg` package [here](http://ibm-open-platform.ibm.com:8080/simple/nb2kg/) which is modified to accept additional endpoint and authentication details needed to access a Jupyter Kernel Gateway instance requiring authentication. When using this version of `nb2kg`, the following configuration is needed to access the cluster's JNBG service:
+The `nb2kg` package can be downloaded from  [here](https://github.com/jupyter-incubator/nb2kg). When using the `nb2kg` package, the following configuration is needed to access the cluster's JNBG service:
 
 * Configure the `KG_WS_URL` to the Websocket endpoint URL of the JKG service
 * Configure the `KG_HTTP_USER` to the cluster user
@@ -109,7 +109,7 @@ Refer to the following sample applications written for Node.js and Python 2.
 
 This sample application creates the Spark kernel using the IBM Analytics Engine interactive API service and runs Spark code against the kernel.
 
-**To create a sample application that runs on a Linux system:**
+To create a sample application that runs on a Linux system:
 
 1. Prepare the environment in which you run the sample application. Run the following commands to install the required Node packages:
 ```
@@ -192,7 +192,7 @@ content: { text: '[882, 635, 978, 219, 773]\n', name: 'stdout' },
 
 This Python 2 sample code uses Tornado libraries to make HTTP and WebSocket calls to a Jupyter Kernel Gateway service. You need a Python 2 runtime environment with the Tornado package installed to run this sample code.
 
-**To create a Python 2 Spark application:**
+To create a Python 2 Spark application:
 
 In any working directory create a file `client.py` containing the following code:
 ```

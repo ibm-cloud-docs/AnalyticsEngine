@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-24"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -115,7 +115,7 @@ Endpoint 'https://169.54.195.210' set.
 
 ## Working with Hive
 
-### Changes to the custom core-site.xml file are not shown
+###  Hive does not recognize Cloud Object Storage with HMAC style authentication
 
 When Hive is run with Cloud Object Storage with HMAC style authentication, changes to the Cloud Object Storage configuration in the core-site.xml file are not picked up by Hive. The reason is that Hive does not recognize these changes unless Hive is restarted which does not happen by default.
 
