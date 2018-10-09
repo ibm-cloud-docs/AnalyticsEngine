@@ -244,8 +244,8 @@ For most components, the log files can be retrieved by using the Ambari GUI. Nav
 
 To debug a Hive query on {{site.data.keyword.iae_full_notm}}:
 
-1. Open the Ambari console, and then on the dashboard, click **Hive > Advanced**.
-2. Select `hive-log4j` and change `hive.root.logger=INFO,RFA` to `hive.root.logger=DEBUG,RFA`.
+1. Open the Ambari console, and then on the dashboard, click **Hive > Configs > Advanced**.
+2. Select **Advanced > hive-log4j** and change `hive.root.logger=INFO,RFA` to `hive.root.logger=DEBUG,RFA`.
 3. Run the Hive query.
 4. SSH to the {{site.data.keyword.iae_full_notm}} cluster. The Hive logs are located in `/tmp/clsadmin/hive.log`.
 
