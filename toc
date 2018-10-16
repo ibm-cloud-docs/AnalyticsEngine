@@ -10,7 +10,7 @@ Analytics Engine
     {:download .download}
 
     {: .toc subcollection="overview" audience="platform" arm="3248326" href="/docs/overview/ibm-cloud.html"}
-    Getting started with IBM Cloud
+    Getting started with IBM Analytics Engine
 
     {: .navgroup id="learn"}
     getting-started.md
