@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-24"
+lastupdated: "2018-10-18"
 
 ---
 
@@ -16,12 +16,12 @@ lastupdated: "2018-09-24"
 
 # Resetting cluster password
 
-You can reset a cluster’s password by using the Cloud Foundry REST API. This API
+You can reset a cluster’s password by using the {{site.data.keyword.iae_full_notm}} REST API. This API
 resets the cluster's password to a new crytographically strong value. Note that
 you must replace all existing service keys and rebind all bound applications
 after the password is reset.
 
-To reset the cluster's password by using the Cloud Foundry REST API, enter the
+To reset the cluster's password by using the {{site.data.keyword.iae_full_notm}} REST API, enter the
 following cURL command:  
 ```
 curl -X  POST  \
