@@ -51,7 +51,7 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount cos://mybucket.myprodservice/input cos://mybucket.myprodservice/wordcount/output
 ```
 
-**Note**: For more information on configuring the cluster to work with S3 object stores, see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html).
+For more information on configuring the cluster to work with S3 object stores, see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html).
 
 ## Learn more
 

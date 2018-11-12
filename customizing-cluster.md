@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-11-12"
 
 ---
 
@@ -26,11 +26,11 @@ The customization feature can be invoked in two ways, namely as:
 ## Bootstrap Customization
 In this method, the customization script can be specified as part of the input JSON to the create cluster command as is shown in the examples later. In this case, the script is executed as a final step after the cluster is created. Even if the customization fails the cluster is still available for use.
 
-**Note:** Bootstrap customization is not recommended for customizing Ambari components like Hadoop or Spark. Instead you should specify  [advanced provisioning options](advanced-provisioning-options.html).
+**Note**: Bootstrap customization is not recommended for customizing Ambari components like Hadoop or Spark. Instead you should specify  [advanced provisioning options](advanced-provisioning-options.html).
 
 **Rerunning a bootstrap customization script**: If the customization fails due to any reason, the same action can be rerun at a later point in time on the required targets.
 
-**Note:**
+Consider the following aspects:
 - The bootstrap customization script is executed on all nodes of the cluster including the management and compute nodes.
 -	The bootstrap customization action specified during cluster creation is automatically executed on any new compute node added during the cluster resize operation.
 - Currently, bootstrap customization is possible only using the Cloud Foundry CLI or the Cloud Foundry REST API modes for creating a cluster. That is, it cannot be specified via the GUI.
@@ -75,7 +75,7 @@ The target can be one of the following four types
 
 If the target is multiple nodes, the customization scripts are executed in parallel.
 
-**Note:** You cannot name the management master node as a target.
+**Important**: You cannot name the management master node as a target.
 
 ## Predefined environment variables available for use in the customization script
 The following predefined environment variables are available that can be used in the customization script:
@@ -98,7 +98,7 @@ You can customize:
 - The installation of analytics Python and R libraries
 - Ambari configuration parameters
 
-**Note:** The customization script will run as long as it contains code that the user of the cluster is authorized to execute. It cannot execute code that requires root access. For example, it cannot execute code such as opening ports or changing IP table rules.
+The customization script will run as long as it contains code that the user of the cluster is authorized to execute. It cannot execute code that requires root access. For example, it cannot execute code such as opening ports or changing IP table rules.
 
 ## Tracking the status of the customizaton
 This is a three step process. First you need to get the customization request ID for your instance and then invoke a second API to get the status of that particular ID. From the second invocation, you will get location details of the customization logs for each target node executed. Finally, if you need to look at the log details, you will need to [SSH](https://console.bluemix.net/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to the specific node.
@@ -109,7 +109,7 @@ Enter the following cluster management REST API to get the customization request
 
 ```curl -X GET  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests -H 'Authorization: Bearer <user's IAM access token>'```
 
-**Note:** For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use `https://api.eu-de.ae.cloud.ibm.com`.
+For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use `https://api.eu-de.ae.cloud.ibm.com`. For Tokyo, use `https://api.jp-tok.ae.cloud.ibm.com`.
 
 **Expected response:** The customization requests for the given service instance ID are returned in JSON format. For example:
 
@@ -165,7 +165,7 @@ For example:
 }
 ```
 
-where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
 
 ### Step 3 - Getting the details of a specific node's customization
 
@@ -175,7 +175,7 @@ You can retrieve the log file in `log_file` by using [`ssh/scp`](https://console
 [clsadmin@chs-mwb-189-mn003 ~]$ cat /var/log/chs-mwb-189-mn003.<region>.ae.appdomain.cloud_28.log
 Error while downloading customization script, ResponseCode: 0, Please verify source_props and  script_path properties in bootstrap action
 ```
-where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
 ## Customization examples
 For examples of how to customize a cluster, see [Examples of customizations](./example-of-customizations.html).

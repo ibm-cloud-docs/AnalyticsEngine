@@ -33,7 +33,7 @@ You can connect to the Spark SQL server by using the Beeline client.
 ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
 beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/spark' -n clsadmin -p **********
 ```
-`<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
+`<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
 
  After its successfully connected, the following message is displayed which shows it is connected to Spark SQL.
 

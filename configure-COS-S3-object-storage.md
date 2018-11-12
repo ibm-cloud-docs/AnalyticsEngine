@@ -84,7 +84,7 @@ fs.cos.<servicename>.v2.signer.type=false
 fs.cos.<servicename>.endpoint=<EndPoint URL>
 fs.cos.<servicename>.iam.api.key=<IAM API Key>
 ```
-**Note:** The signer parameter must always be set to false.
+Note that the signer parameter must always be set to false.
 
 ### IAM token authentication parameters
 
@@ -99,7 +99,7 @@ For IAM token authentication, you must define the following parameter in {{site.
 ```
 fs.cos.<servicename>.iam.token=<IAM-token-example-2342342sdfasf34234234asf……..
 ```
-The IAM token for each user is obtained by using the `BX CLI oauth-tokens` command. See [Retrieving IAM access tokens](./Retrieve-IAM-access-token.html).
+The IAM token for each user is obtained by using the `ibmcloud iam oauth-tokens` command. See [Retrieving IAM access tokens](./Retrieve-IAM-access-token.html).
 
 ## URI for accessing objects in Object Storage
 
@@ -119,7 +119,7 @@ To enable an application to connect to Cloud Object Storage, you must update the
 
 You can configure Object Storage by using one of the following four options:
 
-* [Create an {{site.data.keyword.iae_full_notm}} service instance using advanced custom provisioning options](./advanced-provisioning-options.html). This is the preferred and most efficient method. 
+* [Create an {{site.data.keyword.iae_full_notm}} service instance using advanced custom provisioning options](./advanced-provisioning-options.html). This is the preferred and most efficient method.
 * [Specify the properties at runtime](./specify-properties-at-runtime.html)
 * [Customize the cluster using a customization script](./customizing-using-script.html)
 * [Configure the cluster via the Ambari UI after it was created](./configure-cos-via-ambari.html)

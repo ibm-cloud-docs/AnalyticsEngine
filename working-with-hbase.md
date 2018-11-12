@@ -223,7 +223,7 @@ For the complete list of supported SQL statements, see [Apache Phoenix](https://
 
 You can also access Apache Phoenix securely via the Knox Gateway. The cluster user credentials and the phoenix_jdbc endpoint are required as well as the [Phoenix 4.9 client Java libraries](https://archive.apache.org/dist/phoenix/apache-phoenix-4.9.0-HBase-1.1/bin/apache-phoenix-4.9.0-HBase-1.1-bin.tar.gz), which must be added to the Java classpath.
 
-The following code snippet for a JDBC client program shows you how to connect to Apache Phoenix through the Knox Gateway. The example uses the {{site.data.keyword.Bluemix_short}} hosting location `us-south`:
+The following code snippet for a JDBC client program shows you how to connect to Apache Phoenix through the Knox Gateway. The example uses the {{site.data.keyword.Bluemix_short}} hosting location `us-south`. Other locations include `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan):
 
 ```
 String phoenix_jdbc_url = “jdbc:phoenix:thin:url=https://chs-XXXXX-mn001.us-south.ae.appdomain.cloud:8443/gateway/default/avatica;authentication=BASIC;serialization=PROTOBUF”;

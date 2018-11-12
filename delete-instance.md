@@ -23,7 +23,7 @@ You can delete a service instance by using one of the following methods:
 
 The underlying cluster is deleted when the service instance is deleted. All data and metadata, including all logs, on the cluster will be lost after the cluster is deleted.
 
-**Note**: {{site.data.keyword.iae_full_notm}} service instances, which were created before June 06 2018 in the Cloud Foundry organization and space, can be deleted only by using the {{site.data.keyword.Bluemix_notm}} user interface, the cf CLI, or the cf REST API.
+**Important**: {{site.data.keyword.iae_full_notm}} service instances, which were created before June 06 2018 in the Cloud Foundry organization and space, can be deleted only by using the {{site.data.keyword.Bluemix_notm}} user interface, the cf CLI, or the cf REST API.
 
 ## {{site.data.keyword.Bluemix_notm}} user interface
 
@@ -59,7 +59,7 @@ curl -X DELETE \
 ```
 {: codeblock}
 
-**Note**: To retrieve the IAM access token, see [Retrieving IAM access token](./Retrieve-IAM-access-token.html).
+To retrieve the IAM access token, see [Retrieving IAM access token](./Retrieve-IAM-access-token.html).
 
 ## cf CLI (deprecated)
 
@@ -83,4 +83,4 @@ curl --request DELETE \
   --url 'https://api.ng.bluemix.net/v2/service_instances/<service_instance_id>' \
   --header 'authorization: <User's UAA access token>' \
 ```
-**Note**: To retrieve the UAA access token, see [Retrieving UAA access token](./retrieving-uaa-access-token.html).
+To retrieve the UAA access token, see [Retrieving UAA access token](./retrieving-uaa-access-token.html).

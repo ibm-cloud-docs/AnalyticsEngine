@@ -39,7 +39,7 @@ The three management nodes include:
 - The master management node (`mn001`)
 - Two management slave nodes (`mn002` and `mn003`).
 
-Ambari and all of the Hadoop and Spark components of the cluster run on the management nodes. To find out which components run on which of the management nodes, click the **hosts** link on the upper right-hand corner of the Ambari UI. Drill down further to get to the listing of the components running on each node.
+Ambari and all of the Hadoop and Spark components of the cluster run on the management nodes. To find out which components run on which of the management nodes, click the **hosts** link on the upper right corner of the Ambari UI. Drill down further to get to the listing of the components running on each node.
 
 ### Compute nodes
 

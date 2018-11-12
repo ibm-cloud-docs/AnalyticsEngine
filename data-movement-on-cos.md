@@ -15,8 +15,8 @@ lastupdated: "2018-09-26"
 
 This sections shows you to upload to one of the following sources or download data from IBM COS S3 to one of the following destinations:
 
--	HDFS File system of your cluster
--	Local Filesystem of your cluster
+-	HDFS file system of your cluster
+-	Local file system of your cluster
 -	Outside your cluster
 
 ## Operations on the cluster

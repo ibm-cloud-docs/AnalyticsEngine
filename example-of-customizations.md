@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-24"
+lastupdated: "2018-11-12"
 
 ---
 
@@ -19,11 +19,13 @@ The following sections show you different examples of how you can customize a cl
 
 For details on what to consider when customizing a cluster, see [Customizing a cluster](./customizing-cluster.html).
 
-**Note:** The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](./advanced-provisioning-options.html).
+The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](./advanced-provisioning-options.html).
 
 ### Example of creating a cluster with bootstrap customization using the {{site.data.keyword.Bluemix_short}} CLI
 
-`bx resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters>`
+Create a cluster with bootstrap customization using the {{site.data.keyword.Bluemix_short}} CLI:
+
+`ibmcloud resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters>`
 
 The following sample shows the parameters in JSON format:
 ```
@@ -47,9 +49,11 @@ Where:
 - `type` is either `bootstrap` or `teardown`. Currently only `bootstrap` is supported.
 
 
-**Note:** Currently, only one custom action can be specified in the `customization` array.
+Currently, only one custom action can be specified in the `customization` array.
 
 ### Example of creating a cluster with bootstrap customization using the {{site.data.keyword.Bluemix_short}} Resource Controller (rc) REST API
+
+Create a cluster with bootstrap customization using the {{site.data.keyword.Bluemix_short}} Resource Controller (rc) REST API:
 
 ```
 curl \
@@ -75,9 +79,9 @@ cat provision.json
 
 ```
 
-**Note:**
+Consider the following aspects:
 * Possible values for `resource_plan_id` and instructions on how to get the resource group ID are specified [here](./provisioning.html#creating-a-service-instance-using-the-resource-controller-rest-api).
-* For the United Kingdom region, use the endpoint `https://resource-controller.eu-gb.bluemix.net`. For Germany, use the endpoint `https://resource-controller.eu-de.bluemix.net`.
+* For the United Kingdom region ID, use `eu-gb`. For Germany, use `eu-de` and for Tokyo, use `jp-tok`.
 * To obtain an IAM token, follow these [steps](./Retrieve-IAM-access-token.html). You also need this token for authentication when using cluster management REST APIs.
 
 ### Example of running an adhoc customization script
@@ -101,17 +105,17 @@ curl -X POST -v " https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<se
 ```
 `name` is the name of your customization action. It can be any literal without special characters.
 
-**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use the endpoint `https://api.eu-de.ae.cloud.ibm.com`.
+**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use `https://api.eu-de.ae.cloud.ibm.com` and for Tokyo, use `https://api.jp-tok.ae.cloud.ibm.com`.
 
 ### Example of customizing Ambari configurations
 
 The following section shows you a snippet of a customization script that you can use to customize Ambari configurations. This is also an example of how to use the predefined environment variable `NODE_TYPE`.
 
-**Note:** The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](./advanced-provisioning-options.html).
+The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](./advanced-provisioning-options.html).
 
 The following example makes use of Ambari's in-built `configs.py` script to change the value for `mapreduce.map.memory`. This script is available only on the management nodes. If you specified `target` as `all`  for adhoc customization or if `all` target is implied because of a bootstrap customization, you might want to specify the `NODE_TYPE` so that the code will be executed only once and from the management slave2 node.
 
-**Note:** The following sample using the `configs.py` script only works for new HDP 2.6.2 or 2.6.5 clusters. For existing HDP 2.6.2 clusters, you must use the `configs.sh` script for cluster customization.
+Note that the sample only works for new HDP 2.6.2 or 2.6.5 clusters. For existing HDP 2.6.2 clusters, you must use the `configs.sh` script for cluster customization.
 
 ```
 if [ "x$NODE_TYPE" == "xmanagement-slave2" ]
@@ -141,16 +145,15 @@ In your customization script, use commands like:
 
 ### Example of configuring COS/S3 Object Storage as a data source for Hadoop/Spark
 
-For details see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html).
+For details on configuring COS/S3 Object Storage as a data source for Hadoop/Spark, see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html).
 
-**Note:** The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](./advanced-provisioning-options.html).
+The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](./advanced-provisioning-options.html).
 
 ### Examples of different kinds of locations of the customization script
 
 The following examples show snippets of the `script` and `script_params` attributes for various locations of the customization's JSON input. The customization script can be hosted on a Github repository (source_type:https) or in a bucket on S3 storage (source_type:CosS3). It can also be a Swift object store. (Note however that the Swift location is deprecated)
 
-
-**Note:** The maximum number of characters that can be used in the `"script"` attribute of the JSON input is limited to 4096 chars.
+The maximum number of characters that can be used in the `"script"` attribute of the JSON input is limited to 4096 chars.
 
 #### Example of the script hosted in an Github repository
 ```
@@ -229,4 +232,4 @@ A persisted customization script is registered during cluster creation and can b
 ```
 curl -X POST -v " https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d '{"target":"all"}'  -H "Authorization: Bearer <user's IAM access token>" -H "Content-Type: application/json"
 ```
-**Note:** For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use the endpoint `https://api.eu-de.ae.cloud.ibm.com`.
+For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use `https://api.eu-de.ae.cloud.ibm.com`, and for Tokyo `https://api.jp-tok.ae.cloud.ibm.com`.

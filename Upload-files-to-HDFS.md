@@ -17,7 +17,7 @@ lastupdated: "2018-09-26"
 
 You can choose to upload your data in HDFS or an object store. Data can be loaded into HDFS using the HDFS CLI or the WebHDFS API. For sensitive data, it is recommended to use a secure location that is previously created in HDFS.
 
-**Remember:** You can upload files to your home directory (`/user/clsadmin`). It is not recommended that you upload files under the `/tmp` directory.
+You can upload files to your home directory (`/user/clsadmin`). However, you should avoid uploading files to the `/tmp` directory.
 
 ## Uploading your data by using the HDFS CLI
 
@@ -66,7 +66,7 @@ curl -i -s --user clsadmin:your_password --max-time 45 \
 1. To upload a file, run the following command:
 
  ```
-curl -i -L  -s --user clsadmin:your_password --max-time 45 -X PUT -T file_name.txt \
+curl -i -L -s --user clsadmin:your_password --max-time 45 -X PUT -T file_name.txt \
  https://XXXXX:8443/gateway/default/webhdfs/v1/user/clsadmin/path_to_file/file_name?op=CREATE
 ```
 {: codeblock}

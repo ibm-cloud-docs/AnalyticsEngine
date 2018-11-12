@@ -18,8 +18,7 @@ lastupdated: "2018-10-18"
 
 You can reset a cluster’s password by using the {{site.data.keyword.iae_full_notm}} REST API. This API
 resets the cluster's password to a new crytographically strong value. Note that
-you must replace all existing service keys and rebind all bound applications
-after the password is reset.
+you must replace all existing service keys and rebind all bound applications after the password is reset.
 
 To reset the cluster's password by using the {{site.data.keyword.iae_full_notm}} REST API, enter the
 following cURL command:  
@@ -28,7 +27,7 @@ curl -X  POST  \
 https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_guid>/reset_password
 \ -H 'authorization: Bearer  <user's IAM token>' ```
 
-For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use `https://api.eu-de.ae.cloud.ibm.com`.
+For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use `https://api.eu-de.ae.cloud.ibm.com` and for Japan `https://api.jp-tok.ae.cloud.ibm.com`.
 
 The expected response is the changed password in JSON format. For example:
 ```

@@ -42,7 +42,7 @@ Issue the following SSH command to the cluster:
 ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
 beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p **********
 ```
-where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), or `eu-de` (for Germany).
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
 
 The following examples show useful HiveQL statements.
 

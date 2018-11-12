@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-24"
+lastupdated: "2018-11-12"
 
 ---
 
@@ -26,13 +26,14 @@ You can create an {{site.data.keyword.iae_full_notm}} service instance through o
 - US-South
 - United Kingdom
 - Germany
+- Japan
 
 ## Creating a service instance from the IBM Cloud console
 
 To create an {{site.data.keyword.iae_full_notm}} instance:
 1. Log into the [{{site.data.keyword.Bluemix_short}} console]( https://console.bluemix.net).
 1. Click **Create resource**, search for `{{site.data.keyword.iae_short}}` and then click on the tile to open the service instance creation page.
-1. On the catalog page, choose the region in which you want the service instance to be deployed. {{site.data.keyword.iae_short}}  deployments are available in US South, United Kingdom, and Germany.
+1. On the catalog page, choose the region in which you want the service instance to be deployed. {{site.data.keyword.iae_short}}  deployments are available in US South, United Kingdom, Japan, and Germany.
 1. Choose the resource group under which you want to create the service instance. Select a plan and click **Configure**.
 1. On the configuration page, choose the hardware configuration, number of compute nodes and software package of your choice. Click **Create**.
 1. The service instance is provisioned in the background and can take anywhere between 10 to 20 minutes to provision depending on the hardware type and software package you chose. Visit the {{site.data.keyword.Bluemix_short}} page after some time to check the status of the provisioned instance.
@@ -79,8 +80,8 @@ Download and configure the {{site.data.keyword.Bluemix_short}} CLI. Follow the i
 
 After you have downloaded and configured the CLI, set the API end point and log in:
 ```
-bx api https://api.ng.bluemix.net
-bx login
+ibmcloud api https://api.ng.bluemix.net
+ibmcloud login
 ```
 {: codeblock}
 
@@ -88,20 +89,22 @@ The API endpoints for the supported regions are as follows:
 
  - US South: https://api.ng.bluemix.net
  - United Kingdom: https://api.eu-gb.bluemix.net
- - Germany: https://api.eu-de.ae.cloud.ibm.com
+ - Germany: https://api.eu-de.bluemix.net
+
+Note that the API endpoint for Japan is currently not available. However, this does not mean that you  cannot create a cluster in Japan. The region where a cluster is deployed is determined by the region parameter passed in the `bx resource service-instance-create` command. To create a cluster in Japan, log in by using one of the available API endpoint and then create the service instance in Tokyo (`jp-tok`).
 
 ### Creating a service instance:
 ```
-bx resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters> ```
+ibmcloud resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters> ```
 
 {: codeblock}
 
 For example:
 ```
-bx resource service-instance-create MyServiceInstance ibmanalyticsengine lite us-south -p @/usr/testuser/cluster_specification.json
+ibmcloud resource service-instance-create MyServiceInstance ibmanalyticsengine lite us-south -p @/usr/testuser/cluster_specification.json
 ```
 Supported plan names are **lite**, **standard-hourly**, and **standard-monthly**.
-Supported regions are: **us-south**, **eu-gb** and **eu-de**.
+Supported regions are: **us-south**, **eu-gb**, **jp-tok** and **eu-de**.
 
 Sample cluster specification JSON file  
 ```
@@ -122,7 +125,7 @@ Sample cluster specification JSON file
 5. **`advanced_options`** (Optional): JSON object with nested JSON objects for various custom configurations for components installed with the cluster. Advantage here is that the custom configurations are baked during cluster creation time which means that the cluster is created based on the provided custom configurations. For details on how to create a cluster with `advanced_options`, see [Using advanced provisioning options](./advanced-provisioning-options.html).
 <br>
 
-Sample bx CLI response for the create instance command example previously shown: <br>
+Sample ibmcloud CLI response for the create instance command example previously shown: <br>
 
 ```
 Creating service instance MyServiceInstance in resource group Default of account <account details>...
@@ -142,7 +145,7 @@ For an overview of how a cluster is provisioned and how to check your cluster pr
 
 To query the service provisioning status, enter the following command:
 ```
-bx resource service-instance MyServiceInstance ```
+ibmcloud resource service-instance MyServiceInstance ```
 
 {: codeblock}
 
@@ -167,7 +170,7 @@ To invoke the Resource Controller REST API to create a service instance, you nee
 
 To get the resource group ID, log into the {{site.data.keyword.Bluemix_short}} CLI and run the following command:
 ```
-bx resource groups ```
+ibmcloud resource groups ```
 
 {: codeblock}
 
@@ -188,7 +191,7 @@ To create an instance via the Resource Controller REST API enter:
 ```
 curl \
   --request POST \
-  --url 'https://resource-controller.ng.bluemix.net/v1/resource_instances'   \
+  --url 'https://resource-controller.bluemix.net/v1/resource_instances'   \
   --header 'accept: application/json'   \
   --header 'authorization: Bearer <IAM token>'   \
   --data @provision.json
@@ -209,8 +212,6 @@ cat provision.json
 ```
 {: codeblock}
 
-For the United Kingdom region, use the endpoint `https://resource-controller.eu-gb.bluemix.net`. For Germany, use the endpoint `https://resource-controller.eu-de.bluemix.net`.
-
 To get the IAM token, perform the following [steps](./Retrieve-IAM-access-token.html).
 
 
@@ -226,7 +227,7 @@ To upgrade a Lite plan using the {{site.data.keyword.iae_short}}  dashboard in {
 To upgrade using the {{site.data.keyword.Bluemix_short}} CLI enter the following command:
 
 ```
-bx resource service-instance-update <your service instance name> --service-plan-id <resource_plan_id>
+ibmcloud resource service-instance-update <your service instance name> --service-plan-id <resource_plan_id>
 ```
 
 {: codeblock}
