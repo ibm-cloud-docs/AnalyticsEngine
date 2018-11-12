@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-24"
+lastupdated: "2018-11-12"
 
 ---
 
@@ -17,6 +17,21 @@ lastupdated: "2018-09-24"
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 09 November 2018
+
+ - {{site.data.keyword.iae_full_notm}} is now also available in the region of Japan, in addition to the US-South, Germany, and United Kingdom regions.
+
+  - The {{site.data.keyword.iae_full_notm}} REST API endpoint for Japan is https://api.jp-tok.ae.cloud.ibm.com
+
+  - An {{site.data.keyword.iae_full_notm}} cluster created in the region of Japan has the following format:
+
+    ```<clustername>.jp-tok.ae.appdomain.cloud```
+
+    For example:
+
+    https://xxxxx-mn001.jp-tok.ae.appdomain.cloud:9443
+
 
 ### 24 September 2018
 
