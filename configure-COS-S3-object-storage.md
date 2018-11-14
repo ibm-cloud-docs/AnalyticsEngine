@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -111,13 +111,13 @@ For example:
 ```
 cos://mybucket.myprodservice/detail.txt```
 
-After you have configured {{site.data.keyword.iae_full_notm}} to work with Cloud Object Storage using one of the methods described in [Configuration methods](#configuration-methods), you can access objects in Cloud Object Storage from Spark, Hive, or HDFS via the URI. You will find references to this in the examples in the following sections.
+After you have configured {{site.data.keyword.iae_full_notm}} to work with Cloud Object Storage by using one of the methods described in the following section about  configuration methods, you can access objects in Cloud Object Storage from Spark, Hive, or HDFS via the URI. You will find references of how to do this in the examples in the following section.
 
 ## Configuration methods
 
 To enable an application to connect to Cloud Object Storage, you must update the cluster configuration file to include the Cloud Object Storage credentials and other values. These values must be added to the core-site.xml file as a set of key/value pairs.
 
-You can configure Object Storage by using one of the following four options:
+You can configure Object Storage by using one of the following four methods:
 
 * [Create an {{site.data.keyword.iae_full_notm}} service instance using advanced custom provisioning options](./advanced-provisioning-options.html). This is the preferred and most efficient method.
 * [Specify the properties at runtime](./specify-properties-at-runtime.html)

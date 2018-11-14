@@ -22,7 +22,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
  - {{site.data.keyword.iae_full_notm}} is now also available in the region of Japan, in addition to the US-South, Germany, and United Kingdom regions.
 
-  - The {{site.data.keyword.iae_full_notm}} REST API endpoint for Japan is https://api.jp-tok.ae.cloud.ibm.com
+  - The {{site.data.keyword.iae_full_notm}} REST API endpoint for Japan is `https://api.jp-tok.ae.cloud.ibm.com`
 
   - An {{site.data.keyword.iae_full_notm}} cluster created in the region of Japan has the following format:
 
@@ -30,7 +30,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
     For example:
 
-    https://xxxxx-mn001.jp-tok.ae.appdomain.cloud:9443
+    `https://xxxxx-mn001.jp-tok.ae.appdomain.cloud:9443`
 
 
 ### 24 September 2018
@@ -38,7 +38,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
  - {{site.data.keyword.iae_full_notm}} is now available in a new region namely Germany, in addition to US-South and the United Kingdom regions.
  - The {{site.data.keyword.iae_full_notm}} REST API endpoint for Germany is
 
-    -	eu-de: https://api.eu-de.ae.cloud.ibm.com
+    -	eu-de: `https://api.eu-de.ae.cloud.ibm.com`
 
 - The {{site.data.keyword.iae_full_notm}} cluster is now created using  a new domain name to align with {{site.data.keyword.Bluemix_short}} domain name standards. It has the following format:
 
@@ -46,9 +46,8 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
   where region is us-south, eu-gb, or eu-de.
 
-  For example:  
-  `For example:
-https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443`
+  For example, for Germany:  
+  `https://xxxxx-mn001.eu-de.ae.appdomain.cloud:9443`
 
   **Note:** Old clusters can still exist and will function using the old cluster name format.
 - Broken HBase quick links are fixed on the Ambari UI.
@@ -58,15 +57,16 @@ https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443`
 ### 14 September 2018
 
  - Support for advanced provisioning options to customize Ambari component configurations at the time the {{site.data.keyword.iae_full_notm}} service instance is created was added. See [Advanced provisioning options](./advanced-provisioning-options.html#advanced-provisioning-options).
- - The {{site.data.keyword.iae_full_notm}} REST API documentation can now be accessed at the following new location: https://console.bluemix.net/apidocs/ibm-analytics-engine
+ - The {{site.data.keyword.iae_full_notm}} REST API documentation can now be accessed at the following new location: `https://console.bluemix.net/apidocs/ibm-analytics-engine`
  - The {{site.data.keyword.iae_full_notm}} REST API end points have a new domain suffix:
-  - us-south: https://api.us-south.ae.cloud.ibm.com
-  - eu-gb: https://api.eu-gb.ae.cloud.ibm.com
+  - us-south: `https://api.us-south.ae.cloud.ibm.com`
+  - eu-gb: `https://api.eu-gb.ae.cloud.ibm.com`
 
-   The older end points https://api.dataplatform.ibm.com and https://api.eu-gb.dataplatform.ibm.com are deprecated and will no longer be supported after the end of September 2018. You can create  new service credentials from the {{site.data.keyword.Bluemix_short}} console to fetch the new end point.
+   The older end points `https://api.dataplatform.ibm.com` and `https://api.eu-gb.dataplatform.ibm.com` are deprecated and will no longer be supported after the end of September 2018. You can create  new service credentials from the {{site.data.keyword.Bluemix_short}} console to fetch the new end point.
 
 - You can set up cron jobs on the mn003 node (management slave 2).
- **Restriction:** You can set this up only on the mn003 node.
+
+ **Restriction**: You can set this up only on the mn003 node.
 - Support for Spark SQL JDBC endpoint was added. See [Working with Spark SQL to query data](./working-with-spark-sql.html).
 - The Stocator library was updated to 1.0.24.
 - Broken Spark History links were fixed.

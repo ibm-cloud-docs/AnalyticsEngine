@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-26"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -24,7 +24,7 @@ You can configure the cluster to access data objects in IBM Cloud Object Storage
 
  ![The advanced configuration for HDFS](images/custom-core-site.png)
 
-3. Enter the desired properties in the Properties field and then click **Add** to save your changes. For information about which properties to add, see [Authentication properties for object stores](./configure-COS-S3-object-storage.html#authentication-properties-for-object-stores).
+3. Enter the desired properties in the Properties field and then click **Add** to save your changes. For information about which properties to add, see [Authentication parameters to Cloud Object Storage](./configure-COS-S3-object-storage.html#authentication-parameters-to-cloud-object-storage).
 
  ![The advanced configuration for HDFS](images/add-property.png)
 4. Ambari indicates which services need to be restarted. Click **Restart All Required** to restart all services affected by your  changes.

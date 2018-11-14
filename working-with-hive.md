@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-10-08"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -19,9 +19,9 @@ The Apache Hive data warehousing software facilitates reading, writing, and mana
 
 A compiler translates HiveQL statements into a directed acyclic graph of MapReduce or Tez jobs, which are submitted to Hadoop. In an {{site.data.keyword.iae_full_notm}} service, Hive commands can be executed through the Beeline client and by default, the Hive uses Tez as its execution engine. Note that Hive is not available in the {{site.data.keyword.iae_short}} Spark package.
 
-- [Prerequisites](#prerequesites)
+- [Prerequisites](#prerequisites)
 - [Connecting to the Hive server](#connecting-to-the-hive-server)
-- [Accessing data in IBM CLoud Object Storage S3 from Hive](#accessing-data-in-ibm-cloud-object-storage-s3-from-hive)
+- [Accessing data in IBM Cloud Object Storage S3 from Hive](#accessing-data-in-ibm-cloud-object-storage-s3-from-hive)
 - [Changing the Hive execution engine](#changing-the-hive-execution-engine)
 - [Externalizing the Hive metastore to IBM Compose for MySQL](#externalizing-the-hive-metastore-to-ibm-compose-for-mysql)
 - [Parquet file format in Hive](#parquet)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -17,8 +17,8 @@ lastupdated: "2018-10-24"
 
 You can delete a service instance by using one of the following methods:
 
-- The [{{site.data.keyword.Bluemix_notm} user interface](#ibm-cloud-user-interface)
-- The [{{site.data.keyword.Bluemix_notm} CLI](#ibm-cloud-cli)
+- The [{{site.data.keyword.Bluemix_notm}} user interface](#ibm-cloud-user-interface)
+- The [{{site.data.keyword.Bluemix_notm}} CLI](#ibm-cloud-cli)
 - The [Resource Controller REST API](#resource-controller-rest-api)
 
 The underlying cluster is deleted when the service instance is deleted. All data and metadata, including all logs, on the cluster will be lost after the cluster is deleted.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -18,13 +18,13 @@ lastupdated: "2018-09-17"
 
 {{site.data.keyword.iae_full_notm}} enables advanced users to provide custom configurations which Ambari understands and uses when creating a cluster for cluster components like Hadoop, Spark, and Hive. Note that all custom configurations for Hadoop, Spark, Hive, and other cluster components must be added as part of the `ambari_config` JSON object in the `advanced_options` JSON object and the size of the `advanced_options` JSON object should not exceed 8 KB. The custom configurations must be compatible with the cluster components in the {{site.data.keyword.iae_full_notm}} software package you choose.
 
-**Note:** During cluster creation, the `ambari_config` JSON object is taken as is and if erroneous configurations are provided can lead to runtime failures of the jobs or worse, can result in cluster creation failures.
+During cluster creation, the `ambari_config` JSON object is taken as is and if erroneous configurations are provided can lead to runtime failures of the jobs or worse, can result in cluster creation failures.
 
 ## Creating a cluster with custom Ambari configurations using the IBM Cloud CLI
 
 Enter the following command to create a cluster with custom configurations by using the {{site.data.keyword.Bluemix_short}} CLI:
 ```
-bx resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters> ```
+ibmcloud resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters> ```
 
 The service creation JSON object has an optional `advanced_options` JSON object that hosts a nested JSON object called `ambari_config` which in turn can have one or more `config-groups` as nested JSON objects.
 ```
@@ -57,7 +57,7 @@ The service creation JSON object has an optional `advanced_options` JSON object 
 
 The following examples show JSON payloads for `advanced_options` with custom Ambari configurations for cluster creation.
 
-- [Sample I. Associate Cloud Object Storage during cluster creation using HMAC style authentication using access key and secret key](#associate-cloud-object-storage-during-cluster-creation-using-HMAC-style-authentication-using-access-key-and-secret-key)
+- [Sample I. Associate Cloud Object Storage during cluster creation using HMAC style authentication using access key and secret key](#sample-i-associate-cloud-object-storage-during-cluster-creation-using-HMAC-style-authentication-using-access-key-and-secret-key)
 - [Sample II. Associate Cloud Object Storage during cluster creation using IAM Style authentication](#sample-ii-associate-cloud-object-storage-during-cluster-creation-using-iam-style-authentication)
 - [Sample III. Enable dynamic resource allocation for Spark during cluster creation](#sample-iii-enable-dynamic-resource-allocation-for-spark-during-cluster-creation)
 - [Sample IV. Externalize the Hive metastore to IBM Compose for MySQL during cluster creation](#sample-iv-externalize-the-hive-metastore-to-ibm-compose-for-mysql-during-cluster-creation)
@@ -146,7 +146,7 @@ Spark provides a mechanism to dynamically adjust the resources your application 
 	}
 }
 ```
-**Note:** Values for `<x>`  and `<y>` can be specified based on the hardware configuration of the compute node and job requirements.
+The values for `<x>`  and `<y>` can be specified based on the hardware configuration of the compute node and job requirements.
 
 ## Sample IV. Externalize the Hive metastore to IBM Compose for MySQL during cluster creation
 

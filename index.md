@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-26"
+lastupdated: "2018-119-14"
 
 ---
 
@@ -22,7 +22,7 @@ You can deploy {{site.data.keyword.iae_full_notm}} service instances in the US S
 
 - [Cluster architecture](#cluster-architecture)
 - [Outbound and inbound access](#outbound-and-inbound-access)
-- [Software components of the cluster](#software-component-of-the-cluster)
+- [Software components of the cluster](#software-components-of-the-cluster)
 - [Hardware configuration](#hardware-configuration)
 - [Operating system](#operating-system)
 - [Best practices when creating clusters](./best-practices.html)

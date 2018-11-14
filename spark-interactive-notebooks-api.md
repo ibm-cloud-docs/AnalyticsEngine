@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-09-26"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -94,7 +94,7 @@ sparkR \
 * [Installing additional libraries](./installing-additional-libraries.html)
   * [Cluster wide installation](./installing-additional-libraries.html#cluster-wide-installation)
     * [Customization examples](./example-of-customizations.html)
-  * [Notebook and session specific installation](./installing-additional-libraries.html#notebook-or-interactive-session-specific-installation)
+  * [Notebook and session specific installation](./installing-additional-libraries.html#notebook-or-interactive-session-specific-installations)
   * [Local node installation](./installing-additional-libraries.html#local-node-installation)
 * [Troubleshooting](./Troubleshooting-JKG.html)
 * [Starting and stopping the JNBG service](./Stop,-Start,-Restart-JNBG-Service.html)
