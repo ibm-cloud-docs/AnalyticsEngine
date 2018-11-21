@@ -143,6 +143,8 @@ There are two versions of Anaconda installed on all nodes:
 In your customization script, use commands like:
 `/home/common/conda/anaconda[2|3]/bin/pip install [python or R packages]`
 
+For more information, see [Installing additional libraries](./installing-additional-libraries.html#installing-additional-libraries) 
+
 ### Example of configuring COS/S3 Object Storage as a data source for Hadoop/Spark
 
 For details on configuring COS/S3 Object Storage as a data source for Hadoop/Spark, see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html).
