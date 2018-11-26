@@ -45,7 +45,7 @@ The following sample shows the parameters in JSON format:
 ```
 
 Where:
-- `name` is the name of your customization action. It can be any literal without special characters
+- `name` is the name of your customization action. It can be any literal without special characters.
 - `type` is either `bootstrap` or `teardown`. Currently only `bootstrap` is supported.
 
 
@@ -142,6 +142,8 @@ There are two versions of Anaconda installed on all nodes:
 
 In your customization script, use commands like:
 `/home/common/conda/anaconda[2|3]/bin/pip install [python or R packages]`
+
+For more information, see [Installing additional libraries](./installing-additional-libraries.html#installing-additional-libraries). 
 
 ### Example of configuring COS/S3 Object Storage as a data source for Hadoop/Spark
 
