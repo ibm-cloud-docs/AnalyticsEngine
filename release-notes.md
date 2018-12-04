@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-12-03"
 
 ---
 
@@ -17,6 +17,14 @@ lastupdated: "2018-11-12"
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+
+### 30 November 2018
+
+- You can now capture user and application interaction on your provisioned {{site.data.keyword.iae_full_notm}} service instances through the integrated [Activity Tracker](./at-tracker.html).
+
+- To view the password of a cluster, a user must have either Writer or Manager IAM role on the {{site.data.keyword.iae_full_notm}} service instance.
+
 
 ### 09 November 2018
 

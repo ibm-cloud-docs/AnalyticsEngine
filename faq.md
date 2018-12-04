@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-10-08"
+lastupdated: "2018-12-03"
 
 ---
 
@@ -29,6 +29,7 @@ lastupdated: "2018-10-08"
 <li>[How many {{site.data.keyword.iae_full_notm}} clusters can I spin up?](#how-many-ibm-analytics-engine-clusters-can-i-spin-up-)</li>
 <li>[Is there a free usage tier to try {{site.data.keyword.iae_full_notm}}?](#is-there-a-free-usage-tier-to-try-ibm-analytics-engine-)</li>
 <li>[How does the Lite plan  work?](#how-does-the-lite-plan-work-)</li>
+<li>[What types of service maintenance exist in {{site.data.keyword.iae_full_notm}}?](#what-types-of-service-maintenance-exist-in-ibm-analytics-engine-)
 </ul>
 </li>
 <li><b>Architecture</b>
@@ -117,6 +118,18 @@ Yes, we provide the Lite plan which can be used free of charge. Apart from this,
 The Lite plan provides 50 node-hours of free {{site.data.keyword.iae_full_notm}} usage. One cluster can be provisioned every 30  days. After the 50 node-hours are exhausted, you can  upgrade to a paid plan within 24 hours to continue using the same cluster. If you do not upgrade within 24 hours, the cluster will be deleted and you have to provision a new one after the 30 day limit has passed.
 
 Depending on the size of your cluster, actual hours of use might vary. For instance, a cluster with 1 master and 3 data nodes (4  nodes in total) will run for 12.5 hours on the clock (50 hours/4 nodes). However, a cluster with 1 master and 1 data node (2 nodes in total) will run for 25 hours on the clock (50 hours/2 nodes). The node-hours cannot be paused, for example, you cannot use 10 node-hours, pause, and then come back and use the remaining 40 node-hours.
+
+### What types of service maintenance exist in {{site.data.keyword.iae_full_notm}}?
+Occasionally, we need to update the {{site.data.keyword.iae_full_notm}} service. Most of these updates are non-disruptive and are performed when new features become available or when updates and fixes need to be applied.
+
+Most updates that are  made to the system that handles service instance provisioning are non-disruptive. These updates include updates or enhancements to the service instance creation, deletion or management tools, updates or enhancements to the service management dashboard user interface, or updates to the service operation management tools.
+
+Updates to the provisioned {{site.data.keyword.iae_full_notm}} clusters might include operating system patches and security patches for various components of the cluster. Again, many of these updates are non-disruptive.
+
+However, if there is an absolute need to perform a disruptive deployment, you will be notified well in advance via email communication and on the [{{site.data.keyword.Bluemix_notm}} status page](https://cloud.ibm.com/status).
+
+When a disruptive deployment is made to the system that handles the provisioning of a service instance, you will be unable to create, access, or delete an {{site.data.keyword.iae_full_notm}} service instance from the {{site.data.keyword.Bluemix_notm}} console or by using the service instance management REST APIs.
+When a disruptive deployment is made to a provisioned service instance, you will not be able to access the {{site.data.keyword.iae_full_notm}} cluster or run jobs.
 
 ## Architecture
 

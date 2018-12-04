@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-12-03"
 
 ---
 
@@ -17,8 +17,8 @@ lastupdated: "2018-11-12"
 
 You can create an {{site.data.keyword.iae_full_notm}} service instance through one of the following ways:
 
-* [From the {{site.data.keyword.Bluemix_short}} console](#creating-a-service-instance-from-the-ibm-cloud-console)
-* [Using the {{site.data.keyword.Bluemix_short}}  command-line interface (CLI)](#creating-a-service-instance-using-the-ibm-cloud-command-line-interface)
+* [From the {{site.data.keyword.Bluemix_notm}} console](#creating-a-service-instance-from-the-ibm-cloud-console)
+* [Using the {{site.data.keyword.Bluemix_notm}} command-line  interface](#creating-a-service-instance-using-the-ibm-cloud-command-line-interface)
 * [Using the Resource Controller REST API](#creating-a-service-instance-using-the-resource-controller-rest-api)
 
 **Prerequisite**: You must have access to one of the following {{site.data.keyword.Bluemix_short}} regions:
@@ -28,7 +28,7 @@ You can create an {{site.data.keyword.iae_full_notm}} service instance through o
 - Germany
 - Japan
 
-## Creating a service instance from the IBM Cloud console
+## Creating a service instance from the {{site.data.keyword.Bluemix_notm}} console
 
 To create an {{site.data.keyword.iae_full_notm}} instance:
 1. Log into the [{{site.data.keyword.Bluemix_short}} console]( https://console.bluemix.net).
@@ -63,7 +63,9 @@ The **`AE 1.1`** software packages include components for Horton Dataworks Platf
  - Choose **`AE <version> Spark and Hive`** if you are planning to run Hive and/or Spark workloads. In addition to the components you get with the Spark package, you also get Hive, as part of the components of the Hive package.
  - Choose **`AE <version> Spark and Hadoop`** if you are planning to run Hadoop workloads in addition to Spark workloads. In addition to the components you get with the Spark package, you also get Oozie, HBase and Hive, as part of the components of the Hadoop package.
 
-**Recommendation:**
+### Provisioning recommendations
+
+When provisioning a service instance:
  - Choose the right plan:
   - For deploy, run and discard use-cases, select hourly plan clusters.
   - For long running clusters, select monthly plan clusters.
@@ -72,41 +74,38 @@ The **`AE 1.1`** software packages include components for Horton Dataworks Platf
 
    For running parallel jobs, choose the memory-intensive node size. For example, if the number of concurrent notebooks (connected from IBM Watson Studio to {{site.data.keyword.iae_full_notm}}) is greater than 2, you should select the memory-intensive node size and not  the default node size.
 
-## Creating a service instance using the IBM Cloud command-line interface
+## Creating a service instance using the {{site.data.keyword.Bluemix_notm}} command-line interface
 
-Download and configure the {{site.data.keyword.Bluemix_short}} CLI. Follow the instructions [here](https://console.bluemix.net/docs/cli/reference/bluemix_cli/download_cli.html#download_install).
-
-### First-time setup:
-
-After you have downloaded and configured the CLI, set the API end point and log in:
+To create a service instance using the {{site.data.keyword.Bluemix_short}} command-line interface:
+1. Download and configure the {{site.data.keyword.Bluemix_short}} CLI. Follow the instructions [here](https://console.bluemix.net/docs/cli/reference/bluemix_cli/download_cli.html#download_install).
+1. Set the API endpoint for your region and log in:
 ```
 ibmcloud api https://api.ng.bluemix.net
 ibmcloud login
 ```
 {: codeblock}
 
-The API endpoints for the supported regions are as follows:
+ The {{site.data.keyword.Bluemix_short}} API endpoints for the following regions are supported:
 
  - US South: https://api.ng.bluemix.net
  - United Kingdom: https://api.eu-gb.bluemix.net
  - Germany: https://api.eu-de.bluemix.net
 
-Note that the API endpoint for Japan is currently not available. However, this does not mean that you  cannot create a cluster in Japan. The region where a cluster is deployed is determined by the region parameter passed in the `bx resource service-instance-create` command. To create a cluster in Japan, log in by using one of the available API endpoint and then create the service instance in Tokyo (`jp-tok`).
-
-### Creating a service instance:
+ Note that the API endpoint for Japan is currently not available. However, this does not mean that you  can't create a cluster in Japan. The region where a cluster is deployed is determined by the region parameter passed in the `bx resource service-instance-create` command. To create a cluster in Japan, log in by using one of the available API endpoint and then create the service instance in Tokyo (`jp-tok`).
+1. Now create a service instance:
 ```
 ibmcloud resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters> ```
 
-{: codeblock}
+ {: codeblock}
 
-For example:
-```
+ For example:
+ ```
 ibmcloud resource service-instance-create MyServiceInstance ibmanalyticsengine lite us-south -p @/usr/testuser/cluster_specification.json
 ```
 Supported plan names are **lite**, **standard-hourly**, and **standard-monthly**.
 Supported regions are: **us-south**, **eu-gb**, **jp-tok** and **eu-de**.
 
-Sample cluster specification JSON file  
+ Sample cluster specification JSON file  
 ```
 {
   "num_compute_nodes": 1,
@@ -116,16 +115,18 @@ Sample cluster specification JSON file
 ```
 {: codeblock}
 
-### Brief description of cluster specification parameters
+### Description of the cluster specification parameters
+
+The cluster parameters include:
 
 1. **`num_compute_nodes`** (Required): Number of compute nodes required in the cluster.
-2. **`hardware_config`** (Required): Represents the instance size of the cluster. Accepted value: _`default`_ and _`memory-intensive`_  
-3. **`software_package`** (Required): Determines the set of services to be installed on the cluster. Accepted value: _`ae-1.1-spark`_, _` ae-1.1-hive-spark`_, _`ae-1.1-hadoop-spark`_, _`ae-1.0-spark`_,  _`ae-1.0-hive-spark`_ and _`ae-1.0-hadoop-spark`_
-4. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](./customizing-cluster.html).
-5. **`advanced_options`** (Optional): JSON object with nested JSON objects for various custom configurations for components installed with the cluster. Advantage here is that the custom configurations are baked during cluster creation time which means that the cluster is created based on the provided custom configurations. For details on how to create a cluster with `advanced_options`, see [Using advanced provisioning options](./advanced-provisioning-options.html).
+1. **`hardware_config`** (Required): Represents the instance size of the cluster. Accepted value: _`default`_ and _`memory-intensive`_  
+1. **`software_package`** (Required): Determines the set of services to be installed on the cluster. Accepted value: _`ae-1.1-spark`_, _` ae-1.1-hive-spark`_, _`ae-1.1-hadoop-spark`_, _`ae-1.0-spark`_,  _`ae-1.0-hive-spark`_ and _`ae-1.0-hadoop-spark`_
+1. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](./customizing-cluster.html).
+1. **`advanced_options`** (Optional): JSON object with nested JSON objects for various custom configurations for components installed with the cluster. Advantage here is that the custom configurations are baked during cluster creation time which means that the cluster is created based on the provided custom configurations. For details on how to create a cluster with `advanced_options`, see [Using advanced provisioning options](./advanced-provisioning-options.html).
 <br>
 
-Sample ibmcloud CLI response for the create instance command example previously shown: <br>
+The following sample is the ibmcloud CLI response to the create instance command example previously shown: <br>
 
 ```
 Creating service instance MyServiceInstance in resource group Default of account <account details>...
@@ -136,7 +137,7 @@ MyServiceInstance us-south   inactive  service_instance
 ```
 Service provisioning happens asynchronously. Successful response just means that the provisioning request has been accepted. Service provisioning is considered complete only when the associated cluster is created and is `active`.
 
-## Provisioning overview
+## Provision tracking
 
 For an overview of how a cluster is provisioned and how to check your cluster provisioning state, see [Track cluster provisioning](./track-instance-provisioning.html).
 

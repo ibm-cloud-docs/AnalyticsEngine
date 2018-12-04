@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-14"
+lastupdated: "2018-11-26"
 
 ---
 
@@ -15,18 +15,79 @@ lastupdated: "2018-11-14"
 
 # Granting permissions to users
 
-With an IBM {{site.data.keyword.Bluemix_notm}} account, you have administrative privileges in the organization or space under your account, which enables you to perform all operations on an {{site.data.keyword.iae_full_notm}} service. However, when you onboard other users to your account, you need to manage their permissions so that they have the required privileges to operate service instances under your account.
+With an {{site.data.keyword.Bluemix_notm}} account, you have administrative privileges for your account, which enables you to perform all operations on an {{site.data.keyword.iae_full_notm}} service. However, when you onboard other users to your account, you need to manage their permissions so that they have the required privileges to operate service instances under your account.
 
-In {{site.data.keyword.iae_full_notm}}, access to cluster life cycle management operations is governed by the following permission levels:
+Access to {{site.data.keyword.iae_full_notm}} resources requires certain access permissions at the resource group level, the platform level, and the service level. A user is given the desired level of access to a service instance only after the required roles at all of these levels were granted.
 
-| Operation | Required {{site.data.keyword.Bluemix_notm}} permissions | Required IAM permissions |
-|-----------|------------------------------|--------------------------|
-| Create or delete a service | Developer role to the {{site.data.keyword.Bluemix_notm}} space | Editor and above to your Resource Group |
-| View the service dashboard (Cluster Management UI) | Developer role to the {{site.data.keyword.Bluemix_notm}} space | Viewer and above to your Resource Group and Reader, or above to the service instance |
-| Resize a cluster by using the Cluster Management UI | Developer role to the {{site.data.keyword.Bluemix_notm}} space | Editor and above to the service instance |
-| Generate service keys by using the CF CLI or the {{site.data.keyword.Bluemix_notm}} UI | Developer role to the {{site.data.keyword.Bluemix_notm}} space | Editor or above to the service instance |
-| Invoke  GET REST APIs using the following endpoints. <br> USA: `https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines` <br> United Kingdom:  `https://api.eu-gb.ae.cloud.ibm.com` <br> Germany:  `https://api.eu-de.ae.cloud.ibm.com` <br> Tokyo: `https://api.jp-tok.ae.cloud.ibm.com`| NA | Reader and above |
-| Invoke POST  REST APIs using the following endpoints. <br> USA: `https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines` <br> United Kingdom:  `https://api.eu-gb.ae.cloud.ibm.com` <br> Germany:  `https://api.eu-de.ae.cloud.ibm.com` <br> Tokyo:  `https://api.jp-tok.ae.cloud.ibm.com` | NA | Writer and above |
+<table>
+    <tr>
+        <th>Operation</th>
+        <th>Required IAM permissions</th>
+    </tr>
+    <tr>
+        <td>Create or delete a service</td>
+        <td>**Access type**: Resource group <br>
+        **Role**: Editor or Administrator</td>
+    </tr>
+    <tr>
+        <td>View the service dashboard (the cluster management UI)</td>
+        <td>**Access type**: Service <br>
+            **Platform role:** Viewer or above <br>
+            **Service role**: Reader or above </td>
+    </tr>
+    <tr>
+        <td>View cluster password in the cluster management UI</td>
+        <td>**Access type**: Service <br>
+            **Platform role**: Viewer or above <br>
+            **Service role**: Writer or Manager </td>
+    </tr>
+    <tr>
+        <td>Resize a cluster by using the cluster management UI</td>
+        <td>**Access type**: Service <br>
+            **Platform role:** Viewer or above <br>
+            **Service role:** Writer or Manager </td>
+    </tr>
+    <tr>
+        <td>Create service keys by using the IBM Cloud UI <br>
+        **Note**: A service key created for a Reader role does not reveal the cluster password. </td>
+        <td>**Access type**: Service <br>
+            **Platform role**: Operator or above </td>
+    </tr>
+    <tr>
+        <td>View service keys by using the IBM Cloud UI</td>
+        <td>**Access type**: Service <br>
+            **Platform role**: Viewer or above </td>
+    </tr>
+    <tr>
+        <td>Invoke the cluster management REST API to view cluster details</td>
+        <td>**Access type**: Service <br>
+            **Service role**: Reader, Writer or Manager <br>
+            **Note**: When the API is invoked with service role as Reader, the response of the API does not reveal the cluster password. </td>
+    </tr>
+    <tr>
+        <td>Invoke cluster management REST API to view customization request details or list of customization requests</td>
+        <td>**Access type**: Service <br>
+            **Service role**: Reader, Writer or Manager</td>
+    </tr>
+    <tr>
+        <td>Invoke cluster management REST API to resize cluster</td>
+        <td>**Access type**: Service <br>
+            **Service role**: Writer or Manager </td>
+    </tr>
+    <tr>
+        <td>Invoke cluster management REST API to add an adhoc customization request</td>
+        <td>**Access type**: Service <br>
+            **Service role**: Writer or Manager </td>
+    </tr>
+    <tr>
+        <td>Invoke cluster management REST API to reset cluster password</td>
+        <td>**Access type**: Service <br>
+            **Service role**: Manager </td>
+    </tr>
+    <caption style="caption-side:bottom;">Table 1. Required IAM privileges for user onboarding</caption>
+    </table>
+
+
 
 To onboard new users to your account:
 
@@ -40,11 +101,11 @@ To onboard new users to your account:
 
 5.	Under the Access section, expand **Services** and select the following values.
 
- To assign access at a Resource Group level:
+ To assign access at a resource group level:
 
-	a.	Assign access to: Select **Resource Group**.
+	a.	Assign access to: Select **Resource group**.
 
-	b.	Resource Group: Choose a resource group to grant access to.
+	b.	Resource group: Choose a resource group to which to grant access.
 
 	c.	Assign access to a resource group: Select the level of access you want to provide.
 
@@ -59,13 +120,3 @@ To onboard new users to your account:
    d. Service Instance: Choose the service instance that you want to grant access to.   
 
    e. Select roles: Select the levels of access you want to provide.
-
-6.	Expand **Cloud Foundry access** and select the organization that you want to give the user access to.
-
-	a. Select a role at the organization level for your user.
-
-	b.	Choose a region.
-
-	c.	Select the space that you want to grant the user access to.
-
-	e.	Select the role that you want to assign to the user. To view the service dashboard and perform tasks such as generating service keys you must assign Developer role.
