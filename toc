@@ -1,16 +1,13 @@
-<!-- Markdown Navigation -->
+
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="AnalyticsEngine" audience="service" href="/docs/services/AnalyticsEngine/index.html" path="services/AnalyticsEngine}
+{: .toc subcollection="AnalyticsEngine" audience="service" href="/docs/services/AnalyticsEngine/index.html" path="services/AnalyticsEngine"}
 Analytics Engine
 
     {:navgroup: .navgroup}
     {:topicgroup: .topicgroup}
     {:download .download}
-
-    {: .toc subcollection="overview" audience="platform" arm="3248326" href="/docs/overview/ibm-cloud.html"}
-    Getting started with IBM Analytics Engine
 
     {: .navgroup id="learn"}
     getting-started.md
