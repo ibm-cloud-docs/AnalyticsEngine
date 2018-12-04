@@ -2,7 +2,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="AnalyticsEngine" audience="service" href="/docs/services/AnalyticsEngine/index.html" path="services/AnalyticsEngine"}
+{: .toc subcollection="AnalyticsEngine" audience="service" href="/docs/services/AnalyticsEngine/index.html"}
 Analytics Engine
 
     {:navgroup: .navgroup}
@@ -20,6 +20,8 @@ Analytics Engine
 	  {: .navgroup-end}
 
     {: .navgroup id="reference"}
+    at-tracker.md
+
     {: .topicgroup}
     Helpful links
         <!-- [REST API Reference](https://console.ng.bluemix.ne/apidocs/) -->
