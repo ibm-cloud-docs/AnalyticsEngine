@@ -14,7 +14,8 @@ lastupdated: "2018-12-03"
 {:pre: .pre}
 
 
-# Frequently asked questions
+# FAQs
+{: #faq}
 
 <ul>
 <li><b>General</b>
