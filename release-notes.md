@@ -21,10 +21,9 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ### 30 November 2018
 
-- You can now capture user and application interaction on your provisioned {{site.data.keyword.iae_full_notm}} service instances through the integrated [Activity Tracker](./at-tracker.html).
+- You can now track life cycle management actions performed on the cluster by users and applications that have access to your service instance. See [Activity Tracker](./at-tracker.html).
 
 - To view the password of a cluster, a user must have either Writer or Manager IAM role on the {{site.data.keyword.iae_full_notm}} service instance.
-
 
 ### 09 November 2018
 
