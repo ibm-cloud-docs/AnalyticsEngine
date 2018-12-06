@@ -91,7 +91,7 @@ Access to {{site.data.keyword.iae_full_notm}} resources requires certain access 
 
 To onboard new users to your account:
 
-1.	Log on to the [{{site.data.keyword.Bluemix_notm}} dashboard](https://console.bluemix.net).
+1.	Log on to the [{{site.data.keyword.Bluemix_notm}} dashboard](https://{DomainName}).
 
 2.	Click **Manage -> Account -> Users**.
 

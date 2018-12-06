@@ -63,7 +63,7 @@ From the endpoint list, you can see that the following ports are open for inboun
 
 -	**9443**: this is the Admin port.
 
- The Ambari UI Console and APIs are exposed at port 9443 (`https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443`).
+ The Ambari UI console and APIs are exposed at port 9443 (`https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443`).
 -	**8443**: cluster services like Hive, Spark, Livy, Phoenix, and so on are made available for programmatic consumption through the Knox gateway on port 8443
 
 -	**22**: the cluster itself is accessible via SSH at standard port 22.

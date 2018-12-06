@@ -65,7 +65,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 ### 14 September 2018
 
  - Support for advanced provisioning options to customize Ambari component configurations at the time the {{site.data.keyword.iae_full_notm}} service instance is created was added. See [Advanced provisioning options](./advanced-provisioning-options.html#advanced-provisioning-options).
- - The {{site.data.keyword.iae_full_notm}} REST API documentation can now be accessed at the following new location: `https://console.bluemix.net/apidocs/ibm-analytics-engine`
+ - The {{site.data.keyword.iae_full_notm}} REST API documentation can now be accessed at the following new location: `https://{DomainName}/apidocs/ibm-analytics-engine`
  - The {{site.data.keyword.iae_full_notm}} REST API end points have a new domain suffix:
   - us-south: `https://api.us-south.ae.cloud.ibm.com`
   - eu-gb: `https://api.eu-gb.ae.cloud.ibm.com`

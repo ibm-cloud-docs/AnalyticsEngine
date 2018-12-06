@@ -21,7 +21,6 @@ Analytics Engine
 
     {: .topicgroup}
     Helpful links
-        <!-- [REST API Reference](https://console.ng.bluemix.ne/apidocs/) -->
         [IBM Analytics Engine API reference](https://console.bluemix.net/apidocs/ibm-analytics-engine)
         [Jupyter Kernel Gateway Reference Doc](https://jupyter-kernel-gateway.readthedocs.io/en/latest)
         [Livy Reference](https://github.com/cloudera/livy/blob/master/README.rst)

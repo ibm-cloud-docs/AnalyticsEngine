@@ -20,11 +20,11 @@ To use the {{site.data.keyword.iae_full_notm}} command line interface, download 
 
 - The [Cloud Foundry CLI](https://github.com/cloudfoundry/cli/blob/master/README.md#installing-using-a-package-manager)
 
-- The [{{site.data.keyword.Bluemix_notm}}  CLI](https://console.bluemix.net/docs/cli/index.html#cli)
+- The [{{site.data.keyword.Bluemix_notm}}  CLI](https://{DomainName}/docs/cli/index.html#cli)
 
 ## Installing the {{site.data.keyword.iae_full_notm}} CLI
 
-For details about the {{site.data.keyword.Bluemix_notm}} CLI plugin installation, see the [documentation](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started).
+For details about the {{site.data.keyword.Bluemix_notm}} CLI plugin installation, see the [documentation](https://{DomainName}/docs/cli/reference/bluemix_cli/get_started.html#getting-started).
 
 To list the plugins in the {{site.data.keyword.Bluemix_notm}} repository:
 

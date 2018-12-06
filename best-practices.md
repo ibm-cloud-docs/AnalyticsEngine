@@ -59,17 +59,17 @@ Consider the following configuration aspects:
 ### Disaster Recovery (DR) Resiliency
 {: #DR-resiliency}
 
-You should use the IBM COS Cross Regional resiliency option that backs up your data across several different cities in a region. In contrast, the Regional resiliency option back ups data in a single data center. See the [Cloud Object Storage documentation.](https://console.bluemix.net/docs/services/cloud-object-storage/basics/endpoints.html#select-regions-and-endpoints)
+You should use the IBM COS Cross Regional resiliency option that backs up your data across several different cities in a region. In contrast, the Regional resiliency option back ups data in a single data center. See the [Cloud Object Storage documentation.](https://{DomainName}/docs/services/cloud-object-storage/basics/endpoints.html#select-regions-and-endpoints)
 
 ### Encryption
 {: #cos-encryption}
 
-Cloud Object Storage comes with default built-in encryption. You can also configure Cloud Object Storage to work with the BYOK Key Protect service. See  [here](https://console.bluemix.net/docs/services/keymgmt/index.html#getting-started-with-key-protect) for more information. Note however that Key Protect is currently only supported for regional buckets. See the [Cloud Object Storage](https://console.bluemix.net/docs/services/cloud-object-storage/basics/encryption.html#manage-encryption) documentation.
+Cloud Object Storage comes with default built-in encryption. You can also configure Cloud Object Storage to work with the BYOK Key Protect service. See [here](https://{DomainName}/docs/services/keymgmt/index.html#getting-started-with-key-protect) for more information. Note however that Key Protect is currently only supported for regional buckets. See the [Cloud Object Storage](https://{DomainName}/docs/services/cloud-object-storage/basics/encryption.html#manage-encryption) documentation.
 
 ### Cloud Object Storage credentials
 {: #cos-credentials}
 
-By default, Cloud Object Storage uses IAM-style credentials. If you want to work with AWS-style credentials, you need to provide the inline configuration parameter `{"HMAC":true}` as shown [here](https://console.bluemix.net/docs/services/cloud-object-storage/iam/service-credentials.html#service-credentials).
+By default, Cloud Object Storage uses IAM-style credentials. If you want to work with AWS-style credentials, you need to provide the inline configuration parameter `{"HMAC":true}` as shown [here](https://{DomainName}/docs/services/cloud-object-storage/iam/service-credentials.html#service-credentials).
 
 ### Private endpoint for Cloud Object storage
 {: #private-endpoint}
@@ -133,6 +133,6 @@ Note that any data stored on the cluster is not persistent outside the cluster l
 ## Switch regions for disaster recovery
 {: #disaster-recovery}
 
-You can create {{site.data.keyword.iae_full_notm}} service instances in different regions, for example, in the US South, the United Kingdom and Germany. In the event that you cannot create a service instance in one region, you can switch to an alternate region which hosts  {{site.data.keyword.iae_full_notm}}. You will not be able to access any existing clusters from the new region. However, creating a new cluster in a new region should not be a problem if you followed the recommended best practices described in this topic and kept your existing cluster as stateless as possible with data and jobs residing outside the cluster.
+You can create {{site.data.keyword.iae_full_notm}} service instances in different regions, for example, in the US South, the United Kingdom, Germany, and Japan. In the event that you cannot create a service instance in one region, you can switch to an alternate region which hosts  {{site.data.keyword.iae_full_notm}}. You will not be able to access any existing clusters from the new region. However, creating a new cluster in a new region should not be a problem if you followed the recommended best practices described in this topic and kept your existing cluster as stateless as possible with data and jobs residing outside the cluster.
 
-See the [list of supported regions and the endpoints to use](https://console.bluemix.net/docs/services/AnalyticsEngine/provisioning.html#creating-a-service-instance-using-the-ibm-cloud-command-line-interface) or refer to the {{site.data.keyword.Bluemix_short}} catalog for {{site.data.keyword.iae_full_notm}}.
+See the [list of supported regions and the endpoints to use](https://{DomainName}/docs/services/AnalyticsEngine/provisioning.html#creating-a-service-instance-using-the-ibm-cloud-command-line-interface) or refer to the {{site.data.keyword.Bluemix_short}} catalog for {{site.data.keyword.iae_full_notm}}.

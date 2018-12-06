@@ -29,10 +29,10 @@ The underlying cluster is deleted when the service instance is deleted. All data
 
 To delete an {{site.data.keyword.iae_full_notm}} instance by using the {{site.data.keyword.Bluemix_notm}} user interface:
 
-1. Navigate to your organization's dashboard page [https://console.ng.bluemix.net/dashboard/services](https://console.ng.bluemix.net/dashboard/services) and select the {{site.data.keyword.Bluemix_notm}} service instance you want to delete.
+1. Navigate to the [{{site.data.keyword.Bluemix_notm}} dashboard](https://{DomainName}/dashboard/services) and select the {{site.data.keyword.Bluemix_notm}} service instance you want to delete.
 1. From the service instance's Action menu, choose 'Delete Service'.
 
-## {{site.data.keyword.Bluemix_notm} CLI
+## {{site.data.keyword.Bluemix_notm}} CLI
 
 **Prerequisite**: If you have any service keys for your service instance, you must delete them first, before attempting to delete the service instance.
 
@@ -48,7 +48,7 @@ ibmcloud resource service-instance-delete <service_instance_name>
 
 ## Resource Controller REST API
 
-**Prerequisite**: If you have any service keys for your service instance, you must delete them first, before attempting to delete the service instance. See [managing my IBM Cloud resources using the Resource Controller REST API](https://console.bluemix.net/apidocs/resource-controller) for more about deleting service keys.
+**Prerequisite**: If you have any service keys for your service instance, you must delete them first, before attempting to delete the service instance. See [managing my IBM Cloud resources using the Resource Controller REST API](https://{DomainName}/apidocs/resource-controller) for more about deleting service keys.
 
 To delete an {{site.data.keyword.iae_full_notm}} instance by using the Resource Controller REST API:
 

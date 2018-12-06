@@ -28,15 +28,15 @@ You can create an {{site.data.keyword.iae_full_notm}} service instance through o
 - Germany
 - Japan
 
-## Creating a service instance from the {{site.data.keyword.Bluemix_notm}} console
+## Creating a service instance from the IBM Cloud console
 
 To create an {{site.data.keyword.iae_full_notm}} instance:
-1. Log into the [{{site.data.keyword.Bluemix_short}} console]( https://console.bluemix.net).
+1. Log into the [{{site.data.keyword.Bluemix_short}} console]( https://{DomainName}).
 1. Click **Create resource**, search for `{{site.data.keyword.iae_short}}` and then click on the tile to open the service instance creation page.
-1. On the catalog page, choose the region in which you want the service instance to be deployed. {{site.data.keyword.iae_short}}  deployments are available in US South, United Kingdom, Japan, and Germany.
+1. On the {{site.data.keyword.Bluemix_short}} catalog, choose the region in which you want the service instance to be deployed. {{site.data.keyword.iae_short}}  deployments are available in US South, United Kingdom, Japan, and Germany.
 1. Choose the resource group under which you want to create the service instance. Select a plan and click **Configure**.
 1. On the configuration page, choose the hardware configuration, number of compute nodes and software package of your choice. Click **Create**.
-1. The service instance is provisioned in the background and can take anywhere between 10 to 20 minutes to provision depending on the hardware type and software package you chose. Visit the {{site.data.keyword.Bluemix_short}} page after some time to check the status of the provisioned instance.
+1. The service instance is provisioned in the background and can take anywhere between 10 to 20 minutes to provision depending on the hardware type and software package you chose. Visit the {{site.data.keyword.Bluemix_short}} service details page after some time to check the status of the provisioned instance.
 
 ### Supported plans
 
@@ -74,46 +74,49 @@ When provisioning a service instance:
 
    For running parallel jobs, choose the memory-intensive node size. For example, if the number of concurrent notebooks (connected from IBM Watson Studio to {{site.data.keyword.iae_full_notm}}) is greater than 2, you should select the memory-intensive node size and not  the default node size.
 
-## Creating a service instance using the {{site.data.keyword.Bluemix_notm}} command-line interface
+## Creating a service instance using the IBM Cloud command-line interface
 
 To create a service instance using the {{site.data.keyword.Bluemix_short}} command-line interface:
-1. Download and configure the {{site.data.keyword.Bluemix_short}} CLI. Follow the instructions [here](https://console.bluemix.net/docs/cli/reference/bluemix_cli/download_cli.html#download_install).
+
+1. Download and configure the {{site.data.keyword.Bluemix_short}} CLI. Follow the instructions [here](https://{DomainName}/docs/cli/reference/bluemix_cli/download_cli.html#download_install).
+
 1. Set the API endpoint for your region and log in:
-```
-ibmcloud api https://api.ng.bluemix.net
-ibmcloud login
-```
-{: codeblock}
+   ```
+   ibmcloud api https://api.ng.bluemix.net
+   ibmcloud login
+   ```
+   {: codeblock}
 
- The {{site.data.keyword.Bluemix_short}} API endpoints for the following regions are supported:
+   The {{site.data.keyword.Bluemix_short}} API endpoints for the following regions are supported:
 
- - US South: https://api.ng.bluemix.net
- - United Kingdom: https://api.eu-gb.bluemix.net
- - Germany: https://api.eu-de.bluemix.net
+   - US South: https://api.ng.bluemix.net
+   - United Kingdom: https://api.eu-gb.bluemix.net
+   - Germany: https://api.eu-de.bluemix.net
 
- Note that the API endpoint for Japan is currently not available. However, this does not mean that you  can't create a cluster in Japan. The region where a cluster is deployed is determined by the region parameter passed in the `bx resource service-instance-create` command. To create a cluster in Japan, log in by using one of the available API endpoint and then create the service instance in Tokyo (`jp-tok`).
+   Note that the API endpoint for Japan is currently not available. However, this does not mean that you  can't create a cluster in Japan. The region where a cluster is deployed is determined by the region parameter passed in the `bx resource service-instance-create` command. To create a cluster in Japan, log in by using one of the available API endpoint and then create the service instance in Tokyo (`jp-tok`).
+   
 1. Now create a service instance:
-```
-ibmcloud resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters> ```
 
- {: codeblock}
+   ```
+   ibmcloud resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters> ```
+   {: codeblock}
 
- For example:
- ```
-ibmcloud resource service-instance-create MyServiceInstance ibmanalyticsengine lite us-south -p @/usr/testuser/cluster_specification.json
-```
-Supported plan names are **lite**, **standard-hourly**, and **standard-monthly**.
-Supported regions are: **us-south**, **eu-gb**, **jp-tok** and **eu-de**.
+   For example:
+   ```
+   ibmcloud resource service-instance-create MyServiceInstance ibmanalyticsengine lite us-south -p @/usr/testuser/cluster_specification.json
+   ```
+   Supported plan names are **lite**, **standard-hourly**, and **standard-monthly**.
+   Supported regions are: **us-south**, **eu-gb**, **jp-tok** and **eu-de**.
 
- Sample cluster specification JSON file  
-```
-{
-  "num_compute_nodes": 1,
-  "hardware_config": "default",
-  "software_package": "ae-1.1-spark"
-}
-```
-{: codeblock}
+   Sample cluster specification JSON file  
+   ```
+   {
+     "num_compute_nodes": 1,
+     "hardware_config": "default",
+     "software_package": "ae-1.1-spark"
+   }
+   ```
+   {: codeblock}
 
 ### Description of the cluster specification parameters
 
@@ -220,9 +223,9 @@ To get the IAM token, perform the following [steps](./Retrieve-IAM-access-token.
 
 You can only upgrade from a Lite plan to a Standard-Hourly plan. You can upgrade by using the {{site.data.keyword.iae_full_notm}} UI or by using the {{site.data.keyword.Bluemix_short}} CLI.
 
-To upgrade a Lite plan using the {{site.data.keyword.iae_short}}  dashboard in {{site.data.keyword.Bluemix_short}}:
+To upgrade a Lite plan by using the {{site.data.keyword.iae_short}} service dashboard in {{site.data.keyword.Bluemix_short}}:
 
-1. Open your {{site.data.keyword.iae_full_notm}} service dashboard page.
+1. Open your {{site.data.keyword.iae_full_notm}} service dashboard.
 1. Select the **Plan** tab, select the Standard-Hourly plan and save your changes.
 
 To upgrade using the {{site.data.keyword.Bluemix_short}} CLI enter the following command:

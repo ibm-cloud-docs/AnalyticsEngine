@@ -54,7 +54,7 @@ To fix this issue:
 
 No cluster was associated with your newly-created service instance although the service status shows that it was provisioned because the provisioning request didn't complete successfully.
 
-You should delete your service instance and create a new one by using the {{site.data.keyword.Bluemix_notm}} Catalog.
+You should delete your service instance and create a new one by using the {{site.data.keyword.Bluemix_notm}} catalog.
 
 ## Command line interface
 
@@ -78,17 +78,17 @@ To disable tracing set `BLUEMIX_TRACE` environment variable to `false` (case ign
 
 ### Endpoint was not set or found. Call endpoint first.
 
-The Analytics Engine command line interface requires a cluster endpoint to be first set. This enables the tool to talk to the cluster. The endpoint is the ip or hostname of the management node.
+The Analytics Engine command-line interface requires a cluster endpoint to be first set. This enables the tool to talk to the cluster. The endpoint is the IP or hostname of the management node.
 
 To set the cluster endpoint:
 
 ```
-$ bx ae spark-endpoint https://169.54.195.210
-Registering endpoint 'https://169.54.195.210'...
+$ ibmcloud ae endpoint https://chs-nox-036-mn001.us-south.ae.appdomain.cloud
+Registering endpoint 'https://chs-nox-036-mn001.us-south.ae.appdomain.cloud'...
 Ambari Port Number [Optional: Press enter for default value] (9443)>
 Knox Port Number [Optional: Press enter for default value] (8443)>
 OK
-Endpoint 'https://169.54.195.210' set.
+Endpoint 'https://chs-nox-036-mn001.us-south.ae.appdomain.cloud' set.
 ```
 
 ## Log locations on cluster for various components

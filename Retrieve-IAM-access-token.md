@@ -19,7 +19,7 @@ Before you can call an {{site.data.keyword.iae_full_notm}} API, you must first h
 
 You can create a token in two ways:
 
-- [By using the {{site.data.keyword.Bluemix_notm}} REST application](#create-a-token-using-the-ibm-cloud-rest-api)
+- [By using the {{site.data.keyword.Bluemix_notm}} REST API](#create-a-token-using-the-ibm-cloud-rest-api)
 - [By using the {{site.data.keyword.Bluemix_short}} CLI](#create-a-token-using-the-ibm-cloud-cli).
 
 
@@ -57,21 +57,21 @@ Before you can create a token by using the {{site.data.keyword.Bluemix_notm}} CL
 
 1. You have a valid IBMid.
 
-2. You have downloaded and installed the [{{site.data.keyword.Bluemix_notm}} CLI](https://console.bluemix.net/docs/cli/reference/bluemix_cli/all_versions.html#bluemix-cli-installer-downloads).
+2. You have downloaded and installed the [{{site.data.keyword.Bluemix_notm}} CLI](https://{DomainName}/docs/cli/reference/bluemix_cli/all_versions.html#bluemix-cli-installer-downloads).
 
 To create a token using {{site.data.keyword.Bluemix_notm}} CLI:
 
 1. Log in to the {{site.data.keyword.Bluemix_notm}} CLI:
 
  ```
- bx api https://api.ng.bluemix.net
- bx login <enter your credentials>
+ ibmcloud api https://api.ng.bluemix.net
+ ibmcloud login <enter your credentials>
  ```
  If you have multiple {{site.data.keyword.Bluemix_notm}} accounts, you'll be asked to choose an account for the current session. Also, you'll need to choose an organization and space in {{site.data.keyword.Bluemix_notm}}.
 
 2. Fetch the IAM access token:
 ```
-bx iam oauth-tokens
+ibmcloud iam oauth-tokens
 ```
  The output returns the IAM token.
 

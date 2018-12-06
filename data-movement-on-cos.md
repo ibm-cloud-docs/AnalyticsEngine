@@ -49,4 +49,4 @@ hdfs://chs-czq-182-mn002.us-south.ae.appdomain.cloud:8020/tmp/test.data```
 
 ## Operations outside the cluster
 
-For information on how you can use the IBM COS S3 API or the UI to work with data objects outside of your cluster, refer to the [Cloud Object Storage documentation](https://console.bluemix.net/docs/services/cloud-object-storage/index.html).
+For information on how you can use the IBM COS S3 API or the UI to work with data objects outside of your cluster, refer to the [Cloud Object Storage documentation](https://{DomainName}/docs/services/cloud-object-storage/index.html).
