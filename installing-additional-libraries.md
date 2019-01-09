@@ -27,40 +27,48 @@ Installing the libraries in this manner is permanent; the libraries are always a
 
 Note that you cannot use the `--user` option in `pip` install commands in {{site.data.keyword.iae_full_notm}}.
 
-### Python 2
-
-To install Python 2.7 libraries, your script must install to the `/home/common/conda/anaconda2` environment by using:
-
- ```
- /home/common/conda/anaconda2/bin/pip install <package-name>
- ```
-
- If you install from a local or remote archive, use:
-
- ```
- /home/common/conda/anaconda2/bin/pip install <archive url or local file path>
- ```
-
 ### Python 3
 
 To install Python 3.5 libraries, your script must install to the `/home/common/conda/anaconda3` environment by using:
 
  ```
- /home/common/conda/anaconda3/bin/pip install <package-name>
+ pip install <package-name>
  ```
 
  If you install from a local or remote archive, use:
 
  ```
- /home/common/conda/anaconda3/bin/pip install <archive url or or local file path>
+ pip install <archive url or or local file path>
  ```
+
+### Python 2
+
+To install Python 2.7 libraries, your script must install to the `/home/common/conda/anaconda2` environment by setting some environment variable:
+
+ ```
+ export PATH=/home/common/conda/anaconda2/bin:$PATH
+ export PYSPARK_PYTHON=/home/common/conda/anaconda2/bin/python
+ export PYTHONPATH=~/pipAnaconda2Packages/
+ export PIP_CONFIG_FILE=/home/common/conda/anaconda2/etc/pip.conf
+ ```
+ 
+ 
+ ```
+ pip install <package-name>
+ ```
+
+ If you install from a local or remote archive, use:
+
+ ```
+ pip install <archive url or local file path>
+ ```
+
 
 ### Scala or Java
 
 Scala or Java libraries must be copied to the following designated directories:
 
- * `/home/common/lib/scala/common`: Scala or Java libraries that are not Spark version specific
- * `/home/common/lib/scala/spark2`: Scala or Java libraries that are specific to Spark version 2.x
+ * `~/scala`: Scala or Java libraries that are not Spark version specific
 
  Note that the Scala libraries should be compatible with Scala 2.11 and Java 1.8 as that is the runtime used by JNBG.
 
@@ -80,14 +88,14 @@ wget <path-to-archive>/<packagename>/<packagename>_<version>.tar.gz
 2. Use the R command to install the package:
 
  ```
-R CMD INSTALL -l /home/common/lib/R <packagename>_<version>.tar.gz
+R CMD INSTALL <packagename>_<version>.tar.gz
 ```
 {: codeblock}
 
  Example for installing the R package:
 ```
 wget https://cran.r-project.org/src/contrib/Archive/ibmdbR/ibmdbR_1.48.0.tar.gz
-R CMD INSTALL -l /home/common/lib/R ibmdbR_1.48.0.tar.gz
+R CMD INSTALL ibmdbR_1.48.0.tar.gz
 ```
 {: codeblock}
 
@@ -95,13 +103,13 @@ To install an R package from a CRAN repository:
 
 1. Enter :
 ```
-R -e "install.packages('<package-name>', repos='<cran-repo-base-url>', lib='/home/common/lib/R')"
+R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
 ```
 {: codeblock}
 
  Example for installing an R package from a CRAN repository:
 ```
-R -e "install.packages('ibmdbR', repos='https://cran.r-project.org/', lib='/home/common/lib/R')"
+R -e "install.packages('ibmdbR', repos='https://cran.r-project.org/')"
 ```
 {: codeblock}
 
