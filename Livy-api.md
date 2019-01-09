@@ -33,7 +33,7 @@ curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
--d '{ "file":"local:/usr/hdp/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi" }' \
+-d '{ "file":"local:/usr/hdp/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi", "proxyUser":"clsadmin"}' \
 "https://wce-tmp-867-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
 ```
 {: codeblock}
