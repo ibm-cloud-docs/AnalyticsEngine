@@ -141,7 +141,41 @@ There are two versions of Anaconda installed on all nodes:
  - Anaconda with Python 3.5 at `/home/common/conda/anaconda3`
 
 In your customization script, use commands like:
-`/home/common/conda/anaconda[2|3]/bin/pip install [python or R packages]`
+
+### Python 3
+
+To install Python 3.5 libraries, your script must install to the `/home/common/conda/anaconda3` environment by using:
+
+ ```
+ pip install <package-name>
+ ```
+
+ If you install from a local or remote archive, use:
+
+ ```
+ pip install <archive url or or local file path>
+ ```
+
+### Python 2
+
+To install Python 2.7 libraries, your script must install to the `/home/common/conda/anaconda2` environment by setting some environment variable:
+
+ ```
+ export PATH=/home/common/conda/anaconda2/bin:$PATH
+ export PYSPARK_PYTHON=/home/common/conda/anaconda2/bin/python
+ export PYTHONPATH=~/pipAnaconda2Packages/
+ export PIP_CONFIG_FILE=/home/common/conda/anaconda2/etc/pip.conf
+ ```
+ 
+ ```
+ pip install <package-name>
+ ```
+
+ If you install from a local or remote archive, use:
+
+ ```
+ pip install <archive url or local file path>
+ ```
 
 For more information, see [Installing additional libraries](./installing-additional-libraries.html#installing-additional-libraries). 
 
