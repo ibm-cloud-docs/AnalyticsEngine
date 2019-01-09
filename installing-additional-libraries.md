@@ -113,7 +113,7 @@ R -e "install.packages('ibmdbR', repos='https://cran.r-project.org/')"
 ```
 {: codeblock}
 
-Note that in both cases, the packages are installed to the `/home/common/lib/R` directory. This is important as otherwise, the R packages won't be available in your R notebook and Spark environments.
+Note that in both cases, the packages are installed to the `~/R` directory. This is important as otherwise, the R packages won't be available in your R notebook and Spark environments.
 
 ## Notebook or interactive session specific installations
 
