@@ -197,10 +197,6 @@ R CMD INSTALL <packagename>_<version>.tar.gz
 ```
 {: codeblock}
 
- Example for installing the R package:
-```
-wget https://cran.r-project.org/src/contrib/Archive/ibmdbR/ibmdbR_1.48.0.tar.gz
-R CMD INSTALL ibmdbR_1.48.0.tar.gz
 ```
 {: codeblock}
 
@@ -212,10 +208,6 @@ R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
 ```
 {: codeblock}
 
- Example for installing an R package from a CRAN repository:
-```
-R -e "install.packages('ibmdbR', repos='https://cran.r-project.org/')"
-```
 
 For more information, see [Installing additional libraries](./installing-additional-libraries.html#installing-additional-libraries). 
 
