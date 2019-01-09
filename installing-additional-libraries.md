@@ -68,7 +68,7 @@ To install Python 2.7 libraries, your script must install to the `/home/common/c
 
 Scala or Java libraries must be copied to the following designated directories:
 
- * `~/scala`: Scala or Java libraries that are not Spark version specific
+ * `~/scala`: Scala or Java libraries
 
  Note that the Scala libraries should be compatible with Scala 2.11 and Java 1.8 as that is the runtime used by JNBG.
 
