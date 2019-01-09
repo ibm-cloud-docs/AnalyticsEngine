@@ -84,7 +84,7 @@ curl -i -s \
 -u "<username>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
--d '{ "file":"local:/usr/hdp/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi" }' \
+-d '{ "file":"local:/usr/hdp/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi", "proxyUser":"clsadmin" }' \
 "https://x.x.x.x:8443/gateway/default/livy/v1/batches"
 ```
 
@@ -123,7 +123,7 @@ curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
--d '{ "file":"cos://mybucket.myprodservice/PiEx.py" }' \
+-d '{ "file":"cos://mybucket.myprodservice/PiEx.py" , "proxyUser":"clsadmin"}' \
 "https://iae-tmp-867-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
 ```
 where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
@@ -134,7 +134,7 @@ curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
--d '{ "file":"cos://mybucket.softlayer/spark-examples_2.10-2.1.0.jar", "className":"org.apache.spark.examples.SparkPi" }' \
+-d '{ "file":"cos://mybucket.softlayer/spark-examples_2.10-2.1.0.jar", "className":"org.apache.spark.examples.SparkPi", "proxyUser":"clsadmin" }' \
 "https://iae-tmp-867-mn001<changeme>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
 ```
 where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
