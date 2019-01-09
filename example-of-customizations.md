@@ -177,6 +177,46 @@ To install Python 2.7 libraries, your script must install to the `/home/common/c
  pip install <archive url or local file path>
  ```
 
+### R
+
+R libraries must be installed to the `/home/common/lib/R` directory.
+
+To install the R package from an archive file:
+
+1. Download the archive repository:
+
+ ```
+wget <path-to-archive>/<packagename>/<packagename>_<version>.tar.gz
+```
+{: codeblock}
+
+2. Use the R command to install the package:
+
+ ```
+R CMD INSTALL <packagename>_<version>.tar.gz
+```
+{: codeblock}
+
+ Example for installing the R package:
+```
+wget https://cran.r-project.org/src/contrib/Archive/ibmdbR/ibmdbR_1.48.0.tar.gz
+R CMD INSTALL ibmdbR_1.48.0.tar.gz
+```
+{: codeblock}
+
+To install an R package from a CRAN repository:
+
+1. Enter :
+```
+R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
+```
+{: codeblock}
+
+ Example for installing an R package from a CRAN repository:
+```
+R -e "install.packages('ibmdbR', repos='https://cran.r-project.org/')"
+```
+
 For more information, see [Installing additional libraries](./installing-additional-libraries.html#installing-additional-libraries). 
 
 ### Example of configuring COS/S3 Object Storage as a data source for Hadoop/Spark
