@@ -188,25 +188,18 @@ To install the R package from an archive file:
  ```
 wget <path-to-archive>/<packagename>/<packagename>_<version>.tar.gz
 ```
-{: codeblock}
 
 2. Use the R command to install the package:
 
  ```
 R CMD INSTALL <packagename>_<version>.tar.gz
 ```
-{: codeblock}
-
-```
-{: codeblock}
 
 To install an R package from a CRAN repository:
 
-1. Enter :
 ```
 R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
 ```
-{: codeblock}
 
 
 For more information, see [Installing additional libraries](./installing-additional-libraries.html#installing-additional-libraries). 
