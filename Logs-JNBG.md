@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-05-15"
+  years: 2017, 2019
+lastupdated: "2019-01-17"
 
 ---
 
@@ -41,9 +41,9 @@ cat /var/log/jnbg/<kernel-log-filename>```
 
 You can access Spark Executor logs using one of the following ways:
 
-* launching the cluster's Ambari console to navigate to the corresponding YARN/Spark application UI and use the links in the web interface to download the logs.
+* Launching the cluster's Ambari console to navigate to the corresponding YARN/Spark application UI and use the links in the web interface to download the logs.
 
-* Using a command line and a REST API interface to download the logs. Refer to the instructions [here](./wce-cli-ref-spark-logs.html) for details on these ways to download Spark Executor logs.
+* Using a command line and REST API interface to download the logs. Refer to the instructions [here](/docs/analytics-engine-cli-plugin/analytics-engine-service-cli.html#spark‐logs) for details on how to download Spark Executor logs.
 
 * SSHing to the cluster and using the YARN command line interface to obtain the logs. To obtain logs for a particular `application Id` run the following command:
 

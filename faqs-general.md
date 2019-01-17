@@ -1,0 +1,101 @@
+---
+
+copyright:
+  years: 2017, 2019
+lastupdated: "2019-01-16"
+
+---
+
+<!-- Attribute definitions -->
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:codeblock: .codeblock}
+{:screen: .screen}
+{:pre: .pre}
+{:faq: data-hd-content-type='faq'}
+
+
+# General FAQs
+
+<ul>
+<li>[What is {{site.data.keyword.iae_full_notm}}?](#what-is-ibm-analytics-engine-)</li>
+<li>[How is an {{site.data.keyword.iae_full_notm}} cluster different from a regular Hadoop cluster?](#how-is-an-ibm-analytics-engine-cluster-different-from-a-regular-hadoop-cluster-)</li>
+<li>[How do I get started with {{site.data.keyword.iae_full_notm}}?](#how-do-i-get-started-with-ibm-analytics-engine-)</li>
+<li>[Which distribution is used in {{site.data.keyword.iae_full_notm}}?](#which-distribution-is-used-in-ibm-analytics-engine-)</li>
+<li>[Which HDP components are supported in {{site.data.keyword.iae_full_notm}}?](#which-hdp-components-are-supported-in-ibm-analytics-engine-)</li>
+<li>[What node sizes are available in IBM Analytics  Engine?](#what-node-sizes-are-available-in-ibm-analytics-engine-)</li>
+<li>[Why is there so little HDFS space on the clusters?](#why-is-there-so-little-hdfs-space-on-the-clusters-)</li>
+<li>[How many {{site.data.keyword.iae_full_notm}} clusters can I spin up?](#how-many-ibm-analytics-engine-clusters-can-i-spin-up-)</li>
+<li>[Is there a free usage tier to try {{site.data.keyword.iae_full_notm}}?](#is-there-a-free-usage-tier-to-try-ibm-analytics-engine-)</li>
+<li>[How does the Lite plan  work?](#how-does-the-lite-plan-work-)</li>
+<li>[What types of service maintenance exist in {{site.data.keyword.iae_full_notm}}?](#what-types-of-service-maintenance-exist-in-ibm-analytics-engine-)</li>
+</ul>
+
+## What is {{site.data.keyword.iae_full_notm}}?
+{: faq}
+
+{{site.data.keyword.iae_full_notm}} provides a flexible framework to develop and deploy analytics applications on Hadoop and Spark. It allows you to spin up Hadoop and Spark clusters and manage them through their lifecycle.
+
+## How is an {{site.data.keyword.iae_full_notm}} cluster different from a regular Hadoop cluster?
+{: faq}
+
+{{site.data.keyword.iae_full_notm}} is based on an architecture which separates compute and storage. In a traditional Hadoop architecture, the cluster is used to both store data and perform application processing. In {{site.data.keyword.iae_full_notm}}, storage and compute are separated. The cluster is used for running applications and {{site.data.keyword.Bluemix_notm}} Object Storage for persisting the data. The benefits of such an architecture  include flexibility, simplified operations, better  reliability and cost effectiveness. Read this [whitepaper](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=ASW12451USEN&) to learn more.
+
+## How do I get started with {{site.data.keyword.iae_full_notm}}?
+{: faq}
+
+{{site.data.keyword.iae_full_notm}} is available on {{site.data.keyword.Bluemix_notm}}. Follow this [link](https://{DomainName}/docs/services/AnalyticsEngine/getting-started.html#getting-started) to learn more about the service and to start using it. You will also find tutorials and code samples to get you off to a fast start.
+
+## Which distribution is used in {{site.data.keyword.iae_full_notm}}?
+{: faq}
+
+{{site.data.keyword.iae_full_notm}} is based on open source Hortonworks Data Platform (HDP). To find the currently supported version see the  [documentation](https://{DomainName}/docs/services/AnalyticsEngine/index.html#introduction).
+
+## Which HDP components are supported in {{site.data.keyword.iae_full_notm}}?
+{: faq}
+
+To see the full list of supported components and versions, see the [documentation](https://{DomainName}/docs/services/AnalyticsEngine/index.html#introduction).
+
+## What node sizes are available in {{site.data.keyword.iae_full_notm}}?
+{: faq}
+
+To see the currently supported node sizes, see the [documentation](https://{DomainName}/docs/services/AnalyticsEngine/index.html#introduction).
+
+## Why is there so little HDFS space on the clusters?
+{: faq}
+
+What if I want to run a cluster that has a lot of data to be processed at one time?
+
+The clusters in {{site.data.keyword.iae_full_notm}} are intended to be used as a compute clusters and not as persistent storage for data. Data should be persisted in [{{site.data.keyword.Bluemix_notm}} Object Storage](https://www.ibm.com/cloud/object-storage). This provides a more flexible, reliable, and cost effective way to build analytics applications. See this [whitepaper](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=ASW12451USEN&) to learn more about this topic. The Hadoop Distributed File System (HDFS) should be used at most only for intermediate storage during
+processing. All final data (or even intermediate data) should be written to Cloud Object Storage before the cluster is deleted. If your intermediate storage requirements exceed the HDFS space  available on a node, you can add more nodes to the cluster.
+
+## How many {{site.data.keyword.iae_full_notm}} clusters can I spin up?
+{: faq}
+
+There is no limit to the number of clusters you can spin up.
+
+## Is there a free usage tier to try {{site.data.keyword.iae_full_notm}}?
+{: faq}
+
+Yes, we provide the Lite plan which can be used free of charge. Apart from this, as a new {{site.data.keyword.Bluemix_notm}} user, you are also entitled to $200 in credit that can be used against {{site.data.keyword.iae_full_notm}} or any service on {{site.data.keyword.Bluemix_notm}}.
+
+## How does the Lite plan work?
+{: faq}
+
+The Lite plan provides 50 node-hours of free {{site.data.keyword.iae_full_notm}} usage. One cluster can be provisioned every 30  days. After the 50 node-hours are exhausted, you can  upgrade to a paid plan within 24 hours to continue using the same cluster. If you do not upgrade within 24 hours, the cluster will be deleted and you have to provision a new one after the 30 day limit has passed.
+
+Depending on the size of your cluster, actual hours of use might vary. For instance, a cluster with 1 master and 3 data nodes (4  nodes in total) will run for 12.5 hours on the clock (50 hours/4 nodes). However, a cluster with 1 master and 1 data node (2 nodes in total) will run for 25 hours on the clock (50 hours/2 nodes). The node-hours cannot be paused, for example, you cannot use 10 node-hours, pause, and then come back and use the remaining 40 node-hours.
+
+## What types of service maintenance exist in {{site.data.keyword.iae_full_notm}}?
+{: faq}
+
+Occasionally, we need to update the {{site.data.keyword.iae_full_notm}} service. Most of these updates are non-disruptive and are performed when new features become available or when updates and fixes need to be applied.
+
+Most updates that are  made to the system that handles service instance provisioning are non-disruptive. These updates include updates or enhancements to the service instance creation, deletion or management tools, updates or enhancements to the service management dashboard user interface, or updates to the service operation management tools.
+
+Updates to the provisioned {{site.data.keyword.iae_full_notm}} clusters might include operating system patches and security patches for various components of the cluster. Again, many of these updates are non-disruptive.
+
+However, if there is an absolute need to perform a disruptive deployment, you will be notified well in advance via email communication and on the [{{site.data.keyword.Bluemix_notm}} status page](https://cloud.ibm.com/status).
+
+When a disruptive deployment is made to the system that handles the provisioning of a service instance, you will be unable to create, access, or delete an {{site.data.keyword.iae_full_notm}} service instance from the {{site.data.keyword.Bluemix_notm}} console or by using the service instance management REST APIs.
+When a disruptive deployment is made to a provisioned service instance, you will not be able to access the {{site.data.keyword.iae_full_notm}} cluster or run jobs.

@@ -16,7 +16,6 @@ lastupdated: "2018-12-05"
 
 
 # FAQs
-{: #faq}
 
 <ul>
 <li><b>General</b>
@@ -81,7 +80,7 @@ lastupdated: "2018-12-05"
 ## General
 
 ### What is {{site.data.keyword.iae_full_notm}}?
-
+{: faq}
 
 {{site.data.keyword.iae_full_notm}} provides a flexible framework to develop and deploy analytics applications on Hadoop and Spark. It allows you to spin up Hadoop and Spark clusters and manage them through their lifecycle.
 

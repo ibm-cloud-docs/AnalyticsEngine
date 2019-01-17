@@ -97,22 +97,8 @@ Analytics Engine
         database-connectors.md
 
     {: .topicgroup}
-    Using the command line interface
-        WCE-CLI.md
-        wce-wcl-install.md
-
-    {: .topicgroup}
-    Using CLI commands
-        wce-cli-ref-spark-endpoint.md
-        wce-cli-ref-file-system.md
-        wce-cli-ref-kernels.md
-        wce-cli-ref-spark-submit.md
-        wce-cli-ref-spark-logs.md
-        wce-cli-ref-spark-job-status.md
-        wce-cli-ref-spark-job-statuses.md
-        wce-cli-ref-spark-job-cancel.md
-        wce-cli-ref-username.md
-        wce-cli-ref-versions.md
+    IBM Analytics Engine CLI reference
+        [Using the CLI](../docs/analytics-engine-cli-plugin/analytics-engine-service-cli.html)
 
     {: .topicgroup}
     Miscellaneous
@@ -124,8 +110,15 @@ Analytics Engine
 
     {: .navgroup id="help"}
     release-notes.md
-    faq.md
     troubleshooting.md
     Known-issues.md
     workaround-oozie-jobs.md
+
+    {: .topicgroup}
+    FAQS
+        faqs-general.md
+        faqs-architecture.md
+        faqs-integration.md
+        faqs-operations.md
+        fags-security.md
     {: .navgroup-end}

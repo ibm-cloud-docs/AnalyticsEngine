@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-05-15"
+  years: 2017, 2019
+lastupdated: "2019-01-17"
 
 ---
 
@@ -43,4 +43,4 @@ Now that you have provisioned a service instance and have created a cluster, you
 - [Run Hadoop MapReduce jobs](./hadoop-mapreduce-jobs.html).
 - [Run Spark Interactive jobs](./spark-interactive-notebooks-api.html).
 - [Run Spark Batch jobs](./Livy-api.html).
-- Manage your cluster by using the [Cloud Foundry command line interface (cf CLI)](./WCE-CLI.html) for various operations.
+- Manage your cluster by [using the CLI](/docs/analytics-engine-cli-plugin/analytics-engine-service-cli.html) for various operations.
