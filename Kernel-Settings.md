@@ -22,7 +22,7 @@ No explicit memory limit is set on a per kernel basis. 6 GB free memory is avail
 
 ### Changing memory settings  
 
-Refer to the [overriding kernel settings section](./Kernel-Settings.html#overriding-kernel-settings) to see how you can pass settings to control driver and executor memory limits. By default, no limit is applied to the driver process and the Spark default is used for executors (approximately 1 GB).
+Refer to the [overriding kernel settings section](/docs/services/AnalyticsEngine/Kernel-Settings.html#overriding-kernel-settings) to see how you can pass settings to control driver and executor memory limits. By default, no limit is applied to the driver process and the Spark default is used for executors (approximately 1 GB).
 
 Note that for Python and R kernels, the Python and R native process can consume it's own memory which may not be governed by the `--driver-memory` option. There is no memory limit applied to these processes.
 
@@ -47,7 +47,7 @@ Advanced spark2-env:
 
 Save your changes and restart all the affected components.
 
-To change settings per notebook and kernel, refer to the [overriding kernel settings section](./Kernel-Settings.html#overriding-kernel-settings).
+To change settings per notebook and kernel, refer to the [overriding kernel settings section](/docs/services/AnalyticsEngine/Kernel-Settings.html#overriding-kernel-settings).
 
 ## Number of concurrent kernels
 There is no explicit limit set on numbers of kernels.The maximum number of kernels depends on the containers available in the cluster.

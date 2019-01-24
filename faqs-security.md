@@ -5,8 +5,6 @@ copyright:
 lastupdated: "2018-12-05"
 
 ---
-
-<!-- Attribute definitions -->
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -16,11 +14,6 @@ lastupdated: "2018-12-05"
 
 
 # Security FAQs
-
-<ul>
-<li>[What type of encryption is supported?](#what-type-of-encryption-is-supported-)</li>
-<li>[Which ports are open on the public interface on the  cluster?](#which-ports-are-open-on-the-public-interface-on-the-cluster-)</li>
-</ul>
 
 ## What type of encryption is supported?
 {: faq}
@@ -40,3 +33,10 @@ cluster:
 - Port 8443 Knox
 - Port 22 SSH
 - Port 9443 Ambari
+
+## More FAQs
+
+- [General FAQs](/docs/services/AnalyticsEngine/faqs-general.html)
+- [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/services/AnalyticsEngine/faqs-architecture.html)
+- [FAQs about {{site.data.keyword.iae_full_notm}} operations](/docs/services/AnalyticsEngine/faqs-operations.html)
+- [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/services/AnalyticsEngine/faqs-integration.html)

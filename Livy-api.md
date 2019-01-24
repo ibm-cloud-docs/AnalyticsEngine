@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-09-26"
+  years: 2017,2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -33,7 +33,7 @@ curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
--d '{ "file":"local:/usr/hdp/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi" }' \
+-d '{ "file":"local:/usr/hdp/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi", "proxyUser":"clsadmin" }' \
 "https://wce-tmp-867-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
 ```
 {: codeblock}
@@ -55,7 +55,7 @@ Successful response:
 }
 ```
 
-For interactive workloads see [Spark Interactive](./spark-interactive-notebooks-api.html).
+For interactive workloads see [Spark Interactive](/docs/services/AnalyticsEngine/spark-interactive-notebooks-api.html).
 
 ## REST API
 
@@ -75,6 +75,11 @@ See [livy documentation](https://github.com/cloudera/livy#rest-api) for complete
 
 In the following cURL requests, response headers are printed along with the JSON output to show the HTTP response status codes.
 
+To force the use of Anaconda Python instead of System Python, use  `proxyUser` in the payload while submitting jobs. Run the spark-submit job as `clsadmin` user to avoid running into permission issues. For example:
+```
+curl -u "clsadmin:passWorld" -H 'Content-Type: application/json' -H 'X-Requested-By: livy'  -d '{ "file":"/user/clsadmin/printenv.py" , "proxyUser":"clsadmin"}' "https://chs-mmm-007-mn001.us-south.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"```
+
+
 ### Submit a Spark job
 
 Request:
@@ -84,7 +89,7 @@ curl -i -s \
 -u "<username>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
--d '{ "file":"local:/usr/hdp/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi" }' \
+-d '{ "file":"local:/usr/hdp/current/spark2-client/jars/spark-examples.jar", "className":"org.apache.spark.examples.SparkPi", "proxyUser":"clsadmin" }' \
 "https://x.x.x.x:8443/gateway/default/livy/v1/batches"
 ```
 
@@ -115,7 +120,7 @@ Content-Length: 100
 ```
 ### Submit Spark applications from Object Storage or on data in object stores
 
-Refer to [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html) for instructions on configuring your cluster to use Object Storage. Once configured, you can directly submit Spark applications from Object Storage. You can also submit Spark applications on data residing in Object Storage.
+Refer to [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine/configure-COS-S3-object-storage.html) for instructions on configuring your cluster to use Object Storage. Once configured, you can directly submit Spark applications from Object Storage. You can also submit Spark applications on data residing in Object Storage.
 
 Using Livy to submit a Spark application that exists in Object Storage is basically the same as submitting any Spark application. The only difference is the "file" reference is an Object Storage URL:
 ```
@@ -123,7 +128,7 @@ curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
--d '{ "file":"cos://mybucket.myprodservice/PiEx.py" }' \
+-d '{ "file":"cos://mybucket.myprodservice/PiEx.py", "proxyUser":"clsadmin" }' \
 "https://iae-tmp-867-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
 ```
 where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
@@ -134,7 +139,7 @@ curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
--d '{ "file":"cos://mybucket.softlayer/spark-examples_2.10-2.1.0.jar", "className":"org.apache.spark.examples.SparkPi" }' \
+-d '{ "file":"cos://mybucket.softlayer/spark-examples_2.10-2.1.0.jar", "className":"org.apache.spark.examples.SparkPi", "proxyUser":"clsadmin" }' \
 "https://iae-tmp-867-mn001<changeme>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
 ```
 where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.

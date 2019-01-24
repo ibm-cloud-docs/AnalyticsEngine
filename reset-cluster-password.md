@@ -36,4 +36,4 @@ The expected response is the changed password in JSON format. For example:
 
 **Note:** To retrieve the
 IAM access token, see [Retrieving IAM access
-tokens](./Retrieve-IAM-access-token.html).
+tokens](/docs/services/AnalyticsEngine/Retrieve-IAM-access-token.html).

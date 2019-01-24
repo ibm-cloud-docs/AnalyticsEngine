@@ -6,7 +6,6 @@ lastupdated: "2019-01-16"
 
 ---
 
-<!-- Attribute definitions -->
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -16,23 +15,6 @@ lastupdated: "2019-01-16"
 
 
 # FAQs about operations
-
-<ul>
-<li>[How much time does it take for the cluster to get started?](#how-much-time-does-it-take-for-the-cluster-to-get-started-)</li>
-<li>[How can I access or interact with my cluster?](#how-can-i-access-or-interact-with-my-cluster-)</li>
-<li>[How do I get data into the  cluster?](#how-do-i-get-data-into-the-cluster-)</li>
-<li>[How do I configure my cluster?](#how-do-i-configure-my-cluster-)</li>
-<li>[Do I have root access in IBM Analytics  Engine?](#do-i-have-root-access-in-ibm-analytics-engine-)</li>
-<li>[Can I install my own Hadoop stack  components?](#can-i-install-my-own-hadoop-stack-components-)</li>
-<li>[Which third party packages can I  install?](#which-third-party-packages-can-i-install-)</li>
-<li>[Can I monitor the cluster?](#can-i-monitor-the-cluster-)</li>
-<li>[How do I scale my cluster?](#how-do-i-scale-my-cluster-)</li>
-<li>[Can I scale my cluster while jobs are running on  it?](#can-i-scale-my-cluster-while-jobs-are-running-on-it-)</li>
-<li>[Can I adjust resource allocation in a Spark interactive application?](#can-i-adjust-resource-allocation-in-a-spark-interactive-application-)
-<li>[Does the {{site.data.keyword.iae_full_notm}} operations team monitor and manage all service  instances?](#does-the-ibm-analytics-engine-operations-team-monitor-and-manage-all-service-instances-)</li>
-<li>[Where are my job log files?](#where-are-my-job-log-files-)</li>
-<li>[How can I debug a Hive query on {{site.data.keyword.iae_full_notm}}?](#how-can-i-debug-a-hive-query-on-ibm-analytics-engine-)</li>
-</ul>
 
 ## How much time does it take for the cluster to get started?
 {: faq}
@@ -125,3 +107,10 @@ To debug a Hive query on {{site.data.keyword.iae_full_notm}}:
 2. Select **Advanced > hive-log4j** and change `hive.root.logger=INFO,RFA` to `hive.root.logger=DEBUG,RFA`.
 3. Run the Hive query.
 4. SSH to the {{site.data.keyword.iae_full_notm}} cluster. The Hive logs are located in `/tmp/clsadmin/hive.log`.
+
+## More FAQs
+
+- [General FAQs](/docs/services/AnalyticsEngine/faqs-general.html)
+- [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/services/AnalyticsEngine/faqs-architecture.html)
+- [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/services/AnalyticsEngine/faqs-integration.html)
+- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/services/AnalyticsEngine/faqs-security.html)

@@ -1,4 +1,4 @@
----
+/docs/services/AnalyticsEngine/---
 
 copyright:
   years: 2017, 2019
@@ -6,7 +6,6 @@ lastupdated: "2019-01-17"
 
 ---
 
-<!-- Attribute definitions -->
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -26,7 +25,7 @@ lastupdated: "2019-01-17"
 
   In this video you will learn how to provision an {{site.data.keyword.iae_full_notm}} cluster from IBM Cloud, find out about options to manage the cluster, and see how to connect {{site.data.keyword.DSX_short}} to {{site.data.keyword.iae_full_notm}} to analyze data.
 
- For details about the supported plans and on how to provision and configure your cluster, see the [{{site.data.keyword.iae_full_notm}} documentation](./provisioning.html).
+ For details about the supported plans and on how to provision and configure your cluster, see the [{{site.data.keyword.iae_full_notm}} documentation](provisioning.html).
 
 * Watch how to [provision an {{site.data.keyword.iae_full_notm}} service instance through {{site.data.keyword.DSX_short}}](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/#provision).
 
@@ -35,12 +34,12 @@ lastupdated: "2019-01-17"
 * Watch a [demo](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/#spark-notebook) and run through the tutorial using sample code and data. Copy or download this [notebook](https://datascience.ibm.com/exchange/public/entry/view/e2e70feb00a65760eb1bd683da285364) from the {{site.data.keyword.DSX_short}} community to try it for yourself!
 * Learn how to use [spark-submit](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/#spark-submit) to execute a Python script on an {{site.data.keyword.iae_full_notm}} cluster.
 * Learn how to programmatically use {{site.data.keyword.iae_full_notm}} through this [tutorial](https://github.com/IBM-Cloud/IBM-Analytics-Engine). Get access to sample scripts to start operationalizing your first applications.
-* Get answers to some [frequently asked questions](./faq.html) about using {{site.data.keyword.iae_full_notm}}.
+* Get answers to some [frequently asked questions](/docs/services/AnalyticsEngine/faqs-general.html) about using {{site.data.keyword.iae_full_notm}}.
 
 ## Next steps
 Now that you have provisioned a service instance and have created a cluster, you can start running jobs and managing your cluster:
 
-- [Run Hadoop MapReduce jobs](./hadoop-mapreduce-jobs.html).
-- [Run Spark Interactive jobs](./spark-interactive-notebooks-api.html).
-- [Run Spark Batch jobs](./Livy-api.html).
+- [Run Hadoop MapReduce jobs](/docs/services/AnalyticsEngine/hadoop-mapreduce-jobs.html).
+- [Run Spark Interactive jobs](/docs/services/AnalyticsEngine/spark-interactive-notebooks-api.html).
+- [Run Spark Batch jobs](/docs/services/AnalyticsEngine/Livy-api.html).
 - Manage your cluster by [using the CLI](/docs/analytics-engine-cli-plugin/analytics-engine-service-cli.html) for various operations.

@@ -94,7 +94,7 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
    - Germany: https://api.eu-de.bluemix.net
 
    Note that the API endpoint for Japan is currently not available. However, this does not mean that you  can't create a cluster in Japan. The region where a cluster is deployed is determined by the region parameter passed in the `bx resource service-instance-create` command. To create a cluster in Japan, log in by using one of the available API endpoint and then create the service instance in Tokyo (`jp-tok`).
-   
+
 1. Now create a service instance:
 
    ```
@@ -125,8 +125,8 @@ The cluster parameters include:
 1. **`num_compute_nodes`** (Required): Number of compute nodes required in the cluster.
 1. **`hardware_config`** (Required): Represents the instance size of the cluster. Accepted value: _`default`_ and _`memory-intensive`_  
 1. **`software_package`** (Required): Determines the set of services to be installed on the cluster. Accepted value: _`ae-1.1-spark`_, _` ae-1.1-hive-spark`_, _`ae-1.1-hadoop-spark`_, _`ae-1.0-spark`_,  _`ae-1.0-hive-spark`_ and _`ae-1.0-hadoop-spark`_
-1. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](./customizing-cluster.html).
-1. **`advanced_options`** (Optional): JSON object with nested JSON objects for various custom configurations for components installed with the cluster. Advantage here is that the custom configurations are baked during cluster creation time which means that the cluster is created based on the provided custom configurations. For details on how to create a cluster with `advanced_options`, see [Using advanced provisioning options](./advanced-provisioning-options.html).
+1. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](/docs/services/AnalyticsEngine/customizing-cluster.html).
+1. **`advanced_options`** (Optional): JSON object with nested JSON objects for various custom configurations for components installed with the cluster. Advantage here is that the custom configurations are baked during cluster creation time which means that the cluster is created based on the provided custom configurations. For details on how to create a cluster with `advanced_options`, see [Using advanced provisioning options](/docs/services/AnalyticsEngine/advanced-provisioning-options.html).
 <br>
 
 The following sample is the ibmcloud CLI response to the create instance command example previously shown: <br>
@@ -142,7 +142,7 @@ Service provisioning happens asynchronously. Successful response just means that
 
 ## Provision tracking
 
-For an overview of how a cluster is provisioned and how to check your cluster provisioning state, see [Track cluster provisioning](./track-instance-provisioning.html).
+For an overview of how a cluster is provisioned and how to check your cluster provisioning state, see [Track cluster provisioning](/docs/services/AnalyticsEngine/track-instance-provisioning.html).
 
 
 ## Querying for service provisioning status
@@ -216,7 +216,7 @@ cat provision.json
 ```
 {: codeblock}
 
-To get the IAM token, perform the following [steps](./Retrieve-IAM-access-token.html).
+To get the IAM token, perform the following [steps](/docs/services/AnalyticsEngine/Retrieve-IAM-access-token.html).
 
 
 ## Plan upgrading

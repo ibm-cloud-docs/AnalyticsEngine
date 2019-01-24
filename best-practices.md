@@ -47,7 +47,7 @@ To help you create and maintain a stateless cluster, you should try to keep to t
 
 Although the {{site.data.keyword.iae_full_notm}} cluster includes the Hadoop component with HDFS running on the compute nodes, you should use IBM Cloud Object Storage as the primary data store. You should use the HDFS nodes only as a data store for sandbox-type workloads.
 
-{{site.data.keyword.iae_full_notm}} can be configured to work with [data in IBM Cloud Object Storage S3](./configure-COS-S3-object-storage.html) with [Hive table metadata stored in a Compose for MySQL service](./working-with-hive.html#externalizing-the-hive-metastore-to-ibm-compose-for-mysql), which resides outside of the cluster. When jobs are executed, they run on the compute nodes by bringing in data (as required by the job plan) from Cloud Object Storage. For more on this topic refer to this [{{site.data.keyword.iae_full_notm}}  whitepaper](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=ASW12451USEN&). Note that the application binaries can reside in Cloud Object Storage as well.
+{{site.data.keyword.iae_full_notm}} can be configured to work with [data in IBM Cloud Object Storage S3](/docs/services/AnalyticsEngine/configure-COS-S3-object-storage.html) with [Hive table metadata stored in a Compose for MySQL service](/docs/services/AnalyticsEngine/working-with-hive.html#externalizing-the-hive-metastore-to-ibm-compose-for-mysql), which resides outside of the cluster. When jobs are executed, they run on the compute nodes by bringing in data (as required by the job plan) from Cloud Object Storage. For more on this topic refer to this [{{site.data.keyword.iae_full_notm}}  whitepaper](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=ASW12451USEN&). Note that the application binaries can reside in Cloud Object Storage as well.
 
 ![Shows separating compute from storage in the {{site.data.keyword.iae_full_notm}} cluster.](images/SeparateComputeFromStorage.png)
 
@@ -84,7 +84,7 @@ Upgrading components on the  {{site.data.keyword.iae_full_notm}} cluster to a hi
 ## Customize cluster creation using scripts
 {: #use-scripts}
 
-To enable deleting and creating clusters often, you should use customization scripts to configure your cluster, and to install custom libraries and packages. This way, you won't have to manually customize the cluster every time you create a new one. See [Customizing a cluster](./customizing-cluster.html).
+To enable deleting and creating clusters often, you should use customization scripts to configure your cluster, and to install custom libraries and packages. This way, you won't have to manually customize the cluster every time you create a new one. See [Customizing a cluster](/docs/services/AnalyticsEngine/customizing-cluster.html).
 
 ## Size the cluster appropriately
 {: #cluster-size}
@@ -121,7 +121,7 @@ The AE 1.1 software packages include components for Horton Dataworks Platform 2.
 ## Tune kernel settings for Spark interactive jobs
 {: #spark-interactive}
 
-When running large Spark interactive jobs, you might need to adjust kernel settings to tune resource allocation. To get the maximum performance from your cluster for a Spark job, make sure the kernel settings for memory and executor are correct. See [Kernel settings](Kernel-Settings.html).
+When running large Spark interactive jobs, you might need to adjust kernel settings to tune resource allocation. To get the maximum performance from your cluster for a Spark job, make sure the kernel settings for memory and executor are correct. See [Kernel settings](/docs/services/AnalyticsEngine/Kernel-Settings.html).
 
 ## Store temporary files on the cluster prudently
 {: #store-temp-files}

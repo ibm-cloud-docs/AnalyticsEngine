@@ -27,7 +27,7 @@ The JNBG service on the cluster provides two endpoints for HTTP operations and W
 
  The Websocket resource multiplexes the Jupyter kernel messaging protocol over a single Websocket connection to submit code and communicate with the running kernel.
 
-Refer to the instructions [here](./Retrieve-service-credentials-and-service-end-points.html#retrieving-service-credentials-and-service-end-points) on retrieving service end points for the {{site.data.keyword.iae_full_notm}} cluster. In the JSON service endpoint details, the HTTP endpoint URL of the JNBG service is listed in `notebook_gateway` and the Websocket endpoint in `notebook_gateway_websocket`. Here is a representative sample of a cluster's service endpoint details:
+Refer to the instructions [here](/docs/services/AnalyticsEngine/Retrieve-service-credentials-and-service-end-points.html#retrieving-service-credentials-and-service-end-points) on retrieving service end points for the {{site.data.keyword.iae_full_notm}} cluster. In the JSON service endpoint details, the HTTP endpoint URL of the JNBG service is listed in `notebook_gateway` and the Websocket endpoint in `notebook_gateway_websocket`. Here is a representative sample of a cluster's service endpoint details:
 
 ```
 .

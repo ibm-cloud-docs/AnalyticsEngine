@@ -59,4 +59,4 @@ With the Scala kernel the Spark session is not initialized until code is execute
 Waiting for a Spark session to start...
 ```
 
-If you see any of the above Spark initialization messages in a notebook or interactive session, and the code does not execute for a long time (well over a minute) then refer to [Troubleshooting (JNBG)](./Troubleshooting-JKG.html) for the possible cause and its solution.
+If you see any of the above Spark initialization messages in a notebook or interactive session, and the code does not execute for a long time (well over a minute) then refer to [Troubleshooting (JNBG)](/docs/services/AnalyticsEngine/Troubleshooting-JKG.html) for the possible cause and its solution.

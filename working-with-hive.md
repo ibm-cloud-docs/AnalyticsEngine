@@ -153,7 +153,7 @@ CREATE TABLE parquet_test (
 PARTITIONED BY (part string)
 STORED AS PARQUET;
 ```
-4. Create an external table in Parguet format in IBM Cloud Object Storage. Your cluster needs to be configured to use Cloud Object Store. See [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html#configuring-clusters-to-work-with-ibm-cos-s3-object-stores).
+4. Create an external table in Parguet format in IBM Cloud Object Storage. Your cluster needs to be configured to use Cloud Object Store. See [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine/configure-COS-S3-object-storage.html#configuring-clusters-to-work-with-ibm-cos-s3-object-stores).
 ```
 CREATE EXTERNAL TABLE parquet_test1 (
  id int,
@@ -215,7 +215,7 @@ To create Hive tables in ORC format:
  2. Launch Beeline:
  ```
  beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword>```
- 3. Create an external table in ORC format in IBM Cloud Object Storage. To be able to do this, your cluster must have been [configured to work with Cloud Object Storage](./configure-COS-S3-object-storage.html#configuring-clusters-to-work-with-ibm-cos-s3-object-stores).
+ 3. Create an external table in ORC format in IBM Cloud Object Storage. To be able to do this, your cluster must have been [configured to work with Cloud Object Storage](/docs/services/AnalyticsEngine/configure-COS-S3-object-storage.html#configuring-clusters-to-work-with-ibm-cos-s3-object-stores).
  ```
  CREATE EXTERNAL TABLE orc_table(line STRING) STORED AS ORC LOCATION 'cos://mybucket.myprodservice/ORC'; ```
  4. Load data from an ORC file stored in Cloud Object Storage into an external parquet table:

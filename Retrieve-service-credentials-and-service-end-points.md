@@ -29,12 +29,12 @@ You need to create a service key for the {{site.data.keyword.iae_full_notm}} ser
 To create a service key, enter the following command:
 
 ```
-bx resource service-key-create <your_service_key_name> <role> --instance-name <your_service_instance_name>
+ibmcloud resource service-key-create <your_service_key_name> <role> --instance-name <your_service_instance_name>
 ```
 where:
-- `<your_service_instance_name>` is the name of the service instance you  specified when creating the cluster. You can use `bx resource service-instances` to find all your service instance names.
+- `<your_service_instance_name>` is the name of the service instance you  specified when creating the cluster. You can use `ibmcloud resource service-instances` to find all your service instance names.
 - `<your_service_key_name>` is any name that you want to refer your key as. This name is used to retrieve service keys.  
-- `<role>` is the role you assigned to the IAM API key which was  generated for the service credentials. You will be able to perform only those operations that are permitted for the chosen role. For more details on the roles required to perform an operation, refer to section *Required IAM permissions* [here](./granting-permissions-to-users.html).
+- `<role>` is the role you assigned to the IAM API key which was  generated for the service credentials. You will be able to perform only those operations that are permitted for the chosen role. For more details on the roles required to perform an operation, refer to section *Required IAM permissions* [here](/docs/services/AnalyticsEngine/granting-permissions-to-users.html).
 
 Expected response:
 
@@ -49,7 +49,7 @@ Service key <service key crn> was created.
 You can also view your service key by using the following command:
 
 ```
-bx resource service-key <service_key_name>
+ibmcloud resource service-key <service_key_name>
 ```
 where:
 
@@ -103,7 +103,7 @@ The property `apikey` contains an IAM API key that can be used to generate IAM b
 
 ## Obtaining the credentials using the {{site.data.keyword.Bluemix_notm}} REST API
 
-**Prerequisite**: You need an IAM bearer token. For more information, see [Retrieving IAM access tokens](./Retrieve-IAM-access-token.html).
+**Prerequisite**: You need an IAM bearer token. For more information, see [Retrieving IAM access tokens](/docs/services/AnalyticsEngine/Retrieve-IAM-access-token.html).
 
 The API endpoint that handles API service keys is `https://resource-controller.bluemix.net/v1/resource_keys`.
 

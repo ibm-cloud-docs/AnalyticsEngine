@@ -19,7 +19,7 @@ lastupdated: "2018-11-14"
 
 This topic explains how to configure an {{site.data.keyword.iae_full_notm}} cluster to connect to data and applications stored an object store. {{site.data.keyword.iae_full_notm}} uses HDP’s default AWS open source object storage connectors to access data from Cloud Object Storage  when running HDFS, Hive, or Mapreduce jobs. However, when running Spark jobs, the system is preconfigured to use IBM’s open source Stocator libraries that offer better performance and optimization for large object reads and writes as compared to the default AWS connectors. See  [Stocator - Storage Connector for Apache  Spark](https://github.com/SparkTC/stocator).
 
-As described in [Best Practices](./best-practices.html), you should use {{site.data.keyword.cos_full_notm}} as your primary data source and sink. Apart from the data itself, the application or job binaries, for example for a Spark Python file or a Yarn application JAR, can reside in the object store. This way you can make your cluster stateless, giving you the flexibility to spin up {{site.data.keyword.iae_full_notm}} clusters when you need them. See  [Choose the right Cloud Object Storage configuration](./best-practices.html).
+As described in [Best Practices](/docs/services/AnalyticsEngine/best-practices.html), you should use {{site.data.keyword.cos_full_notm}} as your primary data source and sink. Apart from the data itself, the application or job binaries, for example for a Spark Python file or a Yarn application JAR, can reside in the object store. This way you can make your cluster stateless, giving you the flexibility to spin up {{site.data.keyword.iae_full_notm}} clusters when you need them. See  [Choose the right Cloud Object Storage configuration](/docs/services/AnalyticsEngine/best-practices.html).
 
 ## Getting the {{site.data.keyword.cos_full_notm}} credentials
 
@@ -99,7 +99,7 @@ For IAM token authentication, you must define the following parameter in {{site.
 ```
 fs.cos.<servicename>.iam.token=<IAM-token-example-2342342sdfasf34234234asf……..
 ```
-The IAM token for each user is obtained by using the `ibmcloud iam oauth-tokens` command. See [Retrieving IAM access tokens](./Retrieve-IAM-access-token.html).
+The IAM token for each user is obtained by using the `ibmcloud iam oauth-tokens` command. See [Retrieving IAM access tokens](/docs/services/AnalyticsEngine/Retrieve-IAM-access-token.html).
 
 ## URI for accessing objects in Object Storage
 
@@ -119,7 +119,7 @@ To enable an application to connect to Cloud Object Storage, you must update the
 
 You can configure Object Storage by using one of the following four methods:
 
-* [Create an {{site.data.keyword.iae_full_notm}} service instance using advanced custom provisioning options](./advanced-provisioning-options.html). This is the preferred and most efficient method.
-* [Specify the properties at runtime](./specify-properties-at-runtime.html)
-* [Customize the cluster using a customization script](./customizing-using-script.html)
-* [Configure the cluster via the Ambari UI after it was created](./configure-cos-via-ambari.html)
+* [Create an {{site.data.keyword.iae_full_notm}} service instance using advanced custom provisioning options](/docs/services/AnalyticsEngine/advanced-provisioning-options.html). This is the preferred and most efficient method.
+* [Specify the properties at runtime](/docs/services/AnalyticsEngine/specify-properties-at-runtime.html)
+* [Customize the cluster using a customization script](/docs/services/AnalyticsEngine/customizing-using-script.html)
+* [Configure the cluster via the Ambari UI after it was created](/docs/services/AnalyticsEngine/configure-cos-via-ambari.html)

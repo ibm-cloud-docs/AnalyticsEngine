@@ -127,7 +127,7 @@ Spark provides a mechanism to dynamically adjust the resources your application 
 - `spark.dynamicAllocation.initialExecutors`
 - `spark.dynamicAllocation.maxExecutors`
 
-  **Note:** `spark.dynamicAllocation.initialExecutors` is same as `spark.dynamicAllocation.minExecutors`.
+  **Note:** `spark.dynamicAllocation.initialExecutors` is the same as `spark.dynamicAllocation.minExecutors`.
 
 ```
 {
@@ -156,7 +156,7 @@ To create a cluster with an external Hive metastore, you must provide the follow
 - `javax.jdo.option.ConnectionPassword`
 - `ambari.hive.db.schema.name`
 
- For details on JDBC connection format for  {{site.data.keyword.composeForMySQL}}, see [Externalizing the Hive metastore to IBM Compose for MySQL](./working-with-hive.html#externalizing-the-hive-metastore-to-ibm-compose-for-mysql).
+ For details on JDBC connection format for  {{site.data.keyword.composeForMySQL}}, see [Externalizing the Hive metastore to IBM Compose for MySQL](/docs/services/AnalyticsEngine/working-with-hive.html#externalizing-the-hive-metastore-to-ibm-compose-for-mysql).
 
 ```
 {

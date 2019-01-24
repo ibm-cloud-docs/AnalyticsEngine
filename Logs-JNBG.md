@@ -17,13 +17,13 @@ lastupdated: "2019-01-17"
 
 ## Accessing Jupyter Kernel Gateway logs
 
-The Jupyter Notebook Gateway Service log can be accessed on the [Jupyter Kernel Gateway (JNBG) service host](./JNBG-Service-Host.html) at `/var/log/jnbg/jupyter_kernelgateway.log`.
+The Jupyter Notebook Gateway Service log can be accessed on the [Jupyter Kernel Gateway (JNBG) service host](/docs/services/AnalyticsEngine/JNBG-Service-Host.html) at `/var/log/jnbg/jupyter_kernelgateway.log`.
 
-You can SSH to the [JNBG service host](./JNBG-Service-Host.html) and access the log at `/var/log/jnbg/jupyter_kernelgateway.log`.
+You can SSH to the [JNBG service host](/docs/services/AnalyticsEngine/JNBG-Service-Host.html) and access the log at `/var/log/jnbg/jupyter_kernelgateway.log`.
 
 ## Accessing Kernel or Driver logs
 
-All kernel logs are written to the `/var/log/jnbg` directory on the [JNBG service host](./JNBG-Service-Host.html). The kernel log files use the following naming convention:
+All kernel logs are written to the `/var/log/jnbg` directory on the [JNBG service host](/docs/services/AnalyticsEngine/JNBG-Service-Host.html). The kernel log files use the following naming convention:
 ```
 kernel-<kernel-type>-<appname>-<YYYYMMDD_hhmmss>.log ```
 where:
@@ -33,7 +33,7 @@ where:
 
 Using the combination of `kernel-type`, `appname` and the `<YYYYMMDD_hhmmss>` timestamp, you can easily locate the kernel log file corresponding to a particular session.
 
-You can access the logs by SSHing to the [JNBG service host](./JNBG-Service-Host.html)  and accessing the kernel log file in the `/var/log/jnbg` directory. Alternatively, you can access the log file contents from within a notebook or interactive session by executing the following system command:
+You can access the logs by SSHing to the [JNBG service host](/docs/services/AnalyticsEngine/JNBG-Service-Host.html)  and accessing the kernel log file in the `/var/log/jnbg` directory. Alternatively, you can access the log file contents from within a notebook or interactive session by executing the following system command:
 ```
 cat /var/log/jnbg/<kernel-log-filename>```
 

@@ -5,8 +5,6 @@ copyright:
 lastupdated: "2019-01-16"
 
 ---
-
-<!-- Attribute definitions -->
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -16,20 +14,6 @@ lastupdated: "2019-01-16"
 
 
 # General FAQs
-
-<ul>
-<li>[What is {{site.data.keyword.iae_full_notm}}?](#what-is-ibm-analytics-engine-)</li>
-<li>[How is an {{site.data.keyword.iae_full_notm}} cluster different from a regular Hadoop cluster?](#how-is-an-ibm-analytics-engine-cluster-different-from-a-regular-hadoop-cluster-)</li>
-<li>[How do I get started with {{site.data.keyword.iae_full_notm}}?](#how-do-i-get-started-with-ibm-analytics-engine-)</li>
-<li>[Which distribution is used in {{site.data.keyword.iae_full_notm}}?](#which-distribution-is-used-in-ibm-analytics-engine-)</li>
-<li>[Which HDP components are supported in {{site.data.keyword.iae_full_notm}}?](#which-hdp-components-are-supported-in-ibm-analytics-engine-)</li>
-<li>[What node sizes are available in IBM Analytics  Engine?](#what-node-sizes-are-available-in-ibm-analytics-engine-)</li>
-<li>[Why is there so little HDFS space on the clusters?](#why-is-there-so-little-hdfs-space-on-the-clusters-)</li>
-<li>[How many {{site.data.keyword.iae_full_notm}} clusters can I spin up?](#how-many-ibm-analytics-engine-clusters-can-i-spin-up-)</li>
-<li>[Is there a free usage tier to try {{site.data.keyword.iae_full_notm}}?](#is-there-a-free-usage-tier-to-try-ibm-analytics-engine-)</li>
-<li>[How does the Lite plan  work?](#how-does-the-lite-plan-work-)</li>
-<li>[What types of service maintenance exist in {{site.data.keyword.iae_full_notm}}?](#what-types-of-service-maintenance-exist-in-ibm-analytics-engine-)</li>
-</ul>
 
 ## What is {{site.data.keyword.iae_full_notm}}?
 {: faq}
@@ -99,3 +83,10 @@ However, if there is an absolute need to perform a disruptive deployment, you wi
 
 When a disruptive deployment is made to the system that handles the provisioning of a service instance, you will be unable to create, access, or delete an {{site.data.keyword.iae_full_notm}} service instance from the {{site.data.keyword.Bluemix_notm}} console or by using the service instance management REST APIs.
 When a disruptive deployment is made to a provisioned service instance, you will not be able to access the {{site.data.keyword.iae_full_notm}} cluster or run jobs.
+
+## More FAQs
+
+- [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/services/AnalyticsEngine/faqs-architecture.html)
+- [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/services/AnalyticsEngine/faqs-integration.html)
+- [FAQs about {{site.data.keyword.iae_full_notm}} operations](/docs/services/AnalyticsEngine/faqs-operations.html)
+- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/services/AnalyticsEngine/faqs-security.html)

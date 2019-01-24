@@ -16,4 +16,4 @@ lastupdated: "2017-11-02"
 
 # Starting and stopping the Jupyter Notebook Gateway service
 
-From the [Ambari console](./Administer-cluster-using-Ambari-console.html), you can start, stop, and restart the "JNBG" (Jupyter Notebook Gateway) service. You can also update the service configuration and check the present status of the service.
+From the [Ambari console](/docs/services/AnalyticsEngine/Administer-cluster-using-Ambari-console.html), you can start, stop, and restart the "JNBG" (Jupyter Notebook Gateway) service. You can also update the service configuration and check the present status of the service.

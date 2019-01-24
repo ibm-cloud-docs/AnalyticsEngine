@@ -49,7 +49,7 @@ For programmatic access to the HDFS, use the WebHDFS REST API.
 
 ### Uploading your data to the HDFS by using the WebHDFS REST API
 
-**Prerequisites:** Obtain the user credentials and the WebHDFS URL from the [service credentials and end points](./Retrieve-service-credentials-and-service-end-points.html) of your service instance.
+**Prerequisites:** Obtain the user credentials and the WebHDFS URL from the [service credentials and end points](/docs/services/AnalyticsEngine/Retrieve-service-credentials-and-service-end-points.html) of your service instance.
 
 To upload data to HDFS by using the WebHDFS REST API:
 1. Open a command prompt.

@@ -59,7 +59,7 @@ curl -X DELETE \
 ```
 {: codeblock}
 
-To retrieve the IAM access token, see [Retrieving IAM access token](./Retrieve-IAM-access-token.html).
+To retrieve the IAM access token, see [Retrieving IAM access token](/docs/services/AnalyticsEngine/Retrieve-IAM-access-token.html).
 
 ## cf CLI (deprecated)
 
@@ -83,4 +83,4 @@ curl --request DELETE \
   --url 'https://api.ng.bluemix.net/v2/service_instances/<service_instance_id>' \
   --header 'authorization: <User's UAA access token>' \
 ```
-To retrieve the UAA access token, see [Retrieving UAA access token](./retrieving-uaa-access-token.html).
+To retrieve the UAA access token, see [Retrieving UAA access token](/docs/services/AnalyticsEngine/retrieving-uaa-access-token.html).

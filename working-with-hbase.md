@@ -50,7 +50,7 @@ HBase cannot work directly with IBM Cloud Object Storage at this time, that is y
 
 - **HBase Snapshot** tool which allows you to take a copy of a table (both contents and metadata) with a very small performance impact. Exporting the snapshot to another cluster does not directly affect any of the region servers; export is just a `distcp` with an extra bit of logic.
 
- HBase snapshots can be stored in IBM Cloud Object Storage (COS S3)  instead of in HDFS. To allow for this, your cluster must be configured with IBM Cloud Object Storage. See [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html#configuring-clusters-to-work-with-ibm-cos-s3-object-stores).  
+ HBase snapshots can be stored in IBM Cloud Object Storage (COS S3)  instead of in HDFS. To allow for this, your cluster must be configured with IBM Cloud Object Storage. See [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine/configure-COS-S3-object-storage.html#configuring-clusters-to-work-with-ibm-cos-s3-object-stores).  
 
  - [Exporting a snapshot of an HBase table to Cloud Object storage](#exporting-a-snapshot-of-an-hbase-table-to-cloud-object-storage)
 

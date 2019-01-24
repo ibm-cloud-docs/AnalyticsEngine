@@ -6,7 +6,6 @@ lastupdated: "2019-01-16"
 
 ---
 
-<!-- Attribute definitions -->
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -16,13 +15,6 @@ lastupdated: "2019-01-16"
 
 
 # Integration FAQs
-
-<ul>
-<li>[Which other {{site.data.keyword.Bluemix_notm}} services can I use with {{site.data.keyword.iae_full_notm}}?](#which-other-ibm-cloud-services-can-i-use-with-ibm-analytics-engine-)</li>
-<li>[How is {{site.data.keyword.iae_full_notm}} integrated with {{site.data.keyword.DSX_short}}?](#how-is-ibm-analytics-engine-integrated-with-ibm-watson-studio-)</li>
-<li>[Can I use Kafka for data  ingestion?](#can-i-use-kafka-for-data-ingestion-)</li>
-<li>[Can I set ACID properties for Hive in {{site.data.keyword.iae_full_notm}}?](#can-i-set-acid-properties-for-hive-in-ibm-analytics-engine-)</li>
-</ul>
 
 ## Which other {{site.data.keyword.Bluemix_notm}} services can I use with {{site.data.keyword.iae_full_notm}}?
 {: faq}
@@ -46,3 +38,10 @@ IBM Message Hub, an {{site.data.keyword.Bluemix_notm}} service is based on Apach
 {: faq}
 
 Hive is not configured to support concurrency. Although you can  change the Hive configuration on {{site.data.keyword.iae_full_notm}} clusters, it is your responsibility that the cluster functions correctly after you have made any such changes.
+
+## More FAQs
+
+- [General FAQs](/docs/services/AnalyticsEngine/faqs-general.html)
+- [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/services/AnalyticsEngine/faqs-architecture.html)
+- [FAQs about {{site.data.keyword.iae_full_notm}} operations](/docs/services/AnalyticsEngine/faqs-operations.html)
+- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/services/AnalyticsEngine/faqs-security.html)

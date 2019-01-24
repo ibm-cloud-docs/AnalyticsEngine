@@ -35,8 +35,8 @@ You can resize the cluster by using one of the following modes:
 ## Resizing clusters using the REST API
 
 **Prerequisites**:
-* To resize a cluster, you should have Editor access to the service instance. Reach out to your {{site.data.keyword.Bluemix_notm}} account owner, if you do not have sufficient permissions. For more details refer to [Retrieving IAM access tokens](./Retrieving-IAM-access-tokens.html).
-* The API call to resize the cluster requires your IAM bearer token. To obtain the token, follow these [steps](./Retrieve-IAM-access-token.html).
+* To resize a cluster, you should have Editor access to the service instance. Reach out to your {{site.data.keyword.Bluemix_notm}} account owner, if you do not have sufficient permissions. For more details refer to [Retrieving IAM access tokens](/docs/services/AnalyticsEngine/Retrieving-IAM-access-tokens.html).
+* The API call to resize the cluster requires your IAM bearer token. To obtain the token, follow these [steps](/docs/services/AnalyticsEngine/Retrieve-IAM-access-token.html).
 
 **To resize a cluster**
 

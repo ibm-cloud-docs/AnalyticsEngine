@@ -25,7 +25,7 @@ You can deploy {{site.data.keyword.iae_full_notm}} service instances in the US S
 - [Software components of the cluster](#software-components-of-the-cluster)
 - [Hardware configuration](#hardware-configuration)
 - [Operating system](#operating-system)
-- [Best practices when creating clusters](./best-practices.html)
+- [Best practices when creating clusters](/docs/services/AnalyticsEngine/best-practices.html)
 
 ## Cluster architecture
 
@@ -57,7 +57,7 @@ The following cluster nodes exist:
 
 ## Outbound and inbound access
 
-Cluster services are made available through various endpoints as described in this [section](./Retrieve-service-credentials-and-service-end-points.html).
+Cluster services are made available through various endpoints as described in this [section](/docs/services/AnalyticsEngine/Retrieve-service-credentials-and-service-end-points.html).
 
 From the endpoint list, you can see that the following ports are open for inbound traffic:
 
@@ -68,7 +68,7 @@ From the endpoint list, you can see that the following ports are open for inboun
 
 -	**22**: the cluster itself is accessible via SSH at standard port 22.
 
- When you SSH to a cluster (as described [here](./Connect-using-SSH.html)) you essentially log in to `mn003`. Once you have logged in to `mn003`, you can SSH to the compute nodes (referred to as `dn001`, `dn002` etc) and to `mn002`.
+ When you SSH to a cluster (as described [here](/docs/services/AnalyticsEngine/Connect-using-SSH.html)) you essentially log in to `mn003`. Once you have logged in to `mn003`, you can SSH to the compute nodes (referred to as `dn001`, `dn002` etc) and to `mn002`.
 
 For example, to log in to a cluster in the US-South region, as given in the endpoint listing, enter:
 ```

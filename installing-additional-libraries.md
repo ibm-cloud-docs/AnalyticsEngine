@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-05-15"
+  years: 2017,2019
+lastupdated: "2019-01-21"
 
 ---
 
@@ -19,54 +19,60 @@ In addition to the libraries that come pre-installed, there may be a need to use
 
 ## Cluster wide installation
 
-For distributed operations such as Spark jobs that execute on any node of the cluster, the dependency libraries need to be available on all of the nodes of the cluster. See [installing libraries on all cluster by using customization scripts](./customizing-cluster.html).
+For distributed operations such as Spark jobs that execute on any node of the cluster, the dependency libraries need to be available on all of the nodes of the cluster. See [installing libraries on all cluster by using customization scripts](/docs/services/AnalyticsEngine/customizing-cluster.html).
 
-Note that the customization scripts should install the libraries or packages into the same environments to ensure they get picked up by the JNBG service. The scripts need not rely only on public repositories like pypi, maven central, CRAN (or other publicly accessible URLs) to install the libraries or packages. Instead, you can choose to package your libraries or packages into archive files and place them in Object Storage, which the customization script retrieves and installs. See  [examples of how to place your scripts and related artefacts in an object store for customizing your cluster](./example-of-customizations.html).
+Note that the customization scripts should install the libraries or packages into the same environments to ensure they get picked up by the JNBG service. The scripts need not rely only on public repositories like pypi, maven central, CRAN (or other publicly accessible URLs) to install the libraries or packages. Instead, you can choose to package your libraries or packages into archive files and place them in Object Storage, which the customization script retrieves and installs. See  [examples of how to place your scripts and related artefacts in an object store for customizing your cluster](/docs/services/AnalyticsEngine/example-of-customizations.html).
 
 Installing the libraries in this manner is permanent; the libraries are always available to all interactive sessions by default.
 
 Note that you cannot use the `--user` option in `pip` install commands in {{site.data.keyword.iae_full_notm}}.
-
-### Python 2
-
-To install Python 2.7 libraries, your script must install to the `/home/common/conda/anaconda2` environment by using:
-
- ```
- /home/common/conda/anaconda2/bin/pip install <package-name>
- ```
-
- If you install from a local or remote archive, use:
-
- ```
- /home/common/conda/anaconda2/bin/pip install <archive url or local file path>
- ```
 
 ### Python 3
 
 To install Python 3.5 libraries, your script must install to the `/home/common/conda/anaconda3` environment by using:
 
  ```
- /home/common/conda/anaconda3/bin/pip install <package-name>
+ pip install <package-name>
  ```
 
  If you install from a local or remote archive, use:
 
  ```
- /home/common/conda/anaconda3/bin/pip install <archive url or or local file path>
+ pip install <archive url or or local file path>
  ```
+
+### Python 2
+
+To install Python 2.7 libraries, your script must install to the `/home/common/conda/anaconda2` environment by first setting the following environment variables:
+
+```
+export PATH=/home/common/conda/anaconda2/bin:$PATH
+export PYSPARK_PYTHON=/home/common/conda/anaconda2/bin/python
+export PYTHONPATH=~/pipAnaconda2Packages/
+export PIP_CONFIG_FILE=/home/common/conda/anaconda2/etc/pip.conf
+```
+
+```
+pip install <package-name>
+```
+
+If you install from a local or remote archive, use:
+
+```
+pip install <archive url or local file path>
+```
 
 ### Scala or Java
 
-Scala or Java libraries must be copied to the following designated directories:
+Scala or Java libraries must be copied to the following designated directory:
 
- * `/home/common/lib/scala/common`: Scala or Java libraries that are not Spark version specific
- * `/home/common/lib/scala/spark2`: Scala or Java libraries that are specific to Spark version 2.x
+ * `~/scala`: Scala or Java libraries
 
  Note that the Scala libraries should be compatible with Scala 2.11 and Java 1.8 as that is the runtime used by JNBG.
 
 ### R
 
-R libraries must be installed to the `/home/common/lib/R` directory.
+R libraries must be installed to the `~/R` directory.
 
 To install the R package from an archive file:
 
@@ -75,37 +81,21 @@ To install the R package from an archive file:
  ```
 wget <path-to-archive>/<packagename>/<packagename>_<version>.tar.gz
 ```
-{: codeblock}
 
 2. Use the R command to install the package:
 
  ```
-R CMD INSTALL -l /home/common/lib/R <packagename>_<version>.tar.gz
+R CMD INSTALL <packagename>_<version>.tar.gz
 ```
-{: codeblock}
-
- Example for installing the R package:
-```
-wget https://cran.r-project.org/src/contrib/Archive/ibmdbR/ibmdbR_1.48.0.tar.gz
-R CMD INSTALL -l /home/common/lib/R ibmdbR_1.48.0.tar.gz
-```
-{: codeblock}
 
 To install an R package from a CRAN repository:
 
-1. Enter :
+1. Use the following command:
 ```
-R -e "install.packages('<package-name>', repos='<cran-repo-base-url>', lib='/home/common/lib/R')"
+R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
 ```
-{: codeblock}
 
- Example for installing an R package from a CRAN repository:
-```
-R -e "install.packages('ibmdbR', repos='https://cran.r-project.org/', lib='/home/common/lib/R')"
-```
-{: codeblock}
-
-Note that in both cases, the packages are installed to the `/home/common/lib/R` directory. This is important as otherwise, the R packages won't be available in your R notebook and Spark environments.
+Note that in both cases, the packages are installed to the `~/R` directory. This is important as otherwise, the R packages won't be available in your R notebook and Spark environments.
 
 ## Notebook or interactive session specific installations
 

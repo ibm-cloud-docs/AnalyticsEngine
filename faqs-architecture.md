@@ -6,7 +6,6 @@ lastupdated: "2019-01-16"
 
 ---
 
-<!-- Attribute definitions -->
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -15,18 +14,6 @@ lastupdated: "2019-01-16"
 {:faq: data-hd-content-type='faq'}
 
 # FAQs about the architecture
-
-<ul>
-<li>[Is {{site.data.keyword.Bluemix_notm}} Object Storage included in {{site.data.keyword.iae_full_notm}}?](#is-ibm-cloud-object-storage-included-in-ibm-analytics-engine-)</li>
-<li>[How does {{site.data.keyword.Bluemix_notm}} Object Storage work in the {{site.data.keyword.iae_full_notm}} Hadoop  environment?](#how-does-ibm-cloud-object-storage-work-in-the-ibm-analytics-engine-hadoop-environment-)
-<li>[What other components like  Object Storage should I consider while designing a solution using {{site.data.keyword.iae_full_notm}}?](#what-other-components-like-ibm-cloud-object-storage-should-i-consider-while-designing-a-solution-using-ibm-analytics-engine-)</li>
-<li>[How should I size my  cluster?](#how-should-i-size-my-cluster-)</li>
-<li>[How do I design and size multiple environments for different purposes?](#how-do-i-design-and-size-multiple-environments-for-different-purposes-)</li>
-<li>[How is user management done in {{site.data.keyword.iae_full_notm}}?](#how-is-user-management-done-in-ibm-analytics-engine-)</li>
-<li>[How is data access control enforced in {{site.data.keyword.iae_full_notm}}?](#how-is-data-access-control-enforced-in-ibm-analytics-engine-)</li>
-<li>[Can I run a cluster or job for a long time?](#can-i-run-a-cluster-or-job-for-a-long-time-)</li>
-</ul>
-
 
 ## Is {{site.data.keyword.Bluemix_notm}} Object Storage included in {{site.data.keyword.iae_full_notm}}?
 {: faq}
@@ -89,3 +76,10 @@ In addition, all data in Cloud Object Storage can be cataloged using the IBM Wat
 {: faq}
 
 Yes, you can run a cluster for as long as is required. However, to prevent data loss in case of an accidental cluster failure, you  should ensure that data is periodically written to {{site.data.keyword.Bluemix_notm}} Object Storage and that you don't use HDFS as a persistent store.
+
+## More FAQs
+
+- [General FAQs](/docs/services/AnalyticsEngine/faqs-general.html)
+- [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/services/AnalyticsEngine/faqs-integration.html)
+- [FAQs about {{site.data.keyword.iae_full_notm}} operations](/docs/services/AnalyticsEngine/faqs-operations.html)
+- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/services/AnalyticsEngine/faqs-security.html)

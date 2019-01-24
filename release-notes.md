@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-12-03"
+  years: 2017, 2019
+lastupdated: "2019-01-23"
 
 ---
 
@@ -19,9 +19,17 @@ Use these notes to learn about the latest features, additions and changes to {{s
 ## {{site.data.keyword.iae_full_notm}} information
 
 
+### 24 January 2019
+
+- Added support for impersonating the user of the Livy APIs by enabling the user to set proxyUser to clsadmin. See [Livy API](https://{DomainName}/docs/services/AnalyticsEngine/Livy-api.html).
+- The default Python environment is now Python 3. Earlier default Spark Python runtime was `Python 2`. See [Installed libraries](https://{DomainName}/docs/services/AnalyticsEngine/Installed-Libraries.html).
+- Added the Ambari configuration changes to the custom spark-default.conf file for Python 3 support. See [Installed libraries](https://{DomainName}/docs/services/AnalyticsEngine/Installed-Libraries.html).
+- Scala and R user installation library directory structure was changed to `~/scala` for Scala and `~/R` for R.
+
+
 ### 30 November 2018
 
-- You can now track life cycle management actions performed on the cluster by users and applications that have access to your service instance. See [Activity Tracker](./at-tracker.html).
+- You can now track life cycle management actions performed on the cluster by users and applications that have access to your service instance. See [Activity Tracker](/docs/services/AnalyticsEngine/at-tracker.html).
 
 - To view the password of a cluster, a user must have either Writer or Manager IAM role on the {{site.data.keyword.iae_full_notm}} service instance.
 
@@ -63,7 +71,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ### 14 September 2018
 
- - Support for advanced provisioning options to customize Ambari component configurations at the time the {{site.data.keyword.iae_full_notm}} service instance is created was added. See [Advanced provisioning options](./advanced-provisioning-options.html#advanced-provisioning-options).
+ - Support for advanced provisioning options to customize Ambari component configurations at the time the {{site.data.keyword.iae_full_notm}} service instance is created was added. See [Advanced provisioning options](/docs/services/AnalyticsEngine/advanced-provisioning-options.html#advanced-provisioning-options).
  - The {{site.data.keyword.iae_full_notm}} REST API documentation can now be accessed at the following new location: `https://{DomainName}/apidocs/ibm-analytics-engine`
  - The {{site.data.keyword.iae_full_notm}} REST API end points have a new domain suffix:
   - us-south: `https://api.us-south.ae.cloud.ibm.com`
@@ -74,13 +82,13 @@ Use these notes to learn about the latest features, additions and changes to {{s
 - You can set up cron jobs on the mn003 node (management slave 2).
 
  **Restriction**: You can set this up only on the mn003 node.
-- Support for Spark SQL JDBC endpoint was added. See [Working with Spark SQL to query data](./working-with-spark-sql.html).
+- Support for Spark SQL JDBC endpoint was added. See [Working with Spark SQL to query data](/docs/services/AnalyticsEngine/working-with-spark-sql.html).
 - The Stocator library was updated to 1.0.24.
 - Broken Spark History links were fixed.
 - Changes were made at the backend networking level for optimized performance of Cloud Object Storage workloads.
-- Documented more examples for using HBase and Parquet-Hive. See [Working with HBase](./working-with-hbase.html#moving-data-between-the-cluster-and-cloud-object-storage) and [Working with Hive](./working-with-hive.html#parquet).
-- Added the {{site.data.keyword.iae_full_notm}} security model. See [Security model](./security-model.html).
-- Documented best practices for creating and maintaining a stateless cluster. See [Best practices](./best-practices.html).
+- Documented more examples for using HBase and Parquet-Hive. See [Working with HBase](/docs/services/AnalyticsEngine/working-with-hbase.html#moving-data-between-the-cluster-and-cloud-object-storage) and [Working with Hive](/docs/services/AnalyticsEngine/working-with-hive.html#parquet).
+- Added the {{site.data.keyword.iae_full_notm}} security model. See [Security model](/docs/services/AnalyticsEngine/security-model.html).
+- Documented best practices for creating and maintaining a stateless cluster. See [Best practices](/docs/services/AnalyticsEngine/best-practices.html).
 
 
 ### 6 June 2018
@@ -130,8 +138,8 @@ Use these notes to learn about the latest features, additions and changes to {{s
 * The {{site.data.keyword.iae_full_notm}} service is in beta program
 * {{site.data.keyword.iae_full_notm}} is now based on Hortonworks Data Platform (HDP 2.6)
 * You can seamlessly integrate {{site.data.keyword.iae_full_notm}} from {{site.data.keyword.DSX_short}}.
-* You can use external MySQL to store Hive metadata. For details see [Externalizing the Hive Metastore to Compose for MySQL](./external-hive-metastore.html).
-* Spark lazy initialization for Scala is supported, in addition to existing support for R and Python. For details see [Lazy Spark initialization](./lazy-spark-initialization.html).
+* You can use external MySQL to store Hive metadata. For details see [Externalizing the Hive Metastore to Compose for MySQL](/docs/services/AnalyticsEngine/external-hive-metastore.html).
+* Spark lazy initialization for Scala is supported, in addition to existing support for R and Python. For details see [Lazy Spark initialization](/docs/services/AnalyticsEngine/lazy-spark-initialization.html).
 * You can use IAM for both authentication and authorization of Cluster Manager UI
 
 What has changed:
@@ -145,4 +153,4 @@ What has changed:
 ### 08 August 2017
 
 * The {{site.data.keyword.iae_full_notm}} service is classified as Experimental and is available only under the [Experimental catalog](https://console.bluemix.net/catalog/labs?env_id=ibm:yp:us-south).
-* You can resize clusters using the Cluster Management user interface and the REST API. For more details, see [Resizing clusters](./Resize-clusters.html#resizing-clusters).
+* You can resize clusters using the Cluster Management user interface and the REST API. For more details, see [Resizing clusters](/docs/services/AnalyticsEngine/Resize-clusters.html#resizing-clusters).

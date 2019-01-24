@@ -178,4 +178,4 @@ Error while downloading customization script, ResponseCode: 0, Please verify sou
 
 where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
 ## Customization examples
-For examples of how to customize a cluster, see [Examples of customizations](./example-of-customizations.html).
+For examples of how to customize a cluster, see [Examples of customizations](/docs/services/AnalyticsEngine/example-of-customizations.html).

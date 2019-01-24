@@ -51,8 +51,8 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount cos://mybucket.myprodservice/input cos://mybucket.myprodservice/wordcount/output
 ```
 
-For more information on configuring the cluster to work with S3 object stores, see [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html).
+For more information on configuring the cluster to work with S3 object stores, see [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine/configure-COS-S3-object-storage.html).
 
 ## Learn more
 
-[Submitting MapReduce jobs with Oozie](./working-with-oozie.html).
+[Submitting MapReduce jobs with Oozie](/docs/services/AnalyticsEngine/working-with-oozie.html).
