@@ -102,7 +102,7 @@ Analytics Engine
 
     {: .topicgroup}
     IBM Analytics Engine CLI reference
-        [Using the CLI Plugin](https://console.test.cloud.ibm.com/docs/analytics-engine-cli-plugin?topic=IBM%20Analytics%20Engine%20CLI%20plug-in-CLI_analytics_engine#CLI_analytics_engine)
+        [Using the CLI Plugin](https://cloud.ibm.com/docs/analytics-engine-cli-plugin?topic=IBM%20Analytics%20Engine%20CLI%20plug-in-CLI_analytics_engine#CLI_analytics_engine)
 
     {: .topicgroup}
     Miscellaneous
