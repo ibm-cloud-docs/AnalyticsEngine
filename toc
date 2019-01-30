@@ -13,8 +13,12 @@ Analytics Engine
     getting-started.md
     index.md
     best-practices.md
-    security-model.md
-	  {: .navgroup-end}
+
+    {: .topicgroup}
+    Security
+        security-model.md
+        hipaa-readiness.md
+    {: .navgroup-end}
 
     {: .navgroup id="reference"}
     at-tracker.md
@@ -98,7 +102,7 @@ Analytics Engine
 
     {: .topicgroup}
     IBM Analytics Engine CLI reference
-        [Using the CLI](../docs/analytics-engine-cli-plugin/analytics-engine-service-cli.html)
+        [Using the CLI Plugin](https://console.test.cloud.ibm.com/docs/analytics-engine-cli-plugin?topic=IBM%20Analytics%20Engine%20CLI%20plug-in-CLI_analytics_engine#CLI_analytics_engine)
 
     {: .topicgroup}
     Miscellaneous
@@ -120,5 +124,5 @@ Analytics Engine
         faqs-architecture.md
         faqs-integration.md
         faqs-operations.md
-        fags-security.md
+        faqs-security.md
     {: .navgroup-end}
