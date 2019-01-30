@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-23"
+lastupdated: "2019-01-30"
 
 ---
 
@@ -18,6 +18,9 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
 
+### 30 January 2019
+
+- {{site.data.keyword.iae_full_notm}} now meets the required IBM controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. See [HIPAA readiness](/docs/services/AnalyticsEngine/hipaa-readiness.html).
 
 ### 24 January 2019
 
