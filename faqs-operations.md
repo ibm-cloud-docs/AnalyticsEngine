@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-16"
+lastupdated: "2019-02-06"
 
 ---
 
@@ -71,7 +71,7 @@ scripts at the time the cluster is started to ensure repeatability and consisten
 ## Can I monitor the cluster?
 {: faq}
 
-Can I configure alerts? Ambari components can be monitored by  using the built-in Ambari metrics alerts (in the `Hadoop and Spark` pack).
+Can I configure alerts? Ambari components can be monitored by  using the built-in Ambari metrics alerts.
 
 ## How do I scale my cluster?
 {: faq}

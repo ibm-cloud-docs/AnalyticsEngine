@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-30"
+lastupdated: "2019-02-06"
 
 ---
 
@@ -17,6 +17,13 @@ lastupdated: "2019-01-30"
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 06 February
+
+- The Ambari metrics service (AMS) is now available on all the packages, including the Spark and Hive packages. Previously it was available only on the Hadoop package. This service enables you to see metrics like CPU, memory, and so on, which assists you while troubleshooting the cluster or an application.
+
+- Spark dynamic allocation is now enabled by default. The default behavior until now was two executors per Spark application, requiring you to tune cluster resources depending on your application's needs. This behavior has been changed by enabling Spark dynamic allocation, which allows a Spark application to fully utilize the cluster resources. See [Kernel settings](/docs/services/AnalyticsEngine/Kernel-Settings.html)
+
 
 ### 30 January 2019
 

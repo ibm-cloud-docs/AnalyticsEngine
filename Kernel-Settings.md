@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-09-27"
+  years: 2017, 2019
+lastupdated: "2019-02-06"
 
 ---
 
@@ -18,7 +18,7 @@ lastupdated: "2018-09-27"
 
 ## Memory settings for kernels
 
-No explicit memory limit is set on a per kernel basis. 6 GB free memory is available on the container where the kernels are run.
+No explicit memory limit is set on a per kernel basis. For clusters running on the `Default` hardware configuration, 6 GB of free memory is available to run the kernels. For clusters running on the `Memory Intensive` hardware configuration, 96 GB of free memory is available to run the kernels.
 
 ### Changing memory settings  
 
@@ -30,15 +30,17 @@ Note that for Python and R kernels, the Python and R native process can consume 
 
 The following executor settings are the defaults:
 
-- Number of executors: 2
+- Number of executors: Spark dynamic allocation is enabled (the property `spark.dynamicAllocation.enabled` is set to true), with the lower bound (designated by the property `spark.dynamicAllocation.minExecutors`) set to 1 executor. No upper bound is set on the maximum number of executors (designated by the property `spark.dynamicAllocation.maxExecutors` which is set to infinity).                                     
+**Important:** As no upper bound is set, certain kernels or Spark applications could utilize the entire cluster, leaving no resources for other kernels or Spark applications to start.
 - Number of cores per executor: 1  
 - Memory available per executor: 1.5 GB (1 GB Spark default + 10% YARN overhead memory. For details, see  [`spark.yarn.executor.memoryOverhead`](https://spark.apache.org/docs/latest/running-on-yarn.html).
 
 ### Changing executor settings
 
-To change settings globally for the cluster, use the Ambari console and update the corresponding property parameters. You can update a number of settings, including the following:
+With Spark dynamic allocation enabled by default, your kernel or Spark application to fully utilize the cluster. If your applications have specific requirements and you want to have control over the number of executors per application, you can achieve that by updating the corresponding property parameters through the Ambari console or by [providing custom configurations](/docs/services/AnalyticsEngine/advanced-provisioning-options.html). You can update a number of settings, including the following:
 
 Custom spark2-defaults:
+*	`spark.dynamicAllocation.enabled="false"`: Disables Spark dynamic allocations.
 * `spark.executor.instances`: The number of executors per application. For example, `spark.executor.instances="2"`  
 
 Advanced spark2-env:
@@ -50,7 +52,7 @@ Save your changes and restart all the affected components.
 To change settings per notebook and kernel, refer to the [overriding kernel settings section](/docs/services/AnalyticsEngine/Kernel-Settings.html#overriding-kernel-settings).
 
 ## Number of concurrent kernels
-There is no explicit limit set on numbers of kernels.The maximum number of kernels depends on the containers available in the cluster.
+There is no explicit limit set on numbers of kernels. The maximum number of kernels depends on the nodes available in the cluster.
 
 For example:  
 
