@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-12-03"
+  years: 2017,2019
+lastupdated: "2019-02-12"
 
 ---
 
@@ -36,7 +36,7 @@ To create an {{site.data.keyword.iae_full_notm}} instance:
 1. On the {{site.data.keyword.Bluemix_short}} catalog, choose the region in which you want the service instance to be deployed. {{site.data.keyword.iae_short}}  deployments are available in US South, United Kingdom, Japan, and Germany.
 1. Choose the resource group under which you want to create the service instance. Select a plan and click **Configure**.
 1. On the configuration page, choose the hardware configuration, number of compute nodes and software package of your choice. Click **Create**.
-1. The service instance is provisioned in the background and can take anywhere between 10 to 20 minutes to provision depending on the hardware type and software package you chose. Visit the {{site.data.keyword.Bluemix_short}} service details page after some time to check the status of the provisioned instance.
+1. The service instance is provisioned in the background and can take anywhere between 30 to 50 minutes to provision depending on the hardware type and software package you chose. Visit the {{site.data.keyword.Bluemix_short}} service details page after some time to check the status of the provisioned instance.
 
 ### Supported plans
 
