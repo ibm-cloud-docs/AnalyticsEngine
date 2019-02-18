@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2019
-lastupdated: "2019-01-21"
+lastupdated: "2019-02-27"
 
 ---
 
@@ -29,7 +29,7 @@ Note that you cannot use the `--user` option in `pip` install commands in {{site
 
 ### Python 3
 
-To install Python 3.5 libraries, your script must install to the `/home/common/conda/anaconda3` environment by using:
+To install Python 3.5 libraries, your script must install in the `conda3` environment by using:
 
  ```
  pip install <package-name>
@@ -40,10 +40,11 @@ To install Python 3.5 libraries, your script must install to the `/home/common/c
  ```
  pip install <archive url or or local file path>
  ```
+ Note that the additional libraries get installed under `~/pipAnaconda3Packages/`.
 
 ### Python 2
 
-To install Python 2.7 libraries, your script must install to the `/home/common/conda/anaconda2` environment by first setting the following environment variables:
+To install Python 2.7 libraries, your script must install in the `conda2` environment by first setting the following environment variables:
 
 ```
 export PATH=/home/common/conda/anaconda2/bin:$PATH
@@ -61,6 +62,8 @@ If you install from a local or remote archive, use:
 ```
 pip install <archive url or local file path>
 ```
+
+Note that the additional libraries get installed under `~/pipAnaconda2Packages/`.
 
 ### Scala or Java
 
