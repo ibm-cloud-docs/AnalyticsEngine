@@ -1,5 +1,5 @@
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-09-26"
 
 ---
@@ -12,6 +12,7 @@ lastupdated: "2018-09-26"
 {:pre: .pre}
 
 # Data movement on IBM COS S3
+{: #data-movement-cos}
 
 This sections shows you to upload to one of the following sources or download data from IBM COS S3 to one of the following destinations:
 
@@ -49,4 +50,4 @@ hdfs://chs-czq-182-mn002.us-south.ae.appdomain.cloud:8020/tmp/test.data```
 
 ## Operations outside the cluster
 
-For information on how you can use the IBM COS S3 API or the UI to work with data objects outside of your cluster, refer to the [Cloud Object Storage documentation](https://{DomainName}/docs/services/cloud-object-storage/index.html).
+For information on how you can use the IBM COS S3 API or the UI to work with data objects outside of your cluster, refer to the [Cloud Object Storage documentation](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-about-ibm-cloud-object-storage).

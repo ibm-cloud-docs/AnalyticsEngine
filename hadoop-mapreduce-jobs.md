@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-03-06"
 
 ---
@@ -14,6 +14,7 @@ lastupdated: "2018-03-06"
 {:pre: .pre}
 
 # Running Hadoop MapReduce jobs
+{: #run-hadoop-jobs}
 
 **Prerequisite**: Obtain the cluster user credentials, SSH and oozie_rest end point details from the service credentials of your service instance.
 
@@ -51,8 +52,8 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount cos://mybucket.myprodservice/input cos://mybucket.myprodservice/wordcount/output
 ```
 
-For more information on configuring the cluster to work with S3 object stores, see [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine/configure-COS-S3-object-storage.html).
+For more information on configuring the cluster to work with S3 object stores, see [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
 
 ## Learn more
 
-[Submitting MapReduce jobs with Oozie](/docs/services/AnalyticsEngine/working-with-oozie.html).
+[Submitting MapReduce jobs with Oozie](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-working-with-oozie).

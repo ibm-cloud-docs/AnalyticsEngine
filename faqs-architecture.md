@@ -14,11 +14,12 @@ lastupdated: "2019-01-16"
 {:faq: data-hd-content-type='faq'}
 
 # FAQs about the architecture
+{: #faqs-architecture}
 
 ## Is {{site.data.keyword.Bluemix_notm}} Object Storage included in {{site.data.keyword.iae_full_notm}}?
 {: faq}
 
-No, {{site.data.keyword.Bluemix_notm}} Object Storage is not included. It is a separate offering. To learn more about {{site.data.keyword.Bluemix_notm}} Object Storage, see the [product documentation](https://{DomainName}/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage) or the  [documentation about its  functionality](https://www.ibm.com/cloud/object-storage).
+No, {{site.data.keyword.Bluemix_notm}} Object Storage is not included. It is a separate offering. To learn more about {{site.data.keyword.Bluemix_notm}} Object Storage, see the [product documentation](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-about-ibm-cloud-object-storage) or the [documentation about its functionality](https://www.ibm.com/cloud/object-storage).
 
 ## How does {{site.data.keyword.Bluemix_notm}} Object Storage work in the {{site.data.keyword.iae_full_notm}} Hadoop environment?
 {: faq}
@@ -79,7 +80,7 @@ Yes, you can run a cluster for as long as is required. However, to prevent data 
 
 ## More FAQs
 
-- [General FAQs](/docs/services/AnalyticsEngine/faqs-general.html)
-- [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/services/AnalyticsEngine/faqs-integration.html)
-- [FAQs about {{site.data.keyword.iae_full_notm}} operations](/docs/services/AnalyticsEngine/faqs-operations.html)
-- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/services/AnalyticsEngine/faqs-security.html)
+- [General FAQs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-general-faqs)
+- [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-integration-faqs)
+- [FAQs about {{site.data.keyword.iae_full_notm}} operations](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-operations-faqs)
+- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-security-faqs)

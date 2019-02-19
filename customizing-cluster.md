@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-11-12"
+  years: 2017, 2019
+lastupdated: "2019-01-31"
 
 ---
 
@@ -14,6 +14,7 @@ lastupdated: "2018-11-12"
 {:pre: .pre}
 
 # Customizing a cluster
+{: #cust-cluster}
 
 Sometimes you might have to customize a cluster specifically to suit your needs, over and above what is provisioned on a default basis. For example, you might want to install custom analytics third-party libraries or you might want to fine-tune some cluster configurations, for example, the Hadoop MapReduce heap size.
 For example:
@@ -26,7 +27,7 @@ The customization feature can be invoked in two ways, namely as:
 ## Bootstrap Customization
 In this method, the customization script can be specified as part of the input JSON to the create cluster command as is shown in the examples later. In this case, the script is executed as a final step after the cluster is created. Even if the customization fails the cluster is still available for use.
 
-**Note**: Bootstrap customization is not recommended for customizing Ambari components like Hadoop or Spark. Instead you should specify  [advanced provisioning options](advanced-provisioning-options.html).
+**Note**: Bootstrap customization is not recommended for customizing Ambari components like Hadoop or Spark. Instead you should specify  [advanced provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
 
 **Rerunning a bootstrap customization script**: If the customization fails due to any reason, the same action can be rerun at a later point in time on the required targets.
 
@@ -88,7 +89,7 @@ The `package-admin` tool is a special utility tool available for use in the {{si
 
 `sudo package-admin -c [install | remove] -p [package name]`
 
-This is something you can use in the customization script or even directly on any of the cluster nodes, after you [SSH](https://{DomainName}/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to it.
+This is something you can use in the customization script or even directly on any of the cluster nodes, after you [SSH](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH) to it.
 Note the use of `sudo` in order to execute the utililty.
 
 ## What can you customize?
@@ -101,7 +102,7 @@ You can customize:
 The customization script will run as long as it contains code that the user of the cluster is authorized to execute. It cannot execute code that requires root access. For example, it cannot execute code such as opening ports or changing IP table rules.
 
 ## Tracking the status of the customizaton
-This is a three step process. First you need to get the customization request ID for your instance and then invoke a second API to get the status of that particular ID. From the second invocation, you will get location details of the customization logs for each target node executed. Finally, if you need to look at the log details, you will need to [SSH](https://{DomainName}/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to the specific node.
+This is a three step process. First you need to get the customization request ID for your instance and then invoke a second API to get the status of that particular ID. From the second invocation, you will get location details of the customization logs for each target node executed. Finally, if you need to look at the log details, you will need to [SSH](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH) to the specific node.
 
 ### Step 1 - Getting all customization requests for the given instance ID
 
@@ -169,7 +170,7 @@ where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, 
 
 ### Step 3 - Getting the details of a specific node's customization
 
-You can retrieve the log file in `log_file` by using [`ssh/scp`](https://{DomainName}/docs/services/AnalyticsEngine/Connect-using-SSH.html#connect-using-ssh) to the corresponding node. This log captures the output of script execution, including the `echo` statements. If the script could not be executed due to a bad location or bad credentials specified, you will see details of the error in the log. The following example shows the log for such a case.
+You can retrieve the log file in `log_file` by using [`ssh/scp`](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH) to the corresponding node. This log captures the output of script execution, including the `echo` statements. If the script could not be executed due to a bad location or bad credentials specified, you will see details of the error in the log. The following example shows the log for such a case.
 
 ```
 [clsadmin@chs-mwb-189-mn003 ~]$ cat /var/log/chs-mwb-189-mn003.<region>.ae.appdomain.cloud_28.log
@@ -178,4 +179,4 @@ Error while downloading customization script, ResponseCode: 0, Please verify sou
 
 where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
 ## Customization examples
-For examples of how to customize a cluster, see [Examples of customizations](/docs/services/AnalyticsEngine/example-of-customizations.html).
+For examples of how to customize a cluster, see [Examples of customizations](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-examples).

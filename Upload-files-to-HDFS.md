@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 20172018
+  years: 2017, 2019
 lastupdated: "2018-09-26"
 
 ---
@@ -14,6 +14,7 @@ lastupdated: "2018-09-26"
 {:pre: .pre}
 
 # Uploading files to HDFS
+{: #upload-files-hdfs}
 
 You can choose to upload your data in HDFS or an object store. Data can be loaded into HDFS using the HDFS CLI or the WebHDFS API. For sensitive data, it is recommended to use a secure location that is previously created in HDFS.
 
@@ -49,7 +50,7 @@ For programmatic access to the HDFS, use the WebHDFS REST API.
 
 ### Uploading your data to the HDFS by using the WebHDFS REST API
 
-**Prerequisites:** Obtain the user credentials and the WebHDFS URL from the [service credentials and end points](/docs/services/AnalyticsEngine/Retrieve-service-credentials-and-service-end-points.html) of your service instance.
+**Prerequisites:** Obtain the user credentials and the WebHDFS URL from the [service credentials and end points](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-credentials) of your service instance.
 
 To upload data to HDFS by using the WebHDFS REST API:
 1. Open a command prompt.

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-10-16"
 
 ---
@@ -14,6 +14,7 @@ lastupdated: "2018-10-16"
 {:pre: .pre}
 
 # Working with Spark SQL to query data
+{: #working-with-sql}
 
 Spark SQL is a Spark module for processing structured data and serves as a distributed SQL engine, allowing it to leverage YARN to manage memory and CPUs in the cluster. With Spark SQL, you can query data in Hive databases and other data sets. Spark SQL supports Hive data formats, user-defined functions (UDFs), and the Hive metastore.
 

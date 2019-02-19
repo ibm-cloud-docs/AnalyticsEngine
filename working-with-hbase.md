@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-09-26"
 
 ---
@@ -14,6 +14,8 @@ lastupdated: "2018-09-26"
 {:pre: .pre}
 
 # Working with HBase
+{: #working-with-hbase}
+
 Apache HBase is a column-oriented database management system that runs on top of HDFS and is often used for sparse data sets. Unlike relational database systems, HBase does not support a structured query language like SQL.
 
 HBase applications are written in Java, much like a typical MapReduce application. HBase allows many attributes to be grouped into column families so that the elements of a column family are all stored together. This approach is different from a row-oriented relational database, where all columns of a row are stored together.
@@ -50,7 +52,7 @@ HBase cannot work directly with IBM Cloud Object Storage at this time, that is y
 
 - **HBase Snapshot** tool which allows you to take a copy of a table (both contents and metadata) with a very small performance impact. Exporting the snapshot to another cluster does not directly affect any of the region servers; export is just a `distcp` with an extra bit of logic.
 
- HBase snapshots can be stored in IBM Cloud Object Storage (COS S3)  instead of in HDFS. To allow for this, your cluster must be configured with IBM Cloud Object Storage. See [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine/configure-COS-S3-object-storage.html#configuring-clusters-to-work-with-ibm-cos-s3-object-stores).  
+ HBase snapshots can be stored in IBM Cloud Object Storage (COS S3)  instead of in HDFS. To allow for this, your cluster must be configured with IBM Cloud Object Storage. See [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).  
 
  - [Exporting a snapshot of an HBase table to Cloud Object storage](#exporting-a-snapshot-of-an-hbase-table-to-cloud-object-storage)
 

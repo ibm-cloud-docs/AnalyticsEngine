@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-12-03"
 
 ---
@@ -14,12 +14,13 @@ lastupdated: "2018-12-03"
 {:pre: .pre}
 
 # Activity Tracker events
+{: #at-tracker}
 
 Use the {{site.data.keyword.Bluemix_short}} service to track how users and applications interact with {{site.data.keyword.iae_full_notm}}.
 
 The {{site.data.keyword.Bluemix_short}} Activity Tracker service records user-initiated activities that change the state of a service in {{site.data.keyword.Bluemix_short}}.
 
-For more information, see the [Activity Tracker documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-activity-tracker/index.html#getting-started-with-cla){: new_window}.
+For more information, see the [Activity Tracker documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started-with-cla){: new_window}.
 
 The following table lists the actions that generate an event:
 

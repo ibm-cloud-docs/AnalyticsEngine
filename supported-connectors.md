@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-06-19"
 
 ---
@@ -14,6 +14,8 @@ lastupdated: "2018-06-19"
 {:pre: .pre}
 
 #  Spark connectors
+{: #spark-connectors}
+
 The following connectors are currently provided by default on all {{site.data.keyword.iae_full_notm}} clusters:
 
  * [Db2 and {{site.data.keyword.dashdbshort_notm}}](#db2-and-db2-warehouse-on-cloud-connector)

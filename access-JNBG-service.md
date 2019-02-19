@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-10-08"
 
 ---
@@ -14,6 +14,7 @@ lastupdated: "2018-10-08"
 {:pre: .pre}
 
 # Accessing the Jupyter Notebook Gateway service
+{: #access-JNBG}
 
 ## Jupyter Notebook Gateway (JNBG) service endpoint
 
@@ -27,7 +28,7 @@ The JNBG service on the cluster provides two endpoints for HTTP operations and W
 
  The Websocket resource multiplexes the Jupyter kernel messaging protocol over a single Websocket connection to submit code and communicate with the running kernel.
 
-Refer to the instructions [here](/docs/services/AnalyticsEngine/Retrieve-service-credentials-and-service-end-points.html#retrieving-service-credentials-and-service-end-points) on retrieving service end points for the {{site.data.keyword.iae_full_notm}} cluster. In the JSON service endpoint details, the HTTP endpoint URL of the JNBG service is listed in `notebook_gateway` and the Websocket endpoint in `notebook_gateway_websocket`. Here is a representative sample of a cluster's service endpoint details:
+Refer to the instructions [here](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-credentials) on retrieving service end points for the {{site.data.keyword.iae_full_notm}} cluster. In the JSON service endpoint details, the HTTP endpoint URL of the JNBG service is listed in `notebook_gateway` and the Websocket endpoint in `notebook_gateway_websocket`. Here is a representative sample of a cluster's service endpoint details:
 
 ```
 .
@@ -345,6 +346,7 @@ yum install –y python-pip; pip install tornado.
 ```
 {: codeblock}
 
+
 Run the demo Python client:
 ```
 python client.py
@@ -352,19 +354,21 @@ python client.py
 
 {: codeblock}
 
-The code above creates a Spark 2.1 Scala kernel and submits Scala code to it for execution.
+The previous code creates a Spark 2.1 Scala kernel and submits Scala code to it for execution.
 
 Here are code snippets to show how the kernel name and code variables can be modified in `client.py` to do the same for Python 2 and R kernels.
 
 * Python 2
+
 ```
 kernel_name = "python2-spark21"
 code = '\n'.join(( "print(\"Spark Version: {}\".format(sc.version))", "print(\"Application Name: {}\".format(sc._jsc.sc().appName()))", "print(\"Application ID: {} \".format(sc._jsc.sc().applicationId()))", "sc.parallelize([1,2,3,4,5]).count()" ))
 ```
+{: codeblock}
 
- {: codeblock}
 
 * R
+
 ```
 kernel_name = "r-spark21"
 code = """

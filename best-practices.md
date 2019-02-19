@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-10-16"
+  years: 2017, 2019
+lastupdated: "2019-01-31"
 
 ---
 
@@ -15,6 +15,7 @@ lastupdated: "2018-10-16"
 
 
 # Best practices
+{: #best-practices}
 
 You should use the {{site.data.keyword.iae_full_notm}} cluster as a compute-only engine. Ideally, you should not store any data on the cluster; you should try to keep the cluster as stateless as possible. This deployment model is recommended so that you can delete and create clusters often to either save on costs, pick up new features, or work with new packages.
 
@@ -47,7 +48,7 @@ To help you create and maintain a stateless cluster, you should try to keep to t
 
 Although the {{site.data.keyword.iae_full_notm}} cluster includes the Hadoop component with HDFS running on the compute nodes, you should use IBM Cloud Object Storage as the primary data store. You should use the HDFS nodes only as a data store for sandbox-type workloads.
 
-{{site.data.keyword.iae_full_notm}} can be configured to work with [data in IBM Cloud Object Storage S3](/docs/services/AnalyticsEngine/configure-COS-S3-object-storage.html) with [Hive table metadata stored in a Compose for MySQL service](/docs/services/AnalyticsEngine/working-with-hive.html#externalizing-the-hive-metastore-to-ibm-compose-for-mysql), which resides outside of the cluster. When jobs are executed, they run on the compute nodes by bringing in data (as required by the job plan) from Cloud Object Storage. For more on this topic refer to this [{{site.data.keyword.iae_full_notm}}  whitepaper](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=ASW12451USEN&). Note that the application binaries can reside in Cloud Object Storage as well.
+{{site.data.keyword.iae_full_notm}} can be configured to work with [data in IBM Cloud Object Storage S3](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos) with [Hive table metadata stored in a Compose for MySQL service](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#externalizing-the-hive-metastore-to-ibm-compose-for-mysql), which resides outside of the cluster. When jobs are executed, they run on the compute nodes by bringing in data (as required by the job plan) from Cloud Object Storage. <!-- For more on this topic refer to this [{{site.data.keyword.iae_full_notm}}  whitepaper](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=ASW12451USEN&). --> Note that the application binaries can reside in Cloud Object Storage as well.
 
 ![Shows separating compute from storage in the {{site.data.keyword.iae_full_notm}} cluster.](images/SeparateComputeFromStorage.png)
 
@@ -59,17 +60,17 @@ Consider the following configuration aspects:
 ### Disaster Recovery (DR) Resiliency
 {: #DR-resiliency}
 
-You should use the IBM COS Cross Regional resiliency option that backs up your data across several different cities in a region. In contrast, the Regional resiliency option back ups data in a single data center. See the [Cloud Object Storage documentation.](https://{DomainName}/docs/services/cloud-object-storage/basics/endpoints.html#select-regions-and-endpoints)
+You should use the IBM COS Cross Regional resiliency option that backs up your data across several different cities in a region. In contrast, the Regional resiliency option back ups data in a single data center. See the [Cloud Object Storage documentation.](/docs/services/cloud-object-storage/info?topic=cloud-object-storage-select_endpoints#select_endpoints)
 
 ### Encryption
 {: #cos-encryption}
 
-Cloud Object Storage comes with default built-in encryption. You can also configure Cloud Object Storage to work with the BYOK Key Protect service. See [here](https://{DomainName}/docs/services/keymgmt/index.html#getting-started-with-key-protect) for more information. Note however that Key Protect is currently only supported for regional buckets. See the [Cloud Object Storage](https://{DomainName}/docs/services/cloud-object-storage/basics/encryption.html#manage-encryption) documentation.
+Cloud Object Storage comes with default built-in encryption. You can also configure Cloud Object Storage to work with the BYOK Key Protect service. See [here](/docs/services/key-protect?topic=key-protect-getting-started-tutorial#getting-started-tutorial) for more information. Note however that Key Protect is currently only supported for regional buckets. See the [Cloud Object Storage manage encryption](/docs/services/cloud-object-storage/basics?topic=cloud-object-storage-manage-encryption#manage-encryption) documentation.
 
 ### Cloud Object Storage credentials
 {: #cos-credentials}
 
-By default, Cloud Object Storage uses IAM-style credentials. If you want to work with AWS-style credentials, you need to provide the inline configuration parameter `{"HMAC":true}` as shown [here](https://{DomainName}/docs/services/cloud-object-storage/iam/service-credentials.html#service-credentials).
+By default, Cloud Object Storage uses IAM-style credentials. If you want to work with AWS-style credentials, you need to provide the inline configuration parameter `{"HMAC":true}` as shown [here](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials#service-credentials).
 
 ### Private endpoint for Cloud Object storage
 {: #private-endpoint}
@@ -84,7 +85,7 @@ Upgrading components on the  {{site.data.keyword.iae_full_notm}} cluster to a hi
 ## Customize cluster creation using scripts
 {: #use-scripts}
 
-To enable deleting and creating clusters often, you should use customization scripts to configure your cluster, and to install custom libraries and packages. This way, you won't have to manually customize the cluster every time you create a new one. See [Customizing a cluster](/docs/services/AnalyticsEngine/customizing-cluster.html).
+To enable deleting and creating clusters often, you should use customization scripts to configure your cluster, and to install custom libraries and packages. This way, you won't have to manually customize the cluster every time you create a new one. See [Customizing a cluster](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
 
 ## Size the cluster appropriately
 {: #cluster-size}
@@ -121,7 +122,7 @@ The AE 1.1 software packages include components for Horton Dataworks Platform 2.
 ## Tune kernel settings for Spark interactive jobs
 {: #spark-interactive}
 
-When running large Spark interactive jobs, you might need to adjust kernel settings to tune resource allocation. To get the maximum performance from your cluster for a Spark job, make sure the kernel settings for memory and executor are correct. See [Kernel settings](/docs/services/AnalyticsEngine/Kernel-Settings.html).
+When running large Spark interactive jobs, you might need to adjust kernel settings to tune resource allocation. To get the maximum performance from your cluster for a Spark job, make sure the kernel settings for memory and executor are correct. See [Kernel settings](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings).
 
 ## Store temporary files on the cluster prudently
 {: #store-temp-files}
@@ -135,4 +136,4 @@ Note that any data stored on the cluster is not persistent outside the cluster l
 
 You can create {{site.data.keyword.iae_full_notm}} service instances in different regions, for example, in the US South, the United Kingdom, Germany, and Japan. In the event that you cannot create a service instance in one region, you can switch to an alternate region which hosts  {{site.data.keyword.iae_full_notm}}. You will not be able to access any existing clusters from the new region. However, creating a new cluster in a new region should not be a problem if you followed the recommended best practices described in this topic and kept your existing cluster as stateless as possible with data and jobs residing outside the cluster.
 
-See the [list of supported regions and the endpoints to use](https://{DomainName}/docs/services/AnalyticsEngine/provisioning.html#creating-a-service-instance-using-the-ibm-cloud-command-line-interface) or refer to the {{site.data.keyword.Bluemix_short}} catalog for {{site.data.keyword.iae_full_notm}}.
+See the [list of supported regions and the endpoints to use](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE#creating-a-service-instance-using-the-ibm-cloud-command-line-interface) or refer to the {{site.data.keyword.Bluemix_short}} catalog for {{site.data.keyword.iae_full_notm}}.

@@ -1,13 +1,13 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-06-19"
 
 ---
 
 # Working with Sqoop
-
+{: #working-with-sqoop}
 
 Apache Sqoop is a tool for efficiently transferring bulk data between Apache Hadoop and structured data stores, such as relational databases.
 

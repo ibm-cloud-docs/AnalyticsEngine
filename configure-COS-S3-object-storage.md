@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-01-31"
 
 ---
 
@@ -13,13 +13,14 @@ lastupdated: "2018-11-14"
 {:screen: .screen}
 {:pre: .pre}
 
-# Configuring clusters to work with IBM COS S3 object stores  
+# Configuring clusters to work with IBM COS S3 object stores
+{: #config-cluster-cos}
 
-{{site.data.keyword.cos_full_notm}} is a highly scalable cloud storage service, designed for high durability, resiliency and security. See [{{site.data.keyword.cos_full_notm}}](https://{DomainName}/docs/services/cloud-object-storage/about-cos.html).
+{{site.data.keyword.cos_full_notm}} is a highly scalable cloud storage service, designed for high durability, resiliency and security. See [{{site.data.keyword.cos_full_notm}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage).
 
 This topic explains how to configure an {{site.data.keyword.iae_full_notm}} cluster to connect to data and applications stored an object store. {{site.data.keyword.iae_full_notm}} uses HDP’s default AWS open source object storage connectors to access data from Cloud Object Storage  when running HDFS, Hive, or Mapreduce jobs. However, when running Spark jobs, the system is preconfigured to use IBM’s open source Stocator libraries that offer better performance and optimization for large object reads and writes as compared to the default AWS connectors. See  [Stocator - Storage Connector for Apache  Spark](https://github.com/SparkTC/stocator).
 
-As described in [Best Practices](/docs/services/AnalyticsEngine/best-practices.html), you should use {{site.data.keyword.cos_full_notm}} as your primary data source and sink. Apart from the data itself, the application or job binaries, for example for a Spark Python file or a Yarn application JAR, can reside in the object store. This way you can make your cluster stateless, giving you the flexibility to spin up {{site.data.keyword.iae_full_notm}} clusters when you need them. See  [Choose the right Cloud Object Storage configuration](/docs/services/AnalyticsEngine/best-practices.html).
+As described in [Best Practices](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices), you should use {{site.data.keyword.cos_full_notm}} as your primary data source and sink. Apart from the data itself, the application or job binaries, for example for a Spark Python file or a Yarn application JAR, can reside in the object store. This way you can make your cluster stateless, giving you the flexibility to spin up {{site.data.keyword.iae_full_notm}} clusters when you need them. See  [Choose the right Cloud Object Storage configuration](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#encryption).
 
 ## Getting the {{site.data.keyword.cos_full_notm}} credentials
 
@@ -28,7 +29,7 @@ To use {{site.data.keyword.cos_full_notm}} as your primary data source:
 1. Provision an {{site.data.keyword.cos_full_notm}} service instance from the {{site.data.keyword.Bluemix_short}} catalog.
 1. Get the credentials to your newly created Object Storage service instance:
   1. Click **Service Credentials** in the navigation pane.
-  1. Click **New Credential** button and choose the desired options. By default, Cloud Object Storage uses [IAM-style](https://{DomainName}/docs/services/cloud-object-storage/iam/overview.html#getting-started-with-iam) credentials. If you want to work with HMAC-style credentials, you need to provide the inline configuration parameter {"HMAC":true}.
+  1. Click **New Credential** button and choose the desired options. By default, Cloud Object Storage uses [IAM-style](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-getting-started-with-iam) credentials. If you want to work with HMAC-style credentials, you need to provide the inline configuration parameter {"HMAC":true}.
 
     ![Shows adding the required configuration option for HMAC-style credentials.](images/add-new-credential.png)
 
@@ -48,7 +49,7 @@ The following example shows the Object Storage credentials:
 ```
 - **API key credentials**  
 
- In the example, `apikey` is the IAM API Key. IBM IAM authentication using IAM API keys or IAM tokens gives you fine grained control over user access to Cloud Object Storage buckets. See [Getting started with IAM](https://{DomainName}/docs/services/cloud-object-storage/iam/overview.html#getting-started-with-iam).
+ In the example, `apikey` is the IAM API Key. IBM IAM authentication using IAM API keys or IAM tokens gives you fine grained control over user access to Cloud Object Storage buckets. See [Getting started with IAM](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-getting-started-with-iam).
 
 - **Cloud Object Storage HMAC credentials**
 
@@ -90,7 +91,7 @@ Note that the signer parameter must always be set to false.
 
 Using the API key credentials or the HMAC style credentials is like having root access to the object store. If you are using {{site.data.keyword.iae_full_notm}} in a single-user mode, you can use either one of these forms of authentication.  
 
-However, if you are an administrator and want finer grained control across multiple users, you should use IAM token authentication. That way, you can enable access to the Object Storage instance for selected users who then use their IAM token for runtime access. See [Inviting users and assigning access](https://{DomainName}/docs/services/cloud-object-storage/iam/users-serviceids.html#users-and-service-ids).
+However, if you are an administrator and want finer grained control across multiple users, you should use IAM token authentication. That way, you can enable access to the Object Storage instance for selected users who then use their IAM token for runtime access. See [Inviting users and assigning access](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-users-and-service-ids).
 
 Bear in mind that the token expires in an hour which means that it is better to specify it at runtime rather than to define it in the core-site.xml file.
 
@@ -99,7 +100,7 @@ For IAM token authentication, you must define the following parameter in {{site.
 ```
 fs.cos.<servicename>.iam.token=<IAM-token-example-2342342sdfasf34234234asf……..
 ```
-The IAM token for each user is obtained by using the `ibmcloud iam oauth-tokens` command. See [Retrieving IAM access tokens](/docs/services/AnalyticsEngine/Retrieve-IAM-access-token.html).
+The IAM token for each user is obtained by using the `ibmcloud iam oauth-tokens` command. See [Retrieving IAM access tokens](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
 
 ## URI for accessing objects in Object Storage
 
@@ -119,7 +120,7 @@ To enable an application to connect to Cloud Object Storage, you must update the
 
 You can configure Object Storage by using one of the following four methods:
 
-* [Create an {{site.data.keyword.iae_full_notm}} service instance using advanced custom provisioning options](/docs/services/AnalyticsEngine/advanced-provisioning-options.html). This is the preferred and most efficient method.
-* [Specify the properties at runtime](/docs/services/AnalyticsEngine/specify-properties-at-runtime.html)
-* [Customize the cluster using a customization script](/docs/services/AnalyticsEngine/customizing-using-script.html)
-* [Configure the cluster via the Ambari UI after it was created](/docs/services/AnalyticsEngine/configure-cos-via-ambari.html)
+* [Create an {{site.data.keyword.iae_full_notm}} service instance using advanced custom provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options). This is the preferred and most efficient method.
+* [Specify the properties at runtime](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-specify-props-runtime)
+* [Customize the cluster using a customization script](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster-script)
+* [Configure the cluster via the Ambari UI after it was created](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cos-ambari)

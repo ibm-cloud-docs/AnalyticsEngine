@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2018
+  years: 2017, 2019
 lastupdated: "2018-09-25"
 
 ---
@@ -14,6 +14,7 @@ lastupdated: "2018-09-25"
 {:pre: .pre}
 
 # Specifying properties at runtime
+{: #specify-props-runtime}
 
 To enable an application to connect to {{site.data.keyword.cos_full_notm}}, you must update the {{site.data.keyword.iae_full_notm}} cluster configuration file (the core-site.xml file) to include credentials and other required connection values. One way of doing this is to configure the properties that need to be updated in the core-site.xml file at runtime.
 

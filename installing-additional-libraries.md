@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017,2019
+  years: 2017, 2019
 lastupdated: "2019-02-27"
 
 ---
@@ -14,14 +14,15 @@ lastupdated: "2019-02-27"
 {:pre: .pre}
 
 # Installing additional libraries
+{: #install-additional-libs}
 
 In addition to the libraries that come pre-installed, there may be a need to use additional user libraries.
 
 ## Cluster wide installation
 
-For distributed operations such as Spark jobs that execute on any node of the cluster, the dependency libraries need to be available on all of the nodes of the cluster. See [installing libraries on all cluster by using customization scripts](/docs/services/AnalyticsEngine/customizing-cluster.html).
+For distributed operations such as Spark jobs that execute on any node of the cluster, the dependency libraries need to be available on all of the nodes of the cluster. See [installing libraries on all cluster by using customization scripts](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
 
-Note that the customization scripts should install the libraries or packages into the same environments to ensure they get picked up by the JNBG service. The scripts need not rely only on public repositories like pypi, maven central, CRAN (or other publicly accessible URLs) to install the libraries or packages. Instead, you can choose to package your libraries or packages into archive files and place them in Object Storage, which the customization script retrieves and installs. See  [examples of how to place your scripts and related artefacts in an object store for customizing your cluster](/docs/services/AnalyticsEngine/example-of-customizations.html).
+Note that the customization scripts should install the libraries or packages into the same environments to ensure they get picked up by the JNBG service. The scripts need not rely only on public repositories like pypi, maven central, CRAN (or other publicly accessible URLs) to install the libraries or packages. Instead, you can choose to package your libraries or packages into archive files and place them in Object Storage, which the customization script retrieves and installs. See  [examples of how to place your scripts and related artefacts in an object store for customizing your cluster](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-examples).
 
 Installing the libraries in this manner is permanent; the libraries are always available to all interactive sessions by default.
 
@@ -40,7 +41,8 @@ To install Python 3.5 libraries, your script must install in the `conda3` enviro
  ```
  pip install <archive url or or local file path>
  ```
- Note that the additional libraries get installed under `~/pipAnaconda3Packages/`.
+
+Note that the additional libraries get installed under `~/pipAnaconda3Packages/`.
 
 ### Python 2
 
@@ -62,7 +64,6 @@ If you install from a local or remote archive, use:
 ```
 pip install <archive url or local file path>
 ```
-
 Note that the additional libraries get installed under `~/pipAnaconda2Packages/`.
 
 ### Scala or Java

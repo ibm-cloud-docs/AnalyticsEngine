@@ -2,7 +2,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="AnalyticsEngine" audience="service" href="/docs/services/AnalyticsEngine/index.html" path="services/AnalyticsEngine"}
+{: .toc subcollection="AnalyticsEngine" audience="service" href="/docs/services/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview" path="services/AnalyticsEngine"}
 Analytics Engine
 
     {:navgroup: .navgroup}
@@ -102,7 +102,7 @@ Analytics Engine
 
     {: .topicgroup}
     IBM Analytics Engine CLI reference
-        [Using the CLI Plugin](https://cloud.ibm.com/docs/analytics-engine-cli-plugin?topic=IBM%20Analytics%20Engine%20CLI%20plug-in-CLI_analytics_engine#CLI_analytics_engine)
+        [Using the CLI Plugin](https://ibm.co/2GefJJw)
 
     {: .topicgroup}
     Miscellaneous

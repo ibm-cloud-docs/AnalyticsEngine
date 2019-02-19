@@ -14,16 +14,17 @@ lastupdated: "2019-01-17"
 {:pre: .pre}
 
 # Jupyter Kernel Gateway Logs
+{: #JKG-logs}
 
 ## Accessing Jupyter Kernel Gateway logs
 
-The Jupyter Notebook Gateway Service log can be accessed on the [Jupyter Kernel Gateway (JNBG) service host](/docs/services/AnalyticsEngine/JNBG-Service-Host.html) at `/var/log/jnbg/jupyter_kernelgateway.log`.
+The Jupyter Notebook Gateway Service log can be accessed on the [Jupyter Kernel Gateway (JNBG) service host](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-JNBG-host) at `/var/log/jnbg/jupyter_kernelgateway.log`.
 
-You can SSH to the [JNBG service host](/docs/services/AnalyticsEngine/JNBG-Service-Host.html) and access the log at `/var/log/jnbg/jupyter_kernelgateway.log`.
+You can SSH to the [JNBG service host](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-JNBG-host) and access the log at `/var/log/jnbg/jupyter_kernelgateway.log`.
 
 ## Accessing Kernel or Driver logs
 
-All kernel logs are written to the `/var/log/jnbg` directory on the [JNBG service host](/docs/services/AnalyticsEngine/JNBG-Service-Host.html). The kernel log files use the following naming convention:
+All kernel logs are written to the `/var/log/jnbg` directory on the [JNBG service host](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-JNBG-host). The kernel log files use the following naming convention:
 ```
 kernel-<kernel-type>-<appname>-<YYYYMMDD_hhmmss>.log ```
 where:
@@ -33,7 +34,7 @@ where:
 
 Using the combination of `kernel-type`, `appname` and the `<YYYYMMDD_hhmmss>` timestamp, you can easily locate the kernel log file corresponding to a particular session.
 
-You can access the logs by SSHing to the [JNBG service host](/docs/services/AnalyticsEngine/JNBG-Service-Host.html)  and accessing the kernel log file in the `/var/log/jnbg` directory. Alternatively, you can access the log file contents from within a notebook or interactive session by executing the following system command:
+You can access the logs by SSHing to the [JNBG service host](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-JNBG-host)  and accessing the kernel log file in the `/var/log/jnbg` directory. Alternatively, you can access the log file contents from within a notebook or interactive session by executing the following system command:
 ```
 cat /var/log/jnbg/<kernel-log-filename>```
 
@@ -43,7 +44,7 @@ You can access Spark Executor logs using one of the following ways:
 
 * Launching the cluster's Ambari console to navigate to the corresponding YARN/Spark application UI and use the links in the web interface to download the logs.
 
-* Using a command line and REST API interface to download the logs. Refer to the instructions [here](/docs/analytics-engine-cli-plugin/analytics-engine-service-cli.html#spark‐logs) for details on how to download Spark Executor logs.
+* Using a command line and REST API interface to download the logs. Refer to the instructions [here](/docs/cli?topic=analytics-engine-cli-plugin-CLI_analytics_engine#CLI_analytics_engine) for details on how to download Spark Executor logs.
 
 * SSHing to the cluster and using the YARN command line interface to obtain the logs. To obtain logs for a particular `application Id` run the following command:
 

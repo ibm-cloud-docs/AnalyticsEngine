@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-09-27"
 
 ---
@@ -13,8 +13,9 @@ lastupdated: "2018-09-27"
 {:screen: .screen}
 {:pre: .pre}
 
-
 # Workaround for running Oozie jobs
+{: #workaround-oozie}
+
 When you run Oozie jobs, you might experience problems because of different versions of Oozie used in Hortonworks Data Platform (HDP).
 
 Perform the steps in the following workaround to run:

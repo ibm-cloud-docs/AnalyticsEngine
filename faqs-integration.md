@@ -15,6 +15,7 @@ lastupdated: "2019-01-16"
 
 
 # Integration FAQs
+{: #integration-faqs}
 
 ## Which other {{site.data.keyword.Bluemix_notm}} services can I use with {{site.data.keyword.iae_full_notm}}?
 {: faq}
@@ -41,7 +42,7 @@ Hive is not configured to support concurrency. Although you can  change the Hive
 
 ## More FAQs
 
-- [General FAQs](/docs/services/AnalyticsEngine/faqs-general.html)
-- [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/services/AnalyticsEngine/faqs-architecture.html)
-- [FAQs about {{site.data.keyword.iae_full_notm}} operations](/docs/services/AnalyticsEngine/faqs-operations.html)
-- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/services/AnalyticsEngine/faqs-security.html)
+- [General FAQs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-general-faqs)
+- [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-faqs-architecture)
+- [FAQs about {{site.data.keyword.iae_full_notm}} operations](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-operations-faqs)
+- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-security-faqs)

@@ -14,6 +14,7 @@ lastupdated: "2019-01-21"
 {:pre: .pre}
 
 # Installed libraries
+{: #installed-libs}
 
 The {{site.data.keyword.iae_full_notm}} cluster comes with a set of libraries, which are pre-installed on each of the cluster nodes that are available by default on the kernels. The table below lists the locations of these libraries:
 
@@ -23,7 +24,7 @@ The {{site.data.keyword.iae_full_notm}} cluster comes with a set of libraries, w
 | Python 3.5 | Python 3.5 with Spark 2.1 | Python libraries packaged with Anaconda3 4.2.0 at /home/common/conda/anaconda3/|
 | Scala 2.11 | Scala 2.11 with Spark 2.1 | Scala/Java libraries (Scala 2.11 and Java 1.8) under /home/common/lib/scala/spark2 |
 
-For installed Spark connectors, see the [ documentation](/docs/services/AnalyticsEngine/supported-connectors.html).
+For installed Spark connectors, see the [ documentation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-spark-connectors).
 
 ## Python
 

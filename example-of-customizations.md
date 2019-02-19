@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017,2019
+  years: 2017, 2019
 lastupdated: "2019-01-21"
 
 ---
@@ -14,12 +14,13 @@ lastupdated: "2019-01-21"
 {:pre: .pre}
 
 # Examples of customizations
+{: #cust-examples}
 
 The following sections show you different examples of how you can customize a cluster.
 
-For details on what to consider when customizing a cluster, see [Customizing a cluster](/docs/services/AnalyticsEngine/customizing-cluster.html).
+For details on what to consider when customizing a cluster, see [Customizing a cluster](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
 
-The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](/docs/services/AnalyticsEngine/advanced-provisioning-options.html).
+The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
 
 ### Example of creating a cluster with bootstrap customization using the {{site.data.keyword.Bluemix_short}} CLI
 
@@ -80,9 +81,9 @@ cat provision.json
 ```
 
 Consider the following aspects:
-* Possible values for `resource_plan_id` and instructions on how to get the resource group ID are specified [here](/docs/services/AnalyticsEngine/provisioning.html#creating-a-service-instance-using-the-resource-controller-rest-api).
+* Possible values for `resource_plan_id` and instructions on how to get the resource group ID are specified [here](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE#creating-a-service-instance-using-the-resource-controller-rest-api).
 * For the United Kingdom region ID, use `eu-gb`. For Germany, use `eu-de` and for Tokyo, use `jp-tok`.
-* To obtain an IAM token, follow these [steps](/docs/services/AnalyticsEngine/Retrieve-IAM-access-token.html). You also need this token for authentication when using cluster management REST APIs.
+* To obtain an IAM token, follow these [steps](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token). You also need this token for authentication when using cluster management REST APIs.
 
 ### Example of running an adhoc customization script
 
@@ -111,7 +112,7 @@ curl -X POST -v " https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<se
 
 The following section shows you a snippet of a customization script that you can use to customize Ambari configurations. This is also an example of how to use the predefined environment variable `NODE_TYPE`.
 
-The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](/docs/services/AnalyticsEngine/advanced-provisioning-options.html).
+The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
 
 The following example makes use of Ambari's in-built `configs.py` script to change the value for `mapreduce.map.memory`. This script is available only on the management nodes. If you specified `target` as `all`  for adhoc customization or if `all` target is implied because of a bootstrap customization, you might want to specify the `NODE_TYPE` so that the code will be executed only once and from the management slave2 node.
 
@@ -140,7 +141,7 @@ There are two versions of Anaconda installed on all nodes:
  - Anaconda with Python 2.7 at `/home/common/conda/anaconda2`
  - Anaconda with Python 3.5 at `/home/common/conda/anaconda3`
 
-For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine/installing-additional-libraries.html#installing-additional-libraries).
+For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs).
 
 #### Python 3
 
@@ -194,13 +195,13 @@ To install an R package from a CRAN repository:
 R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
 ```
 
-For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine/installing-additional-libraries.html#installing-additional-libraries).
+For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs).
 
 ### Example of configuring COS/S3 Object Storage as a data source for Hadoop/Spark
 
-For details on configuring COS/S3 Object Storage as a data source for Hadoop/Spark, see [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine/configure-COS-S3-object-storage.html).
+For details on configuring COS/S3 Object Storage as a data source for Hadoop/Spark, see [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
 
-The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](/docs/services/AnalyticsEngine/advanced-provisioning-options.html).
+The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
 
 ### Examples of different kinds of locations of the customization script
 

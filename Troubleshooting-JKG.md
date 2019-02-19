@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2017-11-02"
 
 ---
@@ -15,6 +15,7 @@ lastupdated: "2017-11-02"
 
 
 # Troubleshooting (JNBG)
+{: #Troubleshooting-JNBG}
 
 ## Common Issues
 

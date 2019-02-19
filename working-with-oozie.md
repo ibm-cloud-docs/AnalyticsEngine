@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-09-26"
 
 ---
@@ -14,6 +14,7 @@ lastupdated: "2018-09-26"
 {:pre: .pre}
 
 # Working with Oozie
+{: #working-with-oozie}
 
 Oozie is a workflow scheduler system that you can use to manage Hadoop jobs. Oozie is integrated with the rest of the Hadoop stack supporting  Hadoop MapReduce jobs.
 

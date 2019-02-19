@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-11-14"
 
 ---
@@ -14,6 +14,8 @@ lastupdated: "2018-11-14"
 {:pre: .pre}
 
 # Analytics Engine overview
+{: #IAE-overview}
+
 With {{site.data.keyword.iae_full_notm}} you can create Apache Spark and Apache Hadoop clusters in minutes and customize these clusters by using scripts. You can work with data in IBM Cloud Object Storage, as well as integrate other IBM Watson services like {{site.data.keyword.DSX_short}} and Machine Learning.
 
 You can define clusters based on your application's requirements,  choosing the appropriate software pack, version and size of the clusters.
@@ -25,7 +27,7 @@ You can deploy {{site.data.keyword.iae_full_notm}} service instances in the US S
 - [Software components of the cluster](#software-components-of-the-cluster)
 - [Hardware configuration](#hardware-configuration)
 - [Operating system](#operating-system)
-- [Best practices when creating clusters](/docs/services/AnalyticsEngine/best-practices.html)
+- [Best practices when creating clusters](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices)
 
 ## Cluster architecture
 
@@ -57,7 +59,7 @@ The following cluster nodes exist:
 
 ## Outbound and inbound access
 
-Cluster services are made available through various endpoints as described in this [section](/docs/services/AnalyticsEngine/Retrieve-service-credentials-and-service-end-points.html).
+Cluster services are made available through various endpoints as described in this [section](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-credentials).
 
 From the endpoint list, you can see that the following ports are open for inbound traffic:
 
@@ -68,7 +70,7 @@ From the endpoint list, you can see that the following ports are open for inboun
 
 -	**22**: the cluster itself is accessible via SSH at standard port 22.
 
- When you SSH to a cluster (as described [here](/docs/services/AnalyticsEngine/Connect-using-SSH.html)) you essentially log in to `mn003`. Once you have logged in to `mn003`, you can SSH to the compute nodes (referred to as `dn001`, `dn002` etc) and to `mn002`.
+ When you SSH to a cluster (as described [here](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH)) you essentially log in to `mn003`. Once you have logged in to `mn003`, you can SSH to the compute nodes (referred to as `dn001`, `dn002` etc) and to `mn002`.
 
 For example, to log in to a cluster in the US-South region, as given in the endpoint listing, enter:
 ```

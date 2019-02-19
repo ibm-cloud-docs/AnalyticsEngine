@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017,2019
+  years: 2017, 2019
 lastupdated: "2019-01-14"
 
 ---
@@ -14,6 +14,7 @@ lastupdated: "2019-01-14"
 {:pre: .pre}
 
 # Livy API
+{: #livy-api}
 
 [Livy](https://github.com/cloudera/livy) is an open source REST interface for submitting batch jobs to Apache Spark on an {{site.data.keyword.iae_full_notm}} cluster.
 
@@ -55,7 +56,7 @@ Successful response:
 }
 ```
 
-For interactive workloads see [Spark Interactive](/docs/services/AnalyticsEngine/spark-interactive-notebooks-api.html).
+For interactive workloads see [Spark Interactive](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-spark-interactive).
 
 ## REST API
 
@@ -120,7 +121,7 @@ Content-Length: 100
 ```
 ### Submit Spark applications from Object Storage or on data in object stores
 
-Refer to [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine/configure-COS-S3-object-storage.html) for instructions on configuring your cluster to use Object Storage. Once configured, you can directly submit Spark applications from Object Storage. You can also submit Spark applications on data residing in Object Storage.
+Refer to [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos) for instructions on configuring your cluster to use Object Storage. Once configured, you can directly submit Spark applications from Object Storage. You can also submit Spark applications on data residing in Object Storage.
 
 Using Livy to submit a Spark application that exists in Object Storage is basically the same as submitting any Spark application. The only difference is the "file" reference is an Object Storage URL:
 ```

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-08-29"
 
 ---
@@ -14,6 +14,7 @@ lastupdated: "2018-08-29"
 {:pre: .pre}
 
 # Retrieving IAM access tokens
+{: #retrieve-iam-token}
 
 Before you can call an {{site.data.keyword.iae_full_notm}} API, you must first have created an IAM bearer token. Each token is valid only for one hour, and after a token expires, you must create a new one if you want to continue using the API. The recommended method to retrieve a token programmatically is to create an API key for your {{site.data.keyword.Bluemix_short}} identification and then use the IAM token API to exchange that key for a token.
 
@@ -57,7 +58,7 @@ Before you can create a token by using the {{site.data.keyword.Bluemix_notm}} CL
 
 1. You have a valid IBMid.
 
-2. You have downloaded and installed the [{{site.data.keyword.Bluemix_notm}} CLI](https://{DomainName}/docs/cli/reference/bluemix_cli/all_versions.html#bluemix-cli-installer-downloads).
+2. You have downloaded and installed the [{{site.data.keyword.Bluemix_notm}} CLI](docs/cli?topic=cloud-cli-install-ibmcloud-cli).
 
 To create a token using {{site.data.keyword.Bluemix_notm}} CLI:
 

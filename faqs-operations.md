@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-06"
+lastupdated: "2019-01-16"
 
 ---
 
@@ -15,6 +15,7 @@ lastupdated: "2019-02-06"
 
 
 # FAQs about operations
+{: #operations-faqs}
 
 ## How much time does it take for the cluster to get started?
 {: faq}
@@ -41,14 +42,14 @@ The recommended way to read data to a cluster for processing is from {{site.data
 - Spark-streaming
 - Sqoop
 
-For more information, see the [documentation](https://{DomainName}/docs/services/AnalyticsEngine/Upload-files-to-HDFS.html#uploading-files-to-hdfs).
+For more information, see the [documentation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-upload-files-hdfs).
 
 ## How do I configure my cluster?
 {: faq}
 
 You can configure a cluster by using customization scripts or by directly modifying configuration parameters in the Ambari console. Customization scripts are a convenient way to define different
 sets of configurations through a script, to spin up different types of clusters, or to use the same configuration repeatedly for repetitive jobs. You can find more information on cluster customization
-[here](https://{DomainName}/docs/services/AnalyticsEngine/customizing-cluster.html#customizing-a-cluster).
+[here](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
 
 ## Do I have root access in {{site.data.keyword.iae_full_notm}}?
 {: faq}
@@ -71,7 +72,7 @@ scripts at the time the cluster is started to ensure repeatability and consisten
 ## Can I monitor the cluster?
 {: faq}
 
-Can I configure alerts? Ambari components can be monitored by  using the built-in Ambari metrics alerts.
+Can I configure alerts? Ambari components can be monitored by using the built-in Ambari metrics alerts.
 
 ## How do I scale my cluster?
 {: faq}
@@ -86,7 +87,7 @@ Yes, you can add new nodes to your cluster while jobs are still running. As soon
 ## Can I adjust resource allocation in a Spark interactive application?
 {: faq}
 
-If you need to run large Spark interactive jobs, you can adjust the kernel settings to tune resource allocation, for example, if your Spark container is too small for your input work load. To get the maximum performance from your cluster for a Spark job, see [Kernel settings](Kernel-Settings.html).
+If you need to run large Spark interactive jobs, you can adjust the kernel settings to tune resource allocation, for example, if your Spark container is too small for your input work load. To get the maximum performance from your cluster for a Spark job, see [Kernel settings](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings).
 
 ## Does the {{site.data.keyword.iae_full_notm}} operations team monitor and manage all service instances?
 {: faq}
@@ -110,7 +111,7 @@ To debug a Hive query on {{site.data.keyword.iae_full_notm}}:
 
 ## More FAQs
 
-- [General FAQs](/docs/services/AnalyticsEngine/faqs-general.html)
-- [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/services/AnalyticsEngine/faqs-architecture.html)
-- [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/services/AnalyticsEngine/faqs-integration.html)
-- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/services/AnalyticsEngine/faqs-security.html)
+- [General FAQs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-general-faqs)
+- [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-faqs-architecture)
+- [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-integration-faqs)
+- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-security-faqs)
