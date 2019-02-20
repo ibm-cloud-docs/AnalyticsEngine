@@ -102,7 +102,7 @@ Analytics Engine
 
     {: .topicgroup}
     IBM Analytics Engine CLI reference
-        [Using the CLI Plugin](https://ibm.co/2GefJJw)
+        [Using the CLI Plugin](https://ibm.co/2Ir0lLL)
 
     {: .topicgroup}
     Miscellaneous
