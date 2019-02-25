@@ -4,6 +4,8 @@ copyright:
   years: 2017, 2019
 lastupdated: "2017-11-02"
 
+subcollection: AnalyticsEngine
+
 ---
 
 <!-- Attribute definitions -->

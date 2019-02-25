@@ -4,7 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-01-16"
 
+subcollection: AnalyticsEngine
+
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
