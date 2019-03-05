@@ -17,7 +17,7 @@ subcollection: AnalyticsEngine
 # Running Hadoop MapReduce jobs
 {: #run-hadoop-jobs}
 
-**Prerequisite**: Obtain the cluster user credentials, SSH and oozie_rest end point details from the service credentials of your service instance.
+**Prerequisite**: Obtain the cluster user credentials, SSH and oozie_rest endpoint details from the service credentials of your service instance.
 
 ## Analyzing data by opening the SSH connection
 

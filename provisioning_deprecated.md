@@ -33,12 +33,12 @@ In Cloud Foundry, you can provision an {{site.data.keyword.iae_short}} service i
 ### First-time setup:
 
 1. Install the Cloud Foundry CLI by running the [downloaded installer](https://github.com/cloudfoundry/cli#downloads).
-2. To set the API end point and log in, enter:
+2. To set the API endpoint and log in, enter:
 ```
 cf api https://api.ng.bluemix.net
 cf login
 ```
- **Note:** For the United Kingdom region, use the end point `https://api.eu-gb.bluemix.net`.
+ **Note:** For the United Kingdom region, use the endpoint `https://api.eu-gb.bluemix.net`.
 3. Enter your IBM Cloud credentials. When prompted, choose your organization and space.
 
 ### Creating a service instance:
@@ -131,7 +131,7 @@ Create the cluster without customization
 ```
 {: codeblock}
 
-**Note:** For the United Kingdom region, use the end point `https://api.eu-gb.bluemix.net`.
+**Note:** For the United Kingdom region, use the endpoint `https://api.eu-gb.bluemix.net`.
 
 ## Creating a service instance using the Cloud Foundry REST API
 
@@ -167,7 +167,7 @@ curl --request GET \
 
 **Note**:
 1. If the service instance was not successfully created, delete the service instance and try creating it again. If the problem persists, contact IBM Support.
-2. For United Kingdom region, use the end point `https://api.eu-gb.bluemix.net`.
+2. For United Kingdom region, use the endpoint `https://api.eu-gb.bluemix.net`.
 
 ## Plan upgrading
 

@@ -32,7 +32,7 @@ Spark history provides access to job history information and various job metrics
 
 ** To use the Spark history REST API**
 
- The API is accessible via the Knox end point. For example, the call to retrieve the list of applications if your  {{site.data.keyword.Bluemix_short}} hosting location is Dallas:
+ The API is accessible via the Knox endpoint. For example, the call to retrieve the list of applications if your  {{site.data.keyword.Bluemix_short}} hosting location is Dallas:
 ```
 curl -u "clsadmin:<password>" https://XXXXX-mn001.\
 us-south.ae.appdomain.cloud:8443/gateway/default/sparkhistory/api/v1/applications```
