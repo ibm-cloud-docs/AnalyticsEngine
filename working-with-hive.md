@@ -33,7 +33,7 @@ A compiler translates HiveQL statements into a directed acyclic graph of MapRedu
 
 
 ## Prerequisites
-To work with Hive, you need your cluster user credentials and the ssh and hive_jdbc end point details. You can get this information from the service credentials of your {{site.data.keyword.iae_short}} service instance.
+To work with Hive, you need your cluster user credentials and the ssh and hive_jdbc endpoint details. You can get this information from the service credentials of your {{site.data.keyword.iae_short}} service instance.
 
 ## Connecting to the Hive server
 

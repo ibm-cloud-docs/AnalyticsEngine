@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-28"
+lastupdated: "2019-02-27"
 
 subcollection: AnalyticsEngine
 
@@ -32,7 +32,7 @@ Typically, you will need to authenticate to access the {{site.data.keyword.iae_f
 
 2. Activities around Spark and Hadoop services such as submitting a Spark job, connecting to a Hive JDBC endpoint, accessing job logs, and so on. These are classified as server or cluster activities.
 
- **Server or cluster activities** require **user-based authentication**. See [retrieving the cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-credentials) to get the user credentials. The pre-configured password is sufficiently complex and compliant with IBM’s password setting policies. You can also reset this password if needed.
+ **Server or cluster activities** require **user-based authentication**. See [retrieving the cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) to get the credentials.
 
 ## Encrypting at REST
 
