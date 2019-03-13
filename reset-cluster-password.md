@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-10-18"
+lastupdated: "2019-03-13"
 
 subcollection: AnalyticsEngine
 
@@ -19,9 +19,10 @@ subcollection: AnalyticsEngine
 # Resetting cluster password
 {: #reset-cluster-password}
 
+To reset an {{site.data.keyword.iae_full_notm}} cluster password, you must have the following [user permissions](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
+
 You can reset a cluster’s password by using the {{site.data.keyword.iae_full_notm}} REST API. This API
-resets the cluster's password to a new crytographically strong value. Note that
-you must replace all existing service keys and rebind all bound applications after the password is reset.
+resets the cluster's password to a new crytographically strong value. Note that you must replace all existing service keys and rebind all bound applications after the password is reset.
 
 To reset the cluster's password by using the {{site.data.keyword.iae_full_notm}} REST API, enter the
 following cURL command:  

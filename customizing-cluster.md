@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-03-13"
 
 subcollection: AnalyticsEngine
 
@@ -18,15 +18,20 @@ subcollection: AnalyticsEngine
 # Customizing a cluster
 {: #cust-cluster}
 
-Sometimes you might have to customize a cluster specifically to suit your needs, over and above what is provisioned on a default basis. For example, you might want to install custom analytics third-party libraries or you might want to fine-tune some cluster configurations, for example, the Hadoop MapReduce heap size.
-For example:
-`https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443`.
+Sometimes you might have to customize a cluster specifically to suit your needs, over and above what is provisioned on a default basis.
+
+For example, you might want to install custom analytics third-party libraries or you might want to fine-tune some cluster configurations, for example, the Hadoop MapReduce heap size.
+
 These customizations might need to be applied and executed every time a new cluster is created or be executed iteratively on an existing cluster as needed. To this end, a shell script with all the required customizations can be placed at some source, such as HTTP or S3 location, and given as input to be executed to customize the cluster.
+
 The customization feature can be invoked in two ways, namely as:
 - **Bootstrap customization**: specified at the time the cluster is created
-- **Adhoc customization**: run on a need basis after the cluster is created
+- **Adhoc customization**: run on a need basis after the cluster is
+created
 
-## Bootstrap Customization
+To customize an {{site.data.keyword.iae_full_notm}} cluster, you must have the following [user permissions](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
+
+## Bootstrap customization
 In this method, the customization script can be specified as part of the input JSON to the create cluster command as is shown in the examples later. In this case, the script is executed as a final step after the cluster is created. Even if the customization fails the cluster is still available for use.
 
 **Note**: Bootstrap customization is not recommended for customizing Ambari components like Hadoop or Spark. Instead you should specify  [advanced provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
@@ -38,7 +43,7 @@ Consider the following aspects:
 -	The bootstrap customization action specified during cluster creation is automatically executed on any new compute node added during the cluster resize operation.
 - Currently, bootstrap customization is possible only using the Cloud Foundry CLI or the Cloud Foundry REST API modes for creating a cluster. That is, it cannot be specified via the GUI.
 
-## Adhoc Customization
+## Adhoc customization
 If you do not want, or forgot to specify the customization options during cluster creation, you can still customize your cluster by using the adhoc customization anytime you want.
 The cluster must be in an active state to enable customization and you need to specify the target for execution of the script.
 

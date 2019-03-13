@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-11-14"
+lastupdated: "2019-03-13"
 
 subcollection: AnalyticsEngine
 
@@ -17,6 +17,8 @@ subcollection: AnalyticsEngine
 
 # Deleting a service instance
 {: #delete-service}
+
+To delete an {{site.data.keyword.iae_full_notm}} service instance, you must have the following [user permissions](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
 
 You can delete a service instance by using one of the following methods:
 

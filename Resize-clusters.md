@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-11-12"
+lastupdated: "2019-03-13"
 
 subcollection: AnalyticsEngine
 
@@ -20,9 +20,11 @@ subcollection: AnalyticsEngine
 
 You can scale up your cluster by adding more compute nodes. More nodes mean better performance, but also increased cost. For efficiency, add all the nodes that you need at once rather than one at a time.
 
+To resize your {{site.data.keyword.iae_full_notm}} cluster, you must have the following [user permissions](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
+
 You can resize the cluster by using one of the following modes:
-* The Cluster Management user interface
-* Issuing a REST API call
+* [The Cluster Management user interface](#resizing-clusters-by-using-the-cluster-management-user-interface)
+* [Issuing a REST API call](#resizing-clusters-using-the-rest-api)
 
 ## Resizing clusters by using the Cluster Management user interface
 
