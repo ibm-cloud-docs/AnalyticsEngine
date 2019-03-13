@@ -24,7 +24,7 @@ One use of Spark SQL is to execute SQL queries. Spark SQL can also be used to re
 
 ## Prerequisites
 
-To work with Spark SQL, you need your cluster user credentials and the SSH and Spark sql_jdbc end point details. You can get this information from the service credentials of your {{site.data.keyword.iae_short}}  service instance.
+To work with Spark SQL, you need your cluster user credentials and the SSH and Spark sql_jdbc endpoint details. You can get this information from the service credentials of your {{site.data.keyword.iae_short}}  service instance.
 
 ## Connect to the Spark SQL server by using Beeline
 

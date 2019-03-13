@@ -62,6 +62,7 @@ Analytics Engine
 
     {: .topicgroup}
     Working with a service instance
+        retrieve-service-credentials.md
         Retrieve-service-credentials-and-service-end-points.md
         Connect-using-SSH.md
         Upload-files-to-HDFS.md

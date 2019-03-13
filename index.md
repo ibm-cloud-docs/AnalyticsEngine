@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-11-14"
+lastupdated: "2019-02-26"
 
 subcollection: AnalyticsEngine
 
@@ -15,7 +15,7 @@ subcollection: AnalyticsEngine
 {:screen: .screen}
 {:pre: .pre}
 
-# Analytics Engine overview
+# IBM Analytics Engine overview
 {: #IAE-overview}
 
 With {{site.data.keyword.iae_full_notm}} you can create Apache Spark and Apache Hadoop clusters in minutes and customize these clusters by using scripts. You can work with data in IBM Cloud Object Storage, as well as integrate other IBM Watson services like {{site.data.keyword.DSX_short}} and Machine Learning.
@@ -61,7 +61,7 @@ The following cluster nodes exist:
 
 ## Outbound and inbound access
 
-Cluster services are made available through various endpoints as described in this [section](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-credentials).
+Cluster services are made available through various endpoints as described in this [section](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints).
 
 From the endpoint list, you can see that the following ports are open for inbound traffic:
 

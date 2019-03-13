@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-09-26"
+lastupdated: "2019-02-26"
 
 subcollection: AnalyticsEngine
 
@@ -24,7 +24,7 @@ You can upload files to your home directory (`/user/clsadmin`). However, you sho
 
 ## Uploading your data by using the HDFS CLI
 
-**Prerequisite**: Obtain the user credentials and ssh endpoint from cluster service credentials.
+**Prerequisite**: Obtain the user credentials and SSH endpoint. See the [docs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints) for how to get the endpoint and the credentials.
 
 To use the HDFS CLI, SSH to the cluster using the credentials obtained earlier. You can access the HDFS CLI using the HDFS command. Refer to the following examples for using the HDFS CLI:
 
@@ -52,7 +52,7 @@ For programmatic access to the HDFS, use the WebHDFS REST API.
 
 ### Uploading your data to the HDFS by using the WebHDFS REST API
 
-**Prerequisites:** Obtain the user credentials and the WebHDFS URL from the [service credentials and end points](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-credentials) of your service instance.
+**Prerequisites:** You need the user credentials and the WebHDFS URL.  See the [docs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints) for how to get the URL and the credentials.
 
 To upload data to HDFS by using the WebHDFS REST API:
 1. Open a command prompt.
@@ -64,7 +64,7 @@ curl -i -s --user clsadmin:your_password --max-time 45 \
 ```
 {: codeblock}
 
- The value of XXXXX is the host name of your cluster retrieved from the service end points json. If the call completes successfully, JSON returns `200 OK`.
+ The value of XXXXX is the host name of your cluster retrieved from the service endpoints json. If the call completes successfully, JSON returns `200 OK`.
 
 1. To upload a file, run the following command:
 
