@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-03-18"
 
 subcollection: AnalyticsEngine
 
@@ -22,7 +22,7 @@ With {{site.data.keyword.iae_full_notm}} you can create Apache Spark and Apache 
 
 You can define clusters based on your application's requirements,  choosing the appropriate software pack, version and size of the clusters.
 
-You can deploy {{site.data.keyword.iae_full_notm}} service instances in the US South or United Kingdom regions. The {{site.data.keyword.iae_full_notm}} service is deployed in a data centre which is physically located in the chosen region.
+You can deploy {{site.data.keyword.iae_full_notm}} service instances in the following regions: US South, United Kingdom, Germany, and Japan. The {{site.data.keyword.iae_full_notm}} service is deployed in a data center which is physically located in the chosen region.
 
 - [Cluster architecture](#cluster-architecture)
 - [Outbound and inbound access](#outbound-and-inbound-access)
