@@ -25,7 +25,7 @@ Analytics Engine
 
     {: .topicgroup}
     Helpful links
-        [IBM Analytics Engine API reference](https://console.bluemix.net/apidocs/ibm-analytics-engine)
+        [IBM Analytics Engine API reference](https://cloud.ibm.com/apidocs/ibm-analytics-engine)
         [Jupyter Kernel Gateway Reference Doc](https://jupyter-kernel-gateway.readthedocs.io/en/latest)
         [Livy Reference](https://github.com/cloudera/livy/blob/master/README.rst)
         [Spark History REST API](https://spark.apache.org/docs/2.1.1/monitoring.html#rest-api)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-03-19"
 
 subcollection: AnalyticsEngine
 
@@ -87,7 +87,7 @@ If the target is multiple nodes, the customization scripts are executed in paral
 
 ## Predefined environment variables available for use in the customization script
 The following predefined environment variables are available that can be used in the customization script:
-`AMBARI_HOST`, `AMBARI_PORT`, `AMBARI_USER`, `AMBARI_PASSWORD`, `CLUSTER_NAME`, and `NODE_TYPE`.
+`AMBARI_HOST`, `AMBARI_PORT`, `AMBARI_USER`, `CLUSTER_NAME`, and `NODE_TYPE`.
 The node type can be any of these values : `data`, `management-slave1`, or `manangement-slave2`.
 
 ## Package Admin tool

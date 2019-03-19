@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-06"
+lastupdated: "2019-03-19"
 
 subcollection: AnalyticsEngine
 
@@ -22,7 +22,12 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
 
-### 06 February
+### 18 March 2019
+
+- The cluster credentials can no longer be retrieved via the service endpoints. You can now only retrieve the cluster password by invoking the {{site.data.keyword.iae_full_notm}} [`reset_password`](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-reset-cluster-password#reset-cluster-password) REST API and you must have the appropriate user permissions.
+- The predefined environment variable `AMBARI_PASSWORD` is no longer available for use in a cluster customization script.
+
+### 06 February 2019
 
 - The Ambari metrics service (AMS) is now available on all the packages, including the Spark and Hive packages. Previously it was available only on the Hadoop package. This service enables you to see metrics like CPU, memory, and so on, which assists you while troubleshooting the cluster or an application.
 

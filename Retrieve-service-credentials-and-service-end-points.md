@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-19"
 
 subcollection: AnalyticsEngine
 
@@ -18,14 +18,14 @@ subcollection: AnalyticsEngine
 # Retrieving service endpoints
 {: #retrieve-endpoints}
 
-The service endpoints that the cluster exposes are made available to you as `service keys` (aka service credentials). Note that getting the cluster credentials via the service keys is being deprecated.
+The service endpoints that the cluster exposes are made available to you as `service keys` (aka service credentials).
 
 You can fetch the service endpoints by:
 * [Using the {{site.data.keyword.Bluemix_notm}} CLI](#obtaining-the-service-endpoints-using-the-ibm-cloud-cli)
 * [Using the {{site.data.keyword.Bluemix_notm}} REST API](#obtaining-the-service-endpoints-using-the-ibm-cloud-rest-api)
 * [From the {{site.data.keyword.Bluemix_notm}} console](#obtaining-the-service-endpoints-from-the-ibm-cloud-console)
 
-To get the cluster credentials, see [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials).
+The service endpoints do not expose the cluster credentials. To get the cluster credentials, see [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials).
 
 ## Obtaining the service endpoints using the {{site.data.keyword.Bluemix_notm}} CLI
 
@@ -61,6 +61,7 @@ where:
 - `<service key name>` is the name of the service key that you entered when creating the key.
 
 Sample Response:
+Bear in mind that the cluster credentials are not returned in the response.
 
 ```
 {
@@ -71,8 +72,6 @@ Sample Response:
   "apikey": "<iam api key value>",
   "cluster": {
     "cluster_id": "xyz-xyz-xyz",
-    "user": "xxxxxxx" (is being deprecated)
-    "password": "xxxxxxxxxxxxxx", (is being deprecated)
     "service_endpoints": {
       "ambari_console": "https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443",
       "livy": "https://xxxxx-mn001.<region>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches",
@@ -102,7 +101,7 @@ Sample Response:
 
 where `<region>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
-In the sample response, the properties under `cluster` specify the  cluster service endpoints. Returning the cluster user name and password is being deprecated.
+In the sample response, the properties under `cluster` specify the  cluster service endpoints. No cluster credentials are returned.
 
 The property `apikey` contains an IAM API key that can be used to generate IAM bearer tokens. An IAM bearer token must be provided for authorization when invoking the cluster management API URL.
 
@@ -143,9 +142,7 @@ Sample response:
     "apikey": "<iam api key>",
     "iam_role_crn": "<iam access role crn>",
     "cluster": {
-      "password": "xxxxxxxxxxx", (is being deprecated)
       "cluster_id": "xxx-xxx-xxx-xxx",
-      "user": "xxxxxxx", (is being deprecated)
       "service_endpoints_ip": {
       "spark_history_server": "https://xxx.xxx.xxx.xxx:8443/gateway/default/sparkhistory",
       "notebook_gateway": "https://xxx.xxx.xxx.xxx:8443/gateway/default/jkg/",
@@ -180,7 +177,7 @@ Sample response:
   "account_id": "<user’s account id>"
 }
 ```
-where `<region>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
+where `<region>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`. No cluster credentials are returned.
 
 ## Obtaining the service endpoints from the {{site.data.keyword.Bluemix_notm}} console
 
