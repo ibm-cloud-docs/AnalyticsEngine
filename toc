@@ -17,6 +17,7 @@ Analytics Engine
     {: .topicgroup}
     Security
         security-model.md
+        user-responsibilities.md
         hipaa-readiness.md
     {: .navgroup-end}
 
