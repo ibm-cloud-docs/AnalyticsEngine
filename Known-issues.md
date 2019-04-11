@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-12-10"
+lastupdated: "2019-04-11"
 
 subcollection: AnalyticsEngine
 
@@ -16,7 +16,7 @@ subcollection: AnalyticsEngine
 {:pre: .pre}
 
 # Known issues
-{: #jnown-issues}
+{: #known-issues}
 
 List of known issues in the release:
 
@@ -24,6 +24,7 @@ List of known issues in the release:
 |------------|-----------|-----------|
 | Cluster Access | Launch of Ambari console or SSH connectivity to newly created cluster may fail due to a SoftLayer DNS issue | Allow a few minutes prior to access.|
 | UI | The Cluster Management user interface does not function well in Internet Explorer 11 | The Management user interface functions fine in Chrome, Safari and Firefox. Use these browsers to access the user interface. |
+| | You might not be able to create a service instance using the  [{{site.data.keyword.Bluemix_notm}} UI](https://cloud.ibm.com). You might see an error when you try to configure your service instance. | If you encounter this error: </br> 1. Close all open private browser windows that loaded the {{site.data.keyword.Bluemix_notm}} console.</br> 2. Open your browser again in private mode and try creating a service instance.</br> Alternatively, you can use the CLI or REST API to provision {{site.data.keyword.iae_full_notm}}. See [provisioning a service instance](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE). |
 | Browser | {{site.data.keyword.iae_full_notm}} service instance creation and management can only be done on Firefox version 60 or earlier. There is a known issue about supporting later versions of Firefox. | Either use Firefox version 60 or earlier, or switch to another supported browser like Chrome or Safari. |
 | Oozie | Oozie jobs fail because of the Oozie versions used with HDP. | Perform the steps in the following [workaround](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-workaround-oozie). |
 | Customization | The package-admin can only install packages in the centos repository. | |
