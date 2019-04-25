@@ -18,7 +18,7 @@ subcollection: AnalyticsEngine
 # Configuring clusters to work with IBM COS S3 object stores
 {: #config-cluster-cos}
 
-{{site.data.keyword.cos_full_notm}} is a highly scalable cloud storage service, designed for high durability, resiliency and security. See [{{site.data.keyword.cos_full_notm}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage).
+{{site.data.keyword.cos_full_notm}} is a highly scalable cloud storage service, designed for high durability, resiliency and security. See [{{site.data.keyword.cos_full_notm}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-about#about).
 
 This topic explains how to configure an {{site.data.keyword.iae_full_notm}} cluster to connect to data and applications stored an object store. {{site.data.keyword.iae_full_notm}} uses HDP’s default AWS open source object storage connectors to access data from Cloud Object Storage  when running HDFS, Hive, or Mapreduce jobs. However, when running Spark jobs, the system is preconfigured to use IBM’s open source Stocator libraries that offer better performance and optimization for large object reads and writes as compared to the default AWS connectors. See  [Stocator - Storage Connector for Apache  Spark](https://github.com/SparkTC/stocator).
 
@@ -31,7 +31,7 @@ To use {{site.data.keyword.cos_full_notm}} as your primary data source:
 1. Provision an {{site.data.keyword.cos_full_notm}} service instance from the {{site.data.keyword.Bluemix_short}} catalog.
 1. Get the credentials to your newly created Object Storage service instance:
   1. Click **Service Credentials** in the navigation pane.
-  1. Click **New Credential** button and choose the desired options. By default, Cloud Object Storage uses [IAM-style](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-getting-started-with-iam) credentials. If you want to work with HMAC-style credentials, you need to provide the inline configuration parameter {"HMAC":true}.
+  1. Click **New Credential** button and choose the desired options. By default, Cloud Object Storage uses [IAM-style](/docs/services/cloud-object-storage?topic=cloud-object-storage-iam#iam)  credentials. If you want to work with HMAC-style credentials, you need to provide the inline configuration parameter {"HMAC":true}.
 
     ![Shows adding the required configuration option for HMAC-style credentials.](images/add-new-credential.png)
 
@@ -51,7 +51,7 @@ The following example shows the Object Storage credentials:
 ```
 - **API key credentials**  
 
- In the example, `apikey` is the IAM API Key. IBM IAM authentication using IAM API keys or IAM tokens gives you fine grained control over user access to Cloud Object Storage buckets. See [Getting started with IAM](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-getting-started-with-iam).
+ In the example, `apikey` is the IAM API Key. IBM IAM authentication using IAM API keys or IAM tokens gives you fine grained control over user access to Cloud Object Storage buckets. See [Getting started with IAM](/docs/services/cloud-object-storage?topic=cloud-object-storage-iam#iam).
 
 - **Cloud Object Storage HMAC credentials**
 
@@ -93,7 +93,7 @@ Note that the signer parameter must always be set to false.
 
 Using the API key credentials or the HMAC style credentials is like having root access to the object store. If you are using {{site.data.keyword.iae_full_notm}} in a single-user mode, you can use either one of these forms of authentication.  
 
-However, if you are an administrator and want finer grained control across multiple users, you should use IAM token authentication. That way, you can enable access to the Object Storage instance for selected users who then use their IAM token for runtime access. See [Inviting users and assigning access](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-users-and-service-ids).
+However, if you are an administrator and want finer grained control across multiple users, you should use IAM token authentication. That way, you can enable access to the Object Storage instance for selected users who then use their IAM token for runtime access. See [Inviting users and assigning access](/docs/services/cloud-object-storage?topic=cloud-object-storage-service-credentials#service-credentials).
 
 Bear in mind that the token expires in an hour which means that it is better to specify it at runtime rather than to define it in the core-site.xml file.
 

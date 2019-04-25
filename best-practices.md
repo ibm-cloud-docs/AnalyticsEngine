@@ -62,12 +62,12 @@ Consider the following configuration aspects:
 ### Disaster Recovery (DR) Resiliency
 {: #DR-resiliency}
 
-You should use the IBM COS Cross Regional resiliency option that backs up your data across several different cities in a region. In contrast, the Regional resiliency option back ups data in a single data center. See the [Cloud Object Storage documentation.](/docs/services/cloud-object-storage/info?topic=cloud-object-storage-select_endpoints#select_endpoints)
+You should use the IBM COS Cross Regional resiliency option that backs up your data across several different cities in a region. In contrast, the Regional resiliency option back ups data in a single data center. See the [Cloud Object Storage documentation.](/docs/services/cloud-object-storage/info?topic=cloud-object-storage-endpoints#endpoints)
 
 ### Encryption
 {: #cos-encryption}
 
-Cloud Object Storage comes with default built-in encryption. You can also configure Cloud Object Storage to work with the BYOK Key Protect service. See [here](/docs/services/key-protect?topic=key-protect-getting-started-tutorial#getting-started-tutorial) for more information. Note however that Key Protect is currently only supported for regional buckets. See the [Cloud Object Storage manage encryption](/docs/services/cloud-object-storage/basics?topic=cloud-object-storage-manage-encryption#manage-encryption) documentation.
+Cloud Object Storage comes with default built-in encryption. You can also configure Cloud Object Storage to work with the BYOK Key Protect service. See [here](/docs/services/key-protect?topic=key-protect-getting-started-tutorial#getting-started-tutorial) for more information. Note however that Key Protect is currently only supported for regional buckets. See the [Cloud Object Storage manage encryption](/docs/services/cloud-object-storage/basics?topic=cloud-object-storage-encryption#encryption) documentation.
 
 ### Cloud Object Storage credentials
 {: #cos-credentials}
