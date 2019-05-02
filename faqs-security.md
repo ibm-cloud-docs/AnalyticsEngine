@@ -19,6 +19,7 @@ subcollection: AnalyticsEngine
 {: #security-faqs}
 
 ## What type of encryption is supported?
+{: #supported-encryption}
 {: faq}
 
 Hadoop transparent data encryption is automatically enabled for each cluster. The cluster comes with a predefined HDFS encryption zone, which is identified by the HDFS path `/securedir`. Files
@@ -28,6 +29,7 @@ shell commands, WebHDFS APIs, and the Ambari file browser. More information is a
 All data on Cloud Object Storage is encrypted at-rest. You can use a private, encrypted endpoint available from Cloud Object Storage to  transfer data between Cloud Object Storage and {{site.data.keyword.iae_full_notm}} clusters. Any data that passes over the public facing ports (8443,22 and 9443) is encrypted.
 
 ## Which ports are open on the public interface on the cluster?
+{: #open-ports}
 {: faq}
 
 The following ports are open on the public interface on the
