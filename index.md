@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-05-09"
 
 subcollection: AnalyticsEngine
 
@@ -26,6 +26,7 @@ You can deploy {{site.data.keyword.iae_full_notm}} service instances in the foll
 
 - [Cluster architecture](#cluster-architecture)
 - [Outbound and inbound access](#outbound-and-inbound-access)
+- [Software packages](#software-packages)
 - [Software components of the cluster](#software-components-of-the-cluster)
 - [Hardware configuration](#hardware-configuration)
 - [Operating system](#operating-system)
@@ -95,32 +96,49 @@ ssh clsadmin@chs-tnu-499-dn001```
 
 ![Shows the {{site.data.keyword.iae_full_notm}} cluster architecture.](images/AnalyticsEngineCluster.png)
 
+## Software packages
+
+The following software packages are available when you create a cluster based on Hortonworks Data Platform (HDP) 3.1 and 2.6.5:
+
+| AE 1.2       | Based on HDP 3.1        |
+|-----------------|-----------------------------|
+| `AE 1.2 Hive LLAP`  | Hadoop, Livy, Knox, Ambari, <br>Anaconda-Py, Hive (LLAP mode) |
+| `AE 1.2 Spark and Hive` | Hadoop, Livy, Knox, Spark, JEG, Ambari, <br>Anaconda Py, Hive (non LLAP mode ) |
+| `AE 1.2 Spark and Hadoop` | (AE 1.2 Spark and Hive) +  HBase, Phoenix, <br>Oozie |
+
+| AE 1.1       | Based on HDP 2.6.5        |
+|-----------------|-----------------------------|
+| `AE 1.1 Spark`  | Spark, Hadoop, Jupyter Enterprise, <br>Livy, Knox, Ambari, Anacondy-Py |
+| `AE 1.1 Spark and Hive` | (AE 1.1 Spark) + Hive |
+| `AE 1.1 Spark and Hadoop` | (AE 1.1 Spark and Hive) + HBase, <br>Oozie, Flume, Phoenix |
+
+**Important:**
+
+1. You can no longer provision new instances of {{site.data.keyword.iae_full_notm}} using the `AE 1.0` software packages (based on HDP 2.6.2).
+2. Currently you cannot resize a cluster that uses the `AE 1.2 Hive LLAP` software package.
 
 ## Software components of the cluster
-You can create a cluster based on Hortonworks Data Platform 2.6.2 and 2.6.5. The following components are made available.
+You can create a cluster based on Hortonworks Data Platform 2.6.5 and 3.1. The following software components are available for HDP 2.6.5 and 3.1. Refer to the previous section which lists the software packages to find out which components are available in the provided software packages.   
 
-| HDP 2.6.2       | HDP 2.6.5        |
+|  AE 1.1 (HDP 2.6.5)  | AE 1.2 (HDP 3.1)
 |---------------------|------------------------|
-| Apache Spark 2.1.1 | Apache Spark 2.3.0 |
-| Hadoop 2.7.3 | Hadoop 2.7.3|
-| Apache Livy 0.3.0 | Apache Livy 0.4|
-| Knox 0.12.0 | Knox 0.12.0|
-| Ambari 2.5.2 | Ambari 2.6.2|
-| Anaconda with Python 2.7.13 and 3.5.2 | Anaconda with Python 2.7.13 and 3.5.2|
-| Jupyter Enterprise Gateway 0.8.0 | Jupyter Enterprise Gateway 0.8.0|
-| HBase 1.1.2 &#42; | HBase 1.1.2 &#42;|
-| Hive 1.2.1 &#42;&#42; | Hive 1.2.1 &#42;&#42;|
-| Oozie 4.2.0 &#42; | Oozie 4.2.0 &#42;|
-| Flume 1.5.2 &#42; | Flume 1.5.2 &#42;|
-| Tez 0.7.0 &#42; | Tez 0.7.0 &#42;|
-| Pig 0.16.0 &#42; | Pig 0.16.0 &#42;|
-| Sqoop 1.4.6 &#42; | Sqoop 1.4.6 &#42;|
-| Slider 0.92.0 &#42; | Slider 0.92.0 &#42;|
-| Apache Phoenix 4.7 &#42; | Apache Phoenix 4.7 &#42;|
-
-
-&#42; Available in the _AE 1.0/1.1 Spark and Hadoop_ pack only <br>
-&#42;&#42; Available in the _AE 1.0/1.1 Spark and Hadoop_ and _AE 1.0/1.1 Spark and Hive_ packs only
+|  Apache Spark 2.3.0 | Apache Spark 2.3.2 |
+|  Hadoop 2.7.3| Hadoop 3.1.1|
+|  Apache Livy 0.4| Apache Livy 0.5|
+|  Knox 0.12.0| Knox 1.0.0|
+|  Ambari 2.6.2| Ambari 2.7.3|
+|  Anaconda with Python 2.7.13 and 3.5.2| Anaconda with Python 3.7.1 |
+|  Jupyter Enterprise Gateway 0.8.0| Jupyter Enterprise Gateway 0.8.0
+|  HBase 1.1.2 | HBase 2.0.2 |
+|  Hive 1.2.1 | Hive 3.1.0 |
+| NA | Hive LLAP 3.1.0 |
+|  Oozie 4.2.0 | Oozie 4.3.1 |
+|  Flume 1.5.2 | NA |
+|  Tez 0.7.0 | Tez 0.9.1 |
+|  Pig 0.16.0 | Pig 0.16.0 |
+|  Sqoop 1.4.6 | Sqoop 1.4.7 |
+|  Slider 0.92.0 | NA |
+|  Apache Phoenix 4.7 | Apache Phoenix 5.0.0 |
 
 ## Hardware configuration
 

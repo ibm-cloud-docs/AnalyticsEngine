@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-05-15"
 
 subcollection: AnalyticsEngine
 
@@ -36,7 +36,9 @@ Typically, you will need to authenticate to access the {{site.data.keyword.iae_f
 
 ## Encrypting at REST
 
-IBM Cloud Object Storage is the recommended data store to store the data required for executing Spark jobs on the cluster. IBM Cloud Object Storage offers encryption of the data stored in it. Even if your data is stored in HDFS, you can choose to store it in Data At-Rest encryption through the Hadoop Native Encryption feature (encryption zones on HDFS) in the `/securedir` HDFS directory as described [here](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-upload-files-hdfs#working-with-encrypted-data). All  scratch data in `/tmp` that might be used during job execution and temporary data that you might keep under `/home/wce/clsadmin/` is encrypted at disk level. See [Best practices for Cloud Object Storage encryption](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#encryption).
+IBM Cloud Object Storage is the recommended data store to store the data required for executing Spark jobs on the cluster. IBM Cloud Object Storage offers encryption of the data stored in it.
+
+All  scratch data in `/tmp` that might be used during job execution and temporary data that you might keep under `/home/wce/clsadmin/` is encrypted at disk level. See [Best practices for Cloud Object Storage encryption](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#encryption).
 
 ## Encrypting endpoints
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-21"
+lastupdated: "2019-05-09"
 
 subcollection: AnalyticsEngine
 
@@ -34,7 +34,7 @@ The following sample shows the parameters in JSON format:
 ```
 "num_compute_nodes": 1,
 	"hardware_config": "default",
-	"software_package": "ae-1.1-spark",
+	"software_package": "ae-1.2-hive-spark",
 	"customization": [{
 		"name": "action1",
 		"type": "bootstrap",
@@ -75,7 +75,7 @@ cat provision.json
     "parameters": {
         "hardware_config": "default",
         "num_compute_nodes": "1",
-        "software_package": "ae-1.1-spark",
+        "software_package": "ae-1.2-hive-spark",
 	  “customization”: [<customization details>]
     }    
 }
@@ -139,42 +139,46 @@ fi
 
 ### Example of installing Python and R packages
 
-There are two versions of Anaconda installed on all nodes:
- - Anaconda with Python 2.7 at `/home/common/conda/anaconda2`
- - Anaconda with Python 3.5 at `/home/common/conda/anaconda3`
+Anaconda3 environments are installed on all nodes of `AE 1.2` and `AE 1.1` clusters. Anaconda2 is only supported on `AE 1.1` clusters. However, as Python 2 will not be supported after 2019, you are encouraged to start using Python 3.    
 
 For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs).
 
 #### Python 3
 
-To install Python 3.5 libraries, your script must install to the `/home/common/conda/anaconda3` environment by using:
+The Anaconda3 environment on `AE 1.2` clusters comes with Python 3.7 and on `AE 1.1` clusters with Python 3.5.
+
+To install Python 3.x libraries, your script must install to the `/home/common/conda/anaconda3` environment by using:
  ```
  pip install <package-name>
  ```
  If you install from a local or remote archive, use:
  ```
- pip install <archive url or or local file path>
+ pip install <archive url or local file path>
  ```
 
 #### Python 2
 
+Python 2 is only supported on `AE 1.1` clusters.
+
 To install Python 2.7 libraries, your script must install to the `/home/common/conda/anaconda2` environment by setting the following environment variables:
 
- ```
- export PATH=/home/common/conda/anaconda2/bin:$PATH
- export PYSPARK_PYTHON=/home/common/conda/anaconda2/bin/python
- export PYTHONPATH=~/pipAnaconda2Packages/
- export PIP_CONFIG_FILE=/home/common/conda/anaconda2/etc/pip.conf
- ```
+```python
+export PATH=/home/common/conda/anaconda2/bin:$PATH
+export PYSPARK_PYTHON=/home/common/conda/anaconda2/bin/python
+export PYTHONPATH=~/pipAnaconda2Packages/
+export PIP_CONFIG_FILE=/home/common/conda/anaconda2/etc/pip.conf
+```
 
- ```
- pip install <package-name>
- ```
+Then install the package:
+
+```python
+pip install <package-name>
+```
  If you install from a local or remote archive, use:
 
- ```
- pip install <archive url or local file path>
- ```
+```
+pip install <archive url or local file path>
+```
 
 #### R
 

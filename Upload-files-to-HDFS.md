@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-05-15"
 
 subcollection: AnalyticsEngine
 
@@ -106,9 +106,3 @@ where `<changeme>`  is the URL to the cluster. For example, for data on a cluste
 https://XXXXX.us-south.ae.appdomain.cloud:8443/gateway/default/hdfs/explorer.html
 ```
 For more information, see the [WebHDFS REST API documentation](http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-hdfs/WebHDFS.html).
-
-## Working with encrypted data
-
-Hadoop transparent data encryption is automatically enabled for your cluster. Your cluster comes with a predefined HDFS encryption zone, which is identified by the HDFS path/securedir. Files that are placed in the encryption zone are automatically encrypted. The files are automatically decrypted when they are accessed through various Hadoop client applications, such as HDFS shell commands, WebHDFS APIs, and the Ambari file browser.
-
-Data encryption and decryption are transparent to your Hadoop applications. A file that is stored in the encryption zone can be referenced in Hadoop applications by specifying the file's complete HDFS path, just like any regular HDFS file. The data that is stored in the encryption zone is accessible only to an accredited user. It is important to remember that when you copy an encrypted file from `/securedir` to another location on the HDFS that is outside of the encryption zone, to your local file system, or to external storage such as object storage, the file in those locations is not encrypted.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-11-14"
+lastupdated: "2019-05-09"
 
 ---
 
@@ -75,7 +75,7 @@ Note that the value for the variable `<servicename>` can be any literal such as 
 {
 	"num_compute_nodes": 1,
 	"hardware_config": "default",
-	"software_package": "ae-1.1-spark",
+	"software_package": "ae-1.2-hive-spark",
 	"advanced_options": {
 		"ambari_config": {
 			"core-site": {
@@ -104,7 +104,7 @@ You must add the configuration properties that are relevant to Cloud Object Stor
 {
  "num_compute_nodes": 1,
  "hardware_config": "default",
- "software_package": "ae-1.1-spark",
+ "software_package": "ae-1.2-hive-spark",
  "advanced_options": {
    "ambari_config": {
      "core-site": {
@@ -133,7 +133,7 @@ Spark provides a mechanism to dynamically adjust the resources your application 
 {
 	"num_compute_nodes": 1,
 	"hardware_config": "default",
-	"software_package": "ae-1.1-spark",
+	"software_package": "ae-1.2-hive-spark",
 	"advanced_options": {
 		"ambari_config": {
 			"spark2-defaults": {
@@ -162,7 +162,7 @@ To create a cluster with an external Hive metastore, you must provide the follow
 {
 	"num_compute_nodes": 1,
 	"hardware_config": "default",
-	"software_package": " ae-1.1-hadoop-spark ",
+	"software_package": " ae-1.2-hadoop-spark ",
 	"advanced_options": {
 		"ambari_config": {
 			"hive-site": {

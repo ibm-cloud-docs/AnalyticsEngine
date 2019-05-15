@@ -15,7 +15,7 @@ subcollection: AnalyticsEngine
 {:screen: .screen}
 {:pre: .pre}
 
-# Spark Interactive (Notebooks and API)
+# Spark interactive (notebooks and API)
 {: #spark-interactive}
 
 There are two ways to run Spark applications interactively in an {{site.data.keyword.iae_full_notm}} cluster:
@@ -27,14 +27,9 @@ There are two ways to run Spark applications interactively in an {{site.data.key
 
 The {{site.data.keyword.iae_full_notm}} cluster runs a JNBG service which is a Jupyter Kernel Gateway to allow interactive clients like Jupyter notebook servers to connect to the cluster and submit code for execution.
 
-### Supported Kernels
+### Spark kernels and libraries
 
-Currently, the JNBG service supports the following kernels:
-
-* Python 2.7 with Spark 2.1
-* Python 3.5 with Spark 2.1
-* Scala 2.11 with Spark 2.1
-* R with Spark 2.1
+See [Spark kernels and libraries on the cluster](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs) for a list of the libraries, which are pre-installed on each of the cluster nodes that are available by default on the kernels.
 
 ## SSH
 

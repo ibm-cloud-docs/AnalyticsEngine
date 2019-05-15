@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-09"
 
 subcollection: AnalyticsEngine
 
@@ -18,12 +18,12 @@ subcollection: AnalyticsEngine
 # Installing additional libraries
 {: #install-additional-libs}
 
-In addition to the libraries that come pre-installed, there may be a need to use additional user libraries.
+You might need to install other libraries in addition to the libraries that are  pre-installed on the cluster.
 
 ## Cluster wide installation
 {: #cluster-wide-installation}
 
-For distributed operations such as Spark jobs that execute on any node of the cluster, the dependency libraries need to be available on all of the nodes of the cluster. See [installing libraries on all cluster by using customization scripts](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
+For distributed operations such as Spark jobs that execute on any node of the cluster, the dependency libraries need to be available on all of the nodes of the cluster. See [installing libraries on all clusters by using customization scripts](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
 
 Note that the customization scripts should install the libraries or packages into the same environments to ensure they get picked up by the JNBG service. The scripts need not rely only on public repositories like pypi, maven central, CRAN (or other publicly accessible URLs) to install the libraries or packages. Instead, you can choose to package your libraries or packages into archive files and place them in Object Storage, which the customization script retrieves and installs. See  [examples of how to place your scripts and related artefacts in an object store for customizing your cluster](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-examples).
 
@@ -33,7 +33,9 @@ Note that you cannot use the `--user` option in `pip` install commands in {{site
 
 ### Python 3
 
-To install Python 3.5 libraries, your script must install in the `conda3` environment by using:
+The Anaconda3 environment on `AE 1.2` clusters comes with Python 3.7 and on `AE 1.1` clusters with Python 3.5. See [Installed libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs).
+
+To install Python 3.x libraries, your script must install in the `conda3` environment by using:
 
  ```
  pip install <package-name>
@@ -42,12 +44,14 @@ To install Python 3.5 libraries, your script must install in the `conda3` enviro
  If you install from a local or remote archive, use:
 
  ```
- pip install <archive url or or local file path>
+ pip install <archive url or local file path>
  ```
 
 Note that the additional libraries get installed under `~/pipAnaconda3Packages/`.
 
 ### Python 2
+
+Python 2 is only supported on `AE 1.1`  clusters.
 
 To install Python 2.7 libraries, your script must install in the `conda2` environment by first setting the following environment variables:
 

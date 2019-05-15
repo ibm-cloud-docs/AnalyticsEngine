@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-05-09"
 
 subcollection: AnalyticsEngine
 
@@ -41,7 +41,7 @@ To help you create and maintain a stateless cluster, you should try to keep to t
 - [Choose the right plan](#plan)
 - [Choose the appropriate hardware configuration](#hardware)
 - [Choose the appropriate software package](#software)
-- [Tune kernel settings for Spark interactive jobs](#spark-interactive)
+- [Tune kernel settings for Spark interactive jobs](#tune-kernel-for-spark-interactive)
 - [Store temporary files on cluster prudently](#store-temp-files)
 - [Switch regions for disaster recovery](#disaster-recovery)
 
@@ -94,7 +94,7 @@ To enable deleting and creating clusters often, you should use customization scr
 
 Size your cluster depending on your environment and workload:
 
- -	For your development environment, create an {{site.data.keyword.iae_full_notm}} cluster  with 1 Management and 2 compute nodes
+ - For your development environment, create an {{site.data.keyword.iae_full_notm}} cluster  with 1 Management and 2 compute nodes
  - For your staging environment, the cluster size depends on the workloads and job characteristics, as well as the service-level agreement (SLA).
  - For Production environment, the cluster size depends on the workloads and job characteristics, and your SLA. Contact IBM Sales to get suitable sizing for your requirements.
 
@@ -113,16 +113,26 @@ For running parallel jobs, choose the memory-intensive node size. For example, i
 ## Choose the appropriate software package
 {: #software}
 
-The AE 1.1 software packages include components for Horton Dataworks Platform 2.6.5, whereas the AE 1.0 software packages include components for Horton Dataworks Platform 2.6.2.
+The software packages on `AE 1.2` clusters include components for Horton Dataworks Platform 3.1 and on `AE 1.1` clusters for Horton Dataworks Platform 2.6.5.
 
-- Choose `AE <version> Spark` if you are planning to run only Spark workloads. This package does not include the following components: Oozie, HBase, Phoenix, Flume, Hive and Spark thrift server (Spark SQL from Beeline).
+| AE 1.2  clusters     | Based on HDP 3.1        |
+|-----------------|-----------------------------|
+| `AE 1.2 Hive LLAP` <br>Choose if you are planning to run Hive in interactive mode, with preconfigured settings for Hive LLAP for faster responses. | Hadoop, Livy, Knox, Ambari, Anaconda-Py, Hive (LLAP mode) |
+| `AE 1.2 Spark and Hive` <br>Choose if you are planning to run Hive and/or Spark workloads.  | Hadoop, Livy, Knox, Spark, JEG, Ambari, Anaconda Py, Hive (non LLAP mode ) |
+| `AE 1.2 Spark and Hadoop`<br>Choose if you are planning to run Hadoop workloads in addition to Spark workloads. | (AE 1.2 Spark and Hive) +  HBase, Phoenix, Oozie |
 
--	Choose `AE <version> Spark and Hive` if you are planning to run Hive and/or Spark workloads. In addition to the components you get with the Spark package, you also get Hive, as part of the components of the Hive package. This package does not include the following components: Oozie, HBase, Phoenix, and  Flume.  
+**Note:**  Currently you cannot resize a cluster that uses the `AE 1.2 Hive LLAP` software package.
 
--	Choose `AE <version> Spark and Hadoop` if you are planning to run Hadoop workloads in addition to Spark workloads. In addition to the components you get with the Spark package, this package includes the following  components as parts of the Hadoop package: Oozie, HBase, Hive, Phoenix, and Flume.
+| AE 1.1 clusters      | Based on HDP 2.6.5        |
+|-----------------|-------------------------------|
+| `AE 1.1 Spark` <br>Choose if you are planning to run only Spark workloads. | Spark, Hadoop, Jupyter Enterprise, Livy, Knox, Ambari, Anaconda-Py |
+| `AE 1.1 Spark and Hive` <br>Choose if you are planning to run Hive and/or  Spark workloads.| (AE 1.1 Spark) + Hive |
+| `AE 1.1 Spark and Hadoop`<br>Choose if you are planning to run Hadoop workloads in addition to Spark workloads. | (AE 1.1 Spark and Hive) + HBase, <br>Oozie, Flume, Phoenix |
+
+**Note:** Python 2 is available only in `AE 1.1`. However, you are encouraged to write your applications in Python 3 as Python 2 will only be supported until the end of 2019. See [Installed libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs).
 
 ## Tune kernel settings for Spark interactive jobs
-{: #spark-interactive}
+{: #tune-kernel-for-spark-interactive}
 
 When running large Spark interactive jobs, you might need to adjust kernel settings to tune resource allocation. To get the maximum performance from your cluster for a Spark job, make sure the kernel settings for memory and executor are correct. See [Kernel settings](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings).
 

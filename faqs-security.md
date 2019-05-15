@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-05"
+lastupdated: "2019-05-15"
 
 subcollection: AnalyticsEngine
 
@@ -22,11 +22,7 @@ subcollection: AnalyticsEngine
 {: #supported-encryption}
 {: faq}
 
-Hadoop transparent data encryption is automatically enabled for each cluster. The cluster comes with a predefined HDFS encryption zone, which is identified by the HDFS path `/securedir`. Files
-that are placed in the encryption zone are automatically  encrypted. The files are automatically decrypted when they are accessed through various Hadoop client applications, such as HDFS
-shell commands, WebHDFS APIs, and the Ambari file browser. More information is available in the [documentation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-upload-files-hdfs).
-
-All data on Cloud Object Storage is encrypted at-rest. You can use a private, encrypted endpoint available from Cloud Object Storage to  transfer data between Cloud Object Storage and {{site.data.keyword.iae_full_notm}} clusters. Any data that passes over the public facing ports (8443,22 and 9443) is encrypted.
+All data on Cloud Object Storage is encrypted at-rest. You can use a private, encrypted endpoint available from Cloud Object Storage to  transfer data between Cloud Object Storage and {{site.data.keyword.iae_full_notm}} clusters. Any data that passes over the public facing ports (8443,22 and 9443) is encrypted. See details in [Best practices](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#cos-encryption).
 
 ## Which ports are open on the public interface on the cluster?
 {: #open-ports}

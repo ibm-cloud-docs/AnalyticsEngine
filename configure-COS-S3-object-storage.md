@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-05-15"
 
 subcollection: AnalyticsEngine
 
@@ -15,7 +15,7 @@ subcollection: AnalyticsEngine
 {:screen: .screen}
 {:pre: .pre}
 
-# Configuring clusters to work with IBM COS S3 object stores
+# Working with object storage
 {: #config-cluster-cos}
 
 {{site.data.keyword.cos_full_notm}} is a highly scalable cloud storage service, designed for high durability, resiliency and security. See [{{site.data.keyword.cos_full_notm}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-about#about).
