@@ -114,7 +114,7 @@ Analytics Engine
 
     {: .topicgroup}
     IBM Analytics Engine CLI reference
-        [IBM Analytics Engine CLI](https://cloud.ibm.com/docs/analytics-engine-cli-plugin-CLI_analytics_engine#CLI_analytics_engine)
+        [IBM Analytics Engine CLI](/docs/analytics-engine-cli-plugin-CLI_analytics_engine#CLI_analytics_engine)
 
     {: .topicgroup}
     Miscellaneous
