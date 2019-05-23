@@ -114,9 +114,9 @@ Analytics Engine
 
     {: .topicgroup}
     IBM Analytics Engine CLI reference
-        [IBM Analytics Engine CLI](https://cloud.ibm.com/docs/analytics-engine-cli-plugin?topic=analytics-engine-cli-plugin-CLI_analytics_engine#CLI_analytics_engine)
+        [IBM Analytics Engine CLI](https://ibm.co/2wid9ec)
 
-    {}: .topicgroup}
+    {: .topicgroup}
     Miscellaneous
         Retrieve-IAM-access-token.md
         retrieving-uaa-access-token.md
