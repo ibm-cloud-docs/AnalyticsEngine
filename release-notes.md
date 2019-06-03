@@ -30,7 +30,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
    - `AE 1.2 Spark and Hive`
    - `AE 1.2 Spark and Hadoop`
 
- See [Provisioning {{site.data.keyword.iae_full_notm}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-provision-IAE).
+ See [Provisioning {{site.data.keyword.iae_full_notm}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE).
 - `AE 1.0` (based on HDP 2.6.2) is deprecated. You can no longer provision `AE 1.0` clusters. You also cannot resize and add additional nodes to an `AE 1.0` cluster.
 
  Although existing clusters will still continue to work and be supported until September 30, 2019, you should stop using those now and start creating new `AE 1.2` clusters as described in [Best practices](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
@@ -38,7 +38,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
  All provisioned instances of AE 1.0 will be deleted after September 30, 2019. See the [deprecation notice](https://www.ibm.com/blogs/bluemix/2019/04/introducing-ibm-analytics-engine-v1-2-and-announcing-the-deprecation-of-ibm-analytics-engine-v1-0/).
 - A new software package `AE 1.2 Hive LLAP` was added to `AE 1.2`, which supports realtime interactive queries. Note however that currently you cannot resize a cluster created using this package.
 - `AE 1.2` supports Python 3.7. Although `AE 1.1` still supports both Python 3.5 and Python 2.7, you should start moving your Python-based applications or code to Python 3.7 now. Especially considering that the open source community has announced the end of support for Python 2.
-- `AE 1.2` does not support HDFS encryption zones. To store sensitive data with encryption requirements, select the appropriate COS encryption options. See details in [Best practices](https://cloud.ibm.com/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#cos-encryption). 
+- `AE 1.2` does not support HDFS encryption zones. To store sensitive data with encryption requirements, select the appropriate COS encryption options. See details in [Best practices](https://cloud.ibm.com/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#cos-encryption).
 
 ### 18 March 2019
 
