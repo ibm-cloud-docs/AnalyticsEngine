@@ -55,46 +55,37 @@ For programmatic access to the HDFS, use the WebHDFS REST API.
 **Prerequisites:** You need the user credentials and the WebHDFS URL.  See the [docs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints) for how to get the URL and the credentials.
 
 To upload data to HDFS by using the WebHDFS REST API:
-1. Open a command prompt.
-2. Change directory to the location of the data files that you want to upload. Using the WebHDFS URL that is identified above, make a REST API call by using the cURL command to show directory contents, create directories, and upload files. For example, to show the current contents of your cluster's top-level HDFS directory that is named `/user`, run the following command:
 
- ```
-curl -i -s --user clsadmin:your_password --max-time 45 \
- https://XXXXX:8443/gateway/default/webhdfs/v1/user?op=LISTSTATUS
-```
-{: codeblock}
+1. Open a command prompt.
+
+1. Change directory to the location of the data files that you want to upload. Using the WebHDFS URL that is identified above, make a REST API call by using the cURL command to show directory contents, create directories, and upload files. For example, to show the current contents of your cluster's top-level HDFS directory that is named `/user`, run the following command:
+
+ ```curl -i -s --user clsadmin:your_password --max-time 45 \
+ https://XXXXX:8443/gateway/default/webhdfs/v1/user?op=LISTSTATUS```
 
  The value of XXXXX is the host name of your cluster retrieved from the service endpoints json. If the call completes successfully, JSON returns `200 OK`.
 
 1. To upload a file, run the following command:
 
- ```
-curl -i -L -s --user clsadmin:your_password --max-time 45 -X PUT -T file_name.txt \
- https://XXXXX:8443/gateway/default/webhdfs/v1/user/clsadmin/path_to_file/file_name?op=CREATE
-```
-{: codeblock}
+ ```curl -i -L -s --user clsadmin:your_password --max-time 45 -X PUT -T file_name.txt \
+ https://XXXXX:8443/gateway/default/webhdfs/v1/user/clsadmin/path_to_file/file_name?op=CREATE```
 
  If the directories do not exist, they are created. If the call completes successfully, JSON returns `201 Created`.
 
  Run more cURL commands, one for each file that you want to upload.
 
 1. To create an empty directory, for example an output directory, run the following command:
-
- ```
-curl -i  -s --user clsadmin:your_password --max-time 45 -X PUT
- https://XXXXX:8443/gateway/default/webhdfs/v1/user/clsadmin/path_to_directory?op=MKDIRS
-```
-{: codeblock}
+```curl -i  -s --user clsadmin:your_password --max-time 45 -X PUT
+   https://XXXXX:8443/gateway/default/webhdfs/v1/user/clsadmin/path_to_directory?op=MKDIRS ```
 
 1. To remove a file, run the following command:
 
- ```
-curl -i -s --user clsadmin:your_password --max-time 45 -X DELETE
- https://XXXXX:8443/gateway/default/webhdfs/v1/user/clsadmin/path_to_file?op=DELETE
-```
-{: codeblock}
+ ```curl -i -s --user clsadmin:your_password --max-time 45 -X DELETE
+   https://XXXXX:8443/gateway/default/webhdfs/v1/user/clsadmin/path_to_file?op=DELETE
+   ```
 
  You cannot remove a directory that is not empty.
+
 
 An alternative way to look at the directory structure, contents, owners, and size is to navigate to the following URL:
 
@@ -105,4 +96,4 @@ where `<changeme>`  is the URL to the cluster. For example, for data on a cluste
 ```
 https://XXXXX.us-south.ae.appdomain.cloud:8443/gateway/default/hdfs/explorer.html
 ```
-For more information, see the [WebHDFS REST API documentation](http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-hdfs/WebHDFS.html).
+For more information, see the [WebHDFS REST API documentation](https://hadoop.apache.org/docs/r3.1.0/hadoop-project-dist/hadoop-hdfs/WebHDFS.html).
