@@ -118,8 +118,6 @@ The recommended method to customize Ambari components is to create the {{site.da
 
 The following example makes use of Ambari's in-built `configs.py` script to change the value for `mapreduce.map.memory`. This script is available only on the management nodes. If you specified `target` as `all`  for adhoc customization or if `all` target is implied because of a bootstrap customization, you might want to specify the `NODE_TYPE` so that the code will be executed only once and from the management slave2 node.
 
-Note that the sample only works for new HDP 2.6.2 or 2.6.5 clusters. For existing HDP 2.6.2 clusters, you must use the `configs.sh` script for cluster customization.
-
 ```
 if [ "x$NODE_TYPE" == "xmanagement-slave2" ]
 then
@@ -203,15 +201,15 @@ R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
 
 For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs).
 
-### Example of configuring COS/S3 Object Storage as a data source for Hadoop/Spark
+### Example of configuring {{site.data.keyword.cos_short}} as a data source for Hadoop/Spark
 
-For details on configuring COS/S3 Object Storage as a data source for Hadoop/Spark, see [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
+For details on configuring {{site.data.keyword.cos_full_notm}} as a data source for Hadoop/Spark, see [Working with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
 
 The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
 
 ### Examples of different kinds of locations of the customization script
 
-The following examples show snippets of the `script` and `script_params` attributes for various locations of the customization's JSON input. The customization script can be hosted on a Github repository (source_type:https) or in a bucket on S3 storage (source_type:CosS3). It can also be a Swift object store. (Note however that the Swift location is deprecated)
+The following examples show snippets of the `script` and `script_params` attributes for various locations of the customization's JSON input. The customization script can be hosted on a Github repository (source_type:https) or in a {{site.data.keyword.cos_short}} bucket (source_type:CosS3).
 
 The maximum number of characters that can be used in the `"script"` attribute of the JSON input is limited to 4096 chars.
 
@@ -224,11 +222,11 @@ The maximum number of characters that can be used in the `"script"` attribute of
 },
 "script_params": ["CHANGEME_ENDPOINT", "CHANGE_ACCESS_KEY", "CHANGE_SECRET"]
 ```
-`<CHANGEME_ENDPOINT>` is the endpoint of the IBM S3 instance, for example, `s3-api.sjc-us-geo.objectstorage.softlayer.net`.
-`<CHANGE_ACCESS_KEY>` is the access key of the IBM S3 instance.
-`<CHANGE_SECRET>` is the secret of the IBM S3 instance.
+`<CHANGEME_ENDPOINT>` is the endpoint of the {{site.data.keyword.cos_full_notm}} instance, for example, `s3-api.sjc-us-geo.objectstorage.softlayer.net`.
+`<CHANGE_ACCESS_KEY>` is the access key of the {{site.data.keyword.cos_short}} instance.
+`<CHANGE_SECRET>` is the secret of the {{site.data.keyword.cos_short}} instance.
 
-**NOTE:** The script path should be the raw content path of your script. The example uses a script that associates an S3 COS instance with the cluster so that data in S3 COS can be used in Hadoop and Spark jobs.
+**NOTE:** The script path should be the raw content path of your script. The example uses a script that associates an {{site.data.keyword.cos_full_notm}} instance with the cluster so that data in {{site.data.keyword.cos_full_notm}} can be used in Hadoop and Spark jobs.
 
 ####  Example of the script hosted in an HTTPS location (with or without basic authentication)
 ```
@@ -242,7 +240,8 @@ The maximum number of characters that can be used in the `"script"` attribute of
     },
     "script_params": ["arg1", "arg2"]
 ```
-#### Example of the customization script hosted in Softlayer COS S3
+#### Example of the customization script hosted in Softlayer {{site.data.keyword.cos_full_notm}}
+
 ```
    "script": {
         "source_type": "CosS3",
@@ -253,36 +252,6 @@ The maximum number of characters that can be used in the `"script"` attribute of
          },
          "script_path": "/myBucket/myFolder/bootstrap.sh"
     },
-    "script_params": ["arg1", "arg2"]
-```
-
-#### Example of the script hosted in a Bluemix Swift object store (deprecated)
-```
-    "script": {
-        "source_type": "BluemixSwift",
-        "source_props": {
-           "auth_url": "https://identity.open.softlayer.com",
-            "user_id": "xxxxxxxx",
-           "password": "yyyyyyyyyy",
-           "project_id": "zzzzzzzzz",
-           "region": "dallas"
-         },
-         "script_path": "/myContainer/myFolder/bootstrap.sh"
-    },
-    "script_params": ["arg1", "arg2"]
-```
-
-#### Example of the script hosted in a SoftLayer Swift object store (deprecated)
-```
- "script": {
-        "source_type": "SoftLayerSwift",
-        "source_props": {
-           "auth_endpoint": "https://dal05.objectstorage.service.networklayer.com/auth/v1.0/",
-           "username": "xxxxxxx",
-           "api_key": "yyyyyyy"
-         },
-         "script_path": "/myContainer/myFolder/bootstrap.sh"
-     },
     "script_params": ["arg1", "arg2"]
 ```
 

@@ -22,7 +22,7 @@ Sometimes you might have to customize a cluster specifically to suit your needs,
 
 For example, you might want to install custom analytics third-party libraries or you might want to fine-tune some cluster configurations, for example, the Hadoop MapReduce heap size.
 
-These customizations might need to be applied and executed every time a new cluster is created or be executed iteratively on an existing cluster as needed. To this end, a shell script with all the required customizations can be placed at some source, such as HTTP or S3 location, and given as input to be executed to customize the cluster.
+These customizations might need to be applied and executed every time a new cluster is created or be executed iteratively on an existing cluster as needed. To this end, a shell script with all the required customizations can be placed at some source, such as the HTTP or Cloud Object Storage location, and given as input to be executed to customize the cluster.
 
 The customization feature can be invoked in two ways, namely as:
 - **Bootstrap customization**: specified at the time the cluster is created
@@ -62,18 +62,16 @@ The main differences between these customization methods is shown in the followi
 You can add a customization script to the following sources:
 *	Http with or without basic authentication
 *	Https with or without basic authentication
-*	Bluemix Swift
-*	Softlayer Swift
-*	Softlayer COS S3
+*	Softlayer Cloud Object Storage
 
 Examples for each type are given in the following sections.
 
-## Specifying the target for runnning customization
+## Specifying the target for a runnning customization
 
 As mentioned before, in the case of boostrap customization, the script runs on all nodes.
 You need to specify a target only when you run:
- - an adhoc customization
- - or when you need to rerun a bootstrap customization script
+ - An adhoc customization
+ - Or when you need to rerun a bootstrap customization script
 
 The target can be one of the following four types
   - `all`: runs the customization on all nodes of the cluster including management and compute
@@ -97,7 +95,7 @@ The `package-admin` tool is a special utility tool available for use in the {{si
 `sudo package-admin -c [install | remove] -p [package name]`
 
 This is something you can use in the customization script or even directly on any of the cluster nodes, after you [SSH](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH) to it.
-Note the use of `sudo` in order to execute the utililty.
+Note the use of `sudo` in order to execute the utility.
 
 ## What can you customize?
 
@@ -108,8 +106,8 @@ You can customize:
 
 The customization script will run as long as it contains code that the user of the cluster is authorized to execute. It cannot execute code that requires root access. For example, it cannot execute code such as opening ports or changing IP table rules.
 
-## Tracking the status of the customizaton
-This is a three step process. First you need to get the customization request ID for your instance and then invoke a second API to get the status of that particular ID. From the second invocation, you will get location details of the customization logs for each target node executed. Finally, if you need to look at the log details, you will need to [SSH](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH) to the specific node.
+## Tracking the status of the customization
+This is a three step process. First you need to get the customization request ID for your instance and then invoke a second API to get the status of that particular ID. From the second invocation, you will get the location details of the customization logs for each target node. Finally, if you need to look at the log details, you will need to [SSH](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH) to the specific node.
 
 ### Step 1 - Getting all customization requests for the given instance ID
 

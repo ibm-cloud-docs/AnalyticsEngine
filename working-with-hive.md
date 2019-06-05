@@ -2,7 +2,8 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+
+lastupdated: "2019-05-23"
 
 subcollection: AnalyticsEngine
 
@@ -32,7 +33,7 @@ Note that Hive is not available in the `AE 1.1 Spark` package. However, Hive is 
 
 - [Prerequisites](#prerequisites)
 - [Connecting to the Hive server](#connecting-to-the-hive-server)
-- [Accessing data in IBM Cloud Object Storage S3 from Hive](#accessing-data-in-ibm-cloud-object-storage-s3-from-hive)
+- [Accessing data in {{site.data.keyword.cos_full_notm}} from Hive](#accessing-data-in-ibm-cloud-object-storage-from-hive)
 - [Changing the Hive execution engine](#changing-the-hive-execution-engine)
 - [Externalizing the Hive metastore to IBM Compose for MySQL](#externalizing-the-hive-metastore-to-ibm-compose-for-mysql)
 - [Parquet file format in Hive](#parquet)
@@ -47,7 +48,6 @@ To work with Hive (with and without LLAP), you need your cluster user credential
 When fetching the Hive (without LLAP) endpoint, you need the details in the `hive_jdbc` attribute in the service credentials. For the Hive LLAP endpoint, you need the details in the `hive_interactive_jdbc` attribute.
 
 Note that the Hive LLAP endpoint is available only in an {{site.data.keyword.iae_full_notm}} service instance created by using the  `AE 1.2 Hive LLAP` software package.
-
 
 
 ## Connecting to the Hive server
@@ -83,15 +83,15 @@ The following examples show useful HiveQL statements.
 
 	`SELECT * from doc;`
 
-## Accessing data in IBM Cloud Object Storage S3 from Hive  
+## Accessing data in {{site.data.keyword.cos_full_notm}} from Hive  
 
-Use the following example statement to access data in IBM Cloud Object Storage (COS) from Hive:
+Use the following example statement to access data in {{site.data.keyword.cos_full_notm}} from Hive:
 ```
 CREATE EXTERNAL TABLE myhivetable( no INT, name STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 LOCATION 'cos://<bucketname>.<servicename>/dir1'; ```
 
-`<bucketname>` is the COS bucket. The value for `<servicename>` can be any literal such as `iamservice` or `myprodservice`.
+`<bucketname>` is the {{site.data.keyword.cos_short}} bucket. The value for `<servicename>` can be any literal such as `iamservice` or `myprodservice`.
 
 
 ## Changing the Hive execution engine
@@ -178,7 +178,7 @@ CREATE TABLE parquet_test (
 PARTITIONED BY (part string)
 STORED AS PARQUET;
 ```
-4. Create an external table in Parguet format in IBM Cloud Object Storage. Your cluster needs to be configured to use Cloud Object Store. See [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
+4. Create an external table in Parguet format in {{site.data.keyword.cos_full_notm}}. Your cluster needs to be configured to use {{site.data.keyword.cos_short}}. See [Configuring clusters to work with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
 ```
 CREATE EXTERNAL TABLE parquet_test1 (
  id int,
@@ -190,7 +190,7 @@ PARTITIONED BY (part string)
 STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir1';
 ```
 
-1. Create another external table in IBM Cloud Object Storage and view the values stored in Parquet format in the Cloud Object Storage directory:
+1. Create another external table in {{site.data.keyword.cos_short}} and view the values stored in Parquet format in the {{site.data.keyword.cos_short}} directory:
 
  ```
 CREATE EXTERNAL TABLE parquet_test2 (x INT, y STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir2';
@@ -198,7 +198,7 @@ insert into parquet_test2 values (1,'Alex');
 select * from parquet_test2;
 ```
 
-1. Load data from a Parquet file stored in Cloud Object Storage to an external Parguet table. users-parquet is a Parquet file stored in the Cloud Object Storage bucket.
+1. Load data from a Parquet file stored in {{site.data.keyword.cos_short}} to an external Parguet table. `users-parquet` is a Parquet file stored in the {{site.data.keyword.cos_short}} bucket.
 ```
 CREATE EXTERNAL TABLE extparquettable1 (id INT, name STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir3';
 LOAD DATA INPATH 'cos://mybucket.myprodservice/dir6/users-parquet';
@@ -212,7 +212,7 @@ The result is the following:
 | NULL                 | Alyssa                 |
 | NULL                 | Ben                    |```
 
-1. Load data from a Parquet file stored in HDFS into an external Parquet table. The users.parquet file is stored in the HDFS path `/user/hive`.
+1. Load data from a Parquet file stored in HDFS into an external Parquet table. The `users.parquet` file is stored in the HDFS path `/user/hive`.
 ```
 CREATE EXTERNAL TABLE extparquettable2 (id INT, name STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir1';
 LOAD DATA INPATH 'users-parquet';
@@ -240,20 +240,20 @@ To create Hive tables in ORC format:
  2. Launch Beeline:
  ```
  beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword>```
- 3. Create an external table in ORC format in IBM Cloud Object Storage. To be able to do this, your cluster must have been [configured to work with Cloud Object Storage](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
+ 3. Create an external table in ORC format in {{site.data.keyword.cos_full_notm}}. To be able to do this, your cluster must have been [configured to work with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
  ```
  CREATE EXTERNAL TABLE orc_table(line STRING) STORED AS ORC LOCATION 'cos://mybucket.myprodservice/ORC'; ```
- 4. Load data from an ORC file stored in Cloud Object Storage into an external parquet table:
+ 4. Load data from an ORC file stored in {{site.data.keyword.cos_short}} into an external parquet table:
  ```
  LOAD DATA INPATH 'cos://mybucket.myprodservice/orc-file-11-format.orc' OVERWRITE INTO TABLE orc_table;
 select * from orc_table;
 ```
-`orc-file-11-format.orc` is an ORC file stored in the Cloud Object Storage bucket.
+`orc-file-11-format.orc` is an ORC file stored in the {{site.data.keyword.cos_short}} bucket.
 
 ## LLAP configuration on the cluster
 {: #llap-config}
 
-All the compute nodes on a Hive LLAP cluster are dedicated for LLAP related daemons. This means that there is no compute power left to these nodes to run other workloads. Each compute node runs an LLAP daemon and some Tez query coordinators (based on the hardware type of the node) in Yarn containers.
+All the compute nodes on a Hive LLAP cluster are dedicated for LLAP related daemons. This means that there is no compute power left for  these nodes to run other workloads. Each compute node runs an LLAP daemon and some Tez query coordinators (based on the hardware type of the node) in Yarn containers.
 
 The following table shows the LLAP configuration for one node for each of the supported hardware types.
 

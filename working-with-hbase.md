@@ -25,7 +25,7 @@ HBase applications are written in Java, much like a typical MapReduce applicatio
 **Note:** HBase and Apache Phoenix are only available in the {{site.data.keyword.iae_short}} Hadoop package.
 
 - [Accessing HBase through the HBase shell](#accessing-hbase-through-the-hbase-shell)
-- [Moving data between the cluster and Cloud Object Storage](#moving-data-between-the-cluster-and-cloud-object-storage)
+- [Moving data between the cluster and {{site.data.keyword.cos_short}}](#moving-data-between-the-cluster-and-object-storage)
 - [Accessing Phoenix through client tools](#accessing-phoenix-through-client-tools)
 - [Accessing Phoenix through JDBC via the Knox Gateway](#accessing-phoenix-through-jdbc-via-the-knox-gateway)
 
@@ -43,26 +43,26 @@ hbase shell```
 
 For further information on HBase and its features refer to [Apache HBase](https://hortonworks.com/apache/hbase/).
 
-## Moving data between the cluster and Cloud Object Storage
+## Moving data between the cluster and {{site.data.keyword.cos_short}}
 
-HBase cannot work directly with IBM Cloud Object Storage at this time, that is you cannot create an HBase table with Cloud Object Storage as the storage. By default, the storage is HDFS. However, you can export data from HBase to Cloud Object Storage and import it back again into another cluster with the same HBase table definitions. HBase offers the following export and import utilities:
+HBase cannot work directly with {{site.data.keyword.cos_full_notm}} at this time, that is you cannot create an HBase table with {{site.data.keyword.cos_short}} as the storage. By default, the storage is HDFS. However, you can export data from HBase to {{site.data.keyword.cos_short}} and import it back again into another cluster with the same HBase table definitions. HBase offers the following export and import utilities:
 
 - **Export Table** set of tools which use MapReduce to scan and copy tables. Be aware when copying large data volumes that this method has a direct impact on the region server performance.
-  - [Exporting an HBase table from HDFS to Cloud Object Storage](#exporting-an-hbase-table-from-hdfs-to-cloud-object-storage)
+  - [Exporting an HBase table from HDFS to {{site.data.keyword.cos_short}}](#exporting-an-hbase-table-from-hdfs-to-object-storage)
 
-  - [Importing an HBase table from Cloud Object Storage to HDFS](#importing-an-hbase-table-from-cloud-object-storage-to-hdfs)
+  - [Importing an HBase table from {{site.data.keyword.cos_short}}  to HDFS](#importing-an-hbase-table-from-object-storage-to-hdfs)
 
 - **HBase Snapshot** tool which allows you to take a copy of a table (both contents and metadata) with a very small performance impact. Exporting the snapshot to another cluster does not directly affect any of the region servers; export is just a `distcp` with an extra bit of logic.
 
- HBase snapshots can be stored in IBM Cloud Object Storage (COS S3)  instead of in HDFS. To allow for this, your cluster must be configured with IBM Cloud Object Storage. See [Configuring clusters to work with IBM COS S3 object stores](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).  
+ HBase snapshots can be stored in {{site.data.keyword.cos_full_notm}} instead of in HDFS. To allow for this, your cluster must be configured with {{site.data.keyword.cos_short}}. See [Working with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).  
 
- - [Exporting a snapshot of an HBase table to Cloud Object storage](#exporting-a-snapshot-of-an-hbase-table-to-cloud-object-storage)
+ - [Exporting a snapshot of an HBase table to {{site.data.keyword.cos_short}}](#exporting-a-snapshot-of-an-hbase-table-to-object-storage)
 
- - [Importing a snapshot from Cloud Object Storage to HDFS](#importing-a-snapshot-from-cloud-object-storage-to-hdfs)
+ - [Importing a snapshot from {{site.data.keyword.cos_short}} to HDFS](#importing-a-snapshot-from-object-storage-to-hdfs)
 
-### Exporting an HBase table from HDFS to Cloud Object Storage
+### Exporting an HBase table from HDFS to {{site.data.keyword.cos_short}}
 
-To export an HBase table from HDFS to Cloud Object Storage:
+To export an HBase table from HDFS to {{site.data.keyword.cos_full_notm}}:
 
 1. Launch the HBase shell, create a table, and add some data into the table:
 ```
@@ -72,18 +72,18 @@ To export an HBase table from HDFS to Cloud Object Storage:
    hbase> put 'testexport', 'row1', 'cf1', 'test-data'
    hbase> quit
 ```
-2. Export the newly created table to the Cloud Object Storage configured to work with your cluster:
+2. Export the newly created table to the {{site.data.keyword.cos_short}} configured to work with your cluster:
 ```
 # hbase org.apache.hadoop.hbase.mapreduce.Export testexport cos://mybucket.myprodservice/testexport
 ```
-3. Verify that the table was exported to Cloud Object Storage:
+3. Verify that the table was exported to {{site.data.keyword.cos_short}}:
 ```
 # hadoop fs –ls cos://mybucket.myprodservice/testexport
 ```
 
-### Importing an HBase table from Cloud Object Storage to HDFS
+### Importing an HBase table from {{site.data.keyword.cos_short}} to HDFS
 
-To import an HBase table stored in Cloud Object Storage to HDFS:
+To import an HBase table stored in {{site.data.keyword.cos_full_notm}} to HDFS:
 
 1. Create an empty HBase table to which to add the data to import. Verify that this table is empty:
 ```
@@ -102,9 +102,9 @@ To import an HBase table stored in Cloud Object Storage to HDFS:
    hbase> scan 'testimport'
 ```
 
-### Exporting a snapshot of an HBase table to Cloud Object storage
+### Exporting a snapshot of an HBase table to {{site.data.keyword.cos_short}}
 
-To export a snapshot of an HBase table to the Cloud Object storage configured to work with your cluster:
+To export a snapshot of an HBase table to  {{site.data.keyword.cos_full_notm}} which is configured to work with your cluster:
 
 1. Create a snapshot of the created table. The snapshot is temporarily saved in the HBase database:
 ```
@@ -112,19 +112,19 @@ To export a snapshot of an HBase table to the Cloud Object storage configured to
    hbase> snapshot 'testexport', 'mysnapshot'
    hbase> list_snapshots
 ```
-2. Export the snapshot from the HBase database to Cloud Object Storage:
+2. Export the snapshot from the HBase database to {{site.data.keyword.cos_short}}:
 ```
 # hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot mysnapshot -copy-to cos://mybucket.myprodservice/snapshotdir -mappers 16 ```
 
-3. Verify that the snapshot was exported to Cloud Object Storage:
+3. Verify that the snapshot was exported to {{site.data.keyword.cos_short}}:
 ```
 # hadoop fs –ls cos://mybucket.myprodservice/snapshotdir ```
 
-### Importing a snapshot from Cloud Object Storage to HDFS
+### Importing a snapshot from {{site.data.keyword.cos_short}} to HDFS
 
-To import the snapshot of a HBase table from Cloud Object Storage to HDFS:
+To import the snapshot of a HBase table from {{site.data.keyword.cos_full_notm}} to HDFS:
 
-1. Import the snapshot from Cloud Object Storage to HDFS on the cluster:
+1. Import the snapshot from {{site.data.keyword.cos_short}} to HDFS on the cluster:
 ```
 # hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot mysnapshot -copy-from cos://mybucket.myprodservice/snapshotdir -copy-to hdfs://XXXXX-mn002.<changeme>.ae.appdomain.cloud:8020/user/hbase/ -mappers 16 ```
 
