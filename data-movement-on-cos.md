@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-23"
+lastupdated: "2019-06-18"
 
 subcollection: AnalyticsEngine
 
@@ -14,19 +14,22 @@ subcollection: AnalyticsEngine
 {:screen: .screen}
 {:pre: .pre}
 
-# Data movement on {{site.data.keyword.cos_full_notm}}
+# Uploading files to {{site.data.keyword.cos_full_notm}}
 {: #data-movement-cos}
 
-You can upload data to one of the following sources, or download data from {{site.data.keyword.cos_full_notm}} to one of the following destinations:
+From the management node or a data node of your cluster (for example, `mn003` or `dn001`), you can copy, view, list, and perform any other basic file system operation on {{site.data.keyword.cos_short}}.
 
--	HDFS file system of your cluster
--	Local file system of your cluster
--	Outside your cluster
+You can move data:
 
-## Operations on the cluster
-From the management node or a data node of your cluster (for example, `mn003` or `dn001`), you can copy, view, list, and perform any other basic file system operation on {{site.data.keyword.cos_short}}. For example:
+-	[Between the local file system of your cluster and {{site.data.keyword.cos_full_notm}}](#moving-data-between-the-local-file-system-of-your-cluster-and-ibm-cloud-object-storage)
+-	[Between the HDFS file system of your cluster and {{site.data.keyword.cos_full_notm}}](#moving-data-between-hdfs-and-ibm-cloud-object-storage)
+-	[Directly to {{site.data.keyword.cos_full_notm}} (outside the {{site.data.keyword.iae_full_notm}} cluster)](#cos-outside-cluster)
 
-- To copy files from the cluster’s local file system to {{site.data.keyword.cos_short}} use:
+## Moving data between the local file system of your cluster and  {{site.data.keyword.cos_full_notm}}
+
+You can move data to and from the local file system of your cluster and {{site.data.keyword.cos_full_notm}}. For example:
+
+- To copy files from the cluster’s local file system to {{site.data.keyword.cos_short}} use the following HDFS command:
 ```
 hdfs dfs –copyFromLocal /tmp/testfile cos://mybucket.myprodservice/
 hdfs dfs –put /tmp/myfile2 cos://mybucket.myprodservice/```
@@ -35,14 +38,11 @@ hdfs dfs –put /tmp/myfile2 cos://mybucket.myprodservice/```
 ```
 hdfs dfs –get cos://mybucket.myprodservice/myfile2```
 
-- Other useful housekeeping commands (list, view, make dir, remove) from cluster include:
-```
-hdfs dfs –ls cos://mybucket.myprodservice/myfile1
-hdfs dfs –cat cos://mybucket.myprodservice/myfile1
-hdfs dfs –mkdir cos://mybucket.myprodservice
-hdfs dfs –rm cos://mybucket.myprodservice/myfile1```
+## Moving data between HDFS and {{site.data.keyword.cos_full_notm}}
 
-- To copy files between HFDS and {{site.data.keyword.cos_short}} using `distcp`, use:
+You can move data to and from the HDFS file system of your cluster and {{site.data.keyword.cos_full_notm}}. For example:
+
+- To copy files between HFDS and {{site.data.keyword.cos_short}} using `distcp`, enter the following command:
 ```
 hadoop distcp /tmp/test.data  cos://mybucket.myprodservice/mydir/
 hadoop distcp cos://mybucket.myprodservice/mydir/ /tmp/test.data```
@@ -51,6 +51,16 @@ hadoop distcp cos://mybucket.myprodservice/mydir/ /tmp/test.data```
 ```
 hdfs://chs-czq-182-mn002.us-south.ae.appdomain.cloud:8020/tmp/test.data```
 
-## Operations outside the cluster
+## Data operations outside the cluster
+{: #cos-outside-cluster}
 
-For information on how you can use the {{site.data.keyword.cos_short}}  API or the UI to work with data objects outside of your cluster, refer to the [{{site.data.keyword.cos_short}} documentation](/docs/services/cloud-object-storage?topic=cloud-object-storage-about#about).
+For information on how you can use the {{site.data.keyword.cos_short}} API or the UI to work with data objects outside of your cluster, see [Uploading data to  {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-upload).
+
+## Useful {{site.data.keyword.cos_short}} housekeeping commands
+
+You can issue any of the following commands from your cluster to a {{site.data.keyword.cos_full_notm}} bucket to list, view, create or remove a directory:
+```
+hdfs dfs –ls cos://mybucket.myprodservice/myfile1
+hdfs dfs –cat cos://mybucket.myprodservice/myfile1
+hdfs dfs –mkdir cos://mybucket.myprodservice
+hdfs dfs –rm cos://mybucket.myprodservice/myfile1```

@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2019
 
-lastupdated: "2019-05-23"
+lastupdated: "2019-06-18"
 
 subcollection: AnalyticsEngine
 
@@ -39,6 +39,7 @@ Note that Hive is not available in the `AE 1.1 Spark` package. However, Hive is 
 - [Parquet file format in Hive](#parquet)
 - [ORC file format in Hive](#orc-format)
 - [LLAP configuration on the cluster](#llap-config)
+- [Code samples](#code-samples)
 - [Learn more](#learn-more)
 
 
@@ -267,6 +268,20 @@ The following table shows the LLAP configuration for one node for each of the su
 | LLAP daemon size | 11264 MB   | 112640 MB  |
 | Tez coordinator size | 1024 MB  | 1024 MB  |
 | Number of Tez coordinators| 1  |  4  |
+
+
+## Code samples
+
+Here is a Python code sample that shows accessing data in a Hive table on your cluster:
+
+```python
+import jaydebeapi;
+conn = jaydebeapi.connect("org.apache.hive.jdbc.HiveDriver","jdbc:hive2://chs-mmm-007-mn001.us-south.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive",["clsadmin", "topsecret"],"/home/wce/clsadmin/hive-jdbc-uber-2.6.5.0-292.jar")
+curs = conn.cursor();
+curs.execute("select * from employees");
+print(curs.fetchall())
+print(curs.description)
+curs.close()```
 
 
 ## Learn more
