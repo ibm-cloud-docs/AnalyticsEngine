@@ -2,7 +2,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="AnalyticsEngine" category="analytics" audience="service" arm="3248326" href="/docs/services/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview" path="services/AnalyticsEngine"}
+{: .toc subcollection="AnalyticsEngine" audience="service" arm="3248326" href="/docs/services/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview" path="services/AnalyticsEngine"}
 Analytics Engine
 
     {:navgroup: .navgroup}
@@ -22,11 +22,14 @@ Analytics Engine
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
+    [IBM Analytics Engine CLI](https://ibm.co/2wid9ec)
+    [IBM Analytics Engine API reference](https://cloud.ibm.com/apidocs/ibm-analytics-engine)
+    iae-git-repos.md
+    solution-tuts.md
     at-tracker.md
 
     {: .topicgroup}
     Helpful links
-        [IBM Analytics Engine API reference](https://cloud.ibm.com/apidocs/ibm-analytics-engine)
         [Jupyter Kernel Gateway Reference Doc](https://jupyter-kernel-gateway.readthedocs.io/en/latest)
         [Livy Reference](https://github.com/cloudera/livy/blob/master/README.rst)
         [Spark History REST API](https://spark.apache.org/docs/2.1.1/monitoring.html#rest-api)
@@ -111,10 +114,6 @@ Analytics Engine
     Supported connectors on clusters
         supported-connectors.md
         database-connectors.md
-
-    {: .topicgroup}
-    IBM Analytics Engine CLI reference
-        [IBM Analytics Engine CLI](https://ibm.co/2wid9ec)
 
     {: .topicgroup}
     Miscellaneous
