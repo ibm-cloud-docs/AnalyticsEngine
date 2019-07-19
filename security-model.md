@@ -34,7 +34,7 @@ Typically, you will need to authenticate to access the {{site.data.keyword.iae_f
 
  **Server or cluster activities** require **user-based authentication**. See [retrieving the cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) to get the credentials.
 
-## Encrypting at REST
+## Encrypting at Rest
 
 IBM Cloud Object Storage is the recommended data store to store the data required for executing Spark jobs on the cluster. IBM Cloud Object Storage offers encryption of the data stored in it.
 
