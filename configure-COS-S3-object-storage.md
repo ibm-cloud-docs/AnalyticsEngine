@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-23"
+lastupdated: "2019-07-22"
 
 subcollection: AnalyticsEngine
 
@@ -22,10 +22,22 @@ subcollection: AnalyticsEngine
 
 This topic explains how to configure an {{site.data.keyword.iae_full_notm}} cluster to connect to data and applications stored in {{site.data.keyword.cos_short}}.
 
-{{site.data.keyword.iae_full_notm}} uses HDP’s default AWS open source object storage connectors to access data from {{site.data.keyword.cos_short}} when running HDFS, Hive, or Mapreduce jobs. However, when running Spark jobs, the system is preconfigured to use IBM’s open source Stocator libraries that offer better performance and optimization for large object reads and writes as compared to the default AWS connectors. See  [Stocator - Storage Connector for Apache  Spark](https://github.com/SparkTC/stocator).
-
 You should use {{site.data.keyword.cos_full_notm}} as your primary data source and sink as described in [Best Practices](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices). Not only the data itself, but also your application or job binaries, for example Spark Python files or Yarn application JARs, should reside in {{site.data.keyword.cos_short}}. By removing all data from the cluster, you make your cluster stateless, which gives you the flexibility to spin up new {{site.data.keyword.iae_full_notm}} clusters as you need them. See [Choose the right {{site.data.keyword.cos_short}} Storage configuration](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#encryption).
 
+To work with {{site.data.keyword.cos_short}} in an {{site.data.keyword.iae_full_notm}} cluster:
+
+1. Provision an {{site.data.keyword.cos_short}} service instance in {{site.data.keyword.Bluemix_short}}. See [Creating a new service instance](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-provision).
+
+  Create an {{site.data.keyword.Bluemix_short}} bucket in the  region of your choice and select the configuration, such as  resiliency (regional or cross-regional), and storage volume and price. See [Creating buckets to store your data](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-getting-started).
+
+  Make a note of the bucket name that you created. You will need it later when you configure {{site.data.keyword.iae_full_notm}} to work with {{site.data.keyword.cos_short}}.
+1. [Get the {{site.data.keyword.cos_short}} credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-get-cos-credentials).
+1. [Determine the {{site.data.keyword.cos_short}} credentials for {{site.data.keyword.iae_full_notm}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cos-credentials-in-iae).
+1. [Configure {{site.data.keyword.iae_full_notm}} to use {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-configure-iae-with-cos).
+1. [Access objects in {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-access-objs-in-cos).
+
+
+<!--
 ## Getting the {{site.data.keyword.cos_short}} credentials
 
 To use {{site.data.keyword.cos_full_notm}} as your primary data source:
@@ -134,4 +146,4 @@ For example:
 cos://mybucket.myprodservice/detail.txt```
 
 
-For examples of how to upload data to or download data from {{site.data.keyword.cos_short}}, see [Data movement on {{site.data.keyword.cos_full_notm}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-#data-movement-cos).
+For examples of how to upload data to or download data from {{site.data.keyword.cos_short}}, see [Data movement on {{site.data.keyword.cos_full_notm}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-#data-movement-cos).-->

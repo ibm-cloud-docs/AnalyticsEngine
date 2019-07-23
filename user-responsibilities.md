@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-07-16"
 
 subcollection: AnalyticsEngine
 
@@ -55,6 +55,9 @@ The following table shows the roles and responsibilities that you share with IBM
 | |View or change the cluster configuration |Responsible and accountable| Consulted |
 | |Start or stop HDP component services (like Spark, JNBG, or Hive) |Responsible and accountable| Consulted |
 | |Start or stop the Ambari server, local LDAP, or guest OS| None  |Responsible and accountable|
+| | Hardware issues on running cluster | None | Responsible and accountable|
+| | Restart crashed services and monitor services like Hive, Spark and so on | Responsible and accountable | Consulted |
+| | Continuous deployment of OS patches for mitigating security vulnerabilities | None | Responsible and accountable |
 |Application development or administration | Run jobs on the cluster | Responsible and accountable| Consulted |
 | | Tune the cluster| Responsible and accountable| Consulted |
 | | View job logs| Responsible and accountable| Consulted |

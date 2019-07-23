@@ -66,6 +66,10 @@ Analytics Engine
     {: .topicgroup}
     Working with object storage
         configure-COS-S3-object-storage.md
+        get-cos-credentials.md
+        cos-credentials-in-iae.md
+        configure-iae-to-work-with-cos.md
+        access-objs-in-cos.md
         specify-properties-at-runtime.md
         customizing-using-script.md
         configure-cos-via-ambari.md
@@ -126,7 +130,6 @@ Analytics Engine
     release-notes.md
     troubleshooting.md
     Known-issues.md
-    workaround-oozie-jobs.md
     unsupported-operations.md
 
     {: .topicgroup}

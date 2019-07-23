@@ -24,7 +24,7 @@ For details on what to consider when customizing a cluster, see [Customizing a c
 
 The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
 
-### Example of creating a cluster with bootstrap customization using the {{site.data.keyword.Bluemix_short}} CLI
+## Example creating a cluster with bootstrap customization using the IBM Cloud CLI
 
 Create a cluster with bootstrap customization using the {{site.data.keyword.Bluemix_short}} CLI:
 
@@ -54,7 +54,7 @@ Where:
 
 Currently, only one custom action can be specified in the `customization` array.
 
-### Example of creating a cluster with bootstrap customization using the {{site.data.keyword.Bluemix_short}} Resource Controller (rc) REST API
+## Example creating a cluster with bootstrap customization using the IBM Cloud Resource Controller REST API
 
 Create a cluster with bootstrap customization using the {{site.data.keyword.Bluemix_short}} Resource Controller (rc) REST API:
 
@@ -87,7 +87,7 @@ Consider the following aspects:
 * For the United Kingdom region ID, use `eu-gb`. For Germany, use `eu-de` and for Tokyo, use `jp-tok`.
 * To obtain an IAM token, follow these [steps](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token). You also need this token for authentication when using cluster management REST APIs.
 
-### Example of running an adhoc customization script
+## Example running an adhoc customization script
 
 An adhoc customization script can be run any time after the cluster is created and becomes active. Enter the following command to run an adhoc customization script for target `all`:
 
@@ -110,7 +110,7 @@ curl -X POST -v " https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<se
 
 **Note:** For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use `https://api.eu-de.ae.cloud.ibm.com` and for Tokyo, use `https://api.jp-tok.ae.cloud.ibm.com`.
 
-### Example of customizing Ambari configurations
+## Example customizing Ambari configurations
 
 The following section shows you a snippet of a customization script that you can use to customize Ambari configurations. This is also an example of how to use the predefined environment variable `NODE_TYPE`.
 
@@ -135,13 +135,13 @@ then
 fi
 ```
 
-### Example of installing Python and R packages
+## Example installing Python and R packages
 
 Anaconda3 environments are installed on all nodes of `AE 1.2` and `AE 1.1` clusters. Anaconda2 is only supported on `AE 1.1` clusters. However, as Python 2 will not be supported after 2019, you are encouraged to start using Python 3.    
 
 For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs).
 
-#### Python 3
+### Python 3
 
 The Anaconda3 environment on `AE 1.2` clusters comes with Python 3.7 and on `AE 1.1` clusters with Python 3.5.
 
@@ -154,7 +154,7 @@ To install Python 3.x libraries, your script must install to the `/home/common/c
  pip install <archive url or local file path>
  ```
 
-#### Python 2
+### Python 2
 
 Python 2 is only supported on `AE 1.1` clusters.
 
@@ -178,7 +178,7 @@ pip install <package-name>
 pip install <archive url or local file path>
 ```
 
-#### R
+### R
 
 R libraries must be installed to the `~/R` directory. The following steps show you how to install the R package from an archive file and from a CRAN repository.
 
@@ -201,13 +201,13 @@ R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
 
 For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs).
 
-### Example of configuring {{site.data.keyword.cos_short}} as a data source for Hadoop/Spark
+## Example configuring Object Storage as a data source for Hadoop/Spark
 
 For details on configuring {{site.data.keyword.cos_full_notm}} as a data source for Hadoop/Spark, see [Working with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
 
 The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
 
-### Examples of different kinds of locations of the customization script
+## Examples of different kinds of locations of the customization script
 
 The following examples show snippets of the `script` and `script_params` attributes for various locations of the customization's JSON input. The customization script can be hosted on a Github repository (source_type:https) or in a {{site.data.keyword.cos_short}} bucket (source_type:CosS3).
 
@@ -255,7 +255,7 @@ The maximum number of characters that can be used in the `"script"` attribute of
     "script_params": ["arg1", "arg2"]
 ```
 
-### Example of re-running a bootstrap customization script registered during cluster creation
+## Example of re-running a bootstrap customization script registered during cluster creation
 
 A persisted customization script is registered during cluster creation and can be rerun. Enter the following command to rerun a persisted customization script:
 ```

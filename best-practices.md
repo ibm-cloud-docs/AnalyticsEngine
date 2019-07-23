@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-07-16"
 
 subcollection: AnalyticsEngine
 
@@ -52,7 +52,7 @@ Although the {{site.data.keyword.iae_full_notm}} cluster includes the Hadoop com
 
 {{site.data.keyword.iae_full_notm}} can be configured to work with [data in IBM Cloud Object Storage](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos) with [Hive table metadata stored in a Compose for MySQL service](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#externalizing-the-hive-metastore-to-ibm-compose-for-mysql), which resides outside of the cluster. When jobs are executed, they run on the compute nodes by bringing in data (as required by the job plan) from Cloud Object Storage. <!-- For more on this topic refer to this [{{site.data.keyword.iae_full_notm}}  whitepaper](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=ASW12451USEN&). --> Note that the application binaries can reside in Cloud Object Storage as well.
 
-![Shows separating compute from storage in the {{site.data.keyword.iae_full_notm}} cluster.](images/SeparateComputeFromStorage.png)
+![Shows separating compute from storage in the {{site.data.keyword.iae_full_notm}} cluster.](images/separate-compute-storage.png)
 
 ## Choose the right Cloud Object Storage configuration
 {: #encryption}
@@ -87,7 +87,11 @@ Upgrading components on the  {{site.data.keyword.iae_full_notm}} cluster to a hi
 ## Customize cluster creation using scripts
 {: #use-scripts}
 
-To enable deleting and creating clusters often, you should use customization scripts to configure your cluster, and to install custom libraries and packages. This way, you won't have to manually customize the cluster every time you create a new one. See [Customizing a cluster](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
+To enable deleting and creating clusters often, you should use customization scripts to configure your cluster, and to install custom libraries and packages. This way, you won't have to manually customize the cluster every time you create a new one.
+
+If you store your customization scripts in {{site.data.keyword.cos_short}}, make sure that the buckets and access credentials for the scripts are different from the buckets and access credentials for your application or business data.
+
+See [Customizing a cluster](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
 
 ## Size the cluster appropriately
 {: #cluster-size}
