@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-10-16"
+lastupdated: "2019-07-24"
 
 subcollection: AnalyticsEngine
 
@@ -34,7 +34,7 @@ You can connect to the Spark SQL server by using the Beeline client.
 
  ```
 ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
-beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/spark' -n clsadmin -p **********
+/usr/hdp/current/spark2-client/bin/beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/spark' -n clsadmin -p **********
 ```
 `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
 
@@ -62,26 +62,28 @@ To run Spark SQL with Scala:
 
 1. Launch the Spark shell:
 ```
-spark-shell \
---master yarn \
---deploy-mode client
+spark shell \
+ --master  yarn \
+ --deploy-mode client
 ```
+
 2. Then run the following code which reads sample data from a CSV file, loads it to a DataFrame, queries for people in the people table and then displays the name, age and job of the persons found:
-```
-val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-val df = sqlContext.read.format("com.databricks.spark.csv").option("header", "true").option("inferSchema", "true").load("file:///usr/hdp/current/spark2-client/examples/src/main/resources/people.csv")
-df.show()
-df.printSchema()
-// Register the DataFrame as a SQL temporary view
-df.createOrReplaceTempView ("People")
-val sqlDF =sqlContext.sql("select * from People")
-sqlDF.show()
-+------------------+
-|      name;age;job|
-+------------------+
-|Jorge;30;Developer|
-|  Bob;32;Developer|
-+------------------+
+
+ ```
+ val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+ val df = sqlContext.read.format("com.databricks.spark.csv").option("header", "true").option("inferSchema", "true").load("file:///usr/hdp/current/spark2-client/examples/src/main/resources/people.csv")
+ df.show()
+ df.printSchema()
+ // Register the DataFrame as a SQL temporary view
+ df.createOrReplaceTempView ("People")
+ val sqlDF =sqlContext.sql("select * from People")
+ sqlDF.show()
+ +------------------+
+ |      name;age;job|
+ +------------------+
+ |Jorge;30;Developer|
+ |  Bob;32;Developer|
+ +------------------+
 ```
 
 ## Run Spark SQL with Python 3
@@ -91,12 +93,13 @@ To run Spark SQL with Python 3:
 1. Launch the PySpark shell:
 ```
 PYSPARK_PYTHON=/home/common/conda/anaconda3/bin/python pyspark \
---master yarn \
---deploy-mode client
+ --master  yarn \
+ --deploy-mode client
 ```
+
 2. Then run the following code which reads sample data from a JSON file to a Parquet file, loads it to a DataFrame, queries for all teenagers between the ages of 13 and 19 and then displays the found results:
 
- ```
+```
 peopleDF = spark.read.json("file:///usr/hdp/current/spark2-client/examples/src/main/resources/people.json")
 # DataFrames can be saved as Parquet files, maintaining the schema information.
 peopleDF.write.parquet("people.parquet")
@@ -119,19 +122,20 @@ teenagers.show()
 To run Spark SQL with R:
 
 1. Launch the SparkR shell:
+```
+spark shell \
+ --master  yarn \
+ --deploy-mode client
+```
 
- ```
-sparkR \
---master yarn \
---deploy-mode client
-```
 2. Then run the following code which creates a Hive table called src if it does not already exist, loads data into this table,and then queries the table for particular key-value pairs:
+
 ```
-# enableHiveSupport defaults to TRUE
+// enableHiveSupport defaults to TRUE
 sparkR.session(enableHiveSupport = TRUE)
 sql("CREATE TABLE IF NOT EXISTS src (key INT, value STRING) USING hive")
 sql("LOAD DATA LOCAL INPATH 'file:///usr/hdp/current/spark2-client/examples/src/main/resources/kv1.txt' INTO TABLE src")
-# Queries can be expressed in HiveQL.
+// Queries can be expressed in HiveQL.
 results <- collect(sql("FROM src SELECT key, value"))
 head(results)
 +------+

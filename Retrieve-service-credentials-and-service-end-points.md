@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-07-24"
 
 subcollection: AnalyticsEngine
 
@@ -25,7 +25,7 @@ You can fetch the service endpoints by:
 * [Using the {{site.data.keyword.Bluemix_notm}} REST API](#obtaining-the-service-endpoints-using-the-ibm-cloud-rest-api)
 * [From the {{site.data.keyword.Bluemix_notm}} console](#obtaining-the-service-endpoints-from-the-ibm-cloud-console)
 
-The service endpoints do not expose the cluster credentials. To get the cluster credentials, see [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials).
+The service endpoints do not expose the cluster credentials. To get the cluster credentials, see [Retrieving cluster credentials](/docs/servicµes/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials).
 
 ## Obtaining the service endpoints using the {{site.data.keyword.Bluemix_notm}} CLI
 
@@ -93,7 +93,7 @@ Bear in mind that the cluster credentials are not returned in the response.
 
   },
   "cluster_management": {
-    "api_url": "https://aspx-api-qa.bluemix.net/v2/analytics_engines/f2bda953-90c0-4e9b-ab5f-7aa375193145",
+    "api_url": "https://api.<region>.ae.cloud.ibm.com/v2/analytics_engines/f2bda953-90c0-4e9b-ab5f-7aa375193145",
     "instance_id": "xxxxxxxxxxxxxxx"
   }
 }
@@ -164,7 +164,7 @@ Sample response:
     },
     "cluster_management": {
       "instance_id": "xxxx-xxxx-xxxx-xxxx",
-      "api_url": "https://aspx-api-qa. bluemix.net/v2/analytics_engines/xxxx-xxxx-xxxx-xxxx"
+      "api_url": "https://api.<region>.ae.cloud.ibm.com/v2/analytics_engines/xxxx-xxxx-xxxx-xxxx"
       },
     "iam_apikey_name": "auto-generated-apikey-c1fb87dc-e37b-4da0-a486-69dece62cfcf",
     "iam_serviceid_crn": "crn of service id associated with api key",

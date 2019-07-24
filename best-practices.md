@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-16"
+lastupdated: "2019-07-26"
 
 subcollection: AnalyticsEngine
 
@@ -92,6 +92,8 @@ To enable deleting and creating clusters often, you should use customization scr
 If you store your customization scripts in {{site.data.keyword.cos_short}}, make sure that the buckets and access credentials for the scripts are different from the buckets and access credentials for your application or business data.
 
 See [Customizing a cluster](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
+
+**Note**: If your customization consists only of changes to the configuration of a cluster component, for example changes to the `core-site.xml` file of the HDFS component, the `spark-defaults.conf` file of the Spark component, or the `hive-site.xml` of Hive, it is easier and more efficient to add these changes as [Advanced provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options) during cluster creation than to add the  configuration changes to a customization script. You should use a customization script for installing libraries and packages.
 
 ## Size the cluster appropriately
 {: #cluster-size}

@@ -23,10 +23,13 @@ During cluster creation, the `ambari_config` JSON object is taken as is and if e
 ## Creating a cluster with custom Ambari configurations using the IBM Cloud CLI
 
 Enter the following command to create a cluster with custom configurations by using the {{site.data.keyword.Bluemix_short}} CLI:
+
 ```
-ibmcloud resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters> ```
+ibmcloud resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters>
+```
 
 The service creation JSON object has an optional `advanced_options` JSON object that hosts a nested JSON object called `ambari_config` which in turn can have one or more `config-groups` as nested JSON objects.
+
 ```
 {
 	"num_compute_nodes": 1,
