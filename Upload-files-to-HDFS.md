@@ -103,6 +103,7 @@ where `<changeme>`  is the URL to the cluster. For example, for data on a cluste
 ```
 https://XXXXX.us-south.ae.appdomain.cloud:8443/gateway/default/hdfs/explorer.html
 ```
+<!--
 ## Code samples
 
 Here is a code sample that uses the PyWebHdfsClient, a Python wrapper for the Hadoop WebHDFS REST API to upload data to HDFS:
@@ -119,6 +120,7 @@ my_data = 'Hello World'
 my_file = '/user/clsadmin/myfile.txt'
 hdfs.create_file(my_file, my_data) ```
 
+-->
 ## Learn more
 
 [Apache Hadoop - WebHDFS REST API documentation](https://hadoop.apache.org/docs/r3.1.0/hadoop-project-dist/hadoop-hdfs/WebHDFS.html)
