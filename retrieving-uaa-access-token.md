@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2017-11-02"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -14,6 +16,7 @@ lastupdated: "2017-11-02"
 {:pre: .pre}
 
 # Retrieving UAA access tokens
+{: #retrieve-uaa-token}
 
 To retrieve an UAA access token:
 

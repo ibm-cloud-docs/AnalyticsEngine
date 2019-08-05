@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2017-11-02"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -14,6 +16,7 @@ lastupdated: "2017-11-02"
 {:pre: .pre}
 
 # Lazy Spark initialization
+{: #lazy-spark-ini}
 
 When a kernel is acquired on the {{site.data.keyword.iae_full_notm}} cluster, handles to Spark context, Spark SQL context, and Spark session are provided. A client application can safely assume these handles exist when a kernel is acquired by it and so can reference them directly in it's code for interacting with the Spark cluster. This makes using the cluster simpler for applications as they can remain independent of the specifics around how a Spark session needs to be initialized.
 
@@ -59,4 +62,4 @@ With the Scala kernel the Spark session is not initialized until code is execute
 Waiting for a Spark session to start...
 ```
 
-If you see any of the above Spark initialization messages in a notebook or interactive session, and the code does not execute for a long time (well over a minute) then refer to [Troubleshooting (JNBG)](./Troubleshooting-JKG.html) for the possible cause and its solution.
+If you see any of the above Spark initialization messages in a notebook or interactive session, and the code does not execute for a long time (well over a minute) then refer to [Troubleshooting (JNBG)](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-troubleshooting-JNBG) for the possible cause and its solution.

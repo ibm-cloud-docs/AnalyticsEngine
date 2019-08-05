@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-09-26"
+  years: 2017, 2019
+lastupdated: "2019-07-24"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -13,28 +15,31 @@ lastupdated: "2018-09-26"
 {:screen: .screen}
 {:pre: .pre}
 
-# Retrieving service credentials and service end points
+# Retrieving service endpoints
+{: #retrieve-endpoints}
 
-The cluster credentials and various service end points that the cluster exposes are made available to you as `service keys`.
+The service endpoints that the cluster exposes are made available to you as `service keys` (aka service credentials).
 
-You can fetch the cluster credentials and the service end points by:
-* [Using the {{site.data.keyword.Bluemix_notm}} CLI](#obtaining-the-credentials-using-the-ibm-cloud-cli)
-* [Using the {{site.data.keyword.Bluemix_notm}} REST API](#obtaining-the-credentials-using-the-ibm-cloud-rest-api)
-* [From the {{site.data.keyword.Bluemix_notm}} console](#obtaining-the-credentials-from-the-ibm-cloud-console)
+You can fetch the service endpoints by:
+* [Using the {{site.data.keyword.Bluemix_notm}} CLI](#obtaining-the-service-endpoints-using-the-ibm-cloud-cli)
+* [Using the {{site.data.keyword.Bluemix_notm}} REST API](#obtaining-the-service-endpoints-using-the-ibm-cloud-rest-api)
+* [From the {{site.data.keyword.Bluemix_notm}} console](#obtaining-the-service-endpoints-from-the-ibm-cloud-console)
 
-## Obtaining the credentials using the {{site.data.keyword.Bluemix_notm}} CLI
+The service endpoints do not expose the cluster credentials. To get the cluster credentials, see [Retrieving cluster credentials](/docs/servicµes/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials).
 
-You need to create a service key for the {{site.data.keyword.iae_full_notm}} service instance to obtain the cluster credentials and service endpoints.
+## Obtaining the service endpoints using the {{site.data.keyword.Bluemix_notm}} CLI
+
+You need to create a service key for the {{site.data.keyword.iae_full_notm}} service instance to obtain the service endpoints.
 
 To create a service key, enter the following command:
 
 ```
-bx resource service-key-create <your_service_key_name> <role> --instance-name <your_service_instance_name>
+ibmcloud resource service-key-create <your_service_key_name> <role> --instance-name <your_service_instance_name>
 ```
 where:
-- `<your_service_instance_name>` is the name of the service instance you  specified when creating the cluster. You can use `bx resource service-instances` to find all your service instance names.
+- `<your_service_instance_name>` is the name of the service instance you  specified when creating the cluster. You can use `ibmcloud resource service-instances` to find all your service instance names.
 - `<your_service_key_name>` is any name that you want to refer your key as. This name is used to retrieve service keys.  
-- `<role>` is the role you assigned to the IAM API key which was  generated for the service credentials. You will be able to perform only those operations that are permitted for the chosen role. For more details on the roles required to perform an operation, refer to section *Required IAM permissions* [here](./granting-permissions-to-users.html).
+- `<role>` is the role you assigned to the IAM API key which was generated for the service credentials. You will be able to perform only those operations that are permitted for the chosen role. For more details on the roles required to perform an operation, refer to section *Required IAM permissions* [here](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
 
 Expected response:
 
@@ -49,13 +54,14 @@ Service key <service key crn> was created.
 You can also view your service key by using the following command:
 
 ```
-bx resource service-key <service_key_name>
+ibmcloud resource service-key <service_key_name>
 ```
 where:
 
 - `<service key name>` is the name of the service key that you entered when creating the key.
 
 Sample Response:
+Bear in mind that the cluster credentials are not returned in the response.
 
 ```
 {
@@ -66,8 +72,6 @@ Sample Response:
   "apikey": "<iam api key value>",
   "cluster": {
     "cluster_id": "xyz-xyz-xyz",
-    "user": "xxxxxxx"
-    "password": "xxxxxxxxxxxxxx",
     "service_endpoints": {
       "ambari_console": "https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443",
       "livy": "https://xxxxx-mn001.<region>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches",
@@ -89,7 +93,7 @@ Sample Response:
 
   },
   "cluster_management": {
-    "api_url": "https://aspx-api-qa.bluemix.net/v2/analytics_engines/f2bda953-90c0-4e9b-ab5f-7aa375193145",
+    "api_url": "https://api.<region>.ae.cloud.ibm.com/v2/analytics_engines/f2bda953-90c0-4e9b-ab5f-7aa375193145",
     "instance_id": "xxxxxxxxxxxxxxx"
   }
 }
@@ -97,13 +101,13 @@ Sample Response:
 
 where `<region>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
-In the sample response, the properties under `cluster` specify the cluster user name, the password, and cluster service endpoints.
+In the sample response, the properties under `cluster` specify the  cluster service endpoints. No cluster credentials are returned.
 
 The property `apikey` contains an IAM API key that can be used to generate IAM bearer tokens. An IAM bearer token must be provided for authorization when invoking the cluster management API URL.
 
-## Obtaining the credentials using the {{site.data.keyword.Bluemix_notm}} REST API
+## Obtaining the service endpoints using the {{site.data.keyword.Bluemix_notm}} REST API
 
-**Prerequisite**: You need an IAM bearer token. For more information, see [Retrieving IAM access tokens](./Retrieve-IAM-access-token.html).
+**Prerequisite**: You need an IAM bearer token. For more information, see [Retrieving IAM access tokens](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
 
 The API endpoint that handles API service keys is `https://resource-controller.bluemix.net/v1/resource_keys`.
 
@@ -138,9 +142,7 @@ Sample response:
     "apikey": "<iam api key>",
     "iam_role_crn": "<iam access role crn>",
     "cluster": {
-      "password": "xxxxxxxxxxx",
       "cluster_id": "xxx-xxx-xxx-xxx",
-      "user": "xxxxxxx",
       "service_endpoints_ip": {
       "spark_history_server": "https://xxx.xxx.xxx.xxx:8443/gateway/default/sparkhistory",
       "notebook_gateway": "https://xxx.xxx.xxx.xxx:8443/gateway/default/jkg/",
@@ -162,7 +164,7 @@ Sample response:
     },
     "cluster_management": {
       "instance_id": "xxxx-xxxx-xxxx-xxxx",
-      "api_url": "https://aspx-api-qa. bluemix.net/v2/analytics_engines/xxxx-xxxx-xxxx-xxxx"
+      "api_url": "https://api.<region>.ae.cloud.ibm.com/v2/analytics_engines/xxxx-xxxx-xxxx-xxxx"
       },
     "iam_apikey_name": "auto-generated-apikey-c1fb87dc-e37b-4da0-a486-69dece62cfcf",
     "iam_serviceid_crn": "crn of service id associated with api key",
@@ -175,9 +177,11 @@ Sample response:
   "account_id": "<user’s account id>"
 }
 ```
-where `<region>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
+where `<region>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`. No cluster credentials are returned.
 
-## Obtaining the credentials from the {{site.data.keyword.Bluemix_notm}} console
+## Obtaining the service endpoints from the {{site.data.keyword.Bluemix_notm}} console
+
+If you follow the steps in this section to get the service endpoints by using the {{site.data.keyword.Bluemix_notm}} console, you are directed to the service credentials page for your service instance where you expect to see user credentials. You will notice however that the cluster user name and password are not exposed on this page, only the service endpoints.     
 
 To create a service key from the {{site.data.keyword.Bluemix_notm}} console:
 1. Select the provisioned service instance.
@@ -185,4 +189,4 @@ To create a service key from the {{site.data.keyword.Bluemix_notm}} console:
 3. Then click **New credential** to create a new service credential.
 4. Enter a name, add configuration parameters (if any) and click **Add**.
 
-The newly created credentials are listed on this page. Click **View Credentials** to see the details.
+The newly created endpoints are listed on this page. Click **View Credentials** to see the details.

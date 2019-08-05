@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2017-11-02"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -14,6 +16,7 @@ lastupdated: "2017-11-02"
 {:pre: .pre}
 
 # Monitoring applications
+{: #monitoring-apps}
 
 On the {{site.data.keyword.iae_full_notm}} cluster you can use YARN, Spark and Spark History Server web interfaces to monitor running and completed applications.
 

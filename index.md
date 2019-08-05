@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-05-09"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -13,19 +15,22 @@ lastupdated: "2018-11-14"
 {:screen: .screen}
 {:pre: .pre}
 
-# Analytics Engine overview
+# IBM Analytics Engine overview
+{: #IAE-overview}
+
 With {{site.data.keyword.iae_full_notm}} you can create Apache Spark and Apache Hadoop clusters in minutes and customize these clusters by using scripts. You can work with data in IBM Cloud Object Storage, as well as integrate other IBM Watson services like {{site.data.keyword.DSX_short}} and Machine Learning.
 
 You can define clusters based on your application's requirements,  choosing the appropriate software pack, version and size of the clusters.
 
-You can deploy {{site.data.keyword.iae_full_notm}} service instances in the US South or United Kingdom regions. The {{site.data.keyword.iae_full_notm}} service is deployed in a data centre which is physically located in the chosen region.
+You can deploy {{site.data.keyword.iae_full_notm}} service instances in the following regions: US South, United Kingdom, Germany, and Japan. The {{site.data.keyword.iae_full_notm}} service is deployed in a data center which is physically located in the chosen region.
 
 - [Cluster architecture](#cluster-architecture)
 - [Outbound and inbound access](#outbound-and-inbound-access)
+- [Software packages](#software-packages)
 - [Software components of the cluster](#software-components-of-the-cluster)
 - [Hardware configuration](#hardware-configuration)
 - [Operating system](#operating-system)
-- [Best practices when creating clusters](./best-practices.html)
+- [Best practices when creating clusters](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices)
 
 ## Cluster architecture
 
@@ -57,7 +62,7 @@ The following cluster nodes exist:
 
 ## Outbound and inbound access
 
-Cluster services are made available through various endpoints as described in this [section](./Retrieve-service-credentials-and-service-end-points.html).
+Cluster services are made available through various endpoints as described in this [section](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints).
 
 From the endpoint list, you can see that the following ports are open for inbound traffic:
 
@@ -68,7 +73,7 @@ From the endpoint list, you can see that the following ports are open for inboun
 
 -	**22**: the cluster itself is accessible via SSH at standard port 22.
 
- When you SSH to a cluster (as described [here](./Connect-using-SSH.html)) you essentially log in to `mn003`. Once you have logged in to `mn003`, you can SSH to the compute nodes (referred to as `dn001`, `dn002` etc) and to `mn002`.
+ When you SSH to a cluster (as described [here](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH)) you essentially log in to `mn003`. Once you have logged in to `mn003`, you can SSH to the compute nodes (referred to as `dn001`, `dn002` etc) and to `mn002`.
 
 For example, to log in to a cluster in the US-South region, as given in the endpoint listing, enter:
 ```
@@ -91,32 +96,49 @@ ssh clsadmin@chs-tnu-499-dn001```
 
 ![Shows the {{site.data.keyword.iae_full_notm}} cluster architecture.](images/AnalyticsEngineCluster.png)
 
+## Software packages
+
+The following software packages are available when you create a cluster based on Hortonworks Data Platform (HDP) 3.1 and 2.6.5:
+
+| AE 1.2       | Based on HDP 3.1        |
+|-----------------|-----------------------------|
+| `AE 1.2 Hive LLAP`  | Hadoop, Livy, Knox, Ambari, <br>Anaconda-Py, Hive (LLAP mode) |
+| `AE 1.2 Spark and Hive` | Hadoop, Livy, Knox, Spark, JEG, Ambari, <br>Anaconda Py, Hive (non LLAP mode ) |
+| `AE 1.2 Spark and Hadoop` | (AE 1.2 Spark and Hive) +  HBase, Phoenix, <br>Oozie |
+
+| AE 1.1       | Based on HDP 2.6.5        |
+|-----------------|-----------------------------|
+| `AE 1.1 Spark`  | Spark, Hadoop, Jupyter Enterprise, <br>Livy, Knox, Ambari, Anacondy-Py |
+| `AE 1.1 Spark and Hive` | (AE 1.1 Spark) + Hive |
+| `AE 1.1 Spark and Hadoop` | (AE 1.1 Spark and Hive) + HBase, <br>Oozie, Flume, Phoenix |
+
+**Important:**
+
+1. You can no longer provision new instances of {{site.data.keyword.iae_full_notm}} using the `AE 1.0` software packages (based on HDP 2.6.2).
+2. Currently you cannot resize a cluster that uses the `AE 1.2 Hive LLAP` software package.
 
 ## Software components of the cluster
-You can create a cluster based on Hortonworks Data Platform 2.6.2 and 2.6.5. The following components are made available.
+You can create a cluster based on Hortonworks Data Platform 2.6.5 and 3.1. The following software components are available for HDP 2.6.5 and 3.1. Refer to the previous section which lists the software packages to find out which components are available in the provided software packages.   
 
-| HDP 2.6.2       | HDP 2.6.5        |
+|  AE 1.1 (HDP 2.6.5)  | AE 1.2 (HDP 3.1)
 |---------------------|------------------------|
-| Apache Spark 2.1.1 | Apache Spark 2.3.0 |
-| Hadoop 2.7.3 | Hadoop 2.7.3|
-| Apache Livy 0.3.0 | Apache Livy 0.4|
-| Knox 0.12.0 | Knox 0.12.0|
-| Ambari 2.5.2 | Ambari 2.6.2|
-| Anaconda with Python 2.7.13 and 3.5.2 | Anaconda with Python 2.7.13 and 3.5.2|
-| Jupyter Enterprise Gateway 0.8.0 | Jupyter Enterprise Gateway 0.8.0|
-| HBase 1.1.2 &#42; | HBase 1.1.2 &#42;|
-| Hive 1.2.1 &#42;&#42; | Hive 1.2.1 &#42;&#42;|
-| Oozie 4.2.0 &#42; | Oozie 4.2.0 &#42;|
-| Flume 1.5.2 &#42; | Flume 1.5.2 &#42;|
-| Tez 0.7.0 &#42; | Tez 0.7.0 &#42;|
-| Pig 0.16.0 &#42; | Pig 0.16.0 &#42;|
-| Sqoop 1.4.6 &#42; | Sqoop 1.4.6 &#42;|
-| Slider 0.92.0 &#42; | Slider 0.92.0 &#42;|
-| Apache Phoenix 4.7 &#42; | Apache Phoenix 4.7 &#42;|
-
-
-&#42; Available in the _AE 1.0/1.1 Spark and Hadoop_ pack only <br>
-&#42;&#42; Available in the _AE 1.0/1.1 Spark and Hadoop_ and _AE 1.0/1.1 Spark and Hive_ packs only
+|  Apache Spark 2.3.0 | Apache Spark 2.3.2 |
+|  Hadoop 2.7.3| Hadoop 3.1.1|
+|  Apache Livy 0.4| Apache Livy 0.5|
+|  Knox 0.12.0| Knox 1.0.0|
+|  Ambari 2.6.2| Ambari 2.7.3|
+|  Anaconda with Python 2.7.13 and 3.5.2| Anaconda with Python 3.7.1 |
+|  Jupyter Enterprise Gateway 0.8.0| Jupyter Enterprise Gateway 0.8.0
+|  HBase 1.1.2 | HBase 2.0.2 |
+|  Hive 1.2.1 | Hive 3.1.0 |
+| NA | Hive LLAP 3.1.0 |
+|  Oozie 4.2.0 | Oozie 4.3.1 |
+|  Flume 1.5.2 | NA |
+|  Tez 0.7.0 | Tez 0.9.1 |
+|  Pig 0.16.0 | Pig 0.16.0 |
+|  Sqoop 1.4.6 | Sqoop 1.4.7 |
+|  Slider 0.92.0 | NA |
+|  Apache Phoenix 4.7 | Apache Phoenix 5.0.0 |
 
 ## Hardware configuration
 

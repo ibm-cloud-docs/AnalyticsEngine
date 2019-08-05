@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-09-26"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -14,11 +16,12 @@ lastupdated: "2018-09-26"
 {:pre: .pre}
 
 # SSH connection
+{: #ssh-connection}
 
 You can run spark-submit jobs by logging on to the cluster  using the SSH protocol.
 
 
-1. Log on to the cluster management node using [SSH](./Connect-using-SSH.html). For example:
+1. Log on to the cluster management node using [SSH](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH). For example:
 ```
 $ ssh clsadmin@iae-tmp-867-mn003.us-south.ae.appdomain.cloud```
 

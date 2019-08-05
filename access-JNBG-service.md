@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-10-08"
+  years: 2017, 2019
+lastupdated: "2019-02-27"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -14,10 +16,11 @@ lastupdated: "2018-10-08"
 {:pre: .pre}
 
 # Accessing the Jupyter Notebook Gateway service
+{: #access-JNBG}
 
 ## Jupyter Notebook Gateway (JNBG) service endpoint
 
-The JNBG service on the cluster provides two endpoints for HTTP operations and Websocket resource.
+The JNBG service on the cluster provides two endpoints for HTTP operations and the Websocket resource.
 
 * [HTTP resources](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html#http-resources)
 
@@ -27,15 +30,15 @@ The JNBG service on the cluster provides two endpoints for HTTP operations and W
 
  The Websocket resource multiplexes the Jupyter kernel messaging protocol over a single Websocket connection to submit code and communicate with the running kernel.
 
-Refer to the instructions [here](./Retrieve-service-credentials-and-service-end-points.html#retrieving-service-credentials-and-service-end-points) on retrieving service end points for the {{site.data.keyword.iae_full_notm}} cluster. In the JSON service endpoint details, the HTTP endpoint URL of the JNBG service is listed in `notebook_gateway` and the Websocket endpoint in `notebook_gateway_websocket`. Here is a representative sample of a cluster's service endpoint details:
+Refer to the instructions [here](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints) on retrieving service s for the {{site.data.keyword.iae_full_notm}} cluster. In the JSON service endpoint details, the HTTP endpoint URL of the JNBG service is listed in `notebook_gateway` and the Websocket endpoint in `notebook_gateway_websocket`. Here is a representative sample of a cluster's service endpoint details:
 
 ```
 .
 .
       "cluster": {
         "cluster_id": "20170412-084729-981-mzVunjuU",
-        "user": "clsadmin",
-        "password": "5auuF5SU3e0G",
+        "user": "xxxxx", (will be deprecazed)
+        "password": "xxxxx", (will be deprecated)
         "password_expiry_date": "null",
         "service_endpoints": {
           "ambari_console": "https://chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:9443",
@@ -58,7 +61,7 @@ In this sample, notice the following information:
 
 ## Authentication
 
-Access to the JNBG service endpoints is SSL secured and requires `BASIC` authentication. Use the `user` and `password` included in the cluster's JSON service endpoint to add the `BASIC` authentication header in your HTTP and Websocket connection calls to the JNBG service.
+Access to the JNBG service endpoints is SSL secured and requires `BASIC` authentication. See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) for the `user` and `password` values to add to the `BASIC` authentication header in your HTTP and Websocket connection calls to the JNBG service.
 
 ## Example configuration: notebook server with `nb2kg` extension
 
@@ -101,7 +104,7 @@ For complete details about the API refer the documentation and swagger specifica
 
 ## Examples
 
-Because the Jupyter Kernel Gateway service exposes an HTTP- and WebSocket-based API, Spark interactive applications can be written in any language of choice by referencing the API specifications and the [Jupyter Wire Protocol description](https://jupyter-client.readthedocs.io/en/stable/messaging.html).
+Because the Jupyter Kernel Gateway service exposes an HTTP- and WebSocket-based API, Spark interactive applications can be written in any language of your choice by referencing the API specifications and the [Jupyter Wire Protocol description](https://jupyter-client.readthedocs.io/en/stable/messaging.html).
 
 Refer to the following sample applications written for Node.js and Python 2.
 
@@ -129,11 +132,12 @@ EOT
 cd ~/spark-example
 yum install -y epel-release nodejs npm; npm install
 ```
-2. Create the sample application file. Create a file named spark-interactive-demo.js and copy the following content to the file. Adjust the `notebook_gateway` and `notebook_gateway_ws`  host variable values to use the VCAP credentials of the IBM Analytics Engine service instance that you have created.
+2. Create the sample application file. Create a file named spark-interactive-demo.js and copy the following content to the file. See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) for how to get your {{site.data.keyword.iae_full_notm}} service instance credentials and then adjust the `notebook_gateway` and `notebook_gateway_ws`  host variable values to use your credentials.
 
-  For authentication, set the environment variables: BASE_GATEWAY_USERNAME and BASE_GATEWAY_PASSWORD. Fetch the username and password values from VCAP.
-```
-// Access variables with the notebook_gateway VCAP information from your IBM Analytics Engine service.
+  For authentication, set the environment variables BASE_GATEWAY_USERNAME and BASE_GATEWAY_PASSWORD to the user name and password values which you retrieved.
+
+ ```
+// Get values for the notebook_gateway from your service keys
 var notebook_gateway = 'https://chs-zys-882-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkg/';
 var notebook_gateway_ws = 'wss://chs-zys-882-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkgws/';
 // Client program variables.
@@ -151,6 +155,7 @@ print(sample)`
 var ajaxSettings = {};
 // For authentication, set the environment variables:
 // BASE_GATEWAY_USERNAME and BASE_GATEWAY_PASSWORD.
+// See the docs for how to retrieve these values
 if (process.env.BASE_GATEWAY_USERNAME) {
     ajaxSettings['user'] = process.env.BASE_GATEWAY_USERNAME
 }
@@ -208,8 +213,8 @@ from tornado.websocket import websocket_connect
 def main():
     kg_http_url = "https://chs-xxx-yyy-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkg/"
     kg_ws_url = "wss://chs-xxx-yyy-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkgws/"
-    auth_username = 'clsadmin'
-    auth_password = '1qazxsw23edc'
+    auth_username = 'xxxxx'
+    auth_password = 'xxxxx'
     validate_cert = True
 
     kernel_name = "scala-spark21"
@@ -333,17 +338,19 @@ if __name__ == '__main__':
 ```
 {: codeblock}
 
-Update `client.py` using your cluster VCAP:
+Update `client.py`:
 
-* Set the `kg_ws_url` variable to the notebook_gateway_websocket value in your cluster VCAP.
-* Set the `auth_username` variable to the user value in your cluster VCAP.
-* Set the `auth_password` variable to the password value in your cluster VCAP.
+* Set the `kg_ws_url` variable to the notebook_gateway_websocket value in your cluster service keys.
+* See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) to get your user credentials.
+    * Set the `auth_username` variable to the user name value you retrieved.
+    * Set the `auth_password` variable to the password value.
 
 Install pip. If you don't have it, install the Python Tornado package using this command:
 ```
 yum install –y python-pip; pip install tornado.
 ```
 {: codeblock}
+
 
 Run the demo Python client:
 ```
@@ -352,20 +359,22 @@ python client.py
 
 {: codeblock}
 
-The code above creates a Spark 2.1 Scala kernel and submits Scala code to it for execution.
+The previous code creates a Spark 2.1 Scala kernel and submits Scala code to it for execution.
 
 Here are code snippets to show how the kernel name and code variables can be modified in `client.py` to do the same for Python 2 and R kernels.
 
 * Python 2
-```
+
+ ```
 kernel_name = "python2-spark21"
 code = '\n'.join(( "print(\"Spark Version: {}\".format(sc.version))", "print(\"Application Name: {}\".format(sc._jsc.sc().appName()))", "print(\"Application ID: {} \".format(sc._jsc.sc().applicationId()))", "sc.parallelize([1,2,3,4,5]).count()" ))
 ```
-
  {: codeblock}
 
+
 * R
-```
+
+ ```
 kernel_name = "r-spark21"
 code = """
  cat("Spark Version: ", sparkR.version())
@@ -376,4 +385,4 @@ code = """
  cat(count(df))
  """
 ```
-{: codeblock}
+ {: codeblock}

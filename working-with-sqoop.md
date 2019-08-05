@@ -1,19 +1,21 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-06-19"
+
+subcollection: AnalyticsEngine
 
 ---
 
 # Working with Sqoop
-
+{: #working-with-sqoop}
 
 Apache Sqoop is a tool for efficiently transferring bulk data between Apache Hadoop and structured data stores, such as relational databases.
 
 ## Using Sqoop to connect to DB2 or MySQL
 
-To work with Sqoop, you need your cluster user credentials and the SSH  and the JDBC end point details.
+To work with Sqoop, you need your cluster user credentials and the SSH  and the JDBC endpoint details.
 
 1. SSH to the cluster.
   - The `db2jcc4.jar` file is in  `/home/common/lib/dataconnectorDb2`.
@@ -46,7 +48,7 @@ To work with Sqoop, you need your cluster user credentials and the SSH  and the 
 4. On the Ambari interface, select the Sqoop service. Then, click **Configs > Advanced**, and expand the `sqoop-env` section. Add the  variables named **DB2_JARS** and **MSSQL_JARS**, and append them to SQOOP_USER_CLASSPATH as follows:
  ```
     export DB2_JARS=/home/wce/clsadmin/sqoop/lib/db2jcc4.jar
-    export MSSQL_JARS==/home/wce/clsadmin/sqoop/lib/sqljdbc4.jar
+    export MSSQL_JARS=/home/wce/clsadmin/sqoop/lib/sqljdbc4.jar
 
     export SQOOP_USER_CLASSPATH="`ls ${HIVE_HOME}/lib/libthrift-*.jar 2>/dev/null`:${DB2_JARS}:${MSSQL_JARS}${SQOOP_USER_CLASSPATH}"
 ```

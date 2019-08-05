@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-09-26"
+  years: 2017, 2019
+lastupdated: "2019-02-26"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -14,15 +16,16 @@ lastupdated: "2018-09-26"
 {:pre: .pre}
 
 
-# Connect using SSH
+# Connecting using SSH
+{: #connect-SSH}
 
 {{site.data.keyword.iae_full_notm}} supports password based SSH connectivity.
 
-In the [service credentials](./Retrieve-service-credentials-and-service-end-points.html) that you created, look for the SSH connection string under `service_endpoints` in the JSON output. For example, enter the following SSH command to access the cluster:
+In the [service credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints) that you created, look for the SSH connection string under `service_endpoints` in the JSON output. For example, enter the following SSH command to access the cluster:
 
 ```
 "ssh": "ssh clsadmin@XXXXX-mn003.<changeme>.ae.appdomain.cloud"
 ```
 where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
-When prompted, enter the `password` that you can retrieve  from the [service key JSON output](./Retrieve-service-credentials-and-service-end-points.html).
+See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) to get the cluster password for which you are prompted before you can  access the cluster.

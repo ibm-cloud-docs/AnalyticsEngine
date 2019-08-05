@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-03-07"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -14,6 +16,7 @@ lastupdated: "2018-03-07"
 {:pre: .pre}
 
 # Retrieving the service instance ID
+{: #retrieve-service-id}
 
 ## Prerequisites
 
@@ -25,8 +28,8 @@ b. You must have installed the {{site.data.keyword.Bluemix_notm}} CLI.
 
 To log into the CLI, enter the following commands:
 ```
-bx api https://api.ng.bluemix.net
-bx login <enter your credentials> ```
+ibmcloud api https://api.ng.bluemix.net
+ibmcloud login <enter your credentials> ```
 
 If you share an {{site.data.keyword.Bluemix_notm}} account, you'll be asked to choose an account for the current session.
 
@@ -34,7 +37,7 @@ If you share an {{site.data.keyword.Bluemix_notm}} account, you'll be asked to c
 Enter the following command to list all service instances:
 
 ```
-bx resource service-instances ```
+ibmcloud resource service-instances ```
 
 Sample response:
 ```
@@ -47,7 +50,7 @@ MyServiceInstance                        us-south   active   service_instance ``
 
 Enter the following command to retrieve the service instance ID:
 ```
-bx resource service-instance MyServiceInstance --id ```
+ibmcloud resource service-instance MyServiceInstance --id ```
 
 Sample response:
 ```

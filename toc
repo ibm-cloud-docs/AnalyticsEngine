@@ -2,7 +2,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="AnalyticsEngine" audience="service" href="/docs/services/AnalyticsEngine/index.html" path="services/AnalyticsEngine"}
+{: .toc subcollection="AnalyticsEngine" audience="service" arm="3248326" href="/docs/services/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview" path="services/AnalyticsEngine"}
 Analytics Engine
 
     {:navgroup: .navgroup}
@@ -13,15 +13,23 @@ Analytics Engine
     getting-started.md
     index.md
     best-practices.md
-    security-model.md
-	  {: .navgroup-end}
+
+    {: .topicgroup}
+    Security
+        security-model.md
+        user-responsibilities.md
+        hipaa-readiness.md
+    {: .navgroup-end}
 
     {: .navgroup id="reference"}
+    [IBM Analytics Engine CLI](https://ibm.co/2wid9ec)
+    [IBM Analytics Engine API reference](https://cloud.ibm.com/apidocs/ibm-analytics-engine)
+    iae-git-repos.md
+    solution-tuts.md
     at-tracker.md
 
     {: .topicgroup}
     Helpful links
-        [IBM Analytics Engine API reference](https://console.bluemix.net/apidocs/ibm-analytics-engine)
         [Jupyter Kernel Gateway Reference Doc](https://jupyter-kernel-gateway.readthedocs.io/en/latest)
         [Livy Reference](https://github.com/cloudera/livy/blob/master/README.rst)
         [Spark History REST API](https://spark.apache.org/docs/2.1.1/monitoring.html#rest-api)
@@ -32,22 +40,16 @@ Analytics Engine
     {: .navgroup id="howto"}
     {: .topicgroup}
     Provisioning a service instance
-    	provisioning.md
+        provisioning.md
         advanced-provisioning-options.md
         track-instance-provisioning.md
 
     {: .topicgroup}
-    Customizing a service instance
-        customizing-cluster.md
-        example-of-customizations.md
-
-    {: .topicgroup}
-    Configuring a cluster to work with object storage
-        configure-COS-S3-object-storage.md
-        specify-properties-at-runtime.md
-        customizing-using-script.md
-        configure-cos-via-ambari.md
-        data-movement-on-cos.md
+    Accessing a service instance
+        retrieve-service-credentials.md
+        Retrieve-service-credentials-and-service-end-points.md
+        Connect-using-SSH.md
+        granting-permissions-to-users.md
 
     {: .topicgroup}
     Managing a service instance
@@ -57,39 +59,60 @@ Analytics Engine
         reset-cluster-password.md
 
     {: .topicgroup}
-    Working with a service instance
-        Retrieve-service-credentials-and-service-end-points.md
-        Connect-using-SSH.md
+    Customizing a service instance
+        customizing-cluster.md
+        example-of-customizations.md
+
+    {: .topicgroup}
+    Working with object storage
+        configure-COS-S3-object-storage.md
+        get-cos-credentials.md
+        cos-credentials-in-iae.md
+        configure-iae-to-work-with-cos.md
+        access-objs-in-cos.md
+        specify-properties-at-runtime.md
+        customizing-using-script.md
+        configure-cos-via-ambari.md
+        data-movement-on-cos.md
+
+    {: .topicgroup}
+    Working with Hadoop, Hive, HBase
         Upload-files-to-HDFS.md
         hadoop-mapreduce-jobs.md
-		working-with-hive.md
-		working-with-hbase.md
+        working-with-hive.md
+        working-with-hbase.md
+
+    {: .topicgroup}
+    Working with Sqoop, Oozie
         working-with-sqoop.md
         working-with-oozie.md
-        working-with-spark-sql.md
 
     {: .topicgroup}
-    Running Spark batch jobs
+    Spark overview
+        Installed-Libraries.md
+        installing-additional-libraries.md
+        Monitor-Applications.md
+        spark-history.md
+
+    {: .topicgroup}
+    Working with Spark batch
         Spark-Batch.md
-		Livy-api.md
-		SSH-connection.md
+        Livy-api.md
+        SSH-connection.md
 
     {: .topicgroup}
-    Running Spark interactive jobs
+    Working with Spark interactive
         spark-interactive-notebooks-api.md
         access-JNBG-service.md
-        Monitor-Applications.md
         Kernel-Settings.md
         lazy-spark-initialization.md
         Logs-JNBG.md
         JNBG-Service-Host.md
-        Installed-Libraries.md
-        installing-additional-libraries.md
         Stop,-Start,-Restart-JNBG-Service.md
 
     {: .topicgroup}
-    Viewing Spark job information
-        spark-history.md
+    Working with Spark SQL
+        working-with-spark-sql.md
 
     {: .topicgroup}
     Supported connectors on clusters
@@ -97,35 +120,23 @@ Analytics Engine
         database-connectors.md
 
     {: .topicgroup}
-    Using the command line interface
-        WCE-CLI.md
-        wce-wcl-install.md
-
-    {: .topicgroup}
-    Using CLI commands
-        wce-cli-ref-spark-endpoint.md
-        wce-cli-ref-file-system.md
-        wce-cli-ref-kernels.md
-        wce-cli-ref-spark-submit.md
-        wce-cli-ref-spark-logs.md
-        wce-cli-ref-spark-job-status.md
-        wce-cli-ref-spark-job-statuses.md
-        wce-cli-ref-spark-job-cancel.md
-        wce-cli-ref-username.md
-        wce-cli-ref-versions.md
-
-    {: .topicgroup}
     Miscellaneous
         Retrieve-IAM-access-token.md
         retrieving-uaa-access-token.md
         retrieve-service-instance-id.md
-		granting-permissions-to-users.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
     release-notes.md
-    faq.md
     troubleshooting.md
     Known-issues.md
-    workaround-oozie-jobs.md
+    unsupported-operations.md
+
+    {: .topicgroup}
+    FAQS
+        faqs-general.md
+        faqs-architecture.md
+        faqs-integration.md
+        faqs-operations.md
+        faqs-security.md
     {: .navgroup-end}

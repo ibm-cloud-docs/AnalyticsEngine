@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-10-08"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -14,6 +16,7 @@ lastupdated: "2018-10-08"
 {:pre: .pre}
 
 # Troubleshooting
+{: #Troubleshooting}
 
 You can find the answers to common questions about how to use IBM Analytics Engine.
 

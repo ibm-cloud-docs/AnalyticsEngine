@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2018
+  years: 2017, 2019
 lastupdated: "2018-11-26"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -14,6 +16,7 @@ lastupdated: "2018-11-26"
 {:pre: .pre}
 
 # Granting permissions to users
+{: #grant-permissions}
 
 With an {{site.data.keyword.Bluemix_notm}} account, you have administrative privileges for your account, which enables you to perform all operations on an {{site.data.keyword.iae_full_notm}} service. However, when you onboard other users to your account, you need to manage their permissions so that they have the required privileges to operate service instances under your account.
 

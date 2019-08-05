@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-11-12"
+  years: 2017, 2019
+lastupdated: "2019-03-13"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -14,11 +16,15 @@ lastupdated: "2018-11-12"
 {:pre: .pre}
 
 # Resizing clusters
+{: #resize-clusters}
+
 You can scale up your cluster by adding more compute nodes. More nodes mean better performance, but also increased cost. For efficiency, add all the nodes that you need at once rather than one at a time.
 
+To resize your {{site.data.keyword.iae_full_notm}} cluster, you must have the following [user permissions](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
+
 You can resize the cluster by using one of the following modes:
-* The Cluster Management user interface
-* Issuing a REST API call
+* [The Cluster Management user interface](#resizing-clusters-by-using-the-cluster-management-user-interface)
+* [Issuing a REST API call](#resizing-clusters-using-the-rest-api)
 
 ## Resizing clusters by using the Cluster Management user interface
 
@@ -35,8 +41,8 @@ You can resize the cluster by using one of the following modes:
 ## Resizing clusters using the REST API
 
 **Prerequisites**:
-* To resize a cluster, you should have Editor access to the service instance. Reach out to your {{site.data.keyword.Bluemix_notm}} account owner, if you do not have sufficient permissions. For more details refer to [Retrieving IAM access tokens](./Retrieving-IAM-access-tokens.html).
-* The API call to resize the cluster requires your IAM bearer token. To obtain the token, follow these [steps](./Retrieve-IAM-access-token.html).
+* To resize a cluster, you should have Editor access to the service instance. Reach out to your {{site.data.keyword.Bluemix_notm}} account owner, if you do not have sufficient permissions. For more details refer to [Retrieving IAM access tokens](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
+* The API call to resize the cluster requires your IAM bearer token. To obtain the token, follow these [steps](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
 
 **To resize a cluster**
 

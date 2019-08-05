@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2017-11-02"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -15,5 +17,6 @@ lastupdated: "2017-11-02"
 
 
 # Starting and stopping the Jupyter Notebook Gateway service
+{: #start-stop-JNBG}
 
-From the [Ambari console](./Administer-cluster-using-Ambari-console.html), you can start, stop, and restart the "JNBG" (Jupyter Notebook Gateway) service. You can also update the service configuration and check the present status of the service.
+From the [Ambari console](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-adm-ambari), you can start, stop, and restart the "JNBG" (Jupyter Notebook Gateway) service. You can also update the service configuration and check the present status of the service.

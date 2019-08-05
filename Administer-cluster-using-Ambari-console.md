@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-10-18"
+  years: 2017, 2019
+lastupdated: "2019-03-13"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -16,10 +18,11 @@ lastupdated: "2018-10-18"
 
 
 # Administering clusters by using the Ambari console
+{: #adm-ambari}
 
-You can use the Ambari console UI for cluster administration.
+You can use the Ambari console UI for cluster administration. To use the Ambari console UI, you must have the following [user permissions](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
 
-The URL to the Ambari console is made available to you as part of the `ambari_console` property of the [service credentials and end point](./Retrieve-service-credentials-and-service-end-points.html). Use the values in the `user` and `password` fields in the sample response of the service end point JSON to log on to the Ambari console.
+The URL to the Ambari console is made available to you as part of the `ambari_console` property of the [service endpoints](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints). See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) for how to get the credentials to log on to the Ambari console.
 
 The `clsadmin` user is granted `Service Administrator` privileges, which provides access to perform the following actions:
 

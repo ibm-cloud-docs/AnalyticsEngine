@@ -1,8 +1,11 @@
 ---
 
 copyright:
-  years: 2017,2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+
+lastupdated: "2019-06-18"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -13,36 +16,59 @@ lastupdated: "2018-11-14"
 {:screen: .screen}
 {:pre: .pre}
 
-# Working with Hive
+# Working with Hive and Hive LLAP
+{: #working-with-hive}
 
 The Apache Hive data warehousing software facilitates reading, writing, and managing large datasets that reside in distributed storage by using the SQL-like query language called HiveQL.
 
-A compiler translates HiveQL statements into a directed acyclic graph of MapReduce or Tez jobs, which are submitted to Hadoop. In an {{site.data.keyword.iae_full_notm}} service, Hive commands can be executed through the Beeline client and by default, the Hive uses Tez as its execution engine. Note that Hive is not available in the {{site.data.keyword.iae_short}} Spark package.
+A compiler translates HiveQL statements into a directed acyclic graph of MapReduce or Tez jobs, which are submitted to Hadoop. In an {{site.data.keyword.iae_full_notm}} service, Hive commands can be executed through the Beeline client and by default, Hive uses Tez as its execution engine.
+
+In the `AE 1.2 Hive LLAP` software package, LLAP (Live Long and Process) is enabled on the Hive server. LLAP enables performing sub-second SQL analytics on Hadoop by intelligently caching data in memory with persistent servers that instantly process the SQL queries. LLAP is an evolution of the Hive architecture and supports HiveQL. This means that you should not have to make any changes to your Hive queries.
+
+The benefits of using LLAP include:
+- LLAP enables sub-second querying in Hive by keeping all data and servers running in-memory all the time, while retaining the ability to scale elastically within a YARN cluster.
+- LLAP is good for cloud use-cases because it caches data in memory and keeps it compressed, overcoming long cloud storage access times and stretching the amount of data you can fit in RAM.
+
+Note that Hive is not available in the `AE 1.1 Spark` package. However, Hive is available in all AE 1.2 software packages. In the `AE 1.2 Hive LLAP` package, LLAP (Live Long and Process) is enabled by default.
 
 - [Prerequisites](#prerequisites)
 - [Connecting to the Hive server](#connecting-to-the-hive-server)
-- [Accessing data in IBM Cloud Object Storage S3 from Hive](#accessing-data-in-ibm-cloud-object-storage-s3-from-hive)
+- [Accessing data in {{site.data.keyword.cos_full_notm}} from Hive](#accessing-data-in-ibm-cloud-object-storage-from-hive)
 - [Changing the Hive execution engine](#changing-the-hive-execution-engine)
 - [Externalizing the Hive metastore to IBM Compose for MySQL](#externalizing-the-hive-metastore-to-ibm-compose-for-mysql)
 - [Parquet file format in Hive](#parquet)
 - [ORC file format in Hive](#orc-format)
+- [LLAP configuration on the cluster](#llap-config)
+- [Code samples](#code-samples)
 - [Learn more](#learn-more)
 
 
 ## Prerequisites
-To work with Hive, you need your cluster user credentials and the ssh and hive_jdbc end point details. You can get this information from the service credentials of your {{site.data.keyword.iae_short}} service instance.
+To work with Hive (with and without LLAP), you need your cluster user credentials and the SSH and Hive JDBC endpoint details. You can get this information from the service credentials of your {{site.data.keyword.iae_short}} service instance.
+
+When fetching the Hive (without LLAP) endpoint, you need the details in the `hive_jdbc` attribute in the service credentials. For the Hive LLAP endpoint, you need the details in the `hive_interactive_jdbc` attribute.
+
+Note that the Hive LLAP endpoint is available only in an {{site.data.keyword.iae_full_notm}} service instance created by using the  `AE 1.2 Hive LLAP` software package.
+
 
 ## Connecting to the Hive server
 
-Connect to the Hive server by using with Beeline client.
+Connect to the Hive server by using with Beeline client. The command varies depending on if you are connecting to the Hive cluster with or without LLAP:
 
-Issue the following SSH command to the cluster:
+- Without LLAP enabled, issue:
 
-```
-ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
-beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p **********
-```
-where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
+ ```
+ ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
+ beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p **********
+ ```
+- With LLAP, issue:
+
+ ```
+ ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
+ beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive-interactive' -n clsadmin -p **********
+ ```
+
+ where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
 
 The following examples show useful HiveQL statements.
 
@@ -58,15 +84,15 @@ The following examples show useful HiveQL statements.
 
 	`SELECT * from doc;`
 
-## Accessing data in IBM Cloud Object Storage S3 from Hive  
+## Accessing data in {{site.data.keyword.cos_full_notm}} from Hive  
 
-Use the following example statement to access data in IBM Cloud Object Storage (COS) from Hive:
+Use the following example statement to access data in {{site.data.keyword.cos_full_notm}} from Hive:
 ```
 CREATE EXTERNAL TABLE myhivetable( no INT, name STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 LOCATION 'cos://<bucketname>.<servicename>/dir1'; ```
 
-`<bucketname>` is the COS bucket. The value for `<servicename>` can be any literal such as `iamservice` or `myprodservice`.
+`<bucketname>` is the {{site.data.keyword.cos_short}} bucket. The value for `<servicename>` can be any literal such as `iamservice` or `myprodservice`.
 
 
 ## Changing the Hive execution engine
@@ -153,7 +179,7 @@ CREATE TABLE parquet_test (
 PARTITIONED BY (part string)
 STORED AS PARQUET;
 ```
-4. Create an external table in Parguet format in IBM Cloud Object Storage. Your cluster needs to be configured to use Cloud Object Store. See [Configuring clusters to work with IBM COS S3 object stores](./configure-COS-S3-object-storage.html#configuring-clusters-to-work-with-ibm-cos-s3-object-stores).
+4. Create an external table in Parguet format in {{site.data.keyword.cos_full_notm}}. Your cluster needs to be configured to use {{site.data.keyword.cos_short}}. See [Configuring clusters to work with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
 ```
 CREATE EXTERNAL TABLE parquet_test1 (
  id int,
@@ -165,7 +191,7 @@ PARTITIONED BY (part string)
 STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir1';
 ```
 
-1. Create another external table in IBM Cloud Object Storage and view the values stored in Parquet format in the Cloud Object Storage directory:
+1. Create another external table in {{site.data.keyword.cos_short}} and view the values stored in Parquet format in the {{site.data.keyword.cos_short}} directory:
 
  ```
 CREATE EXTERNAL TABLE parquet_test2 (x INT, y STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir2';
@@ -173,7 +199,7 @@ insert into parquet_test2 values (1,'Alex');
 select * from parquet_test2;
 ```
 
-1. Load data from a Parquet file stored in Cloud Object Storage to an external Parguet table. users-parquet is a Parquet file stored in the Cloud Object Storage bucket.
+1. Load data from a Parquet file stored in {{site.data.keyword.cos_short}} to an external Parguet table. `users-parquet` is a Parquet file stored in the {{site.data.keyword.cos_short}} bucket.
 ```
 CREATE EXTERNAL TABLE extparquettable1 (id INT, name STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir3';
 LOAD DATA INPATH 'cos://mybucket.myprodservice/dir6/users-parquet';
@@ -187,7 +213,7 @@ The result is the following:
 | NULL                 | Alyssa                 |
 | NULL                 | Ben                    |```
 
-1. Load data from a Parquet file stored in HDFS into an external Parquet table. The users.parquet file is stored in the HDFS path `/user/hive`.
+1. Load data from a Parquet file stored in HDFS into an external Parquet table. The `users.parquet` file is stored in the HDFS path `/user/hive`.
 ```
 CREATE EXTERNAL TABLE extparquettable2 (id INT, name STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir1';
 LOAD DATA INPATH 'users-parquet';
@@ -215,20 +241,52 @@ To create Hive tables in ORC format:
  2. Launch Beeline:
  ```
  beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword>```
- 3. Create an external table in ORC format in IBM Cloud Object Storage. To be able to do this, your cluster must have been [configured to work with Cloud Object Storage](./configure-COS-S3-object-storage.html#configuring-clusters-to-work-with-ibm-cos-s3-object-stores).
+ 3. Create an external table in ORC format in {{site.data.keyword.cos_full_notm}}. To be able to do this, your cluster must have been [configured to work with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
  ```
  CREATE EXTERNAL TABLE orc_table(line STRING) STORED AS ORC LOCATION 'cos://mybucket.myprodservice/ORC'; ```
- 4. Load data from an ORC file stored in Cloud Object Storage into an external parquet table:
+ 4. Load data from an ORC file stored in {{site.data.keyword.cos_short}} into an external parquet table:
  ```
  LOAD DATA INPATH 'cos://mybucket.myprodservice/orc-file-11-format.orc' OVERWRITE INTO TABLE orc_table;
 select * from orc_table;
 ```
-`orc-file-11-format.orc` is an ORC file stored in the Cloud Object Storage bucket.
+`orc-file-11-format.orc` is an ORC file stored in the {{site.data.keyword.cos_short}} bucket.
 
+## LLAP configuration on the cluster
+{: #llap-config}
+
+All the compute nodes on a Hive LLAP cluster are dedicated for LLAP related daemons. This means that there is no compute power left for  these nodes to run other workloads. Each compute node runs an LLAP daemon and some Tez query coordinators (based on the hardware type of the node) in Yarn containers.
+
+The following table shows the LLAP configuration for one node for each of the supported hardware types.
+
+| Per node configuration | `Default` node size | `Memory intensive` node size |
+|-----------------|--------------|---------------------|
+| Executor size | 3584 MB  | 4096 MB  |
+| Number of executors | 2  | 24  |
+| JVM overhead | 360 MB  | 6144 MB  |
+| LLAP heap size | 7168 MB  | 98304 MB |
+| Cache | 3736 MB  | 8192 MB  |
+| LLAP daemon size | 11264 MB   | 112640 MB  |
+| Tez coordinator size | 1024 MB  | 1024 MB  |
+| Number of Tez coordinators| 1  |  4  |
+
+
+## Code samples
+
+Here is a Python code sample that shows accessing data in a Hive table on your cluster:
+
+```python
+import jaydebeapi;
+conn = jaydebeapi.connect("org.apache.hive.jdbc.HiveDriver","jdbc:hive2://chs-mmm-007-mn001.us-south.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive",["clsadmin", "topsecret"],"/home/wce/clsadmin/hive-jdbc-uber-2.6.5.0-292.jar")
+curs = conn.cursor();
+curs.execute("select * from employees");
+print(curs.fetchall())
+print(curs.description)
+curs.close()```
 
 
 ## Learn more
 
-- [Hive and its features](https://hortonworks.com/apache/hive/).
+- [Hive and its features](https://hortonworks.com/apache/hive/)
+- [Hive LLAP deep dive](https://community.hortonworks.com/articles/215868/hive-llap-deep-dive.html)
 - [Sample JDBC program that shows you how to use the Hive endpoints](https://github.com/IBM-Cloud/IBM-Analytics-Engine/tree/master/jdbcsamples/TestHive)
 - [Connecting SQuirrel with JDBC to Hive on IBM Analytics Engine](https://medium.com/@rakhi.sa/ibm-analytics-engine-how-to-connect-squirrel-with-jdbc-to-hive-on-ibm-analytics-engine-a23866961a63)

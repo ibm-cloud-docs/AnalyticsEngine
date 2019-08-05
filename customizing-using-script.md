@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-09-25"
+  years: 2017, 2019
+lastupdated: "2019-0-31"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -14,6 +16,7 @@ lastupdated: "2018-09-25"
 {:pre: .pre}
 
 # Customizing the cluster using a customization script
+{: #cust-cluster-script}
 
 To enable an application to connect to {{site.data.keyword.cos_full_notm}}, you must update the {{site.data.keyword.iae_full_notm}} cluster configuration file (core-site.xml file) to include Cloud Object Storage credentials and other required connection values.
 

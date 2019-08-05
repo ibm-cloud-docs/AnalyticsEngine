@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017,2018
+  years: 2017, 2019
 lastupdated: "2018-11-14"
+
+subcollection: AnalyticsEngine
 
 ---
 
@@ -13,7 +15,8 @@ lastupdated: "2018-11-14"
 {:screen: .screen}
 {:pre: .pre}
 
-# Spark Interactive (Notebooks and API)
+# Spark interactive (notebooks and API)
+{: #spark-interactive}
 
 There are two ways to run Spark applications interactively in an {{site.data.keyword.iae_full_notm}} cluster:
 
@@ -24,14 +27,9 @@ There are two ways to run Spark applications interactively in an {{site.data.key
 
 The {{site.data.keyword.iae_full_notm}} cluster runs a JNBG service which is a Jupyter Kernel Gateway to allow interactive clients like Jupyter notebook servers to connect to the cluster and submit code for execution.
 
-### Supported Kernels
+### Spark kernels and libraries
 
-Currently, the JNBG service supports the following kernels:
-
-* Python 2.7 with Spark 2.1
-* Python 3.5 with Spark 2.1
-* Scala 2.11 with Spark 2.1
-* R with Spark 2.1
+See [Spark kernels and libraries on the cluster](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs) for a list of the libraries, which are pre-installed on each of the cluster nodes that are available by default on the kernels.
 
 ## SSH
 
@@ -74,30 +72,30 @@ sparkR \
 ```
 
 ### Topic Areas
-* [Accessing the JNBG service](./access-JNBG-service.html)
-* [Monitor applications](./Monitor-Applications.html)
-* [Kernel settings](./Kernel-Settings.html)
-  * [Memory settings](./Kernel-Settings.html#memory-settings-for-kernels)
-  * [Executor settings](./Kernel-Settings.html#executor-settings-for-kernel-applications)
-  * [Number of concurrent kernels](./Kernel-Settings.html#number-of-concurrent-kernels)
-  * [Interactive application name](./Kernel-Settings.html#interactive-application-name)
-  * [Overriding kernel settings](./Kernel-Settings.html#overriding-kernel-settings---kernel_spark_args)
-* [Lazy Spark initialization](./lazy-spark-initialization.html)
-* [Logs](./Logs-JNBG.html)
-  * [Jupyter Notebook Gateway server log](./Logs-JNBG.html#accessing-jupyter-kernel-gateway-logs)
-  * [Accessing kernel and driver logs](./Logs-JNBG.html#accessing-kernel-or-driver-logs)
-  * [Accessing Spark executor logs](./Logs-JNBG.html#accessing-spark-executor-logs)
-* [Installed libraries](./Installed-Libraries.html)
-  * [Python](./Installed-Libraries.html#python)
-  * [R](./Installed-Libraries.html#r)
-  * [Scala or Java](./Installed-Libraries.html#scala-or-java)
-* [Installing additional libraries](./installing-additional-libraries.html)
-  * [Cluster wide installation](./installing-additional-libraries.html#cluster-wide-installation)
-    * [Customization examples](./example-of-customizations.html)
-  * [Notebook and session specific installation](./installing-additional-libraries.html#notebook-or-interactive-session-specific-installations)
-  * [Local node installation](./installing-additional-libraries.html#local-node-installation)
-* [Troubleshooting](./Troubleshooting-JKG.html)
-* [Starting and stopping the JNBG service](./Stop,-Start,-Restart-JNBG-Service.html)
+* [Accessing the JNBG service](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-access-JNBG)
+* [Monitor applications](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-monitoring-apps)
+* [Kernel settings](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings)
+  * [Memory settings](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings#memory-settings-for-kernels)
+  * [Executor settings](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings#executor-settings-for-kernel-applications)
+  * [Number of concurrent kernels](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings#number-of-concurrent-kernels)
+  * [Interactive application name](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings#interactive-application-name)
+  * [Overriding kernel settings](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings#overriding-kernel-settings)
+* [Lazy Spark initialization](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-lazy-spark-ini)
+* [Logs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-JKG-logs)
+  * [Jupyter Notebook Gateway server log](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-JKG-logs#accessing-jupyter-kernel-gateway-logs)
+  * [Accessing kernel and driver logs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-JKG-logs#accessing-kernel-or-driver-logs)
+  * [Accessing Spark executor logs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-JKG-logs#accessing-spark-executor-logs)
+* [Installed libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs)
+  * [Python](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs#python)
+  * [R](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs#r)
+  * [Scala or Java](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs#scala-or-java)
+* [Installing additional libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs)
+  * [Cluster wide installation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs#cluster-wide-installation)
+    * [Customization examples](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-examples)
+  * [Notebook and session specific installation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs#notebook-or-interactive-session-specific-installations)
+  * [Local node installation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs#local-node-installation)
+* [Troubleshooting](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-troubleshooting-JNBG)
+* [Starting and stopping the JNBG service](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-start-stop-JNBG)
 
 
 ## Resources
