@@ -48,7 +48,7 @@ To work with Sqoop, you need your cluster user credentials and the SSH  and the 
 4. On the Ambari interface, select the Sqoop service. Then, click **Configs > Advanced**, and expand the `sqoop-env` section. Add the  variables named **DB2_JARS** and **MSSQL_JARS**, and append them to SQOOP_USER_CLASSPATH as follows:
  ```
     export DB2_JARS=/home/wce/clsadmin/sqoop/lib/db2jcc4.jar
-    export MSSQL_JARS==/home/wce/clsadmin/sqoop/lib/sqljdbc4.jar
+    export MSSQL_JARS=/home/wce/clsadmin/sqoop/lib/sqljdbc4.jar
 
     export SQOOP_USER_CLASSPATH="`ls ${HIVE_HOME}/lib/libthrift-*.jar 2>/dev/null`:${DB2_JARS}:${MSSQL_JARS}${SQOOP_USER_CLASSPATH}"
 ```
