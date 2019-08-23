@@ -57,6 +57,7 @@ Analytics Engine
         delete-instance.md
         Administer-cluster-using-Ambari-console.md
         reset-cluster-password.md
+        aggregating-logs.md
 
     {: .topicgroup}
     Customizing a service instance

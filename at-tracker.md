@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-12-03"
+lastupdated: "2019-08-02"
 
 subcollection: AnalyticsEngine
 
@@ -61,6 +61,18 @@ The following table lists the actions that generate an event:
      <tr>
         <td>ibmanalyticsengine.cluster-password.reset</td>
         <td>Reset the Analytics Engine cluster credentials</td>
+    </tr>
+     <tr>
+       <td>ibmanalyticsengine.cluster-log-config.create</td>
+       <td>Create a log aggregation configuration</td>
+    </tr>
+     <tr>
+      <td>ibmanalyticsengine.cluster-log-config.read</td>
+      <td>Retrieve the log aggregation configuration details</td>
+    </tr>
+     <tr>
+       <td>ibmanalyticsengine.cluster-log-config.delete</td>
+       <td>Delete a log aggregation configuration</td>
     </tr>
     <caption style="caption-side:bottom;">Table 1. Actions that generate {{site.data.keyword.iae_full_notm}} events</caption>
 </table>

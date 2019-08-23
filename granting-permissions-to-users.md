@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-11-26"
+lastupdated: "2019-08-02"
 
 subcollection: AnalyticsEngine
 
@@ -86,6 +86,16 @@ Access to {{site.data.keyword.iae_full_notm}} resources requires certain access 
         <td>Invoke cluster management REST API to reset cluster password</td>
         <td>**Access type**: Service <br>
             **Service role**: Manager </td>
+    </tr>
+    <tr>
+        <td>Invoke cluster management REST API to create or delete log configuration</td>
+        <td>**Access type**: Service <br>
+            **Service role**: Writer or Manager </td>
+    </tr>
+    <tr>
+        <td>Invoke cluster management REST API to retrieve log configuration details</td>
+        <td>**Access type**: Service <br>
+            **Service role**: Reader </td>
     </tr>
     <caption style="caption-side:bottom;">Table 1. Required IAM privileges for user onboarding</caption>
     </table>
