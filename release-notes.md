@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-08-22"
 
 subcollection: AnalyticsEngine
 
@@ -21,6 +21,10 @@ subcollection: AnalyticsEngine
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 21 August 2019
+
+- To enhance log analysis, log monitoring, and troubleshooting, {{site.data.keyword.iae_full_notm}} now supports aggregating cluster logs and job logs to a centralized logDNA server of your choice. See details in [Configuring log aggregation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-log-aggregation).
 
 ### 15 May 2019
 
