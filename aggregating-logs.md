@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-08-30"
 
 subcollection: AnalyticsEngine
 
@@ -107,6 +107,9 @@ You can use the following component names:
 - `ambari-server`
 - `hadoop-mapreduce`
 - `hadoop-yarn`
+- `hbase`
+- `hive`
+- `jnbg`
 - `knox`
 - `livy2`
 - `spark2`
@@ -115,9 +118,7 @@ You can use the following component names:
 - `hadoop-mapreduce`
 - `hadoop-yarn`
 - `spark2`
-- `sqoop`
 - `yarn-apps`
-
 
 ## Reconfiguring log aggregation
 
