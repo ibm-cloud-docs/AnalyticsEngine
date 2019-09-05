@@ -14,6 +14,7 @@ subcollection: AnalyticsEngine
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # IBM Analytics Engine overview
 {: #IAE-overview}
@@ -36,7 +37,7 @@ You can deploy {{site.data.keyword.iae_full_notm}} service instances in the foll
 
 A cluster consists of a management instance and one or more compute instances. The management instance itself consists of three management nodes, which run in the management instance. Each of the compute nodes runs in a separate compute instance.
 
-Note: You are billed only at the instance level. For more details on billing, see [{{site.data.keyword.iae_full_notm}}   Pricing](https://www.ibm.com/cloud/analytics-engine/pricing).
+Note: You are billed only at the instance level. For more details on billing, see [{{site.data.keyword.iae_full_notm}}   Pricing](https://www.ibm.com/cloud/analytics-engine/pricing){: external}.
 
 ### Management nodes
 

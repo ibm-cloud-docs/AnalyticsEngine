@@ -127,6 +127,7 @@ To debug a Hive query on {{site.data.keyword.iae_full_notm}}:
 4. SSH to the {{site.data.keyword.iae_full_notm}} cluster. The Hive logs are located in `/tmp/clsadmin/hive.log`.
 
 ## More FAQs
+{: #more-faqs-operations}
 
 - [General FAQs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-general-faqs)
 - [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-faqs-architecture)

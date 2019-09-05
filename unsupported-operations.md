@@ -34,6 +34,7 @@ Although all existing `AE 1.0 ` clusters will only be deleted after September 30
 Currently, you can't resize a cluster created using the `AE 1.2 Hive LLAP` software package. You need to plan your cluster size before you create the  cluster and specify the required number of nodes at the time you provision the {{site.data.keyword.iae_full_notm}} service instance.
 
 ## All `AE` clusters: Software packages installed only from the centOS repository
+{: #ae-all-centos-repo}
 
 The package-admin tool can only install software packages from the centOS repository.
 

@@ -23,10 +23,11 @@ Spark SQL is a Spark module for processing structured data and serves as a distr
 One use of Spark SQL is to execute SQL queries. Spark SQL can also be used to read data from an existing Hive installation. When running SQL from within another programming language, the results are returned in a Spark DataFrame. You can also interact with the SQL interface using the command-line interface or over JDBC/ODBC. All of the following code samples use sample data included in the Spark distribution and can be run in the Spark shell, the PySpark shell, or the SparkR shell.
 
 ## Prerequisites
+{: #spark-sql-prereqs}
 
 To work with Spark SQL, you need your cluster user credentials and the SSH and Spark sql_jdbc endpoint details. You can get this information from the service credentials of your {{site.data.keyword.iae_short}}  service instance.
 
-## Connect to the Spark SQL server by using Beeline
+## Connecting to the Spark SQL server by using Beeline
 
 You can connect to the Spark SQL server by using the Beeline client.
 
@@ -56,7 +57,7 @@ LOAD DATA LOCAL INPATH '/usr/hdp/current/spark2-client/examples/src/main/resourc
 select name, age from PEOPLE;
 ```
 
-## Run Spark SQL with Scala
+## Running Spark SQL with Scala
 
 To run Spark SQL with Scala:
 
@@ -86,7 +87,7 @@ spark shell \
  +------------------+
 ```
 
-## Run Spark SQL with Python 3
+## Running Spark SQL with Python 3
 
 To run Spark SQL with Python 3:
 
@@ -117,7 +118,7 @@ teenagers.show()
 |Justin|
 ```
 
-## Run Spark SQL with R
+## Running Spark SQL with R
 
 To run Spark SQL with R:
 
@@ -148,7 +149,7 @@ key   value
 6 409 val_409
 ```
 
-## Run the Spark SQL CLI
+## Running the Spark SQL CLI
 
 The Spark SQL CLI is a convenient tool to run the Hive metastore service in local mode and execute queries input from the command line.
 

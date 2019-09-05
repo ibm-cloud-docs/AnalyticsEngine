@@ -14,6 +14,7 @@ subcollection: AnalyticsEngine
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Release notes
 {: #release-notes}
@@ -39,7 +40,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
  Although existing clusters will still continue to work and be supported until September 30, 2019, you should stop using those now and start creating new `AE 1.2` clusters as described in [Best practices](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
 
- All provisioned instances of AE 1.0 will be deleted after September 30, 2019. See the [deprecation notice](https://www.ibm.com/blogs/bluemix/2019/04/introducing-ibm-analytics-engine-v1-2-and-announcing-the-deprecation-of-ibm-analytics-engine-v1-0/).
+ All provisioned instances of AE 1.0 will be deleted after September 30, 2019. See the [deprecation notice](https://www.ibm.com/blogs/bluemix/2019/04/introducing-ibm-analytics-engine-v1-2-and-announcing-the-deprecation-of-ibm-analytics-engine-v1-0/){: external}.
 - A new software package `AE 1.2 Hive LLAP` was added to `AE 1.2`, which supports realtime interactive queries. Note however that currently you cannot resize a cluster created using this package.
 - `AE 1.2` supports Python 3.7. Although `AE 1.1` still supports both Python 3.5 and Python 2.7, you should start moving your Python-based applications or code to Python 3.7 now. Especially considering that the open source community has announced the end of support for Python 2.
 - `AE 1.2` does not support HDFS encryption zones. To store sensitive data with encryption requirements, select the appropriate COS encryption options. See details in [Best practices](https://cloud.ibm.com/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#cos-encryption).
@@ -61,9 +62,9 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ### 24 January 2019
 
-- Added support for impersonating the user of the Livy APIs by enabling the user to set proxyUser to clsadmin. See [Livy API](https://{DomainName}/docs/services/AnalyticsEngine?topic=AnalyticsEngine-livy-api).
-- The default Python environment is now Python 3. Earlier default Spark Python runtime was `Python 2`. See [Installed libraries](https://{DomainName}/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs).
-- Added the Ambari configuration changes to the custom spark-default.conf file for Python 3 support. See [Installed libraries](https://{DomainName}/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs).
+- Added support for impersonating the user of the Livy APIs by enabling the user to set proxyUser to clsadmin. See [Livy API](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-livy-api).
+- The default Python environment is now Python 3. Earlier default Spark Python runtime was `Python 2`. See [Installed libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs).
+- Added the Ambari configuration changes to the custom spark-default.conf file for Python 3 support. See [Installed libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs).
 - Scala and R user installation library directory structure was changed to `~/scala` for Scala and `~/R` for R.
 
 
@@ -179,7 +180,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 * {{site.data.keyword.iae_full_notm}} is now based on Hortonworks Data Platform (HDP 2.6)
 * You can seamlessly integrate {{site.data.keyword.iae_full_notm}} from {{site.data.keyword.DSX_short}}.
 * You can use external MySQL to store Hive metadata. For details see [Externalizing the Hive Metastore to Compose for MySQL](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#externalizing-the-hive-metastore-to-ibm-compose-for-mysql).
-* Spark lazy initialization for Scala is supported, in addition to existing support for R and Python. For details see [Lazy Spark initialization](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-/lazy-spark-ini).
+* Spark lazy initialization for Scala is supported, in addition to existing support for R and Python. For details see [Lazy Spark initialization](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-lazy-spark-ini).
 * You can use IAM for both authentication and authorization of Cluster Manager UI
 
 What has changed:
@@ -192,5 +193,5 @@ What has changed:
 
 ### 08 August 2017
 
-* The {{site.data.keyword.iae_full_notm}} service is classified as Experimental and is available only under the [Experimental catalog](https://console.bluemix.net/catalog/labs?env_id=ibm:yp:us-south).
+* The {{site.data.keyword.iae_full_notm}} service is classified as Experimental and is available only under the [Experimental catalog](https://cloud.ibm.com/catalog/labs?env_id=ibm:yp:us-south).
 * You can resize clusters using the Cluster Management user interface and the REST API. For more details, see [Resizing clusters](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-resize-clusters).

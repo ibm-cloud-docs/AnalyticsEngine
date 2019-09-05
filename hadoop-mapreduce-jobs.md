@@ -17,7 +17,12 @@ subcollection: AnalyticsEngine
 # Running Hadoop MapReduce jobs
 {: #run-hadoop-jobs}
 
-**Prerequisite**: You need the cluster user credentials, SSH and oozie_rest endpoint details from the service credentials of your service instance.
+You can process large volumes of data in parallel by running the analysis processes as jobs.
+
+## Prerequisites
+{: #mapreduce-prereqs}
+
+You need the cluster user credentials, the SSH and oozie_rest endpoint details from the service credentials of your service instance.
 
 ## Analyzing data by opening the SSH connection
 
@@ -54,5 +59,6 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 For information on configuring the cluster to work with {{site.data.keyword.cos_full_notm}}, see [Working with  {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
 
 ## Learn more
+{: #learn-more-mapreduce-jobs}
 
 [Submitting MapReduce jobs with Oozie](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-working-with-oozie).

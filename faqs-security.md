@@ -36,6 +36,7 @@ cluster:
 - Port 9443 Ambari
 
 ## More FAQs
+{: #more-faqs-security}
 
 - [General FAQs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-general-faqs)
 - [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-faqs-architecture)

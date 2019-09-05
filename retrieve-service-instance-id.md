@@ -18,42 +18,35 @@ subcollection: AnalyticsEngine
 # Retrieving the service instance ID
 {: #retrieve-service-id}
 
-## Prerequisites
+Before you can retrieve the service instance ID, ensure that you have the following prerequisites:
+- You must have a valid IBMid.
+- You must have installed the {{site.data.keyword.Bluemix_notm}} CLI.
 
-a. You must have a valid IBMid.
+To retrieve the service instance ID:
 
-b. You must have installed the {{site.data.keyword.Bluemix_notm}} CLI.
-
-## Step 1: Log into the {{site.data.keyword.Bluemix_notm}} CLI
-
-To log into the CLI, enter the following commands:
+1. Log in to the {{site.data.keyword.Bluemix_notm}} CLI:
 ```
 ibmcloud api https://api.ng.bluemix.net
-ibmcloud login <enter your credentials> ```
-
-If you share an {{site.data.keyword.Bluemix_notm}} account, you'll be asked to choose an account for the current session.
-
-## Step 2: List all service instances
-Enter the following command to list all service instances:
-
+ibmcloud login <enter your credentials>
 ```
-ibmcloud resource service-instances ```
-
+If you share an {{site.data.keyword.Bluemix_notm}} account, you'll be asked to choose an account for the current session.
+2. List all service instances:
+```
+ibmcloud resource service-instances
+```
 Sample response:
 ```
 Retrieving service instances in resource group Default and all locations under account ...
 OK
 Name                                     Location   State    Type              Tags
-MyServiceInstance                        us-south   active   service_instance ```
-
-## Step 3: Fetch the service instance ID
-
-Enter the following command to retrieve the service instance ID:
+MyServiceInstance                        us-south   active   service_instance
 ```
-ibmcloud resource service-instance MyServiceInstance --id ```
-
+3. Retrieve service instance ID:
+```
+ibmcloud resource service-instance MyServiceInstance --id
+```
 Sample response:
 ```
-crn:v1:yp:public:rc-dev-siba1:us-south:a/217b381692bae8d7153823013f2cacf8:046a1611-81ff-4215-a5e0-6af8d7910610::```
-
-Here `046a1611-81ff-4215-a5e0-6af8d7910610` is the service instance ID.
+crn:v1:yp:public:rc-dev-siba1:us-south:a/217b381692bae8d7153823013f2cacf8:046a1611-81ff-4215-a5e0-6af8d7910610::
+```
+In the sample response, `046a1611-81ff-4215-a5e0-6af8d7910610` is the service instance ID.

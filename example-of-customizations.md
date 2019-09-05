@@ -142,6 +142,7 @@ Anaconda3 environments are installed on all nodes of `AE 1.2` and `AE 1.1` clust
 For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs).
 
 ### Python 3
+{: #python-3-packages}
 
 The Anaconda3 environment on `AE 1.2` clusters comes with Python 3.7 and on `AE 1.1` clusters with Python 3.5.
 
@@ -155,6 +156,7 @@ To install Python 3.x libraries, your script must install to the `/home/common/c
  ```
 
 ### Python 2
+{: #python-2-packages}
 
 Python 2 is only supported on `AE 1.1` clusters.
 
@@ -179,6 +181,7 @@ pip install <archive url or local file path>
 ```
 
 ### R
+{: #r-packages}
 
 R libraries must be installed to the `~/R` directory. The following steps show you how to install the R package from an archive file and from a CRAN repository.
 

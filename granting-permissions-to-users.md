@@ -14,6 +14,7 @@ subcollection: AnalyticsEngine
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Granting permissions to users
 {: #grant-permissions}
@@ -104,7 +105,7 @@ Access to {{site.data.keyword.iae_full_notm}} resources requires certain access 
 
 To onboard new users to your account:
 
-1.	Log on to the [{{site.data.keyword.Bluemix_notm}} dashboard](https://{DomainName}).
+1.	Log on to the [{{site.data.keyword.Bluemix_notm}} dashboard](https://{DomainName}){: external}.
 
 2.	Click **Manage -> Account -> Users**.
 

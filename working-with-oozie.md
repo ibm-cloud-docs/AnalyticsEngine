@@ -20,14 +20,6 @@ subcollection: AnalyticsEngine
 
 Oozie is a workflow scheduler system that you can use to manage Hadoop jobs. Oozie is integrated with the rest of the Hadoop stack from where you can invoke Spark, Hive, and MapReduce jobs.
 
-- [Invoking Oozie workflows](#invoking-oozie-workflows)
-- [Submitting MapReduce jobs through Oozie](#submitting-mapreduce-jobs-through-oozie)
-- [Submitting Spark jobs through Oozie](#submitting-spark-jobs-through-oozie)
-- [Submitting Hive jobs through Oozie](#submitting-hive-jobs-through-oozie)
-- [Running PySpark jobs through Oozie](#running-pyspark-jobs-through-oozie)
-- [Running jobs off data in Object Storage](#running-jobs-off-data-in-object-storage)
-- [Running Oozie coordinator jobs](#running-oozie-coordinator-jobs)
-
 ## Invoking Oozie workflows
 
 You can invoke Oozie jobs in two ways:

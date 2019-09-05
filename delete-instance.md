@@ -34,7 +34,7 @@ The underlying cluster is deleted when the service instance is deleted. All data
 
 To delete an {{site.data.keyword.iae_full_notm}} instance by using the {{site.data.keyword.Bluemix_notm}} user interface:
 
-1. Navigate to the [{{site.data.keyword.Bluemix_notm}} dashboard](https://{DomainName}/dashboard/services) and select the {{site.data.keyword.Bluemix_notm}} service instance you want to delete.
+1. Navigate to the [{{site.data.keyword.Bluemix_notm}} dashboard](https://{DomainName}/resources) and select the {{site.data.keyword.Bluemix_notm}} service instance you want to delete.
 1. From the service instance's Action menu, choose 'Delete Service'.
 
 ## {{site.data.keyword.Bluemix_notm}} CLI

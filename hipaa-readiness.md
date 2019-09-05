@@ -13,6 +13,7 @@ subcollection: AnalyticsEngine
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # HIPAA readiness
 {: #hipaa}
@@ -22,7 +23,7 @@ subcollection: AnalyticsEngine
 - Standard Hourly plan in the Dallas (US South) region
 - Standard Monthly plan in the Dallas (US South) region
 
-HIPAA support from IBM requires that you agree to the terms of the [Business Associate Addendum (BAA) agreement](http://www-03.ibm.com/software/sla/sladb.nsf/sla/baa?OpenDocument) with IBM for your {{site.data.keyword.Bluemix_short}} account. The BAA outlines IBM responsibilities, but also your responsibilities to maintain HIPAA compliance. After you enable HIPAA support in your  {{site.data.keyword.Bluemix_short}} account, you cannot disable it. See [{{site.data.keyword.Bluemix_short}} Docs: Enabling the HIPAA Supported setting](/docs/account?topic=account-enabling-hipaa).
+HIPAA support from IBM requires that you agree to the terms of the [Business Associate Addendum (BAA) agreement](http://www-03.ibm.com/software/sla/sladb.nsf/sla/baa?OpenDocument){: external} with IBM for your {{site.data.keyword.Bluemix_short}} account. The BAA outlines IBM responsibilities, but also your responsibilities to maintain HIPAA compliance. After you enable HIPAA support in your {{site.data.keyword.Bluemix_short}} account, you cannot disable it. See [{{site.data.keyword.Bluemix_short}} Docs: EU and HIPAA supported settings](/docs/account?topic=account-eu-hipaa-supported){: external}.
 
 To enable HIPAA support for your {{site.data.keyword.Bluemix_short}} account:
 1.	Log in to your {{site.data.keyword.Bluemix_short}} account.

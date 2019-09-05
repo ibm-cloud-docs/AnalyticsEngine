@@ -15,6 +15,7 @@ subcollection: AnalyticsEngine
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Working with Hive and Hive LLAP
 {: #working-with-hive}
@@ -31,19 +32,9 @@ The benefits of using LLAP include:
 
 Note that Hive is not available in the `AE 1.1 Spark` package. However, Hive is available in all AE 1.2 software packages. In the `AE 1.2 Hive LLAP` package, LLAP (Live Long and Process) is enabled by default.
 
-- [Prerequisites](#prerequisites)
-- [Connecting to the Hive server](#connecting-to-the-hive-server)
-- [Accessing data in {{site.data.keyword.cos_full_notm}} from Hive](#accessing-data-in-ibm-cloud-object-storage-from-hive)
-- [Changing the Hive execution engine](#changing-the-hive-execution-engine)
-- [Externalizing the Hive metastore to IBM Compose for MySQL](#externalizing-the-hive-metastore-to-ibm-compose-for-mysql)
-- [Parquet file format in Hive](#parquet)
-- [ORC file format in Hive](#orc-format)
-- [LLAP configuration on the cluster](#llap-config)
-- [Code samples](#code-samples)
-- [Learn more](#learn-more)
-
-
 ## Prerequisites
+{: #hive-prereqs}
+
 To work with Hive (with and without LLAP), you need your cluster user credentials and the SSH and Hive JDBC endpoint details. You can get this information from the service credentials of your {{site.data.keyword.iae_short}} service instance.
 
 When fetching the Hive (without LLAP) endpoint, you need the details in the `hive_jdbc` attribute in the service credentials. For the Hive LLAP endpoint, you need the details in the `hive_interactive_jdbc` attribute.
@@ -87,10 +78,12 @@ The following examples show useful HiveQL statements.
 ## Accessing data in {{site.data.keyword.cos_full_notm}} from Hive  
 
 Use the following example statement to access data in {{site.data.keyword.cos_full_notm}} from Hive:
+
 ```
 CREATE EXTERNAL TABLE myhivetable( no INT, name STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-LOCATION 'cos://<bucketname>.<servicename>/dir1'; ```
+LOCATION 'cos://<bucketname>.<servicename>/dir1';
+```
 
 `<bucketname>` is the {{site.data.keyword.cos_short}} bucket. The value for `<servicename>` can be any literal such as `iamservice` or `myprodservice`.
 
@@ -117,10 +110,13 @@ The Compose for MySQL parameters to set in the Hive metastore include:
 - **DB_NAME**: The database name, which is typically *compose*.
 
 - **DB_CXN_URL**: The complete database connection URL.
+
+ ```
+jdbc:mysql://<changeme>:<mySQLPortNumber>/compose
 ```
-jdbc:mysql://<changeme>:<mySQLPortNumber>/compose ```
 
  where `<changeme>` is the endpoint to a database connection, for example to an instance of Compose in Dallas and `<mySQLPortNumber>` is your port number.
+ For example:
 
  ```
  jdbc:mysql://bluemix-sandbox-dal-9-portal.6.dblayer.com:12121/compose ```
@@ -151,7 +147,7 @@ To configuring the cluster as part of the cluster customization script:
 
 1. Use a customization script after the cluster is created. This script includes the properties that need to be configured in the Hive site and uses the Ambari configs.py file to make the required changes.
 
- You can use this [sample script](https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-external-metastore.sh) to configure the Hive metastore.
+ You can use this [sample script](https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-external-metastore.sh){: external} to configure the Hive metastore.
 
 ## Parquet file format in Hive
 {: #parquet}
@@ -225,7 +221,8 @@ The result is the following:
 | extparquettable2.id  | extparquettable2.name  |
 |----------------------|------------------------|
 | NULL                 | Alyssa                 |
-| NULL                 | Ben                    |```
+| NULL                 | Ben                    |
+```
 
 
 ## ORC file format in Hive
@@ -239,12 +236,17 @@ To create Hive tables in ORC format:
 
  1. SSH to the cluster.
  2. Launch Beeline:
+
  ```
- beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword>```
+ beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword>
+ ```
  3. Create an external table in ORC format in {{site.data.keyword.cos_full_notm}}. To be able to do this, your cluster must have been [configured to work with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
+
  ```
- CREATE EXTERNAL TABLE orc_table(line STRING) STORED AS ORC LOCATION 'cos://mybucket.myprodservice/ORC'; ```
+ CREATE EXTERNAL TABLE orc_table(line STRING) STORED AS ORC LOCATION 'cos://mybucket.myprodservice/ORC';
+ ```
  4. Load data from an ORC file stored in {{site.data.keyword.cos_short}} into an external parquet table:
+
  ```
  LOAD DATA INPATH 'cos://mybucket.myprodservice/orc-file-11-format.orc' OVERWRITE INTO TABLE orc_table;
 select * from orc_table;
@@ -281,12 +283,14 @@ curs = conn.cursor();
 curs.execute("select * from employees");
 print(curs.fetchall())
 print(curs.description)
-curs.close()```
+curs.close()
+```
 
 
 ## Learn more
+{: #learn-more-hive}
 
-- [Hive and its features](https://hortonworks.com/apache/hive/)
-- [Hive LLAP deep dive](https://community.hortonworks.com/articles/215868/hive-llap-deep-dive.html)
-- [Sample JDBC program that shows you how to use the Hive endpoints](https://github.com/IBM-Cloud/IBM-Analytics-Engine/tree/master/jdbcsamples/TestHive)
-- [Connecting SQuirrel with JDBC to Hive on IBM Analytics Engine](https://medium.com/@rakhi.sa/ibm-analytics-engine-how-to-connect-squirrel-with-jdbc-to-hive-on-ibm-analytics-engine-a23866961a63)
+- [Hive and its features](https://hortonworks.com/apache/hive/){: external}
+- [Hive LLAP deep dive](https://community.hortonworks.com/articles/215868/hive-llap-deep-dive.html){: external}
+- [Sample JDBC program that shows you how to use the Hive endpoints](https://github.com/IBM-Cloud/IBM-Analytics-Engine/tree/master/jdbcsamples/TestHive){: external}
+- [Connecting SQuirrel with JDBC to Hive on IBM Analytics Engine](https://medium.com/@rakhi.sa/ibm-analytics-engine-how-to-connect-squirrel-with-jdbc-to-hive-on-ibm-analytics-engine-a23866961a63){: external}

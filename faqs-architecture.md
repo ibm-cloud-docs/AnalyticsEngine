@@ -88,6 +88,7 @@ In addition, all data in Cloud Object Storage can be cataloged using the IBM Wat
 Yes, you can run a cluster for as long as is required. However, to prevent data loss in case of an accidental cluster failure, you  should ensure that data is periodically written to {{site.data.keyword.Bluemix_notm}} Object Storage and that you don't use HDFS as a persistent store.
 
 ## More FAQs
+{: #more-faqs-architecture}
 
 - [General FAQs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-general-faqs)
 - [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-integration-faqs)

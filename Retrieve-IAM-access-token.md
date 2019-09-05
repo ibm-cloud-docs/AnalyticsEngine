@@ -22,11 +22,11 @@ Before you can call an {{site.data.keyword.iae_full_notm}} API, you must first h
 
 You can create a token in two ways:
 
-- [By using the {{site.data.keyword.Bluemix_notm}} REST API](#create-a-token-using-the-ibm-cloud-rest-api)
-- [By using the {{site.data.keyword.Bluemix_short}} CLI](#create-a-token-using-the-ibm-cloud-cli).
-
+- [By using the {{site.data.keyword.Bluemix_notm}} REST API](#create-token-with-ibm-cloud-rest-api)
+- [By using the {{site.data.keyword.Bluemix_short}} CLI](#create-token-with-ibm-cloud-cli).
 
 ## Create a token using the {{site.data.keyword.Bluemix_notm}} REST API
+{: #create-token-with-ibm-cloud-rest-api}
 
 To create a token in {{site.data.keyword.Bluemix_notm}}:
 
@@ -34,33 +34,34 @@ To create a token in {{site.data.keyword.Bluemix_notm}}:
 2. Create an API key for your own personal identity, copy the key value, and save it in a secure place. After you leave the page, you will no longer be able to access this value.
 3. With your API key, set up Postman or another REST API tool and run the following command. Replace `FIXME_your_api_key` with the API key retrieved in Step 2. The basic authorization value is FIXED and is not specific to a user.
 
- ```
-curl "https://iam.ng.bluemix.net/identity/token" \
+```
+curl
+"https://iam.ng.bluemix.net/identity/token" \
 -d "apikey=FIXME_your_api_key&grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey" \
 -H "Content-Type: application/x-www-form-urlencoded" \
 -H "Authorization: Basic Yng6Yng="
 ```
-This returns something like:
-```
+  This returns:
+  ```
 {
 "access_token": "eyJraWQiOiIyMDE3MDgwOS0wMDowMDowMCIsImFsZyI6…",
 "refresh_token": "zmRTQFKhASUdF76Av6IUzi9dtB7ip8F2XV5fNgoRQ0mbQgD5XCeWkQhjlJ1dZi8K…",
 "token_type": "Bearer",
 "expires_in": 3600,
 "expiration": 1505865282
-}```
-
+}
+```
 4. Use the value of the `access_token` property for your {{site.data.keyword.iae_full_notm}} API calls. Set the `access_token`  value as the authorization header parameter for requests to the {{site.data.keyword.iae_full_notm}} APIs. The format is `Authorization: Bearer <access_token_value>`. For example:
 ```
 Authorization: Bearer eyJraWQiOiIyMDE3MDgwOS0wMDowMDowMCIsImFsZyI6IlJTMjU2In0... ```
 
 ## Create a token using the {{site.data.keyword.Bluemix_notm}} CLI
+{: #create-token-with-ibm-cloud-cli}
 
 Before you can create a token by using the {{site.data.keyword.Bluemix_notm}} CLI, check that you have met the following prerequisites:
 
 1. You have a valid IBMid.
-
-2. You have downloaded and installed the [{{site.data.keyword.Bluemix_notm}} CLI](docs/cli?topic=cloud-cli-install-ibmcloud-cli).
+2. You have downloaded and installed the [{{site.data.keyword.Bluemix_notm}} CLI](https://{DomainName}/docs/cli?topic=cloud-cli-install-ibmcloud-cli).
 
 To create a token using {{site.data.keyword.Bluemix_notm}} CLI:
 

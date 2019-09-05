@@ -14,16 +14,18 @@ subcollection: AnalyticsEngine
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Spark interactive (notebooks and API)
 {: #spark-interactive}
 
 There are two ways to run Spark applications interactively in an {{site.data.keyword.iae_full_notm}} cluster:
 
-* By using the Jupyter Notebook Gateway (JNBG)
-* By using SSH
+* By using the [Jupyter Notebook Gateway (JNBG)](#jnbg-service)
+* By using [SSH](#ssh-for-spark-interactive)
 
 ## Jupyter Notebook Gateway (JNBG)
+{: #jnbg-service}
 
 The {{site.data.keyword.iae_full_notm}} cluster runs a JNBG service which is a Jupyter Kernel Gateway to allow interactive clients like Jupyter notebook servers to connect to the cluster and submit code for execution.
 
@@ -32,6 +34,7 @@ The {{site.data.keyword.iae_full_notm}} cluster runs a JNBG service which is a J
 See [Spark kernels and libraries on the cluster](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs) for a list of the libraries, which are pre-installed on each of the cluster nodes that are available by default on the kernels.
 
 ## SSH
+{: #ssh-for-spark-interactive}
 
 You can run Spark applications interactively by logging on to the cluster using SSH.
 
@@ -39,7 +42,8 @@ To run Spark applications interactively:
 
 1. Log on to the cluster management node.
 ```
-$ ssh clsadmin@iae-tmp-867-mn003.<changeme>.ae.appdomain.cloud ```
+$ ssh clsadmin@iae-tmp-867-mn003.<changeme>.ae.appdomain.cloud
+```
 
   `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
@@ -94,9 +98,8 @@ sparkR \
     * [Customization examples](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-examples)
   * [Notebook and session specific installation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs#notebook-or-interactive-session-specific-installations)
   * [Local node installation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs#local-node-installation)
-* [Troubleshooting](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-troubleshooting-JNBG)
 * [Starting and stopping the JNBG service](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-start-stop-JNBG)
 
 
 ## Resources
-* [Jupyter Kernel Gateway Reference Doc](https://jupyter-kernel-gateway.readthedocs.io/en/latest)
+* [Jupyter Kernel Gateway Reference Doc](https://jupyter-kernel-gateway.readthedocs.io/en/latest/){: external}

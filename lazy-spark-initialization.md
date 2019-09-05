@@ -42,7 +42,7 @@ When working in a notebook, the notebook may display these messages when you exe
 
 ## Python kernel
 
-The Python kernel initialises Spark whenever the first code execution request is submitted to it. This means the moment when the first cell is executed after launching a notebook. If Spark is initialized as a result of code being submitted for execution, the kernel outputs messages on the `stdout` stream of the request to indicate it is initialising a Spark session. The kernel outputs the following message when it begins Spark initialization:
+The Python kernel initializes Spark whenever the first code execution request is submitted to it. This means the moment when the first cell is executed after launching a notebook. If Spark is initialized as a result of code being submitted for execution, the kernel outputs messages on the `stdout` stream of the request to indicate it is initializing a Spark session. The kernel outputs the following message when it begins Spark initialization:
 
 ```
 Waiting for a Spark session to start...
@@ -62,4 +62,4 @@ With the Scala kernel the Spark session is not initialized until code is execute
 Waiting for a Spark session to start...
 ```
 
-If you see any of the above Spark initialization messages in a notebook or interactive session, and the code does not execute for a long time (well over a minute) then refer to [Troubleshooting (JNBG)](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-troubleshooting-JNBG) for the possible cause and its solution.
+If you see any Spark initialization messages in a notebook or interactive session, and the code does not execute for a long time (well over a minute) then refer to [Troubleshooting](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-troubleshooting#kernel-state-busy) for the possible cause and its solution.

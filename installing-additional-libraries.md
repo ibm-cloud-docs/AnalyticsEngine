@@ -32,6 +32,7 @@ Installing the libraries in this manner is permanent; the libraries are always a
 Note that you cannot use the `--user` option in `pip` install commands in {{site.data.keyword.iae_full_notm}}.
 
 ### Python 3
+{: #install-python-3}
 
 The Anaconda3 environment on `AE 1.2` clusters comes with Python 3.7 and on `AE 1.1` clusters with Python 3.5. See [Installed libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs).
 
@@ -50,6 +51,7 @@ To install Python 3.x libraries, your script must install in the `conda3` enviro
 Note that the additional libraries get installed under `~/pipAnaconda3Packages/`.
 
 ### Python 2
+{: #install-python-2}
 
 Python 2 is only supported on `AE 1.1`  clusters.
 
@@ -74,6 +76,7 @@ pip install <archive url or local file path>
 Note that the additional libraries get installed under `~/pipAnaconda2Packages/`.
 
 ### Scala or Java
+{: #install-scala-java}
 
 Scala or Java libraries must be copied to the following designated directory:
 
@@ -82,6 +85,7 @@ Scala or Java libraries must be copied to the following designated directory:
  Note that the Scala libraries should be compatible with Scala 2.11 and Java 1.8 as that is the runtime used by JNBG.
 
 ### R
+{: #install-r}
 
 R libraries must be installed to the `~/R` directory.
 

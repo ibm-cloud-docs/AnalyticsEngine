@@ -14,6 +14,7 @@ subcollection: AnalyticsEngine
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Provisioning an {{site.data.keyword.iae_full_notm}} service instance
 {: #provisioning-IAE}
@@ -34,7 +35,7 @@ You can create an {{site.data.keyword.iae_full_notm}} service instance through o
 ## Creating a service instance from the IBM Cloud console
 
 To create an {{site.data.keyword.iae_full_notm}} instance:
-1. Log into the [{{site.data.keyword.Bluemix_short}} console]( https://{DomainName}).
+1. Log into the [{{site.data.keyword.Bluemix_short}} console]( https://{DomainName}){: external}.
 1. Click **Create resource**, search for `{{site.data.keyword.iae_short}}` and then click on the tile to open the service instance creation page.
 1. On the {{site.data.keyword.Bluemix_short}} catalog, choose the region in which you want the service instance to be deployed. {{site.data.keyword.iae_short}}  deployments are available in US South, United Kingdom, Japan, and Germany.
 1. Choose the resource group under which you want to create the service instance. Select a plan and click **Configure**.
@@ -74,7 +75,7 @@ When provisioning a service instance:
 
 To create a service instance using the {{site.data.keyword.Bluemix_short}} command-line interface:
 
-1. Download and configure the {{site.data.keyword.Bluemix_short}} CLI. Follow the instructions [here](/docs/cli?topic=cloud-cli-overview#overview).
+1. Download and configure the {{site.data.keyword.Bluemix_short}} CLI. Follow the instructions [here](/docs/cli?topic=cloud-cli-getting-started).
 
 1. Set the API endpoint for your region and log in:
    ```
@@ -94,7 +95,8 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
 1. Now create a service instance:
 
    ```
-   ibmcloud resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters> ```
+   ibmcloud resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters>
+   ```
    {: codeblock}
 
    For example:
@@ -145,7 +147,8 @@ For an overview of how a cluster is provisioned and how to check your cluster pr
 
 To query the service provisioning status, enter the following command:
 ```
-ibmcloud resource service-instance MyServiceInstance ```
+ibmcloud resource service-instance MyServiceInstance
+```
 
 {: codeblock}
 
@@ -170,7 +173,8 @@ To invoke the Resource Controller REST API to create a service instance, you nee
 
 To get the resource group ID, log into the {{site.data.keyword.Bluemix_short}} CLI and run the following command:
 ```
-ibmcloud resource groups ```
+ibmcloud resource groups
+```
 
 {: codeblock}
 
@@ -179,7 +183,8 @@ Sample result:
 Retrieving all resource groups under account <Account details..>
 OK
 Name      ID      Default Group   State
-Default   XXXXX   true            ACTIVE ```
+Default   XXXXX   true            ACTIVE
+```
 
 You also need the `resource_plan_id` to create a service instance. The following resource plan IDs are supported:
 

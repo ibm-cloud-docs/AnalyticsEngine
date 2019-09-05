@@ -14,6 +14,7 @@ subcollection: AnalyticsEngine
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Accessing the Jupyter Notebook Gateway service
 {: #access-JNBG}
@@ -22,11 +23,11 @@ subcollection: AnalyticsEngine
 
 The JNBG service on the cluster provides two endpoints for HTTP operations and the Websocket resource.
 
-* [HTTP resources](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html#http-resources)
+* [HTTP resources](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html#http-resources){: external}
 
  The HTTP API consists of resources for operations like retrieving kernel specifications, listing running kernels, and starting, stopping, and deleting kernels.
 
-* [Websocket resource](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html#websocket-resources)
+* [Websocket resource](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html#websocket-resources){: external}
 
  The Websocket resource multiplexes the Jupyter kernel messaging protocol over a single Websocket connection to submit code and communicate with the running kernel.
 
@@ -67,13 +68,13 @@ Access to the JNBG service endpoints is SSL secured and requires `BASIC` authent
 
 Typically, Jupyter Notebook servers use the `nb2kg` extension to connect with remote kernel gateways such as JNBG.
 
-The `nb2kg` package can be downloaded from  [here](https://github.com/jupyter-incubator/nb2kg). When using the `nb2kg` package, the following configuration is needed to access the cluster's JNBG service:
+The `nb2kg` package can be downloaded from  [here](https://github.com/jupyter-incubator/nb2kg){: external}. When using the `nb2kg` package, the following configuration is needed to access the cluster's JNBG service:
 
 * Configure the `KG_WS_URL` to the Websocket endpoint URL of the JKG service
 * Configure the `KG_HTTP_USER` to the cluster user
 * Configure the `KG_HTTP_PASS` to the cluster password
 
-For the previous  {{site.data.keyword.iae_full_notm}} cluster response details, the configuration would be:
+For the previous {{site.data.keyword.iae_full_notm}} cluster response details, the configuration would be:
 
 ```
 KG_URL=https://chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkg/
@@ -100,11 +101,11 @@ Here are some commonly used REST APIs:
 | POST | /kernels/{kernel_id}/interrupt | Interrupts a kernel |
 | POST | /kernels/{kernel_id}/restart | Restarts a kernel |
 
-For complete details about the API refer the documentation and swagger specifications provided [here](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html).
+For complete details about the API refer the documentation and swagger specifications provided [here](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html){: external}.
 
 ## Examples
 
-Because the Jupyter Kernel Gateway service exposes an HTTP- and WebSocket-based API, Spark interactive applications can be written in any language of your choice by referencing the API specifications and the [Jupyter Wire Protocol description](https://jupyter-client.readthedocs.io/en/stable/messaging.html).
+Because the Jupyter Kernel Gateway service exposes an HTTP- and WebSocket-based API, Spark interactive applications can be written in any language of your choice by referencing the API specifications and the [Jupyter Wire Protocol description](https://jupyter-client.readthedocs.io/en/stable/messaging.html){: external}.
 
 Refer to the following sample applications written for Node.js and Python 2.
 
@@ -181,7 +182,7 @@ jupyter.startNewKernel({
 ```
  where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
- For more information on jupyter-js-services, see https://github.com/jupyterlab/services.
+ For more information on jupyter-js-services, see [JupyterLab](https://github.com/jupyterlab/jupyterlab){: external}.
 
 3. Run the sample application. Enter the following command to run the Node client:
 ```
