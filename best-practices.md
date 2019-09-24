@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-26"
+lastupdated: "2019-09-23"
 
 subcollection: AnalyticsEngine
 
@@ -119,7 +119,7 @@ For running parallel jobs, choose the memory-intensive node size. For example, i
 ## Choose the appropriate software package
 {: #software}
 
-The software packages on `AE 1.2` clusters include components for Horton Dataworks Platform 3.1 and on `AE 1.1` clusters for Horton Dataworks Platform 2.6.5.
+The software packages on `AE 1.2` clusters include components for Horton Dataworks Platform 3.1.
 
 | AE 1.2  clusters     | Based on HDP 3.1        |
 |-----------------|-----------------------------|
@@ -128,14 +128,6 @@ The software packages on `AE 1.2` clusters include components for Horton Datawor
 | `AE 1.2 Spark and Hadoop`<br>Choose if you are planning to run Hadoop workloads in addition to Spark workloads. | (AE 1.2 Spark and Hive) +  HBase, Phoenix, Oozie |
 
 **Note:**  Currently you cannot resize a cluster that uses the `AE 1.2 Hive LLAP` software package.
-
-| AE 1.1 clusters      | Based on HDP 2.6.5        |
-|-----------------|-------------------------------|
-| `AE 1.1 Spark` <br>Choose if you are planning to run only Spark workloads. | Spark, Hadoop, Jupyter Enterprise, Livy, Knox, Ambari, Anaconda-Py |
-| `AE 1.1 Spark and Hive` <br>Choose if you are planning to run Hive and/or  Spark workloads.| (AE 1.1 Spark) + Hive |
-| `AE 1.1 Spark and Hadoop`<br>Choose if you are planning to run Hadoop workloads in addition to Spark workloads. | (AE 1.1 Spark and Hive) + HBase, <br>Oozie, Flume, Phoenix |
-
-**Note:** Python 2 is available only in `AE 1.1`. However, you are encouraged to write your applications in Python 3 as Python 2 will only be supported until the end of 2019. See [Installed libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs).
 
 ## Tune kernel settings for Spark interactive jobs
 {: #tune-kernel-for-spark-interactive}

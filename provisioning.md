@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-09-23"
 
 subcollection: AnalyticsEngine
 
@@ -50,9 +50,9 @@ An {{site.data.keyword.iae_short}} service instance comprises one cluster made u
 
 | Plan | Hardware types | Software packages        | Restrictions |
 |------|----------------|------------------------------|--------- |
-| **Lite** |** Default** |- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br><br> - `AE 1.1 Spark` </br> - `AE 1.1  Spark and Hive` </br> - `AE 1.1 Spark and Hadoop` | 1.	Maximum of one tile per IBM Cloud account every 30 days. </br> 2.	Maximum of one cluster with up to 3 compute nodes. </br> 3.	Free usage limit is 50 node hours. After 50 node hours, the cluster will be disabled. This means, for example, that a cluster with 4 nodes (3 compute node and 1 management node) will be disabled after 12.5 hours. While the cluster is disabled, it cannot be scaled up or customized. </br> A grace period of 24 hours is given to upgrade your user account to a paid account, and to upgrade the service instance to the Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted. </br> **Note:** You are entitled to one service instance per month. If you delete the service instance or it expires after the free 50 node hours, you will not be able to create a new one until after the month has passed.|
-| **Standard-Hourly** | **Default** or **memory intensive** |	- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br><br> - `AE 1.1 Spark` </br> - `AE 1.1  Spark and Hive` </br> - `AE 1.1 Spark and Hadoop`  | NA |
-| **Standard-Monthly** | **Default** or **memory intensive** | - `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br><br> - `AE 1.1 Spark` </br> - `AE 1.1  Spark and Hive` </br> - `AE 1.1 Spark and Hadoop` | NA |
+| **Lite** |**Default** |- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br> | 1.	Maximum of one tile per IBM Cloud account every 30 days. </br> 2.	Maximum of one cluster with up to 3 compute nodes. </br> 3.	Free usage limit is 50 node hours. After 50 node hours, the cluster will be disabled. This means, for example, that a cluster with 4 nodes (3 compute node and 1 management node) will be disabled after 12.5 hours. While the cluster is disabled, it cannot be scaled up or customized. </br> A grace period of 24 hours is given to upgrade your user account to a paid account, and to upgrade the service instance to the Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted. </br> **Note:** You are entitled to one service instance per month. If you delete the service instance or it expires after the free 50 node hours, you will not be able to create a new one until after the month has passed.|
+| **Standard-Hourly** | **Default** or **Memory intensive** |	- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br>  | NA |
+| **Standard-Monthly** | **Default** or **memory intensive** | - `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br> | NA |
 
 Hardware specifications:
 
@@ -61,7 +61,7 @@ Hardware specifications:
 
 Software packages:
 
-The software packages on `AE 1.2` clusters include components for Horton Dataworks Platform 3.1 and on `AE 1.1` clusters for Horton Dataworks Platform 2.6.5. See [software packages](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#software).
+The software packages on `AE 1.2` clusters include components for Horton Dataworks Platform 3.1. See [software packages](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#software).
 
 
 ### Provisioning recommendations
@@ -79,26 +79,15 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
 
 1. Set the API endpoint for your region and log in:
    ```
-   ibmcloud api https://api.ng.bluemix.net
+   ibmcloud api https://cloud.ibm.com
    ibmcloud login
    ```
    {: codeblock}
 
-   The {{site.data.keyword.Bluemix_short}} API endpoints for the following regions are supported:
-
-   - US South: https://api.ng.bluemix.net
-   - United Kingdom: https://api.eu-gb.bluemix.net
-   - Germany: https://api.eu-de.bluemix.net
-
-   Note that the API endpoint for Japan is currently not available. However, this does not mean that you  can't create a cluster in Japan. The region where a cluster is deployed is determined by the region parameter passed in the `bx resource service-instance-create` command. To create a cluster in Japan, log in by using one of the available API endpoint and then create the service instance in Tokyo (`jp-tok`).
-
-1. Now create a service instance:
-
+1. Create a service instance:
    ```
    ibmcloud resource service-instance-create <service instance name> ibmanalyticsengine <Plan name> <region> -p @<path to JSON file with cluster parameters>
    ```
-   {: codeblock}
-
    For example:
    ```
    ibmcloud resource service-instance-create MyServiceInstance ibmanalyticsengine lite us-south -p @/usr/testuser/cluster_specification.json
@@ -106,15 +95,14 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
    Supported plan names are **lite**, **standard-hourly**, and **standard-monthly**.
    Supported regions are: **us-south**, **eu-gb**, **jp-tok** and **eu-de**.
 
-   Sample cluster specification JSON file  
+   Sample cluster specification JSON file:
    ```
    {
-     "num_compute_nodes": 1,
-     "hardware_config": "default",
-     "software_package": "ae-1.2-hive-spark"
+  "num_compute_nodes": 1,
+  "hardware_config": "default",
+  "software_package": "ae-1.2-hive-spark"
    }
    ```
-   {: codeblock}
 
 ### Description of the cluster specification parameters
 
@@ -122,7 +110,7 @@ The cluster parameters include:
 
 1. **`num_compute_nodes`** (Required): Number of compute nodes required in the cluster.
 1. **`hardware_config`** (Required): Represents the instance size of the cluster. Accepted value: _`default`_ and _`memory-intensive`_  
-1. **`software_package`** (Required): Determines the set of services to be installed on the cluster. Accepted value: _`ae-1.2-hive-llap`_, _` ae-1.2-hive-spark`_, _`ae-1.2-hadoop-spark`_,_`ae-1.1-spark`_, _` ae-1.1-hive-spark`_, _`ae-1.1-hadoop-spark`_
+1. **`software_package`** (Required): Determines the set of services to be installed on the cluster. Accepted value: _`ae-1.2-hive-llap`_, _` ae-1.2-hive-spark`_, _`ae-1.2-hadoop-spark`_
 1. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
 1. **`advanced_options`** (Optional): JSON object with nested JSON objects for various custom configurations for components installed with the cluster. Advantage here is that the custom configurations are baked during cluster creation time which means that the cluster is created based on the provided custom configurations. For details on how to create a cluster with `advanced_options`, see [Using advanced provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
 <br>

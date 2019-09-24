@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-09-23"
 
 subcollection: AnalyticsEngine
 
@@ -20,6 +20,13 @@ subcollection: AnalyticsEngine
 {: #unsupported-operations}
 
 The following functionality is no longer supported in {{site.data.keyword.iae_full_notm}}.
+
+## `AE 1.1` clusters: No instance provisioning and cluster resizing
+{: #ae1.1-deprecation}
+
+The `AE 1.1` software packages based on Hortonworks Data Platform (HDP) 2.6.5 are deprecated. You can no longer provision new instances of {{site.data.keyword.iae_full_notm}} with the `AE 1.1` software packages. Although you can still work on the `AE 1.1` clusters you have created, you can't resize those clusters and add additional nodes.
+
+Although all existing `AE 1.1` clusters will only be deleted after December 31, 2019, you should stop using those clusters now and start creating new `AE 1.2` clusters as described in [Best practices](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
 
 ## `AE 1.0` clusters: No instance provisioning and cluster resizing
 {: #ae1.0-deprecation}

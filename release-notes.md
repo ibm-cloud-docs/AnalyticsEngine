@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-22"
+lastupdated: "2019-09-23"
 
 subcollection: AnalyticsEngine
 
@@ -22,6 +22,14 @@ subcollection: AnalyticsEngine
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 24 September 2019
+
+- `AE 1.1` (based on Hortonworks Data Platform 2.6.5) is deprecated. You can no longer provision `AE 1.1` clusters. You also cannot resize and add additional nodes to an `AE 1.1` cluster.
+
+ Although existing clusters will still continue to work and be supported until December 31, 2019,  you should stop using those now and start creating new `AE 1.2` clusters as described in [Best practices](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
+
+ All provisioned instances of AE 1.1 will be deleted after December 31, 2019. See the [deprecation notice](https://www.ibm.com/cloud/blog/announcements/deprecation-of-ibm-analytics-engine-v1-1){: external}.
 
 ### 21 August 2019
 
