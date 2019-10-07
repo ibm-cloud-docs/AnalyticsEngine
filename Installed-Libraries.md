@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-10-07"
 
 subcollection: AnalyticsEngine
 
@@ -24,11 +24,6 @@ The {{site.data.keyword.iae_full_notm}} cluster comes with a set of libraries, w
 |-------------|--------|-----------|------------|
 |AE 1.2| Python 3.7 |Python 3.7 with Spark 2.3.2 |Python libraries packaged with Anaconda3-2018.12 at /home/common/conda/anaconda3/ |
 |AE 1.2| Scala 2.11|Scala 2.11 with Spark 2.3.2 |Scala/Java libraries (Scala 2.11 and Java 1.8) under /home/common/lib/scala/spark2 |
-| AE 1.1| Python 2.7 | Python 2.7 with Spark 2.1 | Python libraries packaged with Anaconda2 4.3.0 at /home/common/conda/anaconda2/ |
-|AE 1.1| Python 3.5 | Python 3.5 with Spark 2.1 | Python libraries packaged with Anaconda3 4.2.0 at /home/common/conda/anaconda3/|
-|AE 1.1| Scala 2.11 | Scala 2.11 with Spark 2.1 | Scala/Java libraries (Scala 2.11 and Java 1.8) under /home/common/lib/scala/spark2 |
-
-**Note:** Python 2 is available only on `AE 1.1` clusters. However, you are encouraged to write your applications in Python 3 as Python 2 will only be supported until the end of 2019.
 
 For installed Spark connectors, see the [documentation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-spark-connectors).
 
@@ -45,33 +40,6 @@ Alternately, SSH to the cluster and run this command:
 ```python
 /home/common/conda/anaconda3/bin/pip list
 ```
-**Special note for AE 1.1**
-
-On `AE 1.1` clusters, both Python 2 and 3 are available. However, the default configuration of Spark Yarn jobs is Python 3. We encourage you to move all of your Spark applications to Python 3 soon because Python 2 will not be supported after the end of 2019.
-
-If you want to set the configuration to Python 2, you have to update the following values in the custom spark-default.conf file:
-```
-"spark.yarn.appMasterEnv.PYSPARK_PYTHON":"/home/common/conda/anaconda2/bin/python",
-"spark.executorEnv.PYSPARK_PYTHON":"/home/common/conda/anaconda2/bin/python"
-```
-{: codeblock}
-
-To run spark-submit jobs in Python 2, you must set the environment variables for Python 2 as follows:
-
-```python
-export PATH=/home/common/conda/anaconda2/bin:$PATH
-export PYSPARK_PYTHON=/home/common/conda/anaconda2/bin/python
-export PYTHONPATH=~/pipAnaconda2Packages/
-export PIP_CONFIG_FILE=/home/common/conda/anaconda2/etc/pip.conf
-```
-{: codeblock}
-
-To see the list of Python 2 packages, you can SSH to the cluster and run the following command:
-
-``` python
-/home/common/conda/anaconda2/bin/pip list
-```
-{: codeblock}
 
 ## R
 

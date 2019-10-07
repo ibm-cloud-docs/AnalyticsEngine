@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-10-07"
 
 subcollection: AnalyticsEngine
 
@@ -137,14 +137,14 @@ fi
 
 ## Example installing Python and R packages
 
-Anaconda3 environments are installed on all nodes of `AE 1.2` and `AE 1.1` clusters. Anaconda2 is only supported on `AE 1.1` clusters. However, as Python 2 will not be supported after 2019, you are encouraged to start using Python 3.    
+Anaconda3 environments are installed on all nodes of `AE 1.2` clusters.
 
 For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs).
 
 ### Python 3
 {: #python-3-packages}
 
-The Anaconda3 environment on `AE 1.2` clusters comes with Python 3.7 and on `AE 1.1` clusters with Python 3.5.
+The Anaconda3 environment on `AE 1.2` clusters comes with Python 3.7.
 
 To install Python 3.x libraries, your script must install to the `/home/common/conda/anaconda3` environment by using:
  ```
@@ -155,6 +155,7 @@ To install Python 3.x libraries, your script must install to the `/home/common/c
  pip install <archive url or local file path>
  ```
 
+<!--
 ### Python 2
 {: #python-2-packages}
 
@@ -179,6 +180,7 @@ pip install <package-name>
 ```
 pip install <archive url or local file path>
 ```
+-->
 
 ### R
 {: #r-packages}
