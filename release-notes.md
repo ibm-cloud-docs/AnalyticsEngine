@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-23"
+lastupdated: "2019-10-07"
 
 subcollection: AnalyticsEngine
 
@@ -22,6 +22,14 @@ subcollection: AnalyticsEngine
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 07 October 2019
+
+- IBM Cloud Databases for PostgreSQL is now available for externalizing Hive cluster metadata. To learn how to configure your cluster to store Hive metadata in PostgreSQL, see [Externalizing the Hive metastore](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#externalizing-hive-metastore).
+
+ You should stop using Compose For MySQL as the Hive metastore.
+- Hive View has been removed from the underlying platform in `AE 1.2`. You can use any other JDBC UI based client such as SQuirrel SQL or Eclipse Data Source Explorer instead.
+
 
 ### 24 September 2019
 

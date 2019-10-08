@@ -30,7 +30,7 @@ subcollection: AnalyticsEngine
 {: #difference-iae-cluster-and-hadoop}
 {: faq}
 
-{{site.data.keyword.iae_full_notm}} is based on an architecture which separates compute and storage. In a traditional Hadoop architecture, the cluster is used to both store data and perform application processing. In {{site.data.keyword.iae_full_notm}}, storage and compute are separated. The cluster is used for running applications and {{site.data.keyword.Bluemix_notm}} Object Storage for persisting the data. The benefits of such an architecture  include flexibility, simplified operations, better  reliability and cost effectiveness. Read this [whitepaper](https://www.ibm.com/downloads/cas/KDPB1REE){: external} to learn more.
+{{site.data.keyword.iae_full_notm}} is based on an architecture which separates compute and storage. In a traditional Hadoop architecture, the cluster is used to both store data and perform application processing. In {{site.data.keyword.iae_full_notm}}, storage and compute are separated. The cluster is used for running applications and {{site.data.keyword.cos_full_notm}} for persisting the data. The benefits of such an architecture  include flexibility, simplified operations, better  reliability and cost effectiveness. Read this [whitepaper](https://www.ibm.com/downloads/cas/KDPB1REE){: external} to learn more.
 
 ## How do I get started with {{site.data.keyword.iae_full_notm}}?
 {: #getting-started-with-iae}
@@ -62,8 +62,8 @@ To see the currently supported node sizes, see the [documentation](/docs/service
 
 What if I want to run a cluster that has a lot of data to be processed at one time?
 
-The clusters in {{site.data.keyword.iae_full_notm}} are intended to be used as a compute clusters and not as persistent storage for data. Data should be persisted in [{{site.data.keyword.Bluemix_notm}} Object Storage](https://www.ibm.com/cloud/object-storage){: external}. This provides a more flexible, reliable, and cost effective way to build analytics applications. See this [whitepaper](https://www.ibm.com/downloads/cas/KDPB1REE){: external} to learn more about this topic. The Hadoop Distributed File System (HDFS) should be used at most only for intermediate storage during
-processing. All final data (or even intermediate data) should be written to Cloud Object Storage before the cluster is deleted. If your intermediate storage requirements exceed the HDFS space  available on a node, you can add more nodes to the cluster.
+The clusters in {{site.data.keyword.iae_full_notm}} are intended to be used as a compute clusters and not as persistent storage for data. Data should be persisted in [{{site.data.keyword.cos_full_notm}}](https://www.ibm.com/cloud/object-storage){: external}. This provides a more flexible, reliable, and cost effective way to build analytics applications. See this [whitepaper](https://www.ibm.com/downloads/cas/KDPB1REE){: external} to learn more about this topic. The Hadoop Distributed File System (HDFS) should be used at most only for intermediate storage during
+processing. All final data (or even intermediate data) should be written to {{site.data.keyword.cos_full_notm}} before the cluster is deleted. If your intermediate storage requirements exceed the HDFS space  available on a node, you can add more nodes to the cluster.
 
 ## How many {{site.data.keyword.iae_full_notm}} clusters can I spin up?
 {: #number-of-clusters}

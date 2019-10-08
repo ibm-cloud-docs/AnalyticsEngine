@@ -40,7 +40,7 @@ There are several interfaces which you can use to access the cluster.
 {: #get-data-on-cluster}
 {: faq}
 
-The recommended way to read data to a cluster for processing is from {{site.data.keyword.Bluemix_notm}} Object Storage. Upload your data to {{site.data.keyword.Bluemix_notm}} Object Storage (COS) and use COS, Hadoop or Spark APIs to read the data. If your use-case requires data to be processed directly on the cluster, you can use one of the following ways to ingest the data:
+The recommended way to read data to a cluster for processing is from {{site.data.keyword.cos_full_notm}}. Upload your data to {{site.data.keyword.cos_full_notm}} (COS) and use COS, Hadoop or Spark APIs to read the data. If your use-case requires data to be processed directly on the cluster, you can use one of the following ways to ingest the data:
 - SFTP
 - WebHDFS
 - Spark
@@ -113,7 +113,7 @@ Yes, the {{site.data.keyword.Bluemix_notm}} operations team ensures that all ser
 {: #job-log-files}
 {: faq}
 
-For most components, the log files can be retrieved by using the Ambari GUI. Navigate to the respective component, click **Quick Links** and select the respective component GUI.  An alternative method is to ssh to the node where the component is running and access the `/var/log/<component>` directory.
+For most components, the log files can be retrieved by using the Ambari GUI. Navigate to the respective component, click **Quick Links** and select the respective component GUI.  An alternative method is to SSH to the node where the component is running and access the `/var/log/<component>` directory.
 
 ## How can I debug a Hive query on {{site.data.keyword.iae_full_notm}}?
 {: #debug-hive-query}

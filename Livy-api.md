@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-10-07"
 
 subcollection: AnalyticsEngine
 
@@ -76,14 +76,14 @@ See [livy documentation](https://github.com/cloudera/livy#rest-api) for complete
 
 ## cURL examples
 
-In the following cURL requests, response headers are printed along with the JSON output to show the HTTP response status codes.
+In the following cURL requests, response headers are printed with the JSON output to show the HTTP response status codes.
 
 To force the use of Anaconda Python instead of System Python, use  `proxyUser` in the payload while submitting jobs. Run the spark-submit job as `clsadmin` user to avoid running into permission issues. For example:
 ```
-curl -u "clsadmin:passWorld" -H 'Content-Type: application/json' -H 'X-Requested-By: livy'  -d '{ "file":"/user/clsadmin/printenv.py" , "proxyUser":"clsadmin"}' "https://chs-mmm-007-mn001.us-south.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"```
+curl -u "clsadmin:passWorld" -H 'Content-Type: application/json' -H 'X-Requested-By: livy'  -d '{ "file":"/user/clsadmin/printenv.py" , "proxyUser":"clsadmin"}' "https://chs-mmm-007-mn001.us-south.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
+```
 
-
-### Submit a Spark job
+### Submit a Spark job with a local JAR
 
 Request:
 
@@ -121,6 +121,24 @@ Content-Length: 100
   "log": []
 }
 ```
+
+### Submit a Spark job with a local Python file
+
+By default, you can't access local files directly through livy.
+On the Ambari dashboard, select **Spark2 > Configs**, click **Custom livy2-conf** and add the following parameter:
+
+```
+livy.file.local-dir-whitelist <path-to-dir>
+```
+
+where `<path-to-dir>` is `/usr/hdp/current`
+
+Submit the job by using with the following cURL command:
+
+```
+curl -u clsadmin:mypassword -X POST -H 'X-Requested-By: livy' --data '{"file": "file:///usr/hdp/current/spark2-client/examples/src/main/python/pi.py"}' -H "Content-Type: application/json" http://chs-lmc-984-mn003.us-south.ae.appdomain.cloud:8443/batches
+```
+
 ### Submit Spark applications from {{site.data.keyword.cos_short}} or on data in object stores
 
 See [Working with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos) for instructions on configuring your cluster to use {{site.data.keyword.cos_short}}. Once configured, you can directly submit Spark applications from {{site.data.keyword.cos_short}}. You can also submit Spark applications on data residing in {{site.data.keyword.cos_short}}.

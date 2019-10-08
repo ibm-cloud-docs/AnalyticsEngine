@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2019
 
-lastupdated: "2019-06-18"
+lastupdated: "2019-10-07"
 
 subcollection: AnalyticsEngine
 
@@ -20,17 +20,15 @@ subcollection: AnalyticsEngine
 # Working with Hive and Hive LLAP
 {: #working-with-hive}
 
-The Apache Hive data warehousing software facilitates reading, writing, and managing large datasets that reside in distributed storage by using the SQL-like query language called HiveQL.
+The Apache Hive data warehousing software facilitates reading, writing, and managing large data sets that reside in distributed storage by using the SQL-like query language called HiveQL.
 
 A compiler translates HiveQL statements into a directed acyclic graph of MapReduce or Tez jobs, which are submitted to Hadoop. In an {{site.data.keyword.iae_full_notm}} service, Hive commands can be executed through the Beeline client and by default, Hive uses Tez as its execution engine.
 
-In the `AE 1.2 Hive LLAP` software package, LLAP (Live Long and Process) is enabled on the Hive server. LLAP enables performing sub-second SQL analytics on Hadoop by intelligently caching data in memory with persistent servers that instantly process the SQL queries. LLAP is an evolution of the Hive architecture and supports HiveQL. This means that you should not have to make any changes to your Hive queries.
+In the `AE 1.2 Hive LLAP` software package, LLAP (Live Long and Process) is enabled on the Hive server by default. LLAP enables performing sub-second SQL analytics on Hadoop by intelligently caching data in memory with persistent servers that instantly process the SQL queries. LLAP is an evolution of the Hive architecture and supports HiveQL. This means that you should not have to make any changes to your Hive queries.
 
 The benefits of using LLAP include:
 - LLAP enables sub-second querying in Hive by keeping all data and servers running in-memory all the time, while retaining the ability to scale elastically within a YARN cluster.
 - LLAP is good for cloud use-cases because it caches data in memory and keeps it compressed, overcoming long cloud storage access times and stretching the amount of data you can fit in RAM.
-
-Note that Hive is not available in the `AE 1.1 Spark` package. However, Hive is available in all AE 1.2 software packages. In the `AE 1.2 Hive LLAP` package, LLAP (Live Long and Process) is enabled by default.
 
 ## Prerequisites
 {: #hive-prereqs}
@@ -94,60 +92,60 @@ To change the Hive execution engine from Tez to MR, run the following command in
 
 `set hive.execution.engine=mr;`
 
-## Externalizing the Hive metastore to IBM Compose for MySQL
+## Externalizing the Hive metastore to Databases for PostgreSQL
+{: #externalizing-hive-metastore}
 
-The Hive metastore is where the schemas of the Hive tables are stored. By default, it is in a MySQL instance in the cluster. You could choose to externalize the metastore to an external MySQL instance outside of the cluster so that you can tear down your cluster without losing the metadata. This, in combination with data in the object store, can preserve the data across clusters.
+The Hive metastore is where the schemas of the Hive tables are stored. By default, it is in an embedded MySQL instance within the cluster. You should choose to externalize the metastore to an external database instance outside of the cluster so that you can tear down your cluster without losing any metadata. This, in combination with storing your data in {{site.data.keyword.cos_full_notm}}, helps persisting data across clusters. [Externalizing metadata](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#separate-compute-from-storage) is a best practice when creating a cluster.
 
-### Compose for MySQL
-Compose for MySQL is a service in {{site.data.keyword.Bluemix_notm}} that can be used to externalize the metadata of the cluster. You can choose between the Standard or Enterprise version depending on your requirement. Once you create the Compose for MySQL instance, you will need to note the administrative user, password, database name, and the JDBC URL.
+### Accessing Databases for PostgreSQL
 
-The Compose for MySQL parameters to set in the Hive metastore include:
+IBM Cloud Databases for PostgreSQL is a database service that you should use to externalize the metadata of a cluster. PostgreSQL is an open source object-relational, enterprise-ready database.
 
-- **DB_USER_NAME**: The database user name to connect to the instance, which is typically *admin*.
+After you have created an instance, you will need to note the administrative username, password, database name, hostname, port and the certificate details.
 
-- **DB_PWD**: The database user password to connect to the instance.
+The PostgreSQL parameters to set in the Hive metastore include:
 
-- **DB_NAME**: The database name, which is typically *compose*.
-
-- **DB_CXN_URL**: The complete database connection URL.
-
- ```
-jdbc:mysql://<changeme>:<mySQLPortNumber>/compose
+- **DB_USER_NAME**: The database user name to connect to the PostgreSQL instance you created, using the format: `ibm_cloud_<guid>`
+- **DB_PWD**: The database user password with which to connect to the instance
+- **DB_NAME**: The database name, typically 'ibmclouddb'
+- **DB_CXN_URL**: The complete URL of database connection using the format:
+```
+jdbc:postgresql://<hostname>:<port>/<dbname>?sslmode=verify-ca&sslrootcert=<path-to-cert>
+```
+For example:
+```
+jdbc:postgresql://6b190ee0-44ed-4d84-959a-5b424490ccc6.b8a5e798d2d04f2e860e54e5d042c915.databases.appdomain.cloud:31977/ibmclouddb?sslmode=verify-ca&sslrootcert=/home/wce/clsadmin/postgres.cert
 ```
 
- where `<changeme>` is the endpoint to a database connection, for example to an instance of Compose in Dallas and `<mySQLPortNumber>` is your port number.
- For example:
+### Copying the PostgreSQL certificate
 
- ```
- jdbc:mysql://bluemix-sandbox-dal-9-portal.6.dblayer.com:12121/compose ```
+To enable connecting to IBM Cloud Databases for PostgreSQL, you need to copy the self-signed certificate to the {{site.data.keyword.iae_full_notm}} cluster to a specific location. You can get the certificate details from the PostGreSQL instance details. The certificate is a base64 encoded string.
 
-#### Configuring clusters to work with Compose for MySQL
+Use the following steps to copy the instance certificate to the {{site.data.keyword.iae_full_notm}} cluster:
 
-There are two ways in which you can configure your cluster with the Compose for MySQL parameters:
+1. Copy the certificate information in the Base64 field of the PostGreSQL connection information.
+1. Decode the Base64 string to text and save it to a file. You can use the file name that is provided or use your own name.
 
--  By using the Ambari user interface after the cluster has been created
--  By configuring the cluster as part of the cluster customization script
- <br>
+ Alternatively, you can decode the certificate of your connection by using the following CLI plug-in command:
+```
+ibmcloud cdb deployment-cacert "your-service-name"
+```
+Copy and save the command's output to a file. See [CLI plug-in support for the self-signed certificate](/docs/services/databases-for-postgresql?topic=databases-for-postgresql-external-app#cli-plug-in-support-for-the-self-signed-certificate).
+1. Copy the file to `/home/wce/clsadmin` on the `mn002` node. To get to the `mn002` node, first SSH to the `mn003` node and then from there SSH to the `mn002` node.
+1. Enter `chmod -R 755 /home/wce/clsadmin` to grant access permissions to the certificate file in the folder.
 
-To configure the cluster using the Ambari user interface after the cluster was created:
+### Configuring a cluster to work with PostGreSQL
 
-1. Add the properties and values to the hive-site.xml file on your cluster instance by opening the Ambari console.
-2. Open the advanced configuration for HIVE:
+Currently, you can only use the Ambari user interface, after you have created a cluster, to add the values for the PostgreSQL connection to the hive-site.xml file.
 
-  **Ambari dashboard > Hive > Config > Advanced Tab > Hive Metastore > Existing MySQL / MariaDB Database**
+To configure a cluster to work with your PostgreSQL instance:
 
-3. Make the appropriate changes for the following parameters: Database Name, Database Username, Database Password, Database URL.
-4. Save your changes.
+1. From the Ambari dashboard, open the advanced configuration for Hive by clicking **Hive > Config > Advanced Tab > Hive Metastore > Existing PostgreSQL Database**.
+1. Add the PostgreSQL values for your instance to the following parameters: `Database Name`, `Database Username`, `Database Password`, `Database URL`.
+1. Save your changes. You must restart affected services as indicated in the Ambari user interface so that the changes take effect. This could take approximately three minutes.
 
- **Important**: You will need to restart affected services as indicated in the Ambari user interface so that the changes take effect. This could take approximately three minutes.
+ **Note**: You might not be able to click **Test Connection**  because of a known issue in the Ambari user interface. Also note that you can ignore the warnings and confirm to all prompts in the UI while saving.
 
- **Note**: You might not be able to click **Test Connection** because of a known issue in the Ambari user interface.
-
-To configuring the cluster as part of the cluster customization script:
-
-1. Use a customization script after the cluster is created. This script includes the properties that need to be configured in the Hive site and uses the Ambari configs.py file to make the required changes.
-
- You can use this [sample script](https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-external-metastore.sh){: external} to configure the Hive metastore.
 
 ## Parquet file format in Hive
 {: #parquet}
