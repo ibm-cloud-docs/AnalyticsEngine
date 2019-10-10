@@ -43,6 +43,10 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 - To enhance log analysis, log monitoring, and troubleshooting, {{site.data.keyword.iae_full_notm}} now supports aggregating cluster logs and job logs to a centralized logDNA server of your choice. See details in [Configuring log aggregation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-log-aggregation).
 
+ Note that log aggregation can only be configured for  {{site.data.keyword.iae_full_notm}} clusters created on or after  August 21, 2019. 
+
+
+
 ### 15 May 2019
 
 - A new version of {{site.data.keyword.iae_full_notm}} is now available: `AE  1.2` based on HDP 3.1. It has 3 software packages:

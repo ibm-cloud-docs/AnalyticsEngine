@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-30"
+lastupdated: "2019-10-08"
 
 subcollection: AnalyticsEngine
 
@@ -26,6 +26,8 @@ You can collect the logs for the following components in an {{site.data.keyword.
 
 - {{site.data.keyword.iae_full_notm}} daemon logs, for example  those for Spark, Hive, Yarn, Knox as so on on the management and data nodes
 - Yarn application job logs
+
+**Note**: Log aggregation can only be configured for  {{site.data.keyword.iae_full_notm}} clusters created on or after  August 21, 2019.
 
 ## Aggregation operations
 
