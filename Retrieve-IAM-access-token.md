@@ -32,16 +32,16 @@ To create a token in {{site.data.keyword.Bluemix_notm}}:
 
 1. Sign in to {{site.data.keyword.Bluemix_notm}} and select **Manage>Security>Platform API Keys**.
 2. Create an API key for your own personal identity, copy the key value, and save it in a secure place. After you leave the page, you will no longer be able to access this value.
-3. With your API key, set up Postman or another REST API tool and run the following command. Replace `FIXME_your_api_key` with the API key retrieved in Step 2. The basic authorization value is FIXED and is not specific to a user.
+3. Use the API key you created with the IAM identity token API to generate an IAM token. For example:
+```
+  curl -X POST \
+  'https://iam.cloud.ibm.com/identity/token' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -d 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=<your iam api key>'
+```
+For details on the API syntax, see [IAM identity token API](https://cloud.ibm.com/apidocs/iam-identity-token-api#create-an-iam-access-token-for-a-user-or-service-i).
 
-```
-curl
-"https://iam.cloud.ibm.com/identity/token" \
--d "apikey=FIXME_your_api_key&grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey" \
--H "Content-Type: application/x-www-form-urlencoded" \
--H "Authorization: Basic Yng6Yng="
-```
-  This returns:
+  This is a sample of what is returned:
   ```
 {
 "access_token": "eyJraWQiOiIyMDE3MDgwOS0wMDowMDowMCIsImFsZyI6…",
