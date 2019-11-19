@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-07"
+lastupdated: "2019-11-18"
 
 subcollection: AnalyticsEngine
 
@@ -61,7 +61,7 @@ Create a cluster with bootstrap customization using the {{site.data.keyword.Blue
 ```
 curl \
   --request POST \
-  --url 'https://resource-controller.bluemix.net/v1/resource_instances'   \
+  --url 'https://resource-controller.cloud.ibm.com/v1/resource_instances'   \
   --header 'accept: application/json'   \
   --header 'authorization: Bearer <IAM token>'   \
   --data  @provision.json

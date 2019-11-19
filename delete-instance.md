@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-11-18"
 
 subcollection: AnalyticsEngine
 
@@ -44,7 +44,7 @@ To delete an {{site.data.keyword.iae_full_notm}} instance by using the {{site.da
 To delete an {{site.data.keyword.iae_full_notm}} instance by using the {{site.data.keyword.Bluemix_notm}} CLI:
 
 ```
-ibmcloud api https://api.ng.bluemix.net
+ibmcloud api https://cloud.ibm.com
 ibmcloud login
 <choose your account>
 ibmcloud resource service-instance-delete <service_instance_name>
@@ -59,33 +59,9 @@ To delete an {{site.data.keyword.iae_full_notm}} instance by using the Resource 
 
 ```
 curl -X DELETE \
-  https://resource-controller.bluemix.net/v2/resource_instances/<service_instance_id> \
+  https://resource-controller.cloud.ibm.com/v2/resource_instances/<service_instance_id> \
   -H 'Authorization: Bearer <User's IAM access token>' \
 ```
 {: codeblock}
 
 To retrieve the IAM access token, see [Retrieving IAM access token](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
-
-## cf CLI (deprecated)
-
-**Prerequisite**: If you have any service keys for your service instance, you must delete them first, before attempting to delete the service instance.
-
-To delete an {{site.data.keyword.iae_full_notm}} instance by using the cf CLI:
-
-```
-cf api https://api.ng.bluemix.net
-cf login
-<choose your org and space>
-cf delete-service <service_instance_name>
-```
-
-## cf REST API (deprecated)
-
-To delete an {{site.data.keyword.iae_full_notm}} instance by using the cf REST API:
-
-```
-curl --request DELETE \
-  --url 'https://api.ng.bluemix.net/v2/service_instances/<service_instance_id>' \
-  --header 'authorization: <User's UAA access token>' \
-```
-To retrieve the UAA access token, see [Retrieving UAA access token](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-uaa-token).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-03-07"
+lastupdated: "2018-11-18"
 
 subcollection: AnalyticsEngine
 
@@ -26,7 +26,7 @@ To retrieve the service instance ID:
 
 1. Log in to the {{site.data.keyword.Bluemix_notm}} CLI:
 ```
-ibmcloud api https://api.ng.bluemix.net
+ibmcloud api https://cloud.ibm.com
 ibmcloud login <enter your credentials>
 ```
 If you share an {{site.data.keyword.Bluemix_notm}} account, you'll be asked to choose an account for the current session.

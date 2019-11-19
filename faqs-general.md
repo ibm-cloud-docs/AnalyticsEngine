@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-16"
+lastupdated: "2019-11-18"
 
 subcollection: AnalyticsEngine
 
@@ -75,15 +75,17 @@ There is no limit to the number of clusters you can spin up.
 {: #free-usage}
 {: faq}
 
-Yes, we provide the Lite plan which can be used free of charge. Apart from this, as a new {{site.data.keyword.Bluemix_notm}} user, you are also entitled to $200 in credit that can be used against {{site.data.keyword.iae_full_notm}} or any service on {{site.data.keyword.Bluemix_notm}}.
+Yes, we provide the Lite plan which can be used free of charge.
+
+When you move to a paid plan, you are entitled to $200 in credit that can be used against {{site.data.keyword.iae_full_notm}} or any service on {{site.data.keyword.Bluemix_notm}}. This credit is only allocated once.
 
 ## How does the Lite plan work?
 {: #lite-plan}
 {: faq}
 
-The Lite plan provides 50 node-hours of free {{site.data.keyword.iae_full_notm}} usage. One cluster can be provisioned every 30  days. After the 50 node-hours are exhausted, you can upgrade to a paid plan within 24 hours to continue using the same cluster. If you do not upgrade within 24 hours, the cluster will be deleted and you have to provision a new one after the 30 day limit has passed.
+The Lite plan provides 50 node-hours of free {{site.data.keyword.iae_full_notm}} usage. One cluster can be provisioned every 30 days. After the 50 node-hours are exhausted, you can upgrade to a paid plan within 24 hours to continue using the same cluster. If you do not upgrade within 24 hours, the cluster will be deleted and you have to provision a new one after the 30 day limit has passed.
 
-Depending on the size of your cluster, actual hours of use might vary. For instance, a cluster with 1 master and 3 data nodes (4  nodes in total) will run for 12.5 hours on the clock (50 hours/4 nodes). However, a cluster with 1 master and 1 data node (2 nodes in total) will run for 25 hours on the clock (50 hours/2 nodes). The node-hours cannot be paused, for example, you cannot use 10 node-hours, pause, and then come back and use the remaining 40 node-hours.
+A cluster created using a Lite plan has 1 master and 1 data node (2 nodes in total) and will run for 25 hours on the clock (50 hours/2 nodes). The node-hours cannot be paused, for example, you cannot use 10 node-hours, pause, and then come back and use the remaining 40 node-hours.
 
 ## What types of service maintenance exist in {{site.data.keyword.iae_full_notm}}?
 {: #service-maintenance}

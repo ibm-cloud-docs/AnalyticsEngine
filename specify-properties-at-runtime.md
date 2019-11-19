@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-16"
+lastupdated: "2019-11-18"
 
 subcollection: AnalyticsEngine
 
@@ -59,7 +59,7 @@ t1.count()
 prefix="fs.cos.myprodservice"
 
 hconf=sc._jsc.hadoopConfiguration()
-hconf.set(prefix + ".iam.endpoint", "https://iam.bluemix.net/identity/token")
+hconf.set(prefix + ".iam.endpoint", "https://iam.cloud.ibm.com/identity/token")
 hconf.set(prefix + ".endpoint", "s3-api.us-geo.objectstorage.service.networklayer.com")
 hconf.set(prefix + ".iam.api.key", "he0Zzjasdfasdfasdfasdfasdfasdfj2OV")
 hconf.set(prefix + ".iam.service.id", "ServiceId-asdf-asdf-asdf-asdf-asdf")

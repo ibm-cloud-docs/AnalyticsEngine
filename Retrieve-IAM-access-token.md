@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-08-29"
+lastupdated: "2018-11-18"
 
 subcollection: AnalyticsEngine
 
@@ -36,7 +36,7 @@ To create a token in {{site.data.keyword.Bluemix_notm}}:
 
 ```
 curl
-"https://iam.ng.bluemix.net/identity/token" \
+"https://iam.cloud.ibm.com/identity/token" \
 -d "apikey=FIXME_your_api_key&grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey" \
 -H "Content-Type: application/x-www-form-urlencoded" \
 -H "Authorization: Basic Yng6Yng="
@@ -68,7 +68,7 @@ To create a token using {{site.data.keyword.Bluemix_notm}} CLI:
 1. Log in to the {{site.data.keyword.Bluemix_notm}} CLI:
 
  ```
- ibmcloud api https://api.ng.bluemix.net
+ ibmcloud api https://cloud.ibm.com
  ibmcloud login <enter your credentials>
  ```
  If you have multiple {{site.data.keyword.Bluemix_notm}} accounts, you'll be asked to choose an account for the current session. Also, you'll need to choose an organization and space in {{site.data.keyword.Bluemix_notm}}.

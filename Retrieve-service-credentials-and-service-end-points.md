@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-24"
+lastupdated: "2019-11-18"
 
 subcollection: AnalyticsEngine
 
@@ -109,13 +109,13 @@ The property `apikey` contains an IAM API key that can be used to generate IAM b
 
 **Prerequisite**: You need an IAM bearer token. For more information, see [Retrieving IAM access tokens](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
 
-The API endpoint that handles API service keys is `https://resource-controller.bluemix.net/v1/resource_keys`.
+The API endpoint that handles API service keys is `https://resource-controller.cloud.ibm.com/v1/resource_keys`.
 
 
 To create a resource key, enter:
 ```
 curl -X POST \
-  https://resource-controller.bluemix.net/v1/resource_keys \
+  https://resource-controller.cloud.ibm.com/v1/resource_keys \
   -H 'accept: application/json' \
   -H 'authorization: Bearer <IAM bearer token>' \
   -H 'content-type: application/json' \
