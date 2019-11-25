@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-07"
+lastupdated: "2019-11-25"
 
 subcollection: AnalyticsEngine
 
@@ -22,6 +22,10 @@ subcollection: AnalyticsEngine
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 25 November 2019
+
+- You can now use the {{site.data.keyword.Bluemix_notm}} service endpoints feature to securely access your {{site.data.keyword.iae_full_notm}} service instances over the {{site.data.keyword.Bluemix_notm}} private network. You can choose to use either public or private endpoints for the {{site.data.keyword.iae_full_notm}} service. The choice needs to be made at the time you provision the instance. See [Cloud service endpoints integration](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
 
 ### 07 October 2019
 
@@ -43,7 +47,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 - To enhance log analysis, log monitoring, and troubleshooting, {{site.data.keyword.iae_full_notm}} now supports aggregating cluster logs and job logs to a centralized logDNA server of your choice. See details in [Configuring log aggregation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-log-aggregation).
 
- Note that log aggregation can only be configured for  {{site.data.keyword.iae_full_notm}} clusters created on or after  August 21, 2019. 
+ Note that log aggregation can only be configured for  {{site.data.keyword.iae_full_notm}} clusters created on or after  August 21, 2019.
 
 
 
