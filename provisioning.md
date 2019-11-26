@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-23"
+lastupdated: "2019-11-18"
 
 subcollection: AnalyticsEngine
 
@@ -37,8 +37,13 @@ You can create an {{site.data.keyword.iae_full_notm}} service instance through o
 To create an {{site.data.keyword.iae_full_notm}} instance:
 1. Log into the [{{site.data.keyword.Bluemix_short}} console]( https://{DomainName}){: external}.
 1. Click **Create resource**, search for `{{site.data.keyword.iae_short}}` and then click on the tile to open the service instance creation page.
-1. On the {{site.data.keyword.Bluemix_short}} catalog, choose the region in which you want the service instance to be deployed. {{site.data.keyword.iae_short}}  deployments are available in US South, United Kingdom, Japan, and Germany.
-1. Choose the resource group under which you want to create the service instance. Select a plan and click **Configure**.
+1. On the {{site.data.keyword.Bluemix_short}} catalog, choose the region in which you want the service instance to be deployed. {{site.data.keyword.iae_short}} deployments are available in US South, United Kingdom, Japan, and Germany.
+1. Choose the resource group under which you want to create the service instance.
+1. Select a plan. With the `Standard-Hourly` and `Standard-Monthly` plans, you can choose how to access the {{site.data.keyword.iae_full_notm}} service endpoints.
+
+  **Note**: By default, a provisioned instance is accessible  over the public internet. However, you can also choose to open the {{site.data.keyword.iae_full_notm}} service endpoints over the {{site.data.keyword.Bluemix_short}} private network. See [Provisioning an instance with {{site.data.keyword.Bluemix_short}} service endpoints](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration). 
+
+  Select an option and click **Configure**.
 1. On the configuration page, choose the hardware configuration, number of compute nodes and software package of your choice. Click **Create**.
 1. The service instance is provisioned in the background and can take anywhere between 30 to 50 minutes to provision depending on the hardware type and software package you chose. Visit the {{site.data.keyword.Bluemix_short}} service details page after some time to check the status of the provisioned instance.
 
@@ -50,7 +55,7 @@ An {{site.data.keyword.iae_short}} service instance comprises one cluster made u
 
 | Plan | Hardware types | Software packages        | Restrictions |
 |------|----------------|------------------------------|--------- |
-| **Lite** |**Default** |- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br> | 1.	Maximum of one tile per IBM Cloud account every 30 days. </br> 2.	Maximum of one cluster with up to 3 compute nodes. </br> 3.	Free usage limit is 50 node hours. After 50 node hours, the cluster will be disabled. This means, for example, that a cluster with 4 nodes (3 compute node and 1 management node) will be disabled after 12.5 hours. While the cluster is disabled, it cannot be scaled up or customized. </br> A grace period of 24 hours is given to upgrade your user account to a paid account, and to upgrade the service instance to the Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted. </br> **Note:** You are entitled to one service instance per month. If you delete the service instance or it expires after the free 50 node hours, you will not be able to create a new one until after the month has passed.|
+| **Lite** |**Default** |- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br> | 1.	Maximum of one tile per IBM Cloud account every 30 days. </br> 2.	Maximum of one cluster with up to 1 compute node. </br> 3.	Free usage limit is 50 node hours. After 50 node hours, the cluster will be disabled. This means, for example, that a cluster with 2 nodes (1 compute node and 1 management node) will be disabled after 12.5 hours. While the cluster is disabled, it cannot be scaled up or customized. </br> A grace period of 24 hours is given to upgrade your user account to a paid account, and to upgrade the service instance to the Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted. </br> **Note:** You are entitled to one service instance per month. If you delete the service instance or it expires after the free 50 node hours, you will not be able to create a new one until after the month has passed.|
 | **Standard-Hourly** | **Default** or **Memory intensive** |	- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br>  | NA |
 | **Standard-Monthly** | **Default** or **memory intensive** | - `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br> | NA |
 
@@ -122,9 +127,11 @@ Creating service instance MyServiceInstance in resource group Default of account
 OK
 Service instance MyServiceInstance was created.
 Name              Location   State     Type              Tags   
-MyServiceInstance us-south   inactive  service_instance   
+MyServiceInstance us-south   inactive  service_instance
 ```
 Service provisioning happens asynchronously. Successful response just means that the provisioning request has been accepted. Service provisioning is considered complete only when the associated cluster is created and is `active`.
+
+**Note**: You can also specify the type of Cloud service endpoints for your service instance. See [Provisioning an instance with {{site.data.keyword.Bluemix_short}} service endpoints]((/docs/services/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
 
 ## Provision tracking
 
@@ -184,7 +191,7 @@ To create an instance via the Resource Controller REST API enter:
 ```
 curl \
   --request POST \
-  --url 'https://resource-controller.bluemix.net/v1/resource_instances'   \
+  --url 'https://resource-controller.cloud.ibm.com/v1/resource_instances'   \
   --header 'accept: application/json'   \
   --header 'authorization: Bearer <IAM token>'   \
   --data @provision.json
