@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-07"
+lastupdated: "2019-11-26"
 
 subcollection: AnalyticsEngine
 
@@ -29,7 +29,9 @@ https://<management-node>:8443/gateway/default/livy/v1/batches/
 ```
 The following example commands are piped through [jq](https://stedolan.github.io/jq/) to pretty print the JSON output.
 
-To submit a spark batch job by using the Livy API, enter:
+## Submitting Spark batch job using the batches API
+
+To submit a Spark batch job by using the Livy batches API, enter:
 
 ```
 curl \
@@ -58,7 +60,24 @@ Successful response:
 }
 ```
 
-For interactive workloads see [Spark Interactive](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-spark-interactive).
+## Submitting Spark batch job using the sessions API
+
+To submit a Spark batch job by using the Livy sessions API, enter:
+
+```
+curl -X POST \
+-u <user>:<password> \
+-H 'X-Requested-By: livy' \
+-H 'Content-Type: application/json' \
+-d '{ "kind":"pyspark", "jars":["local:/usr/hdp/current/spark2-client/jars/spark-examples.jar"], "driverMemory":"512m", "driverCores":1, "executorCores":1, "executorMemory":"512m", "numExecutors":1, "queue":"default", "name":"spottest", "heartbeatTimeoutInSecond":60 }' \
+"https://chs-mmm-001-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/livy/v1/sessions"
+```
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
+
+Successful response:
+```
+{"id":1,"appId":null,"owner":null,"proxyUser":"clsadmin","state":"starting","kind":"pyspark","appInfo":{"driverLogUrl":null,"sparkUiUrl":null},"log":["stdout: ","\nstderr: ","\nYARN Diagnostics: "]}
+```
 
 ## REST API
 
@@ -385,3 +404,7 @@ Content-Length: 17
   "msg": "deleted"
 }
 ```
+
+## Learn more
+
+- For interactive workloads see [Spark Interactive](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-spark-interactive).

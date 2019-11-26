@@ -26,6 +26,9 @@ Use these notes to learn about the latest features, additions and changes to {{s
 ### 25 November 2019
 
 - You can now use the {{site.data.keyword.Bluemix_notm}} service endpoints feature to securely access your {{site.data.keyword.iae_full_notm}} service instances over the {{site.data.keyword.Bluemix_notm}} private network. You can choose to use either public or private endpoints for the {{site.data.keyword.iae_full_notm}} service. The choice needs to be made at the time you provision the instance. See [Cloud service endpoints integration](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
+- Fixed several broken links in Spark history server and Yarn applications.
+- Fixed broken Livy sessions API, benign timeline service errors, tuned Knox for timeout errors.
+
 
 ### 07 October 2019
 
