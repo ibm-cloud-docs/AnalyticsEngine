@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-07"
+lastupdated: "2019-12-03"
 
 subcollection: AnalyticsEngine
 
@@ -129,9 +129,12 @@ You can create a cluster based on Hortonworks Data Platform 3.1. The following s
 |  Hive LLAP 3.1.0 |
 |  Oozie 4.3.1 |
 |  Tez 0.9.1 |
+|  ZooKeeper 3.4.6 |
 |  Pig 0.16.0 |
 |  Sqoop 1.4.7 |
 |  Apache Phoenix 5.0.0 |
+|  YARN 3.1.1 |
+|  MapReduce2 3.1.1 |
 
 ## Hardware configuration
 
