@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-18"
+lastupdated: "2019-12-09"
 
 subcollection: AnalyticsEngine
 
@@ -41,7 +41,7 @@ To create an {{site.data.keyword.iae_full_notm}} instance:
 1. Choose the resource group under which you want to create the service instance.
 1. Select a plan. With the `Standard-Hourly` and `Standard-Monthly` plans, you can choose how to access the {{site.data.keyword.iae_full_notm}} service endpoints.
 
-  **Note**: By default, a provisioned instance is accessible  over the public internet. However, you can also choose to open the {{site.data.keyword.iae_full_notm}} service endpoints over the {{site.data.keyword.Bluemix_short}} private network. See [Provisioning an instance with {{site.data.keyword.Bluemix_short}} service endpoints](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration). 
+  **Note**: By default, a provisioned instance is accessible  over the public internet. However, you can also choose to open the {{site.data.keyword.iae_full_notm}} service endpoints over the {{site.data.keyword.Bluemix_short}} private network. See [Provisioning an instance with {{site.data.keyword.Bluemix_short}} service endpoints](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
 
   Select an option and click **Configure**.
 1. On the configuration page, choose the hardware configuration, number of compute nodes and software package of your choice. Click **Create**.
@@ -55,7 +55,7 @@ An {{site.data.keyword.iae_short}} service instance comprises one cluster made u
 
 | Plan | Hardware types | Software packages        | Restrictions |
 |------|----------------|------------------------------|--------- |
-| **Lite** |**Default** |- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br> | 1.	Maximum of one tile per IBM Cloud account every 30 days. </br> 2.	Maximum of one cluster with up to 1 compute node. </br> 3.	Free usage limit is 50 node hours. After 50 node hours, the cluster will be disabled. This means, for example, that a cluster with 2 nodes (1 compute node and 1 management node) will be disabled after 12.5 hours. While the cluster is disabled, it cannot be scaled up or customized. </br> A grace period of 24 hours is given to upgrade your user account to a paid account, and to upgrade the service instance to the Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted. </br> **Note:** You are entitled to one service instance per month. If you delete the service instance or it expires after the free 50 node hours, you will not be able to create a new one until after the month has passed.|
+| **Lite** |**Default** |- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br> | 1. This plan is available only to institutions that have signed up with IBM to try out the Lite plan. See [How does the Lite plan work](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-general-faqs#free-usage)?	</br> 2. Maximum of one cluster with up to 1 compute node. </br> 3.	Free usage limit is 50 node hours. This means that the cluster will be disabled after 25 hours.  </br> A grace period of 24 hours is given to upgrade your user account to a paid account, and to upgrade the service instance to the Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted. </br> **Note:** You are entitled to one service instance per month. If you delete the service instance or it expires after the free 50 node hours, you will not be able to create a new one until after the month has passed.|
 | **Standard-Hourly** | **Default** or **Memory intensive** |	- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br>  | NA |
 | **Standard-Monthly** | **Default** or **memory intensive** | - `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br> | NA |
 
@@ -199,7 +199,7 @@ curl \
 cat provision.json
 {
     "name": "MyServiceInstance",
-    "resource_plan_id": "7715aa8d-fb59-42e8-951e-5f1103d8285e",
+    "resource_plan_id": "3175a5cf-61e3-4e79-aa2a-dff9a4e1f0ae",
     "resource_group_id": "XXXXX",
     "region_id": "us-south",
     "parameters": {

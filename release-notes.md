@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-25"
+lastupdated: "2019-12-16"
 
 subcollection: AnalyticsEngine
 
@@ -22,6 +22,10 @@ subcollection: AnalyticsEngine
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 16 December 2019
+
+- The way that you can use the {{site.data.keyword.iae_full_notm}} Lite plan has changed. The Lite plan is now available only to institutions that have signed up with IBM to try out the Lite plan. See [How to use the Lite plan](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-general-faqs#lite-plan).
 
 ### 25 November 2019
 
