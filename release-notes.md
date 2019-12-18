@@ -26,6 +26,8 @@ Use these notes to learn about the latest features, additions and changes to {{s
 ### 16 December 2019
 
 - The way that you can use the {{site.data.keyword.iae_full_notm}} Lite plan has changed. The Lite plan is now available only to institutions that have signed up with IBM to try out the Lite plan. See [How to use the Lite plan](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-general-faqs#lite-plan).
+- You can now use adhoc PostgreSQL customization scripts to configure the cluster to work with PostgreSQL. See [Running an adhoc customization script for configuring Hive with a Postgres external metastore](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-examples#postgres-metastore).
+- {{site.data.keyword.iae_full_notm}} now supports Parquet modular encryption that allows encrypting sensitive columns when writing Parquet files and decrypting these columns when reading the encrypted files. Besides ensuring privacy, Parquet encryption also protects the integrity of stored data by detecting any tampering with file contents. See [Working with Parquet encryption](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-parquet-encryption).
 
 ### 25 November 2019
 

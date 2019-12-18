@@ -117,6 +117,10 @@ Analytics Engine
         working-with-spark-sql.md
 
     {: .topicgroup}
+    Working with Parquet encryption
+        parquet-encryption.md
+
+    {: .topicgroup}
     Supported connectors on clusters
         supported-connectors.md
         database-connectors.md

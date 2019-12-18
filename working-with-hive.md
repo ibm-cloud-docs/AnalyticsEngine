@@ -2,8 +2,7 @@
 
 copyright:
   years: 2017, 2019
-
-lastupdated: "2019-10-07"
+lastupdated: "2019-12-16"
 
 subcollection: AnalyticsEngine
 
@@ -103,6 +102,8 @@ IBM Cloud Databases for PostgreSQL is a database service that you should use to 
 
 After you have created an instance, you will need to note the administrative username, password, database name, hostname, port and the certificate details.
 
+**Important**: Make sure you use the **private endpoint** to the PostgreSQL instance in the connection URL. Using the private endpoints increases performance and is more cost effective.
+
 The PostgreSQL parameters to set in the Hive metastore include:
 
 - **DB_USER_NAME**: The database user name to connect to the PostgreSQL instance you created, using the format: `ibm_cloud_<guid>`
@@ -134,9 +135,11 @@ Copy and save the command's output to a file. See [CLI plug-in support for the s
 1. Copy the file to `/home/wce/clsadmin` on the `mn002` node. To get to the `mn002` node, first SSH to the `mn003` node and then from there SSH to the `mn002` node.
 1. Enter `chmod -R 755 /home/wce/clsadmin` to grant access permissions to the certificate file in the folder.
 
-### Configuring a cluster to work with PostGreSQL
+### Configuring a cluster to work with PostgreSQL
 
-Currently, you can only use the Ambari user interface, after you have created a cluster, to add the values for the PostgreSQL connection to the hive-site.xml file.
+Adhoc PostgreSQL customization scripts can be used to configure the cluster to work with PostgreSQL. See [Running an adhoc  customization script for configuring Hive with a Postgres external metastore](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-examples#postgres-metastore).
+
+Alternatively, you can use the Ambari user interface after you have created a cluster, to add the PostgreSQL connection values to the `hive-site.xml` file.
 
 To configure a cluster to work with your PostgreSQL instance:
 

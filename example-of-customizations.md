@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-18"
+lastupdated: "2019-12-16"
 
 subcollection: AnalyticsEngine
 
@@ -14,6 +14,7 @@ subcollection: AnalyticsEngine
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Examples of customizations
 {: #cust-examples}
@@ -155,33 +156,6 @@ To install Python 3.x libraries, your script must install to the `/home/common/c
  pip install <archive url or local file path>
  ```
 
-<!--
-### Python 2
-{: #python-2-packages}
-
-Python 2 is only supported on `AE 1.1` clusters.
-
-To install Python 2.7 libraries, your script must install to the `/home/common/conda/anaconda2` environment by setting the following environment variables:
-
-```python
-export PATH=/home/common/conda/anaconda2/bin:$PATH
-export PYSPARK_PYTHON=/home/common/conda/anaconda2/bin/python
-export PYTHONPATH=~/pipAnaconda2Packages/
-export PIP_CONFIG_FILE=/home/common/conda/anaconda2/etc/pip.conf
-```
-
-Then install the package:
-
-```python
-pip install <package-name>
-```
- If you install from a local or remote archive, use:
-
-```
-pip install <archive url or local file path>
-```
--->
-
 ### R
 {: #r-packages}
 
@@ -218,7 +192,8 @@ The following examples show snippets of the `script` and `script_params` attribu
 
 The maximum number of characters that can be used in the `"script"` attribute of the JSON input is limited to 4096 chars.
 
-#### Example of the script hosted in an Github repository
+### Example of the script hosted in an Github repository
+
 ```
 "script": {
     "source_type": "https",
@@ -233,7 +208,8 @@ The maximum number of characters that can be used in the `"script"` attribute of
 
 **NOTE:** The script path should be the raw content path of your script. The example uses a script that associates an {{site.data.keyword.cos_full_notm}} instance with the cluster so that data in {{site.data.keyword.cos_full_notm}} can be used in Hadoop and Spark jobs.
 
-####  Example of the script hosted in an HTTPS location (with or without basic authentication)
+###  Example of the script hosted in an HTTPS location (with or without basic authentication)
+
 ```
     "script": {
         "source_type": "https",
@@ -245,7 +221,7 @@ The maximum number of characters that can be used in the `"script"` attribute of
     },
     "script_params": ["arg1", "arg2"]
 ```
-#### Example of the customization script hosted in Softlayer {{site.data.keyword.cos_full_notm}}
+### Example of the customization script hosted in Softlayer {{site.data.keyword.cos_full_notm}}
 
 ```
    "script": {
@@ -260,7 +236,29 @@ The maximum number of characters that can be used in the `"script"` attribute of
     "script_params": ["arg1", "arg2"]
 ```
 
-## Example of re-running a bootstrap customization script registered during cluster creation
+### Example of running an adhoc customization script for configuring Hive with a Postgres external metastore
+{: #postgres-metastore}
+
+In this example, Hive is configured with a Postgres external metastore by using this [adhoc customization script](https://github.com/IBM-Cloud/IBM-Analytics-Engine/blob/master/customization-examples/associate-external-metastore-postgresql.sh){: external}.
+
+The script expects the user ID, password, database name, and database connection URL of the Postgres instance. Certificates required to connect to the Postgres instance must be decoded and uploaded to the {{site.data.keyword.cos_short}} location. The {{site.data.keyword.cos_short}} credentials and endpoint details must be passed as input parameters to the script.
+
+```
+"script": {
+     "source_type": "http",
+"script_path": " https://github.com/IBM-Cloud/IBM-Analytics-Engine/blob/master/customization-examples/associate-external-metastore-postgresql.sh "
+ },
+ "script_params": ["<DB_USER_NAME>"," <DB_PWD>" , "<DB_NAME>" , "<DB_CXN_URL>", "<CLSADMIN_PWD>",”<COS_ENDPOINT>”,"<POSTGRES_CERT_LOC_ON_COS>","<COS_ACCESS_KEY_ID>","<COS_SECRET_KEY_ID>"]
+```
+The input parameters to the script include:
+
+- `<CLSADMIN_PWD>`: The `clsadmin` user password
+- `<COS_ENDPOINT>` : The {{site.data.keyword.cos_short}} endpoint, for example, `s3.private.us-south.cloud-object-storage.appdomain.cloud`
+-	`<POSTGRES_CERT_LOC_ON_COS>`: The relative file path to the decoded POSTgres certificate file in {{site.data.keyword.cos_short}}, for example, `/<bucket_name>/certificates/postgres.cert`
+- `<COS_ACCESS_KEY_ID>`: The {{site.data.keyword.cos_short}} access key details to enable downloading the Postgres certificate file from {{site.data.keyword.cos_short}}.
+- `<COS_SECRET_KEY_ID>`: {{site.data.keyword.cos_short}} secret key details (password) to enable downloading the Postgres  certificate file from {{site.data.keyword.cos_short}}.
+
+### Example of re-running a bootstrap customization script registered during cluster creation
 
 A persisted customization script is registered during cluster creation and can be rerun. Enter the following command to rerun a persisted customization script:
 ```
