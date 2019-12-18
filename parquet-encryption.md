@@ -175,7 +175,7 @@ To create a KMS instance and master keys:
 
 To write encrypted data:
 
-1. Specify which columns need to be encrypted, and with which master keys. You must also specify the footer key. In key management by IBM KMS, the master key IDs are the IDs of KeyProtect CRKs (customer root keys), that you can find on the {{site.data.keyword.Bluemix_notm}} service window. For example:
+1. Specify which columns need to be encrypted, and with which master keys. You must also specify the footer key. In key management by IBM KMS, the master key IDs are the IDs of KeyProtect CRKs (customer root keys), that you can find on the IBM Cloud service window. For example:
 
   ```
   val k1 = "d1ae3fc2-6b7d-4a03-abb6-644e02933734"
