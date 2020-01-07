@@ -27,13 +27,13 @@ Key features include:
 
 1. Parquet encryption and decryption is performed in the Spark workers. Therefore, sensitive data and the encryption keys are not visible to the storage.
 2. Standard Parquet features, such as encoding, compression, columnar projection and predicate push-down, continue to work as usual on files with Parquet modular encryption format.
-3. You can choose one of the two encryption algorithms that are defined in the Parquet specification. Both algorithms upport column encryption, however:
+3. You can choose one of the two encryption algorithms that are defined in the Parquet specification. Both algorithms support column encryption, however:
 
   - The default algorithm `AES-GCM` provides full protection against tampering with data and metadata parts in Parquet files.
   - The alternative algorithm `AES-GCM-CTR` supports partial integrity protection of Parquet files. Only metadata parts are protected against tampering, not data parts. An advantage of this algorithm is that it has a lower throughput overhead compared to the `AES-GCM` algorithm.
 4. You can choose which columns to encrypt. Other columns won’t be encrypted, reducing the throughput overhead.
 5. Different columns can be encrypted with different keys.
-6. By default, the main Parquet metadata module (the file footer) is encrypted to hide the file schema and list of sensitive columns. However, you can choose not to encrypt the file footers  in order to enable legacy readers (such as other Spark  distributions that don't yet support Parquet encryption) to read the unencrypted columns in the encrypted files.  If you do, you must be aware that other Spark and Parquet readers that don't yet support Parquet encryption will be able to read the unencrypted columns in the encrypted files.
+6. By default, the main Parquet metadata module (the file footer) is encrypted to hide the file schema and list of sensitive columns. However, you can choose not to encrypt the file footers  in order to enable legacy readers (such as other Spark  distributions that don't yet support Parquet encryption) to read the unencrypted columns in the encrypted files.  
 7. Encryption keys can be managed in one of two ways:
 
    - Directly by your application
@@ -115,7 +115,7 @@ dataFrame.write
 ```
  **Note**:
  - `"<path to encrypted files>"` must contain the string `encrypted` in the URL, for example `"cos://<bucket>.<identifier>/my_table.parquet.encrypted"`.
- - If the `"encryption.column.keys"` parameter is not set, an exception will be thrown.
+ - If either the `"encryption.column.keys"` parameter or the  `"encryption.footer.key"` parameter is not set, an exception will be thrown.
 
 ### Reading encrypted data
 
@@ -186,7 +186,7 @@ To write encrypted data:
   ```
   **Note**:
   - `"<path to encrypted files>"` must contain the string `encrypted` in the URL, for example `"cos://<bucket>.<identifier>/my_table.parquet.encrypted"`.
-  - If the `"encryption.column.keys"` parameter is not set, an exception will be thrown.
+  - If either the `"encryption.column.keys"` parameter or the  `"encryption.footer.key"` parameter is not set, an exception will be thrown.
 
 ### Reading encrypted data
 
@@ -281,7 +281,7 @@ parquetFile.show()
 
 ## Internals of encryption key handling
 
-When writing a Parquet file, a random data encryption key (DEK) is generated for each encrypted column and for the footer. This key is used to encrypt the data and metadata modules in the Parquet file.
+When writing a Parquet file, a random data encryption key (DEK) is generated for each encrypted column and for the footer. These  keys are used to encrypt the data and the metadata modules in the Parquet file.
 
 The data encryption key is then encrypted with a key encryption key (KEK), also generated inside Spark/Parquet for each master key. The key encryption key is encrypted with a master encryption key (MEK), either locally if the master keys are managed by the application, or in a KeyProtect service if the master keys are managed by {{site.data.keyword.keymanagementservicefull}}.
 
