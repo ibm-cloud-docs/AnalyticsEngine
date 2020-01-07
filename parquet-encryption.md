@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-16"
+  years: 2017, 2020
+lastupdated: "2019-01-07"
 
 subcollection: AnalyticsEngine
 
@@ -27,13 +27,13 @@ Key features include:
 
 1. Parquet encryption and decryption is performed in the Spark workers. Therefore, sensitive data and the encryption keys are not visible to the storage.
 2. Standard Parquet features, such as encoding, compression, columnar projection and predicate push-down, continue to work as usual on files with Parquet modular encryption format.
-3. You can choose one of the two encryption algorithms that are  defined in the Parquet specification:
+3. You can choose one of the two encryption algorithms that are defined in the Parquet specification. Both algorithms upport column encryption, however:
 
-  - The default algorithm `AES-GCM`, which provides full protection against tampering with data and metadata parts in Parquet files.
-  - The alternative algorithm `AES-GCM-CTR`, which supports partial protection of Parquet files. Only metadata parts are protected, not data parts. An advantage of this algorithm is that it has a lower throughput overhead compared to the GCM algorithm.
+  - The default algorithm `AES-GCM` provides full protection against tampering with data and metadata parts in Parquet files.
+  - The alternative algorithm `AES-GCM-CTR` supports partial integrity protection of Parquet files. Only metadata parts are protected against tampering, not data parts. An advantage of this algorithm is that it has a lower throughput overhead compared to the `AES-GCM` algorithm.
 4. You can choose which columns to encrypt. Other columns won’t be encrypted, reducing the throughput overhead.
 5. Different columns can be encrypted with different keys.
-6. By default, the main Parquet metadata module (the file footer) is encrypted to hide the file schema and list of sensitive columns. However, you can choose not to encrypt the file footers. If you do, you must be aware that other Spark and Parquet readers that don't yet support Parquet encryption will be able to read the unencrypted columns in the encrypted files.
+6. By default, the main Parquet metadata module (the file footer) is encrypted to hide the file schema and list of sensitive columns. However, you can choose not to encrypt the file footers  in order to enable legacy readers (such as other Spark  distributions that don't yet support Parquet encryption) to read the unencrypted columns in the encrypted files.  If you do, you must be aware that other Spark and Parquet readers that don't yet support Parquet encryption will be able to read the unencrypted columns in the encrypted files.
 7. Encryption keys can be managed in one of two ways:
 
    - Directly by your application
@@ -57,7 +57,7 @@ Key features include:
 
 ## Running {{site.data.keyword.iae_full_notm}} with Parquet encryption
 
-To enforce Parquet encryption in {{site.data.keyword.iae_full_notm}}, set the following Spark classpath properties to point to the Parquet jar files that implement Parquet modular encryption, and to the key management jar file:
+To enable Parquet encryption in {{site.data.keyword.iae_full_notm}}, set the following Spark classpath properties to point to the Parquet jar files that implement Parquet modular encryption, and to the key management jar file:
 
 1. Navigate to **Ambari > Spark > Config -> Custom spark2-default**.
 1. Add the following two parameters to point explicitly to the location of the jar files. Make sure that you edit the paths to use the actual version of jar files on the cluster.
@@ -72,7 +72,7 @@ To enforce Parquet encryption in {{site.data.keyword.iae_full_notm}}, set the fo
 
 ## Key management by application
 
-This sections shows you how to manage master key encryption by application. It explains how to provide master keys and how to write and read encrypted data using these master keys.
+This section shows you how to manage the column encryption keys  by application. It explains how to provide master keys and how to write and read encrypted data using these master keys.
 
 ### Providing master keys
 
@@ -87,7 +87,7 @@ parameter name: "encryption.key.list"
 
  For example:
 ```
-sc.hadoopConfiguration.set("encryption.key.list" , "k1:AAECAwQFBgcICQoLDA0ODw== ,  k2:AAECAAECAAECAAECAAECAA==")
+sc.hadoopConfiguration.set("encryption.key.list" , "k1:iKwfmI5rDf7HwVBcqeNE6w== , k2:LjxH/aXxMduX6IQcwQgOlw== , k3:rnZHCxhUHr79Y6zvQnxSEQ==")
 ```
 The length of master keys before base64 encoding can be 16, 24 or 32 bytes (128, 192 or 256 bits).
 
@@ -115,10 +115,7 @@ dataFrame.write
 ```
  **Note**:
  - `"<path to encrypted files>"` must contain the string `encrypted` in the URL, for example `"cos://<bucket>.<identifier>/my_table.parquet.encrypted"`.
- - If the `"encryption.column.keys"` parameter is not set, an exception will be thrown. If you want to encrypt all columns with the same key, use the following format:
- ```
- "encryption.column.keys" : "<master key ID>:*"
- ```
+ - If the `"encryption.column.keys"` parameter is not set, an exception will be thrown.
 
 ### Reading encrypted data
 
@@ -129,7 +126,7 @@ To read the encrypted data:
 1. Provide the encryption keys:
 
  ```
-sc.hadoopConfiguration.set("encryption.key.list" , "k1:AAECAwQFBgcICQoLDA0ODw== ,  k2:AAECAAECAAECAAECAAECAA==")
+ sc.hadoopConfiguration.set("encryption.key.list" , "k1:iKwfmI5rDf7HwVBcqeNE6w== , k2:LjxH/aXxMduX6IQcwQgOlw== , k3:rnZHCxhUHr79Y6zvQnxSEQ==")
 ```
 1. Call the regular parquet read commands, such as:
 ```
@@ -140,7 +137,7 @@ val dataFrame = spark.read.parquet("<path to encrypted files>")
 
 ## Key management by IBM KMS
 
-This sections shows you how to manage master key encryption by {{site.data.keyword.keymanagementservicefull}. It explains how to create an IBM KMS instance and to provide master keys and how to write and read encrypted data using these master keys.
+This section shows you how to manage the column encryption keys  by using {{site.data.keyword.keymanagementservicefull}}. It explains how to create an IBM KMS instance and to provide master keys and how to write and read encrypted data using these master keys.
 
 ### Creating a KMS instance and master keys
 
@@ -189,10 +186,7 @@ To write encrypted data:
   ```
   **Note**:
   - `"<path to encrypted files>"` must contain the string `encrypted` in the URL, for example `"cos://<bucket>.<identifier>/my_table.parquet.encrypted"`.
-  - If the `"encryption.column.keys"` parameter is not set, an exception will be thrown. If you want to encrypt all columns with the same key, use the following format:
- ```
- "encryption.column.keys" : "<master key ID>:*"
- ```
+  - If the `"encryption.column.keys"` parameter is not set, an exception will be thrown.
 
 ### Reading encrypted data
 
@@ -216,14 +210,16 @@ The following optional parameters can be used when writing encrypted data:
 
  By default, Parquet encryption uses the `AES-GCM` algorithm that provides full protection against tampering with data and metadata in Parquet files. However, as Spark 2.3.0 runs on Java 8, which doesn’t support AES acceleration in CPU hardware (this was only added in Java 9), the overhead of data integrity verification can affect workload throughput in certain situations.
 
- To compensate this, you can switch off the data integrity verification support and write the encrypted files with the alternative algorithm `AES-GCM-CTR`, which verifies the integrity of the metadata parts only and not that of the data parts, and has a lower throughput overhead compared to the GCM algorithm.
+ To compensate this, you can switch off the data integrity verification support and write the encrypted files with the alternative algorithm `AES-GCM-CTR`, which verifies the integrity of the metadata parts only and not that of the data parts, and has a lower throughput overhead compared to the `AES-GCM` algorithm.
+
  ```
  parameter name: "encryption.algorithm"
  parameter value: "AES_GCM_CTR_V1"
  ```
 - Plain text footer mode for legacy readers
 
- By default, the main Parquet metadata module (the file footer) is encrypted, to hide the file schema and list of sensitive columns. However, if you decide not to encrypt the file footers, be aware  that other Spark and Parquet readers that don't yet supporting Parquet encryption can read the unencrypted columns in the encrypted files. To switch on footer encryption, set the following parameter:
+ By default, the main Parquet metadata module (the file footer) is encrypted to hide the file schema and list of sensitive columns. However, you can decide not to encrypt the file footers in order to enable other Spark and Parquet readers (that don't yet support Parquet encryption) to read the unencrypted columns in the encrypted files. To switch off footer encryption, set the following parameter:
+
  ```
  parameter name: "encryption.plaintext.footer"
  parameter value: "true"
@@ -291,4 +287,6 @@ The data encryption key is then encrypted with a key encryption key (KEK), also 
 
 Encrypted data encryption keys and key encryption keys are stored in the Parquet file metadata, along with the master key identity. Each key encryption key has a unique identity (generated locally as a secure random 16-byte value), also stored in the file metadata. Key encryption keys are cached, so there is no need to interact with the KeyProtect service for each encrypted column or file if they use the same master encryption key.
 
-When reading a Parquet file reading, the identifiers of the master encryption key (MEK) and the key encryption key (KEK), and the encrypted data encryption key (DEK) and key encryption key (KEK), are extracted from the file metadata. The key encryption key is decrypted with the master encryption key, either locally if the master keys are managed by the application, or in a KeyProtect service if the master keys are managed by {{site.data.keyword.keymanagementservicefull}}. The key encryption keys are cached, so there is no need to interact with KeyProtect service for each decrypted column or file if they use the same key encryption key.
+When reading a Parquet file, the identifier of the master encryption key (MEK) and the encrypted key encryption key (KEK) with its identifier, and the encrypted data encryption key (DEK)  are extracted from the file metadata.
+
+The key encryption key is decrypted with the master encryption key, either locally if the master keys are managed by the application, or in a KeyProtect service if the master keys are managed by {{site.data.keyword.keymanagementservicefull}}. The key encryption keys are cached, so there is no need to interact with the KeyProtect service for each decrypted column or file if they use the same key encryption key.
