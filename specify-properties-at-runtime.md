@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-18"
+  years: 2017, 2020
+lastupdated: "2020-01-09"
 
 subcollection: AnalyticsEngine
 
@@ -53,18 +53,17 @@ t1=sc.textFile("cos://b1.firstbucket/alpha.data ")
 t1.count()
 ```
 
-<!-- For example, you can specify the properties at runtime in your Python, Scala, or R code when executing jobs. The following snippet shows an example for Spark:
-
+- Sample Livy application that uses runtime parameters:
 ```
-prefix="fs.cos.myprodservice"
-
-hconf=sc._jsc.hadoopConfiguration()
-hconf.set(prefix + ".iam.endpoint", "https://iam.cloud.ibm.com/identity/token")
-hconf.set(prefix + ".endpoint", "s3-api.us-geo.objectstorage.service.networklayer.com")
-hconf.set(prefix + ".iam.api.key", "he0Zzjasdfasdfasdfasdfasdfasdfj2OV")
-hconf.set(prefix + ".iam.service.id", "ServiceId-asdf-asdf-asdf-asdf-asdf")
-
-t1=sc.textFile("cos://mybucket.myprodservice/tata.data")
-t1.count()
+ curl -u "clsadmin:pwd" -H 'Content-Type: application/json' -H 'X-Requested-By: livy'
+ -d '{
+    "file": "/user/clsadmin/myapplications.py",
+    "proxyUser": "clsadmin",
+    "conf": {
+    "spark.hadoop.fs.cos.sportywriter.access.key": "a7634d…",
+    "spark.hadoop.fs.cos.sportywriter.secret.key": "5c09be…",
+    "spark.hadoop.fs.cos.sportywriter.endpoint": "s3.private.us-south.cloud-object-storage.appdomain.cloud"
+       }
+    }'
+   https://chs-mmm-007-mn001.us-south.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches
 ```
-{: codeblock} -->

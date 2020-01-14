@@ -2,7 +2,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="AnalyticsEngine" category="compute" audience="service" arm="3248326" href="/docs/services/AnalyticsEngine?topic=AnalyticsEngine-getting-started" path="services/AnalyticsEngine"}
+{: .toc subcollection="AnalyticsEngine" category="analytics" audience="service" arm="3248326" href="/docs/services/AnalyticsEngine?topic=AnalyticsEngine-getting-started" path="services/AnalyticsEngine"}
 Analytics Engine
 
     {:navgroup: .navgroup}
@@ -119,6 +119,16 @@ Analytics Engine
     {: .topicgroup}
     Working with Parquet encryption
         parquet-encryption.md
+
+    {: .topicgroup}
+    Working with the spatio-temporal library
+        geospacial-lib.md
+        read-write-geolib.md
+        topological-relations.md
+        geohashing-functions.md
+        geospatial-indexing.md
+        ellipsoidal-metrics.md
+        routing-functions.md
 
     {: .topicgroup}
     Supported connectors on clusters

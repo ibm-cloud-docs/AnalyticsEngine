@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-10-07"
+  years: 2017, 2020
+lastupdated: "2020-01-08"
 
 subcollection: AnalyticsEngine
 
@@ -14,6 +14,7 @@ subcollection: AnalyticsEngine
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 
 # Unsupported operations
@@ -56,3 +57,16 @@ OS packages that are installed through the package-admin tool are not persisted 
 {: #hive-view-not-supported}
 
 Hive View has been removed from the underlying platform in `AE 1.2`. You can use any other JDBC UI based client such as SQuirrel SQL or Eclipse Data Source Explorer as an alternative.
+
+## `AE 1.2`cluster: Hive and Spark do not share the same metastore
+{: #hive-spark-not-same-metastore}
+
+From AE 1.2 onwards, Hive and Spark do not share the same metastore. This is by design in the underlying engine.
+
+To override this behavior:
+1. In the Ambari UI, navigate to **Ambari > Spark2 > Config > spark2-hive-site-override**.
+1. Set `"metastore.catalog.default" : "hive"`.
+
+Refer to the following links to understand the reasoning and repercussions for the change:
+- [Hive Warehouse Connector for accessing Apache Spark data](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.4/integrating-hive/content/hive_hivewarehouseconnector_for_handling_apache_spark_data.html){: external}
+- [Using the Hive Warehouse Connector with Spark](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.4/developing-spark-applications/content/using_spark_hive_warehouse_connector.html){: external}

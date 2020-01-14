@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-10"
+  years: 2017, 2020
+lastupdated: "2020-01-08"
 
 subcollection: AnalyticsEngine
 
@@ -24,7 +24,6 @@ subcollection: AnalyticsEngine
 ## What is {{site.data.keyword.iae_full_notm}}?
 {: #what-is-iae}
 {: faq}
-{: support}
 
 {{site.data.keyword.iae_full_notm}} provides a flexible framework to develop and deploy analytics applications on Hadoop and Spark. It allows you to spin up Hadoop and Spark clusters and manage them through their lifecycle.
 
@@ -45,28 +44,24 @@ subcollection: AnalyticsEngine
 ## Which distribution is used in {{site.data.keyword.iae_full_notm}}?
 {: #distribution}
 {: faq}
-{: support}
 
 {{site.data.keyword.iae_full_notm}} is based on open source Hortonworks Data Platform (HDP). To find the currently supported version see the  [documentation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
 
 ## Which HDP components are supported in {{site.data.keyword.iae_full_notm}}?
 {: #supported-hdp-components}
 {: faq}
-{: support}
 
 To see the full list of supported components and versions, see the [documentation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
 
 ## What node sizes are available in {{site.data.keyword.iae_full_notm}}?
 {: #node-sizes}
 {: faq}
-{: support}
 
 To see the currently supported node sizes, see the [documentation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
 
 ## Why is there so little HDFS space on the clusters?
 {: #hdfs-space}
 {: faq}
-{: support}
 
 What if I want to run a cluster that has a lot of data to be processed at one time?
 
@@ -76,7 +71,6 @@ processing. All final data (or even intermediate data) should be written to {{si
 ## How many {{site.data.keyword.iae_full_notm}} clusters can I spin up?
 {: #number-of-clusters}
 {: faq}
-{: support}
 
 There is no limit to the number of clusters you can spin up.
 
@@ -92,7 +86,6 @@ When you move to a paid plan, you are entitled to $200 in credit that can be use
 ## How does the Lite plan work?
 {: #lite-plan}
 {: faq}
-{: support}
 
 The Lite plan provides 50 node-hours of free {{site.data.keyword.iae_full_notm}} usage. One cluster can be provisioned every 30 days. After the 50 node-hours are exhausted, you can upgrade to a paid plan within 24 hours to continue using the same cluster. If you do not upgrade within 24 hours, the cluster will be deleted and you have to provision a new one after the 30 day limit has passed.
 
@@ -101,7 +94,6 @@ A cluster created using a Lite plan has 1 master and 1 data node (2 nodes in tot
 ## What types of service maintenance exist in {{site.data.keyword.iae_full_notm}}?
 {: #service-maintenance}
 {: faq}
-{: support}
 
 Occasionally, we need to update the {{site.data.keyword.iae_full_notm}} service. Most of these updates are non-disruptive and are performed when new features become available or when updates and fixes need to be applied.
 

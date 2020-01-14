@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-10"
+  years: 2017, 2020
+lastupdated: "2020-01-08"
 
 subcollection: AnalyticsEngine
 
@@ -29,7 +29,6 @@ No, {{site.data.keyword.cos_full_notm}} isn't included. It is a separate offerin
 ## How does {{site.data.keyword.cos_full_notm}} work in the {{site.data.keyword.iae_full_notm}} Hadoop environment?
 {: #cos-in-hadoop}
 {: faq}
-{: support}
 
 Is it exactly equivalent to HDFS, only that it uses a different URL?
 
@@ -38,14 +37,12 @@ Is it exactly equivalent to HDFS, only that it uses a different URL?
 ## What other components like {{site.data.keyword.cos_full_notm}}  should I consider while designing a solution using {{site.data.keyword.iae_full_notm}}?
 {: #account-error}
 {: faq}
-{: support}
 
 In addition to using {{site.data.keyword.cos_full_notm}} for storing your data, consider using Databases for PostgreSQL, available on {{site.data.keyword.Bluemix_notm}}, for persisting Hive metadata. Persisting Hive metadata in an external relational store like Databases for PostgreSQL allows you to reuse this data again after clusters were deleted or access to clusters was denied.
 
 ## How should I size my cluster?
 {: #size-cluster}
 {: faq}
-{: support}
 
 Sizing a cluster is highly dependent on workloads. Here are some general guidelines:
 
@@ -78,7 +75,6 @@ A user can share his or her cluster’s user ID and password with other users; n
 ## How is data access control enforced in {{site.data.keyword.iae_full_notm}}?
 {: #enforce-data-access-control}
 {: faq}
-{: support}
 
 Data access control can be enforced by using {{site.data.keyword.cos_full_notm}} ACLs (access control lists). ACLs in {{site.data.keyword.cos_full_notm}} are tied to the {{site.data.keyword.Bluemix_notm}} Identity and Access Management service.
 
@@ -89,7 +85,6 @@ In addition, all data in {{site.data.keyword.cos_short}} can be cataloged using 
 ## Can I run a cluster or job for a long time?
 {: #run-cluster-job-long}
 {: faq}
-{: support}
 
 Yes, you can run a cluster for as long as is required. However, to prevent data loss in case of an accidental cluster failure, you  should ensure that data is periodically written to {{site.data.keyword.cos_full_notm}} and that you don't use HDFS as a persistent store.
 

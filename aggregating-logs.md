@@ -56,7 +56,7 @@ You can:
 The following prerequisites must be met before you can begin collecting cluster logs to a centralized server:
 
 - You must have an existing {{site.data.keyword.iae_full_notm}} service instance. Presently, REST API is the only mode with which you can configure log aggregation.
-- You must create IBM Log Analysis with LogDNA service instance. To create an instance in {{site.data.keyword.Bluemix_short}}, see [IBM Log Analysis with LogDNA
+- You must create an IBM Log Analysis with LogDNA service instance. To create an instance in {{site.data.keyword.Bluemix_short}}, see [IBM Log Analysis with LogDNA
 ](https://cloud.ibm.com/observe/logging){: external}. For details on monitoring and managing log data with IBM Log Analysis with LogDNA, see [provisioning a service instance](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-provision){: external}.
 - You must have access to the LogDNA ingestion key. See [Getting the ingestion key](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-ingestion_key){: external}.
 - You must have the following IAM access permissions (roles) to the {{site.data.keyword.iae_full_notm}} service instance and the resource group. Two types of roles exist:
@@ -66,7 +66,8 @@ The following prerequisites must be met before you can begin collecting cluster 
 
  See [Granting permissions](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions){: external}.  
 - You need your IAM access token. See [Retrieving the IAM access token](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token){: external}.
--	You need the `cluster_management.api_url` for the service endpoints of your {{site.data.keyword.iae_full_notm}} service instance. See [Retrieving service endpoints](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints){: external}.   
+-	You need the `cluster_management.api_url` for the service endpoints of your {{site.data.keyword.iae_full_notm}} service instance. See [Retrieving service endpoints](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints){: external}.  
+- When you configure  {{site.data.keyword.iae_full_notm}} to work with the LogDNA instance, you can select to connect to the **private** endpoints of the instance. We encourage you to use  private endpoints as this increases performance and is more cost effective. See [Cloud service endpoints integration](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
 
 ## Configuring log aggregation
 

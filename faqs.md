@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-10"
+  years: 2017, 2020
+lastupdated: "2020-01-08"
 
 subcollection: AnalyticsEngine
 
@@ -24,7 +24,6 @@ subcollection: AnalyticsEngine
 ## What is {{site.data.keyword.iae_full_notm}}?
 {: #what-is-iae}
 {: faq}
-{: support}
 
 {{site.data.keyword.iae_full_notm}} provides a flexible framework to develop and deploy analytics applications on Hadoop and Spark. It allows you to spin up Hadoop and Spark clusters and manage them through their lifecycle.
 
@@ -45,28 +44,24 @@ subcollection: AnalyticsEngine
 ## Which distribution is used in {{site.data.keyword.iae_full_notm}}?
 {: #distribution}
 {: faq}
-{: support}
 
 {{site.data.keyword.iae_full_notm}} is based on open source Hortonworks Data Platform (HDP). To find the currently supported version see the  [documentation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
 
 ## Which HDP components are supported in {{site.data.keyword.iae_full_notm}}?
 {: #supported-hdp-components}
 {: faq}
-{: support}
 
 To see the full list of supported components and versions, see the [documentation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
 
 ## What node sizes are available in {{site.data.keyword.iae_full_notm}}?
 {: #node-sizes}
 {: faq}
-{: support}
 
 To see the currently supported node sizes, see the [documentation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
 
 ## Why is there so little HDFS space on the clusters?
 {: #hdfs-space}
 {: faq}
-{: support}
 
 What if I want to run a cluster that has a lot of data to be processed at one time?
 
@@ -76,7 +71,6 @@ processing. All final data (or even intermediate data) should be written to {{si
 ## How many {{site.data.keyword.iae_full_notm}} clusters can I spin up?
 {: #number-of-clusters}
 {: faq}
-{: support}
 
 There is no limit to the number of clusters you can spin up.
 
@@ -92,7 +86,6 @@ When you move to a paid plan, you are entitled to $200 in credit that can be use
 ## How does the Lite plan work?
 {: #lite-plan}
 {: faq}
-{: support}
 
 The Lite plan provides 50 node-hours of free {{site.data.keyword.iae_full_notm}} usage. One cluster can be provisioned every 30 days. After the 50 node-hours are exhausted, you can upgrade to a paid plan within 24 hours to continue using the same cluster. If you do not upgrade within 24 hours, the cluster will be deleted and you have to provision a new one after the 30 day limit has passed.
 
@@ -101,7 +94,6 @@ A cluster created using a Lite plan has 1 master and 1 data node (2 nodes in tot
 ## What types of service maintenance exist in {{site.data.keyword.iae_full_notm}}?
 {: #service-maintenance}
 {: faq}
-{: support}
 
 Occasionally, we need to update the {{site.data.keyword.iae_full_notm}} service. Most of these updates are non-disruptive and are performed when new features become available or when updates and fixes need to be applied.
 
@@ -124,7 +116,6 @@ No, {{site.data.keyword.cos_full_notm}} isn't included. It is a separate offerin
 ## How does {{site.data.keyword.cos_full_notm}} work in the {{site.data.keyword.iae_full_notm}} Hadoop environment?
 {: #cos-in-hadoop}
 {: faq}
-{: support}
 
 Is it exactly equivalent to HDFS, only that it uses a different URL?
 
@@ -133,14 +124,12 @@ Is it exactly equivalent to HDFS, only that it uses a different URL?
 ## What other components like {{site.data.keyword.cos_full_notm}}  should I consider while designing a solution using {{site.data.keyword.iae_full_notm}}?
 {: #account-error}
 {: faq}
-{: support}
 
 In addition to using {{site.data.keyword.cos_full_notm}} for storing your data, consider using Databases for PostgreSQL, available on {{site.data.keyword.Bluemix_notm}}, for persisting Hive metadata. Persisting Hive metadata in an external relational store like Databases for PostgreSQL allows you to reuse this data again after clusters were deleted or access to clusters was denied.
 
 ## How should I size my cluster?
 {: #size-cluster}
 {: faq}
-{: support}
 
 Sizing a cluster is highly dependent on workloads. Here are some general guidelines:
 
@@ -173,7 +162,6 @@ A user can share his or her cluster’s user ID and password with other users; n
 ## How is data access control enforced in {{site.data.keyword.iae_full_notm}}?
 {: #enforce-data-access-control}
 {: faq}
-{: support}
 
 Data access control can be enforced by using {{site.data.keyword.cos_full_notm}} ACLs (access control lists). ACLs in {{site.data.keyword.cos_full_notm}} are tied to the {{site.data.keyword.Bluemix_notm}} Identity and Access Management service.
 
@@ -184,14 +172,12 @@ In addition, all data in {{site.data.keyword.cos_short}} can be cataloged using 
 ## Can I run a cluster or job for a long time?
 {: #run-cluster-job-long}
 {: faq}
-{: support}
 
 Yes, you can run a cluster for as long as is required. However, to prevent data loss in case of an accidental cluster failure, you  should ensure that data is periodically written to {{site.data.keyword.cos_full_notm}} and that you don't use HDFS as a persistent store.
 
 ## Which other {{site.data.keyword.Bluemix_notm}} services can I use with {{site.data.keyword.iae_full_notm}}?
 {: #iae-with-other-services}
 {: faq}
-{: support}
 
 {{site.data.keyword.iae_full_notm}} is a compute engine offered in {{site.data.keyword.DSX_full}} and can be used to push {{site.data.keyword.DSX_short}} jobs to {{site.data.keyword.iae_full_notm}}. Data can be written to Cloudant or Db2 Warehouse on Cloud after being processed by using Spark.
 
@@ -208,21 +194,18 @@ After you have added the {{site.data.keyword.iae_full_notm}} service to the proj
 ## Can I use Kafka for data ingestion?
 {: #kafka-4-data-ingestion}
 {: faq}
-{: support}
 
 IBM Message Hub, an {{site.data.keyword.Bluemix_notm}} service is based on Apache Kafka. It can be used to ingest data to an object store. This data can then be analyzed on an {{site.data.keyword.iae_full_notm}} cluster. Message Hub can also integrate with Spark on the {{site.data.keyword.iae_full_notm}} cluster to bring data directly to the cluster.
 
 ## Can I set ACID properties for Hive in {{site.data.keyword.iae_full_notm}}?
 {: #acid-4-hive}
 {: faq}
-{: support}
 
 Hive is not configured to support concurrency. Although you can change the Hive configuration on {{site.data.keyword.iae_full_notm}} clusters, it is your responsibility that the cluster functions correctly after you have made any such changes.
 
 ## How much time does it take for the cluster to get started?
 {: #time-4-cluster-2-start}
 {: faq}
-{: support}
 
 When using the Spark software pack, a cluster takes about
 7 to 9 minutes to be started and be ready to run applications. When using the Hadoop and Spark software pack, a cluster takes about 15 to 20 minutes to be started and be ready to run  applications.
@@ -230,7 +213,6 @@ When using the Spark software pack, a cluster takes about
 ## How can I access or interact with my cluster?
 {: #how-access-cluster}
 {: faq}
-{: support}
 
 There are several interfaces which you can use to access the cluster.
 - SSH
@@ -241,7 +223,6 @@ There are several interfaces which you can use to access the cluster.
 ## How do I get data into the cluster?
 {: #get-data-on-cluster}
 {: faq}
-{: support}
 
 The recommended way to read data to a cluster for processing is from {{site.data.keyword.cos_full_notm}}. Upload your data to {{site.data.keyword.cos_full_notm}} (COS) and use COS, Hadoop or Spark APIs to read the data. If your use-case requires data to be processed directly on the cluster, you can use one of the following ways to ingest the data:
 - SFTP
@@ -264,7 +245,6 @@ sets of configurations through a script, to spin up different types of clusters,
 ## Do I have root access in {{site.data.keyword.iae_full_notm}}?
 {: #root-access}
 {: faq}
-{: support}
 
 No, users do not have sudo or root access to install privileges
 because {{site.data.keyword.iae_full_notm}} is a Platform as a Service (PaaS)  offering.
@@ -272,14 +252,12 @@ because {{site.data.keyword.iae_full_notm}} is a Platform as a Service (PaaS)  o
 ## Can I install my own Hadoop stack components?
 {: #istall-hadoop-stack}
 {: faq}
-{: support}
 
 No, you cannot add components that are not supported by {{site.data.keyword.iae_full_notm}} because {{site.data.keyword.iae_full_notm}} is a Platform as a Service (PaaS) offering. For example, you are not permitted to install a new Ambari Hadoop stack component through Ambari or otherwise. However, you can install non-server Hadoop ecosystem components, in other words, anything that can be installed and run in your user space is allowed.
 
 ## Which third party packages can I install?
 {: #third-party-packages}
 {: faq}
-{: support}
 
 You can install packages which are available in the CentOS repo by using the `packageadmin` tool that comes with {{site.data.keyword.iae_full_notm}}. Libraries or packages (for example, for Python or R) that can be installed and run in your user space are allowed. You do not require sudo or root privileges to install or run any packages from non-CentOS repositories or RPM package management systems.
 You should perform all cluster customization by using customization
@@ -288,28 +266,24 @@ scripts at the time the cluster is started to ensure repeatability and consisten
 ## Can I monitor the cluster?
 {: #monitor-cluster}
 {: faq}
-{: support}
 
 Can I configure alerts? Ambari components can be monitored by using the built-in Ambari metrics alerts.
 
 ## How do I scale my cluster?
 {: #scale-cluster}
 {: faq}
-{: support}
 
 You can scale a cluster by adding nodes to it. Nodes can be added through the {{site.data.keyword.iae_full_notm}} UI or by using the CLI tool.
 
 ## Can I scale my cluster while jobs are running on it?
 {: #scale-while-jobs-run}
 {: faq}
-{: support}
 
 Yes, you can add new nodes to your cluster while jobs are still running. As soon as the new nodes are ready, they will be used to execute further steps of the running job.
 
 ## Can I adjust resource allocation in a Spark interactive application?
 {: #adjust-resource-allocation-interactive-app}
 {: faq}
-{: support}
 
 If you need to run large Spark interactive jobs, you can adjust the kernel settings to tune resource allocation, for example, if your Spark container is too small for your input work load. To get the maximum performance from your cluster for a Spark job, see [Kernel settings](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings).
 
@@ -330,7 +304,6 @@ For most components, the log files can be retrieved by using the Ambari GUI. Nav
 ## How can I debug a Hive query on {{site.data.keyword.iae_full_notm}}?
 {: #debug-hive-query}
 {: faq}
-{: support}
 
 To debug a Hive query on {{site.data.keyword.iae_full_notm}}:
 
@@ -342,14 +315,12 @@ To debug a Hive query on {{site.data.keyword.iae_full_notm}}:
 ## What type of encryption is supported?
 {: #supported-encryption}
 {: faq}
-{: support}
 
 All data on {{site.data.keyword.cos_full_notm}} is encrypted at-rest. You can use a private, encrypted endpoint available from {{site.data.keyword.cos_full_notm}} to  transfer data between {{site.data.keyword.cos_full_notm}} and {{site.data.keyword.iae_full_notm}} clusters. Any data that passes over the public facing ports (8443,22 and 9443) is encrypted. See details in [Best practices](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#cos-encryption).
 
 ## Which ports are open on the public interface on the cluster?
 {: #open-ports}
 {: faq}
-{: support}
 
 The following ports are open on the public interface on the
 cluster:

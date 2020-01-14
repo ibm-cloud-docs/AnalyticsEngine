@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2018-10-08"
+  years: 2017, 2020
+lastupdated: "2020-01-08"
 
 subcollection: AnalyticsEngine
 
@@ -14,23 +14,17 @@ subcollection: AnalyticsEngine
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
+{:support: data-reuse='support'}
 
 # Troubleshooting
 {: #troubleshooting}
 
-In this topic, you can find the answers to common questions about how to use {{site.data.keyword.iae_full_notm}}. The questions  were added to the following sections:
+In this topic, you can find the answers to common questions about how to use {{site.data.keyword.iae_full_notm}}.
 
-- [Jupyter Kernel Gateway](#jupyter-kernel-gateway-troubleshooting)
-- [Cluster management](#cluster-management-troubleshooting)
-- [Command line interface](#cli-troubleshooting)
-- [Log locations on cluster for various components](#log-locations-on-cluster)
-- [Working with Hive](#hive-troubleshooting)
-
-## Jupyter Kernel Gateway
-{: #jupyter-kernel-gateway-troubleshooting}
-
-### Notebook kernel in busy state although no code is running
+## Jupyter Kernel Gateway: Notebook kernel in busy state although no code is running
 {: #kernel-state-busy}
+{: troubleshoot}
+{: support}
 
 You might see messages like `Waiting for a Spark session to start...` or `Obtaining Spark session...` when you execute code in a notebook and notice that no code is running although the notebook kernel is in busy state. The reason is that lazy evaluation could not be initialized on the Spark cluster because no more YARN containers are available on the cluster.
 
@@ -38,10 +32,7 @@ You can verify this by checking that the 'state' of your application is 'ACCEPTE
 
 To free YARN resources, stop other running notebook kernels or interactive sessions, and any YARN applications.
 
-## Cluster management
-{: #cluster-management-troubleshooting}
-
-### No access to cluster management paper
+## Cluster management: No access to cluster management paper
 {: #no-access-cluster-management}
 
 When you open the cluster management page, you might see an error message stating that you aren't authorized to access the page.
@@ -58,8 +49,10 @@ To fix this issue:
 
 2. Ensure that cookies are enabled in your browser.
 
-### No cluster for my service instance
+## Cluster management: No cluster for my service instance
 {: #no-cluster-for-instance}
+{: troubleshoot}
+{: support}
 
 No cluster is associated with my {{site.data.keyword.iae_full_notm}} service instance although I've waited for more than 30 minutes
 
@@ -67,11 +60,10 @@ No cluster was associated with your newly-created service instance although the 
 
 You should delete your service instance and create a new one by using the {{site.data.keyword.Bluemix_notm}} catalog.
 
-## Command line interface
-{: #cli-troubleshooting}
-
-### Enable tracing in the command line interface
+## Command line interface: Enable tracing in the command line interface
 {: #tracing-in-cli}
+{: troubleshoot}
+{: support}
 
 Tracing can be enabled by setting `BLUEMIX_TRACE` environment variable to `true` (case ignored). When trace is enabled,  additional debugging information is printed to the terminal.
 
@@ -89,8 +81,10 @@ SET BLUEMIX_TRACE=true
 
 To disable tracing, set the `BLUEMIX_TRACE` environment variable to `false` (case ignored).
 
-### No cluster endpoint found
+## Command line interface: No cluster endpoint found
 {: #no-cluster-endpoint}
+{: troubleshoot}
+{: support}
 
 The {{site.data.keyword.iae_full_notm}} command-line interface requires a cluster endpoint to be first set. This enables the tool to talk to the cluster. The endpoint is the IP or hostname of the management node.
 
@@ -107,6 +101,8 @@ Endpoint 'https://chs-nox-036-mn001.us-south.ae.appdomain.cloud' set.
 
 ## Log locations on cluster for various components
 {: #log-locations-on-cluster}
+{: troubleshoot}
+{: support}
 
 The following tables list the location of the log files for different components on the cluster.
 
@@ -130,11 +126,11 @@ The following tables list the location of the log files for different components
 |Tez|mn003|`/var/log/ambari-server/tez-view`|
 |Yarn|mn003|`yarn logs -applicationId <applicationId>`|
 
-## Working with Hive
-{: #hive-troubleshooting}
 
-### Changes to the Cloud Object Storage configuration not detected
+## Working with Hive: Changes to the Cloud Object Storage configuration not detected
 {: #hive-cos-troubleshooting}
+{: troubleshoot}
+{: support}
 
 When Hive is run with {{site.data.keyword.cos_full_notm}} with HMAC style authentication, changes to the {{site.data.keyword.cos_short}} configuration in the `core-site.xml` file are not picked up by Hive. The reason is that Hive does not recognize these changes unless Hive is restarted which does not happen by default.
 

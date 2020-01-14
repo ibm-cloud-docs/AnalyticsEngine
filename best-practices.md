@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-10-07"
+  years: 2017, 2020
+lastupdated: "2020-01-09"
 
 subcollection: AnalyticsEngine
 
@@ -30,12 +30,12 @@ The following types of data stored on a cluster contribute towards making the cl
 To help you create and maintain a stateless cluster, you should try to keep to the following recommended best practices. The best practices include choosing the correct plan and selecting the appropriate configuration options:
 
 - [Separate compute from storage](#separate-compute-from-storage)
-- [Use new instance of PostgreSQL between `AE` cluster versions](#new-metastore-instance)
+- [Choose the right Databases for PostgreSQL configuration](#postgre-config)
 - [Choose the right {{site.data.keyword.cos_full_notm}} configuration](#encryption)
   - [Disaster Recovery Resiliency](#DR-resiliency)
   - [Encryption](#cos-encryption)
   - [{{site.data.keyword.cos_full_notm}} credentials](#cos-credentials)
-  - [Private endpoint for {{site.data.keyword.cos_full_notm}}](#private-endpoint)
+  - [Private endpoints for {{site.data.keyword.cos_full_notm}}](#private-endpoint)
 - [Create a new cluster for new features or packages](#new-packages)
 - [Customize cluster creation using scripts](#use-scripts)
 - [Size the cluster appropriately](#cluster-size)
@@ -44,6 +44,7 @@ To help you create and maintain a stateless cluster, you should try to keep to t
 - [Choose the appropriate software package](#software)
 - [Tune kernel settings for Spark interactive jobs](#tune-kernel-for-spark-interactive)
 - [Store temporary files on cluster prudently](#store-temp-files)
+- [Configure the cluster for log monitoring and troubleshooting](#configure-log-monitoring)
 - [Switch regions for disaster recovery](#disaster-recovery)
 
 ## Separate compute from storage
@@ -55,7 +56,15 @@ Although the {{site.data.keyword.iae_full_notm}} cluster includes the Hadoop com
 
 ![Shows separating compute from storage in the {{site.data.keyword.iae_full_notm}} cluster.](images/separate-compute-storage.png)
 
-## Use new instance of PostgreSQL between `AE` cluster versions
+## Choose the right Databases for PostgreSQL configuration
+{: #postgre-config}
+
+### Use private endpoints when creating an instance of Databases for PostgreSQL
+{: #private-postgre-endpoints}
+
+Make sure you choose **Private Network** for the endpoints when you create the Databases for PostgreSQL instance. Using private endpoints increases performance and is more cost effective. See [Cloud service endpoints integration](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
+
+### Use new instance of PostgreSQL between `AE` cluster versions
 {: #new-metastore-instance}
 
 You should use a different IBM Cloud Databases for PostgreSQL  instance to store Hive metadata when you migrate to a new {{site.data.keyword.iae_full_notm}} cluster version. The Hive metastore schema changes between versions of `AE`. Therefore you should manually recreate the Hive metadata in a new instance of Cloud Databases for PostgreSQL to avoid migration related issues.
@@ -80,7 +89,7 @@ You should use the IBM COS Cross Regional resiliency option that backs up your d
 
 By default, {{site.data.keyword.cos_full_notm}} uses IAM-style credentials. If you want to work with AWS-style credentials, you need to provide the inline configuration parameter `{"HMAC":true}` as shown [here](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials#service-credentials).
 
-### Private endpoint for {{site.data.keyword.cos_full_notm}}
+### Private endpoints for {{site.data.keyword.cos_full_notm}}
 {: #private-endpoint}
 
 Private endpoints provide better performance and do not incur charges for any outgoing or incoming bandwidth even if the traffic is across regions or across data centers. Whenever possible, you should use a private endpoint.
@@ -148,6 +157,15 @@ When running large Spark interactive jobs, you might need to adjust kernel setti
 Although you should use {{site.data.keyword.cos_full_notm}} as your primary storage for all data files and job binaries, you might want to create and store some temporary data or files on the cluster itself. If you need to do that, you can store this data under the `/home/wce/clsadmin` directory on any of the nodes of the cluster. Note that you have about 20 GB capacity under `/home` across all the three management nodes. However, you should not use more than 80% of this total capacity so as to not disrupt the normal functioning on the cluster. You should avoid saving data under the `/tmp` directory because this space is used as the scratch directory for job execution.
 
 Note that any data stored on the cluster is not persistent outside the cluster lifecycle. If the cluster is deleted, the data will be expunged too. So make sure you backup any important data you store on the cluster.
+
+## Configure the cluster for log monitoring and troubleshooting
+{: #configure-log-monitoring}
+
+To facilitate monitoring and troubleshooting your applications and jobs, you can configure your cluster for log monitoring and analysis by aggregating your {{site.data.keyword.iae_full_notm}}  cluster and job logs to a centralized LogDNA server of your choice. See [Configuring log aggregation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-log-aggregation).
+
+By configuring log aggregation, you can externalize the log files, which means that these files can be accessed even after the cluster was deleted.
+
+When you configure {{site.data.keyword.iae_full_notm}} to work with the LogDNA instance, we encourage you to select to connect to the private endpoints of the instance, to increase performance and save costs. See [Configuring private endpoints](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-endpoints).
 
 ## Switch regions for disaster recovery
 {: #disaster-recovery}

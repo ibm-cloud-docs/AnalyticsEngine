@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2019-12-10"
+  years: 2017, 2020
+lastupdated: "2020-01-08"
 
 subcollection: AnalyticsEngine
 
@@ -21,14 +21,12 @@ subcollection: AnalyticsEngine
 ## What type of encryption is supported?
 {: #supported-encryption}
 {: faq}
-{: support}
 
 All data on {{site.data.keyword.cos_full_notm}} is encrypted at-rest. You can use a private, encrypted endpoint available from {{site.data.keyword.cos_full_notm}} to  transfer data between {{site.data.keyword.cos_full_notm}} and {{site.data.keyword.iae_full_notm}} clusters. Any data that passes over the public facing ports (8443,22 and 9443) is encrypted. See details in [Best practices](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#cos-encryption).
 
 ## Which ports are open on the public interface on the cluster?
 {: #open-ports}
 {: faq}
-{: support}
 
 The following ports are open on the public interface on the
 cluster:

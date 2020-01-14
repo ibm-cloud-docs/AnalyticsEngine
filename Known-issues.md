@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-03"
+  years: 2017, 2020
+lastupdated: "2020-01-08"
 
 subcollection: AnalyticsEngine
 
@@ -15,9 +15,17 @@ subcollection: AnalyticsEngine
 {:screen: .screen}
 {:pre: .pre}
 {:external: target="_blank" .external}
+{:help: data-hd-content-type='help'}
 
 # Known issues
 {: #known-issues}
+
+This topic lists known issues that have been identified or were reported by users in error reports.
+
+## Viewing the known issues
+{: #view_known_issues}
+{: help}
+{: support}
 
 List of known issues in the release:
 

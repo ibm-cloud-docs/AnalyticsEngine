@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-10"
+  years: 2017, 2020
+lastupdated: "2020-01-08"
 
 subcollection: AnalyticsEngine
 
@@ -24,7 +24,6 @@ subcollection: AnalyticsEngine
 ## Which other {{site.data.keyword.Bluemix_notm}} services can I use with {{site.data.keyword.iae_full_notm}}?
 {: #iae-with-other-services}
 {: faq}
-{: support}
 
 {{site.data.keyword.iae_full_notm}} is a compute engine offered in {{site.data.keyword.DSX_full}} and can be used to push {{site.data.keyword.DSX_short}} jobs to {{site.data.keyword.iae_full_notm}}. Data can be written to Cloudant or Db2 Warehouse on Cloud after being processed by using Spark.
 
@@ -41,14 +40,12 @@ After you have added the {{site.data.keyword.iae_full_notm}} service to the proj
 ## Can I use Kafka for data ingestion?
 {: #kafka-4-data-ingestion}
 {: faq}
-{: support}
 
 IBM Message Hub, an {{site.data.keyword.Bluemix_notm}} service is based on Apache Kafka. It can be used to ingest data to an object store. This data can then be analyzed on an {{site.data.keyword.iae_full_notm}} cluster. Message Hub can also integrate with Spark on the {{site.data.keyword.iae_full_notm}} cluster to bring data directly to the cluster.
 
 ## Can I set ACID properties for Hive in {{site.data.keyword.iae_full_notm}}?
 {: #acid-4-hive}
 {: faq}
-{: support}
 
 Hive is not configured to support concurrency. Although you can change the Hive configuration on {{site.data.keyword.iae_full_notm}} clusters, it is your responsibility that the cluster functions correctly after you have made any such changes.
 

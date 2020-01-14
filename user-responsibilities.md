@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-07-16"
+  years: 2017, 2020
+lastupdated: "2020-01-09"
 
 subcollection: AnalyticsEngine
 
@@ -64,3 +64,8 @@ The following table shows the roles and responsibilities that you share with IBM
 | | View job history| Responsible and accountable| Consulted |
 | | Externalized Hive metadata |Responsible and accountable| Consulted |
 | | Externalize data in Cloud Object Storage and control access to the data |Responsible and accountable| Consulted |
+|Disaster recovery for the provisioning systems | Restore or rebuild the provisioning environments in affected regions | None | Responsible and accountable |
+| | Provision new clusters in alternatively available regions | Responsible and accountable| Consulted |
+|Disaster Recovery for existing cluster operations | Ensure that the cluster is stateless by following the best practices for {{site.data.keyword.iae_full_notm}}, which recommend that all data, metadata and jobs reside outside of the cluster. This activity must be completed before disaster recovery can be initiated. | Responsible and accountable| Consulted |
+| | Provision a new cluster in an alternatively available region in the event of the current cluster being inaccessible.| Responsible and accountable| Consulted |
+| | Restore the existing cluster, where possible. | Informed| Responsible |
