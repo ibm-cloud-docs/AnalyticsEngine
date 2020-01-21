@@ -110,7 +110,7 @@ Analytics Engine
         lazy-spark-initialization.md
         Logs-JNBG.md
         JNBG-Service-Host.md
-        Stop,-Start,-Restart-JNBG-Service.md
+        stop-start-restart-JNBG-service.md
 
     {: .topicgroup}
     Working with Spark SQL
