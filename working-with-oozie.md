@@ -179,7 +179,8 @@ master=yarn-cluster
 queueName=default
 examplesRoot=examples
 oozie.use.system.libpath=true
-oozie.wf.application.path=${nameNode}/user/${user.name}/${examplesRoot}/apps/spark ```
+oozie.wf.application.path=${nameNode}/user/${user.name}/${examplesRoot}/apps/spark
+```
 
 4. Copy the examples folder into HDFS:
 ```
@@ -189,7 +190,7 @@ hadoop fs -put examples /user/<userName>/examples
 ```
 oozie job -oozie http://<hostName>:<portNumber>/oozie -config examples/apps/spark/job.properties -run
 ```
- You can get the values for the variables `<hostName>` and `<portNumber>` from the property `oozie.base.url` by opening the Ambari console and then, on the dashboard, clicking **Oozie** &gt; **Configs**.
+ You can get the values for the variables `<hostName>` and `<portNumber>` from the property `oozie.base.url` by opening the Ambari console and then, on the dashboard, clicking **Oozie >  Configs**.
 
  Note that this example shows you how to run the Oozie job from the cluster. The earlier example that used Mapreduce showed how to run the Oozie job using the cURL command.
 

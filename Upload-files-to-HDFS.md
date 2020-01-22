@@ -93,7 +93,8 @@ To upload data to HDFS by using the WebHDFS REST API:
 
 1. To create an empty directory, for example an output directory, run the following command:
 ```curl -i  -s --user clsadmin:your_password --max-time 45 -X PUT
-   https://XXXXX:8443/gateway/default/webhdfs/v1/user/clsadmin/path_to_directory?op=MKDIRS ```
+   https://XXXXX:8443/gateway/default/webhdfs/v1/user/clsadmin/path_to_directory?op=MKDIRS
+   ```
 
 1. To remove a file, run the following command:
 

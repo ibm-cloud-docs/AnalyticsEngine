@@ -22,7 +22,8 @@ To work with Sqoop, you need your cluster user credentials and the SSH  and the 
 
    ```
       ls -ltr /home/common/lib/dataconnectorDb2
-      -rwxrwxrwx. 1 root root 3411523 May 23 13:27 /home/common/lib/dataconnectorDb2/db2jcc4.jar```
+      -rwxrwxrwx. 1 root root 3411523 May 23 13:27 /home/common/lib/dataconnectorDb2/db2jcc4.jar
+      ```
 
   -   The sqljdbc4.jar file is in `/home/common/lib/R/DatabaseConnector/java`.
 
@@ -56,21 +57,25 @@ To work with Sqoop, you need your cluster user credentials and the SSH  and the 
 6. Verify that you can load the driver and connect to MySQL for example by entering:
 
  ```
-sqoop eval --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword> --query "show tables"```   
+sqoop eval --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword> --query "show tables"
+```   
 
 7. Examples of some commands:
 
  - To import from a table to HDFS and COS, enter:
 ```
-sqoop eval --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword> --query "select * from VERSION" ```
+sqoop eval --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword> --query "select * from VERSION"
+```
 
  - To import a table VERSION to HDFS, enter:
 ```
-sqoop import --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword>  --table VERSION -m 1 --target-dir /user/VERSION ```
+sqoop import --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword>  --table VERSION -m 1 --target-dir /user/VERSION
+```
 
  - To import a table VERSION to Cloud Object Store bucket, enter:
  ```
- sqoop import --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword>  --table VERSION -m 1 --target-dir cos://<changeMeCOSbucket>.myprodservice/VERSION ```
+ sqoop import --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword>  --table VERSION -m 1 --target-dir cos://<changeMeCOSbucket>.myprodservice/VERSION
+ ```
 
   - To connect to Db2, enter:
  ```
@@ -80,6 +85,7 @@ sqoop import --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort
      sslTrustStoreLocation=/home/wce/clsadmin/truststore.jks
      sslTrustStorePassword=changeit
 
-    [clsadmin@chs-fkk-299-mn003 ~]$ sqoop list-tables --connect jdbc:db2:// <changeMeDatabaseHost>/<changeMeDatabaseName> --username <changeMeDatabaseUserName> --password <changeMeDatabasePassword> --connection-param-file jdbcprops```
+    [clsadmin@chs-fkk-299-mn003 ~]$ sqoop list-tables --connect jdbc:db2:// <changeMeDatabaseHost>/<changeMeDatabaseName> --username <changeMeDatabaseUserName> --password <changeMeDatabasePassword> --connection-param-file jdbcprops
+    ```
 
   **Note:** You can use the same steps to import data from other databases by adding the respective JAR files to the Sqoop user classpath.  
