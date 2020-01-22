@@ -35,7 +35,8 @@ To work with Sqoop, you need your cluster user credentials and the SSH  and the 
      -rwxrwxrwx. 1 root root  588974 May 23 14:12 postgresql-9.3-1101.jdbc4.jar
      -rwxrwxrwx. 1 root root 2739616 May 23 14:12 ojdbc6.jar
      -rwxrwxrwx. 1 root root  954041 May 23 14:12 mysql-connector-java-5.1.30-bin.jar
-     -rwxrwxrwx. 1 root root  317816 May 23 14:12 jtds-1.3.1.jar ```
+     -rwxrwxrwx. 1 root root  317816 May 23 14:12 jtds-1.3.1.jar
+     ```
 
 2. Create the directory `/sqoop/lib` under `/home/wce/clsadmin`.
 
