@@ -83,12 +83,14 @@ ssh clsadmin@chs-tnu-499-mn003.us-south.ae.appdomain.cloud
 
 Once you are on `mn003`, enter the following to log in to `mn002`:
 ```
-ssh clsadmin@chs-tnu-499-mn002```
+ssh clsadmin@chs-tnu-499-mn002
+```
 
 and to log in to `dn001` enter:
 
 ```
-ssh clsadmin@chs-tnu-499-dn001```
+ssh clsadmin@chs-tnu-499-dn001
+```
 
 **Note:**
 - You can't SSH to the master management node `mn001`.

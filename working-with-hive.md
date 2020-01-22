@@ -163,7 +163,8 @@ To create Hive tables in Parquet format:
 
 2. Launch Beeline:
 ```
-beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword> ```
+beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword>
+```
 
 3. Create a Hive table in Parquet format:
 ```
@@ -208,7 +209,8 @@ The result is the following:
 | extparquettable1.id  | extparquettable1.name  |
 |----------------------|------------------------|
 | NULL                 | Alyssa                 |
-| NULL                 | Ben                    |```
+| NULL                 | Ben                    |
+```
 
 1. Load data from a Parquet file stored in HDFS into an external Parquet table. The `users.parquet` file is stored in the HDFS path `/user/hive`.
 ```

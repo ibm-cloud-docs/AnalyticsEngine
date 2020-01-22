@@ -29,7 +29,8 @@ following cURL command:
 ```
 curl -X  POST  \
 https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_guid>/reset_password
-\ -H 'authorization: Bearer  <user's IAM token>' ```
+\ -H 'authorization: Bearer  <user's IAM token>'
+```
 
 For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use `https://api.eu-de.ae.cloud.ibm.com` and for Japan `https://api.jp-tok.ae.cloud.ibm.com`.
 
@@ -38,6 +39,4 @@ The expected response is the changed password in JSON format. For example:
 {"id":"5259c951-689a-4eac-a48e-0ae22b45b786","user_credentials":{"user":"clsadmin","password":"modifiedpassword"}}
 ```
 
-**Note:** To retrieve the
-IAM access token, see [Retrieving IAM access
-tokens](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
+**Note:** To retrieve the IAM access token, see [Retrieving IAM access tokens](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).

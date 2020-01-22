@@ -109,5 +109,5 @@ The following table summarizes the access methods to the {{site.data.keyword.cos
 | Create credentials | Service administrator | Service users |
 | Grant access permissions | Service administrator | Service administrator |
 | Select credential type | HMAC and IAM API keys | IAM API key only |
-| Control access for user roles and data buckets | &#10003;| &#10003; |
+| Control access for user roles and data buckets | Yes| Yes|
 {: caption="{{site.data.keyword.cos_short}} access methods" caption-side="top"}

@@ -24,7 +24,8 @@ You can run spark-submit jobs by logging on to the cluster  using the SSH protoc
 
 1. Log on to the cluster management node using [SSH](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH). For example:
 ```
-$ ssh clsadmin@iae-tmp-867-mn003.us-south.ae.appdomain.cloud```
+$ ssh clsadmin@iae-tmp-867-mn003.us-south.ae.appdomain.cloud
+```
 
 2. Run spark-submit. For example:
   ```

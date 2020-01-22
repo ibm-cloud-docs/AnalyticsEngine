@@ -109,13 +109,15 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ### 09 November 2018
 
- - {{site.data.keyword.iae_full_notm}} is now also available in the region of Japan, in addition to the US-South, Germany, and United Kingdom regions.
+- {{site.data.keyword.iae_full_notm}} is now also available in the region of Japan, in addition to the US-South, Germany, and United Kingdom regions.
 
   - The {{site.data.keyword.iae_full_notm}} REST API endpoint for Japan is `https://api.jp-tok.ae.cloud.ibm.com`
 
   - An {{site.data.keyword.iae_full_notm}} cluster created in the region of Japan has the following format:
 
-    ```<clustername>.jp-tok.ae.appdomain.cloud```
+    ```
+     <clustername>.jp-tok.ae.appdomain.cloud
+    ```
 
     For example:
 
@@ -131,7 +133,9 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 - The {{site.data.keyword.iae_full_notm}} cluster is now created using  a new domain name to align with {{site.data.keyword.Bluemix_short}} domain name standards. It has the following format:
 
- ``` <clustername>.<region>.ae.appdomain.cloud```
+ ```
+ <clustername>.<region>.ae.appdomain.cloud
+ ```
 
   where region is us-south, eu-gb, or eu-de.
 

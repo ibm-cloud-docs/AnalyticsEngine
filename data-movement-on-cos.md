@@ -32,11 +32,13 @@ You can move data to and from the local file system of your cluster and {{site.d
 - To copy files from the cluster’s local file system to {{site.data.keyword.cos_short}} use the following HDFS command:
 ```
 hdfs dfs –copyFromLocal /tmp/testfile cos://mybucket.myprodservice/
-hdfs dfs –put /tmp/myfile2 cos://mybucket.myprodservice/```
+hdfs dfs –put /tmp/myfile2 cos://mybucket.myprodservice/
+```
 
 - To copy files from {{site.data.keyword.cos_short}} to the cluster’s local file system, use:
 ```
-hdfs dfs –get cos://mybucket.myprodservice/myfile2```
+hdfs dfs –get cos://mybucket.myprodservice/myfile2
+```
 
 ## Moving data between HDFS and {{site.data.keyword.cos_full_notm}}
 
@@ -45,11 +47,13 @@ You can move data to and from the HDFS file system of your cluster and {{site.da
 - To copy files between HFDS and {{site.data.keyword.cos_short}} using `distcp`, enter the following command:
 ```
 hadoop distcp /tmp/test.data  cos://mybucket.myprodservice/mydir/
-hadoop distcp cos://mybucket.myprodservice/mydir/ /tmp/test.data```
+hadoop distcp cos://mybucket.myprodservice/mydir/ /tmp/test.data
+```
 
   `hdfs://` is implied. It can also be explicitly specified, if the {{site.data.keyword.Bluemix_short}} hosting location is `us-south` for example:
 ```
-hdfs://chs-czq-182-mn002.us-south.ae.appdomain.cloud:8020/tmp/test.data```
+hdfs://chs-czq-182-mn002.us-south.ae.appdomain.cloud:8020/tmp/test.data
+```
 
 ## Data operations outside the cluster
 {: #cos-outside-cluster}
@@ -63,4 +67,5 @@ You can issue any of the following commands from your cluster to a {{site.data.k
 hdfs dfs –ls cos://mybucket.myprodservice/myfile1
 hdfs dfs –cat cos://mybucket.myprodservice/myfile1
 hdfs dfs –mkdir cos://mybucket.myprodservice
-hdfs dfs –rm cos://mybucket.myprodservice/myfile1```
+hdfs dfs –rm cos://mybucket.myprodservice/myfile1
+```

@@ -96,7 +96,7 @@ To import an HBase table stored in {{site.data.keyword.cos_full_notm}} to HDFS:
 3. Verify the data was imported by scanning the table:
 ```
 # hbase shell
-   hbase> scan 'testimport'
+  hbase> scan 'testimport'
 ```
 
 ### Exporting a snapshot of an HBase table to {{site.data.keyword.cos_short}}
@@ -111,11 +111,13 @@ To export a snapshot of an HBase table to  {{site.data.keyword.cos_full_notm}} w
 ```
 2. Export the snapshot from the HBase database to {{site.data.keyword.cos_short}}:
 ```
-# hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot mysnapshot -copy-to cos://mybucket.myprodservice/snapshotdir -mappers 16 ```
+# hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot mysnapshot -copy-to cos://mybucket.myprodservice/snapshotdir -mappers 16
+```
 
 3. Verify that the snapshot was exported to {{site.data.keyword.cos_short}}:
 ```
-# hadoop fs –ls cos://mybucket.myprodservice/snapshotdir ```
+# hadoop fs –ls cos://mybucket.myprodservice/snapshotdir
+```
 
 ### Importing a snapshot from {{site.data.keyword.cos_short}} to HDFS
 
@@ -123,11 +125,13 @@ To import the snapshot of a HBase table from {{site.data.keyword.cos_full_notm}}
 
 1. Import the snapshot from {{site.data.keyword.cos_short}} to HDFS on the cluster:
 ```
-# hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot mysnapshot -copy-from cos://mybucket.myprodservice/snapshotdir -copy-to hdfs://XXXXX-mn002.<changeme>.ae.appdomain.cloud:8020/user/hbase/ -mappers 16 ```
+# hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot mysnapshot -copy-from cos://mybucket.myprodservice/snapshotdir -copy-to hdfs://XXXXX-mn002.<changeme>.ae.appdomain.cloud:8020/user/hbase/ -mappers 16
+```
 
 2. Verify the snapshot was exported:
 ```
-# hadoop fs –ls /user/hbase ```
+# hadoop fs –ls /user/hbase
+```
 
 ## Accessing Phoenix through client tools
 Apache Phoenix enables SQL-based OLTP and operational analytics for Apache Hadoop using Apache HBase as its backing store. It is based on the [Avatica](https://calcite.apache.org/avatica/){: external} component of [Apache Calcite](https://calcite.apache.org){: external}. The Phoenix Query Server is comprised of a Java server that manages the Phoenix connections on the client’s behalf. The client implementation is currently a JDBC driver with few dependencies. It supports two transport mechanisms currently: JSON and Protocol Buffers (PROTOBUF). The query server on the {{site.data.keyword.iae_full_notm}} cluster uses PROTOBUF serialization by default, which is more efficient compared to JSON serialization.
@@ -145,6 +149,7 @@ Apache Phoenix enables you to interact with HBase using SQL through Phoenix clie
  - By entering: `./sqlline.py /local_path_to_folder/createTable.sql`
 
 ### Using the PSQL client
+
 `psql.py` is a client tool for loading CSV formatted data on your local file system by using the `psql` command.
 
 To load data via `psql.py`:
@@ -171,7 +176,8 @@ CREATE TABLE example (
 To launch the MapReduce loader, use the following Hadoop command with the Phoenix client jar:
  - For CSV data, use:  
  ```
-  	HADOOP_CLASSPATH=/usr/hdp/current/hbase-master/lib/hbase-protocol.jar:/usr/hdp/current/hbase-master/conf hadoop jar /usr/hdp/current/phoenix-client/phoenix-<VERSION>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /user/clsadmin/data.csv```
+  	HADOOP_CLASSPATH=/usr/hdp/current/hbase-master/lib/hbase-protocol.jar:/usr/hdp/current/hbase-master/conf hadoop jar /usr/hdp/current/phoenix-client/phoenix-<VERSION>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /user/clsadmin/data.csv
+    ```
 
  - For JSON data, use:
 
@@ -229,7 +235,7 @@ For the complete list of supported SQL statements, see [Apache Phoenix](https://
 
 ## Accessing Phoenix through JDBC via the Knox Gateway
 
-You can also access Apache Phoenix securely via the Knox Gateway. The cluster user credentials and the phoenix_jdbc endpoint are required as well as the [Phoenix 4.9 client Java libraries](https://archive.apache.org/dist/phoenix/apache-phoenix-4.9.0-HBase-1.1/bin/apache-phoenix-4.9.0-HBase-1.1-bin.tar.gz){: external}, which must be added to the Java classpath.
+You can also access Apache Phoenix securely via the Knox Gateway. The cluster user credentials and the phoenix_jdbc endpoint are required as well as the Phoenix 4.9 client Java libraries which you can download from [here](https://archive.apache.org/dist/phoenix/apache-phoenix-4.9.0-HBase-1.1/bin/apache-phoenix-4.9.0-HBase-1.1-bin.tar.gz){: external}. The libs must be added to the Java classpath.
 
 The following code snippet for a JDBC client program shows you how to connect to Apache Phoenix through the Knox Gateway. The example uses the {{site.data.keyword.Bluemix_short}} hosting location `us-south`. Other locations include `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan):
 

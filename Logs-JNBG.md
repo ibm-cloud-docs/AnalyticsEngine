@@ -28,7 +28,8 @@ You can SSH to the [JNBG service host](/docs/services/AnalyticsEngine?topic=Anal
 
 All kernel logs are written to the `/var/log/jnbg` directory on the [JNBG service host](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-JNBG-host). The kernel log files use the following naming convention:
 ```
-kernel-<kernel-type>-<appname>-<YYYYMMDD_hhmmss>.log ```
+kernel-<kernel-type>-<appname>-<YYYYMMDD_hhmmss>.log
+```
 where:
 * `<kernel-type>` is: `scala-spark21` for Scala with Spark 2.1, `python2-spark21` for Python 2.7 with a Spark 2.1 kernel, `python3-spark21` for Python 3.5 with a Spark 2.1 kernel and `r` for R with a Spark 2.1 kernel.
 * `<appname>` is the value of the `KERNEL_NAME` parameter used when creating the kernel.
@@ -37,8 +38,10 @@ where:
 Using the combination of `kernel-type`, `appname` and the `<YYYYMMDD_hhmmss>` timestamp, you can easily locate the kernel log file corresponding to a particular session.
 
 You can access the logs by SSHing to the [JNBG service host](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-JNBG-host)  and accessing the kernel log file in the `/var/log/jnbg` directory. Alternatively, you can access the log file contents from within a notebook or interactive session by executing the following system command:
+
 ```
-cat /var/log/jnbg/<kernel-log-filename>```
+cat /var/log/jnbg/<kernel-log-filename>
+```
 
 ## Accessing Spark Executor logs
 

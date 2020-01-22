@@ -113,7 +113,9 @@ This is a three step process. First you need to get the customization request ID
 
 Enter the following cluster management REST API to get the customization requests for the given instance ID:
 
-```curl -X GET  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests -H 'Authorization: Bearer <user's IAM access token>'```
+```
+curl -X GET  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests -H 'Authorization: Bearer <user's IAM access token>'
+```
 
 For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use `https://api.eu-de.ae.cloud.ibm.com`. For Tokyo, use `https://api.jp-tok.ae.cloud.ibm.com`.
 
@@ -125,7 +127,9 @@ For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.
 
 Enter the following cluster management REST API to get the details of a specific customization request:
 
-```curl -X GET  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests/<request_id> -H 'Authorization: Bearer <user's IAM access token>'```
+```
+curl -X GET  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests/<request_id> -H 'Authorization: Bearer <user's IAM access token>'
+```
 
 **Expected response:** The customization request details are returned in JSON format.
 - The `run_status` is the overall status of execution of the script. It can be `InProgress` or `Failed` or `Completed`. If for instance, the script could not be executed because an invalid location was specified, the run_status would be `Failed`
