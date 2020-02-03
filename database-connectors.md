@@ -28,4 +28,4 @@ These database connectors can be found under:
 
   - `/home/common/lib/R/DatabaseConnector/java`
 
-For information on how to use these connectors, see [Working with Sqoop](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-working-with-sqoop).
+For information on how to use these connectors, see [Working with Sqoop](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-sqoop).

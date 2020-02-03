@@ -35,14 +35,14 @@ cos://b1.firstbucket/detail.txt
 
 See the following examples of working with {{site.data.keyword.cos_short}} from {{site.data.keyword.iae_full_notm}}:
 
-- [Uploading data to or downloading data from {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-data-movement-cos)
+- [Uploading data to or downloading data from {{site.data.keyword.cos_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-data-movement-cos)
 
-- [Running a Yarn application with data in {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-run-hadoop-jobs#running-wordcount-on-data-in-object-storage)
+- [Running a Yarn application with data in {{site.data.keyword.cos_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-run-hadoop-jobs#running-wordcount-on-data-in-object-storage)
 
-- [Accessing data in {{site.data.keyword.cos_short}} from Hive](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#accessing-data-in-ibm-cloud-object-storage-from-hive)
+- [Accessing data in {{site.data.keyword.cos_short}} from Hive](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#accessing-data-in-ibm-cloud-object-storage-from-hive)
 
-- [Importing tables from a database to {{site.data.keyword.cos_short}} using Sqoop](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-working-with-sqoop)
+- [Importing tables from a database to {{site.data.keyword.cos_short}} using Sqoop](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-sqoop)
 
-- [Running Oozie workflows with data in {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-working-with-oozie)
+- [Running Oozie workflows with data in {{site.data.keyword.cos_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-oozie)
 
-- [Submitting Spark applications from {{site.data.keyword.cos_short}} or applications that use data in {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-livy-api#submit-spark-applications-from-object-storage-or-on-data-in-object-stores)
+- [Submitting Spark applications from {{site.data.keyword.cos_short}} or applications that use data in {{site.data.keyword.cos_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-livy-api#submit-spark-applications-from-object-storage-or-on-data-in-object-stores)

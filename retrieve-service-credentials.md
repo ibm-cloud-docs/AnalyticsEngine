@@ -15,7 +15,7 @@ Only the {{site.data.keyword.iae_full_notm}} account owner or a user with `Admin
 
 After your {{site.data.keyword.iae_full_notm}} service instance was created, you can get the cluster password in the following ways.
 
-- By invoking the {{site.data.keyword.iae_full_notm}} [`reset_password`](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-reset-cluster-password#reset-cluster-password) REST API. Calling this API is the only way in which the cluster password is shown to you. You can also use the API to reset the password if you need to.
+- By invoking the {{site.data.keyword.iae_full_notm}} [`reset_password`](/docs/AnalyticsEngine?topic=AnalyticsEngine-reset-cluster-password#reset-cluster-password) REST API. Calling this API is the only way in which the cluster password is shown to you. You can also use the API to reset the password if you need to.
 
 - By resetting the cluster password on the {{site.data.keyword.iae_full_notm}} service instance page from the {{site.data.keyword.Bluemix_notm}} console.  
 

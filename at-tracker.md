@@ -22,7 +22,7 @@ Use the {{site.data.keyword.Bluemix_short}} service to track how users and appli
 
 The {{site.data.keyword.Bluemix_short}} Activity Tracker service records user-initiated activities that change the state of a service in {{site.data.keyword.Bluemix_short}}.
 
-For more information, see the [Activity Tracker documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-activity_tracker_ov#activity_tracker_ov){: new_window}.
+For more information, see the [Activity Tracker documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cloud-activity-tracker?topic=cloud-activity-tracker-activity_tracker_ov#activity_tracker_ov){: new_window}.
 
 The following table lists the actions that generate an event:
 

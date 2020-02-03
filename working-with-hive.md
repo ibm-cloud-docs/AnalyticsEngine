@@ -94,7 +94,7 @@ To change the Hive execution engine from Tez to MR, run the following command in
 ## Externalizing the Hive metastore to Databases for PostgreSQL
 {: #externalizing-hive-metastore}
 
-The Hive metastore is where the schemas of the Hive tables are stored. By default, it is in an embedded MySQL instance within the cluster. You should choose to externalize the metastore to an external database instance outside of the cluster so that you can tear down your cluster without losing any metadata. This, in combination with storing your data in {{site.data.keyword.cos_full_notm}}, helps persisting data across clusters. [Externalizing metadata](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#separate-compute-from-storage) is a best practice when creating a cluster.
+The Hive metastore is where the schemas of the Hive tables are stored. By default, it is in an embedded MySQL instance within the cluster. You should choose to externalize the metastore to an external database instance outside of the cluster so that you can tear down your cluster without losing any metadata. This, in combination with storing your data in {{site.data.keyword.cos_full_notm}}, helps persisting data across clusters. [Externalizing metadata](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices#separate-compute-from-storage) is a best practice when creating a cluster.
 
 ### Accessing Databases for PostgreSQL
 
@@ -131,13 +131,13 @@ Use the following steps to copy the instance certificate to the {{site.data.keyw
 ```
 ibmcloud cdb deployment-cacert "your-service-name"
 ```
-Copy and save the command's output to a file. See [CLI plug-in support for the self-signed certificate](/docs/services/databases-for-postgresql?topic=databases-for-postgresql-external-app#cli-plug-in-support-for-the-self-signed-certificate).
+Copy and save the command's output to a file. See [CLI plug-in support for the self-signed certificate](/docs/databases-for-postgresql?topic=databases-for-postgresql-external-app#cli-plug-in-support-for-the-self-signed-certificate).
 1. Copy the file to `/home/wce/clsadmin` on the `mn002` node. To get to the `mn002` node, first SSH to the `mn003` node and then from there SSH to the `mn002` node.
 1. Enter `chmod -R 755 /home/wce/clsadmin` to grant access permissions to the certificate file in the folder.
 
 ### Configuring a cluster to work with PostgreSQL
 
-Adhoc PostgreSQL customization scripts can be used to configure the cluster to work with PostgreSQL. See [Running an adhoc  customization script for configuring Hive with a Postgres external metastore](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-examples#postgres-metastore).
+Adhoc PostgreSQL customization scripts can be used to configure the cluster to work with PostgreSQL. See [Running an adhoc  customization script for configuring Hive with a Postgres external metastore](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-examples#postgres-metastore).
 
 Alternatively, you can use the Ambari user interface after you have created a cluster, to add the PostgreSQL connection values to the `hive-site.xml` file.
 
@@ -177,7 +177,7 @@ CREATE TABLE parquet_test (
 PARTITIONED BY (part string)
 STORED AS PARQUET;
 ```
-4. Create an external table in Parguet format in {{site.data.keyword.cos_full_notm}}. Your cluster needs to be configured to use {{site.data.keyword.cos_short}}. See [Configuring clusters to work with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
+4. Create an external table in Parguet format in {{site.data.keyword.cos_full_notm}}. Your cluster needs to be configured to use {{site.data.keyword.cos_short}}. See [Configuring clusters to work with {{site.data.keyword.cos_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
 ```
 CREATE EXTERNAL TABLE parquet_test1 (
  id int,
@@ -243,7 +243,7 @@ To create Hive tables in ORC format:
  ```
  beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword>
  ```
- 3. Create an external table in ORC format in {{site.data.keyword.cos_full_notm}}. To be able to do this, your cluster must have been [configured to work with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
+ 3. Create an external table in ORC format in {{site.data.keyword.cos_full_notm}}. To be able to do this, your cluster must have been [configured to work with {{site.data.keyword.cos_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
 
  ```
  CREATE EXTERNAL TABLE orc_table(line STRING) STORED AS ORC LOCATION 'cos://mybucket.myprodservice/ORC';

@@ -19,7 +19,7 @@ subcollection: AnalyticsEngine
 # Cloud service endpoints integration
 {: #service-endpoint-integration}
 
-{{site.data.keyword.Bluemix_notm}} provides connectivity options for accessing cloud services in a secure manner using service endpoints. See [{{site.data.keyword.Bluemix_notm}} service endpoints](/docs/services/service-endpoint?topic=service-endpoint-about#about).  
+{{site.data.keyword.Bluemix_notm}} provides connectivity options for accessing cloud services in a secure manner using service endpoints. See [{{site.data.keyword.Bluemix_notm}} service endpoints](/docs/service-endpoint?topic=service-endpoint-about#about).  
 
 When you provision an {{site.data.keyword.iae_full_notm}} instance, you can choose if you want to access your {{site.data.keyword.iae_full_notm}} service through the public internet, which is the default setting, or over the {{site.data.keyword.Bluemix_notm}} private network.
 
@@ -33,7 +33,7 @@ Private network endpoints provide connections to your {{site.data.keyword.iae_fu
 
 ## Using {{site.data.keyword.Bluemix_notm}} service endpoints
 
-If you want to enable private network endpoints on your clusters, you need to [enable your account for using {{site.data.keyword.Bluemix_notm}} service endpoints using the {{site.data.keyword.Bluemix_notm}} CLI](/docs/services/service-endpoint?topic=service-endpoint-getting-started#cs_cli_install_steps), and then provision a {{site.data.keyword.iae_full_notm}} service instance with private endpoints.
+If you want to enable private network endpoints on your clusters, you need to [enable your account for using {{site.data.keyword.Bluemix_notm}} service endpoints using the {{site.data.keyword.Bluemix_notm}} CLI](/docs/service-endpoint?topic=service-endpoint-getting-started#cs_cli_install_steps), and then provision a {{site.data.keyword.iae_full_notm}} service instance with private endpoints.
 
 ## Provisioning with service endpoints
 
@@ -55,7 +55,7 @@ You can provision an {{site.data.keyword.iae_full_notm}} service instance with s
 
   Note that `public` is the default value.
 
-  For more information on provisioning using CLI, see [Provisioning an {{site.data.keyword.iae_full_notm}} service instance using the IBM Cloud CLI](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE#creating-a-service-instance-using-the-ibm-cloud-command-line-interface).
+  For more information on provisioning using CLI, see [Provisioning an {{site.data.keyword.iae_full_notm}} service instance using the IBM Cloud CLI](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE#creating-a-service-instance-using-the-ibm-cloud-command-line-interface).
 
 - If you provision an {{site.data.keyword.iae_full_notm}} service instance by using the Resource Controller API, specify the service-endpoints in the `parameters` section of the request payload.
   ```
@@ -74,7 +74,7 @@ You can provision an {{site.data.keyword.iae_full_notm}} service instance with s
   ```
   {: codeblock}
 
-  For more information on provisioning using REST API, see [Provisioning an {{site.data.keyword.iae_full_notm}} service instance using API](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE#creating-a-service-instance-using-the-resource-controller-rest-api).
+  For more information on provisioning using REST API, see [Provisioning an {{site.data.keyword.iae_full_notm}} service instance using API](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE#creating-a-service-instance-using-the-resource-controller-rest-api).
 
 
   Note that you can enable either public or private network endpoints for your {{site.data.keyword.iae_full_notm}} instance, not both. You can't change this after the {{site.data.keyword.iae_full_notm}} instance was provisioned.

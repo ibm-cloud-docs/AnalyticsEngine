@@ -19,7 +19,7 @@ subcollection: AnalyticsEngine
 # Resetting cluster password
 {: #reset-cluster-password}
 
-To reset an {{site.data.keyword.iae_full_notm}} cluster password, you must have the following [user permissions](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
+To reset an {{site.data.keyword.iae_full_notm}} cluster password, you must have the following [user permissions](/docs/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
 
 You can reset a cluster’s password by using the {{site.data.keyword.iae_full_notm}} REST API. This API
 resets the cluster's password to a new crytographically strong value. Note that you must replace all existing service keys and rebind all bound applications after the password is reset.
@@ -39,4 +39,4 @@ The expected response is the changed password in JSON format. For example:
 {"id":"5259c951-689a-4eac-a48e-0ae22b45b786","user_credentials":{"user":"clsadmin","password":"modifiedpassword"}}
 ```
 
-**Note:** To retrieve the IAM access token, see [Retrieving IAM access tokens](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
+**Note:** To retrieve the IAM access token, see [Retrieving IAM access tokens](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).

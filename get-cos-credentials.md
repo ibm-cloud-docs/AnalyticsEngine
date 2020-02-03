@@ -26,7 +26,7 @@ To work with {{site.data.keyword.cos_short}} in  {{site.data.keyword.iae_full_no
 
 ## Access management in {{site.data.keyword.cos_short}}
 
-To securely authenticate to {{site.data.keyword.cos_short}}, you need to understand the concepts of Identity and Access Management (IAM), and how and when to use service credentials and API Keys in the context of {{site.data.keyword.cos_short}}. As the service administrator, IAM offers you flexibility and fine-grained access control to a service instance and it's resources both for direct platform access and service API calls. See [IAM overview](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-iam-overview).
+To securely authenticate to {{site.data.keyword.cos_short}}, you need to understand the concepts of Identity and Access Management (IAM), and how and when to use service credentials and API Keys in the context of {{site.data.keyword.cos_short}}. As the service administrator, IAM offers you flexibility and fine-grained access control to a service instance and it's resources both for direct platform access and service API calls. See [IAM overview](/docs/cloud-object-storage/iam?topic=cloud-object-storage-iam-overview).
 
 The following diagram illustrates access management to {{site.data.keyword.cos_short}}.
 
@@ -45,10 +45,10 @@ As system administrator, you can:
 
 - Create service IDs with access rights at *instance level*
 
- You determine the degree of access to *all* {{site.data.keyword.cos_short}} buckets in the instance by assigning a service access role to the credential. This can be *Reader*, *Writer* or *Manager* role. If needed, you can create several service IDs for the same instance with different access roles. See [Creating a service ID at instance level](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials).
+ You determine the degree of access to *all* {{site.data.keyword.cos_short}} buckets in the instance by assigning a service access role to the credential. This can be *Reader*, *Writer* or *Manager* role. If needed, you can create several service IDs for the same instance with different access roles. See [Creating a service ID at instance level](/docs/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials).
 - Create service IDs with access rights at *bucket level*
 
- You specify the {{site.data.keyword.cos_short}} buckets in the instance that can be accessed by the service ID. Here too, if needed, you can create several service IDs with access rights to different buckets. See [Creating a service ID at  bucket level](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-iam-bucket-permissions#iam-service-id).
+ You specify the {{site.data.keyword.cos_short}} buckets in the instance that can be accessed by the service ID. Here too, if needed, you can create several service IDs with access rights to different buckets. See [Creating a service ID at  bucket level](/docs/cloud-object-storage/iam?topic=cloud-object-storage-iam-bucket-permissions#iam-service-id).
 
 ### Sharing service IDs
 
@@ -71,7 +71,7 @@ When you, as user of {{site.data.keyword.cos_short}}, view the service ID creden
 }
 ```
 
-To configure {{site.data.keyword.iae_full_notm}} to work with {{site.data.keyword.cos_short}}, you need the API key or the HMAC keys. See [API key versus HMAC keys](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials#service-credentials-iam-hmac).
+To configure {{site.data.keyword.iae_full_notm}} to work with {{site.data.keyword.cos_short}}, you need the API key or the HMAC keys. See [API key versus HMAC keys](/docs/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials#service-credentials-iam-hmac).
 
 ### Service endpoints
 

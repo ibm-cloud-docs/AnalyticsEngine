@@ -48,7 +48,7 @@ The recommended way to read data to a cluster for processing is from {{site.data
 - Spark-streaming
 - Sqoop
 
-For more information, see the [documentation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-upload-files-hdfs).
+For more information, see the [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-upload-files-hdfs).
 
 ## How do I configure my cluster?
 {: #how-2-configure-cluster}
@@ -57,7 +57,7 @@ For more information, see the [documentation](/docs/services/AnalyticsEngine?top
 
 You can configure a cluster by using customization scripts or by directly modifying configuration parameters in the Ambari console. Customization scripts are a convenient way to define different
 sets of configurations through a script, to spin up different types of clusters, or to use the same configuration repeatedly for repetitive jobs. You can find more information on cluster customization
-[here](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
+[here](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
 
 ## Do I have root access in {{site.data.keyword.iae_full_notm}}?
 {: #root-access}
@@ -102,7 +102,7 @@ Yes, you can add new nodes to your cluster while jobs are still running. As soon
 {: #adjust-resource-allocation-interactive-app}
 {: faq}
 
-If you need to run large Spark interactive jobs, you can adjust the kernel settings to tune resource allocation, for example, if your Spark container is too small for your input work load. To get the maximum performance from your cluster for a Spark job, see [Kernel settings](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings).
+If you need to run large Spark interactive jobs, you can adjust the kernel settings to tune resource allocation, for example, if your Spark container is too small for your input work load. To get the maximum performance from your cluster for a Spark job, see [Kernel settings](/docs/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings).
 
 ## Does the {{site.data.keyword.iae_full_notm}} operations team monitor and manage all service instances?
 {: #dev-ops}
@@ -132,7 +132,7 @@ To debug a Hive query on {{site.data.keyword.iae_full_notm}}:
 ## More FAQs
 {: #more-faqs-operations}
 
-- [General FAQs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-general-faqs)
-- [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-faqs-architecture)
-- [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-integration-faqs)
-- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-security-faqs)
+- [General FAQs](/docs/AnalyticsEngine?topic=AnalyticsEngine-general-faqs)
+- [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/AnalyticsEngine?topic=AnalyticsEngine-faqs-architecture)
+- [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/AnalyticsEngine?topic=AnalyticsEngine-integration-faqs)
+- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-faqs)

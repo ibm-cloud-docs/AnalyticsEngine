@@ -25,9 +25,9 @@ You might need to install other libraries in addition to the libraries that are 
 
 For distributed operations such as Spark jobs that execute on any node of the cluster, the dependency libraries need to be available on all of the nodes of the cluster.
 
-For example, if you need to install a Python package, you would intuitively execute the command `pip install <package-name>` after you SSH to the cluster. However, note that you need to execute this command on all the nodes of the cluster, not just the `mn003` node. If you want do this manually, you will need to SSH from `mn003` to each of the data nodes of the cluster (`dn001`, `dn002`, and so on). This can get tedious if you are working on a huge cluster, and even more so, if you need to repeat this step for every new cluster that you create. To solve this, you should use customization scripts that install the Python packages on all nodes of the cluster, either at the time the cluster is created  (bootstrap customization) or after cluster creation (adhoc customization). See [Installing libraries on all clusters by using customization scripts](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
+For example, if you need to install a Python package, you would intuitively execute the command `pip install <package-name>` after you SSH to the cluster. However, note that you need to execute this command on all the nodes of the cluster, not just the `mn003` node. If you want do this manually, you will need to SSH from `mn003` to each of the data nodes of the cluster (`dn001`, `dn002`, and so on). This can get tedious if you are working on a huge cluster, and even more so, if you need to repeat this step for every new cluster that you create. To solve this, you should use customization scripts that install the Python packages on all nodes of the cluster, either at the time the cluster is created  (bootstrap customization) or after cluster creation (adhoc customization). See [Installing libraries on all clusters by using customization scripts](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
 
-Note that the customization scripts should install the libraries or packages into the same environments to ensure they get picked up by the JNBG service. The scripts need not rely only on public repositories like PyPi, Maven Central, CRAN (or other publicly accessible URLs) to install the libraries or packages. Instead, you can choose to package your libraries or packages into archive files and place them in Object Storage, which the customization script retrieves and installs. See [Examples of how to place your scripts and related artefacts in an object store for cluster customization](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-examples).
+Note that the customization scripts should install the libraries or packages into the same environments to ensure they get picked up by the JNBG service. The scripts need not rely only on public repositories like PyPi, Maven Central, CRAN (or other publicly accessible URLs) to install the libraries or packages. Instead, you can choose to package your libraries or packages into archive files and place them in Object Storage, which the customization script retrieves and installs. See [Examples of how to place your scripts and related artefacts in an object store for cluster customization](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-examples).
 
 Installing the libraries in this manner is permanent; the libraries are always available to all interactive sessions by default.
 
@@ -36,7 +36,7 @@ Note that you cannot use the `--user` option in `pip` install commands in {{site
 ### Python 3
 {: #install-python-3}
 
-The Anaconda3 environment on `AE 1.2` clusters comes with Python 3.7. See [Installed libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-installed-libs).
+The Anaconda3 environment on `AE 1.2` clusters comes with Python 3.7. See [Installed libraries](/docs/AnalyticsEngine?topic=AnalyticsEngine-installed-libs).
 
 To install Python 3.x libraries, your script must install in the `conda3` environment by using:
 

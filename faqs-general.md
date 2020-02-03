@@ -39,25 +39,25 @@ subcollection: AnalyticsEngine
 {: faq}
 {: support}
 
-{{site.data.keyword.iae_full_notm}} is available on {{site.data.keyword.Bluemix_notm}}. Follow this [link](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-getting-started) to learn more about the service and to start using it. You will also find tutorials and code samples to get you off to a fast start.
+{{site.data.keyword.iae_full_notm}} is available on {{site.data.keyword.Bluemix_notm}}. Follow this [link](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started) to learn more about the service and to start using it. You will also find tutorials and code samples to get you off to a fast start.
 
 ## Which distribution is used in {{site.data.keyword.iae_full_notm}}?
 {: #distribution}
 {: faq}
 
-{{site.data.keyword.iae_full_notm}} is based on open source Hortonworks Data Platform (HDP). To find the currently supported version see the  [documentation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
+{{site.data.keyword.iae_full_notm}} is based on open source Hortonworks Data Platform (HDP). To find the currently supported version see the  [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
 
 ## Which HDP components are supported in {{site.data.keyword.iae_full_notm}}?
 {: #supported-hdp-components}
 {: faq}
 
-To see the full list of supported components and versions, see the [documentation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
+To see the full list of supported components and versions, see the [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
 
 ## What node sizes are available in {{site.data.keyword.iae_full_notm}}?
 {: #node-sizes}
 {: faq}
 
-To see the currently supported node sizes, see the [documentation](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
+To see the currently supported node sizes, see the [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
 
 ## Why is there so little HDFS space on the clusters?
 {: #hdfs-space}
@@ -109,7 +109,7 @@ When a disruptive deployment is made to a provisioned service instance, you will
 ## More FAQs
 {: #more-faqs-general}
 
-- [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-faqs-architecture)
-- [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-integration-faqs)
-- [FAQs about {{site.data.keyword.iae_full_notm}} operations](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-operations-faqs)
-- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-security-faqs)
+- [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/AnalyticsEngine?topic=AnalyticsEngine-faqs-architecture)
+- [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/AnalyticsEngine?topic=AnalyticsEngine-integration-faqs)
+- [FAQs about {{site.data.keyword.iae_full_notm}} operations](/docs/AnalyticsEngine?topic=AnalyticsEngine-operations-faqs)
+- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-faqs)

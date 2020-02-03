@@ -56,9 +56,9 @@ The following example shows running a wordcount Jarn application in {{site.data.
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount cos://mybucket.myprodservice/input cos://mybucket.myprodservice/wordcount/output
 ```
 
-For information on configuring the cluster to work with {{site.data.keyword.cos_full_notm}}, see [Working with  {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
+For information on configuring the cluster to work with {{site.data.keyword.cos_full_notm}}, see [Working with  {{site.data.keyword.cos_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
 
 ## Learn more
 {: #learn-more-mapreduce-jobs}
 
-[Submitting MapReduce jobs with Oozie](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-working-with-oozie).
+[Submitting MapReduce jobs with Oozie](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-oozie).

@@ -58,7 +58,7 @@ hdfs://chs-czq-182-mn002.us-south.ae.appdomain.cloud:8020/tmp/test.data
 ## Data operations outside the cluster
 {: #cos-outside-cluster}
 
-For information on how you can use the {{site.data.keyword.cos_short}} API or the UI to work with data objects outside of your cluster, see [Uploading data to  {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-upload).
+For information on how you can use the {{site.data.keyword.cos_short}} API or the UI to work with data objects outside of your cluster, see [Uploading data to  {{site.data.keyword.cos_short}}](/docs/cloud-object-storage?topic=cloud-object-storage-upload).
 
 ## Useful {{site.data.keyword.cos_short}} housekeeping commands
 

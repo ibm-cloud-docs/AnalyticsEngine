@@ -31,7 +31,7 @@ You can upload files to your home directory (`/user/clsadmin`). However, you sho
 
 To use the HDFS CLI, you must use SSH to log in to the cluster using the credentials.
 
-**Prerequisites**: You need your user credentials and the SSH endpoint. See [Retrieving service endpoints](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints).
+**Prerequisites**: You need your user credentials and the SSH endpoint. See [Retrieving service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints).
 
 You access the HDFS CLI by using the HDFS command. Refer to the following examples for using the HDFS CLI:
 
@@ -63,7 +63,7 @@ You access the HDFS CLI by using the HDFS command. Refer to the following exampl
 
 For programmatic access to the HDFS, use the WebHDFS REST API.
 
-**Prerequisites:** You need your user credentials and the WebHDFS URL.  See [Retrieving service endpoints](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints).
+**Prerequisites:** You need your user credentials and the WebHDFS URL.  See [Retrieving service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints).
 
 To upload data to HDFS by using the WebHDFS REST API:
 

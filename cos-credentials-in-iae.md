@@ -59,4 +59,4 @@ and doesn't require the prefix `https://`.
 
 ## Next steps
 
-- Use one of the 3 available methods to configure the cluster to use the {{site.data.keyword.cos_short}} credentials. See [Configuring {{site.data.keyword.iae_full_notm}} to use   {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-configure-iae-with-cos).
+- Use one of the 3 available methods to configure the cluster to use the {{site.data.keyword.cos_short}} credentials. See [Configuring {{site.data.keyword.iae_full_notm}} to use   {{site.data.keyword.cos_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-configure-iae-with-cos).

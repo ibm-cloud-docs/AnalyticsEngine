@@ -25,7 +25,7 @@ No explicit memory limit is set on a per kernel basis. For clusters running on t
 
 ### Changing memory settings  
 
-Refer to the [overriding kernel settings section](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings#overriding-kernel-settings) to see how you can pass settings to control driver and executor memory limits. By default, no limit is applied to the driver process and the Spark default is used for executors (approximately 1 GB).
+Refer to the [overriding kernel settings section](/docs/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings#overriding-kernel-settings) to see how you can pass settings to control driver and executor memory limits. By default, no limit is applied to the driver process and the Spark default is used for executors (approximately 1 GB).
 
 Note that for Python and R kernels, the Python and R native process can consume it's own memory which may not be governed by the `--driver-memory` option. There is no memory limit applied to these processes.
 
@@ -40,7 +40,7 @@ The following executor settings are the defaults:
 
 ### Changing executor settings
 
-With Spark dynamic allocation enabled by default, your kernel or Spark application to fully utilize the cluster. If your applications have specific requirements and you want to have control over the number of executors per application, you can achieve that by updating the corresponding property parameters through the Ambari console or by [providing custom configurations](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options). You can update a number of settings, including the following:
+With Spark dynamic allocation enabled by default, your kernel or Spark application to fully utilize the cluster. If your applications have specific requirements and you want to have control over the number of executors per application, you can achieve that by updating the corresponding property parameters through the Ambari console or by [providing custom configurations](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options). You can update a number of settings, including the following:
 
 Custom spark2-defaults:
 *	`spark.dynamicAllocation.enabled="false"`: Disables Spark dynamic allocations.  
@@ -52,7 +52,7 @@ Advanced spark2-env:
 
 Save your changes and restart all the affected components.
 
-To change settings per notebook and kernel, refer to the [overriding kernel settings section](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings#overriding-kernel-settings).
+To change settings per notebook and kernel, refer to the [overriding kernel settings section](/docs/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings#overriding-kernel-settings).
 
 ## Number of concurrent kernels
 There is no explicit limit set on numbers of kernels. The maximum number of kernels depends on the nodes available in the cluster.

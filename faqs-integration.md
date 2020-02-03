@@ -52,7 +52,7 @@ Hive is not configured to support concurrency. Although you can change the Hive 
 ## More FAQs
 {: #more-faqs-integration}
 
-- [General FAQs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-general-faqs)
-- [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-faqs-architecture)
-- [FAQs about {{site.data.keyword.iae_full_notm}} operations](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-operations-faqs)
-- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-security-faqs)
+- [General FAQs](/docs/AnalyticsEngine?topic=AnalyticsEngine-general-faqs)
+- [FAQs about the {{site.data.keyword.iae_full_notm}} architecture](/docs/AnalyticsEngine?topic=AnalyticsEngine-faqs-architecture)
+- [FAQs about {{site.data.keyword.iae_full_notm}} operations](/docs/AnalyticsEngine?topic=AnalyticsEngine-operations-faqs)
+- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-faqs)

@@ -24,7 +24,7 @@ subcollection: AnalyticsEngine
 {: faq}
 {: support}
 
-No, {{site.data.keyword.cos_full_notm}} isn't included. It is a separate offering. To learn more about {{site.data.keyword.cos_full_notm}}, see the [product documentation](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-about-ibm-cloud-object-storage) or the [documentation about its functionality](https://www.ibm.com/cloud/object-storage).
+No, {{site.data.keyword.cos_full_notm}} isn't included. It is a separate offering. To learn more about {{site.data.keyword.cos_full_notm}}, see the [product documentation](/docs/cloud-object-storage/iam?topic=cloud-object-storage-about-ibm-cloud-object-storage) or the [documentation about its functionality](https://www.ibm.com/cloud/object-storage).
 
 ## How does {{site.data.keyword.cos_full_notm}} work in the {{site.data.keyword.iae_full_notm}} Hadoop environment?
 {: #cos-in-hadoop}
@@ -91,7 +91,7 @@ Yes, you can run a cluster for as long as is required. However, to prevent data 
 ## More FAQs
 {: #more-faqs-architecture}
 
-- [General FAQs](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-general-faqs)
-- [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-integration-faqs)
-- [FAQs about {{site.data.keyword.iae_full_notm}} operations](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-operations-faqs)
-- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-security-faqs)
+- [General FAQs](/docs/AnalyticsEngine?topic=AnalyticsEngine-general-faqs)
+- [FAQs about {{site.data.keyword.iae_full_notm}} integration](/docs/AnalyticsEngine?topic=AnalyticsEngine-integration-faqs)
+- [FAQs about {{site.data.keyword.iae_full_notm}} operations](/docs/AnalyticsEngine?topic=AnalyticsEngine-operations-faqs)
+- [FAQs about {{site.data.keyword.iae_full_notm}} security](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-faqs)

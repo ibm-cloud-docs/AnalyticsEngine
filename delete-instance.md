@@ -18,7 +18,7 @@ subcollection: AnalyticsEngine
 # Deleting a service instance
 {: #delete-service}
 
-To delete an {{site.data.keyword.iae_full_notm}} service instance, you must have the following [user permissions](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
+To delete an {{site.data.keyword.iae_full_notm}} service instance, you must have the following [user permissions](/docs/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
 
 You can delete a service instance by using one of the following methods:
 
@@ -64,4 +64,4 @@ curl -X DELETE \
 ```
 {: codeblock}
 
-To retrieve the IAM access token, see [Retrieving IAM access token](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
+To retrieve the IAM access token, see [Retrieving IAM access token](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).

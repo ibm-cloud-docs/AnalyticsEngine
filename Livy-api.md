@@ -160,7 +160,7 @@ curl -u clsadmin:mypassword -X POST -H 'X-Requested-By: livy' --data '{"file": "
 
 ### Submit Spark applications from {{site.data.keyword.cos_short}} or on data in object stores
 
-See [Working with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos) for instructions on configuring your cluster to use {{site.data.keyword.cos_short}}. Once configured, you can directly submit Spark applications from {{site.data.keyword.cos_short}}. You can also submit Spark applications on data residing in {{site.data.keyword.cos_short}}.
+See [Working with {{site.data.keyword.cos_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos) for instructions on configuring your cluster to use {{site.data.keyword.cos_short}}. Once configured, you can directly submit Spark applications from {{site.data.keyword.cos_short}}. You can also submit Spark applications on data residing in {{site.data.keyword.cos_short}}.
 
 Using Livy to submit a Spark application that exists in {{site.data.keyword.cos_short}} is basically the same as submitting any Spark application. The only difference is the "file" reference is an {{site.data.keyword.cos_short}} URL:
 ```
@@ -407,4 +407,4 @@ Content-Length: 17
 
 ## Learn more
 
-- For interactive workloads see [Spark Interactive](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-spark-interactive).
+- For interactive workloads see [Spark Interactive](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-interactive).

@@ -51,7 +51,7 @@ HBase cannot work directly with {{site.data.keyword.cos_full_notm}} at this time
 
 - **HBase Snapshot** tool which allows you to take a copy of a table (both contents and metadata) with a very small performance impact. Exporting the snapshot to another cluster does not directly affect any of the region servers; export is just a `distcp` with an extra bit of logic.
 
- HBase snapshots can be stored in {{site.data.keyword.cos_full_notm}} instead of in HDFS. To allow for this, your cluster must be configured with {{site.data.keyword.cos_short}}. See [Working with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).  
+ HBase snapshots can be stored in {{site.data.keyword.cos_full_notm}} instead of in HDFS. To allow for this, your cluster must be configured with {{site.data.keyword.cos_short}}. See [Working with {{site.data.keyword.cos_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).  
 
  - [Exporting a snapshot of an HBase table to {{site.data.keyword.cos_short}}](#exporting-a-snapshot-of-an-hbase-table-to-object-storage)
 

@@ -20,7 +20,7 @@ subcollection: AnalyticsEngine
 
 You can scale up your cluster by adding more compute nodes. More nodes mean better performance, but also increased cost. For efficiency, add all the nodes that you need at once rather than one at a time.
 
-To resize your {{site.data.keyword.iae_full_notm}} cluster, you must have the following [user permissions](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
+To resize your {{site.data.keyword.iae_full_notm}} cluster, you must have the following [user permissions](/docs/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
 
 You can resize the cluster by using one of the following modes:
 * [The Cluster Management user interface](#resize-cluster-by-cluster-management-user-interface)
@@ -42,8 +42,8 @@ To resize a cluster:
 {: #resize-cluster-using-the-rest-api}
 
 To resize cluster using the REST API, you must meet the following prerequisites:
-* You must have Editor access to the service instance. Reach out to your {{site.data.keyword.Bluemix_notm}} account owner, if you do not have sufficient permissions. For more details refer to [Retrieving IAM access tokens](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
-* The API call to resize the cluster requires your IAM bearer token. To obtain the token, follow these [steps](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
+* You must have Editor access to the service instance. Reach out to your {{site.data.keyword.Bluemix_notm}} account owner, if you do not have sufficient permissions. For more details refer to [Retrieving IAM access tokens](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
+* The API call to resize the cluster requires your IAM bearer token. To obtain the token, follow these [steps](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
 
 To resize a cluster, enter the following command. For example, to increase the cluster by one node:  
 ```

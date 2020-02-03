@@ -27,7 +27,7 @@ You can configure the cluster to access data objects in IBM Cloud Object Storage
 
  ![The advanced configuration for HDFS](images/advanced-custom-core-site.png)
 
-3. Enter the desired properties in the Properties field and then click **Add** to save your changes. For information about which properties to add, see [Authentication parameters to Cloud Object Storage](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos#authentication-parameters-to-cloud-object-storage).
+3. Enter the desired properties in the Properties field and then click **Add** to save your changes. For information about which properties to add, see [Authentication parameters to Cloud Object Storage](/docs/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos#authentication-parameters-to-cloud-object-storage).
 
  ![The advanced configuration for HDFS](images/add-properties.png)
 4. Ambari indicates which services need to be restarted. Click **Restart All Required** to restart all services affected by your  changes.
