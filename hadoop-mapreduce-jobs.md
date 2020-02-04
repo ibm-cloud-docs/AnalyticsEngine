@@ -22,7 +22,7 @@ You can process large volumes of data in parallel by running the analysis proces
 ## Prerequisites
 {: #mapreduce-prereqs}
 
-You need the cluster user credentials, the SSH and oozie_rest endpoint details from the service credentials of your service instance.
+You need the cluster user credentials, the SSH details and oozie_rest endpoint details which you can get from the service credentials of your service instance.
 
 ## Analyzing data by opening the SSH connection
 

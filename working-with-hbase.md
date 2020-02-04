@@ -88,7 +88,7 @@ To import an HBase table stored in {{site.data.keyword.cos_full_notm}} to HDFS:
    hbase> create 'testimport', 'cf1'
    hbase> scan 'testimport'
 ```
-2. Import the table you exported to Cloud Object Store:
+2. Import the table you exported to Cloud Object Storage:
 ```
 # hbase org.apache.hadoop.hbase.mapreduce.Import testimport cos://mybucket.myprodservice/testexport
 ```

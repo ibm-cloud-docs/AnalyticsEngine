@@ -96,13 +96,13 @@ The Apache Toree based Scala kernel supports the `%AddDeps` and `%AddJar` line m
 
 Installing the libraries into an interactive session in this manner is temporary as the libraries are available only within the kernel session that executed the installation and are lost once the kernel stops.
 
-`%AddDeps` takes maven coordinates of a library as an argument and can download transitive dependencies from a Maven repository. For example:
+`%AddDeps` takes the Maven coordinates of a library as an argument and can download transitive dependencies from a Maven repository. For example:
 
 ```
 %AddDeps org.joda joda-money 0.11 --transitive --trace --verbose
 ```
 
-`%AddJar%` takes a URL pointing to a library JAR as an argument which gets downloaded and added to the environment. For example:
+`%AddJar%` takes a URL pointing to a library JAR as an argument. The library JAR is downloaded and added to the environment. For example:
 
 ```
 %AddJar https://repo1.maven.org/maven2/org/joda/joda-money/0.11/joda-money-0.11.jar

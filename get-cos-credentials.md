@@ -102,7 +102,7 @@ If you need an API key to use with {{site.data.keyword.cos_short}}, see [Creatin
 
 ## Summary
 
-The following table summarizes the access methods to the {{site.data.keyword.cos_short}} service and the actions supported by the access types.
+The following table shows you which access method to the Object Storage service to select for the action you want to carry out.
 
 | Action | Type: Service ID | Type: API key     |
 |------|------------------|--------------------|
