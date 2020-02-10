@@ -22,7 +22,7 @@ subcollection: AnalyticsEngine
 You can run spark-submit jobs by logging on to the cluster  using the SSH protocol.
 
 
-1. Log on to the cluster management node using [SSH](/docs/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH). For example:
+1. Log on to the cluster management node using [SSH](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH). For example:
 ```
 $ ssh clsadmin@iae-tmp-867-mn003.us-south.ae.appdomain.cloud
 ```
@@ -56,6 +56,6 @@ To run sprk-submit with Anaconda Python 3, enter:
   --master yarn \
   --deploy-mode cluster  \
   /usr/hdp/current/spark2-client/examples/src/main/python/pi.py
-```
+  ```
 
 For more information, see [Submitting applications](http://spark.apache.org/docs/latest/submitting-applications.html){: external}.

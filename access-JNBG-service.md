@@ -31,7 +31,7 @@ The JNBG service on the cluster provides two endpoints for HTTP operations and t
 
  The Websocket resource multiplexes the Jupyter kernel messaging protocol over a single Websocket connection to submit code and communicate with the running kernel.
 
-Refer to the instructions [here](AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints) on retrieving service s for the {{site.data.keyword.iae_full_notm}} cluster. In the JSON service endpoint details, the HTTP endpoint URL of the JNBG service is listed in `notebook_gateway` and the Websocket endpoint in `notebook_gateway_websocket`. Here is a representative sample of a cluster's service endpoint details:
+Refer to the instructions [here](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints) on retrieving service s for the {{site.data.keyword.iae_full_notm}} cluster. In the JSON service endpoint details, the HTTP endpoint URL of the JNBG service is listed in `notebook_gateway` and the Websocket endpoint in `notebook_gateway_websocket`. Here is a representative sample of a cluster's service endpoint details:
 
 ```
 .
@@ -62,7 +62,7 @@ In this sample, notice the following information:
 
 ## Authentication
 
-Access to the JNBG service endpoints is SSL secured and requires `BASIC` authentication. See [Retrieving cluster credentials](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) for the `user` and `password` values to add to the `BASIC` authentication header in your HTTP and Websocket connection calls to the JNBG service.
+Access to the JNBG service endpoints is SSL secured and requires `BASIC` authentication. See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) for the `user` and `password` values to add to the `BASIC` authentication header in your HTTP and Websocket connection calls to the JNBG service.
 
 ## Example configuration: notebook server with `nb2kg` extension
 
@@ -133,7 +133,7 @@ EOT
 cd ~/spark-example
 yum install -y epel-release nodejs npm; npm install
 ```
-2. Create the sample application file. Create a file named spark-interactive-demo.js and copy the following content to the file. See [Retrieving cluster credentials](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) for how to get your {{site.data.keyword.iae_full_notm}} service instance credentials and then adjust the `notebook_gateway` and `notebook_gateway_ws`  host variable values to use your credentials.
+2. Create the sample application file. Create a file named spark-interactive-demo.js and copy the following content to the file. See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) for how to get your {{site.data.keyword.iae_full_notm}} service instance credentials and then adjust the `notebook_gateway` and `notebook_gateway_ws`  host variable values to use your credentials.
 
   For authentication, set the environment variables BASE_GATEWAY_USERNAME and BASE_GATEWAY_PASSWORD to the user name and password values which you retrieved.
 
@@ -179,7 +179,7 @@ jupyter.startNewKernel({
     console.log('Error starting new kernel:', req.xhr.statusText);
     process.exit(1);
 });
-```
+ ```
  where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
  For more information on jupyter-js-services, see [JupyterLab](https://github.com/jupyterlab/jupyterlab){: external}.
@@ -342,7 +342,7 @@ if __name__ == '__main__':
 Update `client.py`:
 
 * Set the `kg_ws_url` variable to the notebook_gateway_websocket value in your cluster service keys.
-* See [Retrieving cluster credentials](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) to get your user credentials.
+* See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) to get your user credentials.
     * Set the `auth_username` variable to the user name value you retrieved.
     * Set the `auth_password` variable to the password value.
 

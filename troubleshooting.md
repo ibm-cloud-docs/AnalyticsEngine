@@ -32,7 +32,7 @@ You can verify this by checking that the 'state' of your application is 'ACCEPTE
 
 To free YARN resources, stop other running notebook kernels or interactive sessions, and any YARN applications.
 
-## Cluster management: No access to cluster management paper
+## Cluster management: No access to cluster management page
 {: #no-access-cluster-management}
 
 When you open the cluster management page, you might see an error message stating that you aren't authorized to access the page.

@@ -219,7 +219,7 @@ oozie.wf.application.path=${nameNode}/user/${user.name}/${examplesRoot}/apps/hiv
 
  ```
 oozie job -oozie http://chs-qwu-777-mn002.eu-gb.ae.appdomain.cloud:11000/oozie -config examples/apps/hive2/job.properties -run
-```
+ ```
 1. Check the results:
  ```
  hadoop fs -cat /user/clsadmin/examples/output-data/hive2/000000_0
@@ -240,9 +240,9 @@ You can run PySpark jobs through Oozie.
 mkdir examples/apps/pyspark
 mkdir examples/apps/pyspark/lib
 cp /usr/hdp/current/spark2-client/examples/src/main/python/pi.py examples/apps/pyspark/lib/
-```
+ ```
 1. Add a `workflow.xml` file with the following content to the `pyspark` directory:
-```
+ ```
 vi examples/apps/pyspark/workflow.xml  
 <workflow-app xmlns='uri:oozie:workflow:0.5' name='SparkPythonPi'>
    <start to='spark-node' />
@@ -265,7 +265,7 @@ vi examples/apps/pyspark/workflow.xml
  </workflow-app>
  ```
 1. Add a `job.properties` file with the following content to the `pyspark` directory:
-```
+ ```
 nameNode=hdfs://chs-qwu-777-mn002.eu-gb.ae.appdomain.cloud:8020
 jobTracker=chs-qwu-777-mn002.eu-gb.ae.appdomain.cloud:8050
 master=yarn-cluster
@@ -275,15 +275,15 @@ oozie.wf.application.path=${nameNode}/user/${user.name}/${examplesRoot}/apps/pys
 	 oozie.libpath=/user/oozie/share/lib/lib_20190708174627/spark/
 #Make sure that you have the correct timestamp from the actual directory on HDFS
 oozie.use.system.libpath=true
-```
+ ```
 1. Copy the `pyspark` directory to HDFS:
-```
+ ```
 hadoop fs -put examples/apps/pyspark/ /user/clsadmin/examples/apps
  ```
 1. Execute the Oozie job:
-```
+ ```
 oozie job -oozie http://chs-qwu-777-mn002.eu-gb.ae.appdomain.cloud:11000/oozie -config examples/apps/pyspark/job.properties -run
-```
+ ```
 1. Check the application logs for the value of Pi:
 
  ```
@@ -317,7 +317,7 @@ The following example shows you how to schedule to run the previous PySpark Pi a
  </coordinator-app>  
  ```
 1. Create a new `job1.properties` file in the same path:
-```
+ ```
 nameNode=hdfs://chs-qwu-777-mn002.eu-gb.ae.appdomain.cloud:8020
 jobTracker=chs-qwu-777-mn002.eu-gb.ae.appdomain.cloud:8050
 master=yarn-cluster
@@ -330,7 +330,7 @@ oozie.use.system.libpath=true
 start=2019-07-11T00:00Z
 end=2019-12-31T01:00Z
 tz=IST
-```
+ ```
 
  Note that the properties above include the location of the coordinator application, the start and end times, and the time zone.
 
@@ -339,10 +339,10 @@ tz=IST
  ```
 hadoop fs -put /home/wce/clsadmin/examples/apps/pyspark/coordinator.xml
 /user/clsadmin/examples/apps/pyspark/
-```
+ ```
 1. Run the Oozie application:
 
  ```
 oozie job -oozie http://chs-qwu-777-mn002.eu-gb.ae.appdomain.cloud:11000/oozie -config examples/apps/pyspark/job1.properties -run
-```
+ ```
 1. Verify that the application runs as expected from the Oozie and Yarn UIs in the Amabri console.

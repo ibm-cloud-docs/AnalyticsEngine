@@ -62,7 +62,7 @@ To enable Parquet encryption in {{site.data.keyword.iae_full_notm}}, set the fol
 1. Navigate to **Ambari > Spark > Config -> Custom spark2-default**.
 1. Add the following two parameters to point explicitly to the location of the jar files. Make sure that you edit the paths to use the actual version of jar files on the cluster.
 
- Alternatively, you can get the jar files applied as part of the cluster creation process. See [Advanced Provisioning](/docs/key-protect?topic=advanced-provisioning-options){: external}.
+ Alternatively, you can get the jar files applied as part of the cluster creation process. See [Advanced Provisioning](/docs/services/key-protect?topic=advanced-provisioning-options){: external}.
 
  ```
  spark.driver.extraClassPath=/home/common/lib/parquet-encryption/ibm-parquet-kms-<latestversion>-jar-with-dependencies.jar:/home/common/lib/parquet-encryption/parquet-format-<latestversion>.jar:/home/common/lib/parquet-encryption/parquet-hadoop-<latestversion>.jar
@@ -83,7 +83,7 @@ To provide master keys:
  ```
 parameter name: "encryption.key.list"
 	parameter value: "<master key ID>:<master key (base64)> , <master key ID>:<master key (base64)>.."
-```
+ ```
 
  For example:
 ```
@@ -100,7 +100,7 @@ To write encrypted data:
  ```
 parameter name:  "encryption.column.keys"
 parameter value: "<master key ID>:<column>,<column>;<master key ID>:<column> .."
-```   
+ ```   
 1. Specify the footer key:
 ```
 parameter name:  "encryption.footer.key"
@@ -127,7 +127,7 @@ To read the encrypted data:
 
  ```
  sc.hadoopConfiguration.set("encryption.key.list" , "k1:iKwfmI5rDf7HwVBcqeNE6w== , k2:LjxH/aXxMduX6IQcwQgOlw== , k3:rnZHCxhUHr79Y6zvQnxSEQ==")
-```
+ ```
 1. Call the regular parquet read commands, such as:
 ```
 val dataFrame = spark.read.parquet("<path to encrypted files>")
@@ -143,11 +143,11 @@ This section shows you how to manage the column encryption keys  by using {{site
 
 To create a KMS instance and master keys:
 
-1. Create an IBM KeyProtect service instance. See [Provisioning the service](https://cloud.ibm.com/docs/key-protect?topic=key-protect-provision){: external}.
-1. Create customer root keys inside this instance. The customer root keys serve as master keys for column encryption. See [Creating root keys](/docs/key-protect?topic=key-protect-create-root-keys){: external}.
+1. Create an IBM KeyProtect service instance. See [Provisioning the service](https://cloud.ibm.com/docs/services/key-protect?topic=key-protect-provision){: external}.
+1. Create customer root keys inside this instance. The customer root keys serve as master keys for column encryption. See [Creating root keys](/docs/services/key-protect?topic=key-protect-create-root-keys){: external}.
 
- If you want to use existing root keys, you can import those. See [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys){: external}.
-1. Configure user access rights to the master keys by using the IBM IAM service. See [Granting access to master keys](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level){: external}.
+ If you want to use existing root keys, you can import those. See [Importing root keys](/docs/services/key-protect?topic=key-protect-import-root-keys){: external}.
+1. Configure user access rights to the master keys by using the IBM IAM service. See [Granting access to master keys](/docs/services/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level){: external}.
 1. Pass the following parameters to IBM Analytics Engine:
 
    - 	`"encryption.kms.instance.id"`: The ID of your KeyProtect instance, for example,

@@ -50,7 +50,7 @@ For details on the API syntax, see [IAM identity token API](https://cloud.ibm.co
 "expires_in": 3600,
 "expiration": 1505865282
 }
-```
+  ```
 4. Use the value of the `access_token` property for your {{site.data.keyword.iae_full_notm}} API calls. Set the `access_token`  value as the authorization header parameter for requests to the {{site.data.keyword.iae_full_notm}} APIs. The format is `Authorization: Bearer <access_token_value>`. For example:
 ```
 Authorization: Bearer eyJraWQiOiIyMDE3MDgwOS0wMDowMDowMCIsImFsZyI6IlJTMjU2In0...

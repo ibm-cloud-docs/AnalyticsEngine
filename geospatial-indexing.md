@@ -18,10 +18,7 @@ subcollection: AnalyticsEngine
 # Geospatial indexing functions
 {: #spatial-indexing-functions}
 
-With the spatio-temporal library, you can use functions to enable fast queries on data during location analysis, for example to:
-- To index points within a region
-- On a region containing points
-- On points within a radius 
+With the spatio-temporal library, you can use functions to index points within a region, on a region containing points, and points within a radius to enable fast queries on this data during location analysis.
 
 Perform the following steps to create and use a spatial index. The example shows how to leverage a spatial index to find US counties for given queries on certain locations.
 
@@ -78,7 +75,7 @@ county_df.head(3)
 Westchester 0.0
 Fairfield 7320.602641166855
 Rockland 10132.182241119823
-```
+ ```
  - Which are the counties within 20 km of White Plains Hospital? The result is sorted by their distances.
 ```
 >>> counties = si.within_distance_with_info(white_plains_hospital, 20000)

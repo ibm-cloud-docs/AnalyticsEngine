@@ -18,7 +18,7 @@ subcollection: AnalyticsEngine
 # Spark kernels and libraries on the cluster
 {: #installed-libs}
 
-The {{site.data.keyword.iae_full_notm}} cluster comes with a set of libraries, which are pre-installed on each of the cluster nodes that are available by default on the kernels. The table below lists the locations of these libraries:
+The {{site.data.keyword.iae_full_notm}} comes with a set of libraries. These libraries are pre-installed on each of the cluster nodes and are available by default on the kernels. The table below lists the locations of these libraries:
 
 |AE version| Environment | Kernel | Libraries |                 
 |-------------|--------|-----------|------------|

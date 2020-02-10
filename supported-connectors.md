@@ -42,7 +42,7 @@ credentials_1 = {
 }
 transportation = sqlContext.read.jdbc(credentials_1["jdbcurl"],"YOUR_DATABASE_TABLE",properties = {"user" : credentials_1["username"], "password" : credentials_1["password"],"driver" : "com.ibm.db2.jcc.DB2Driver"})
 transportation.show()
-```
+ ```
 {: codeblock}
 
 ### Sample Python code to access {{site.data.keyword.dashdbshort_notm}}  using ODBC
@@ -54,7 +54,7 @@ from ibmdbpy import IdaDataBase, IdaDataFrame
 idadb_1 = IdaDataBase(dsn='DASHDB;Database=YOUR_DB_NAME;Hostname=YOUR_DATABASE_HOSTNAME;Port=YOUR_DATABASE_PORT;PROTOCOL=TCPIP;UID= YOUR_DATABASE_USERNAME;PWD= YOUR_DATABASE_PASSWORD')
 ida_df_1 = IdaDataFrame(idadb_1, YOUR_DATABASE_TABLE_NAME',indexer="YOUR_TABLE_COLUMN")
 ida_df_1.head()
-```
+ ```
 {: codeblock}
 
 ### Sample Python code to access {{site.data.keyword.dashdbshort_notm}} using the IDAX connector
@@ -70,7 +70,7 @@ Use the following code sample to access {{site.data.keyword.dashdbshort_notm}} u
   inputData = spark.read.format("com.ibm.idax.spark.idaxsource").options(dbtable="YOUR_TABLE").options(**credentials_1).load()
 
   print(inputData.show())
-```
+ ```
 {: codeblock}
 
 

@@ -51,7 +51,7 @@ HBase cannot work directly with {{site.data.keyword.cos_full_notm}} at this time
 
 - **HBase Snapshot** tool which allows you to take a copy of a table (both contents and metadata) with a very small performance impact. Exporting the snapshot to another cluster does not directly affect any of the region servers; export is just a `distcp` with an extra bit of logic.
 
- HBase snapshots can be stored in {{site.data.keyword.cos_full_notm}} instead of in HDFS. To allow for this, your cluster must be configured with {{site.data.keyword.cos_short}}. See [Working with {{site.data.keyword.cos_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).  
+ HBase snapshots can be stored in {{site.data.keyword.cos_full_notm}} instead of in HDFS. To allow for this, your cluster must be configured with {{site.data.keyword.cos_short}}. See [Working with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).  
 
  - [Exporting a snapshot of an HBase table to {{site.data.keyword.cos_short}}](#exporting-a-snapshot-of-an-hbase-table-to-object-storage)
 
@@ -88,7 +88,7 @@ To import an HBase table stored in {{site.data.keyword.cos_full_notm}} to HDFS:
    hbase> create 'testimport', 'cf1'
    hbase> scan 'testimport'
 ```
-2. Import the table you exported to Cloud Object Storage:
+2. Import the table you exported to Cloud Object Store:
 ```
 # hbase org.apache.hadoop.hbase.mapreduce.Import testimport cos://mybucket.myprodservice/testexport
 ```
@@ -157,7 +157,7 @@ To load data via `psql.py`:
 1.	Issue the SSH command to access the cluster.
 2.	Navigate to `/usr/hdp/current/phoenix-client/bin`.
 3.	Run `psql.py`:
-```
+  ```
 	./psql.py /local_path_to_folder/createTable.sql /local_path_to_folder/data.csv
   ```
 
@@ -165,25 +165,25 @@ To load data via `psql.py`:
 Phoenix provides Hadoop libraries for the MapReduce-based bulk loading tool for CSV and JSON formatted data on HDFS.
 
 The following example shows loading a table using a DDL statement:
-```
+ ```
 CREATE TABLE example (
     id bigint not null,
     m.fname varchar(50),
     m.lname varchar(50)
     CONSTRAINT pk PRIMARY KEY (id))
 
-```
+ ```
 To launch the MapReduce loader, use the following Hadoop command with the Phoenix client jar:
  - For CSV data, use:  
  ```
   	HADOOP_CLASSPATH=/usr/hdp/current/hbase-master/lib/hbase-protocol.jar:/usr/hdp/current/hbase-master/conf hadoop jar /usr/hdp/current/phoenix-client/phoenix-<VERSION>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /user/clsadmin/data.csv
-    ```
+ ```
 
  - For JSON data, use:
 
  ```
  	HADOOP_CLASSPATH=/usr/hdp/current/hbase-master/lib/hbase-protocol.jar:/usr/hdp/current/hbase-master/conf hadoop jar /usr/hdp/current/phoenix-client/phoenix-<VERSION>-client.jar org.apache.phoenix.mapreduce.JsonBulkLoadTool --table EXAMPLE --input /user/clsadmin/data.json
-  ```
+ ```
 
   **Note:** The JSON data file must be of Hadoop JSON input format which has one JSON record per line. The following example shows the Hadoop JSON input format:
   ```
@@ -200,28 +200,28 @@ The following examples show useful SQL statements for the Phoenix Query Server:
 
  ```
  CREATE TABLE my_schema.my_table (id BIGINT not null primary key, date);
-```
+ ```
 
 
  - Example of the UPSERT statement. Note that this statement inserts a value if it does not exist, or updates the value in the table if it  already exists.
 
  ```
  UPSERT INTO TEST VALUES('foo','bar',3);
-```
+ ```
 
 
 - Example of the SELECT statement:
 
   ```
   SELECT * FROM TEST LIMIT 1000;
-```
+  ```
 
 
 - Example of the DELETE statement:
 
   ```
   DELETE FROM TEST WHERE ID=123;
-```
+  ```
 
 - Examples of the DROP TABLE statement:
 
@@ -229,7 +229,7 @@ The following examples show useful SQL statements for the Phoenix Query Server:
  DROP TABLE my_schema.my_table;
 
  DROP TABLE my_schema.my_table CASCADE;
-```
+  ```
 
 For the complete list of supported SQL statements, see [Apache Phoenix](https://phoenix.apache.org){: external}.
 
@@ -239,7 +239,7 @@ You can also access Apache Phoenix securely via the Knox Gateway. The cluster us
 
 The following code snippet for a JDBC client program shows you how to connect to Apache Phoenix through the Knox Gateway. The example uses the {{site.data.keyword.Bluemix_short}} hosting location `us-south`. Other locations include `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan):
 
-```
+ ```
 String phoenix_jdbc_url = “jdbc:phoenix:thin:url=https://chs-XXXXX-mn001.us-south.ae.appdomain.cloud:8443/gateway/default/avatica;authentication=BASIC;serialization=PROTOBUF”;
 Connection conn;
 Class.forName("org.apache.phoenix.jdbc.PhoenixDriver");
@@ -247,7 +247,7 @@ Properties props = new Properties();
 props.setProperty("avatica_user", "clsadmin");
 props.setProperty("avatica_password", "XXXXX");
 DriverManager.getConnection(phoenix_jdbc_url, props);
-```
+ ```
 
 **Restrictions:**
 - The Apache Phoenix 4.7 client libraries that are  shipped with HDP 2.6.2 do not support the HTTPS protocol. This is a known [Knox issue](https://issues.apache.org/jira/browse/KNOX-893){: external} and a workaround is to use the Phoenix 4.9 client libraries instead.
