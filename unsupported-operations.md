@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-08"
+lastupdated: "2020-02-13"
 
 subcollection: AnalyticsEngine
 
@@ -70,3 +70,9 @@ To override this behavior:
 Refer to the following links to understand the reasoning and repercussions for the change:
 - [Hive Warehouse Connector for accessing Apache Spark data](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.4/integrating-hive/content/hive_hivewarehouseconnector_for_handling_apache_spark_data.html){: external}
 - [Using the Hive Warehouse Connector with Spark](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.4/developing-spark-applications/content/using_spark_hive_warehouse_connector.html){: external}
+
+## AE 1.2 clusters: PostgreSQL bootstrap customization and advanced options not supported
+
+The only way to configure a cluster to work with PostgreSQL is either through the UI or by using adhoc customization. See [Using an adhoc PostgreSQL customization script](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#configuring-a-cluster-to-work-with-postgresql).
+
+Configuring the cluster at the time the cluster is created by using bootstrap customization is not supported because it requires the PostgreSQL certificate to be present on the `mn002` node before the Hive service is started. However the bootstrap script is only executed after the cluster was created. The same applies to using advanced provision options described [here](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options). There is no way to download the certificate prior to cluster creation.

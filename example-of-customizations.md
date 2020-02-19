@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-16"
+  years: 2017, 2020
+lastupdated: "2020-02-13"
 
 subcollection: AnalyticsEngine
 
@@ -246,7 +246,7 @@ The script expects the user ID, password, database name, and database connection
 ```
 "script": {
      "source_type": "http",
-"script_path": " https://github.com/IBM-Cloud/IBM-Analytics-Engine/blob/master/customization-examples/associate-external-metastore-postgresql.sh "
+"script_path": "https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-external-metastore-postgresql.sh"
  },
  "script_params": ["<DB_USER_NAME>"," <DB_PWD>" , "<DB_NAME>" , "<DB_CXN_URL>", "<CLSADMIN_PWD>",”<COS_ENDPOINT>”,"<POSTGRES_CERT_LOC_ON_COS>","<COS_ACCESS_KEY_ID>","<COS_SECRET_KEY_ID>"]
 ```
