@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-16"
+  years: 2017, 2020
+lastupdated: "2020-14-01"
 
 subcollection: AnalyticsEngine
 
@@ -22,6 +22,11 @@ subcollection: AnalyticsEngine
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 14 January 2020
+
+- You can now work with the geospatio-temporal library to expand your data science analysis in Python notebooks to include location analytics by gathering, manipulating and displaying imagery, GPS, satellite photography and historical data. The documentation includes  sample code snippets of many useful functions and links to sample notebooks in the IBM Watson Studio Gallery. See [Working with the spatio-temporal library](/docs/AnalyticsEngine?topic=AnalyticsEngine-geospatial-geotemporal-lib).
+- Updates were made to best practices around choosing the right Databases for PostgreSQL configuration, configuring the cluster for log monitoring and troubleshooting and using private endpoints. See [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
 
 ### 16 December 2019
 
