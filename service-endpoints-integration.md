@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-25"
+  years: 2017, 2020
+lastupdated: "2020-02-25"
 
 subcollection: AnalyticsEngine
 
@@ -19,7 +19,7 @@ subcollection: AnalyticsEngine
 # Cloud service endpoints integration
 {: #service-endpoint-integration}
 
-{{site.data.keyword.Bluemix_notm}} provides connectivity options for accessing cloud services in a secure manner using service endpoints. See [{{site.data.keyword.Bluemix_notm}} service endpoints](/docs/service-endpoint?topic=service-endpoint-about#about).  
+{{site.data.keyword.Bluemix_notm}} provides connectivity options for accessing cloud services in a secure manner using service endpoints. See [{{site.data.keyword.Bluemix_notm}} service endpoints](/docs/resources?topic=resources-private-network-endpoints).  
 
 When you provision an {{site.data.keyword.iae_full_notm}} instance, you can choose if you want to access your {{site.data.keyword.iae_full_notm}} service through the public internet, which is the default setting, or over the {{site.data.keyword.Bluemix_notm}} private network.
 

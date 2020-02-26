@@ -95,6 +95,7 @@ Analytics Engine
         installing-additional-libraries.md
         Monitor-Applications.md
         spark-history.md
+        enable-spark-encryption.md
 
     {: .topicgroup}
     Working with Spark batch

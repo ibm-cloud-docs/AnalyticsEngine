@@ -45,6 +45,14 @@ All scratch data in the cluster's local file system, either on the management or
 
 All service endpoints to the cluster are SSL encrypted (TLS enabled). Access control and authentication to each of the REST endpoints is enabled through the Apache Knox secure gateway. In addition, when you use {{site.data.keyword.iae_full_notm}} with IBM Cloud Object Storage, the link between the Object Storage service instance and {{site.data.keyword.iae_full_notm}} is encrypted.
 
+## Encrypting data in transit
+
+You can enable encryption for data in transit for Spark jobs by explicitly configuring the cluster using a combination of Advanced Options and customization. See [Enabling Spark jobs encryption](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-encryption) for how to configure the cluster to encrypt data-in-transit or inter node communication when executing Spark jobs.
+
+## Using private endpoints to the cluster
+
+When you provision a cluster, you can choose to have it enabled for private endpoints by using the {{site.data.keyword.Bluemix_short}} service endpoints integration feature. This feature allows you to securely access your {{site.data.keyword.iae_full_notm}} instances over the {{site.data.keyword.Bluemix_short}} private network. See [Cloud service endpoints integration](/docs/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
+
 ## Permitting only single user access to clusters
 
 Each {{site.data.keyword.iae_full_notm}} cluster is single user which means that each cluster has only one user ID through which all jobs must be executed. If you want to share cluster access with other users, you can only do this by sharing the cluster’s user ID and password. As an admin or creator of the {{site.data.keyword.iae_full_notm}} service instance, you can set [access permissions](/docs/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions) for other users with whom you want to share the service instance. This way, for example, one or more users can execute their notebooks on the same shared {{site.data.keyword.iae_full_notm}} service instance. In IBM Watson Studio, you can share an {{site.data.keyword.iae_full_notm}} cluster with other users by adding those users as collaborators to your Watson Studio project.
