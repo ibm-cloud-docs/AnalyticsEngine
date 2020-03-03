@@ -24,7 +24,7 @@ subcollection: AnalyticsEngine
 {: faq}
 {: support}
 
-No, {{site.data.keyword.cos_full_notm}} isn't included. It is a separate offering. To learn more about {{site.data.keyword.cos_full_notm}}, see the [product documentation](/docs/cloud-object-storage/iam?topic=cloud-object-storage-about-ibm-cloud-object-storage) or the [documentation about its functionality](https://www.ibm.com/cloud/object-storage).
+No, {{site.data.keyword.cos_full_notm}} isn't included. It is a separate offering. To learn more about {{site.data.keyword.cos_full_notm}}, see the [product documentation](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage) or the [documentation about its functionality](https://www.ibm.com/cloud/object-storage).
 
 ## How does {{site.data.keyword.cos_full_notm}} work in the {{site.data.keyword.iae_full_notm}} Hadoop environment?
 {: #cos-in-hadoop}
@@ -59,7 +59,7 @@ Each of these environments should use a separate cluster. If
 you have multiple developers on your team, consider a separate
 cluster for each developer unless they can share the same cluster credentials. For a development environment, generally, a cluster with  1 master and 2 compute nodes should suffice. For a staging environment where functionality is tested, a cluster with 1 master and 3 compute nodes is recommended. This gives you additional resources to test on a slightly bigger scale before deploying to production. For a disaster recovery environment with more than one cluster, you will need third party remote data replication capabilities.
 
-Because data is persisted in {{site.data.keyword.cos_full_notm}} in {{site.data.keyword.iae_full_notm}}, you do need to have more than one cluster running all the time. If the production cluster goes down, then a new cluster can be spun up using the DevOps tool chain and can be designated as the production cluster. You should use the customization scripts to configure the new cluster exactly like the previous production cluster.
+Because data is persisted in {{site.data.keyword.cos_full_notm}} in {{site.data.keyword.iae_full_notm}}, you do not need to have more than one cluster running all the time. If the production cluster goes down, then a new cluster can be spun up using the DevOps tool chain and can be designated as the production cluster. You should use the customization scripts to configure the new cluster exactly like the previous production cluster.
 
 ## How is user management done in {{site.data.keyword.iae_full_notm}}?
 {: #user-management}

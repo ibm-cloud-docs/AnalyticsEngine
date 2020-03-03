@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-07-22"
+  years: 2017, 2020
+lastupdated: "2020-03-03"
 
 subcollection: AnalyticsEngine
 
@@ -18,7 +18,7 @@ subcollection: AnalyticsEngine
 # Working with {{site.data.keyword.cos_short}}
 {: #config-cluster-cos}
 
-{{site.data.keyword.cos_full_notm}} is a highly scalable cloud storage service, designed for high durability, resiliency and security. See [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-about#about).
+{{site.data.keyword.cos_full_notm}} is a highly scalable cloud storage service, designed for high durability, resiliency and security. See [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage).
 
 This topic explains how to configure an {{site.data.keyword.iae_full_notm}} cluster to connect to data and applications stored in {{site.data.keyword.cos_short}}.
 
