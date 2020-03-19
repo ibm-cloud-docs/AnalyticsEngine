@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-05-09"
+  years: 2017, 2020
+lastupdated: "2020-03-10"
 
 ---
 
@@ -63,7 +63,6 @@ The following examples show JSON payloads for `advanced_options` with custom Amb
 - [Sample I. Associate Cloud Object Storage during cluster creation using HMAC style authentication using access key and secret key](#sample-i-associate-cloud-object-storage-during-cluster-creation-using-hmac-style-authentication-using-access-key-and-secret-key)
 - [Sample II. Associate Cloud Object Storage during cluster creation using IAM Style authentication](#sample-ii-associate-cloud-object-storage-during-cluster-creation-using-iam-style-authentication)
 - [Sample III. Enable dynamic resource allocation for Spark during cluster creation](#sample-iii-enable-dynamic-resource-allocation-for-spark-during-cluster-creation)
-- [Sample IV. Externalize the Hive metastore to IBM Compose for MySQL during cluster creation](#sample-iv-externalize-the-hive-metastore-to-ibm-compose-for-mysql-during-cluster-creation)
 
 ## Sample I. Associate Cloud Object Storage during cluster creation using HMAC style authentication using access key and secret key
 
@@ -150,34 +149,6 @@ Spark provides a mechanism to dynamically adjust the resources your application 
 }
 ```
 The values for `<x>`  and `<y>` can be specified based on the hardware configuration of the compute node and job requirements.
-
-## Sample IV. Externalize the Hive metastore to IBM Compose for MySQL during cluster creation
-
-To create a cluster with an external Hive metastore, you must provide the following properties in the `hive-site` config-group:
-- `javax.jdo.option.ConnectionURL`
-- `javax.jdo.option.ConnectionUserName`
-- `javax.jdo.option.ConnectionPassword`
-- `ambari.hive.db.schema.name`
-
- For details on JDBC connection format for  {{site.data.keyword.composeForMySQL}}, see [Externalizing the Hive metastore to IBM Compose for MySQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#externalizing-the-hive-metastore-to-ibm-compose-for-mysql).
-
-```
-{
-	"num_compute_nodes": 1,
-	"hardware_config": "default",
-	"software_package": " ae-1.2-hadoop-spark ",
-	"advanced_options": {
-		"ambari_config": {
-			"hive-site": {
-				"javax.jdo.option.ConnectionURL": "<jdbcUrl>",
-				"javax.jdo.option.ConnectionUserName": "<mysqlUname>",
-				"javax.jdo.option.ConnectionPassword": "<mysqlPassword>",
-				"ambari.hive.db.schema.name": "hiveDBName"
-			}
-		}
-	}
-}
-```
 
 ## Creating a cluster with custom Ambari configurations using the IBM  Cloud console
 {: #ambari-configuration-in-provisioning-ui}

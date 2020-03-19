@@ -97,7 +97,7 @@ ssh clsadmin@chs-tnu-499-dn001
 - You can SSH to the compute nodes only from within other nodes of the cluster.
 - Outbound traffic is open from all nodes.
 
-![Shows the {{site.data.keyword.iae_full_notm}} cluster architecture.](images/AnalyticsEngineCluster.png)
+![Shows the {{site.data.keyword.iae_full_notm}} cluster architecture.](images/AnalyticsEngineCluster.svg)
 
 ## Software packages
 

@@ -14,19 +14,11 @@ Analytics Engine
     index.md
     best-practices.md
 
-    {: .topicgroup}
-    Security
-        security-model.md
-        user-responsibilities.md
-        hipaa-readiness.md
-    {: .navgroup-end}
-
     {: .navgroup id="reference"}
     [IBM Analytics Engine CLI](https://ibm.co/2wid9ec)
     [IBM Analytics Engine API reference](https://cloud.ibm.com/apidocs/ibm-analytics-engine)
     iae-git-repos.md
     solution-tuts.md
-    at-tracker.md
 
     {: .topicgroup}
     Helpful links
@@ -135,6 +127,13 @@ Analytics Engine
     Supported connectors on clusters
         supported-connectors.md
         database-connectors.md
+
+    {: .topicgroup}
+    Enhancing security for Analytics Engine
+        security-model.md
+        user-responsibilities.md
+        hipaa-readiness.md
+        at-tracker.md    
 
     {: .topicgroup}
     Miscellaneous

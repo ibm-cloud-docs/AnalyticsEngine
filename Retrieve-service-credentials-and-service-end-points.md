@@ -25,7 +25,7 @@ You can fetch the service endpoints by:
 * [Using the {{site.data.keyword.Bluemix_notm}} REST API](#obtaining-the-service-endpoints-using-the-ibm-cloud-rest-api)
 * [From the {{site.data.keyword.Bluemix_notm}} console](#obtaining-the-service-endpoints-from-the-ibm-cloud-console)
 
-The service endpoints do not expose the cluster credentials. To get the cluster credentials, see [Retrieving cluster credentials](/docs/servicµes/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials).
+The service endpoints do not expose the cluster credentials. To get the cluster credentials, see [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials).
 
 ## Obtaining the service endpoints using the {{site.data.keyword.Bluemix_notm}} CLI
 

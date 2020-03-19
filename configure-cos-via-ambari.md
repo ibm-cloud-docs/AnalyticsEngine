@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-07-16"
+  years: 2017, 2020
+lastupdated: "2020-03-09"
 
 subcollection: AnalyticsEngine
 
@@ -18,7 +18,7 @@ subcollection: AnalyticsEngine
 # Configure a Cloud Object Storage connection through Ambari
 {: #config-cos-ambari}
 
-You can configure the cluster to access data objects in IBM Cloud Object Storage by using the Amabri UI. In Ambari, you can add  properties and values to the core-site.xml file on your cluster instance.
+You can configure the cluster to access data objects in IBM Cloud Object Storage by using the Ambari UI. In Ambari, you can add  properties and values to the core-site.xml file on your cluster instance.
 
 1. Open the Ambari console, and then, on the dashboard, click **HDFS** > **Configs** > **Advanced** to see the advanced configuration options for  HDFS.<br>
 
@@ -27,7 +27,7 @@ You can configure the cluster to access data objects in IBM Cloud Object Storage
 
  ![The advanced configuration for HDFS](images/advanced-custom-core-site.png)
 
-3. Enter the desired properties in the Properties field and then click **Add** to save your changes. For information about which properties to add, see [Authentication parameters to Cloud Object Storage](/docs/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos#authentication-parameters-to-cloud-object-storage).
+3. Enter the desired properties in the Properties field and then click **Add** to save your changes. For information about which properties to add, see [Authentication parameters to Cloud Object Storage](/docs/AnalyticsEngine?topic=AnalyticsEngine-cos-credentials-in-iae).
 
  ![The advanced configuration for HDFS](images/add-properties.png)
 4. Ambari indicates which services need to be restarted. Click **Restart All Required** to restart all services affected by your  changes.

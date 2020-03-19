@@ -34,7 +34,7 @@ The following diagram illustrates access management to {{site.data.keyword.cos_s
 
 As the {{site.data.keyword.cos_short}} administrator, you can:
 
-- [Create service IDs](#creating-a-service-id)
+- [Create service IDs](#creating-service-ids)
 - [Invite users and grant permissions](#inviting-users-and-granting-permissions)
 
 ## Creating service IDs

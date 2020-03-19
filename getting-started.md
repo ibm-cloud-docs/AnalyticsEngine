@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-01-17"
+  years: 2017, 2020
+lastupdated: "2020-03-11"
 
 subcollection: AnalyticsEngine
 
@@ -17,7 +17,7 @@ subcollection: AnalyticsEngine
 # Getting started tutorial
 {: #getting-started}
 
-{{site.data.keyword.iae_full_notm}} provides a flexible framework to develop and deploy analytics applications in Apache Hadoop and Apache Spark. It allows you to create and manage clusters using the {{site.data.keyword.Bluemix_short}} interface or using the Cloud Foundry CLI and REST APIs.
+{{site.data.keyword.iae_full_notm}} provides a flexible framework to develop and deploy analytics applications in Apache Hadoop and Apache Spark. It allows you to create and manage clusters using the {{site.data.keyword.Bluemix_short}} interface, the {{site.data.keyword.Bluemix_short}} CLI and REST APIs.
 
 ## Before you begin
 

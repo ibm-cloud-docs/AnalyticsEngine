@@ -45,19 +45,19 @@ subcollection: AnalyticsEngine
 {: #distribution}
 {: faq}
 
-{{site.data.keyword.iae_full_notm}} is based on open source Hortonworks Data Platform (HDP). To find the currently supported version see the  [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
+{{site.data.keyword.iae_full_notm}} is based on open source Hortonworks Data Platform (HDP). To find the currently supported version see the  [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview).
 
 ## Which HDP components are supported in {{site.data.keyword.iae_full_notm}}?
 {: #supported-hdp-components}
 {: faq}
 
-To see the full list of supported components and versions, see the [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
+To see the full list of supported components and versions, see the [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview).
 
 ## What node sizes are available in {{site.data.keyword.iae_full_notm}}?
 {: #node-sizes}
 {: faq}
 
-To see the currently supported node sizes, see the [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview#introduction).
+To see the currently supported node sizes, see the [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview).
 
 ## Why is there so little HDFS space on the clusters?
 {: #hdfs-space}

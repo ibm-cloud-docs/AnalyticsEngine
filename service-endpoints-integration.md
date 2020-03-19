@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-09"
 
 subcollection: AnalyticsEngine
 
@@ -33,7 +33,7 @@ Private network endpoints provide connections to your {{site.data.keyword.iae_fu
 
 ## Using {{site.data.keyword.Bluemix_notm}} service endpoints
 
-If you want to enable private network endpoints on your clusters, you need to [enable your account for using {{site.data.keyword.Bluemix_notm}} service endpoints using the {{site.data.keyword.Bluemix_notm}} CLI](/docs/service-endpoint?topic=service-endpoint-getting-started#cs_cli_install_steps), and then provision a {{site.data.keyword.iae_full_notm}} service instance with private endpoints.
+If you want to enable private network endpoints on your clusters, you need to [enable your account for using {{site.data.keyword.Bluemix_notm}} service endpoints using the {{site.data.keyword.Bluemix_notm}} CLI](/docs/account?topic=account-vrf-service-endpoint#service-endpoint-cli), and then provision a {{site.data.keyword.iae_full_notm}} service instance with private endpoints.
 
 ## Provisioning with service endpoints
 

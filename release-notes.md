@@ -25,7 +25,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ### 12 February 2020
 
-- You can enable encryption for data in transit for Spark jobs by explicitly configuring the cluster using a combination of Advanced Options and customization.  See [Enabling Spark jobs encryption](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-encryption). 
+- You can enable encryption for data in transit for Spark jobs by explicitly configuring the cluster using a combination of Advanced Options and customization.  See [Enabling Spark jobs encryption](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-encryption).
 
 <!-- You can now use data skipping libraries to boost the performance of Spark SQL queries by associating a summary metadata with each data object. This metadata is used during query evaluation to skip over objects which have no relevant data. See [Data skipping for Spark SQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-data-skipping).-->
 
@@ -175,7 +175,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 - The Stocator library was updated to 1.0.24.
 - Broken Spark History links were fixed.
 - Changes were made at the backend networking level for optimized performance of Cloud Object Storage workloads.
-- Documented more examples for using HBase and Parquet-Hive. See [Working with HBase](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hbase#moving-data-between-the-cluster-and-cloud-object-storage) and [Working with Hive](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#parquet).
+- Documented more examples for using HBase and Parquet-Hive. See [Working with HBase](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hbase#moving-data-between-the-cluster-and-object-storage) and [Working with Hive](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#parquet).
 - Added the {{site.data.keyword.iae_full_notm}} security model. See [Security model](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-model).
 - Documented best practices for creating and maintaining a stateless cluster. See [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
 
@@ -227,7 +227,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 * The {{site.data.keyword.iae_full_notm}} service is in beta program
 * {{site.data.keyword.iae_full_notm}} is now based on Hortonworks Data Platform (HDP 2.6)
 * You can seamlessly integrate {{site.data.keyword.iae_full_notm}} from {{site.data.keyword.DSX_short}}.
-* You can use external MySQL to store Hive metadata. For details see [Externalizing the Hive Metastore to Compose for MySQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#externalizing-the-hive-metastore-to-ibm-compose-for-mysql).
+* You can use external MySQL to store Hive metadata. <!--For details see [Externalizing the Hive Metastore to Compose for MySQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#externalizing-the-hive-metastore-to-ibm-compose-for-mysql).-->
 * Spark lazy initialization for Scala is supported, in addition to existing support for R and Python. For details see [Lazy Spark initialization](/docs/AnalyticsEngine?topic=AnalyticsEngine-lazy-spark-ini).
 * You can use IAM for both authentication and authorization of Cluster Manager UI
 

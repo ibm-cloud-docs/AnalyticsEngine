@@ -1,89 +1,62 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-08-02"
+  years: 2017, 2020
+lastupdated: "2020-03-10"
+
+keywords: activity tracker for {{site.data.keyword.iae_full_notm}}, LogDNA for {{site.data.keyword.iae_full_notm}}, {{site.data.keyword.iae_full_notm}} events, {{site.data.keyword.iae_full_notm}} security, audit logs for {{site.data.keyword.iae_full_notm}}, viewing {{site.data.keyword.iae_full_notm}} events, {{site.data.keyword.iae_full_notm}} events
 
 subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
 
-# Activity Tracker events
-{: #at-tracker}
+# Auditing events for {{site.data.keyword.iae_full_notm}}
+{: #at_events}
 
-Use the {{site.data.keyword.Bluemix_short}} service to track how users and applications interact with {{site.data.keyword.iae_full_notm}}.
+As a security officer, auditor, or manager, you can use the **Activity Tracker** service to track how users and applications interact with {{site.data.keyword.iae_full_notm}} in {{site.data.keyword.cloud}}.
 
-The {{site.data.keyword.Bluemix_short}} Activity Tracker service records user-initiated activities that change the state of a service in {{site.data.keyword.Bluemix_short}}.
+{{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the documentation about the [Activity Tracker with LogDNA](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started){: new_window}.
 
-For more information, see the [Activity Tracker documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cloud-activity-tracker?topic=cloud-activity-tracker-activity_tracker_ov#activity_tracker_ov){: new_window}.
 
 The following table lists the actions that generate an event:
 
-## List of events
-{: #events}
+## List of management events
+{: #at_actions}
 
-<table>
-    <tr>
-        <th>Action</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>ibmanalyticsengine.cluster-details.read</td>
-        <td>Retrieve the details of the Analytics Engine cluster</td>
-    </tr>
-    <tr>
-        <td>ibmanalyticsengine.cluster-state.read</td>
-        <td>Retrieve the state of the Analytics Engine cluster</td>
-    </tr>
-   <tr>
-        <td>ibmanalyticsengine.cluster-customization-details.read</td>
-        <td>Retrieve the details of the customizations done on the Analytics Engine cluster</td>
-    </tr>
-    <tr>
-        <td>ibmanalyticsengine.cluster-customizations-history.read</td>
-        <td>Retrieve the history of customization actions done on the Analytics Engine cluster</td>
-    </tr>
-    <tr>
-        <td>ibmanalyticsengine.cluster-customization.create</td>
-        <td>Create a customization on the Analytics Engine cluster</td>
-    </tr>
-     <tr>
-        <td>ibmanalyticsengine.cluster.resize</td>
-        <td>Add more nodes to the Analytics Engine cluster</td>
-    </tr>
-     <tr>
-        <td>ibmanalyticsengine.cluster-password.reset</td>
-        <td>Reset the Analytics Engine cluster credentials</td>
-    </tr>
-     <tr>
-       <td>ibmanalyticsengine.cluster-log-config.create</td>
-       <td>Create a log aggregation configuration</td>
-    </tr>
-     <tr>
-      <td>ibmanalyticsengine.cluster-log-config.read</td>
-      <td>Retrieve the log aggregation configuration details</td>
-    </tr>
-     <tr>
-       <td>ibmanalyticsengine.cluster-log-config.delete</td>
-       <td>Delete a log aggregation configuration</td>
-    </tr>
-    <caption style="caption-side:bottom;">Table 1. Actions that generate {{site.data.keyword.iae_full_notm}} events</caption>
-</table>
+| Action                                                    | Description      | 
+|-----------------------------------------------------------|------------------|
+| `ibmanalyticsengine.cluster-details.read`                 | Retrieve the details of the Analytics Engine cluster | 
+| `ibmanalyticsengine.cluster-state.read`                   | Retrieve the state of the Analytics Engine cluster   |
+| `ibmanalyticsengine.cluster-customization-details.read`   | Retrieve the details of the customizations done on the Analytics Engine cluster |
+| `ibmanalyticsengine.cluster-customizations-history.read`  | Retrieve the history of customization actions done on the Analytics Engine cluster |
+| `ibmanalyticsengine.cluster-customization.create`         | Create a customization on the Analytics Engine cluster |
+| `ibmanalyticsengine.cluster.resize`                       | Add more nodes to the Analytics Engine cluster |
+| `ibmanalyticsengine.cluster-password.reset`               | Reset the Analytics Engine cluster credentials |
+| `ibmanalyticsengine.cluster-log-config.create`            | Create a log aggregation configuration |
+| `ibmanalyticsengine.cluster-log-config.read`              | Retrieve the log aggregation configuration details |
+| `ibmanalyticsengine.cluster-log-config.delete`            | Delete a log aggregation configuration |
+{: caption="Table 1. Actions that generate management events" caption-side="top"}
 
-## Where to view the events
-{: #gui}
 
-<!-- Option 2: Add the following sentence if your service sends events to the account domain. -->
 
-{{site.data.keyword.cloudaccesstrailshort}} events are available in the {{site.data.keyword.cloudaccesstrailshort}} **account domain** that is available in the {{site.data.keyword.cloud_notm}} region where the events are generated.
 
-For example, when you perform an action in  {{site.data.keyword.iae_full_notm}}, an {{site.data.keyword.cloudaccesstrailshort}} event is generated. These events are automatically forwarded to the {{site.data.keyword.cloudaccesstrailshort}} service closest to the  region where the {{site.data.keyword.iae_full_notm}} service is provisioned.
+## Viewing events
+{: #at-viewing-events}
 
-To monitor activity, you must provision the {{site.data.keyword.cloudaccesstrailshort}} service in a space that is available in a region closest to the region where your   {{site.data.keyword.iae_full_notm}} service is provisioned. Then, you can view events through the account view in the {{site.data.keyword.cloudaccesstrailshort}} UI if you have a lite plan of {{site.data.keyword.cloudaccesstrailshort}}, and through Kibana if you have a premium plan.
+Events that are generated by an instance of the {{site.data.keyword.iae_full_notm}} service are automatically forwarded to the {{site.data.keyword.at_full_notm}} service instance that is available in the same location.
+
+Events are available in the following locations:
+* US-South
+* United Kingdom
+* Germany
+* Japan
+
+{{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web UI of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see [Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-launch#launch_step2).
+
+
