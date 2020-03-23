@@ -112,6 +112,9 @@ Analytics Engine
     {: .topicgroup}
     Working with Parquet encryption
         parquet-encryption.md
+        key-management-by-application.md
+        key-management-by-kms.md
+        parquet-encryption-on-hive-tables.md
 
     {: .topicgroup}
     Working with the spatio-temporal library
@@ -133,7 +136,7 @@ Analytics Engine
         security-model.md
         user-responsibilities.md
         hipaa-readiness.md
-        at-tracker.md    
+        at-tracker.md
 
     {: .topicgroup}
     Miscellaneous
