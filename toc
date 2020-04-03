@@ -13,6 +13,7 @@ Analytics Engine
     getting-started.md
     index.md
     best-practices.md
+    {: .navgroup-end}
 
     {: .navgroup id="reference"}
     [IBM Analytics Engine CLI](https://ibm.co/2wid9ec)
@@ -108,6 +109,12 @@ Analytics Engine
     {: .topicgroup}
     Working with Spark SQL
         working-with-spark-sql.md
+
+    {: .topicgroup}
+    Working with data skipping libraries
+        data-skipping.md
+        using-data-skipping.md
+        data-skipping-config.md
 
     {: .topicgroup}
     Working with Parquet encryption

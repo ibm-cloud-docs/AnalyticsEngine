@@ -23,6 +23,10 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
 
+### 02 April 2020
+
+You can now use data skipping libraries to boost the performance of Spark SQL queries by associating a summary metadata with each data object. This metadata is used during query evaluation to skip over objects which have no relevant data. See [Data skipping for Spark SQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-data-skipping).
+
 ### 12 February 2020
 
 - You can enable encryption for data in transit for Spark jobs by explicitly configuring the cluster using a combination of Advanced Options and customization.  See [Enabling Spark jobs encryption](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-encryption).
