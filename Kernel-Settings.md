@@ -40,7 +40,7 @@ The following executor settings are the defaults:
 
 ### Changing executor settings
 
-With Spark dynamic allocation enabled by default, your kernel or Spark application to fully utilize the cluster. If your applications have specific requirements and you want to have control over the number of executors per application, you can achieve that by updating the corresponding property parameters through the Ambari console or by [providing custom configurations](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options). You can update a number of settings, including the following:
+With Spark dynamic allocation enabled by default, your kernel or Spark application can fully utilize the cluster. If your applications have specific requirements and you want to have control over the number of executors per application, you can achieve that by updating the corresponding property parameters through the Ambari console or by [providing custom configurations](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options). You can update a number of settings, including the following:
 
 Custom spark2-defaults:
 *	`spark.dynamicAllocation.enabled="false"`: Disables Spark dynamic allocations.  

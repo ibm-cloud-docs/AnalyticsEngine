@@ -111,7 +111,7 @@ This is a three step process. First you need to get the customization request ID
 
 ### Step 1 - Getting all customization requests for the given instance ID
 
-Enter the following cluster management REST API to get the customization requests for the given instance ID:
+Use the following cluster management REST API to get the customization requests for the given instance ID:
 
 ```
 curl -X GET  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests -H 'Authorization: Bearer <user's IAM access token>'
@@ -125,7 +125,7 @@ For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.
 
 ### Step 2 - Getting the details of a specific customization request
 
-Enter the following cluster management REST API to get the details of a specific customization request:
+Use the following cluster management REST API to get the details of a specific customization request:
 
 ```
 curl -X GET  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests/<request_id> -H 'Authorization: Bearer <user's IAM access token>'

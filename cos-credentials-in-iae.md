@@ -29,7 +29,7 @@ The following diagram shows how the {{site.data.keyword.cos_short}} credentials 
 
 The diagram shows two {{site.data.keyword.cos_short}} instances with two different data buckets `b1` and `b2`. To distinguish between the two instances, two identifiers are used, `firstbucket` and `secondbucket`. Note that the bucket names (`b1` and `b2`) that you use must be the actual names of the existing buckets; however you are free to choose any identifier that makes it easier for you to distinguish between {{site.data.keyword.cos_short}} instances. For example, as identifier, you can use `myinstance`, `productioninstance`, `joesinstance` and so on.
 
-## Structure HMAC credentials
+## Structure of HMAC credentials
 For HMAC style authentication, you must define the following parameters in {{site.data.keyword.iae_full_notm}}:
 ```
 fs.cos.<identifier>.access.key=<Access Key ID>

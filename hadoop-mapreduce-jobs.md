@@ -51,7 +51,7 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 ## Running wordcount on data in {{site.data.keyword.cos_short}}
 
-The following example shows running a wordcount Jarn application in {{site.data.keyword.cos_short}}:
+The following example shows running a wordcount Yarn application in {{site.data.keyword.cos_short}}:
 ```
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount cos://mybucket.myprodservice/input cos://mybucket.myprodservice/wordcount/output
 ```
