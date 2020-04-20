@@ -68,9 +68,9 @@ To enable Parquet encryption in {{site.data.keyword.iae_full_notm}}, set the fol
  Alternatively, you can get the JAR files applied as part of the cluster creation process. See [Advanced Provisioning](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options){: external}.
 
  ```
- spark.driver.extraClassPath=/home/common/lib/parquet-encryption/ibm-parquet-kms-<latestversion>-jar-with-dependencies.jar:/home/common/lib/parquet-encryption/parquet-format-<latestversion>.jar:/home/common/lib/parquet-encryption/parquet-hadoop-<latestversion>.jar
+ spark.driver.extraClassPath=/home/common/lib/parquetEncryption/ibm-parquet-kms-<latestversion>-jar-with-dependencies.jar:/home/common/lib/parquetEncryption/parquet-format-<latestversion>.jar:/home/common/lib/parquetEncryption/parquet-hadoop-<latestversion>.jar
 
- spark.executor.extraClassPath=/home/common/lib/parquet-encryption/ibm-parquet-<latestversion>-jar-with-dependencies.jar:/home/common/lib/parquet-encryption/parquet-format-<latestversion>.jar:/home/common/lib/parquet-encryption/parquet-hadoop-<latestversion>.jar
+ spark.executor.extraClassPath=/home/common/lib/parquetEncryption/ibm-parquet-<latestversion>-jar-with-dependencies.jar:/home/common/lib/parquetEncryption/parquet-format-<latestversion>.jar:/home/common/lib/parquetEncryption/parquet-hadoop-<latestversion>.jar
  ```
 
 ## Optional parameters
