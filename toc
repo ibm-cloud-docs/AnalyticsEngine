@@ -16,10 +16,15 @@ Analytics Engine
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [IBM Analytics Engine CLI](https://ibm.co/2wid9ec)
-    [IBM Analytics Engine API reference](https://cloud.ibm.com/apidocs/ibm-analytics-engine)
     iae-git-repos.md
     solution-tuts.md
+    [IBM Analytics Engine CLI](https://ibm.co/2wid9ec)
+    [IBM Analytics Engine API reference](https://cloud.ibm.com/apidocs/ibm-analytics-engine)
+
+    {: .topicgroup}
+    IBM Analytics Engine SDK
+        using-node-js-sdk.md
+        using-python-sdk.md
 
     {: .topicgroup}
     Helpful links

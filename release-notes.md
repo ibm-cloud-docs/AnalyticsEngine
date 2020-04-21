@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-12-02"
+lastupdated: "2020-04-21"
 
 subcollection: AnalyticsEngine
 
@@ -22,6 +22,13 @@ subcollection: AnalyticsEngine
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 21 April 2020
+
+You can now use the {{site.data.keyword.iae_full_notm}} Node.js and Python SDK to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API. See:
+
+- For Node.js: [Using the {{site.data.keyword.iae_full_notm}} Node.js SDK](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-node-js)
+- For Python: [Using the {{site.data.keyword.iae_full_notm}} Python SDK](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-python-sdk)
 
 ### 02 April 2020
 
