@@ -23,7 +23,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
 
-### 05 Mai 2020
+### 05 May 2020
 
 - Support for the {{site.data.keyword.iae_full_notm}} Go SDK is now available which you can use to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API. See [Using the {{site.data.keyword.iae_full_notm}} Go SDK](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-go).
 
