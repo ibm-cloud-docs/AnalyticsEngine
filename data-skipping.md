@@ -37,3 +37,22 @@ Three index types are supported:
 You should use bloom filters for columns with very high cardinality. Index creation invokes a Spark job which writes metadata (indexes) to a user specified location, in Parquet format.
 
 Note that the metadata is typically much smaller than the data. If changes are made to some of the objects in the data set after the index was created, data skipping will still work correctly but will not skip the changed objects. To avoid this, you should refresh the indexes.
+
+## Geospatial data skipping
+
+ Data skipping is also supported for queries on geospatial datasets with latitude and longitude columns using [geospatial functions](https://www.ibm.com/support/knowledgecenter/en/SSCJDQ/com.ibm.swg.im.dashdb.analytics.doc/doc/geo_functions.html) from the [spatio-temporal library](/docs/AnalyticsEngine?topic=AnalyticsEngine-geospacial-lib).
+
+ In order to benefit from data skipping you can collect min/max indexes on the latitude and longitude columns.
+
+ The list of supported geospatial functions includes the following:
+
+ - ST_Distance
+ - ST_Intersects
+ - ST_Contains
+ - ST_Equals
+ - ST_Crosses
+ - ST_Touches
+ - ST_Within
+ - ST_Overlaps
+ - ST_EnvelopesIntersect
+ - ST_IntersectsInterior

@@ -25,6 +25,7 @@ Analytics Engine
     IBM Analytics Engine SDK
         using-node-js-sdk.md
         using-python-sdk.md
+        using-go-sdk.md
 
     {: .topicgroup}
     Helpful links
