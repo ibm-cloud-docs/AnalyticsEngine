@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-05"
+lastupdated: "2020-05-12"
 
 subcollection: AnalyticsEngine
 
@@ -22,6 +22,16 @@ subcollection: AnalyticsEngine
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 12 May 2020
+
+- If you associate the same IBM Cloud Databases for PostgreSQL instance with all of your {{site.data.keyword.iae_full_notm}} clusters and you create new clusters after 12 May 2020, you must run the following command on the `mn002` node of the clusters to continue working with the dabasebase instance:
+
+  ```
+  /usr/hdp/current/hive-server2/bin/schematool -url 'jdbc:postgresql://<YOUR-POSTGRES-INSTANCE-HOSTNAME>:<PORT>/ibmclouddb?sslmode=verify-ca&sslrootcert=<PATH/TO/POSTGRES/CERT>' -dbType postgres -userName <USERNAME> -passWord <PASSWORD> -upgradeSchema 3.1.1000 -verbose
+  ```
+
+  The reason is a database schema version change. You do not have to issue this command if you associate a new IBM Cloud Databases for PostgreSQL instance with the {{site.data.keyword.iae_full_notm}} clusters.
 
 ### 05 May 2020
 

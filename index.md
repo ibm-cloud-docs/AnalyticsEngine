@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-03"
+  years: 2017, 2020
+lastupdated: "2020-05-12"
 
 subcollection: AnalyticsEngine
 
@@ -126,7 +126,7 @@ You can create a cluster based on Hortonworks Data Platform 3.1. The following s
 |  Ambari 2.7.3|
 |  Anaconda with Python 3.7.1 |
 |  Jupyter Enterprise Gateway 0.8.0
-|  HBase 2.0.2 |
+|  HBase 2.1.6 |
 |  Hive 3.1.0 |
 |  Hive LLAP 3.1.0 |
 |  Oozie 4.3.1 |

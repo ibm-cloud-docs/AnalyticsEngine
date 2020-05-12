@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-09"
+lastupdated: "2020-05-12"
 
 subcollection: AnalyticsEngine
 
@@ -82,3 +82,18 @@ You can provision an {{site.data.keyword.iae_full_notm}} service instance with s
 ## Service credentials
 
 The service credentials of your {{site.data.keyword.iae_full_notm}} service instance will include the service endpoints of the type that you specified when you provisioned the service instance.
+
+Here are some examples of endpoints:
+
+- Private endpoint for accessing the cluster Ambari UI:
+```
+https://chs-xti-716-mn001.private.us-south.ae.appdomain.cloud:9443
+```
+- Livy private endpoint for submitting Spark jobs on the cluster:
+```
+https://chs-xti-716-mn001.private.us-south.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches
+```
+- You can also use the private endpoint to access the cluster management APIs. For example:
+```
+https://api.private.us-south.ae.cloud.ibm.com/v2/analytics_engines/118df864-5041-4770-87f7-3228df1915f3
+```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-08"
+lastupdated: "2020-05-12"
 
 subcollection: AnalyticsEngine
 
@@ -135,3 +135,19 @@ The following tables list the location of the log files for different components
 When Hive is run with {{site.data.keyword.cos_full_notm}} with HMAC style authentication, changes to the {{site.data.keyword.cos_short}} configuration in the `core-site.xml` file are not picked up by Hive. The reason is that Hive does not recognize these changes unless Hive is restarted which does not happen by default.
 
 To fix this issue, restart Hive.
+
+## Working with Hive: Hive metastore can't be started on newly created cluster
+
+If you create new {{site.data.keyword.iae_full_notm}} clusters and you associate an existing IBM Cloud Databases for PostgreSQL instance created before 12 May 2020 with your clusters, you will see the following error message:
+
+```
+ERROR :relation "BUCKETING_COLS" already exists
+```
+
+The reason is a schema version change. To continue using the same database instance, you must run the following command on the `mn002` node of the cluster:
+
+```
+/usr/hdp/current/hive-server2/bin/schematool -url 'jdbc:postgresql://<YOUR-POSTGRES-INSTANCE-HOSTNAME>:<PORT>/ibmclouddb?sslmode=verify-ca&sslrootcert=<PATH/TO/POSTGRES/CERT>' -dbType postgres -userName <USERNAME> -passWord <PASSWORD> -upgradeSchema 3.1.1000 -verbose
+```
+
+This error does not occur if you associate a new IBM Cloud Databases for PostgreSQL instance with the {{site.data.keyword.iae_full_notm}} clusters.
