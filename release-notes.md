@@ -25,6 +25,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ### 12 May 2020
 
+- The underlying HDP stack for `AE 1.2` was changed from 3.1.0.0-78 to 3.1.5.0-152.
 - If you associate the same IBM Cloud Databases for PostgreSQL instance with all of your {{site.data.keyword.iae_full_notm}} clusters and you create new clusters after 12 May 2020, you must run the following command on the `mn002` node of the clusters to continue working with the dabasebase instance:
 
   ```
