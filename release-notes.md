@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-12"
+lastupdated: "2020-05-21"
 
 subcollection: AnalyticsEngine
 
@@ -23,6 +23,11 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
 
+### 21 May 2020
+
+- You can now whitelist access to a private endpoint cluster. See [Whitelisting access to and from clusters](/docs/AnalyticsEngine?topic=AnalyticsEngine-whitelist-cluster-access).
+- You can also now use the {{site.data.keyword.iae_full_notm}} Java SDK to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API. See [Using Java](/docs/AnalyticsEngine?topic=AnalyticsEngine-java).
+
 ### 12 May 2020
 
 - The underlying HDP stack for `AE 1.2` was changed from 3.1.0.0-78 to 3.1.5.0-152.
@@ -33,6 +38,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
   ```
 
   The reason is a database schema version change. You do not have to issue this command if you associate a new IBM Cloud Databases for PostgreSQL instance with the {{site.data.keyword.iae_full_notm}} clusters.
+- Starting from this release, Spark and Hive share the same metadata store.
 
 ### 05 May 2020
 

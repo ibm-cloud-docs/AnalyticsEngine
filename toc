@@ -26,6 +26,7 @@ Analytics Engine
         using-node-js-sdk.md
         using-python-sdk.md
         using-go-sdk.md
+        using-java-sdk.md
 
     {: .topicgroup}
     Helpful links
@@ -50,6 +51,7 @@ Analytics Engine
         Retrieve-service-credentials-and-service-end-points.md
         Connect-using-SSH.md
         granting-permissions-to-users.md
+        whitelisting-access.md
 
     {: .topicgroup}
     Managing a service instance

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-10"
+lastupdated: "2020-05-19"
 
 keywords: activity tracker for {{site.data.keyword.iae_full_notm}}, LogDNA for {{site.data.keyword.iae_full_notm}}, {{site.data.keyword.iae_full_notm}} events, {{site.data.keyword.iae_full_notm}} security, audit logs for {{site.data.keyword.iae_full_notm}}, viewing {{site.data.keyword.iae_full_notm}} events, {{site.data.keyword.iae_full_notm}} events
 
@@ -29,9 +29,9 @@ The following table lists the actions that generate an event:
 ## List of management events
 {: #at_actions}
 
-| Action                                                    | Description      | 
+| Action                                                    | Description      |
 |-----------------------------------------------------------|------------------|
-| `ibmanalyticsengine.cluster-details.read`                 | Retrieve the details of the Analytics Engine cluster | 
+| `ibmanalyticsengine.cluster-details.read`                 | Retrieve the details of the Analytics Engine cluster |
 | `ibmanalyticsengine.cluster-state.read`                   | Retrieve the state of the Analytics Engine cluster   |
 | `ibmanalyticsengine.cluster-customization-details.read`   | Retrieve the details of the customizations done on the Analytics Engine cluster |
 | `ibmanalyticsengine.cluster-customizations-history.read`  | Retrieve the history of customization actions done on the Analytics Engine cluster |
@@ -41,6 +41,7 @@ The following table lists the actions that generate an event:
 | `ibmanalyticsengine.cluster-log-config.create`            | Create a log aggregation configuration |
 | `ibmanalyticsengine.cluster-log-config.read`              | Retrieve the log aggregation configuration details |
 | `ibmanalyticsengine.cluster-log-config.delete`            | Delete a log aggregation configuration |
+| `ibmanalyticsengine.cluster-private-endpoint-whitelist.update` | Update cluster private endpoint whitelist |
 {: caption="Table 1. Actions that generate management events" caption-side="top"}
 
 
@@ -58,5 +59,3 @@ Events are available in the following locations:
 * Japan
 
 {{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web UI of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see [Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-launch#launch_step2).
-
-

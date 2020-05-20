@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-08-02"
+  years: 2017, 2020
+lastupdated: "2020-05-19"
 
 subcollection: AnalyticsEngine
 
@@ -23,84 +23,24 @@ With an {{site.data.keyword.Bluemix_notm}} account, you have administrative priv
 
 Access to {{site.data.keyword.iae_full_notm}} resources requires certain access permissions at the resource group level, the platform level, and the service level. A user is given the desired level of access to a service instance only after the required roles at all of these levels were granted.
 
-<table>
-    <tr>
-        <th>Operation</th>
-        <th>Required IAM permissions</th>
-    </tr>
-    <tr>
-        <td>Create or delete a service</td>
-        <td>**Access type**: Resource group <br>
-        **Role**: Editor or Administrator</td>
-    </tr>
-    <tr>
-        <td>View the service dashboard (the cluster management UI)</td>
-        <td>**Access type**: Service <br>
-            **Platform role:** Viewer or above <br>
-            **Service role**: Reader or above </td>
-    </tr>
-    <tr>
-        <td>View cluster password in the cluster management UI</td>
-        <td>**Access type**: Service <br>
-            **Platform role**: Viewer or above <br>
-            **Service role**: Writer or Manager </td>
-    </tr>
-    <tr>
-        <td>Resize a cluster by using the cluster management UI</td>
-        <td>**Access type**: Service <br>
-            **Platform role:** Viewer or above <br>
-            **Service role:** Writer or Manager </td>
-    </tr>
-    <tr>
-        <td>Create service keys by using the IBM Cloud UI <br>
-        **Note**: A service key created for a Reader role does not reveal the cluster password. </td>
-        <td>**Access type**: Service <br>
-            **Platform role**: Operator or above </td>
-    </tr>
-    <tr>
-        <td>View service keys by using the IBM Cloud UI</td>
-        <td>**Access type**: Service <br>
-            **Platform role**: Viewer or above </td>
-    </tr>
-    <tr>
-        <td>Invoke the cluster management REST API to view cluster details</td>
-        <td>**Access type**: Service <br>
-            **Service role**: Reader, Writer or Manager <br>
-            **Note**: When the API is invoked with service role as Reader, the response of the API does not reveal the cluster password. </td>
-    </tr>
-    <tr>
-        <td>Invoke cluster management REST API to view customization request details or list of customization requests</td>
-        <td>**Access type**: Service <br>
-            **Service role**: Reader, Writer or Manager</td>
-    </tr>
-    <tr>
-        <td>Invoke cluster management REST API to resize cluster</td>
-        <td>**Access type**: Service <br>
-            **Service role**: Writer or Manager </td>
-    </tr>
-    <tr>
-        <td>Invoke cluster management REST API to add an adhoc customization request</td>
-        <td>**Access type**: Service <br>
-            **Service role**: Writer or Manager </td>
-    </tr>
-    <tr>
-        <td>Invoke cluster management REST API to reset cluster password</td>
-        <td>**Access type**: Service <br>
-            **Service role**: Manager </td>
-    </tr>
-    <tr>
-        <td>Invoke cluster management REST API to create or delete log configuration</td>
-        <td>**Access type**: Service <br>
-            **Service role**: Writer or Manager </td>
-    </tr>
-    <tr>
-        <td>Invoke cluster management REST API to retrieve log configuration details</td>
-        <td>**Access type**: Service <br>
-            **Service role**: Reader </td>
-    </tr>
-    <caption style="caption-side:bottom;">Table 1. Required IAM privileges for user onboarding</caption>
-    </table>
+The following table lists the required IAM privileges for user onboarding.
 
+| Operations             | Required IAM permissions      |
+|------------------------|-------------------------------|
+|Create or delete a service |**Access type**: Resource group </br>**Role**: Editor or Administrator |
+|View the service dashboard (the cluster management UI) |**Access type**: Service </br>**Platform role:** Viewer or above </br>    **Service role**: Reader or above    |  
+| View cluster password in the cluster management UI|**Access type**: Service </br>**Platform role**: Viewer or above <br>**Service role**: Writer or Manager|
+|Resize a cluster by using the cluster management UI|**Access type**: Service </br>**Platform role:** Viewer or above </br>**Service role:** Writer or Manager|
+|Create service keys by using the IBM Cloud UI </br>**Note**: A service key created for a Reader role does not reveal the cluster password.|**Access type**: Service </br>**Platform role**: Operator or above |
+|View service keys by using the IBM Cloud UI|**Access type**: Service </br>**Platform role**: Viewer or above|
+|Invoke the cluster management REST API to view cluster details|**Access type**: Service </br>**Service role**: Reader, Writer or Manager </br>**Note**: When the API is invoked with service role as Reader, the response of the API does not reveal the cluster password.|
+|Invoke cluster management REST API to view customization request details or list of customization requests|**Access type**: Service </br>**Service role**: Reader, Writer or Manager|
+|Invoke cluster management REST API to resize cluster|**Access type**: Service </br>**Service role**: Writer or Manager|
+|Invoke cluster management REST API to add an adhoc customization request|**Access type**: Service </br>**Service role**: Writer or Manager|
+|Invoke cluster management REST API to reset cluster password|**Access type**: Service </br>**Service role**: Manager|
+|Invoke cluster management REST API to create or delete log configuration|**Access type**: Service </br>**Service role**: Writer or Manager|
+|Invoke cluster management REST API to retrieve log configuration details|**Access type**: Service </br>**Service role**: Reader|
+|Update cluster private endpoint whitelist|**Access type**: Service </br>**Service role**: Writer or Manager |
 
 
 To onboard new users to your account:
