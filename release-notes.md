@@ -23,9 +23,8 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
 
-### 21 May 2020
+### 20 May 2020
 
-- You can now whitelist access to a private endpoint cluster. See [Whitelisting access to and from clusters](/docs/AnalyticsEngine?topic=AnalyticsEngine-whitelist-cluster-access).
 - You can also now use the {{site.data.keyword.iae_full_notm}} Java SDK to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API. See [Using Java](/docs/AnalyticsEngine?topic=AnalyticsEngine-java).
 
 ### 12 May 2020
