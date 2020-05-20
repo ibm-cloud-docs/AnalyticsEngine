@@ -51,8 +51,7 @@ Analytics Engine
         Retrieve-service-credentials-and-service-end-points.md
         Connect-using-SSH.md
         granting-permissions-to-users.md
-        whitelisting-access.md
-
+        
     {: .topicgroup}
     Managing a service instance
         Resize-clusters.md
