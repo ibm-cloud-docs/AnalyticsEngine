@@ -71,7 +71,7 @@ For the whitelist payload JSON consider the following:
 
   `<action>` is idempotent. If the same `<ip_range>` is specified more than once, it is added or deleted only once. Similarly. if  delete is invoked with an `<ip_range>` that doesn't exist in the current whitelist, it ìs  ignored.
 
-  To remove all of the whitelisted IPs to the cluster, you need to invoke the `delete` action with all the `<ip_ranges>` that you added. To get the current whitelist, refer to [Retrieving the current whitelisted IP ranges](#retrieve-whitelist-IP-range)
+  To remove all of the whitelisted IPs to the cluster, you need to invoke the `delete` action with all the `<ip_ranges>` that you added. To get the current whitelist, refer to [Retrieving the current whitelisted IP ranges](#retrieve-whitelist-IP-range).
 
 A successful response of the private_endpoint_whitelist  API  endpoint is an updated list of the whitelisted `ip_ranges` in this format:
 ```
