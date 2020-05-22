@@ -89,7 +89,7 @@ The following example is a response after deleting all of the IP ranges from the
 ### Retrieving the current whitelisted IP ranges
 {: #retrieve-whitelist-IP-range}
 
-You can retrieve the current whitelisted IP ranges by invoking the `Get Details of Analytics Engine` API endpoint.[Get details of Analytics Engine API](https://cloud.ibm.com/apidocs/ibm-analytics-engine#get-details-of-analytics-engine) The parameter `private_endpoint_whitelist` has the list of the whitelisted IP ranges. Note that the `private_endpoint_whitelist` parameter is an optional field, which would be present only for a private endpoint enabled {{site.data.keyword.iae_full_notm}} instance. 
+You can retrieve the current whitelisted IP ranges by invoking the `Get Details of Analytics Engine` API endpoint. See [Get details of Analytics Engine API](https://cloud.ibm.com/apidocs/ibm-analytics-engine#get-details-of-analytics-engine) for more information. The parameter `private_endpoint_whitelist` has the list of the whitelisted IP ranges. Note that the `private_endpoint_whitelist` parameter is an optional field, which would be present only for a private endpoint enabled {{site.data.keyword.iae_full_notm}} instance. 
 
 ## Whitelisting access from the cluster
 
@@ -97,5 +97,5 @@ If you have a firewall or whitelisting mechanism at a destination, such as an on
 
 To do this, you need the list of all public or private IPs (depending on your network access method) that belong to your {{site.data.keyword.iae_full_notm}} instance so that you can add this list to the firewall rules at your destination.
 
-You can get the list of IPs from the `Get Details of Analytics Engine` API. See [Get details of Analytics Engine API](https://cloud.ibm.com/apidocs/ibm-analytics-engine#get-details-of-analytics-engine). The response JSON returns the `public_ip` and `private_ip` ranges of each node of the cluster.
+You can get the list of IPs from the `Get Details of Analytics Engine` API. See [Get details of Analytics Engine API](https://cloud.ibm.com/apidocs/ibm-analytics-engine#get-details-of-analytics-engine) for more information. The response JSON returns the `public_ip` and `private_ip` ranges of each node of the cluster.
 
