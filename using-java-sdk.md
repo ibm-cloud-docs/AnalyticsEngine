@@ -374,4 +374,4 @@ The following code samples show how to:
       }
   }
   ```
-  {  : codeblock}
+  {: codeblock}

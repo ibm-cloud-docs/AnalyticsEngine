@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-05-27"
 
 subcollection: AnalyticsEngine
 
@@ -160,3 +160,9 @@ Encrypted data encryption keys and key encryption keys are stored in the Parquet
 When reading a Parquet file, the identifier of the master encryption key (MEK) and the encrypted key encryption key (KEK) with its identifier, and the encrypted data encryption key (DEK)  are extracted from the file metadata.
 
 The key encryption key is decrypted with the master encryption key, either locally if the master keys are managed by the application, or in a KeyProtect service if the master keys are managed by {{site.data.keyword.keymanagementservicefull}}. The key encryption keys are cached, so there is no need to interact with the KeyProtect service for each decrypted column or file if they use the same key encryption key. Then the data encryption key (DEK) is decrypted locally, using the key encryption key (KEK).
+
+## Learn more
+
+Check out the following sample notebook to learn how to use Parquet Encryption:
+
+- [Parquet Encryption by Key Management Application](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/013c690997e27f3a8d91332653054441){: external}
