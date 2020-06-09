@@ -54,7 +54,7 @@ To fix this issue:
 {: troubleshoot}
 {: support}
 
-No cluster is associated with my {{site.data.keyword.iae_full_notm}} service instance although I've waited for more than 30 minutes
+No cluster is associated with my {{site.data.keyword.iae_full_notm}} service instance although I've waited for more than 50 minutes
 
 No cluster was associated with your newly-created service instance although the service status shows that it was provisioned because the provisioning request didn't complete successfully.
 
