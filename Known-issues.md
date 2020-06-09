@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-08"
+lastupdated: "2020-06-09"
 
 subcollection: AnalyticsEngine
 
@@ -32,6 +32,7 @@ List of known issues in the release:
 | Category | Problem | AE version | Workaround |
 |---------|---------|------------|------------|
 | UI | The Cluster Management user interface does not function well in Internet Explorer 11 | All versions | The Management user interface functions well in Chrome, Safari and Firefox. Use these browsers to access the user interface. |
+| URL to download Hive standalone JAR is broken| In Ambari, when you click **Services > Hive > Summary** and in **Quick Links**, you click **Jdbc Standalone Jar Download**, you will notice that the link is broken.| AE 1.2 | Download the JAR from the [Hortonworks repository](http://repo.hortonworks.com/content/repositories/releases/org/apache/hive/hive-jdbc/). Select the driver version that corresponds to Hive version used on your IBM Analytics Engine cluster. |
 | Yarn Application UI link to logs is broken | When you click **Yarn >  Quick Links > Resource Manager UI** in the Ambari UI and select your application on the Applications tab, you will notice that the link to the application logs at the bottom right of the page is broken. | AE 1.2 <br/> Created before end November 2019 | SSH to the cluster and run `yarn logs --applicationId <appId>`|
 | Spark History server UI - Stages | The URL to drill down into the stages of a Spark job is broken due to a bug in the Knox re-write rules. | AE 1.1 | Remove `amp%3B` from the stages URL. For example, replace the following broken re-write URL (the example uses the {{site.data.keyword.Bluemix_short}} hosting location `us-south`): `https://chs-xxx-yyy-mn001.us-south.ae.appdomain.cloud:8443/gateway/default/sparkhistory/history/application_xxxxxxxxxxx_yyyy/stages/stage?amp%3Battempt=0&id=2` by this workaround URL: `https://chs-yyy-yyyy-mn001.us-south.ae.appdomain.cloud:8443/gateway/default/sparkhistory/history/application_xxxxxxxxxx_yyyy/stages/stage?attempt=0&id=2` . |
 |Spark History Server UI - StdOut and StdErr logs | The drilldown links to StdOut and StdErr logs from the Stages or Executors tabs  are broken. |AE 1.2 <br/> Created before end November 2019| SSH to the cluster and run `yarn logs --applicationId <appId>` |  
