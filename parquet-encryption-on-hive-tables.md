@@ -68,7 +68,7 @@ The following examples show you how you can use Parquet encryption on data saved
   ```python
   ACCESS_TOKEN = "A valid IAM access token"
   KEY_PROTECT_INSTANCE_ID = "My KP instance ID"
-  K1 = “d1ae3fc2-6b7d-4a03-abb6-644e02933734”
+  K1 = "d1ae3fc2-6b7d-4a03-abb6-644e02933734"
   K2 = "c4a21521-2a78-4968-a7c2-57c481f58d5c"
 
   # setup key protect on the hadoop configuration

@@ -100,7 +100,7 @@ The following optional parameters can be used when writing encrypted data:
 The following sample code snippets for Python and Scala show how to create data frames, written to encrypted parquet files, and read from encrypted parquet files.
 
 - Python: Writing encrypted data
-```
+```python
 from pyspark.sql import Row
 
  squaresDF = spark.createDataFrame(
@@ -117,7 +117,7 @@ from pyspark.sql import Row
  squaresDF.write.parquet(encryptedParquetPath)
 ```
 - Python: Reading encrypted data
-```
+```python
 sc._jsc.hadoopConfiguration().set("encryption.key.list",
      "key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
 
@@ -126,7 +126,7 @@ sc._jsc.hadoopConfiguration().set("encryption.key.list",
  parquetFile.show()
 ```
 - Scala: Writing encrypted data
-```
+```scala
  case class SquareItem(int_column: Int, square_int_column: Double)
  val dataRange = (1 to 6).toList
  val squares = sc.parallelize(
@@ -141,7 +141,7 @@ sc._jsc.hadoopConfiguration().set("encryption.key.list",
  squares.toDS().write.parquet(encryptedParquetPath)
 ```
 - Scala: Reading encrypted data
-```
+```scala
  sc.hadoopConfiguration.set("encryption.key.list",
    "key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
  val encryptedParquetPath = "squares.parquet.encrypted"
