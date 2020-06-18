@@ -80,7 +80,7 @@ When provisioning a service instance:
 
 To create a service instance using the {{site.data.keyword.Bluemix_short}} command-line interface:
 
-1. Download and configure the {{site.data.keyword.Bluemix_short}} CLI. Follow the instructions [here](/docs/cli?topic=cloud-cli-getting-started).
+1. Download and configure the {{site.data.keyword.Bluemix_short}} CLI. Follow the instructions [here](/docs/cli?topic=cli-getting-started).
 
 1. Set the API endpoint for your region and log in:
    ```

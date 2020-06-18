@@ -96,6 +96,7 @@ The following optional parameters can be used when writing encrypted data:
   ```
 
 ## Usage examples
+{: #usage-examples-parquet-encryption}
 
 The following sample code snippets for Python and Scala show how to create data frames, written to encrypted parquet files, and read from encrypted parquet files.
 
@@ -162,6 +163,7 @@ When reading a Parquet file, the identifier of the master encryption key (MEK) a
 The key encryption key is decrypted with the master encryption key, either locally if the master keys are managed by the application, or in a KeyProtect service if the master keys are managed by {{site.data.keyword.keymanagementservicefull}}. The key encryption keys are cached, so there is no need to interact with the KeyProtect service for each decrypted column or file if they use the same key encryption key. Then the data encryption key (DEK) is decrypted locally, using the key encryption key (KEK).
 
 ## Learn more
+{: #learn-more-parquet-encryption}
 
 Check out the following sample notebook to learn how to use Parquet Encryption:
 

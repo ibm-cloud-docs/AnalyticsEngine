@@ -272,6 +272,7 @@ The following table shows the LLAP configuration for one node for each of the su
 
 
 ## Code samples
+{: #code-samples-hive}
 
 Here is a Python code sample that shows accessing data in a Hive table on your cluster:
 
@@ -284,7 +285,6 @@ print(curs.fetchall())
 print(curs.description)
 curs.close()
 ```
-
 
 ## Learn more
 {: #learn-more-hive}

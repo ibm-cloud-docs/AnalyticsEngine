@@ -38,7 +38,7 @@ To create a Key protect instance and master keys:
   ```
   - `"encryption.kms.instance.url"`: The URL of your KeyProtect instance, for example,
   ```
-  sc.hadoopConfiguration.set("encryption.kms.instance.url" , "https://keyprotect.us-south.bluemix.net")
+  sc.hadoopConfiguration.set("encryption.kms.instance.url" , "https://<region>.kms.cloud.ibm.com")
   ```
   - `"encryption.key.access.token"`: A valid IAM token with access rights to the required keys in your KeyProtect instance, for example,
   ```

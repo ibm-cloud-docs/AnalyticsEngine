@@ -183,6 +183,7 @@ select * from table where shortType > cast(1 as short)
 ```
 
  ## Learn more
+ {: #learn-more-data-skipping}
 
  Click the following link for code samples that show you how to use the configuration options described in this topic:
 

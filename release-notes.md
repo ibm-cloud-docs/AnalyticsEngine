@@ -115,7 +115,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
  Although existing clusters will still continue to work and be supported until September 30, 2019, you should stop using those now and start creating new `AE 1.2` clusters as described in [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
 
- All provisioned instances of AE 1.0 will be deleted after September 30, 2019. See the [deprecation notice](https://www.ibm.com/blogs/bluemix/2019/04/introducing-ibm-analytics-engine-v1-2-and-announcing-the-deprecation-of-ibm-analytics-engine-v1-0/){: external}.
+ All provisioned instances of AE 1.0 will be deleted after September 30, 2019.
 - A new software package `AE 1.2 Hive LLAP` was added to `AE 1.2`, which supports realtime interactive queries. Note however that currently you cannot resize a cluster created using this package.
 - `AE 1.2` supports Python 3.7. Although `AE 1.1` still supports both Python 3.5 and Python 2.7, you should start moving your Python-based applications or code to Python 3.7 now. Especially considering that the open source community has announced the end of support for Python 2.
 - `AE 1.2` does not support HDFS encryption zones. To store sensitive data with encryption requirements, select the appropriate COS encryption options. See details in [Best practices](https://cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices#cos-encryption).
@@ -145,7 +145,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ### 30 November 2018
 
-- You can now track life cycle management actions performed on the cluster by users and applications that have access to your service instance. See [Activity Tracker](/docs/AnalyticsEngine?topic=AnalyticsEngine-at-tracker).
+- You can now track life cycle management actions performed on the cluster by users and applications that have access to your service instance. See [Activity Tracker](/docs/AnalyticsEngine?topic=AnalyticsEngine-at_events).
 
 - To view the password of a cluster, a user must have either Writer or Manager IAM role on the {{site.data.keyword.iae_full_notm}} service instance.
 

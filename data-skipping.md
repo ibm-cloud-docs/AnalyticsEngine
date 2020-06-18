@@ -40,7 +40,7 @@ Note that the metadata is typically much smaller than the data. If changes are m
 
 ## Geospatial data skipping
 
- Data skipping is also supported for queries on geospatial datasets with latitude and longitude columns using [geospatial functions](https://www.ibm.com/support/knowledgecenter/en/SSCJDQ/com.ibm.swg.im.dashdb.analytics.doc/doc/geo_functions.html) from the [spatio-temporal library](/docs/AnalyticsEngine?topic=AnalyticsEngine-geospacial-lib).
+ Data skipping is also supported for queries on geospatial datasets with latitude and longitude columns using [geospatial functions](https://www.ibm.com/support/knowledgecenter/en/SSCJDQ/com.ibm.swg.im.dashdb.analytics.doc/doc/geo_functions.html) from the [spatio-temporal library](/docs/AnalyticsEngine?topic=AnalyticsEngine-geospatial-geotemporal-lib).
 
  In order to benefit from data skipping you can collect min/max indexes on the latitude and longitude columns.
 

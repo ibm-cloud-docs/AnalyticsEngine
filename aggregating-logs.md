@@ -57,8 +57,8 @@ The following prerequisites must be met before you can begin collecting cluster 
 
 - You must have an existing {{site.data.keyword.iae_full_notm}} service instance. Presently, REST API is the only mode with which you can configure log aggregation.
 - You must create an IBM Log Analysis with LogDNA service instance. To create an instance in {{site.data.keyword.Bluemix_short}}, see [IBM Log Analysis with LogDNA
-](https://cloud.ibm.com/observe/logging){: external}. For details on monitoring and managing log data with IBM Log Analysis with LogDNA, see [provisioning a service instance](/docs/Log-Analysis-with-LogDNA?topic=LogDNA-provision){: external}.
-- You must have access to the LogDNA ingestion key. See [Getting the ingestion key](/docs/Log-Analysis-with-LogDNA?topic=LogDNA-ingestion_key){: external}.
+](https://cloud.ibm.com/observe/logging){: external}. For details on monitoring and managing log data with IBM Log Analysis with LogDNA, see [provisioning a service instance](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-provision){: external}.
+- You must have access to the LogDNA ingestion key. See [Getting the ingestion key](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-ingestion_key){: external}.
 - You must have the following IAM access permissions (roles) to the {{site.data.keyword.iae_full_notm}} service instance and the resource group. Two types of roles exist:
 
     -	**Platform management role**: here you must have viewer access or above to the resource group that contains {{site.data.keyword.iae_full_notm}}.

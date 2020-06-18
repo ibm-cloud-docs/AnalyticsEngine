@@ -75,7 +75,7 @@ To configure {{site.data.keyword.iae_full_notm}} to work with {{site.data.keywor
 
 ### Service endpoints
 
-As a user of {{site.data.keyword.cos_short}}, you not only need to know the API key or the HMAC keys to configure {{site.data.keyword.cos_short}}, but also the {{site.data.keyword.iae_full_notm}} service endpoints to connect to {{site.data.keyword.cos_short}}. See [Selecting regions and endpoints](/docs/infrastructure/cloud-object-storage-infrastructure?topic=cloud-object-storage-infrastructure-select-regions-and-endpoints) for help on which endpoints to use based on your {{site.data.keyword.cos_short}} bucket type, such as regional versus cross-regional.
+As a user of {{site.data.keyword.cos_short}}, you not only need to know the API key or the HMAC keys to configure {{site.data.keyword.cos_short}}, but also the {{site.data.keyword.iae_full_notm}} service endpoints to connect to {{site.data.keyword.cos_short}}. See [Selecting regions and endpoints](/docs/cloud-object-storage-infrastructure?topic=cloud-object-storage-infrastructure-select-regions-and-endpoints) for help on which endpoints to use based on your {{site.data.keyword.cos_short}} bucket type, such as regional versus cross-regional.
 
 You can also view the endpoints across regions for your {{site.data.keyword.cos_short}} service by selecting the service on your {{site.data.keyword.Bluemix_short}} dashboard and clicking **Endpoint** in the navigation pane. Always **choose the private endpoint**. Using the public endpoint is slower and more expensive. An example of an endpoint for US-South Cross region is:
 `s3.private.us.cloud-object-storage.appdomain.cloud`

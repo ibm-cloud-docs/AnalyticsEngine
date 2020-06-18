@@ -60,6 +60,7 @@ To configure Parquet encryption on Hive tables:
   ```
 
 ## Usage examples
+{: #usage-examples-parquet-encryption-hive}
 
 The following examples show you how you can use Parquet encryption on data saved in Hive tables.
 
@@ -73,7 +74,7 @@ The following examples show you how you can use Parquet encryption on data saved
 
   # setup key protect on the hadoop configuration
   hc = spark.sparkContext._jsc.hadoopConfiguration()
-  hc.set("encryption.kms.instance.url", "https://keyprotect.us-south.bluemix.net")
+  hc.set("encryption.kms.instance.url", "https://<region>.kms.cloud.ibm.com")
   hc.set("encryption.kms.instance.id", KEY_PROTECT_INSTANCE_ID)
   hc.set("encryption.key.access.token", ACCESS_TOKEN)
 

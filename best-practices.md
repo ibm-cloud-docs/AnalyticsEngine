@@ -165,7 +165,7 @@ To facilitate monitoring and troubleshooting your applications and jobs, you can
 
 By configuring log aggregation, you can externalize the log files, which means that these files can be accessed even after the cluster was deleted.
 
-When you configure {{site.data.keyword.iae_full_notm}} to work with the LogDNA instance, we encourage you to select to connect to the private endpoints of the instance, to increase performance and save costs. See [Configuring private endpoints](/docs/Log-Analysis-with-LogDNA?topic=LogDNA-endpoints).
+When you configure {{site.data.keyword.iae_full_notm}} to work with the LogDNA instance, we encourage you to select to connect to the private endpoints of the instance, to increase performance and save costs. See [Configuring private endpoints](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-endpoints).
 
 ## Switch regions for disaster recovery
 {: #disaster-recovery}

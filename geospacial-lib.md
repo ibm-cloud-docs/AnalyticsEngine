@@ -58,6 +58,7 @@ After you have registered `STContext` in your notebook, you can begin exploring 
 - [Routing functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-routing-functions)
 
 ## Learn more
+{: #learn-more-goespatio-lib}
 
 Check out the following Python notebooks to learn how to use the spacio-temporal library functions in Python notebooks. To access these notebooks, you need an {{site.data.keyword.DSX_full}} instance. See [Provisioning an {{site.data.keyword.DSX_full}} instance](https://cloud.ibm.com/catalog/services/watson-studio){: external}.
 

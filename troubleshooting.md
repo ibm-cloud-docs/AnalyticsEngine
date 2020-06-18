@@ -65,21 +65,21 @@ You should delete your service instance and create a new one by using the {{site
 {: troubleshoot}
 {: support}
 
-Tracing can be enabled by setting `BLUEMIX_TRACE` environment variable to `true` (case ignored). When trace is enabled,  additional debugging information is printed to the terminal.
+Tracing can be enabled by setting `IBMCLOUD_TRACE` environment variable to `true` (case ignored). When trace is enabled,  additional debugging information is printed to the terminal.
 
 On Linux/macOS terminal:
 
 ```
-$ export BLUEMIX_TRACE=true
+$ export IBMCLOUD_TRACE=true
 ```
 
 On Windows prompt:
 
 ```
-SET BLUEMIX_TRACE=true
+SET IBMCLOUD_TRACE=true
 ```
 
-To disable tracing, set the `BLUEMIX_TRACE` environment variable to `false` (case ignored).
+To disable tracing, set the `IBMCLOUD_TRACE` environment variable to `false` (case ignored).
 
 ## Command line interface: No cluster endpoint found
 {: #no-cluster-endpoint}

@@ -62,7 +62,7 @@ Authorization: Bearer eyJraWQiOiIyMDE3MDgwOS0wMDowMDowMCIsImFsZyI6IlJTMjU2In0...
 Before you can create a token by using the {{site.data.keyword.Bluemix_notm}} CLI, check that you have met the following prerequisites:
 
 1. You have a valid IBMid.
-2. You have downloaded and installed the [{{site.data.keyword.Bluemix_notm}} CLI](https://{DomainName}/docs/cli?topic=cloud-cli-install-ibmcloud-cli).
+2. You have downloaded and installed the [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli).
 
 To create a token using {{site.data.keyword.Bluemix_notm}} CLI:
 

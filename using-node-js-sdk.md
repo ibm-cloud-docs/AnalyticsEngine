@@ -38,6 +38,7 @@ To run the Node.js SDK, you need Node 4.x+. You need to provide the service endp
 The service instance ID is also referred to as a instance GUID. You can retrieve the service instance ID when you create service credentials or through the CLI. See [Retrieving service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints){: external}.
 
 ## Code samples using `iaesdk`
+{: #code-samples-node-js}
 
 Getting started with the Node.js SDK after you have installed it, involves sourcing credentials to the {{site.data.keyword.iae_full_notm}} service, invoking the service and then issuing different cluster commands as shown in the following sample code snippets.
 

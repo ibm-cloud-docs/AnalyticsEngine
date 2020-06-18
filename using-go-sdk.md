@@ -131,6 +131,7 @@ The Go SDK allows you to construct the service client in one of two ways by:
       - Initializes the service client to use the service endpoint URL, also defined the corresponding environment variable
 
 ## Code samples using `iaesdk`
+{: #code-samples-go}
 
 The following code samples show how to:
 
