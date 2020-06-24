@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-07-22"
+  years: 2017, 2029
+lastupdated: "2020-06-23"
 
 subcollection: AnalyticsEngine
 
@@ -30,7 +30,7 @@ To securely authenticate to {{site.data.keyword.cos_short}}, you need to underst
 
 The following diagram illustrates access management to {{site.data.keyword.cos_short}}.
 
-![Access management in {{site.data.keyword.cos_short}}](images/iam-overview.png)
+![Access management in {{site.data.keyword.cos_short}}](images/iam-overview.svg)
 
 As the {{site.data.keyword.cos_short}} administrator, you can:
 

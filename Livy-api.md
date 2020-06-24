@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-26"
+  years: 2017, 2020
+lastupdated: "2020-06-23"
 
 subcollection: AnalyticsEngine
 
@@ -179,8 +179,8 @@ curl \
 -u "<user>:<password>" \
 -H 'Content-Type: application/json' \
 -H 'X-Requested-By: livy'  \
--d '{ "file":"cos://mybucket.softlayer/spark-examples_2.10-2.1.0.jar", "className":"org.apache.spark.examples.SparkPi", "proxyUser":"clsadmin" }' \
-"https://iae-tmp-867-mn001<changeme>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
+-d '{ "file":"cos://mybucket.myCosInstance/spark-examples_2.10-2.1.0.jar", "className":"org.apache.spark.examples.SparkPi", "proxyUser":"clsadmin" }' \
+"https://iae-tmp-867-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
 ```
 where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 

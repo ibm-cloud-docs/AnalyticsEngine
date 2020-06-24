@@ -20,7 +20,7 @@ subcollection: AnalyticsEngine
 
 In {{site.data.keyword.iae_full_notm}}, you can work with  applications and their dependent data, or with files that reside in {{site.data.keyword.cos_short}}. For {{site.data.keyword.iae_full_notm}} to work with  {{site.data.keyword.cos_short}}, it needs the {{site.data.keyword.cos_short}} credentials. There are two ways to configure the {{site.data.keyword.cos_short}} credentials in {{site.data.keyword.iae_full_notm}} as shown in the following diagram:
 
-![Integrating {{site.data.keyword.cos_short}} and {{site.data.keyword.iae_full_notm}}](images/integrating-cos-and-iae.png)
+![Integrating {{site.data.keyword.cos_short}} and {{site.data.keyword.iae_full_notm}}](images/integrating-cos-and-iae.svg)
 
 - In a **static** configuration, the credential parameters are added to the `core-site.xml` configuration file of the HDFS component. There are 3 ways to pre-configure the cluster. See [Static configuration options](#static-configuration-options).
 - In a **dynamic or runtime** configuration, the credential parameters are specified as part of the Spark or Hadoop job. See [Specifying parameters at runtime](/docs/AnalyticsEngine?topic=AnalyticsEngine-specify-props-runtime).

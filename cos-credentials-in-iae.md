@@ -25,9 +25,9 @@ Note that you can configure one {{site.data.keyword.iae_full_notm}} service inst
 
 The following diagram shows how the {{site.data.keyword.cos_short}} credentials are used in {{site.data.keyword.iae_full_notm}}.
 
-![Authentication to {{site.data.keyword.cos_short}} resources from {{site.data.keyword.iae_full_notm}}](images/cos-credentials-in-iae.png)
+![Authentication to {{site.data.keyword.cos_short}} resources from {{site.data.keyword.iae_full_notm}}](images/cos-credentials-in-iae.svg)
 
-The diagram shows two {{site.data.keyword.cos_short}} instances with two different data buckets `b1` and `b2`. To distinguish between the two instances, two identifiers are used, `firstbucket` and `secondbucket`. Note that the bucket names (`b1` and `b2`) that you use must be the actual names of the existing buckets; however you are free to choose any identifier that makes it easier for you to distinguish between {{site.data.keyword.cos_short}} instances. For example, as identifier, you can use `myinstance`, `productioninstance`, `joesinstance` and so on.
+The diagram shows two {{site.data.keyword.cos_short}} instances with two different data buckets `b1` and `b2`. To distinguish between the two instances, two identifiers are used, `cosInstance1` and `cosInstance2`. Note that the bucket names (`b1` and `b2`) that you use must be the actual names of the existing buckets in {{site.data.keyword.cos_short}}. You can only choose the name of the identifier so that you can distinguish between {{site.data.keyword.cos_short}} instances.
 
 ## Structure of HMAC credentials
 For HMAC style authentication, you must define the following parameters in {{site.data.keyword.iae_full_notm}}:

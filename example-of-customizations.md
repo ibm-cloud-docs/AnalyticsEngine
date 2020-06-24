@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-13"
+lastupdated: "2020-06-23"
 
 subcollection: AnalyticsEngine
 
@@ -192,7 +192,7 @@ The following examples show snippets of the `script` and `script_params` attribu
 
 The maximum number of characters that can be used in the `"script"` attribute of the JSON input is limited to 4096 chars.
 
-### Example of the script hosted in an Github repository
+### Example of the script hosted in an GitHub repository
 
 ```
 "script": {
@@ -202,7 +202,7 @@ The maximum number of characters that can be used in the `"script"` attribute of
 },
 "script_params": ["CHANGEME_ENDPOINT", "CHANGE_ACCESS_KEY", "CHANGE_SECRET"]
 ```
-`<CHANGEME_ENDPOINT>` is the endpoint of the {{site.data.keyword.cos_full_notm}} instance, for example, `s3-api.sjc-us-geo.objectstorage.softlayer.net`.
+`<CHANGEME_ENDPOINT>` is the endpoint of the {{site.data.keyword.cos_full_notm}} instance, for example, `s3.sjc04.cloud-object-storage.appdomain.cloud`.
 `<CHANGE_ACCESS_KEY>` is the access key of the {{site.data.keyword.cos_short}} instance.
 `<CHANGE_SECRET>` is the secret of the {{site.data.keyword.cos_short}} instance.
 
@@ -221,7 +221,7 @@ The maximum number of characters that can be used in the `"script"` attribute of
     },
     "script_params": ["arg1", "arg2"]
 ```
-### Example of the customization script hosted in Softlayer {{site.data.keyword.cos_full_notm}}
+### Example of the customization script hosted in  {{site.data.keyword.cos_full_notm}}
 
 ```
    "script": {

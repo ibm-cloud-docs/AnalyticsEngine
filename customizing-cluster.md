@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-03-19"
+  years: 2017, 2020
+lastupdated: "2020-06-23"
 
 subcollection: AnalyticsEngine
 
@@ -62,11 +62,11 @@ The main differences between these customization methods is shown in the followi
 You can add a customization script to the following sources:
 *	Http with or without basic authentication
 *	Https with or without basic authentication
-*	Softlayer Cloud Object Storage
+*	{{site.data.keyword.cos_full_notm}}
 
 Examples for each type are given in the following sections.
 
-## Specifying the target for a runnning customization
+## Specifying the target for a running customization
 
 As mentioned before, in the case of boostrap customization, the script runs on all nodes.
 You need to specify a target only when you run:

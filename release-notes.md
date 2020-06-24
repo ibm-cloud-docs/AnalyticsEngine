@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-21"
+lastupdated: "2020-06-24"
 
 subcollection: AnalyticsEngine
 
@@ -28,6 +28,10 @@ Use these notes to learn about the latest features, additions and changes to {{s
 - You can now whitelist access to a private endpoint cluster. See [Whitelisting IP addresses to control network traffic](/docs/AnalyticsEngine?topic=AnalyticsEngine-whitelist-cluster-access).
 - You can also now use the {{site.data.keyword.iae_full_notm}} Java SDK to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API. See [Using Java](/docs/AnalyticsEngine?topic=AnalyticsEngine-java).
 
+## 17 May 2020
+
+- Security patches to Spark CLI were applied.
+
 ### 12 May 2020
 
 - The underlying HDP stack for `AE 1.2` was changed from 3.1.0.0-78 to 3.1.5.0-152.
@@ -39,6 +43,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
   The reason is a database schema version change. You do not have to issue this command if you associate a new IBM Cloud Databases for PostgreSQL instance with the {{site.data.keyword.iae_full_notm}} clusters.
 - Starting from this release, Spark and Hive share the same metadata store.
+- Security updates to JDK and WLP were applied on all host virtual machines. Also security updates to JDK on the cluster were installed.
 
 ### 05 May 2020
 
@@ -56,9 +61,17 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 - You can now use data skipping libraries to boost the performance of Spark SQL queries by associating a summary metadata with each data object. This metadata is used during query evaluation to skip over objects which have no relevant data. See [Data skipping for Spark SQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-data-skipping).
 
+### 13 February 2020
+
+- Java on clusters was updated to Open JDK.
+
 ### 12 February 2020
 
 - You can enable encryption for data in transit for Spark jobs by explicitly configuring the cluster using a combination of Advanced Options and customization.  See [Enabling Spark jobs encryption](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-encryption).
+
+### 16 January 2020
+
+- Security updates to JDK and WLP were applied on all host virtual machines.
 
 ### 14 January 2020
 

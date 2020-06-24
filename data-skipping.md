@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 20120
-lastupdated: "2020-02-11"
+lastupdated: "2020-06-23"
 
 subcollection: AnalyticsEngine
 
@@ -56,3 +56,10 @@ Note that the metadata is typically much smaller than the data. If changes are m
  - ST_Overlaps
  - ST_EnvelopesIntersect
  - ST_IntersectsInterior
+
+## Learn more
+
+Check out the following sample notebooks to learn how to use the data skipping library. To access these notebooks, you need an {{site.data.keyword.DSX_full}} instance. See [Provisioning an {{site.data.keyword.DSX_full}} instance](https://cloud.ibm.com/catalog/services/watson-studio){: external}.
+
+- [Data Skipping Sample for Python](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/4e6b0754a357d4e805fa4e1d8b13e08c){: external}
+- [data Skipping Sample for Scala](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/a7432f0c29c5bda2fb42749f3628d981){: external}
