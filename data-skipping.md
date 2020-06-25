@@ -30,8 +30,8 @@ Three index types are supported:
 
 | Index type  | Description  | Applicable to predicates in WHERE clauses  | Column types |
 |------------|--------------|--------------|--------------|
-| MinMax |Stores minimum and maximum values for a column | <,<=,=,>=,> | All types except for complex types. See [Supported Spark SQL data types](https://spark.apache.org/docs/latest/sql-reference.html#data-types). |
-| ValueList | Stores the list of unique values for the column | =,IN,LIKE | All types except for complex types. See [Supported Spark SQL data types](https://spark.apache.org/docs/latest/sql-reference.html#data-types).|
+| MinMax |Stores minimum and maximum values for a column | <,<=,=,>=,> | All types except for complex types. See [Supported Spark SQL data types](https://spark.apache.org/docs/2.4.4/sql-reference.html#data-types). |
+| ValueList | Stores the list of unique values for the column | =,IN,LIKE | All types except for complex types. See [Supported Spark SQL data types](https://spark.apache.org/docs/2.4.4/sql-reference.html#data-types).|
 | BloomFilter | Uses a bloom filter to test for set membership | =,IN | Byte, String, Long, Integer, Short |
 
 You should use bloom filters for columns with very high cardinality. Index creation invokes a Spark job which writes metadata (indexes) to a user specified location, in Parquet format.

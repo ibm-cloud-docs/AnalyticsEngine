@@ -52,7 +52,7 @@ Analytics Engine
         Connect-using-SSH.md
         granting-permissions-to-users.md
         whitelisting-access.md
-             
+
     {: .topicgroup}
     Managing a service instance
         Resize-clusters.md
@@ -147,7 +147,7 @@ Analytics Engine
         database-connectors.md
 
     {: .topicgroup}
-    Enhancing security for Analytics Engine
+    Enhancing security
         security-model.md
         user-responsibilities.md
         hipaa-readiness.md
