@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-27"
+lastupdated: "2020-07-02"
 
 subcollection: AnalyticsEngine
 
@@ -73,6 +73,32 @@ To enable Parquet encryption in {{site.data.keyword.iae_full_notm}}, set the fol
  spark.executor.extraClassPath=/home/common/lib/parquetEncryption/ibm-parquet-<latestversion>-jar-with-dependencies.jar:/home/common/lib/parquetEncryption/parquet-format-<latestversion>.jar:/home/common/lib/parquetEncryption/parquet-hadoop-<latestversion>.jar
  ```
 
+## Mandatory parameters
+
+The following parameters are required for writing encrypted data:
+
+  - List of columns to encrypt, with the master encryption keys:
+    ```
+    parameter name: "encryption.column.keys"
+    parameter value: "<master key ID>:<column>,<column>;<master key ID>:<column>,.."
+    ```
+  - The footer key:
+    ```
+    parameter name: "encryption.footer.key"
+    parameter value: "<master key ID>"
+    ```
+    For example:
+    ```
+    dataFrame.write
+    .option("encryption.footer.key" , "k1")
+    .option("encryption.column.keys" , "k2:SSN,Address;k3:CreditCard")
+    .parquet("<path to encrypted files>")
+    ```
+
+    **Important**:
+    - `"<path to encrypted files>"` must contain the string `.encrypted` in the URL, for example `/path/to/my_table.parquet.encrypted`.
+    - If neither the `"encryption.column.keys"` parameter nor the `"encryption.footer.key"` parameter is set, the file will not be encrypted. If only one of these parameters is set, an exception is thrown, because these parameters are mandatory for encrypted files.  
+
 ## Optional parameters
 
 The following optional parameters can be used when writing encrypted data:
@@ -94,6 +120,7 @@ The following optional parameters can be used when writing encrypted data:
   parameter name: "encryption.plaintext.footer"
   parameter value: "true"
   ```
+  **Important**: The `"encryption.footer.key"` parameter must also be specified in the plain text footer mode. Although the footer is not encrypted, the key is used to sign the footer content, which means that new readers could verify its integrity. Legacy readers are not affected by the addition of the footer signature.
 
 ## Usage examples
 {: #usage-examples-parquet-encryption}
