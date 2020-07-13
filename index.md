@@ -35,7 +35,7 @@ You can deploy {{site.data.keyword.iae_full_notm}} service instances in the foll
 
 ## Cluster architecture
 
-A cluster consists of a management instance and one or more compute instances. The management instance itself consists of three management nodes, which run in the management instance. Each of the compute nodes runs in a separate compute instance.
+A cluster consists of a management instance and one or more compute instances. The management instance consists of three management nodes that run in the instance. Each compute node runs in a separate compute instance.
 
 Note: You are billed only at the instance level. For more details on billing, see [{{site.data.keyword.iae_full_notm}}   Pricing](https://www.ibm.com/cloud/analytics-engine/pricing){: external}.
 
@@ -49,7 +49,7 @@ Ambari and all of the Hadoop and Spark components of the cluster run on the mana
 
 ### Compute nodes
 
-Compute nodes are where the execution of jobs happens. You define the number of compute nodes at the time of cluster creation. Each of the compute nodes is designated as `dn001`, `dn002` and so on.
+Compute nodes are where the execution of jobs happens. You define the number of compute nodes at the time the cluster is created. Each of the compute nodes is designated as `dn001`, `dn002` and so on.
 
 ### Summary of cluster nodes
 
@@ -67,14 +67,14 @@ Cluster services are made available through various endpoints as described in th
 
 From the endpoint list, you can see that the following ports are open for inbound traffic:
 
--	**9443**: this is the Admin port.
+-	**9443**: This is the Admin port.
 
- The Ambari UI console and APIs are exposed at port 9443 (`https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443`).
+ The Ambari UI console and APIs are exposed on port 9443 (`https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443`).
 -	**8443**: cluster services like Hive, Spark, Livy, Phoenix, and so on are made available for programmatic consumption through the Knox gateway on port 8443
 
--	**22**: the cluster itself is accessible via SSH at standard port 22.
+-	**22**: The cluster itself is accessible via SSH through the  standard port 22.
 
- When you SSH to a cluster (as described [here](/docs/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH)) you essentially log in to `mn003`. Once you have logged in to `mn003`, you can SSH to the compute nodes (referred to as `dn001`, `dn002` etc) and to `mn002`.
+ When you SSH to a cluster (as described [here](/docs/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH)) you essentially log in to `mn003`. Once you have logged in to `mn003`, you can SSH to the compute nodes (referred to as `dn001`, `dn002`, and so on) and to `mn002`.
 
 For example, to log in to a cluster in the US-South region, as given in the endpoint listing, enter:
 ```

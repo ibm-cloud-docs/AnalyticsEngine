@@ -91,6 +91,8 @@ The Lite plan provides 50 node-hours of free {{site.data.keyword.iae_full_notm}}
 
 A cluster created using a Lite plan has 1 master and 1 data node (2 nodes in total) and will run for 25 hours on the clock (50 hours/2 nodes). The node-hours cannot be paused, for example, you cannot use 10 node-hours, pause, and then come back and use the remaining 40 node-hours.
 
+Remember that you must sign up with IBM to try out the Lite plan.  
+
 ## What types of service maintenance exist in {{site.data.keyword.iae_full_notm}}?
 {: #service-maintenance}
 {: faq}

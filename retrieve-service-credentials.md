@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-02-26"
+  years: 2017, 2020
+lastupdated: "2020-07-13"
 
 subcollection: AnalyticsEngine
 
@@ -17,8 +17,8 @@ After your {{site.data.keyword.iae_full_notm}} service instance was created, you
 
 - By invoking the {{site.data.keyword.iae_full_notm}} [`reset_password`](/docs/AnalyticsEngine?topic=AnalyticsEngine-reset-cluster-password#reset-cluster-password) REST API. Calling this API is the only way in which the cluster password is shown to you. You can also use the API to reset the password if you need to.
 
-- By resetting the cluster password on the {{site.data.keyword.iae_full_notm}} service instance page from the {{site.data.keyword.Bluemix_notm}} console.  
+- By generating the cluster password on the {{site.data.keyword.iae_full_notm}} service instance page from the {{site.data.keyword.Bluemix_notm}} console.  
 
-  ![Shows the various states during cluster  provisioning.](images/change-password-in-console.png)
+  ![Shows the various states during cluster  provisioning.](images/generate-password-in-console.png)
 
-**Important:** The method of getting the cluster credentials by creating service keys is being deprecated. The service credentials will no longer show the cluster credentials. The service credentials will only include the service endpoints and a role-linked API key for using the {{site.data.keyword.iae_full_notm}} REST API.  
+**Important:** The service credentials are not shown with the cluster credentials. The service credentials only include the service endpoints and a role-linked API key for using the {{site.data.keyword.iae_full_notm}} REST API.  
