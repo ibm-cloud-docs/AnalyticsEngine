@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-24"
+lastupdated: "2020-07-23"
 
 subcollection: AnalyticsEngine
 
@@ -23,12 +23,17 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
 
+### 23 July 2020
+
+- Default values for the `gateway.socket.*` parameters were added to fix errors related to the length of messages when using Spark WebSockets.
+- Docker on the underlying Host VMs was upgraded as part of the security fixes that were applied for [CVE-2020-13401](https://exchange.xforce.ibmcloud.com/vulnerabilities/182750).
+
 ### 22 May 2020
 
 - You can now whitelist access to a private endpoint cluster. See [Whitelisting IP addresses to control network traffic](/docs/AnalyticsEngine?topic=AnalyticsEngine-whitelist-cluster-access).
 - You can also now use the {{site.data.keyword.iae_full_notm}} Java SDK to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API. See [Using Java](/docs/AnalyticsEngine?topic=AnalyticsEngine-java).
 
-## 17 May 2020
+### 17 May 2020
 
 - Security patches to Spark CLI were applied.
 
@@ -44,6 +49,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
   The reason is a database schema version change. You do not have to issue this command if you associate a new IBM Cloud Databases for PostgreSQL instance with the {{site.data.keyword.iae_full_notm}} clusters.
 - Starting from this release, Spark and Hive share the same metadata store.
 - Security updates to JDK and WLP were applied on all host virtual machines. Also security updates to JDK on the cluster were installed.
+- Resizing clusters by using the UI or the API fails for clusters that were created before 12 May 2020. The reason is an unexpected incompatibility in the Ambari version between HDP 3.1 (used in clusters created before 12 May 2020) and HDP 3.1.5 (used in clusters created after 12 May 2020). The problem does not affect clusters that were created after 12 May 2020. Those clusters can be resized.
 
 ### 05 May 2020
 
@@ -56,6 +62,10 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
   - For Node.js: [Using the {{site.data.keyword.iae_full_notm}} Node.js SDK](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-node-js)
   - For Python: [Using the {{site.data.keyword.iae_full_notm}} Python SDK](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-python-sdk)
+
+### 03 April 2020
+
+- Memory tuning enhancements were deployed for standard (default) hardware clusters. If you have standard hardware clusters that you created before 03 April 2020, you need to delete those clusters and create new ones to avoid running into out memory issues or having unresponsive clusters that need to be rebooted by the IBM Support team.
 
 ### 02 April 2020
 
