@@ -1,0 +1,385 @@
+{
+    "what-is-iae": [
+        "what is analytics engine",
+        "whats the analytic engine service",
+        "what service does hadoop analytics",
+        "manage lifecycle for spark clusters",
+        "what service uses hadoop "
+    ],
+    "difference-iae-cluster-and-hadoop": [
+        "what is the difference between hadoop and spark",
+        "the differences between spark and hadoop for AE",
+        "overview of hadoop architecture in analytics engine",
+        "difference between clusters for hadoop and spark",
+        "how are storage and compute different in spark and hadoop"
+    ],
+    "getting-started-with-iae": [
+        "how do I get started with spark",
+        "getting started with hadoop",
+        "start working with analytics engine",
+        "how do I use analytics engine",
+        "learn more about analytics engine",
+        "get started using IBM Analytics Engine",
+        "where can I find a spark tutorial"
+    ],
+    "distribution": [
+        "what distribution is used in analytics engine",
+        "what distribution analytics engine is using",
+        "distribution is spark using in analytics engine",
+        "distribution is hdp using",
+        "distibution used by analytics engine"
+    ],
+    "supported-hdp-components": [
+        "hadoop components are used in analytics engine",
+        "hdp components",
+        "analytics engine uses what components of hadoop",
+        "what are version of hdp is used in anaytics engine",
+        "hadoop version in analytics engine",
+        "HDP components supported by Analytics Engine"
+    ],
+    "node-sizes": [
+        "what node size does analytics engine use",
+        "how do I find the node size used in analytics engine",
+        "hdp node sizes",
+        "what are the supported node sizes for spark",
+        "currently supported analytics engine node sizes",
+        "analytics engine list of supported node sizes"
+    ],
+    "hdfs-space": [
+        "there so little space on hadoop clusters",
+        "how much space do I have in my analytics engine cluster",
+        "data is taking up all the space in my analytics engine cluster",
+        "HDFS space so small in analytics engine",
+        "free up space in my cluster in analytics engine",
+        "so little HDFS space on the clusters",
+        "my hdfs is full"
+    ],
+    "number-of-clusters": [
+        "how many clusters can I have in hadoop",
+        "number of hdp clusters",
+        "limit to the number of clusters you can spin up in Analytics Engine",
+        "spin up a new cluster in analytics engine",
+        "max number of clusters I can have in hadoop",
+        "max amount of clusters in hadoop"
+    ],
+    "free-usage": [
+        "want to try hadoop for free",
+        "analytics engine free plan",
+        "what account do I need to do a free trial of anaytics engine",
+        "free usage tier to try IBM Analytics Engine",
+        "what are the requirements for a free usage of hdp",
+        "ue analytics engine for free",
+        "do I get a credit when I upgrade from my free ibm analytics engine account",
+        "can I test analytics engine without paying"
+    ],
+    "lite-plan": [
+        "what do I get in the analytics engine lite plan",
+        "what requirements are there for the hdp lite plan",
+        "am I eligible for the analytics engine light plan",
+        "lite plan for analytics engine",
+        "what's included in spark lite plan",
+        "is there a time limit for the ae lite plan"
+    ],
+    "service-maintenance": [
+        "analytics engine service down for maintenance?",
+        "scheduled maintanance will affect my hadoop cluster?",
+        "provisioning affected by the scheduled maintenance in ae?",
+        "be notified about maintenance for iae?",
+        "maintainence notifications for analytics engine"
+    ],
+    "cos-in-iae": [
+        "cloud object storage included with iae",
+        "cos included with analytics engine",
+        "why don't I have object storage with IBM analytics engine",
+        "need to buy cos separtely from iae",
+        "Cloud Object Storage included in Analytics Engine",
+        "what is included in iae",
+        "analytics engine also include COS"
+    ],
+    "cos-in-hadoop": [
+        "can I use cos instead of hdfs in analytics engine",
+        "is the hdfs api compatible with cloud object storage",
+        "is cos supported by hadoop",
+        "easy to substitude cos for hdfs in iae",
+        "difference between hdfs and cos for analytics engine"
+    ],
+    "account-error": [
+        "what other components should I consider when designing a solution using ibm analytics engine",
+        "what other components should I use with hadoop",
+        "besides cos and spark, what components should I use",
+        "what database should I use with iae",
+        "how should I persist my data in analytics engine",
+        "should I use an rdb to store my hive metadata with iae",
+        "how can I reuse my data in analytics engine",
+        "what database compatible with iae"
+    ],
+    "size-cluster": [
+        "how should I size my hadoop cluster",
+        "what size should my iae cluster be",
+        "consider when sizing my analytics engine cluster",
+        "sizing considerations for analytics engine",
+        "best practice for cluster sizing in analytic engine",
+        "using spark and cos, what size should my cluster be",
+        "what should be my cluster size compared to my data in iae"
+    ],
+    "design-multiple-envs": [
+        "design and size multiple environments for different purposes in iae",
+        "have multiple analytics engine environments",
+        "considerations when creating multiple iae environments",
+        "can development environment for hadoop be different from my prod env",
+        "multiple hadoop clusters, must they all be running to access my data",
+        "must multiple hadoop clusters use separate environments",
+        "how does my cos affect multiple spark environemnts"
+    ],
+    "user-management": [
+        "how is user management done in iae",
+        "how do I manage users in analytics engine",
+        "tools are available for different users in hadoop",
+        "user management done across clusters in analytics engine",
+        "add more users to my cluster in AE",
+        "add additional user to analytic engine cluster"
+    ],
+    "enforce-data-access-control": [
+        "how is data access control enforced in iae",
+        "acl details analytics engine",
+        "control access to my data in hadoop",
+        "how does my cos access effect my iae cluster",
+        "access control lists in analytics engine",
+        "data access control within analytics engine",
+        "acl for hdfs"
+    ],
+    "run-cluster-job-long": [
+        "can I run a cluster or job for a long time in iae",
+        "requirements for job length in hadoop",
+        "cluster job restrictions in analytics engine",
+        "HDFS as persistent storage for analytics engine",
+        "will data be lost if a long running job fails in iae",
+        "use HDFS as a persistent store"
+    ],
+    "iae-with-other-services": [
+        "can I write iae data to db2 warehouse",
+        "other services integrated with iae",
+        "an other services be integrated with analytics engine",
+        "can I integrate db2 warehouse with hadoop",
+        "service integration in analytics engine"
+    ],
+    "iae-ws": [
+        "can I push watson studio jobs to analytics engine",
+        "how is iae integrated with watson studio",
+        "how do I run a watson studio notebook on my iae data",
+        "can I use studio with spark",
+        "intergration of watson studio with analytics engine"
+    ],
+    "kafka-4-data-ingestion": [
+        "can I use kafka for data ingestion into iae",
+        "can I use message hub for analytics engine data ingestion",
+        "ingest data from cos into iae using kafka",
+        "use message hub to ingest spark data",
+        "cos data ingestion with kafka for analytics engine"
+    ],
+    "acid-4-hive": [
+        "can I set acid properties for hive in iae",
+        "hive attributes for analytics engine clusters",
+        "considerations for acid for hadop clusters",
+        "hive cluster attributes iae",
+        "set ACID properties for Hive "
+    ],
+    "time-4-cluster-2-start": [
+        "how much time does it take for an iae cluster to start",
+        "my anaytics engine cluster is taking a long time to start",
+        "how do I check on the status starting my spark cluster",
+        "hadoop cluster start too long",
+        "why is my cluster taking so long to start spark hadoop",
+        "how long does it take for the spark cluster to get started for analytics engine"
+    ],
+    "how-access-cluster": [
+        "how can I access my hadoop cluster",
+        "don't know how to access my spark cluster",
+        "accessing clusters for analytics engine",
+        "cluster access for analytics engine",
+        "having a problem accessing my iae cluster",
+        "what api can I use to access my analytics engine cluster",
+        "use the console to access the spark cluster"
+    ],
+    "get-data-on-cluster": [
+        "tools can I use to get data on my hadoop cluster",
+        "se streaming for my spark cluster",
+        "read data to a cluster for processing in AE",
+        "what are the recommendations to get data to my iae cluster",
+        "how to get cos data onto hadoop",
+        "process my data directly on the cluster, how do I get it there"
+    ],
+    "how-2-configure-cluster": [
+        "configure my spark cluster",
+        "tell me the configuration steps for my iae cluster",
+        "what tool do I use to configure my cluster for spark",
+        "use the ambari console to configure hadoop",
+        "cluster configuration for analytics engine",
+        "customize a cluster in AE",
+        "use configuration scripts for iae"
+    ],
+    "root-access": [
+        "does iae give me root access",
+        "need analytics engine root access",
+        "want to sudo to my spark cluster",
+        "why don't I have root access to hadoop",
+        "users have root access in analytics engine",
+        "can I change config to get root access to iae",
+        "users have sudo access in analytics engine"
+    ],
+    "istall-hadoop-stack": [
+        "can I install my own hadoop components",
+        "want to install other components on hadoop",
+        "installing my own Hadoop stack component",
+        "what hadoop components can I install",
+        "install ambari hadoop stack",
+        "can I modify the hadoop ecosystem"
+    ],
+    "third-party-packages": [
+        "can I install third party packages on iae",
+        "how do I install 3rd party packages in analytics engine",
+        "need sudo to install R on iae",
+        "use customization scripts to install libraries on iae",
+        "nstall python on my spark cluster"
+    ],
+    "monitor-cluster": [
+        "how can I monitor my hadoop cluster",
+        "configure alerts on spark",
+        "tell me about the ambari metrics alerts",
+        "can I monitor ambari in iae",
+        "how to monitor the hadoop cluster"
+    ],
+    "scale-cluster": [
+        "how do I scale my hadoop cluster",
+        "how to scale a cluster in analytics engine",
+        "will adding nodes to spark scale my cluster",
+        "how do I add nodes to my iae cluster using cli",
+        "scale my analytics engine cluster using the api",
+        "iae ui be used to add nodes to my cluster"
+    ],
+    "scale-while-jobs-run": [
+        "can I scale my iae cluster while jobs are running",
+        "need to wait until my jobs finish before adding nodes to my hadoop cluster",
+        "use the UI to add nodes to spark when jobs are running",
+        "will nodes I add be used by a running process on hadoop",
+        "add nodes to my cluster when running in AE"
+    ],
+    "adjust-resource-allocation-interactive-app": [
+        "adjust resource allocation in a spark interactive app",
+        "can spark app resources be adusted",
+        "change the kernel while large spark jobs are running",
+        "how to tune resources when spark job running",
+        "increase performance for my spark job",
+        "my spark container is too small",
+        "get the maximum performance for my spark job"
+    ],
+    "dev-ops": [
+        "does ibm monitor my iae services",
+        "does the ibm ops team keep my jobs running",
+        "do you manage all my analttics engine instances",
+        "what does iae operations team do",
+        "what tools can I use to manage my spark cluster",
+        "who ensures my jobs are running in iae"
+    ],
+    "job-log-files": [
+        "where are my spark log files",
+        "how can I access my hadoop logs",
+        "log file location for analytics engine",
+        "can I use the ambari console to see my analytics engine logs",
+        "view log files in analytics engine",
+        "where are my logs stored on my hadoop cluster",
+        "check the logs for an error in iae"
+    ],
+    "debug-hive-query": [
+        "how can I debug a hive query on iae",
+        "hive query error on hadoop",
+        "hive query debug for analytics engine",
+        "see the hive query logs in spark",
+        "turn on hive query loggin in analytics engine",
+        "debugging a Hive query in AE"
+    ],
+    "supported-encryption": [
+        "what type of encryption is supported in iae",
+        "is cos encrypted at rest on analytics engine",
+        "is data on the public ports encrypted for hadoop",
+        "does cos encrypt data for iae",
+        "can I transfer encrypted data between cos and iae"
+    ],
+    "open-ports": [
+        "iae public ports",
+        "what are the public facing ports for analytics engine",
+        "what is the ambari console port",
+        "what is the analytics engine public ssh port",
+        "list ports for iae"
+    ],
+    "kernel-state-busy": [
+        "jupyter kernel busy analytic engine",
+        "waiting spark session analytic engine",
+        "Waiting for a Spark session to start error",
+        "notebook kernel is in busy state but no code running",
+        "iae obtaining spark session",
+        "Obtaining Spark session error",
+        "code running busy state iae",
+        "initializing kernel analytics engine"
+    ],
+    "no-access-cluster-management": [
+        "no access cluster manaement page analytics engine",
+        "access rights iae cluster",
+        "aren't authorized to access the cluster manaement page for analytics engine",
+        "can't access cluster analytics engine",
+        "cant access the cluster manaement page for analytics engine",
+        "privilege to access cluster iae",
+        "not authorized error iae cluster mgmt"
+    ],
+    "no-cluster-for-instance": [
+        "iae no cluster for my service",
+        "no cluster error analytics engine",
+        "associate cluster analytics engine service",
+        "No cluster is associated with Analytics Engine ",
+        "cluster has not been provision for analytics engine",
+        "cluster not provisioned iae",
+        "timeout cluster ibm analytics engine"
+    ],
+    "tracing-in-cli": [
+        "enable command line tracing iae",
+        "cli tracing analytics engine",
+        "turn on tracing in the CLI for analytics engine",
+        "env variable to for tracing cli analytics engine",
+        "trace for debug analytics engine",
+        "trace output environment variable iae"
+    ],
+    "no-cluster-endpoint": [
+        "no cluster endpoint error iae",
+        "set cluster endpoint analytics engine",
+        "setting the cluster endpoint in AE",
+        "attach to cluster analytics engine",
+        "ae endpoint set",
+        "cli talk to cluster analytics engine"
+    ],
+    "log-locations-on-cluster": [
+        "find logs iae cluster",
+        "log location analytics engine",
+        "log file locations for analytics engine",
+        "jupyter logs analytics engine",
+        "find hive logs cluster location iae",
+        "apache spark hadoop logs query analytics engine"
+    ],
+    "hive-cos-troubleshooting": [
+        "hive cos config iae",
+        "cloud object storage configuration not detected iae",
+        "updates to Cloud Object Storage configuration not detected for Hive",
+        "hive hmac config error analytics engine",
+        "changes to configuring COS not detected for Hive",
+        "update config cos for hive ae",
+        "update config not recognized iae hive cos"
+    ],
+    "working-with-hive-hive-metastore-can-t-be-started-on-newly-created-cluster": [
+        "can't start hive iae",
+        "hive metastore not starting analytics engine",
+        "error postgresql hive iae",
+        "ERROR :relation \"BUCKETING_COLS\" already exists iae",
+        "postgresql hive database error bucket",
+        "Hive metastore can't be started ",
+        "Hive metastore isn't starting"
+    ]
+}
