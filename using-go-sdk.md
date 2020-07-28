@@ -305,3 +305,19 @@ The following code samples show how to:
   }
   ```
   {: codeblock}
+- Update private endpoint whitelist:
+  ```go
+  func main() {
+
+      // Construct an instance of the UpdatePrivateEndpointWhitelistOptions model
+      updatePrivateEndpointWhitelistOptionsModel := new(ibmanalyticsengineapiv2.UpdatePrivateEndpointWhitelistOptions)
+      updatePrivateEndpointWhitelistOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
+      updatePrivateEndpointWhitelistOptionsModel.IpRanges = []string{"xx.xx.xx.xx/xx"}
+      updatePrivateEndpointWhitelistOptionsModel.Action = core.StringPtr("add")
+
+      // Invoke operation with valid options model (positive test)
+      response, _ := service.UpdatePrivateEndpointWhitelist(updatePrivateEndpointWhitelistOptionsModel)
+      fmt.Println(response.StatusCode)
+  }
+  ```
+  {: codeblock}
