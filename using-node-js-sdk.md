@@ -252,3 +252,19 @@ The code samples show how to:
   }
   ```
   {: codeblock}
+- Update private endpoint whitelist:
+  ```javascript
+  function updatePrivateEndpointWhitelist(instanceGuid) {
+    IbmAnalyticsEngineServiceClient.updatePrivateEndpointWhitelist({
+      instanceGuid: "{instanceGuid}",
+      ipRanges: ipRanges,
+      action: action,
+    }).then((response) => {
+      const { result, status, headers, statusText } = response;
+      console.log(status)
+    }).catch((err) => {
+      console.log(JSON.stringify(err, null, 4));
+    });
+  }
+  ```
+  {: codeblock}

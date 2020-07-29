@@ -206,7 +206,7 @@ The code samples show how to:
   ```
   {: codeblock}
 
-- Delete the log configuration
+- Delete the log configuration:
   ```python
   def delete_logging_config(instance_guid):
       try:
@@ -214,5 +214,19 @@ The code samples show how to:
           print(response.status_code)
       except Exception as e:
           print("Unable to delete: {0}".format(e))
+  ```
+  {: codeblock}
+
+- Update private endpoint whitelist:
+  ```python
+  def update_private_endpoint_whitelist(instance_guid):
+      try:
+          response = iaesdk_service.update_private_endpoint_whitelist(instance_guid)
+               instance_guid,
+               ip_ranges,
+               action,
+              )print(response.status_code)
+      except Exception as e:
+          print("Unable to update: {0}".format(e))
   ```
   {: codeblock}
