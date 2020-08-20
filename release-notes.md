@@ -23,6 +23,49 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
 
+### 20 Aug 2020
+
+- As of this deployment, Analytics Engine cluster’s build version will be available in `/home/common/aeversion.txt` on the nodes of the cluster. You can check this file after you SSH to the cluster. This will help in tracking fixes that were made available against a particular version of Analytics Engine. For example, this deployment version is AE-1.2.v28.3.
+
+- [AE-1.2.v28.3] - Fixes were applied for the following security vulnerabilities on the OS level packages of cluster nodes. Apart from these fixes, a few config vulnerabilities at the OS level were also applied.
+
+  [CVE-2019-11729](https://access.redhat.com/errata/RHSA-2019:4190),
+[CVE-2019-11745](https://access.redhat.com/errata/RHSA-2019:4190),
+[CVE-2020-8616](https://access.redhat.com/errata/RHSA-2020:2344),
+[CVE-2020-8617](https://access.redhat.com/errata/RHSA-2020:2344),
+[CVE-2019-12735](https://access.redhat.com/errata/RHSA-2019:1619),
+[CVE-2020-11008](https://access.redhat.com/errata/RHSA-2020:2337),
+[CVE-2020-12049](https://access.redhat.com/errata/RHSA-2020:2894),
+[CVE-2020-1967](https://gitlab.alpinelinux.org/alpine/aports/-/issues/11429),
+[CVE-2020-3810](https://ubuntu.com/security/notices/USN-4359-1),
+[CVE-2019-5188](http://www.ubuntu.com/usn/usn-4249-1),
+[CVE-2019-5094](http://www.ubuntu.com/usn/usn-4142-1),
+[usn-4038-3](http://www.ubuntu.com/usn/usn-4038-3),
+[CVE-2017-12133](http://www.ubuntu.com/usn/usn-4416-1),
+[CVE-2017-18269](http://www.ubuntu.com/usn/usn-4416-1),
+[CVE-2018-11236](http://www.ubuntu.com/usn/usn-4416-1),
+[CVE-2018-11237](http://www.ubuntu.com/usn/usn-4416-1),
+[CVE-2018-19591](http://www.ubuntu.com/usn/usn-4416-1),
+[CVE-2018-6485](http://www.ubuntu.com/usn/usn-4416-1),
+[CVE-2019-19126](http://www.ubuntu.com/usn/usn-4416-1),
+[CVE-2019-9169](http://www.ubuntu.com/usn/usn-4416-1),
+[CVE-2020-10029](http://www.ubuntu.com/usn/usn-4416-1),
+[CVE-2020-1751](http://www.ubuntu.com/usn/usn-4416-1),
+[CVE-2020-1752](http://www.ubuntu.com/usn/usn-4416-1),
+[CVE-2019-13627](http://www.ubuntu.com/usn/usn-4236-2),
+[CVE-2018-16888](http://www.ubuntu.com/usn/usn-4269-1),
+[CVE-2019-20386](http://www.ubuntu.com/usn/usn-4269-1),
+[CVE-2019-3843](http://www.ubuntu.com/usn/usn-4269-1),
+[CVE-2019-3844](http://www.ubuntu.com/usn/usn-4269-1),
+[CVE-2020-1712](http://www.ubuntu.com/usn/usn-4269-1),
+[CVE-2016-9840](http://www.ubuntu.com/usn/usn-4246-1),
+[CVE-2016-9841](http://www.ubuntu.com/usn/usn-4246-1),
+[CVE-2016-9842](http://www.ubuntu.com/usn/usn-4246-1),
+[CVE-2016-9843](http://www.ubuntu.com/usn/usn-4246-1),
+[CVE-2019-9924](http://www.ubuntu.com/usn/usn-4058-1) 
+
+- There is no security patch application for existing clusters. Create a new cluster to get these fixes.
+
 ### 23 July 2020
 
 - Default values for the `gateway.socket.*` parameters were added to fix errors related to the length of messages when using Spark WebSockets.
