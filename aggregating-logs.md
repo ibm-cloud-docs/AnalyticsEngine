@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-10-08"
+  years: 2017, 2020
+lastupdated: "2020-08-30"
 
 subcollection: AnalyticsEngine
 
@@ -112,15 +112,20 @@ You can use the following component names:
 - `hadoop-mapreduce`
 - `hadoop-yarn`
 - `hbase`
+- `hdfs`
+- `hdfs-audit`
 - `hive`
 - `jnbg`
 - `knox`
+- `knox-audit`
 - `livy2`
 - `spark2`
 
 **Data node components**
 - `hadoop-mapreduce`
 - `hadoop-yarn`
+- `hdfs`
+- `hdfs-audit`
 - `spark2`
 - `yarn-apps`
 

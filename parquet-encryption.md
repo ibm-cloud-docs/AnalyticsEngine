@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-02"
+lastupdated: "2020-09-10"
 
 subcollection: AnalyticsEngine
 
@@ -63,14 +63,13 @@ Key features include:
 To enable Parquet encryption in {{site.data.keyword.iae_full_notm}}, set the following Spark classpath properties to point to the Parquet jar files that implement Parquet modular encryption, and to the key management jar file:
 
 1. Navigate to **Ambari > Spark > Config -> Custom spark2-default**.
-1. Add the following two parameters to point explicitly to the location of the JAR files. Make sure that you edit the paths to use the actual version of jar files on the cluster.
+1. Add the following two parameters to point explicitly to the location of the JAR files.
 
  Alternatively, you can get the JAR files applied as part of the cluster creation process. See [Advanced Provisioning](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options){: external}.
 
  ```
- spark.driver.extraClassPath=/home/common/lib/parquetEncryption/ibm-parquet-kms-<latestversion>-jar-with-dependencies.jar:/home/common/lib/parquetEncryption/parquet-format-<latestversion>.jar:/home/common/lib/parquetEncryption/parquet-hadoop-<latestversion>.jar
-
- spark.executor.extraClassPath=/home/common/lib/parquetEncryption/ibm-parquet-<latestversion>-jar-with-dependencies.jar:/home/common/lib/parquetEncryption/parquet-format-<latestversion>.jar:/home/common/lib/parquetEncryption/parquet-hadoop-<latestversion>.jar
+ spark.driver.extraClassPath=/home/common/lib/parquetEncryption/ibmparquetkms.jar:/home/common/lib/parquetEncryption/parquetformat.jar:/home/common/lib/parquetEncryption/parquethadoop.jar
+ spark.executor.extraClassPath=/home/common/lib/parquetEncryption/ibmparquetkms.jar:/home/common/lib/parquetEncryption/parquetformat.jar:/home/common/lib/parquetEncryption/parquethadoop.jar
  ```
 
 ## Mandatory parameters

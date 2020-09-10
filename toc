@@ -142,6 +142,15 @@ Analytics Engine
         routing-functions.md
 
     {: .topicgroup}
+    Working with the time series library
+        time-series.md
+        using-time-series-lib.md
+        time-series-key-functionality.md
+        time-series-functions.md
+        lazy-timeseries-evaluation.md
+        time-reference-system.md
+
+    {: .topicgroup}
     Supported connectors on clusters
         supported-connectors.md
         database-connectors.md
