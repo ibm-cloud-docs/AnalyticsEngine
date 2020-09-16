@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-08"
+lastupdated: "2020-09-15"
 
 subcollection: AnalyticsEngine
 
@@ -59,6 +59,20 @@ You can configure a cluster by using customization scripts or by directly modify
 sets of configurations through a script, to spin up different types of clusters, or to use the same configuration repeatedly for repetitive jobs. You can find more information on cluster customization
 [here](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
 
+## Can I stop or shutdown my {{site.data.keyword.iae_full_notm}} clusters to be charged on a per-use basis?
+{: #charge-per-use}
+{: faq}
+{: support}
+
+You are charged as long as the cluster is active and not on a per-use basis. For this reason, you should delete the instance after your job has completed and create a new instance before you start another job. To enable creating and deleting clusters as you need them however, means you must separate compute from storage. See [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices#separate-compute-from-storage).
+
+## Can I scale down nodes in existing {{site.data.keyword.iae_full_notm}} clusters?
+{: #scale-down-nodes}
+{: faq}
+{: support}
+
+No, you can't reduce the number of nodes in existing clusters; you can only add more nodes to those clusters. If you want to scale down, you must delete those clusters and create new ones with the correct number of nodes.
+
 ## Do I have root access in {{site.data.keyword.iae_full_notm}}?
 {: #root-access}
 {: faq}
@@ -76,9 +90,9 @@ No, you cannot add components that are not supported by {{site.data.keyword.iae_
 {: #third-party-packages}
 {: faq}
 
-You can install packages which are available in the CentOS repo by using the `packageadmin` tool that comes with {{site.data.keyword.iae_full_notm}}. Libraries or packages (for example, for Python or R) that can be installed and run in your user space are allowed. You do not require sudo or root privileges to install or run any packages from non-CentOS repositories or RPM package management systems.
-You should perform all cluster customization by using customization
-scripts at the time the cluster is started to ensure repeatability and consistency when creating further new clusters.
+You can only install packages that are available in the CentOS repositories by using the `packageadmin` tool that comes with {{site.data.keyword.iae_full_notm}}. You do not require sudo or root privileges to install or run any packages from the CentOS repositories.
+
+You should perform all cluster customization by using customization scripts at the time the cluster is started to ensure repeatability and consistency when creating further new clusters.
 
 ## Can I monitor the cluster?
 {: #monitor-cluster}
