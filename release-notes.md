@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-20"
+lastupdated: "2020-09-17"
 
 subcollection: AnalyticsEngine
 
@@ -22,6 +22,10 @@ subcollection: AnalyticsEngine
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 17 September 2020
+
+- **[AE-1.2.v28.5]** A new stocator version was released with fixes for the [Spark Dynamic Partition Insert issue](https://github.com/CODAIT/stocator/issues/256) and [Ceph Storage list objects issue](https://github.com/CODAIT/stocator/issues/252).
 
 ### 10 September 2020
 
