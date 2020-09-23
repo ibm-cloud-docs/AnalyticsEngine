@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-16"
+  years: 2017, 2020
+lastupdated: "2020-09-23"
 
 subcollection: AnalyticsEngine
 
@@ -132,7 +132,12 @@ Use the following steps to copy the instance certificate to the {{site.data.keyw
 ibmcloud cdb deployment-cacert "your-service-name"
 ```
 Copy and save the command's output to a file. See [CLI plug-in support for the self-signed certificate](/docs/services/databases-for-postgresql?topic=databases-for-postgresql-external-app#cli-plug-in-support-for-the-self-signed-certificate).
-1. Copy the file to `/home/wce/clsadmin` on the `mn002` node. To get to the `mn002` node, first SSH to the `mn003` node and then from there SSH to the `mn002` node.
+1. Copy the file to `/home/wce/clsadmin` on the `mn002` node. To get to the `mn002` node, first `scp` the file to the `mn003` node from your local machine and then from there `scp` the file to the `mn002` node.
+
+  Alternatively, you can copy directly to the `mn002` node by using the `mn003` as a jump host using the following command:
+  ```
+  scp -J clsadmin@chs-xxxxx-mn003.<region>.ae.appdomain.cloud <post-gres.cert> clsadmin@chs-xxxxx-mn002.<region>.ae.appdomain.cloud:/home/common/wce/clsadmin/
+  ```
 1. Enter `chmod -R 755 /home/wce/clsadmin` to grant access permissions to the certificate file in the folder.
 
 ### Configuring a cluster to work with PostgreSQL
@@ -143,11 +148,13 @@ Alternatively, you can use the Ambari user interface after you have created a cl
 
 To configure a cluster to work with your PostgreSQL instance:
 
-1. From the Ambari dashboard, open the advanced configuration for Hive by clicking **Hive > Config > Advanced Tab > Hive Metastore > Existing PostgreSQL Database**.
+1. From the Ambari dashboard,  open the advanced configuration for Hive by clicking **Hive > Configs > Database Tab > Hive Database > Existing PostgreSQL**.
 1. Add the PostgreSQL values for your instance to the following parameters: `Database Name`, `Database Username`, `Database Password`, `Database URL`.
 1. Save your changes. You must restart affected services as indicated in the Ambari user interface so that the changes take effect. This could take approximately three minutes.
 
- **Note**: You might not be able to click **Test Connection**  because of a known issue in the Ambari user interface. Also note that you can ignore the warnings and confirm to all prompts in the UI while saving.
+**Note**:
+- You don't have to install the PostgreSQL JDBC driver nor run any Ambari setup steps as this has been preconfigured on the cluster.  
+- You might not be able to click **Test Connection**  because of a known issue in the Ambari user interface. Also note that you can ignore the warnings and confirm to all prompts in the UI while saving.
 
 
 ## Parquet file format in Hive
