@@ -20,7 +20,7 @@ subcollection: AnalyticsEngine
 
 The following diagram illustrates the various states of a cluster during cluster creation, cluster resizing, and cluster deletion.
 
-![Shows the various states during cluster  provisioning.](images/cluster-states.svg)
+![Shows the various states during cluster provisioning](images/cluster-states-new.svg)
 
 You can track the status of your cluster provisioning by using the following REST API:
 
