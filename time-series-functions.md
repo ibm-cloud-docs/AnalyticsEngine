@@ -25,12 +25,12 @@ The following sections describe some of the time series functions available in d
 ## Transforms
 {: #time-series-transforms}
 
-Transforms are functions that are applied on a time series resulting in another time series. The time series library supports various types of transforms, including provided transforms (by using `from tspy.builders.functions import transformers`) as well as user defined transforms.
+Transforms are functions that are applied on a time series resulting in another time series. The time series library supports various types of transforms, including provided transforms (by using `from tspy.functions import transformers`) as well as user defined transforms.
 
 The following sample shows some provided transforms:
 ```python
 #Interpolation
->>> ts = tspy.time_series.list([1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
+>>> ts = tspy.time_series([1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
 >>> periodicity = 2
 >>> interp = interpolators.nearest(0.0)
 >>> interp_ts = ts.resample(periodicity, interp)
@@ -85,8 +85,7 @@ Segmentation or windowing is the process of splitting a time series into multipl
   This type of segmentation of a time series is based on user specified segment sizes. The segments can be record based or time based. There are options that allow for creating tumbling as well as sliding window based segments.
   ```python
   >>> import tspy
-  >>> ts_orig = tspy.observations
-     .builder()
+  >>> ts_orig = tspy.builder()
      .add(tspy.observation(1,1.0))
      .add(tspy.observation(2,2.0))
      .add(tspy.observation(6,6.0))
@@ -108,7 +107,7 @@ Segmentation or windowing is the process of splitting a time series into multipl
   Anchor based segmentation is a very important type of segmentation that creates a segment by anchoring on a specific lambda, which can be a simple value. An example is looking at events that preceded a 500 error or examining values after  observing an anomaly. Variants of anchor based segmentation include providing a range with multiple markers.
   ```python
   >>> import tspy
-  >>> ts_orig = tspy.time_series.list([1.0, 2.0, 3.0, 4.0, 5.0])
+  >>> ts_orig = tspy.time_series([1.0, 2.0, 3.0, 4.0, 5.0])
   >>> ts_orig
   TimeStamp: 0     Value: 1.0
   TimeStamp: 1     Value: 2.0
@@ -123,9 +122,9 @@ Segmentation or windowing is the process of splitting a time series into multipl
   ```
 - Segmenters
 
-  There are several specialized segmenters provided out of the box by importing the `segmenters` package (using `from tspy.builders.functions import segmenters`). An example segmenter is one that uses regression to segment a time series:
+  There are several specialized segmenters provided out of the box by importing the `segmenters` package (using `from tspy.functions import segmenters`). An example segmenter is one that uses regression to segment a time series:
   ```python
-  >>> ts = tspy.time_series.list([1.0,2.0,3.0,4.0,5.0,2.0,1.0,-1.0,50.0,53.0,56.0])
+  >>> ts = tspy.time_series([1.0,2.0,3.0,4.0,5.0,2.0,1.0,-1.0,50.0,53.0,56.0])
   >>> max_error = .5
   >>> skip = 1
   >>> reg_sts = ts.to_segments(segmenters.regression(max_error,skip,use_relative=True))
@@ -149,8 +148,8 @@ Several  `reducer` functions are supported, including:
 
   For categorical time series distance measurements, you can use  Damerau Levenshtein and Jaro-Winkler distance measures.
   ```python
-  >>> from tspy.builders.functions import *
-  >>> ts = tspy.time_series.list([1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
+  >>> from tspy.functions import *
+  >>> ts = tspy.time_series([1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
   >>> ts2 = ts.transform(transformers.awgn(sd=.3))
   >>> dtw_distance = ts.reduce(ts2,reducers.dtw(lambda obs1, obs2: abs(obs1.value - obs2.value)))
   >>> print(dtw_distance)
@@ -160,8 +159,8 @@ Several  `reducer` functions are supported, including:
 
   Several convenient math reducers for numeric time series are provided. These include basic ones such as average, sum, standard deviation, and moments. Entropy, kurtosis, FFT and variants of it, various correlations, and histogram are also included. A convenient basic summarization reducer is the `describe` function that provides basic information about the time series.
   ```python
-  >>> from tspy.builders.functions import *
-  >>> ts = tspy.time_series.list([1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
+  >>> from tspy.functions import *
+  >>> ts = tspy.time_series([1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
   >>> ts2 = ts.transform(transformers.awgn(sd=.3))
   >>> corr = ts.reduce(ts2, reducers.correlation())
   >>> print(corr)
@@ -204,8 +203,8 @@ Several  `reducer` functions are supported, including:
 The library includes functions for temporal joins or joining time series based on their timestamps. The join functions are similar to those in a database, including left, right, outer, inner, left outer, right outer joins, and so on. The following sample codes shows some of these join functions:
 ```python
 # Create a collection of observations (materialized TimeSeries)
-observations_left = tspy.observations.of(tspy.observation(1, 0.0), tspy.observation(3, 1.0), tspy.observation(8, 3.0), tspy.observation(9, 2.5))
-observations_right = tspy.observations.of(tspy.observation(2, 2.0), tspy.observation(3, 1.5), tspy.observation(7, 4.0), tspy.observation(9, 5.5), tspy.observation(10, 4.5))
+observations_left = tspy.observations(tspy.observation(1, 0.0), tspy.observation(3, 1.0), tspy.observation(8, 3.0), tspy.observation(9, 2.5))
+observations_right = tspy.observations(tspy.observation(2, 2.0), tspy.observation(3, 1.5), tspy.observation(7, 4.0), tspy.observation(9, 5.5), tspy.observation(10, 4.5))
 
 # Build TimeSeries from Observations
 ts_left = observations_left.to_time_series()
@@ -267,7 +266,7 @@ if model.is_initialized():
 
 6.334135728495107
 
-ts = tspy.time_series.list([float(i) for i in range(10)])
+ts = tspy.time_series([float(i) for i in range(10)])
 
 print(ts)
 

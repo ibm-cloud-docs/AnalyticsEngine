@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-09-23"
 
 subcollection: AnalyticsEngine
 
@@ -29,10 +29,9 @@ To configure Parquet encryption on Hive tables:
   CREATE TABLE my_table(name STRING, credit_card STRING)
   ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
     WITH SERDEPROPERTIES (
-        'encryption.column.keys'='c4a21521-2a78-4968-a7c2-57c481f58d5c: credit_card',
-        'encryption.footer.key'='d1ae3fc2-6b7d-4a03-abb6-644e02933734')
+        'parquet.encryption.column.keys'='c4a21521-2a78-4968-a7c2-57c481f58d5c: credit_card',
+        'parquet.encryption.footer.key'='d1ae3fc2-6b7d-4a03-abb6-644e02933734')
     STORED AS parquet
-    LOCATION '/path/to/my_table.parquet.encrypted';
   ```
 
   If you don't use the Hive Beeline CLI, you can use Spark SQL to setup parquet encryption on a Hive table that you create and pass the table-specific parquet encryption parameters via the OPTIONS keyword. For example:
@@ -42,15 +41,21 @@ To configure Parquet encryption on Hive tables:
   CREATE TABLE my_table(name STRING, credit_card STRING)
   USING HIVE
   OPTIONS(
-    encryption.column.keys 'c4a21521-2a78-4968-a7c2-57c481f58d5c: credit_card',
-    encryption.footer.key 'd1ae3fc2-6b7d-4a03-abb6-644e02933734',
+    parquet.encryption.column.keys 'c4a21521-2a78-4968-a7c2-57c481f58d5c: credit_card',
+    parquet.encryption.footer.key 'd1ae3fc2-6b7d-4a03-abb6-644e02933734',
     fileFormat 'parquet')
-  LOCATION '/path/to/my_table.parquet.encrypted'
     """)
   ```
 
-  **Note**: When you create a Hive table with Parquet encryption, either via Spark SQL or Beeline, make sure your LOCATION contains the string ".encrypted", as is required by the Parquet Modular Encryption readers.
-
+  You can use `SERDEPROPERTIES` to configure KMS properties too:
+  ```
+  CREATE TABLE my_table(name STRING, credit_card STRING)
+  ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+  WITH SERDEPROPERTIES (
+    'parquet.encryption.kms.instance.url'='https://<region>.kms.cloud.ibm.com','parquet.encryption.kms.instance.id'='<KeyProtect instance ID>',
+    'parquet.encryption.column.keys'='c4a21521-2a78-4968-a7c2-57c481f58d5c: credit_card','parquet.encryption.footer.key'='d1ae3fc2-6b7d-4a03-abb6-644e02933734')
+  STORED AS parquet;
+  ```
 1. After you have created the table, add data to it by using the `DataFrameWriter.insertInto` operator.
 
   For example, you could load data from a CSV file, and add it to your table:
@@ -74,9 +79,9 @@ The following examples show you how you can use Parquet encryption on data saved
 
   # setup key protect on the hadoop configuration
   hc = spark.sparkContext._jsc.hadoopConfiguration()
-  hc.set("encryption.kms.instance.url", "https://<region>.kms.cloud.ibm.com")
-  hc.set("encryption.kms.instance.id", KEY_PROTECT_INSTANCE_ID)
-  hc.set("encryption.key.access.token", ACCESS_TOKEN)
+  hc.set("parquet.encryption.kms.instance.url", "https://<region>.kms.cloud.ibm.com")
+  hc.set("parquet.encryption.kms.instance.id", KEY_PROTECT_INSTANCE_ID)
+  hc.set("parquet.encryption.key.access.token", ACCESS_TOKEN)
 
   # load data from CSV
   csvDF = spark.read.format("csv").load("squares.csv")
@@ -86,10 +91,9 @@ The following examples show you how you can use Parquet encryption on data saved
   CREATE TABLE squares_table(int_column int, square_int_column int)
   USING HIVE
   OPTIONS(
-    encryption.column.keys '%s: square_int_column',
-    encryption.footer.key '%s',
+    parquet.encryption.column.keys '%s: square_int_column',
+    parquet.encryption.footer.key '%s',
     fileFormat 'parquet')
-  LOCATION 'squares.parquet.encrypted'
   """ % (K1, K2))
 
     # write csvDF to hive table
@@ -103,7 +107,7 @@ The following examples show you how you can use Parquet encryption on data saved
   ```python
   # setup explicit keys on the hadoop configuration
   hc = sc._jsc.hadoopConfiguration()
-  hc.set("encryption.key.list", "key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
+  hc.set("parquet.encryption.key.list", "key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
 
   # load data from CSV
   csvDF = spark.read.format("csv").load("squares.csv")
@@ -113,15 +117,23 @@ The following examples show you how you can use Parquet encryption on data saved
   CREATE TABLE squares_table(int_column int, square_int_column int)
   USING HIVE
   OPTIONS(
-    encryption.column.keys 'key1: square_int_column',
-    encryption.footer.key 'key2',
+    parquet.encryption.column.keys 'key1: square_int_column',
+    parquet.encryption.footer.key 'key2',
     fileFormat 'parquet')
-  LOCATION 'squares.parquet.encrypted'
   """)
 
   # write csvDF to hive table
   csvDF.write.insertInto("squares_table")
 
+  # read from table and print
+  spark.sql("SELECT * FROM squares_table").show()
+  ```
+- Python example: Read from a Hive table where the content is saved as encrypted Parquet file content with keys managed by IBM KeyProtect:
+
+  ```python
+  ACCESS_TOKEN = "A valid IAM access token"
+  # setup access token for key protect on the Hadoop
+  configurationspark.sparkContext._jsc.hadoopConfiguration().set("parquet.encryption.key.access.token", ACCESS_TOKEN)  
   # read from table and print
   spark.sql("SELECT * FROM squares_table").show()
   ```

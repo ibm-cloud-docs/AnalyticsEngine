@@ -44,7 +44,7 @@ key  timestamp  value
   b          2   45.0
 
 #Create a timeseries from a dataframe, providing a timestamp and a value column
->>> ts = tspy.time_series.df(df, "timestamp", "value")
+>>> ts = tspy.time_series(df, ts_column="timestamp", value_column="value")
 >>> ts
 TimeStamp: 1     Value: 27.0
 TimeStamp: 2     Value: 45.0
@@ -56,7 +56,7 @@ TimeStamp: 5     Value: 17.0
 To revert from a time series back to a pandas DataFrame, use the `to_df` function:
 ```python
 >>> import tspy
->>> ts_orig = tspy.time_series.list([1.0, 2.0, 3.0])
+>>> ts_orig = tspy.time_series([1.0, 2.0, 3.0])
 >>> ts_orig
 TimeStamp: 0     Value: 1
 TimeStamp: 1     Value: 2
