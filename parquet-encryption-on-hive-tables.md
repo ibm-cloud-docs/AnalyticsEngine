@@ -47,13 +47,15 @@ To configure Parquet encryption on Hive tables:
     """)
   ```
 
-  You can use `SERDEPROPERTIES` to configure KMS properties too:
+  You can use `SERDEPROPERTIES` or `OPTIONS` to configure KMS properties too:
   ```
   CREATE TABLE my_table(name STRING, credit_card STRING)
   ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
   WITH SERDEPROPERTIES (
-    'parquet.encryption.kms.instance.url'='https://<region>.kms.cloud.ibm.com','parquet.encryption.kms.instance.id'='<KeyProtect instance ID>',
-    'parquet.encryption.column.keys'='c4a21521-2a78-4968-a7c2-57c481f58d5c: credit_card','parquet.encryption.footer.key'='d1ae3fc2-6b7d-4a03-abb6-644e02933734')
+    'parquet.encryption.kms.instance.url'='https://<region>.kms.cloud.ibm.com',
+    'parquet.encryption.kms.instance.id'='<KeyProtect instance ID>',
+    'parquet.encryption.column.keys'='c4a21521-2a78-4968-a7c2-57c481f58d5c: credit_card',
+    'parquet.encryption.footer.key'='d1ae3fc2-6b7d-4a03-abb6-644e02933734')
   STORED AS parquet;
   ```
 1. After you have created the table, add data to it by using the `DataFrameWriter.insertInto` operator.
@@ -96,12 +98,12 @@ The following examples show you how you can use Parquet encryption on data saved
     fileFormat 'parquet')
   """ % (K1, K2))
 
-    # write csvDF to hive table
-    csvDF.write.insertInto("squares_table")
+  # write csvDF to hive table
+  csvDF.write.insertInto("squares_table")
 
-    # read from table and print
-    spark.sql("SELECT * FROM squares_table").show()
-    ```
+  # read from table and print
+  spark.sql("SELECT * FROM squares_table").show()
+  ```
 - Python example: Load data from a CSV file to a Hive table where the content is saved as encrypted Parquet file content with keys managed by application:
 
   ```python
