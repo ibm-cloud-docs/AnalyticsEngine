@@ -2,7 +2,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="AnalyticsEngine" category="analytics" audience="service" arm="3248326" href="/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started" path="services/AnalyticsEngine"}
+{: .toc subcollection="AnalyticsEngine" category="analytics" audience="service" arm="3248326" href="/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started" path="AnalyticsEngine"}
 Analytics Engine
 
     {:navgroup: .navgroup}
