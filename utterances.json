@@ -9,7 +9,7 @@
     "hows IAE work",
     "what is hadoop used for in IAE",
     "manage lifecycle for spark clusters",
-    "what service uses hadoop "
+    "what service uses hadoop"
   ],
   "difference-iae-cluster-and-hadoop": [
     "what is the difference between hadoop and spark",
@@ -44,13 +44,13 @@
     "what distribution analytics engine is using",
     "distribution is spark using in analytics engine",
     "distribution is hdp using",
-    "distibution used by analytics engine"
+    "distribution used by analytics engine"
   ],
   "supported-hdp-components": [
     "hadoop components are used in analytics engine",
     "hdp components",
     "analytics engine uses what components of hadoop",
-    "what are version of hdp is used in anaytics engine",
+    "what version of hdp is used in analytics engine",
     "hadoop version in analytics engine",
     "HDP components supported by Analytics Engine"
   ],
@@ -60,6 +60,8 @@
     "largest cluster size used by IAE",
     "how do I find the node size used in analytics engine",
     "hdp node sizes",
+    "What is the largest cluster size for Analytics Engine",
+    "biggest cluster size for Analytics Engine",
     "supported node sizes for IAE",
     "what are the supported node sizes for spark",
     "supported node sizes for spark in IAE",
@@ -94,7 +96,7 @@
     "want to try hadoop for free",
     "use IAE for free",
     "analytics engine free plan",
-    "what account do I need to do a free trial of anaytics engine",
+    "what account do I need to do a free trial of analytics engine",
     "free usage tier to try IBM Analytics Engine",
     "what are the requirements for a free usage of hdp",
     "use analytics engine for free",
@@ -104,7 +106,7 @@
     "create an Analytics engine with my lite account",
     "Lite account cannot create analytics engine",
     "not able to use analytics engine with my lite plan",
-    "use the Lite(Free) plan of the Analytics engine",
+    "use the Lite (Free) plan of the Analytics engine",
     "cannot create Analytics Engine instance in Lite",
     "can´t create an Analytics engine with a lite plan",
     "create an Analytics engine in Lite",
@@ -136,31 +138,31 @@
   ],
   "service-maintenance": [
     "analytics engine service down for maintenance?",
-    "scheduled maintainence will affect my hadoop cluster?",
+    "scheduled maintenance will affect my hadoop cluster?",
     "How is the IAE cluster patched",
-    "access IAE during maintainence",
-    "use analytics engine during scheduled maintainence",
-    "maintainence affect my hadoop cluster",
-    "receive maintainence notifications for IAE",
+    "access IAE during maintenance",
+    "use analytics engine during scheduled maintenance",
+    "maintenance affect my hadoop cluster",
+    "receive maintenance notifications for IAE",
     "provisioning affected by the scheduled maintenance in ae?",
     "be notified about maintenance for iae?",
-    "maintainence notifications for analytics engine"
+    "maintenance notifications for analytics engine"
   ],
   "cos-in-iae": [
     "cloud object storage included with iae",
     "cos included with analytics engine",
     "why don't I have object storage with IBM analytics engine",
-    "need to buy cos separtely from iae",
+    "need to buy cos separately from IAE",
     "Cloud Object Storage included in Analytics Engine",
-    "what is included in iae",
+    "what is included in IAE",
     "analytics engine also include COS"
   ],
   "cos-in-hadoop": [
     "can I use cos instead of hdfs in analytics engine",
     "is the hdfs api compatible with cloud object storage",
     "is cos supported by hadoop",
-    "easy to substitude cos for hdfs in iae",
-    "use cos for hdfs in IBM Analytics Engine",
+    "easy to substitute COS for hdfs in IAE",
+    "use COS for hdfs in IBM Analytics Engine",
     "use HDFS in place of COS in IAE",
     "use Object Storage with Analytics Engine",
     "can I use COS with Analytics Engine",
@@ -175,7 +177,7 @@
     "how should I persist my data in analytics engine",
     "need additional services to use IAE",
     "need extra services to use Analytics Engine",
-    "should I use an rdb to store my hive metadata with iae",
+    "should I use RDB to store my hive metadata with iae",
     "how can I reuse my data in analytics engine",
     "what database compatible with iae"
   ],
@@ -201,7 +203,7 @@
     "multiple hadoop clusters for each test and production environment",
     "multiple hadoop clusters, must they all be running to access my data",
     "must multiple hadoop clusters use separate environments",
-    "how does my cos affect multiple spark environemnts"
+    "how does my cos affect multiple spark environments"
   ],
   "user-management": [
     "how is user management done in iae",
@@ -212,6 +214,7 @@
     "tools are available for different users in hadoop",
     "user management done across clusters in analytics engine",
     "add users to access the cluster in IAE",
+    "multiple users to access a cluster in Analytics Engine",
     "add more users to my cluster in AE",
     "add additional user to analytic engine cluster"
   ],
@@ -230,7 +233,7 @@
   ],
   "run-cluster-job-long": [
     "can I run a cluster or job for a long time in iae",
-    "long running jobs in analytics egine supported",
+    "long running jobs in analytics engine supported",
     "requirements for job length in hadoop",
     "run a cluster for a long time in IAE",
     "long running jobs supported within analytics engine",
@@ -246,7 +249,7 @@
     "other services that work with IAE",
     "can i integrate IAE with Watson",
     "what services can I integrate with analytics engine",
-    "an other services be integrated with analytics engine",
+    "other service be integrated with analytics engine",
     "can I integrate db2 warehouse with hadoop",
     "other services integrated with hadoop",
     "integration of services with IAE",
@@ -261,15 +264,15 @@
     "run a watson studio notebook in iae",
     "can I use studio with spark",
     "can I use watson studio with analytics engine",
-    "intergration of watson studio with analytics engine"
+    "integration of watson studio with analytics engine"
   ],
   "kafka-4-data-ingestion": [
     "can I use kafka for data ingestion into iae",
-    "use kafka in analytics engine",
+    "use Kafka in analytics engine",
     "can I use message hub for analytics engine data ingestion",
     "ingest data from cos into iae using kafka",
     "does IAE support Kafka",
-    "use kafka in data analytics for IAE",
+    "use Kafka in data analytics for IAE",
     "kafka use in IBM analytics engine",
     "Kafka supported on IAE",
     "use message hub to ingest spark data",
@@ -291,7 +294,7 @@
   ],
   "time-4-cluster-2-start": [
     "how much time does it take for an iae cluster to start",
-    "my anaytics engine cluster is taking a long time to start",
+    "my analytics engine cluster is taking a long time to start",
     "how do I check on the status starting my spark cluster",
     "hadoop cluster start too long",
     "how soon can I start to use my IAE cluster",
@@ -315,7 +318,7 @@
   ],
   "get-data-on-cluster": [
     "tools can I use to get data on my hadoop cluster",
-    "se streaming for my spark cluster",
+    "use streaming for my spark cluster",
     "read data to a cluster for processing in AE",
     "how to put data onto my IAE cluster",
     "get data on iae cluster",
@@ -362,6 +365,7 @@
     "installing third party packages in analytics engine",
     "3rd party packages which I can install in IAE",
     "need sudo to install R on iae",
+    "limitation on the packages I can install with Analytics Engine",
     "install third party packages on my IAE cluster",
     "use customization scripts to install libraries on iae",
     "install python on my spark cluster"
@@ -371,6 +375,8 @@
     "check on my analytics engine cluster",
     "monitor my hadoop cluster",
     "monitoring my hadoop cluster",
+    "how to check my cluster in IAE",
+    "check the clusters for Analytics Engine",
     "configure alerts on spark",
     "Can I configure alerts in IAE",
     "tell me about the ambari metrics alerts",
@@ -398,13 +404,14 @@
     "change resources in a running job in IAE",
     "modify nodes in a running job in IAE",
     "scale my cluster in IAE when a job is running",
+    "scale dynamically in Analytics Engine",
     "use the UI to add nodes to spark when jobs are running",
     "will nodes I add be used by a running process on hadoop",
     "add nodes to my cluster when running in AE"
   ],
   "adjust-resource-allocation-interactive-app": [
     "adjust resource allocation in a spark interactive app",
-    "can spark app resources be adusted",
+    "can spark app resources be adjusted",
     "change the kernel while large spark jobs are running",
     "change the resources for an app running in IAE",
     "tune the spark resources for my application",
@@ -415,12 +422,13 @@
     "get the maximum performance for my spark job"
   ],
   "dev-ops": [
-    "does ibm monitor my iae services",
-    "does the ibm ops team keep my jobs running",
+    "does IBM monitor my iae services",
+    "does the IBM dev ops team keep my jobs running",
     "do you manage all my analytics engine instances",
     "does IBM manage all my analytics engine instances",
     "what does iae operations team do",
     "who manages my analytics engine clusters",
+    "Who monitors my clusters for IAE",
     "who manages my spark cluster",
     "who manages analytics engine ",
     "what tools can I use to manage my spark cluster",
@@ -440,6 +448,7 @@
     "hive query error on hadoop",
     "hive query debug for analytics engine",
     "see the hive query logs in spark",
+    "turn on hive query log in analytics engine",
     "turn on hive query loggin in analytics engine",
     "debugging a Hive query in AE"
   ],
@@ -474,14 +483,14 @@
     "initializing kernel analytics engine"
   ],
   "no-access-cluster-management": [
-    "no access cluster manaement page analytics engine",
+    "no access cluster management page analytics engine",
     "access rights iae cluster",
-    "aren't authorized to access the cluster manaement page for analytics engine",
+    "aren't authorized to access the cluster management page for analytics engine",
     "can't access cluster analytics engine",
-    "cant access the cluster manaement in IAE",
+    "cant access the cluster management in IAE",
     "cannot see cluster management",
     "why can't I see cluster management in IAE",
-    "cant access the cluster manaement page for analytics engine",
+    "cant access the cluster management page for analytics engine",
     "privilege to access cluster iae",
     "not authorized error iae cluster mgmt"
   ],
@@ -490,6 +499,8 @@
     "no cluster error analytics engine",
     "associate cluster analytics engine service",
     "No cluster is associated with Analytics Engine",
+    "cant see my cluster in my IAE instance",
+    "unable to see the cluster in Analytics Engine",
     "cannot see cluster in IAE",
     "cannot see provisioned cluster in IAE",
     "cluster wasn't provisioned for analytics engine",
@@ -523,6 +534,8 @@
     "log file locations for analytics engine",
     "jupyter logs analytics engine",
     "cluster log for Analytics Engine",
+    "Where are the cluster logs",
+    "find the cluster logs for analytics engine",
     "Where are the cluster logs for analytics engine",
     "find the logs for analytics engine",
     "location of logs for analytics engine",
