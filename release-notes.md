@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-17"
+lastupdated: "2020-09-30"
 
 subcollection: AnalyticsEngine
 
@@ -22,6 +22,14 @@ subcollection: AnalyticsEngine
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 1 October 2020
+
+- A fix was added to alleviate cluster instability issues caused by an error in an underlying Docker runtime. If you created a cluster between 23 July 2020 and 01 October 2020, you might have experienced intermittent instability that manifested as connectivity issues or down times in nodes. With today's deployment, the runtime version has been replaced by an earlier stable runtime version.
+
+  We strongly urge you to create new clusters and discard all  clusters created between 23 July 2020 and 01 October 2020. If for any reason, you need to retain an old cluster, contact support and request for an in-place fix. Note that this in-place fix will require a disruptive restart of the cluster.
+
+  In general, you should following the recommendations for creating and deleting clusters as described in [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
 
 ### 17 September 2020
 
