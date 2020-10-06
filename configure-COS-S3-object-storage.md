@@ -28,7 +28,7 @@ To work with {{site.data.keyword.cos_short}} in an {{site.data.keyword.iae_full_
 
 1. Provision an {{site.data.keyword.cos_short}} service instance in {{site.data.keyword.Bluemix_short}}. See [Creating a new service instance](/docs/cloud-object-storage/iam?topic=cloud-object-storage-provision).
 
-  Create an {{site.data.keyword.Bluemix_short}} bucket in the  region of your choice and select the configuration, such as  resiliency (regional or cross-regional), and storage volume and price. See [Creating buckets to store your data](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
+  Create an {{site.data.keyword.cos_short}} bucket in the  region of your choice and select the configuration, such as  resiliency (regional or cross-regional), and storage volume and price. See [Creating buckets to store your data](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
 
   Make a note of the bucket name that you created. You will need it later when you configure {{site.data.keyword.iae_full_notm}} to work with {{site.data.keyword.cos_short}}.
 1. [Get the {{site.data.keyword.cos_short}} credentials](/docs/AnalyticsEngine?topic=AnalyticsEngine-get-cos-credentials).
