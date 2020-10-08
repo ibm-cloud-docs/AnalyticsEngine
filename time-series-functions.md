@@ -311,3 +311,7 @@ timestamp      value  lower_bound  upper_bound     error
 The time series library is tightly integrated with Apache Spark. By using new data types in Spark Catalyst, you are able to perform time series SQL operations that scale out horizontally using Apache Spark. This enables you to easily use time series extensions in {{site.data.keyword.iae_full_notm}} or in solutions that include {{site.data.keyword.iae_full_notm}} functionality like the {{site.data.keyword.DSX_short}} Spark environments.
 
 SQL extensions cover most aspects of the time series functions, including segmentation, transformations, reducers, forecasting, and I/O. See [Analyzing time series data](https://cloud.ibm.com/docs/sql-query?topic=sql-query-ts_intro).
+
+## Learn more
+
+To use the `tspy` Python SDK, see the [`tspy` Python SDK documentation](https://ibm-cloud.github.io/tspy-docs/).

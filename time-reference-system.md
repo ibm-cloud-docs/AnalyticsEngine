@@ -227,3 +227,7 @@ This returns:
 # average = (1+2+4)/3 = 2.33
 [(0,2.33)]
 ```
+
+## Learn more
+
+To use the `tspy` Python SDK, see the [`tspy` Python SDK documentation](https://ibm-cloud.github.io/tspy-docs/).

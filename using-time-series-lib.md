@@ -273,3 +273,4 @@ max:7.0
 - [Time series functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-time-series-functions)
 - [Time series lazy evaluation](/docs/AnalyticsEngine?topic=AnalyticsEngine-lazy-evaluation)
 - [Using time reference system](/docs/AnalyticsEngine?topic=AnalyticsEngine-time-reference-system)
+- [`tspy` Python SDK documentation](https://ibm-cloud.github.io/tspy-docs/)

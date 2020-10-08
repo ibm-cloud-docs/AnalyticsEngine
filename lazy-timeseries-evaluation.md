@@ -106,3 +106,7 @@ def harsh(a):
     else:
         return 0
 ```
+
+## Learn more
+
+To use the `tspy` Python SDK, see the [`tspy` Python SDK documentation](https://ibm-cloud.github.io/tspy-docs/).
