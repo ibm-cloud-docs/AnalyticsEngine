@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-09"
+lastupdated: "2020-10-19"
 
 subcollection: AnalyticsEngine
 
@@ -140,8 +140,8 @@ The software packages on `AE 1.2` clusters include components for Horton Datawor
 
 | AE 1.2  clusters     | Based on HDP 3.1        |
 |-----------------|-----------------------------|
-| `AE 1.2 Hive LLAP` <br>Choose if you are planning to run Hive in interactive mode, with preconfigured settings for Hive LLAP for faster responses. | Hadoop, Livy, Knox, Ambari, Anaconda-Py, Hive (LLAP mode) |
-| `AE 1.2 Spark and Hive` <br>Choose if you are planning to run Hive and/or Spark workloads.  | Hadoop, Livy, Knox, Spark, JEG, Ambari, Anaconda Py, Hive (non LLAP mode ) |
+| `AE 1.2 Hive LLAP` <br>Choose if you are planning to run Hive in interactive mode, with preconfigured settings for Hive LLAP for faster responses. | Hadoop, Livy, Knox, Ambari, Conda-Py, Hive (LLAP mode) |
+| `AE 1.2 Spark and Hive` <br>Choose if you are planning to run Hive and/or Spark workloads.  | Hadoop, Livy, Knox, Spark, JEG, Ambari, Conda Py, Hive (non LLAP mode ) |
 | `AE 1.2 Spark and Hadoop`<br>Choose if you are planning to run Hadoop workloads in addition to Spark workloads. | (AE 1.2 Spark and Hive) +  HBase, Phoenix, Oozie |
 
 **Note:**  Currently you cannot resize a cluster that uses the `AE 1.2 Hive LLAP` software package.

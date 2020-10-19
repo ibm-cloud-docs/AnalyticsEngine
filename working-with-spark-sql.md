@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-07-24"
+  years: 2017, 2020
+lastupdated: "2020-10-19"
 
 subcollection: AnalyticsEngine
 
@@ -93,7 +93,7 @@ To run Spark SQL with Python 3:
 
 1. Launch the PySpark shell:
  ```
-PYSPARK_PYTHON=/home/common/conda/anaconda3/bin/python pyspark \
+PYSPARK_PYTHON=/home/common/conda/miniconda3.7/bin/python pyspark \
  --master  yarn \
  --deploy-mode client
  ```

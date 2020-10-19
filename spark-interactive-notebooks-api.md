@@ -47,17 +47,11 @@ $ ssh clsadmin@iae-tmp-867-mn003.<changeme>.ae.appdomain.cloud
 
   `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
-2. You can start Python 2, Python 3, Scala, and R interactive shells on the cluster as follows:
+2. You can start Python 3, Scala, and R interactive shells on the cluster as follows:
 
-  * Run Spark applications interactively with Python 2:
-```
-PYSPARK_PYTHON=/home/common/conda/anaconda2/bin/python pyspark \
-     --master yarn \
-     --deploy-mode client
- ```
  * Run Spark applications interactively with Python 3:
 ```
-PYSPARK_PYTHON=/home/common/conda/anaconda3/bin/python pyspark \
+PYSPARK_PYTHON=/home/common/conda/miniconda3.7/bin/python pyspark \
      --master yarn \
      --deploy-mode client
  ```

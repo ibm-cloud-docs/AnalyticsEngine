@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2018-09-26"
+  years: 2017, 2020
+lastupdated: "2020-10-19"
 
 subcollection: AnalyticsEngine
 
@@ -36,23 +36,12 @@ $ ssh clsadmin@iae-tmp-867-mn003.us-south.ae.appdomain.cloud
   /usr/hdp/current/spark2-client/jars/spark-examples.jar
   ```
 
-## Running spark-submit with Anaconda Python 2
-
-To run spark-submit with Anaconda Python 2, enter:
-
-  ```
-  PYSPARK_PYTHON=/home/common/conda/anaconda2/bin/python spark-submit \
-  --master yarn \
-  --deploy-mode cluster  \
-  /usr/hdp/current/spark2-client/examples/src/main/python/pi.py
-  ```
-
 ## Running spark-submit with Anaconda Python 3
 
 To run sprk-submit with Anaconda Python 3, enter:
 
   ```
-  PYSPARK_PYTHON=/home/common/conda/anaconda3/bin/python spark-submit \
+  PYSPARK_PYTHON=/home/common/conda/miniconda3.7/bin/python spark-submit \
   --master yarn \
   --deploy-mode cluster  \
   /usr/hdp/current/spark2-client/examples/src/main/python/pi.py

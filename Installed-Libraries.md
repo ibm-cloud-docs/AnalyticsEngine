@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-10-07"
+  years: 2017, 2020
+lastupdated: "2020-10-19"
 
 subcollection: AnalyticsEngine
 
@@ -18,12 +18,12 @@ subcollection: AnalyticsEngine
 # Spark kernels and libraries on the cluster
 {: #installed-libs}
 
-The {{site.data.keyword.iae_full_notm}} comes with a set of libraries. These libraries are pre-installed on each of the cluster nodes and are available by default on the kernels. The table below lists the locations of these libraries:
+The {{site.data.keyword.iae_full_notm}} comes with a set of libraries. These libraries are pre-installed on each of the cluster nodes and the libraries are available by default on the kernels. The table below lists the locations of these libraries:
 
 |AE version| Environment | Kernel | Libraries |                 
 |-------------|--------|-----------|------------|
-|AE 1.2| Python 3.7 |Python 3.7 with Spark 2.3.2 |Python libraries packaged with Anaconda3-2018.12 at /home/common/conda/anaconda3/ |
-|AE 1.2| Scala 2.11|Scala 2.11 with Spark 2.3.2 |Scala/Java libraries (Scala 2.11 and Java 1.8) under /home/common/lib/scala/spark2 |
+|AE 1.2| Python 3.7 |Python 3.7 with Spark 2.3.2 |Python libraries packaged with Anaconda3-2018.12 at `/home/common/conda/miniconda3.7` |
+|AE 1.2| Scala 2.11|Scala 2.11 with Spark 2.3.2 |Scala/Java libraries (Scala 2.11 and Java 1.8) under `/home/common/lib/scala/spark2` |
 
 For installed Spark connectors, see the [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-connectors).
 
@@ -38,7 +38,7 @@ To see the list of installed packages, execute the following command from a Pyth
 Alternately, SSH to the cluster and run this command:
 
 ```python
-/home/common/conda/anaconda3/bin/pip list
+/home/common/conda/miniconda3.7/bin/pip list
 ```
 
 ## R

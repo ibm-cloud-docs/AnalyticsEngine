@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-23"
+lastupdated: "2020-10-19"
 
 subcollection: AnalyticsEngine
 
@@ -147,7 +147,7 @@ For more information, see [Installing additional libraries](/docs/services/Analy
 
 The Anaconda3 environment on `AE 1.2` clusters comes with Python 3.7.
 
-To install Python 3.x libraries, your script must install to the `/home/common/conda/anaconda3` environment by using:
+To install Python 3.x libraries, your script must install to the `/home/common/conda/miniconda3.7` environment by using:
  ```
  pip install <package-name>
  ```

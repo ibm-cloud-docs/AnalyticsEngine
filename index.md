@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-12"
+lastupdated: "2020-10-19"
 
 subcollection: AnalyticsEngine
 
@@ -105,8 +105,8 @@ The following software packages are available when you create a cluster based on
 
 | AE 1.2       | Based on HDP 3.1        |
 |-----------------|-----------------------------|
-| `AE 1.2 Hive LLAP`  | Hadoop, Livy, Knox, Ambari, <br>Anaconda-Py, Hive (LLAP mode) |
-| `AE 1.2 Spark and Hive` | Hadoop, Livy, Knox, Spark, JEG, Ambari, <br>Anaconda Py, Hive (non LLAP mode ) |
+| `AE 1.2 Hive LLAP`  | Hadoop, Livy, Knox, Ambari, <br>Conda-Py, Hive (LLAP mode) |
+| `AE 1.2 Spark and Hive` | Hadoop, Livy, Knox, Spark, JEG, Ambari, <br>Conda Py, Hive (non LLAP mode ) |
 | `AE 1.2 Spark and Hadoop` | (AE 1.2 Spark and Hive) +  HBase, Phoenix, <br>Oozie |
 
 **Important:**
@@ -124,7 +124,7 @@ You can create a cluster based on Hortonworks Data Platform 3.1. The following s
 |  Apache Livy 0.5|
 |  Knox 1.0.0|
 |  Ambari 2.7.3|
-|  Anaconda with Python 3.7.1 |
+|  Miniconda with Python 3.7.9 |
 |  Jupyter Enterprise Gateway 0.8.0
 |  HBase 2.1.6 |
 |  Hive 3.1.0 |

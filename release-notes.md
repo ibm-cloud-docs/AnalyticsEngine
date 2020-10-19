@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-30"
+lastupdated: "2020-10-19"
 
 subcollection: AnalyticsEngine
 
@@ -22,6 +22,13 @@ subcollection: AnalyticsEngine
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 17 October 2020
+
+- **[AE-1.2.v29]** - The following security fixes were applied:
+  [CVE-2020-26116](https://exchange.xforce.ibmcloud.com/vulnerabilities/189404), [CVE-2019-20907](https://exchange.xforce.ibmcloud.com/vulnerabilities/185442) and [CVE-2020-14422](https://exchange.xforce.ibmcloud.com/vulnerabilities/184320)
+
+  To apply these fixes, the cluster Python runtime version was upgraded from Python3.7.1-Anaconda3 (conda 4.5.12) distribution to Python3.7.9-Miniconda3.7 (conda 4.8.5) distribution. Note that this implies that the provided Python packages that were present in the earlier Anaconda version will no longer be available out of the box in newly created clusters. If you need to use any of the old packages you need to install the packages explicitly by using the `pip install` command. Remember to follow the recommendations for creating and deleting clusters as described in [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
 
 ### 1 October 2020
 
