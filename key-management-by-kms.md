@@ -49,7 +49,7 @@ To write encrypted data:
   ```
   sc.hadoopConfiguration.set("parquet.encryption.key.access.token" , "<token string>")
   ```
-  If you keep the token in a local file, you can load it. Then the data encryption key (DEK) is decrypted locally, using the key encryption key (KEK).
+  If you keep the token in a local file, you can load it.
   ```
   val token = scala.io.Source.fromFile("<token file>").mkString
   sc.hadoopConfiguration.set("parquet.encryption.key.access.token" , token)
