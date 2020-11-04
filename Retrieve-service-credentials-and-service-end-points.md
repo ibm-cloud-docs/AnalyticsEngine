@@ -25,7 +25,7 @@ You can fetch the service endpoints by:
 * [Using the {{site.data.keyword.Bluemix_notm}} REST API](#obtaining-the-service-endpoints-using-the-ibm-cloud-rest-api)
 * [From the {{site.data.keyword.Bluemix_notm}} console](#obtaining-the-service-endpoints-from-the-ibm-cloud-console)
 
-The service endpoints do not expose the cluster credentials. To get the cluster credentials, see [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials).
+The service endpoints do not expose the instance credentials. To get the instance credentials, see [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials).
 
 ## Obtaining the service endpoints using the {{site.data.keyword.Bluemix_notm}} CLI
 
@@ -101,9 +101,9 @@ Bear in mind that the cluster credentials are not returned in the response.
 
 where `<region>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
-In the sample response, the properties under `cluster` specify the  cluster service endpoints. No cluster credentials are returned.
+In the sample response, the properties under `cluster` specify the  cluster service endpoints. No service credentials are returned.
 
-The property `apikey` contains an IAM API key that can be used to generate IAM bearer tokens. An IAM bearer token must be provided for authorization when invoking the cluster management API URL.
+The property `apikey` contains an IAM API key that can be used to generate IAM bearer tokens. An IAM bearer token must be provided for authorization when invoking the service management API URL.
 
 ## Obtaining the service endpoints using the {{site.data.keyword.Bluemix_notm}} REST API
 
@@ -177,11 +177,11 @@ Sample response:
   "account_id": "<user’s account id>"
 }
 ```
-where `<region>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`. No cluster credentials are returned.
+where `<region>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`. No service credentials are returned.
 
 ## Obtaining the service endpoints from the {{site.data.keyword.Bluemix_notm}} console
 
-If you follow the steps in this section to get the service endpoints by using the {{site.data.keyword.Bluemix_notm}} console, you are directed to the service credentials page for your service instance where you expect to see user credentials. You will notice however that the cluster user name and password are not exposed on this page, only the service endpoints.     
+If you follow the steps in this section to get the service endpoints using the {{site.data.keyword.Bluemix_notm}} console, you are directed to the service credentials page for your service instance where you expect to see user credentials. You will notice however that the service credentials are not exposed on this page, only the service endpoints.     
 
 To create a service key from the {{site.data.keyword.Bluemix_notm}} console:
 1. Select the provisioned service instance.

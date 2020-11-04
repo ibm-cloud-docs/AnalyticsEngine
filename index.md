@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-11-04"
 
 subcollection: AnalyticsEngine
 
@@ -123,7 +123,7 @@ You can create a cluster based on Hortonworks Data Platform 3.1. The following s
 |  Hadoop 3.1.1|
 |  Apache Livy 0.5|
 |  Knox 1.0.0|
-|  Ambari 2.7.3|
+|  Ambari 2.7.5|
 |  Miniconda with Python 3.7.9 |
 |  Jupyter Enterprise Gateway 0.8.0
 |  HBase 2.1.6 |
