@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-12-07"
 
 subcollection: AnalyticsEngine
 
@@ -21,7 +21,17 @@ subcollection: AnalyticsEngine
 
 Use these notes to learn about the latest features, additions and changes to {{site.data.keyword.iae_full_notm}}.
 {: shortdesc}
+
 ## {{site.data.keyword.iae_full_notm}} information
+
+
+### 7 December 2020
+
+- **[AE-1.2.v29.1]**
+
+  - A fix was added that makes the Hive Metastore transparently recover from PostgreSQL metastore database restarts or network interruption issues. If you are externalizing the Hive metastore to IBM Cloud Databases for PostgreSQL, you need to set the socketTimeout value in the JDBC URL. See [Externalizing the Hive metastore to Databases for PostgreSQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#externalizing-hive-metastore).
+  -  Another fix was added so that you no longer need to explicitly grant permissions for the PostgreSQL certificate that you place in `/home/common/wce/clsadmin/` on `mn002`. The folder now has the required permissions and the permissions are retained through restarts.
+
 
 ### 17 October 2020
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-12-07"
 
 subcollection: AnalyticsEngine
 
@@ -111,12 +111,13 @@ The PostgreSQL parameters to set in the Hive metastore include:
 - **DB_NAME**: The database name, typically 'ibmclouddb'
 - **DB_CXN_URL**: The complete URL of database connection using the format:
 ```
-jdbc:postgresql://<hostname>:<port>/<dbname>?sslmode=verify-ca&sslrootcert=<path-to-cert>
+jdbc:postgresql://<hostname>:<port>/<dbname>?sslmode=verify-ca&sslrootcert=<path-to-cert>&socketTimeout=<timeoutValue>
 ```
 For example:
 ```
-jdbc:postgresql://6b190ee0-44ed-4d84-959a-5b424490ccc6.b8a5e798d2d04f2e860e54e5d042c915.databases.appdomain.cloud:31977/ibmclouddb?sslmode=verify-ca&sslrootcert=/home/wce/clsadmin/postgres.cert
+jdbc:postgresql://6b190ee0-44ed-4d84-959a-5b424490ccc6.b8a5e798d2d04f2e860e54e5d042c915.databases.appdomain.cloud:31977/ibmclouddb?sslmode=verify-ca&sslrootcert=/home/wce/clsadmin/postgres.cert&socketTimeout=30
 ```
+Note that the socket timeout should be set to at least two to three times the longest running SQL transaction, or to 30 seconds, whichever is longer. See [Timeouts](https://github.com/brettwooldridge/HikariCP/wiki/Rapid-Recovery#tcp-timeouts).
 
 ### Copying the PostgreSQL certificate
 
@@ -138,7 +139,6 @@ Copy and save the command's output to a file. See [CLI plug-in support for the s
   ```
   scp -J clsadmin@chs-xxxxx-mn003.<region>.ae.appdomain.cloud <post-gres.cert> clsadmin@chs-xxxxx-mn002.<region>.ae.appdomain.cloud:/home/common/wce/clsadmin/
   ```
-1. Enter `chmod -R 755 /home/wce/clsadmin` to grant access permissions to the certificate file in the folder.
 
 ### Configuring a cluster to work with PostgreSQL
 
