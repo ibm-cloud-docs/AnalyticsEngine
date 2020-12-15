@@ -19,23 +19,27 @@ subcollection: AnalyticsEngine
 # Cloud service endpoints integration
 {: #service-endpoint-integration}
 
-{{site.data.keyword.Bluemix_notm}} provides connectivity options for accessing cloud services in a secure manner using service endpoints. See [{{site.data.keyword.Bluemix_notm}} service endpoints](/docs/resources?topic=resources-private-network-endpoints).  
+{{site.data.keyword.Bluemix_notm}} provides connectivity options for accessing cloud services in a secure manner using service endpoints. See [{{site.data.keyword.Bluemix_notm}} service endpoints](/docs/account?topic=account-vrf-service-endpoint).  
 
 When you provision an {{site.data.keyword.iae_full_notm}} instance, you can choose if you want to access your {{site.data.keyword.iae_full_notm}} service through the public internet, which is the default setting, or over the {{site.data.keyword.Bluemix_notm}} private network.
 
 ## Public network endpoints
+{: #public-endpoints}
 
 Public network endpoints provide connections to your {{site.data.keyword.iae_full_notm}} Apache Spark and Hadoop clusters on the public network. Your environment needs to have internet access to connect to the clusters.
 
 ## Private network endpoints
+{: #private-endpoints}
 
 Private network endpoints provide connections to your {{site.data.keyword.iae_full_notm}} service over the {{site.data.keyword.Bluemix_notm}} private network. After you have configured your {{site.data.keyword.iae_full_notm}} service to use private endpoints, it is not accessible from the public  internet.   
 
 ## Using {{site.data.keyword.Bluemix_notm}} service endpoints
+{: #use-service-endpoints}
 
 If you want to enable private network endpoints on your clusters, you need to [enable your account for using {{site.data.keyword.Bluemix_notm}} service endpoints using the {{site.data.keyword.Bluemix_notm}} CLI](/docs/account?topic=account-vrf-service-endpoint#service-endpoint-cli), and then provision a {{site.data.keyword.iae_full_notm}} service instance with private endpoints.
 
 ## Provisioning with service endpoints
+{: #provision-with-endpoints}
 
 You can provision an {{site.data.keyword.iae_full_notm}} service instance with service endpoints by using one of the following methods:
 
@@ -80,6 +84,7 @@ You can provision an {{site.data.keyword.iae_full_notm}} service instance with s
   Note that you can enable either public or private network endpoints for your {{site.data.keyword.iae_full_notm}} instance, not both. You can't change this after the {{site.data.keyword.iae_full_notm}} instance was provisioned.
 
 ## Service credentials
+{: #service-creds}
 
 The service credentials of your {{site.data.keyword.iae_full_notm}} service instance will include the service endpoints of the type that you specified when you provisioned the service instance.
 

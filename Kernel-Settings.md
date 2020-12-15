@@ -34,7 +34,7 @@ Note that for Python and R kernels, the Python and R native process can consume 
 The following executor settings are the defaults:
 
 -	Number of executors: Spark dynamic allocation is enabled (the property `spark.dynamicAllocation.enabled` is set to true), with the lower bound (designated by the property `spark.dynamicAllocation.minExecutors`) set to 1 executor. No upper bound is set on the maximum number of executors (designated by the property `spark.dynamicAllocation.maxExecutors` which is set to infinity).                                     
-**Important:** As no upper bound is set, certain kernels or Spark applications could utilize the entire cluster, leaving no resources for other kernels or Spark applications to start.
+**Important**: As no upper bound is set, certain kernels or Spark applications could utilize the entire cluster, leaving no resources for other kernels or Spark applications to start.
 - Number of cores per executor: 1  
 - Memory available per executor: 1.5 GB (1 GB Spark default + 10% YARN overhead memory. For details, see  [`spark.yarn.executor.memoryOverhead`](https://spark.apache.org/docs/latest/running-on-yarn.html).
 

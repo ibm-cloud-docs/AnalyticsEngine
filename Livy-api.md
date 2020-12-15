@@ -99,7 +99,7 @@ In the following cURL requests, response headers are printed with the JSON outpu
 
 To force the use of Anaconda Python instead of System Python, use  `proxyUser` in the payload while submitting jobs. Run the spark-submit job as `clsadmin` user to avoid running into permission issues. For example:
 ```
-curl -u "clsadmin:passWorld" -H 'Content-Type: application/json' -H 'X-Requested-By: livy'  -d '{ "file":"/user/clsadmin/printenv.py" , "proxyUser":"clsadmin"}' "https://chs-mmm-007-mn001.us-south.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
+curl -u "clsadmin:password" -H 'Content-Type: application/json' -H 'X-Requested-By: livy'  -d '{ "file":"/user/clsadmin/printenv.py" , "proxyUser":"clsadmin"}' "https://chs-mmm-007-mn001.us-south.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches"
 ```
 
 ### Submit a Spark job with a local JAR
@@ -173,7 +173,7 @@ curl \
 ```
 where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
-If the application was Java/Scala-based and the jar file was stored in {{site.data.keyword.cos_short}}, the command would need to specify both a reference to the jar file and the class you wanted to run like in the example below. Note that this example also makes use of a Stocator connector so the URI varies accordingly and the commands assume that the referenced {{site.data.keyword.cos_short}} is already configured on the cluster.
+If the application was Java/Scala-based and the jar file was stored in {{site.data.keyword.cos_short}}, the command would need to specify both a reference to the jar file and the class you wanted to run like in the Following example. Note that this example also makes use of a Stocator connector so the URI varies accordingly and the commands assume that the referenced {{site.data.keyword.cos_short}} is already configured on the cluster.
 ```
 curl \
 -u "<user>:<password>" \

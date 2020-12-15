@@ -19,11 +19,11 @@ subcollection: AnalyticsEngine
 # Working with HBase
 {: #working-with-hbase}
 
-Apache HBase is a column-oriented database management system that runs on top of HDFS and is often used for sparse data sets. Unlike relational database systems, HBase does not support a structured query language like SQL.
+Apache HBase is a column-oriented database management system that runs on HDFS and is often used for sparse data sets. Unlike relational database systems, HBase does not support a structured query language like SQL.
 
 HBase applications are written in Java, much like a typical MapReduce application. HBase allows many attributes to be grouped into column families so that the elements of a column family are all stored together. This approach is different from a row-oriented relational database, where all columns of a row are stored together.
 
-**Note:** HBase and Apache Phoenix are only available in the {{site.data.keyword.iae_short}} Hadoop package.
+**Note**: HBase and Apache Phoenix are only available in the {{site.data.keyword.iae_short}} Hadoop package.
 
 ## Accessing HBase through the HBase shell
 To work with HBase, you need your cluster user credentials and the SSH credentials. You can get this information from the service credentials of your {{site.data.keyword.iae_short}} service instance.
@@ -36,7 +36,7 @@ hbase shell
 ```
 3.	Use the regular shell commands for HBase to create, list, and read tables.
 
-**Restriction:** The HBase REST interface through Knox is not supported.
+**Restriction**: The HBase REST interface through Knox is not supported.
 
 For further information on HBase and its features refer to [Apache HBase](https://www.cloudera.com/products/open-source/apache-hadoop/apache-hbase.html){: external}.
 

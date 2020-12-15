@@ -32,7 +32,7 @@ You can resize the cluster by using one of the following modes:
 To resize a cluster:
 1. On {{site.data.keyword.Bluemix_notm}} console, switch to the organization and space where your service instance was created.
 2. Click the service instance tile to access the service dashboard.
-3. On the right hand side of the page, click **Manage**. The cluster management page shows you the number of compute nodes in your cluster.
+3. On the right of the page, click **Manage**. The cluster management page shows you the number of compute nodes in your cluster.
 4. Click `+` next to the number of compute nodes and click **Save**.
 5. Wait for the clusters to be resized (the time depends on the number of nodes you added), and then refresh the page to verify that your resize request was handled successfully.
 

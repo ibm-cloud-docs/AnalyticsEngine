@@ -114,7 +114,7 @@ The Go SDK allows you to construct the service client in one of two ways by:
     export IBM_ANALYTICS_ENGINE_API_AUTH_TYPE=iam
     export IBM_ANALYTICS_ENGINE_API_APIKEY=<IAM_API_KEY>
     ```
-    `IBM_ANALYTICS_ENGINE_API` is the default service name for the {{site.data.keyword.iae_full_notm}} API  client which means that the SDK will by default look for properties that start with this prefix folded to upper case.
+    `IBM_ANALYTICS_ENGINE_API` is the default service name for the {{site.data.keyword.iae_full_notm}} API  client which means that the SDK will by default look for properties that start with this prefix folded to uppercase.
   1. Build the service client:
     ```
     // Construct service client via config properties using default //service name ("ibm_analytics_engine_api")

@@ -92,76 +92,71 @@ spark shell \
 To run Spark SQL with Python 3:
 
 1. Launch the PySpark shell:
- ```
-PYSPARK_PYTHON=/home/common/conda/miniconda3.7/bin/python pyspark \
- --master  yarn \
- --deploy-mode client
- ```
-
+   ```
+   PYSPARK_PYTHON=/home/common/conda/miniconda3.7/bin/python pyspark \
+   --master  yarn \
+   --deploy-mode client
+   ```
 2. Then run the following code which reads sample data from a JSON file to a Parquet file, loads it to a DataFrame, queries for all teenagers between the ages of 13 and 19 and then displays the found results:
-
- ```
-peopleDF = spark.read.json("file:///usr/hdp/current/spark2-client/examples/src/main/resources/people.json")
-# DataFrames can be saved as Parquet files, maintaining the schema information.
-peopleDF.write.parquet("people.parquet")
-# Read in the Parquet file created above.
-# Parquet files are self-describing so the schema is preserved.
-# The result of loading a parquet file is also a DataFrame.
-parquetFile = spark.read.parquet("people.parquet")
-# Parquet files can also be used to create a temporary view and then used in SQL statements.
-parquetFile.createOrReplaceTempView("parquetFile")
-teenagers = spark.sql("SELECT name FROM parquetFile WHERE age >= 13 AND age <= 19")
-teenagers.show()
-+------+                                                                        
-|  name|
-+------+
-|Justin|
- ```
+   ```
+   peopleDF = spark.read.json("file:///usr/hdp/current/spark2-client/examples/src/main/resources/people.json")
+   # DataFrames can be saved as Parquet files, maintaining the schema information.
+   peopleDF.write.parquet("people.parquet")
+   # Read the created Parquet file.
+   # Parquet files are self-describing so the schema is preserved.
+   # The result of loading a parquet file is also a DataFrame.
+   parquetFile = spark.read.parquet("people.parquet")
+   # Parquet files can also be used to create a temporary view and then used in SQL statements.
+   parquetFile.createOrReplaceTempView("parquetFile")
+   teenagers = spark.sql("SELECT name FROM parquetFile WHERE age >= 13 AND age <= 19")
+   teenagers.show()
+   +------+                                                                        
+   |  name|
+   +------+
+   |Justin|
+   ```
 
 ## Running Spark SQL with R
 
 To run Spark SQL with R:
 
 1. Launch the SparkR shell:
- ```
-spark shell \
- --master  yarn \
- --deploy-mode client
- ```
-
-2. Then run the following code which creates a Hive table called src if it does not already exist, loads data into this table,and then queries the table for particular key-value pairs:
-
- ```
-// enableHiveSupport defaults to TRUE
-sparkR.session(enableHiveSupport = TRUE)
-sql("CREATE TABLE IF NOT EXISTS src (key INT, value STRING) USING hive")
-sql("LOAD DATA LOCAL INPATH 'file:///usr/hdp/current/spark2-client/examples/src/main/resources/kv1.txt' INTO TABLE src")
-// Queries can be expressed in HiveQL.
-results <- collect(sql("FROM src SELECT key, value"))
-head(results)
-+------+
-key   value
-1 238 val_238
-2  86  val_86
-3 311 val_311
-4  27  val_27
-5 165 val_165
-6 409 val_409
- ```
+   ```
+   spark shell \
+   --master  yarn \
+   --deploy-mode client
+   ```
+1. Then run the following code which creates a Hive table called src if it does not already exist, loads data into this table,and then queries the table for particular key-value pairs:
+   ```
+   // enableHiveSupport defaults to TRUE
+   sparkR.session(enableHiveSupport = TRUE)
+   sql("CREATE TABLE IF NOT EXISTS src (key INT, value STRING) USING hive")
+   sql("LOAD DATA LOCAL INPATH 'file:///usr/hdp/current/spark2-client/examples/src/main/resources/kv1.txt' INTO TABLE src")
+   // Queries can be expressed in HiveQL.
+   results <- collect(sql("FROM src SELECT key, value"))
+   head(results)
+   +------+
+   key   value
+   1 238 val_238
+   2  86 val_86
+   3 311 val_311
+   4  27 val_27
+   5 165 val_165
+   6 409 val_409
+   ```
 
 ## Running the Spark SQL CLI
 
 The Spark SQL CLI is a convenient tool to run the Hive metastore service in local mode and execute queries input from the command line.
 
 1. Start the Spark SQL CLI by running the following commands in the Spark directory `/usr/hdp/current/spark2-client`
-
- ```
-./bin/spark-sql
-show tables;
-18/10/04 05:56:41 INFO CodeGenerator: Code generated in 382.468966 ms
-default	people	false
-default	src	false
-Time taken: 3.717 seconds, Fetched 2 row(s)
-18/10/04 05:56:41 INFO SparkSQLCLIDriver: Time taken: 3.717 seconds, Fetched 2 row(s)
- ```
-2. Now you can create tables, load data to the tables, and then query the contents in those tables as shown in previous code samples.
+   ```
+   ./bin/spark-sql
+   show tables;
+   18/10/04 05:56:41 INFO CodeGenerator: Code generated in 382.468966 ms
+   default	people	false
+   default	src	false
+   Time taken: 3.717 seconds, Fetched 2 row(s)
+   18/10/04 05:56:41 INFO SparkSQLCLIDriver: Time taken: 3.717 seconds, Fetched 2 row(s)
+   ```
+1. Now you can create tables, load data to the tables, and then query the contents in those tables as shown in previous code samples.

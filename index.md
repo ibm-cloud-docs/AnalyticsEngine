@@ -16,7 +16,7 @@ subcollection: AnalyticsEngine
 {:pre: .pre}
 {:external: target="_blank" .external}
 
-# IBM Analytics Engine overview
+# Overview of IBM Analytics Engine legacy instances
 {: #IAE-overview}
 
 With {{site.data.keyword.iae_full_notm}} you can create Apache Spark and Apache Hadoop clusters in minutes and customize these clusters by using scripts. You can work with data in IBM Cloud Object Storage, as well as integrate other IBM Watson services like {{site.data.keyword.DSX_short}} and Machine Learning.
@@ -67,12 +67,12 @@ Cluster services are made available through various endpoints as described in th
 
 From the endpoint list, you can see that the following ports are open for inbound traffic:
 
--	**9443**: This is the Admin port.
+-	`9443`: This is the Admin port.
 
  The Ambari UI console and APIs are exposed on port 9443 (`https://xxxxx-mn001.<region>.ae.appdomain.cloud:9443`).
--	**8443**: cluster services like Hive, Spark, Livy, Phoenix, and so on are made available for programmatic consumption through the Knox gateway on port 8443
+-	`8443`: cluster services like Hive, Spark, Livy, Phoenix, and so on are made available for programmatic consumption through the Knox gateway on port 8443
 
--	**22**: The cluster itself is accessible via SSH through the  standard port 22.
+-	`22`: The cluster itself is accessible via SSH through the  standard port `22`.
 
  When you SSH to a cluster (as described [here](/docs/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH)) you essentially log in to `mn003`. Once you have logged in to `mn003`, you can SSH to the compute nodes (referred to as `dn001`, `dn002`, and so on) and to `mn002`.
 
@@ -92,7 +92,7 @@ and to log in to `dn001` enter:
 ssh clsadmin@chs-tnu-499-dn001
 ```
 
-**Note:**
+**Note**:
 - You can't SSH to the master management node `mn001`.
 - You can SSH to the compute nodes only from within other nodes of the cluster.
 - Outbound traffic is open from all nodes.

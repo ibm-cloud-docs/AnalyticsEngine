@@ -35,25 +35,19 @@ To use the HDFS CLI, you must use SSH to log in to the cluster using the credent
 
 You access the HDFS CLI by using the HDFS command. Refer to the following examples for using the HDFS CLI:
 
-- **Creating an empty directory**
-
- To create a directory under the user home:
+1. To create a directory under the user home:
 
  ```
  hdfs dfs –mkdir –p /user/clsadmin/test-dir
  ```
 
-- **Uploading a file to HDFS**
-
- To upload a file to an existing HDFS directory:
+1. To upload a file to an existing HDFS directory:
 
  ```
  hdfs dfs –put test-file /user/clsadmin/test-dir
  ```
 
-- **Deleting a file/directory from HDFS**
-
- To delete file/directory from HDFS:
+1. To delete a file or directory from HDFS:
 
  ```
  hdfs dfs –rm –f /user/clsadmin/test-dir
@@ -63,13 +57,13 @@ You access the HDFS CLI by using the HDFS command. Refer to the following exampl
 
 For programmatic access to the HDFS, use the WebHDFS REST API.
 
-**Prerequisites:** You need your user credentials and the WebHDFS URL.  See [Retrieving service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints).
+**Prerequisites**: You need your user credentials and the WebHDFS URL.  See [Retrieving service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints).
 
 To upload data to HDFS by using the WebHDFS REST API:
 
 1. Open a command prompt.
 
-1. Change directory to the location of the data files that you want to upload. Using the WebHDFS URL that is identified by checking the docs as described under Prerequisites above, make a REST API call by using the cURL command to show directory contents, create directories, and upload files.
+1. Change directory to the location of the data files that you want to upload. Using the WebHDFS URL that is identified by checking the docs under Prerequisites, make a REST API call by using the cURL command to show directory contents, create directories, and upload files.
 
  For example, to show the current contents of your cluster's top-level HDFS directory, which is named `/user`, run the following command:
 

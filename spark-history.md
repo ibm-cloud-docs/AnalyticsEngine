@@ -20,19 +20,18 @@ subcollection: AnalyticsEngine
 
 Spark history provides access to job history information and various job metrics. You can also use the Spark history REST API. See the [Spark documentation](https://spark.apache.org/docs/latest/monitoring.html#rest-api) for information on the REST API.
 
-## Opening and using Spark history
+## Opening the Spark history server
 
-**To open Spark History**
+To open the Spark history server:
 
 1. Log in to Ambari.
-2. Choose Spark2 service (left side).
-3. Open Quick Links (top middle). If your  {{site.data.keyword.Bluemix_short}} hosting location is Dallas: `chs-XXXXX-mn002.<region>.ae.appdomain.cloud`
+2. Choose Spark2 service (on the left).
+3. Open Quick Links (in the middle at the top). If your  {{site.data.keyword.Bluemix_short}} hosting location is Dallas: `chs-XXXXX-mn002.<region>.ae.appdomain.cloud`
 4. Choose Spark2 History Server UI.
 
+## Using the Spark history server
 
-** To use the Spark history REST API**
-
- The API is accessible via the Knox endpoint. For example, the call to retrieve the list of applications if your  {{site.data.keyword.Bluemix_short}} hosting location is Dallas:
+The Spark history REST API is accessible via the Knox endpoint. For example, the call to retrieve the list of applications if your {{site.data.keyword.Bluemix_short}} hosting location is Dallas:
 ```
 curl -u "clsadmin:<password>" https://XXXXX-mn001.\
 us-south.ae.appdomain.cloud:8443/gateway/default/sparkhistory/api/v1/applications

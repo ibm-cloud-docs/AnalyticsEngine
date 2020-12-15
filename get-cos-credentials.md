@@ -75,14 +75,14 @@ To configure {{site.data.keyword.iae_full_notm}} to work with {{site.data.keywor
 
 ### Service endpoints
 
-As a user of {{site.data.keyword.cos_short}}, you not only need to know the API key or the HMAC keys to configure {{site.data.keyword.cos_short}}, but also the {{site.data.keyword.iae_full_notm}} service endpoints to connect to {{site.data.keyword.cos_short}}. See [Selecting regions and endpoints](/docs/cloud-object-storage-infrastructure?topic=cloud-object-storage-infrastructure-select-regions-and-endpoints) for help on which endpoints to use based on your {{site.data.keyword.cos_short}} bucket type, such as regional versus cross-regional.
+As a user of {{site.data.keyword.cos_short}}, you not only need to know the API key or the HMAC keys to configure {{site.data.keyword.cos_short}}, but also the {{site.data.keyword.iae_full_notm}} service endpoints to connect to {{site.data.keyword.cos_short}}. See [Selecting regions and endpoints](/docs/cloud-object-storage?topic=cloud-object-storage-endpoints) for help on which endpoints to use based on your {{site.data.keyword.cos_short}} bucket type, such as regional versus cross-regional.
 
 You can also view the endpoints across regions for your {{site.data.keyword.cos_short}} service by selecting the service on your {{site.data.keyword.Bluemix_short}} dashboard and clicking **Endpoint** in the navigation pane. Always **choose the private endpoint**. Using the public endpoint is slower and more expensive. An example of an endpoint for US-South Cross region is:
 `s3.private.us.cloud-object-storage.appdomain.cloud`
 
 ## Inviting users and granting permissions
 
-If you, as {{site.data.keyword.cos_short}} administrator, do not want to create and share the service credentials, you can invite users to your {{site.data.keyword.cos_short}} account and grant them permissions by using access policies on {{site.data.keyword.cos_short}} buckets. The invited users access your account by using their {{site.data.keyword.Bluemix_short}} API keys. See [Assigning access to user groups](/docs/iam?topic=iam-getstarted#group_access).
+If you, as {{site.data.keyword.cos_short}} administrator, do not want to create and share the service credentials, you can invite users to your {{site.data.keyword.cos_short}} account and grant them permissions by using access policies on {{site.data.keyword.cos_short}} buckets. The invited users access your account by using their {{site.data.keyword.Bluemix_short}} API keys. See [Assigning access to user groups](/docs/account?topic=account-access-getstarted#group_access).
 
 ### Structure of the API key
 
@@ -96,7 +96,7 @@ When you, as user of {{site.data.keyword.cos_short}}, view an  API key in {{site
 }
 ```
 
-If you need an API key to use with {{site.data.keyword.cos_short}}, see [Creating an API key](/docs/iam?topic=iam-userapikey#create_user_key).
+If you need an API key to use with {{site.data.keyword.cos_short}}, see [Creating an API key](/docs/account?topic=account-userapikey#create_user_key).
 
 **Remember**: Make a note of this API key and the service endpoints, which you determined in the previous section, for when you configure {{site.data.keyword.iae_full_notm}} to work with {{site.data.keyword.cos_short}}.
 

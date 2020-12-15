@@ -332,7 +332,7 @@ end=2019-12-31T01:00Z
 tz=IST
  ```
 
- Note that the properties above include the location of the coordinator application, the start and end times, and the time zone.
+ Note that the previous properties include the location of the coordinator application, the start and end times, and the time zone.
 
 1. Upload the `coordinator.xml` file to HDFS:
 

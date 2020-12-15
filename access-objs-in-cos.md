@@ -21,16 +21,19 @@ subcollection: AnalyticsEngine
 
 After you have configured {{site.data.keyword.iae_full_notm}} to work with {{site.data.keyword.cos_short}}, you can start accessing objects in {{site.data.keyword.cos_short}} from Spark, Hive, or HDFS.
 
-{{site.data.keyword.iae_full_notm}} uses HDP’s default AWS open source object storage connectors to access data from {{site.data.keyword.cos_short}} when running HDFS, Hive, or Mapreduce jobs. However, when running Spark jobs, the system is preconfigured to use IBM’s open source Stocator libraries that offer better performance and optimization for large object reads and writes as compared to the default AWS connectors. See  [Stocator - Storage Connector for Apache Spark](https://github.com/CODAIT/stocator){: external}.
+{{site.data.keyword.iae_full_notm}} uses HDP’s default AWS open source object storage connectors to access data from {{site.data.keyword.cos_short}} when running HDFS, Hive, or Mapreduce jobs.
+
+However, when running Spark jobs, the system is preconfigured to use IBM’s open source Stocator libraries that offer better performance and optimization for large object reads and writes as compared to the default AWS connectors. See  [Stocator - Storage Connector for Apache Spark](https://github.com/CODAIT/stocator){: external}.
 
 To access data objects in an {{site.data.keyword.cos_short}} bucket, use the following URI:
 ```
 cos://<bucket_name>.<servicename>/<object_name>
 ```
+where `<bucket>` is the {{site.data.keyword.cos_short}} bucket name, for example `b1`, `<servicename>` the {{site.data.keyword.cos_short}} instance, for example `myObjectStorageInstance`, and `<object_name>` the data object to access, for example `detail.txt`.
 
 For example:
 ```
-cos://b1.firstbucket/detail.txt
+cos://b1.myObjectStorageInstance/detail.txt
 ```
 
 See the following examples of working with {{site.data.keyword.cos_short}} from {{site.data.keyword.iae_full_notm}}:

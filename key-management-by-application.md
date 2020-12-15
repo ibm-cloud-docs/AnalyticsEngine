@@ -45,7 +45,7 @@ To write encrypted data:
 1. Specify which columns to encrypted, and which master keys to use:
   ```
   parameter name:  "parquet.encryption.column.keys"
-  parameter value: "<master key ID>:<column>,<column>;<master key ID>:<column> .."
+  parameter value: "<master key ID>:<column>,<column>;<master key ID>:<column>,..."
   ```
 1. Specify the footer key:
   ```

@@ -262,7 +262,7 @@ select * from orc_table;
 ## LLAP configuration on the cluster
 {: #llap-config}
 
-All the compute nodes on a Hive LLAP cluster are dedicated for LLAP related daemons. This means that there is no compute power left for  these nodes to run other workloads. Each compute node runs an LLAP daemon and some Tez query coordinators (based on the hardware type of the node) in Yarn containers.
+All the compute nodes on a Hive LLAP cluster are dedicated for LLAP related daemons. This means that there is no compute power left for these nodes to run other workloads. Each compute node runs an LLAP daemon and some Tez query coordinators (based on the hardware type of the node) in Yarn containers.
 
 The following table shows the LLAP configuration for one node for each of the supported hardware types.
 

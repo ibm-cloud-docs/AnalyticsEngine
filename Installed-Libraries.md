@@ -18,7 +18,7 @@ subcollection: AnalyticsEngine
 # Spark kernels and libraries on the cluster
 {: #installed-libs}
 
-The {{site.data.keyword.iae_full_notm}} comes with a set of libraries. These libraries are pre-installed on each of the cluster nodes and the libraries are available by default on the kernels. The table below lists the locations of these libraries:
+The {{site.data.keyword.iae_full_notm}} comes with a set of libraries. These libraries are pre-installed on each of the cluster nodes and the libraries are available by default on the kernels. The following table lists the locations of these libraries:
 
 |AE version| Environment | Kernel | Libraries |                 
 |-------------|--------|-----------|------------|
@@ -69,7 +69,7 @@ Scala or Java libraries are added to the following directory that is added to th
 
 To view the list of libraries, simply list the content of these directories by issuing the corresponding commands in a notebook or on the command line after SSH-ing to the cluster.
 
-For example, in a Scala notebook execute the below command to list the contents of the `/home/common/lib/scala/spark2` directory:
+For example, in a Scala notebook execute the following command to list the contents of the `/home/common/lib/scala/spark2` directory:
 ```
 import sys.process._
 "ls -al /home/common/lib/scala/spark2" !
