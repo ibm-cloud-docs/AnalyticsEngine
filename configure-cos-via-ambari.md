@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-03-09"
+  years: 2017, 2021
+lastupdated: "2021-01-04"
 
 subcollection: AnalyticsEngine
 
@@ -33,3 +33,4 @@ You can configure the cluster to access data objects in IBM Cloud Object Storage
 4. Ambari indicates which services need to be restarted. Click **Restart All Required** to restart all services affected by your  changes.
 
  ![Restart any affected services](images/restart-required-services.png)
+5. Verify the configuration by running a few housekeeping commands. See [Useful Object Storage housekeeping commands](/docs/AnalyticsEngine?topic=AnalyticsEngine-data-movement-cos#useful-object-storage-housekeeping-commands).

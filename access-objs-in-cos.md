@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-07-16"
+  years: 2017, 2021
+lastupdated: "2021-01-05"
 
 subcollection: AnalyticsEngine
 
@@ -27,13 +27,13 @@ However, when running Spark jobs, the system is preconfigured to use IBM’s ope
 
 To access data objects in an {{site.data.keyword.cos_short}} bucket, use the following URI:
 ```
-cos://<bucket_name>.<servicename>/<object_name>
+cos://<bucket_name>.<cos_instance_name>/<object_name>
 ```
-where `<bucket>` is the {{site.data.keyword.cos_short}} bucket name, for example `b1`, `<servicename>` the {{site.data.keyword.cos_short}} instance, for example `myObjectStorageInstance`, and `<object_name>` the data object to access, for example `detail.txt`.
+where `<bucket>` is the {{site.data.keyword.cos_short}} bucket name, for example `b1`, `<cos_instance_name>` the identifier  that distinguishes between {{site.data.keyword.cos_short}} instances, for example `cosinstance1`, and `<object_name>` the data object to access, for example `object1`.
 
 For example:
 ```
-cos://b1.myObjectStorageInstance/detail.txt
+cos://b1.cosinstance1/object1
 ```
 
 See the following examples of working with {{site.data.keyword.cos_short}} from {{site.data.keyword.iae_full_notm}}:

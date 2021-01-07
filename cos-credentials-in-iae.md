@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-07-16"
+  years: 2017, 2021
+lastupdated: "2021-01-04"
 
 subcollection: AnalyticsEngine
 
@@ -28,6 +28,8 @@ The following diagram shows how the {{site.data.keyword.cos_short}} credentials 
 ![Authentication to {{site.data.keyword.cos_short}} resources from {{site.data.keyword.iae_full_notm}}](images/cos-credentials-in-iae.svg)
 
 The diagram shows two {{site.data.keyword.cos_short}} instances with two different data buckets `b1` and `b2`. To distinguish between the two instances, two identifiers are used, `cosInstance1` and `cosInstance2`. Note that the bucket names (`b1` and `b2`) that you use must be the actual names of the existing buckets in {{site.data.keyword.cos_short}}. You can only choose the name of the identifier so that you can distinguish between {{site.data.keyword.cos_short}} instances.
+
+So, for example, to access `object1` in bucket `b1` in the Object Storage instance that is distinguished using the  `cosinstance1` identifier, use `cos://b1.cosinstance1/object1`.
 
 ## Structure of HMAC credentials
 For HMAC style authentication, you must define the following parameters in {{site.data.keyword.iae_full_notm}}:

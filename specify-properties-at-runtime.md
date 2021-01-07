@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-01-09"
+  years: 2017, 2021
+lastupdated: "2021-01-07"
 
 subcollection: AnalyticsEngine
 
@@ -24,37 +24,37 @@ The following snippets show useful commands that you can use with  runtime param
 
 - Sample HDFS list command with runtime parameters
   ```
-  hadoop fs -Dfs.cos.firstbucket.iam.api.key=lipsum199 -D fs.cos.firstbucket.endpoint=s3.private.us.cloud-object-storage.appdomain.cloud -ls cos://b1.firstbucket/alpha.data
+  hadoop fs -Dfs.cos.cosinstance1.iam.api.key=lipsum199 -D fs.cos.cosinstance1.endpoint=s3.private.us.cloud-object-storage.appdomain.cloud -ls cos://b1.cosinstance1/alpha.data
   ```
   {: codeblock}
 
   You can repeat the same command for `cat`, `put`, `mkdir` and so on.
 - Sample YARN job with runtime parameters:
   ```
-  yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount -Dfs.cos.firstbucket.iam.api.key=lipsum199 -Dfs.cos.firstbucket.endpoint=s3.private.us.cloud-object-storage.appdomain.cloud  cos://b1.firstbucket/input cos://b1.firstbucket/wordcount/output
+  yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount -Dfs.cos.cosinstance1.iam.api.key=lipsum199 -Dfs.cos.cosinstance1.endpoint=s3.private.us.cloud-object-storage.appdomain.cloud  cos://b1.cosinstance1/input cos://b1.cosinstance1/wordcount/output
   ```
   {: codeblock}
 
 - Sample Scala code that uses runtime parameters:
   ```scala
-  val prefix="fs.cos.firstbucket"
+  val prefix="fs.cos.cosinstance1"
   sc.hadoopConfiguration.set(prefix + ".endpoint", "s3.private.us.cloud-object-storage.appdomain.cloud")
   sc.hadoopConfiguration.set(prefix + ".iam.api.key","lipsum999….")
   val data = Array(1, 2, 3, 4)
   val myData = sc.parallelize(data)
-  myData.saveAsTextFile("cos://b1.firstbucket/alpha.data")
-  val t1=sc.textFile("cos://b1.firstbucket/alpha.data")
+  myData.saveAsTextFile("cos://b1.cosinstance1/alpha.data")
+  val t1=sc.textFile("cos://b1.cosinstance1/alpha.data")
   t1.count()
   ```
   {: codeblock}
 
 - Sample Python code with runtime parameters:
   ```
-  prefix="fs.cos.firstbucket"
+  prefix="fs.cos.cosinstance1"
   hconf=sc._jsc.hadoopConfiguration()
   hconf.set(prefix + ".endpoint", "s3.private.us.cloud-object-storage.appdomain.cloud")
   hconf.set(prefix + ".iam.api.key", " lipsum999….")
-  t1=sc.textFile("cos://b1.firstbucket/alpha.data ")
+  t1=sc.textFile("cos://b1.cosinstance1/alpha.data ")
   t1.count()
   ```
   {: codeblock}
@@ -66,9 +66,9 @@ The following snippets show useful commands that you can use with  runtime param
     "file": "/user/clsadmin/myapplications.py",
     "proxyUser": "clsadmin",
     "conf": {
-      "spark.hadoop.fs.cos.sportywriter.access.key": "a7634d…",
-      "spark.hadoop.fs.cos.sportywriter.secret.key": "5c09be…",
-      "spark.hadoop.fs.cos.sportywriter.endpoint": "s3.private.us-south.cloud-object-storage.appdomain.cloud"
+      "spark.hadoop.fs.cos.cosinstance1.access.key": "a7634d…",
+      "spark.hadoop.fs.cos.cosinstance1.secret.key": "5c09be…",
+      "spark.hadoop.fs.cos.cosinstance1.endpoint": "s3.private.us-south.cloud-object-storage.appdomain.cloud"
       }
     }'
   https://chs-mmm-007-mn001.us-south.ae.appdomain.cloud:8443/gateway/default/livy/v1/batches
