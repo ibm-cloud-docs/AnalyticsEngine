@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-05-19"
+  years: 2017, 2021
+lastupdated: "2021-01-07"
 
 subcollection: AnalyticsEngine
 
@@ -40,7 +40,7 @@ The following table lists the required IAM privileges for user onboarding.
 |Invoke cluster management REST API to reset cluster password|**Access type**: Service </br>**Service role**: Manager|
 |Invoke cluster management REST API to create or delete log configuration|**Access type**: Service </br>**Service role**: Writer or Manager|
 |Invoke cluster management REST API to retrieve log configuration details|**Access type**: Service </br>**Service role**: Reader|
-|Update cluster private endpoint whitelist|**Access type**: Service </br>**Service role**: Writer or Manager |
+|Update cluster private endpoint allowlist|**Access type**: Service </br>**Service role**: Writer or Manager |
 
 
 To onboard new users to your account:

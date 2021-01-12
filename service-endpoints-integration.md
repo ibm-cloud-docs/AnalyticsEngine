@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-05-19"
+  years: 2017, 2021
+lastupdated: "2021-01-07"
 
 subcollection: AnalyticsEngine
 
@@ -103,7 +103,7 @@ https://chs-xti-716-mn001.private.us-south.ae.appdomain.cloud:8443/gateway/defau
 https://api.private.us-south.ae.cloud.ibm.com/v2/analytics_engines/118df864-5041-4770-87f7-3228df1915f3
 ```
 
-## Whitelisting cluster access
+## Accessing a cluster by using an allowlist
 {: #cluster-access}
 
-You can use a whitelist to approve user access to and from  {{site.data.keyword.iae_full_notm}} clusters. See [Whitelisting access to and from clusters](/docs/AnalyticsEngine?topic=AnalyticsEngine-whitelist-cluster-access).
+You can use an allowlist to approve user access to and from  {{site.data.keyword.iae_full_notm}} clusters. See [Using an allowlist to control network traffic](/docs/AnalyticsEngine?topic=AnalyticsEngine-allowlist-to-cluster-access).

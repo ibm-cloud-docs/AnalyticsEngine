@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-12-07"
+  years: 2017, 2021
+lastupdated: "2021-01-12"
 
 subcollection: AnalyticsEngine
 
@@ -23,6 +23,16 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 
 ## {{site.data.keyword.iae_full_notm}} information
+
+
+### 12 January 2021
+
+- **[AE-1.2.v29.2]** Security patches were applied to the following CVEs:
+
+  [CVE-2020-25659](https://bugzilla.redhat.com/show_bug.cgi?id=1889988): the python-cryptography package was upgraded to version 3.3, [CVE-2020-28928](https://nvd.nist.gov/vuln/detail/CVE-2020-28928), 
+[CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971), and [CVE-2020-27350](http://www.ubuntu.com/usn/usn-4667-1)
+
+  Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
 
 ### 7 December 2020
@@ -109,7 +119,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ### 22 May 2020
 
-- You can now whitelist access to a private endpoint cluster. See [Whitelisting IP addresses to control network traffic](/docs/AnalyticsEngine?topic=AnalyticsEngine-whitelist-cluster-access).
+- You can now whitelist access to a private endpoint cluster. See [Whitelisting IP addresses to control network traffic](/docs/AnalyticsEngine?topic=AnalyticsEngine-allowlist-to-cluster-access).
 - You can also now use the {{site.data.keyword.iae_full_notm}} Java SDK to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API. See [Using Java](/docs/AnalyticsEngine?topic=AnalyticsEngine-java).
 
 ### 17 May 2020
