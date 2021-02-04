@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-12"
+lastupdated: "2021-02-04"
 
 subcollection: AnalyticsEngine
 
@@ -27,15 +27,19 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ### 12 January 2021
 
-- **[AE-1.2.v29.2]** Security patches were applied to the following CVEs:
+- New security patches for **AE-1.2.v29.2**
 
-  [CVE-2020-25659](https://bugzilla.redhat.com/show_bug.cgi?id=1889988): the python-cryptography package was upgraded to version 3.3, [CVE-2020-28928](https://nvd.nist.gov/vuln/detail/CVE-2020-28928), 
-[CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971), and [CVE-2020-27350](http://www.ubuntu.com/usn/usn-4667-1)
+  **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.2**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+  Customers are required to review the following CVE information and take appropriate action:  
+  - [CVE-2020-25659](https://bugzilla.redhat.com/show_bug.cgi?id=1889988): the python-cryptography package was upgraded to version 3.3
+  - [CVE-2020-28928](https://nvd.nist.gov/vuln/detail/CVE-2020-28928)
+  - [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971)
+  - [CVE-2020-27350](http://www.ubuntu.com/usn/usn-4667-1)
 
   Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
-
-### 7 December 2020
+### 07 December 2020
 
 - **[AE-1.2.v29.1]**
 
@@ -45,12 +49,19 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ### 17 October 2020
 
-- **[AE-1.2.v29]** - The following security fixes were applied:
-  [CVE-2020-26116](https://exchange.xforce.ibmcloud.com/vulnerabilities/189404), [CVE-2019-20907](https://exchange.xforce.ibmcloud.com/vulnerabilities/185442) and [CVE-2020-14422](https://exchange.xforce.ibmcloud.com/vulnerabilities/184320)
+- New security patches for **AE-1.2.v29**
+
+  **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+  Customers are required to review the following CVE information and take appropriate action:
+
+  - [CVE-2020-26116](https://exchange.xforce.ibmcloud.com/vulnerabilities/189404)
+  - [CVE-2019-20907](https://exchange.xforce.ibmcloud.com/vulnerabilities/185442)
+  - [CVE-2020-14422](https://exchange.xforce.ibmcloud.com/vulnerabilities/184320)
 
   To apply these fixes, the cluster Python runtime version was upgraded from Python3.7.1-Anaconda3 (conda 4.5.12) distribution to Python3.7.9-Miniconda3.7 (conda 4.8.5) distribution. Note that this implies that the provided Python packages that were present in the earlier Anaconda version will no longer be available out of the box in newly created clusters. If you need to use any of the old packages you need to install the packages explicitly by using the `pip install` command. Remember to follow the recommendations for creating and deleting clusters as described in [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
 
-### 1 October 2020
+### 01 October 2020
 
 - A fix was added to alleviate cluster instability issues caused by an error in an underlying Docker runtime. If you created a cluster between 23 July 2020 and 01 October 2020, you might have experienced intermittent instability that manifested as connectivity issues or down times in nodes. With today's deployment, the runtime version has been replaced by an earlier stable runtime version.
 
@@ -64,7 +75,14 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ### 10 September 2020
 
-- **[AE-1.2.v28.4]**  The following security patch was applied to the underlying VMs for IBM Java CVE: [CVE-2019-17639](https://www.ibm.com/blogs/psirt/security-bulletin-multiple-vulnerabilities-may-affect-ibm-sdk-java-technology-edition-3/)
+- New security patch for **AE-1.2.v28.4**
+
+  The following patch is available for security vulnerabilities on the underlying VMs for IBM Java.
+
+  **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patch, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v28.4**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+  Customers are required to review the following CVE information and take appropriate action:
+  - [CVE-2019-17639](https://www.ibm.com/blogs/psirt/security-bulletin-multiple-vulnerabilities-may-affect-ibm-sdk-java-technology-edition-3/)
 - You can now configure log aggregation for the HDFS component. See [Configuring log aggregation](/docs/AnalyticsEngine?topic=AnalyticsEngine-log-aggregation).
 - A fix was added that prevents HDFS audit logs from filling up  disk space, which was caused by a misconfiguration of the log4j rotation property that disrupted the way clusters should work.
 - You can now use the time series library in your Spark applications, which provides a rich time series data model and  imputation functions for transforming, reducing, segmenting, joining, and forecasting time series. SQL extensions to time series are also provided. See [Time series library](/docs/AnalyticsEngine?topic=AnalyticsEngine-time-series).
@@ -73,44 +91,47 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 - As of this deployment, Analytics Engine cluster’s build version will be available in `/home/common/aeversion.txt` on the nodes of the cluster. You can check this file after you SSH to the cluster. This will help in tracking fixes that were made available against a particular version of Analytics Engine. For example, this deployment version is AE-1.2.v28.3.
 
-- **[AE-1.2.v28.3]** Fixes were applied for the following security vulnerabilities on the OS level packages of cluster nodes. Apart from these fixes, a few config vulnerabilities at the OS level were also applied.
+- New security patches for **AE-1.2.v28.3**
 
-  [CVE-2019-11729](https://access.redhat.com/errata/RHSA-2019:4190),
-  [CVE-2019-11745](https://access.redhat.com/errata/RHSA-2019:4190),
-  [CVE-2020-8616](https://access.redhat.com/errata/RHSA-2020:2344),
-  [CVE-2020-8617](https://access.redhat.com/errata/RHSA-2020:2344),
-  [CVE-2019-12735](https://access.redhat.com/errata/RHSA-2019:1619),
-  [CVE-2020-11008](https://access.redhat.com/errata/RHSA-2020:2337),
-  [CVE-2020-12049](https://access.redhat.com/errata/RHSA-2020:2894),
-  [CVE-2020-1967](https://gitlab.alpinelinux.org/alpine/aports/-/issues/11429),
-  [CVE-2020-3810](https://ubuntu.com/security/notices/USN-4359-1),
-  [CVE-2019-5188](http://www.ubuntu.com/usn/usn-4249-1),
-  [CVE-2019-5094](http://www.ubuntu.com/usn/usn-4142-1),
-  [usn-4038-3](http://www.ubuntu.com/usn/usn-4038-3),
-  [CVE-2017-12133](http://www.ubuntu.com/usn/usn-4416-1),
-  [CVE-2017-18269](http://www.ubuntu.com/usn/usn-4416-1),
-  [CVE-2018-11236](http://www.ubuntu.com/usn/usn-4416-1),
-  [CVE-2018-11237](http://www.ubuntu.com/usn/usn-4416-1),
-  [CVE-2018-19591](http://www.ubuntu.com/usn/usn-4416-1),
-  [CVE-2018-6485](http://www.ubuntu.com/usn/usn-4416-1),
-  [CVE-2019-19126](http://www.ubuntu.com/usn/usn-4416-1),
-  [CVE-2019-9169](http://www.ubuntu.com/usn/usn-4416-1),
-  [CVE-2020-10029](http://www.ubuntu.com/usn/usn-4416-1),
-  [CVE-2020-1751](http://www.ubuntu.com/usn/usn-4416-1),
-  [CVE-2020-1752](http://www.ubuntu.com/usn/usn-4416-1),
-  [CVE-2019-13627](http://www.ubuntu.com/usn/usn-4236-2),
-  [CVE-2018-16888](http://www.ubuntu.com/usn/usn-4269-1),
-  [CVE-2019-20386](http://www.ubuntu.com/usn/usn-4269-1),
-  [CVE-2019-3843](http://www.ubuntu.com/usn/usn-4269-1),
-  [CVE-2019-3844](http://www.ubuntu.com/usn/usn-4269-1),
-  [CVE-2020-1712](http://www.ubuntu.com/usn/usn-4269-1),
-  [CVE-2016-9840](http://www.ubuntu.com/usn/usn-4246-1),
-  [CVE-2016-9841](http://www.ubuntu.com/usn/usn-4246-1),
-  [CVE-2016-9842](http://www.ubuntu.com/usn/usn-4246-1),
-  [CVE-2016-9843](http://www.ubuntu.com/usn/usn-4246-1),
-  [CVE-2019-9924](http://www.ubuntu.com/usn/usn-4058-1)
+  The following patches are available for the security vulnerabilities on the OS level packages of cluster nodes as well as for config vulnerabilities at the OS level.
 
-- There is no security patch application for existing clusters. Create a new cluster to get these fixes.
+  **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v28.3**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+  Customers are required to review the following CVE information and take appropriate action:
+  - [CVE-2019-11729](https://access.redhat.com/errata/RHSA-2019:4190)
+  -[CVE-2019-11745](https://access.redhat.com/errata/RHSA-2019:4190)
+  - [CVE-2020-8616](https://access.redhat.com/errata/RHSA-2020:2344)
+  - [CVE-2020-8617](https://access.redhat.com/errata/RHSA-2020:2344)
+  - [CVE-2019-12735](https://access.redhat.com/errata/RHSA-2019:1619)
+  - [CVE-2020-11008](https://access.redhat.com/errata/RHSA-2020:2337)
+  - [CVE-2020-12049](https://access.redhat.com/errata/RHSA-2020:2894)
+  - [CVE-2020-1967](https://gitlab.alpinelinux.org/alpine/aports/-/issues/11429)
+  - [CVE-2020-3810](https://ubuntu.com/security/notices/USN-4359-1)
+  - [CVE-2019-5188](http://www.ubuntu.com/usn/usn-4249-1)
+  - [CVE-2019-5094](http://www.ubuntu.com/usn/usn-4142-1)
+  - [usn-4038-3](http://www.ubuntu.com/usn/usn-4038-3)
+  - [CVE-2017-12133](http://www.ubuntu.com/usn/usn-4416-1)
+  - [CVE-2017-18269](http://www.ubuntu.com/usn/usn-4416-1)
+  - [CVE-2018-11236](http://www.ubuntu.com/usn/usn-4416-1)
+  - [CVE-2018-11237](http://www.ubuntu.com/usn/usn-4416-1)
+  - [CVE-2018-19591](http://www.ubuntu.com/usn/usn-4416-1)
+  - [CVE-2018-6485](http://www.ubuntu.com/usn/usn-4416-1)
+  - [CVE-2019-19126](http://www.ubuntu.com/usn/usn-4416-1)
+  - [CVE-2019-9169](http://www.ubuntu.com/usn/usn-4416-1)
+  - [CVE-2020-10029](http://www.ubuntu.com/usn/usn-4416-1)
+  - [CVE-2020-1751](http://www.ubuntu.com/usn/usn-4416-1)
+  - [CVE-2020-1752](http://www.ubuntu.com/usn/usn-4416-1)
+  - [CVE-2019-13627](http://www.ubuntu.com/usn/usn-4236-2)
+  - [CVE-2018-16888](http://www.ubuntu.com/usn/usn-4269-1)
+  - [CVE-2019-20386](http://www.ubuntu.com/usn/usn-4269-1)
+  - [CVE-2019-3843](http://www.ubuntu.com/usn/usn-4269-1)
+  - [CVE-2019-3844](http://www.ubuntu.com/usn/usn-4269-1)
+  - [CVE-2020-1712](http://www.ubuntu.com/usn/usn-4269-1)
+  - [CVE-2016-9840](http://www.ubuntu.com/usn/usn-4246-1)
+  - [CVE-2016-9841](http://www.ubuntu.com/usn/usn-4246-1)
+  - [CVE-2016-9842](http://www.ubuntu.com/usn/usn-4246-1)
+  - [CVE-2016-9843](http://www.ubuntu.com/usn/usn-4246-1)
+  - [CVE-2019-9924](http://www.ubuntu.com/usn/usn-4058-1)
 
 ### 23 July 2020
 
