@@ -99,7 +99,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
   Customers are required to review the following CVE information and take appropriate action:
   - [CVE-2019-11729](https://access.redhat.com/errata/RHSA-2019:4190)
-  -[CVE-2019-11745](https://access.redhat.com/errata/RHSA-2019:4190)
+  - [CVE-2019-11745](https://access.redhat.com/errata/RHSA-2019:4190)
   - [CVE-2020-8616](https://access.redhat.com/errata/RHSA-2020:2344)
   - [CVE-2020-8617](https://access.redhat.com/errata/RHSA-2020:2344)
   - [CVE-2019-12735](https://access.redhat.com/errata/RHSA-2019:1619)
