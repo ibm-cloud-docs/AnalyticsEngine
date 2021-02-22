@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-04"
+lastupdated: "2021-02-22"
 
 subcollection: AnalyticsEngine
 
@@ -77,12 +77,26 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 - New security patch for **AE-1.2.v28.4**
 
-  The following patch is available for security vulnerabilities on the underlying VMs for IBM Java.
+  The following patches are available for security vulnerabilities.
 
   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patch, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v28.4**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-  Customers are required to review the following CVE information and take appropriate action:
+  Customers are required to review the following CVE and RHSA  information and take appropriate action:
   - [CVE-2019-17639](https://www.ibm.com/blogs/psirt/security-bulletin-multiple-vulnerabilities-may-affect-ibm-sdk-java-technology-edition-3/)
+  - [CVE-2020-14556](https://nvd.nist.gov/vuln/detail/CVE-2020-14556)
+  - [CVE-2020-14577](https://nvd.nist.gov/vuln/detail/CVE-2020-14577)
+  - [CVE-2020-14578](https://nvd.nist.gov/vuln/detail/CVE-2020-14578)
+  - [CVE-2020-14579](https://nvd.nist.gov/vuln/detail/CVE-2020-14579)
+  - [CVE-2020-14583](https://nvd.nist.gov/vuln/detail/CVE-2020-14583)
+  - [CVE-2020-14593](https://nvd.nist.gov/vuln/detail/CVE-2020-14593)
+  - [CVE-2020-14621](https://nvd.nist.gov/vuln/detail/CVE-2020-14621)
+  - [RHSA-2019:4190](https://access.redhat.com/errata/RHSA-2019:4190)
+  - [RHSA-2020:2337](https://access.redhat.com/errata/RHSA-2020:2337)
+  - [RHSA-2020:2344](https://access.redhat.com/errata/RHSA-2020:2344)
+  - [RHSA-2020:2894](https://access.redhat.com/errata/RHSA-2020:2894)
+  - [RHSA-2020:2968](https://access.redhat.com/errata/RHSA-2020:2968)
+  - [RHSA-2021:0343](https://access.redhat.com/errata/RHSA-2021:0343)
+  - [RHSA-2021:0348](https://access.redhat.com/errata/RHSA-2021:0348)
 - You can now configure log aggregation for the HDFS component. See [Configuring log aggregation](/docs/AnalyticsEngine?topic=AnalyticsEngine-log-aggregation).
 - A fix was added that prevents HDFS audit logs from filling up  disk space, which was caused by a misconfiguration of the log4j rotation property that disrupted the way clusters should work.
 - You can now use the time series library in your Spark applications, which provides a rich time series data model and  imputation functions for transforming, reducing, segmenting, joining, and forecasting time series. SQL extensions to time series are also provided. See [Time series library](/docs/AnalyticsEngine?topic=AnalyticsEngine-time-series).
