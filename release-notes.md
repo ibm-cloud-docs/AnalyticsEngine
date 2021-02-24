@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-22"
+lastupdated: "2021-02-24"
 
 subcollection: AnalyticsEngine
 
@@ -24,6 +24,24 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ## {{site.data.keyword.iae_full_notm}} information
 
+### 24 February 2021
+
+- New security patches for **AE-1.2.v29.3**
+
+  **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.3**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+  Customers are required to review the following CVE and RHSA  information and take appropriate action:
+  - [CVE-2019-25013](https://nvd.nist.gov/vuln/detail/CVE-2019-25013)
+  - [CVE-2020-10029](https://nvd.nist.gov/vuln/detail/CVE-2020-10029)
+  - [CVE-2020-10543](https://nvd.nist.gov/vuln/detail/CVE-2020-10543)
+  - [CVE-2020-10878](https://nvd.nist.gov/vuln/detail/CVE-2020-10878)
+  - [CVE-2020-12723](https://nvd.nist.gov/vuln/detail/CVE-2020-12723)
+  - [CVE-2020-29573](https://nvd.nist.gov/vuln/detail/CVE-2020-29573)
+  - [RHSA-2021:0343](https://access.redhat.com/errata/RHSA-2021:0343)
+  - [RHSA-2021:0348](https://access.redhat.com/errata/RHSA-2021:0348)
+  - [CVE-2021-23839](https://nvd.nist.gov/vuln/detail/CVE-2021-23839)
+  - [CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840)
+  - [CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841)  
 
 ### 12 January 2021
 
