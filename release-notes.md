@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-02-25"
 
 subcollection: AnalyticsEngine
 
@@ -23,6 +23,22 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 25 February
+
+- All biased IT terminology in {{site.data.keyword.iae_full_notm}} is deprecated and will be removed in favor of more inclusive language. This includes changes to terms in the {{site.data.keyword.iae_full_notm}}  documentation and to APIs and cluster node names used in the product itself. See the [Announcement letter](https://cloud.ibm.com/status/announcement?component=ibmanalyticsengine) released end of January 2021.
+
+  **What will be changing**:
+  1. All occurrences of the term `whitelist` in the documentation have been be replaced by `allowlist`.
+  1. The API `private_endpoint_whitelist` has been replaced by `private_endpoint_allowlist`.
+  1. The terms `management-slave1` and `management-slave2` for the "mn002" and "mn003" nodes in a cluster have been replaced by `management2` and `management3`.
+  1. The environment variable `NODE_TYPE` and it's values `management-slave1` and `management-slave2` has been replaced by `NODE_TYP`. The new values for `NODE_TYP` are `management2` and `management3`.
+  1. The `master management` node has been changed to `management1` to align with the other management node name changes.
+
+  **Note**:
+  - The deprecation period ends at the end of March 2021.
+  - Although you can still use the deprecated API and node names until the end of March 2021, you should start using the new API and recreate clusters that use the new node names. See [Using an allowlist to control network traffic](/docs/AnalyticsEngine?topic=AnalyticsEngine-allowlist-to-cluster-access) for details on the allowlist API.  
+  - You should migrate your customization scripts to use the new environment variable `NODE_TYP`. See [Customizing a cluster](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
 
 ### 24 February 2021
 

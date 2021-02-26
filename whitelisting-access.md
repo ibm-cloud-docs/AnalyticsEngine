@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-07"
+lastupdated: "2021-02-25"
 
 subcollection: AnalyticsEngine
 
@@ -27,11 +27,13 @@ When you provision an {{site.data.keyword.iae_full_notm}} instance, you can choo
 
 ### Updating IP ranges in the allowlist
 
-You can add or delete IP ranges to and from the allowlist of an {{site.data.keyword.iae_full_notm}} instance by invoking the `PATCH` operation on the `private_endpoint_whitelist` endpoint of the {{site.data.keyword.iae_full_notm}} cluster management API.
+You can add or delete IP ranges to and from the allowlist of an {{site.data.keyword.iae_full_notm}} instance by invoking the `PATCH` operation on the `private_endpoint_allowlist` endpoint of the {{site.data.keyword.iae_full_notm}} cluster management API.
+
+Note that the endpoint `private_endpoint_whitelist` is deprecated. The examples in this topic all use the new endpoint `private_endpoint_allowlist`.  
 
 For example, if you created your service instance in the `US-South` {{site.data.keyword.Bluemix_notm}} region, enter:
 ```
-curl --request PATCH  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/ <service_instance_guid>/private_endpoint_whitelist
+curl --request PATCH  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/ <service_instance_guid>/private_endpoint_allowlist
 \ -H "Authorization: Bearer <user's IAM token>"
 \ -H "accept: application/json"
 \ -H "Content-type: application/json"
@@ -63,23 +65,23 @@ For the allowlist payload JSON consider the following:
 
   To remove all of the IPs to the cluster in the allowlist, you need to invoke the `delete` action with all the `<ip_ranges>` that you added. To get the current allowlist, refer to [Retrieving the current IP ranges in the allowlist](#retrieve-ip-range).
 
-A successful response of the private_endpoint_whitelist  API  endpoint is an updated list of the `ip_ranges` in the allowlist in this format:
+A successful response of the `private_endpoint_allowlist`  API  endpoint is an updated list of the `ip_ranges` in the allowlist in this format:
 ```
-{ "private_endpoint_whitelist": ["<ip_range_1>", "<ip_range_2>"…/ip_range_n>"] }
+{ "private_endpoint_allowlist": ["<ip_range_1>", "<ip_range_2>"…/ip_range_n>"] }
 ```
 The following example is a typical response of the API endpoint containing the present allowlist of IP ranges after an addition or deletion:
 ```
-{"private_endpoint_whitelist": ["10.40.4.0/12", "10.50.5.0/19"]}
+{"private_endpoint_allowlist": ["10.40.4.0/12", "10.50.5.0/19"]}
 ```
 The following example is a response after deleting all of the IP ranges from the allowlist:
 ```
-{ "private_endpoint_whitelist": []}
+{ "private_endpoint_allowlist": []}
 ```
 
 ### Retrieving the current IP ranges in the allowlist
 {: #retrieve-ip-range}
 
-You can retrieve the current IP ranges in the allowlist by invoking the `Get Details of Analytics Engine` API endpoint. See [Get details of Analytics Engine API](https://cloud.ibm.com/apidocs/ibm-analytics-engine#get-details-of-analytics-engine) for more information. The parameter `private_endpoint_whitelist` has the list of the IP ranges in the allowlist. Note that the `private_endpoint_whitelist` parameter is an optional field, which would be present only for a privately enabled endpoint to an  {{site.data.keyword.iae_full_notm}} instance.
+You can retrieve the current IP ranges in the allowlist by invoking the `Get Details of Analytics Engine` API endpoint. See [Get details of Analytics Engine API](https://cloud.ibm.com/apidocs/ibm-analytics-engine#get-details-of-analytics-engine) for more information. The parameter `private_endpoint_allowlist` has the list of the IP ranges in the allowlist. Note that the `private_endpoint_allowlist` parameter is an optional field, which would be present only for a privately enabled endpoint to an  {{site.data.keyword.iae_full_notm}} instance.
 
 ## Controlling network traffic from Analytics Engine IP addresses at a destination
 

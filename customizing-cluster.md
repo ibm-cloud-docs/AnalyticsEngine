@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-06-23"
+  years: 2017, 2021
+lastupdated: "2021-02-24"
 
 subcollection: AnalyticsEngine
 
@@ -50,18 +50,17 @@ The cluster must be in an active state to enable customization and you need to s
 ## Differences between bootstrap and adhoc customization
 The main differences between these customization methods is shown in the following table:
 
-<table>
-<tr><th>Bootstrap customization</th><th>Adhoc customization</th></tr>
-<tr><td>Defined during cluster creation</td><td>Defined and executed on an active cluster</td></tr>
-<tr><td>By default executed on all nodes of the cluster</td><td>Need to specify target of execution</td></tr>
-<tr><td>Can be rerun later, if needed, on a given target list. (There is no need to specify the script details)</td><td>Can be run as often as is needed by specifying the script location details</td></tr>
-<tr><td>Automatically run on newly-added nodes</td><td>Not run automatically on nodes added to the cluster</td></tr>
-</table>
+| Bootstrap customization | Adhoc customization |
+|-------------------|---------------------------|
+| Defined during cluster creation | Defined and executed on an active cluster |
+|By default executed on all nodes of the cluster |Need to specify target of execution |
+|Can be rerun later, if needed, on a given target list. (There is no need to specify the script details) |Can be run as often as is needed by specifying the script location details|
+|Automatically run on newly-added nodes | Not run automatically on nodes added to the cluster |
 
 ## Location of the customization script
 You can add a customization script to the following sources:
-*	Http with or without basic authentication
-*	Https with or without basic authentication
+*	HTTP with or without basic authentication
+*	HTTPS with or without basic authentication
 *	{{site.data.keyword.cos_full_notm}}
 
 Examples for each type are given in the following sections.
@@ -74,19 +73,20 @@ You need to specify a target only when you run:
  - Or when you need to rerun a bootstrap customization script
 
 The target can be one of the following four types
-  - `all`: runs the customization on all nodes of the cluster including management and compute
+  - `all`: runs the customization on all nodes of the cluster, including management and compute nodes
   - `data`: runs the customization on all compute nodes
-  - `management-slave1` or `management-slave2`: This is run on the management slave node as specified. You may need this, for configuring Ambari parameters as give in the example section.
+  - `management2` or `management3` (the `management-slave1` or `management-slave2` nodes are deprecated): runs on the management2 or management3 node as specified. You may need this for configuring Ambari parameters as give in the example section.
   - A comma separated list of fully qualified node names: This runs on the given list of nodes only.
 
 If the target is multiple nodes, the customization scripts are executed in parallel.
 
-**Important**: You cannot name the management master node as a target.
+**Important**: You cannot name the `management1` node (the  master management node is deprecated) as a target.
 
 ## Predefined environment variables available for use in the customization script
 The following predefined environment variables are available that can be used in the customization script:
-`AMBARI_HOST`, `AMBARI_PORT`, `AMBARI_USER`, `CLUSTER_NAME`, and `NODE_TYPE`.
-The node type can be any of these values : `data`, `management-slave1`, or `manangement-slave2`.
+`AMBARI_HOST`, `AMBARI_PORT`, `AMBARI_USER`, `CLUSTER_NAME`, and `NODE_TYP`. `NODE_TYP` can take the value `management2` or `management3`.  
+
+Note that the environment variable `NODE_TYPE` and its values  `data`, `management-slave1` and  `management-slave2` are deprecated. Start using the new environment variable `NODE_TYP`.
 
 ## Package Admin tool
 The customization script is always executed as `cluster user`. However, the default rights of the cluster user do not allow all operations, for example, a YUM install. In such cases, you need to use the `package-admin` tool.

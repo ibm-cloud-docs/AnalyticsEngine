@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-11-04"
+  years: 2017, 2021
+lastupdated: "2021-02-24"
 
 subcollection: AnalyticsEngine
 
@@ -16,7 +16,7 @@ subcollection: AnalyticsEngine
 {:pre: .pre}
 {:external: target="_blank" .external}
 
-# Overview of IBM Analytics Engine instances
+# Overview of IBM Analytics Engine legacy instances
 {: #IAE-overview}
 
 With {{site.data.keyword.iae_full_notm}} you can create Apache Spark and Apache Hadoop clusters in minutes and customize these clusters by using scripts. You can work with data in IBM Cloud Object Storage, as well as integrate other IBM Watson services like {{site.data.keyword.DSX_short}} and Machine Learning.
@@ -42,8 +42,9 @@ Note: You are billed only at the instance level. For more details on billing, se
 ### Management nodes
 
 The three management nodes include:
-- The master management node (`mn001`)
-- Two management slave nodes (`mn002` and `mn003`).
+- management1 node (`mn001`)
+- management2 node (`mn002`)
+- management3 node (`mn003`)
 
 Ambari and all of the Hadoop and Spark components of the cluster run on the management nodes. To find out which components run on which of the management nodes, click the **hosts** link on the upper right corner of the Ambari UI. Drill down further to get to the listing of the components running on each node.
 
@@ -55,9 +56,9 @@ Compute nodes are where the execution of jobs happens. You define the number of 
 
 The following cluster nodes exist:
 
-- `mn001`: master management node
-- `mn002`: management slave 1
-- `mn003`: management slave 2
+- `mn001`: management1 node
+- `mn002`: management2 node
+- `mn003`: management3 node
 - `dn001`: compute node 1
 - `dn002`: compute node 2
 
@@ -93,7 +94,7 @@ ssh clsadmin@chs-tnu-499-dn001
 ```
 
 **Note**:
-- You can't SSH to the master management node `mn001`.
+- You can't SSH to the management1 node `mn001`.
 - You can SSH to the compute nodes only from within other nodes of the cluster.
 - Outbound traffic is open from all nodes.
 
@@ -146,15 +147,15 @@ You can create a cluster based on Hortonworks Data Platform 3.1. The following s
 
 | Node Type | vCPU | Memory | HDFS Disks |
 |---------|------------|-----------|-----------|
-| Master Node | 4| 16 GB | NA |
-| Data Node | 4| 16 GB | 2 x 300 GB |
+| Management node | 4| 16 GB | NA |
+| Data node | 4| 16 GB | 2 x 300 GB |
 
 **Size: Memory Intensive Node**
 
 | Node Type | vCPU | Memory | HDFS Disks |
 |---------|------------|-----------|-----------|
-| Master Node | 32| 128 GB | NA |
-| Data Node | 32| 128 GB | 3 x 300 GB |
+| Management node | 32| 128 GB | NA |
+| Data node | 32| 128 GB | 3 x 300 GB |
 
 ## Operating System
 The operating system used is Cent OS 7.
