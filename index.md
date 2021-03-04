@@ -16,7 +16,7 @@ subcollection: AnalyticsEngine
 {:pre: .pre}
 {:external: target="_blank" .external}
 
-# Overview of IBM Analytics Engine legacy instances
+# Overview of IBM Analytics Engine
 {: #IAE-overview}
 
 With {{site.data.keyword.iae_full_notm}} you can create Apache Spark and Apache Hadoop clusters in minutes and customize these clusters by using scripts. You can work with data in IBM Cloud Object Storage, as well as integrate other IBM Watson services like {{site.data.keyword.DSX_short}} and Machine Learning.
