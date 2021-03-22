@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-25"
+lastupdated: "2021-03-22"
 
 subcollection: AnalyticsEngine
 
@@ -24,7 +24,17 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ## {{site.data.keyword.iae_full_notm}} information
 
-### 25 February
+### 22 March 2021
+
+- You can now create {{site.data.keyword.iae_short}} clusters with auto scaling that will automatically scale nodes up or down in the cluster based on the amount of memory demanded by the applications. See [Provisioning an auto scaling cluster](/docs/AnalyticsEngine?topic=AnalyticsEngine-autoscaling-clusters).
+- You can now also scale down a cluster manually by using the cluster resize operation. See [Resizing clusters](/docs/AnalyticsEngine?topic=AnalyticsEngine-resize-clusters).
+- You can now provision {{site.data.keyword.iae_full}} instances in the following new {{site.data.keyword.Bluemix_notm}} regions:
+  - `us-east` (Washington DC)
+  - `au-syd` (Sydney)
+
+  For a list of all the supported regions, see [Provisioning {{site.data.keyword.iae_full_notm}} service instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE).
+
+### 25 February 2021
 
 - All biased IT terminology in {{site.data.keyword.iae_full_notm}} is deprecated and will be removed in favor of more inclusive language. This includes changes to terms in the {{site.data.keyword.iae_full_notm}}  documentation and to APIs and cluster node names used in the product itself. See the [Announcement letter](https://cloud.ibm.com/status/announcement?component=ibmanalyticsengine) released end of January 2021.
 

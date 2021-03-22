@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2020-10-19"
+lastupdated: "2021-03-22"
 
 subcollection: AnalyticsEngine
 
@@ -13,6 +13,7 @@ subcollection: AnalyticsEngine
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:note: .note}
 {:pre: .pre}
 
 
@@ -121,6 +122,11 @@ Size your cluster depending on your environment and workload:
 
 In general, it is advisable to have at least 2 nodes in the cluster so that replication can be done internally by Hadoop for HDFS binaries and data if any.
 
+### Choosing between task and compute nodes
+{: #task-compute}
+
+Task nodes don't run HDFS hence they are more stateless in  nature, which makes them more suitable for clusters that require frequent scaling up and down. For production clusters, we recommend having at least two compute nodes and using task nodes, which can be scaled up or scaled down as needed.
+
 ## Choose the right plan
 {: #plan}
 
@@ -131,7 +137,7 @@ Select the plan based on your workload use-case:
 ## Choose the appropriate hardware configuration
 {: #hardware}
 
-For running parallel jobs, choose the memory-intensive node size. For example, if the number of concurrent notebooks (connected from IBM Watson Studio to {{site.data.keyword.iae_full_notm}}) is greater than 2, you should select the memory-intensive node size and not the default node size.
+For running heavy batch parallel Hadoop/Spark jobs that require more memory and generate more intermediate data, choose the memory-intensive node size. Also, if you want to run many concurrent notebooks (more than two) from {{site.data.keyword.DSX}} in {{site.data.keyword.iae_full_notm}}, you should select the memory-intensive node size and not the default node size.
 
 ## Choose the appropriate software package
 {: #software}
@@ -144,7 +150,8 @@ The software packages on `AE 1.2` clusters include components for Horton Datawor
 | `AE 1.2 Spark and Hive` <br>Choose if you are planning to run Hive and/or Spark workloads.  | Hadoop, Livy, Knox, Spark, JEG, Ambari, Conda Py, Hive (non LLAP mode ) |
 | `AE 1.2 Spark and Hadoop`<br>Choose if you are planning to run Hadoop workloads in addition to Spark workloads. | (AE 1.2 Spark and Hive) +  HBase, Phoenix, Oozie |
 
-**Note:**  Currently you cannot resize a cluster that uses the `AE 1.2 Hive LLAP` software package.
+Currently you cannot resize a cluster that uses the `AE 1.2 Hive LLAP` software package.
+{: note}
 
 ## Tune kernel settings for Spark interactive jobs
 {: #tune-kernel-for-spark-interactive}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-09"
+  years: 2017, 2021
+lastupdated: "2021-03-18"
 
 subcollection: AnalyticsEngine
 
@@ -14,6 +14,7 @@ subcollection: AnalyticsEngine
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
+{:note: .note}
 {:external: target="_blank" .external}
 
 # Provisioning an {{site.data.keyword.iae_full_notm}} service instance
@@ -25,23 +26,26 @@ You can create an {{site.data.keyword.iae_full_notm}} service instance through o
 * [Using the {{site.data.keyword.Bluemix_notm}} command-line  interface](#creating-a-service-instance-using-the-ibm-cloud-command-line-interface)
 * [Using the Resource Controller REST API](#creating-a-service-instance-using-the-resource-controller-rest-api)
 
-**Prerequisite**: You must have access to one of the following {{site.data.keyword.Bluemix_short}} regions:
+**Prerequisite**: You must have access to one of the following {{site.data.keyword.Bluemix_short}} regions (locations):
 
-- US-South
-- United Kingdom
-- Germany
-- Japan
+- `us-south` (Dallas)
+- `us-east` (Washington DC)
+- `eu-gb` (London)
+- `eu-de` (Frankurt)
+- `jp-tok` (Tokyo)
+- `au-syd` (Sydney)
 
 ## Creating a service instance from the IBM Cloud console
 
 To create an {{site.data.keyword.iae_full_notm}} instance:
 1. Log into the [{{site.data.keyword.Bluemix_short}} console]( https://{DomainName}){: external}.
 1. Click **Create resource**, search for `{{site.data.keyword.iae_short}}` and then click on the tile to open the service instance creation page.
-1. On the {{site.data.keyword.Bluemix_short}} catalog, choose the region in which you want the service instance to be deployed. {{site.data.keyword.iae_short}} deployments are available in US South, United Kingdom, Japan, and Germany.
+1. On the {{site.data.keyword.Bluemix_short}} catalog, choose the region in which you want the service instance to be deployed. {{site.data.keyword.iae_short}} deployments are available in US South, US East, United Kingdom, Germany, Japan, and Australia.
 1. Choose the resource group under which you want to create the service instance.
 1. Select a plan. With the `Standard-Hourly` and `Standard-Monthly` plans, you can choose how to access the {{site.data.keyword.iae_full_notm}} service endpoints.
 
-  **Note**: By default, a provisioned instance is accessible  over the public internet. However, you can also choose to open the {{site.data.keyword.iae_full_notm}} service endpoints over the {{site.data.keyword.Bluemix_short}} private network. See [Provisioning an instance with {{site.data.keyword.Bluemix_short}} service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
+  By default, a provisioned instance is accessible  over the public internet. However, you can also choose to open the {{site.data.keyword.iae_full_notm}} service endpoints over the {{site.data.keyword.Bluemix_short}} private network. See [Provisioning an instance with {{site.data.keyword.Bluemix_short}} service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
+  {: note}
 
   Select an option and click **Configure**.
 1. On the configuration page, choose the hardware configuration, number of compute nodes and software package of your choice. Click **Create**.
@@ -51,11 +55,15 @@ To create an {{site.data.keyword.iae_full_notm}} instance:
 
 {{site.data.keyword.iae_full_notm}} offers three plans: **Lite**, **Standard-Hourly**, and **Standard-Monthly**.  
 
-An {{site.data.keyword.iae_short}} service instance comprises one cluster made up of one management node and N compute nodes, where N is the number of compute nodes that you specify when creating the cluster. A cluster with 3 compute nodes, for example, has 4 nodes in total and all 4 nodes are billed on an hourly basis.
+An {{site.data.keyword.iae_short}} service instance comprises one cluster made up of one management node, N compute nodes and M task nodes, where N is the number of compute nodes and M is the number of task nodes that you specify when creating the cluster. A cluster with 3 compute nodes and 1 task node, for example, has 5 nodes in total and all 5 nodes are billed based on the billing plan.
+
+A cluster must have at least one compute node but can have no task nodes.
+{: note}
+
 
 | Plan | Hardware types | Software packages        | Restrictions |
 |------|----------------|------------------------------|--------- |
-| **Lite** |**Default** |- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br> | 1. This plan is available only to institutions that have signed up with IBM to try out the Lite plan. See [How does the Lite plan work](/docs/AnalyticsEngine?topic=AnalyticsEngine-general-faqs#free-usage)?	</br> 2. Maximum of one cluster with up to 1 compute node. </br> 3.	Free usage limit is 50 node hours. This means that the cluster will be disabled after 25 hours.  </br> A grace period of 24 hours is given to upgrade your user account to a paid account, and to upgrade the service instance to the Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted. </br> **Note:** You are entitled to one service instance per month. If you delete the service instance or it expires after the free 50 node hours, you will not be able to create a new one until after the month has passed.|
+| **Lite** |**Default** |- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br> | 1. This plan is available only to institutions that have signed up with IBM to try out the Lite plan. See [How does the Lite plan work](/docs/AnalyticsEngine?topic=AnalyticsEngine-general-faqs#free-usage)?	</br> 2. Maximum of one cluster with up to 1 compute node. No task node support.  </br> 3.	Free usage limit is 50 node hours. This means that the cluster will be disabled after 25 hours.  </br> A grace period of 24 hours is given to upgrade your user account to a paid account, and to upgrade the service instance to the Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted. </br> **Note:** You are entitled to one service instance per month. If you delete the service instance or it expires after the free 50 node hours, you will not be able to create a new one until after the month has passed.|
 | **Standard-Hourly** | **Default** or **Memory intensive** |	- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br>  | NA |
 | **Standard-Monthly** | **Default** or **memory intensive** | - `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br> | NA |
 
@@ -98,14 +106,14 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
    ibmcloud resource service-instance-create MyServiceInstance ibmanalyticsengine lite us-south -p @/usr/testuser/cluster_specification.json
    ```
    Supported plan names are **lite**, **standard-hourly**, and **standard-monthly**.
-   Supported regions are: **us-south**, **eu-gb**, **jp-tok** and **eu-de**.
+   Supported regions are: **us-south**, **us-east**, **eu-gb**, **eu-de**, **jp-tok** and **au-syd**.
 
    Sample cluster specification JSON file:
    ```
    {
-  "num_compute_nodes": 1,
-  "hardware_config": "default",
-  "software_package": "ae-1.2-hive-spark"
+     "num_compute_nodes": 1,
+     "hardware_config": "default",
+     "software_package": "ae-1.2-hive-spark"
    }
    ```
 
@@ -113,7 +121,9 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
 
 The cluster parameters include:
 
-1. **`num_compute_nodes`** (Required): Number of compute nodes required in the cluster.
+1. **`num_compute_nodes`** (Required): Number of compute nodes in the cluster.
+1. **`num_task_nodes`** (Optional): Number of task nodes in the cluster. You can create a cluster with no task nodes.
+1. **`autoscale_policy`** (Optional): Defines the policy for automatic up or down scaling of task nodes in the cluster. See [Provisioning an auto scaling cluster](/docs/AnalyticsEngine?topic=AnalyticsEngine-autoscaling-clusters).
 1. **`hardware_config`** (Required): Represents the instance size of the cluster. Accepted value: _`default`_ and _`memory-intensive`_  
 1. **`software_package`** (Required): Determines the set of services to be installed on the cluster. Accepted value: _`ae-1.2-hive-llap`_, _` ae-1.2-hive-spark`_, _`ae-1.2-hadoop-spark`_
 1. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
@@ -131,7 +141,8 @@ MyServiceInstance us-south   inactive  service_instance
 ```
 Service provisioning happens asynchronously. Successful response just means that the provisioning request has been accepted. Service provisioning is considered complete only when the associated cluster is created and is `active`.
 
-**Note**: You can also specify the type of Cloud service endpoints for your service instance. See [Provisioning an instance with {{site.data.keyword.Bluemix_short}} service endpoints]((/docs/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
+You can also specify the type of Cloud service endpoints for your service instance. See [Provisioning an instance with {{site.data.keyword.Bluemix_short}} service endpoints]((/docs/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
+{: note}
 
 ## Provision tracking
 
@@ -160,7 +171,8 @@ Type:                  service_instance
 Tags:
 ```
 
-Note: The state indicates the service provisioning status. When provisioning is ongoing, it's `inactive`. When provisioning has completed, it will be `active`.
+The state indicates the service provisioning status. When provisioning is ongoing, it's `inactive`. When provisioning has completed, it will be `active`.
+{: note}
 
 ## Creating a service instance using the Resource Controller REST API
 
@@ -170,7 +182,6 @@ To get the resource group ID, log into the {{site.data.keyword.Bluemix_short}} C
 ```
 ibmcloud resource groups
 ```
-
 {: codeblock}
 
 Sample result:
@@ -229,7 +240,6 @@ To upgrade using the {{site.data.keyword.Bluemix_short}} CLI enter the following
 ```
 ibmcloud resource service-instance-update <your service instance name> --service-plan-id <resource_plan_id>
 ```
-
 {: codeblock}
 
 

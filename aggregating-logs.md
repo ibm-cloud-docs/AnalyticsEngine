@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-08-30"
+  years: 2017, 2021
+lastupdated: "2021-03-18"
 
 subcollection: AnalyticsEngine
 
@@ -13,6 +13,7 @@ subcollection: AnalyticsEngine
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:note: .note}
 {:pre: .pre}
 {:external: target="_blank" .external}
 
@@ -27,7 +28,8 @@ You can collect the logs for the following components in an {{site.data.keyword.
 - {{site.data.keyword.iae_full_notm}} daemon logs, for example  those for Spark, Hive, Yarn, Knox as so on on the management and data nodes
 - Yarn application job logs
 
-**Note**: Log aggregation can only be configured for  {{site.data.keyword.iae_full_notm}} clusters created on or after  August 21, 2019.
+Log aggregation can only be configured for  {{site.data.keyword.iae_full_notm}} clusters created on or after  August 21, 2019.
+{: note}
 
 ## Aggregation operations
 
@@ -48,7 +50,8 @@ You can:
 - [Retrieve the status](#retrieving-the-status-of-the-log-configuration) of the log configuration.
 -	[Delete the log aggregation configuration](#deleting-the-log-configuration). Deleting the configuration stops all log collecting to the centralized log server.
 
-**NOTE**: If log aggregation is configured for data nodes, the configuration is automatically applied on all newly added nodes as well.
+If log aggregation is configured for data (compute) and task nodes, the configuration is automatically applied on all newly added data (compute) and task nodes as well.
+{: note}
 
 ## Prerequisites
 {: #log-aggregation-prereqs}
@@ -90,6 +93,9 @@ This is an example of what the `log-config.json` could look like:
     }, {
         "node_type": "data",
         "components": ["yarn-apps"]
+    }, {
+        "node_type": "task",
+        "components": ["yarn-apps"]
     }],
     "log_server": {
         "type": "logdna",
@@ -99,11 +105,14 @@ This is an example of what the `log-config.json` could look like:
     }
 }
 ```
+
 For the `api_host` and `log_host` input parameters, use the region specific endpoints of your LogDNA instance. Supported regions of LogDNA service instance are:
 - `us-south` (for Dallas)
+- `us-east` (for Washington)
 - `eu-gb` (for London)
 - `eu-de` (for Frankfurt)
 - `jp-tok` (for Tokyo)
+- `au-syd` (for Sydney)
 
 You can use the following component names:
 
@@ -121,11 +130,17 @@ You can use the following component names:
 - `livy2`
 - `spark2`
 
-**Data node components**
+**Data (compute) node components**
 - `hadoop-mapreduce`
 - `hadoop-yarn`
 - `hdfs`
 - `hdfs-audit`
+- `spark2`
+- `yarn-apps`
+
+**Task node components**
+- `hadoop-mapreduce`
+- `hadoop-yarn`
 - `spark2`
 - `yarn-apps`
 

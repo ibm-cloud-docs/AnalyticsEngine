@@ -41,6 +41,7 @@ Analytics Engine
     {: .topicgroup}
     Provisioning a service instance
         provisioning.md
+        autoscaling-clusters.md
         service-endpoints-integration.md
         advanced-provisioning-options.md
         track-instance-provisioning.md

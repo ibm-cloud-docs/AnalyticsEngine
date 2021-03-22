@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-03-18"
 
 subcollection: AnalyticsEngine
 
@@ -13,6 +13,8 @@ subcollection: AnalyticsEngine
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:note: .note}
+{:important: .important}
 {:pre: .pre}
 
 # Customizing a cluster
@@ -34,7 +36,8 @@ To customize an {{site.data.keyword.iae_full_notm}} cluster, you must have the f
 ## Bootstrap customization
 In this method, the customization script can be specified as part of the input JSON to the create cluster command as is shown in the examples later. In this case, the script is executed as a final step after the cluster is created. Even if the customization fails the cluster is still available for use.
 
-**Note**: Bootstrap customization is not recommended for customizing Ambari components like Hadoop or Spark. Instead you should specify  [advanced provisioning options](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
+Bootstrap customization is not recommended for customizing Ambari components like Hadoop or Spark. Instead you should specify  [advanced provisioning options](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
+{: note}
 
 **Rerunning a bootstrap customization script**: If the customization fails due to any reason, the same action can be rerun at a later point in time on the required targets.
 
@@ -73,14 +76,16 @@ You need to specify a target only when you run:
  - Or when you need to rerun a bootstrap customization script
 
 The target can be one of the following four types
-  - `all`: runs the customization on all nodes of the cluster, including management and compute nodes
+  - `all`: runs the customization on all nodes of the cluster, including management, compute and task nodes
+  - `task`: runs the customization on all task nodes
   - `data`: runs the customization on all compute nodes
   - `management2` or `management3` (the `management-slave1` or `management-slave2` nodes are deprecated): runs on the management2 or management3 node as specified. You may need this for configuring Ambari parameters as give in the example section.
   - A comma separated list of fully qualified node names: This runs on the given list of nodes only.
 
 If the target is multiple nodes, the customization scripts are executed in parallel.
 
-**Important**: You cannot name the `management1` node (the  master management node is deprecated) as a target.
+You cannot name the `management1` node (the  master management node is deprecated) as a target.
+{: important}
 
 ## Predefined environment variables available for use in the customization script
 The following predefined environment variables are available that can be used in the customization script:
@@ -117,7 +122,13 @@ Use the following cluster management REST API to get the customization requests 
 curl -X GET  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests -H 'Authorization: Bearer <user's IAM access token>'
 ```
 
-For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use `https://api.eu-de.ae.cloud.ibm.com`. For Tokyo, use `https://api.jp-tok.ae.cloud.ibm.com`.
+Endpoints:
+- US South: `https://api.us-south.ae.cloud.ibm.com/`
+- US East: `https://api.us-east.ae.cloud.ibm.com/`  
+- United Kingdom: `https://api.eu-gb.ae.cloud.ibm.com`
+- Germany: `https://api.eu-de.ae.cloud.ibm.com`
+- Tokyo: `https://api.jp-tok.ae.cloud.ibm.com`
+- Australia: `https://api.au-syd.ae.cloud.ibm.com`
 
 **Expected response:** The customization requests for the given service instance ID are returned in JSON format. For example:
 
@@ -175,7 +186,7 @@ For example:
 }
 ```
 
-where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south` (for Dallas), `us-east` (for Washington DC),  `eu-gb` (for the United Kingdom), `eu-de` (for Germany), `au-syd` (for Australia) or `jp-tok` (for Japan).
 
 ### Step 3 - Getting the details of a specific node's customization
 
@@ -186,6 +197,7 @@ You can retrieve the log file in `log_file` by using [`ssh/scp`](/docs/Analytics
 Error while downloading customization script, ResponseCode: 0, Please verify source_props and  script_path properties in bootstrap action
 ```
 
-where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
+where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south` (for Dallas), `us-east` (for Washington DC),  `eu-gb` (for the United Kingdom), `eu-de` (for Germany), `au-syd` (for Australia) or `jp-tok` (for Japan).
+
 ## Customization examples
 For examples of how to customize a cluster, see [Examples of customizations](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-examples).
