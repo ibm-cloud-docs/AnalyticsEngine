@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-22"
+lastupdated: "2021-03-23"
 
 subcollection: AnalyticsEngine
 
@@ -23,6 +23,18 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 23 March 2021
+
+- New security patches for **AE-1.2.v29.4**
+
+  **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.4**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+  Customers are required to review the following CVE information and take appropriate action:
+  - [CVE-2018-20482](https://nvd.nist.gov/vuln/detail/CVE-2018-20482)
+  - [CVE-2019-9923](https://nvd.nist.gov/vuln/detail/CVE-2019-9923)
+  - [CVE-2021-3177](https://nvd.nist.gov/vuln/detail/CVE-2021-3177). Note that for this CVE, Python was upgraded from 3.9 to 3.10.
+
 
 ### 22 March 2021
 
