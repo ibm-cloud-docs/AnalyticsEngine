@@ -34,7 +34,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
   - [CVE-2018-20482](https://nvd.nist.gov/vuln/detail/CVE-2018-20482)
   - [CVE-2019-9923](https://nvd.nist.gov/vuln/detail/CVE-2019-9923)
   - [CVE-2021-3177](https://nvd.nist.gov/vuln/detail/CVE-2021-3177). Note that for this CVE, Python was upgraded from 3.9 to 3.10.
-
+- The data skipping library was open sourced and can now be used when developing applications with Spark SQL. See [Data skipping for Spark SQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-data-skipping).
 
 ### 22 March 2021
 

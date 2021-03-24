@@ -109,7 +109,8 @@ If you store your customization scripts in {{site.data.keyword.cos_short}}, make
 
 See [Customizing a cluster](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
 
-**Note**: If your customization consists only of changes to the configuration of a cluster component, for example changes to the `core-site.xml` file of the HDFS component, the `spark-defaults.conf` file of the Spark component, or the `hive-site.xml` of Hive, it is easier and more efficient to add these changes as [Advanced provisioning options](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options) during cluster creation than to add the  configuration changes to a customization script. You should use a customization script for installing libraries and packages.
+If your customization consists only of changes to the configuration of a cluster component, for example changes to the `core-site.xml` file of the HDFS component, the `spark-defaults.conf` file of the Spark component, or the `hive-site.xml` of Hive, it is easier and more efficient to add these changes as [Advanced provisioning options](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options) during cluster creation than to add the configuration changes to a customization script. You should use a customization script for installing libraries and packages.
+{: note}
 
 ## Size the cluster appropriately
 {: #cluster-size}
@@ -163,7 +164,8 @@ When running large Spark interactive jobs, you might need to adjust kernel setti
 
 Although you should use {{site.data.keyword.cos_full_notm}} as your primary storage for all data files and job binaries, you might want to create and store some temporary data or files on the cluster itself. If you need to do that, you can store this data under the `/home/wce/clsadmin` directory on any of the nodes of the cluster. Note that you have about 20 GB capacity under `/home` across all the three management nodes. However, you should not use more than 80% of this total capacity so as to not disrupt the normal functioning on the cluster. You should avoid saving data under the `/tmp` directory because this space is used as the scratch directory for job execution.
 
-Note that any data stored on the cluster is not persistent outside the cluster lifecycle. If the cluster is deleted, the data will be expunged too. So make sure you backup any important data you store on the cluster.
+Data stored on the cluster is not persistent outside the cluster lifecycle. If the cluster is deleted, the data will be expunged too. So make sure you backup any important data you store on the cluster.
+{: note}
 
 ## Configure the cluster for log monitoring and troubleshooting
 {: #configure-log-monitoring}
