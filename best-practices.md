@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-22"
+lastupdated: "2021-03-31"
 
 subcollection: AnalyticsEngine
 
@@ -170,11 +170,11 @@ Data stored on the cluster is not persistent outside the cluster lifecycle. If t
 ## Configure the cluster for log monitoring and troubleshooting
 {: #configure-log-monitoring}
 
-To facilitate monitoring and troubleshooting your applications and jobs, you can configure your cluster for log monitoring and analysis by aggregating your {{site.data.keyword.iae_full_notm}}  cluster and job logs to a centralized LogDNA server of your choice. See [Configuring log aggregation](/docs/AnalyticsEngine?topic=AnalyticsEngine-log-aggregation).
+To facilitate monitoring and troubleshooting your applications and jobs, you can configure your cluster for log monitoring and analysis by aggregating your {{site.data.keyword.iae_full_notm}}  cluster and job logs to a centralized {{site.data.keyword.la_short}} server of your choice. See [Configuring log aggregation](/docs/AnalyticsEngine?topic=AnalyticsEngine-log-aggregation).
 
 By configuring log aggregation, you can externalize the log files, which means that these files can be accessed even after the cluster was deleted.
 
-When you configure {{site.data.keyword.iae_full_notm}} to work with the LogDNA instance, we encourage you to select to connect to the private endpoints of the instance, to increase performance and save costs. See [Configuring private endpoints](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-endpoints).
+When you configure {{site.data.keyword.iae_full_notm}} to work with the {{site.data.keyword.la_full_notm}} instance, we encourage you to select to connect to the private endpoints of the instance, to increase performance and save costs. See [Configuring private endpoints](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-endpoints).
 
 ## Switch regions for disaster recovery
 {: #disaster-recovery}

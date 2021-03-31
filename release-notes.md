@@ -295,7 +295,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ### 21 August 2019
 
-- To enhance log analysis, log monitoring, and troubleshooting, {{site.data.keyword.iae_full_notm}} now supports aggregating cluster logs and job logs to a centralized logDNA server of your choice. See details in [Configuring log aggregation](/docs/AnalyticsEngine?topic=AnalyticsEngine-log-aggregation).
+- To enhance log analysis, log monitoring, and troubleshooting, {{site.data.keyword.iae_full_notm}} now supports aggregating cluster logs and job logs to a centralized {{site.data.keyword.la_short}} server of your choice. See details in [Configuring log aggregation](/docs/AnalyticsEngine?topic=AnalyticsEngine-log-aggregation).
 
  Note that log aggregation can only be configured for  {{site.data.keyword.iae_full_notm}} clusters created on or after  August 21, 2019.
 
