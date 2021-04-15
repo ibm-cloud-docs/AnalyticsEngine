@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-04-15"
 
 subcollection: AnalyticsEngine
 
@@ -23,6 +23,29 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 15 April 2021
+
+- New security patches for **AE-1.2.v29.5**
+
+  **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.5**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+  Customers are required to review the following CVE information and take appropriate action:
+  - [CVE-2021-3449](https://nvd.nist.gov/vuln/detail/CVE-2021-3449)
+  - [CVE-2021-3450](https://nvd.nist.gov/vuln/detail/CVE-2021-3450)
+  - [CVE-2019-19532](https://nvd.nist.gov/vuln/detail/CVE-2019-19532)
+  - [CVE-2020-0427](https://nvd.nist.gov/vuln/detail/CVE-2020-0427)
+  - [CVE-2020-14351](https://nvd.nist.gov/vuln/detail/CVE-2020-14351)
+  - [CVE-2020-25211](https://nvd.nist.gov/vuln/detail/CVE-2020-25211)
+  - [CVE-2020-25645](https://nvd.nist.gov/vuln/detail/CVE-2020-25645)
+  - [CVE-2020-25656](https://nvd.nist.gov/vuln/detail/CVE-2020-25656)
+  - [CVE-2020-25705](https://nvd.nist.gov/vuln/detail/CVE-2020-25705)
+  - [CVE-2020-28374](https://nvd.nist.gov/vuln/detail/CVE-2020-28374)
+  - [CVE-2020-29661](https://nvd.nist.gov/vuln/detail/CVE-2020-29661)
+  - [CVE-2020-7053](https://nvd.nist.gov/vuln/detail/CVE-2020-7053)
+  - [CVE-2021-20265](https://nvd.nist.gov/vuln/detail/CVE-2021-20265)
+- {{site.data.keyword.iae_full_notm}} is now SOC1 Type 2 and SOC2 Type 2 compliant. See [Compliance](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-compliance#compliance).
+
 
 ### 23 March 2021
 
@@ -332,7 +355,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ### 30 January 2019
 
-- {{site.data.keyword.iae_full_notm}} now meets the required IBM controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. See [HIPAA readiness](/docs/AnalyticsEngine?topic=AnalyticsEngine-hipaa).
+- {{site.data.keyword.iae_full_notm}} now meets the required IBM controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. See [HIPAA readiness](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-compliance-hipaa).
 
 ### 24 January 2019
 
