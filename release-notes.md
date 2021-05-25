@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-05-21"
 
 subcollection: AnalyticsEngine
 
@@ -23,6 +23,16 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 21 May 2021
+
+- New security patches for **AE-1.2.v29.7**
+
+  **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.7**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+  Customers are required to review the following CVE and RHSA information and take appropriate action:
+  - [CVE-2009-5155](https://nvd.nist.gov/vuln/detail/CVE-2009-5155)
+  - [CVE-2020-6096](https://nvd.nist.gov/vuln/detail/CVE-2020-6096)
 
 ### 28 April 2021
 
