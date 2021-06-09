@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-18"
+lastupdated: "2021-06-09"
 
 subcollection: AnalyticsEngine
 
@@ -202,7 +202,7 @@ To create an instance via the Resource Controller REST API enter:
 ```
 curl \
   --request POST \
-  --url 'https://resource-controller.cloud.ibm.com/v1/resource_instances'   \
+  --url 'https://resource-controller.cloud.ibm.com/v2/resource_instances'   \
   --header 'accept: application/json'   \
   --header 'authorization: Bearer <IAM token>'   \
   --data @provision.json
@@ -211,17 +211,22 @@ cat provision.json
 {
     "name": "MyServiceInstance",
     "resource_plan_id": "3175a5cf-61e3-4e79-aa2a-dff9a4e1f0ae",
-    "resource_group_id": "XXXXX",
-    "region_id": "us-south",
+    "resource_group": "XXXXX",
+    "target": "us-south",
     "parameters": {
         "hardware_config": "default",
         "num_compute_nodes": "1",
         "software_package": "ae-1.2-hive-spark"
-    }    
+    },
+    "tags": [
+        "my-tag"
+    ]  
 }
 
 ```
 {: codeblock}
+
+For more information on the Resource Controller REST API for creating an instance, see [Create (provision) a new resource instance](/apidocs/resource-controller/resource-controller#create-resource-instance).
 
 To get the IAM token, perform the following [steps](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
 
