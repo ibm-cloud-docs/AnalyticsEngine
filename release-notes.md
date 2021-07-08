@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-21"
+lastupdated: "2021-07-08"
 
 subcollection: AnalyticsEngine
 
@@ -23,6 +23,28 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 08 July 2021
+
+- New security patches for **AE-1.2.v29.8**
+
+  **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.8**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+  Customers are required to review the following CVE and RHSA  information and take appropriate action:
+
+  - [CVE-2021-3520](https://nvd.nist.gov/vuln/detail/CVE-2021-3520)
+  - [CVE-2021-20254](https://nvd.nist.gov/vuln/detail/CVE-2021-20254)
+  - [CVE-2021-27219](https://nvd.nist.gov/vuln/detail/CVE-2021-27219)
+  - [CVE-2020-12362](https://nvd.nist.gov/vuln/detail/CVE-2020-12362)
+  - [CVE-2020-12363](https://nvd.nist.gov/vuln/detail/CVE-2020-12363)
+  - [CVE-2020-12364](https://nvd.nist.gov/vuln/detail/CVE-2020-12364)
+  - [CVE-2020-27170](https://nvd.nist.gov/vuln/detail/CVE-2020-27170)
+  - [CVE-2020-8648](https://nvd.nist.gov/vuln/detail/CVE-2020-8648)
+  - [CVE-2021-3347](https://nvd.nist.gov/vuln/detail/CVE-2021-3347)  
+  - [RHSA-2021:2147](https://access.redhat.com/errata/RHSA-2021:2147)
+  - [RHSA-2021:2313](https://access.redhat.com/errata/RHSA-2021:2313)
+  - [RHSA-2021:2314](https://access.redhat.com/errata/RHSA-2021:2314)
+
 
 ### 21 May 2021
 
