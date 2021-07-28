@@ -224,9 +224,9 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 - **[AE-1.2.v29.1]**
 
-  - New security patches for **AE-1.2.v29.2**
+  - New security patches for **AE-1.2.v29.1**
 
-    **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.2**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+    **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.1**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
     Customers are required to review the following CVE and RHSA information and take appropriate action:  
 
@@ -234,6 +234,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
     - [CVE-2019-20907](https://nvd.nist.gov/vuln/detail/CVE-2019-20907)
     - [CVE-2020-14331](https://nvd.nist.gov/vuln/detail/CVE-2020-14331)
     - [CVE-2020-17501](https://nvd.nist.gov/vuln/detail/CVE-2020-17501)
+    - [CVE-2020-17507](https://nvd.nist.gov/vuln/detail/CVE-2020-17507)
     - [CVE-2020-1935](https://nvd.nist.gov/vuln/detail/CVE-2020-1935)
     - [CVE-2020-8177](https://nvd.nist.gov/vuln/detail/CVE-2020-8177)
     - [CVE-2020-8622](https://nvd.nist.gov/vuln/detail/CVE-2020-8622)
@@ -245,6 +246,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
     - [CVE-2020-5020](https://nvd.nist.gov/vuln/detail/CVE-2020-5020)
     - [CVE-2020-5021](https://nvd.nist.gov/vuln/detail/CVE-2020-5021)
     - [CVE-2020-5023](https://nvd.nist.gov/vuln/detail/CVE-2020-5023)
+
 
     Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
   - A fix was added that makes the Hive Metastore transparently recover from PostgreSQL metastore database restarts or network interruption issues. If you are externalizing the Hive metastore to IBM Cloud Databases for PostgreSQL, you need to set the socketTimeout value in the JDBC URL. See [Externalizing the Hive metastore to Databases for PostgreSQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#externalizing-hive-metastore).
