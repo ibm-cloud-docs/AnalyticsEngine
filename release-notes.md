@@ -247,7 +247,6 @@ Use these notes to learn about the latest features, additions and changes to {{s
     - [CVE-2020-5021](https://nvd.nist.gov/vuln/detail/CVE-2020-5021)
     - [CVE-2020-5023](https://nvd.nist.gov/vuln/detail/CVE-2020-5023)
 
-
     Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
   - A fix was added that makes the Hive Metastore transparently recover from PostgreSQL metastore database restarts or network interruption issues. If you are externalizing the Hive metastore to IBM Cloud Databases for PostgreSQL, you need to set the socketTimeout value in the JDBC URL. See [Externalizing the Hive metastore to Databases for PostgreSQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#externalizing-hive-metastore).
   -  Another fix was added so that you no longer need to explicitly grant permissions for the PostgreSQL certificate that you place in `/home/common/wce/clsadmin/` on `mn002`. The folder now has the required permissions and the permissions are retained through restarts.
