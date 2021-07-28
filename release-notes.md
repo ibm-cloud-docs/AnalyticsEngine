@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-08"
+lastupdated: "2021-07-27"
 
 subcollection: AnalyticsEngine
 
@@ -40,11 +40,16 @@ Use these notes to learn about the latest features, additions and changes to {{s
   - [CVE-2020-12364](https://nvd.nist.gov/vuln/detail/CVE-2020-12364)
   - [CVE-2020-27170](https://nvd.nist.gov/vuln/detail/CVE-2020-27170)
   - [CVE-2020-8648](https://nvd.nist.gov/vuln/detail/CVE-2020-8648)
-  - [CVE-2021-3347](https://nvd.nist.gov/vuln/detail/CVE-2021-3347)  
+  - [CVE-2021-3347](https://nvd.nist.gov/vuln/detail/CVE-2021-3347)
+  - [CVE-2019-10208](https://nvd.nist.gov/vuln/detail/CVE-2019-10208)
+  - [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694)
+  - [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695)        
   - [RHSA-2021:2147](https://access.redhat.com/errata/RHSA-2021:2147)
   - [RHSA-2021:2313](https://access.redhat.com/errata/RHSA-2021:2313)
   - [RHSA-2021:2314](https://access.redhat.com/errata/RHSA-2021:2314)
+  - [RHSA-2021:1512](https://access.redhat.com/errata/RHSA-2021:1512)
 
+  Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
 ### 21 May 2021
 
@@ -53,8 +58,24 @@ Use these notes to learn about the latest features, additions and changes to {{s
   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.7**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
   Customers are required to review the following CVE and RHSA information and take appropriate action:
+
   - [CVE-2009-5155](https://nvd.nist.gov/vuln/detail/CVE-2009-5155)
   - [CVE-2020-6096](https://nvd.nist.gov/vuln/detail/CVE-2020-6096)
+  - [CVE-2019-11719](https://nvd.nist.gov/vuln/detail/CVE-2019-11719)
+  - [CVE-2019-11727](https://nvd.nist.gov/vuln/detail/CVE-2019-11727)
+  - [CVE-2019-11756](https://nvd.nist.gov/vuln/detail/CVE-2019-11756)
+  - [CVE-2019-17006](https://nvd.nist.gov/vuln/detail/CVE-2019-17006)
+  - [CVE-2019-17023](https://nvd.nist.gov/vuln/detail/CVE-2019-17023)
+  - [CVE-2020-12400](https://nvd.nist.gov/vuln/detail/CVE-2020-12400)
+  - [CVE-2020-12401](https://nvd.nist.gov/vuln/detail/CVE-2020-12401)
+  - [CVE-2020-12402](https://nvd.nist.gov/vuln/detail/CVE-2020-12402)
+  - [CVE-2020-12403](https://nvd.nist.gov/vuln/detail/CVE-2020-12403)
+  - [CVE-2020-6829](https://nvd.nist.gov/vuln/detail/CVE-2020-6829)
+  - [CVE-2021-25215](https://nvd.nist.gov/vuln/detail/CVE-2020-25215)
+  - [RHSA-2020:4076](https://access.redhat.com/errata/RHSA-2020:4076)
+  - [RHSA-2021:1469](https://access.redhat.com/errata/RHSA-2021:1469)
+
+  Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
 ### 28 April 2021
 
@@ -63,13 +84,18 @@ Use these notes to learn about the latest features, additions and changes to {{s
   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.6**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
   Customers are required to review the following CVE and RHSA information and take appropriate action:
+
   - [CVE-2021-30139](https://nvd.nist.gov/vuln/detail/CVE-2021-30139)
   - [CVE-2021-20277](https://nvd.nist.gov/vuln/detail/CVE-2021-20277)
   - [CVE-2021-27363](https://nvd.nist.gov/vuln/detail/CVE-2021-27363)
   - [CVE-2021-27364](https://nvd.nist.gov/vuln/detail/CVE-2021-27364)
   - [CVE-2021-27365](https://nvd.nist.gov/vuln/detail/CVE-2021-27365)
-  - [RHSA-2021:1071](https://access.redhat.com/errata/RHSA-2021:1071)
-  - [RHSA-2021:1072](https://access.redhat.com/errata/RHSA-2021:1072)
+  - [CVE-2021-20305](https://nvd.nist.gov/vuln/detail/CVE-2021-20305)
+  - [CVE-2021-2163](https://nvd.nist.gov/vuln/detail/CVE-2021-2163)
+  - [RHSA-2021:1145](https://access.redhat.com/errata/RHSA-2021:1145)
+  - [RHSA-2021:1298](https://access.redhat.com/errata/RHSA-2021:1298)
+
+  Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
 ### 15 April 2021
 
@@ -77,7 +103,8 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.5**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-  Customers are required to review the following CVE information and take appropriate action:
+  Customers are required to review the following CVE and RHSA information and take appropriate action:
+
   - [CVE-2021-3449](https://nvd.nist.gov/vuln/detail/CVE-2021-3449)
   - [CVE-2021-3450](https://nvd.nist.gov/vuln/detail/CVE-2021-3450)
   - [CVE-2019-19532](https://nvd.nist.gov/vuln/detail/CVE-2019-19532)
@@ -91,6 +118,9 @@ Use these notes to learn about the latest features, additions and changes to {{s
   - [CVE-2020-29661](https://nvd.nist.gov/vuln/detail/CVE-2020-29661)
   - [CVE-2020-7053](https://nvd.nist.gov/vuln/detail/CVE-2020-7053)
   - [CVE-2021-20265](https://nvd.nist.gov/vuln/detail/CVE-2021-20265)
+  - [RHSA-2021:0856](https://access.redhat.com/errata/RHSA-2021:0856)
+
+  Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 - {{site.data.keyword.iae_full_notm}} is now SOC1 Type 2 and SOC2 Type 2 compliant. See [Compliance](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-compliance#compliance).
 
 
@@ -100,10 +130,15 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.4**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-  Customers are required to review the following CVE information and take appropriate action:
+  Customers are required to review the following CVE and RHSA information and take appropriate action:
+
   - [CVE-2018-20482](https://nvd.nist.gov/vuln/detail/CVE-2018-20482)
   - [CVE-2019-9923](https://nvd.nist.gov/vuln/detail/CVE-2019-9923)
   - [CVE-2021-3177](https://nvd.nist.gov/vuln/detail/CVE-2021-3177). Note that for this CVE, Python was upgraded from 3.9 to 3.10.
+  - [CVE-2020-8625](https://nvd.nist.gov/vuln/detail/CVE-2020-8625)
+  - [RHSA-2021:0671](https://access.redhat.com/errata/RHSA-2021:0671)
+
+  Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.   
 - The data skipping library was open sourced and can now be used when developing applications with Spark SQL. See [Data skipping for Spark SQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-data-skipping).
 
 ### 22 March 2021
@@ -139,6 +174,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.3**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
   Customers are required to review the following CVE and RHSA  information and take appropriate action:
+
   - [CVE-2019-25013](https://nvd.nist.gov/vuln/detail/CVE-2019-25013)
   - [CVE-2020-10029](https://nvd.nist.gov/vuln/detail/CVE-2020-10029)
   - [CVE-2020-10543](https://nvd.nist.gov/vuln/detail/CVE-2020-10543)
@@ -149,7 +185,24 @@ Use these notes to learn about the latest features, additions and changes to {{s
   - [RHSA-2021:0348](https://access.redhat.com/errata/RHSA-2021:0348)
   - [CVE-2021-23839](https://nvd.nist.gov/vuln/detail/CVE-2021-23839)
   - [CVE-2021-23840](https://nvd.nist.gov/vuln/detail/CVE-2021-23840)
-  - [CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841)  
+  - [CVE-2021-23841](https://nvd.nist.gov/vuln/detail/CVE-2021-23841)
+  - [CVE-2019-18282](https://nvd.nist.gov/vuln/detail/CVE-2019-18282)
+  - [CVE-2020-10769](https://nvd.nist.gov/vuln/detail/CVE-2020-10769)
+  - [CVE-2020-14314](https://nvd.nist.gov/vuln/detail/CVE-2020-14314)
+  - [CVE-2020-14318](https://nvd.nist.gov/vuln/detail/CVE-2020-14318)
+  - [CVE-2020-14323](https://nvd.nist.gov/vuln/detail/CVE-2020-14323)
+  - [CVE-2020-14385](https://nvd.nist.gov/vuln/detail/CVE-2020-14385)
+  - [CVE-2020-1472](https://nvd.nist.gov/vuln/detail/CVE-2020-1472)  
+  - [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971)  
+  - [CVE-2020-24394](https://nvd.nist.gov/vuln/detail/CVE-2020-24394)
+  - [CVE-2020-25212](https://nvd.nist.gov/vuln/detail/CVE-2020-25212)
+  - [CVE-2020-25643](https://nvd.nist.gov/vuln/detail/CVE-2020-25643)
+  - [CVE-2021-3156](https://nvd.nist.gov/vuln/detail/CVE-2021-3156)
+  - [RHSA-2020:5437](https://access.redhat.com/errata/RHSA-2020:5437)
+  - [RHSA-2020:5439](https://access.redhat.com/errata/RHSA-2020:5439)
+  - [RHSA-2020:5566](https://access.redhat.com/errata/RHSA-2020:5566)
+
+  Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
 ### 12 January 2021
 
@@ -157,11 +210,13 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.2**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-  Customers are required to review the following CVE information and take appropriate action:  
+  Customers are required to review the following CVE and RHSA information and take appropriate action:  
+
   - [CVE-2020-25659](https://bugzilla.redhat.com/show_bug.cgi?id=1889988): the python-cryptography package was upgraded to version 3.3
   - [CVE-2020-28928](https://nvd.nist.gov/vuln/detail/CVE-2020-28928)
   - [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971)
   - [CVE-2020-27350](http://www.ubuntu.com/usn/usn-4667-1)
+  - [RHSA-2021:0221](https://access.redhat.com/errata/RHSA-2021:0221)
 
   Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
@@ -169,6 +224,29 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 - **[AE-1.2.v29.1]**
 
+  - New security patches for **AE-1.2.v29.2**
+
+    **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.2**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+    Customers are required to review the following CVE and RHSA information and take appropriate action:  
+
+    - [CVE-2019-20811](https://nvd.nist.gov/vuln/detail/CVE-2019-20811)
+    - [CVE-2019-20907](https://nvd.nist.gov/vuln/detail/CVE-2019-20907)
+    - [CVE-2020-14331](https://nvd.nist.gov/vuln/detail/CVE-2020-14331)
+    - [CVE-2020-17501](https://nvd.nist.gov/vuln/detail/CVE-2020-17501)
+    - [CVE-2020-1935](https://nvd.nist.gov/vuln/detail/CVE-2020-1935)
+    - [CVE-2020-8177](https://nvd.nist.gov/vuln/detail/CVE-2020-8177)
+    - [CVE-2020-8622](https://nvd.nist.gov/vuln/detail/CVE-2020-8622)
+    - [CVE-2020-8623](https://nvd.nist.gov/vuln/detail/CVE-2020-8623)
+    - [CVE-2020-8624](https://nvd.nist.gov/vuln/detail/CVE-2020-8624)
+    - [CVE-2020-5002](https://nvd.nist.gov/vuln/detail/CVE-2020-5002)
+    - [CVE-2020-5009](https://nvd.nist.gov/vuln/detail/CVE-2020-5009)
+    - [CVE-2020-5011](https://nvd.nist.gov/vuln/detail/CVE-2020-5011)
+    - [CVE-2020-5020](https://nvd.nist.gov/vuln/detail/CVE-2020-5020)
+    - [CVE-2020-5021](https://nvd.nist.gov/vuln/detail/CVE-2020-5021)
+    - [CVE-2020-5023](https://nvd.nist.gov/vuln/detail/CVE-2020-5023)
+
+    Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
   - A fix was added that makes the Hive Metastore transparently recover from PostgreSQL metastore database restarts or network interruption issues. If you are externalizing the Hive metastore to IBM Cloud Databases for PostgreSQL, you need to set the socketTimeout value in the JDBC URL. See [Externalizing the Hive metastore to Databases for PostgreSQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#externalizing-hive-metastore).
   -  Another fix was added so that you no longer need to explicitly grant permissions for the PostgreSQL certificate that you place in `/home/common/wce/clsadmin/` on `mn002`. The folder now has the required permissions and the permissions are retained through restarts.
 
