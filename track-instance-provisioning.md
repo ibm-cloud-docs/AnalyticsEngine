@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2018-11-12"
+  years: 2017, 2021
+lastupdated: "2021-08-23"
 
 subcollection: AnalyticsEngine
 
@@ -18,7 +18,7 @@ subcollection: AnalyticsEngine
 # Tracking the status of the cluster provisioning
 {: #track-provisioning}
 
-The following diagram illustrates the various states of a cluster during cluster creation, cluster resizing, and cluster deletion.
+The following diagram illustrates the various states of a cluster during cluster creation, cluster resizing, and cluster deletion. After node preparation and successful deployment of the cluster, the cluster state is active. In active state, the cluster can be customized and resized. While the cluster is active, all maintenance activities can be carried out.
 
 ![Shows the various states during cluster provisioning](images/cluster-states-new.svg)
 

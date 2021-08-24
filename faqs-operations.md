@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-09-15"
+  years: 2017, 2021
+lastupdated: "2021-08-23"
 
 subcollection: AnalyticsEngine
 
@@ -48,7 +48,7 @@ The recommended way to read data to a cluster for processing is from {{site.data
 - Spark-streaming
 - Sqoop
 
-For more information, see the [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-upload-files-hdfs).
+See [Uploading files to HDFS](/docs/AnalyticsEngine?topic=AnalyticsEngine-upload-files-hdfs).
 
 ## How do I configure my cluster?
 {: #how-2-configure-cluster}
@@ -56,8 +56,8 @@ For more information, see the [documentation](/docs/AnalyticsEngine?topic=Analyt
 {: support}
 
 You can configure a cluster by using customization scripts or by directly modifying configuration parameters in the Ambari console. Customization scripts are a convenient way to define different
-sets of configurations through a script, to spin up different types of clusters, or to use the same configuration repeatedly for repetitive jobs. You can find more information on cluster customization
-[here](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
+sets of configurations through a script, to spin up different types of clusters, or to use the same configuration repeatedly for repetitive jobs. See
+[Customizing a cluster](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
 
 ## Can I stop or shutdown my {{site.data.keyword.iae_full_notm}} clusters to be charged on a per-use basis?
 {: #charge-per-use}

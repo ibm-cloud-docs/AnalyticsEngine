@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-10-19"
+  years: 2017, 2021
+lastupdated: "2021-08-23"
 
 subcollection: AnalyticsEngine
 
@@ -25,7 +25,7 @@ The {{site.data.keyword.iae_full_notm}} comes with a set of libraries. These lib
 |AE 1.2| Python 3.7 |Python 3.7 with Spark 2.3.2 |Python libraries packaged with Anaconda3-2018.12 at `/home/common/conda/miniconda3.7` |
 |AE 1.2| Scala 2.11|Scala 2.11 with Spark 2.3.2 |Scala/Java libraries (Scala 2.11 and Java 1.8) under `/home/common/lib/scala/spark2` |
 
-For installed Spark connectors, see the [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-connectors).
+For details on the installed Spark connectors, see [Spark connectors](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-connectors).
 
 ## Python
 

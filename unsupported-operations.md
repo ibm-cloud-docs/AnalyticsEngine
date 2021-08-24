@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-02-13"
+  years: 2017, 2021
+lastupdated: "2021-08-23"
 
 subcollection: AnalyticsEngine
 
@@ -27,14 +27,14 @@ The following functionality is not supported in {{site.data.keyword.iae_full_not
 
 The `AE 1.1` software packages based on Hortonworks Data Platform (HDP) 2.6.5 are deprecated. You can no longer provision new instances of {{site.data.keyword.iae_full_notm}} with the `AE 1.1` software packages. Although you can still work on the `AE 1.1` clusters you have created, you can't resize those clusters and add additional nodes.
 
-Although all existing `AE 1.1` clusters will only be deleted after December 31, 2019, you should stop using those clusters now and start creating new `AE 1.2` clusters as described in [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
+Although all existing `AE 1.1` clusters will only be deleted after December 31, 2019, you should stop using those clusters now and start creating new `AE 1.2` clusters as described in [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices){: new_window}.
 
 ## `AE 1.0` clusters: No instance provisioning and cluster resizing
 {: #ae1.0-deprecation}
 
 The `AE 1.0` software packages based on Hortonworks Data Platform (HDP) 2.6.2 are deprecated. You can no longer provision new instances of {{site.data.keyword.iae_full_notm}} with the `AE 1.0` software packages. Although you can still work on the `AE 1.0` clusters you have created, you can't resize those clusters and add additional nodes.
 
-Although all existing `AE 1.0 ` clusters will only be deleted after September 30, 2019, you should stop using those clusters now and start creating new `AE 1.2` clusters as described in [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
+Although all existing `AE 1.0 ` clusters will only be deleted after September 30, 2019, you should stop using those clusters now and start creating new `AE 1.2` clusters as described in [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices){: new_window}.
 
 ## `AE 1.2` clusters: No cluster resizing on Hive LLAP clusters
 {: #ae1.2-hive-llap}
@@ -73,6 +73,6 @@ Refer to the following links to understand the reasoning and repercussions for t
 
 ## AE 1.2 clusters: PostgreSQL bootstrap customization and advanced options not supported
 
-The only way to configure a cluster to work with PostgreSQL is either through the UI or by using adhoc customization. See [Using an adhoc PostgreSQL customization script](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#configuring-a-cluster-to-work-with-postgresql).
+The only way to configure a cluster to work with PostgreSQL is either through the UI or by using adhoc customization. See [Using an adhoc PostgreSQL customization script](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#configuring-a-cluster-to-work-with-postgresql){: new_window}.
 
-Configuring the cluster at the time the cluster is created by using bootstrap customization is not supported because it requires the PostgreSQL certificate to be present on the `mn002` node before the Hive service is started. However the bootstrap script is only executed after the cluster was created. The same applies to using advanced provision options described [here](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options). There is no way to download the certificate prior to cluster creation.
+Configuring the cluster at the time the cluster is created by using bootstrap customization is not supported because it requires the PostgreSQL certificate to be present on the `mn002` node before the Hive service is started. However the bootstrap script is only executed after the cluster was created. See [Advanced provisioning options](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options){: new_window}. There is no way to download the certificate prior to cluster creation.

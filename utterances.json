@@ -24,10 +24,8 @@
     "how are storage and compute different in spark and hadoop"
   ],
   "getting-started-with-iae": [
-    "how do I get started with spark",
     "how do I begin with analytics engine",
     "where do I start with IAE",
-    "getting started with hadoop",
     "create an Analytics engine",
     "provision analytics engine instance",
     "provision an IBM Analytics Engine service instance",
@@ -36,8 +34,7 @@
     "start working with analytics engine",
     "how do I use analytics engine",
     "learn more about analytics engine",
-    "get started using IBM Analytics Engine",
-    "where can I find a spark tutorial"
+    "get started using IBM Analytics Engine"
   ],
   "distribution": [
     "what distribution is used in analytics engine",
@@ -112,7 +109,7 @@
     "Your account has not been authorized to select the Lite plan",
     "trying to create an Analytic Engine service with the lite plane but during the configuration, the system says me Your account has not been authorized to select the Lite plan",
     "service is free and I havent any other Analytic Engine service on my cloud platform, hence it should be supported by my Lite plan",
-    "I am trying to create a resource on Analytics engine for Hadoop Lab Test but it is not letting by giving me an error",    
+    "I am trying to create a resource on Analytics engine for Hadoop Lab Test but it is not letting by giving me an error",
     "can´t create an Analytics engine with a lite plan",
     "create an Analytics engine in Lite",
     "I would like to create Lite Analytics Engine",

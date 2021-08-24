@@ -31,7 +31,7 @@ Type the following command into a command line:
 npm install iaesdk
 ```
 
-Source code can be found at [GitHub](https://github.com/ibm/ibm-iae-node-sdk/){: external}.The `iaesdk` library provides complete access to the {{site.data.keyword.iae_full_notm}} API.
+You can find the source code in GitHub. See [ibm-iae-node-sdk](https://github.com/ibm/ibm-iae-node-sdk/){: external}. The `iaesdk` library provides complete access to the {{site.data.keyword.iae_full_notm}} API.
 
 To run the Node.js SDK, you need Node 4.x+. You need to provide the service endpoints and the API key when you create a  {{site.data.keyword.iae_full_notm}} service resource or a low-level client.
 

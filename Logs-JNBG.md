@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-01-17"
+  years: 2017, 2021
+lastupdated: "2021-08-23"
 
 subcollection: AnalyticsEngine
 
@@ -49,7 +49,7 @@ You can access Spark Executor logs using one of the following ways:
 
 * Launching the cluster's Ambari console to navigate to the corresponding YARN/Spark application UI and use the links in the web interface to download the logs.
 
-* Using a command line and REST API interface to download the logs. Refer to the instructions [here](/docs/cli?topic=analytics-engine-cli-plugin-CLI_analytics_engine#CLI_analytics_engine) for details on how to download Spark Executor logs.
+* Using a command line and REST API interface to download the logs. See [IBM Analytics Engine CLI plug-in for classic instances](/docs/cli?topic=analytics-engine-cli-plugin-CLI_analytics_engine#CLI_analytics_engine) for details on how to download Spark Executor logs.
 
 * SSHing to the cluster and using the YARN command line interface to obtain the logs. To obtain logs for a particular `application Id` run the following command:
 

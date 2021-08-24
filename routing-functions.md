@@ -20,7 +20,7 @@ subcollection: AnalyticsEngine
 
 The spatio-temporal library includes routing functions that list the edges that yield a path from one node to another node.
 
-To show you how to use the routing functions in the spatio-temporal library, the code samples in this topic use the OSM map for the city of Atlanta downloaded from https://www.openstreetmap.org.
+To show you how to use the routing functions in the spatio-temporal library, the code samples in this topic use the OSM map for the city of Atlanta downloaded from [OpenStreetMap](https://www.openstreetmap.org).
 
 To calculate a route:
 1. Create a router and read from the OSM map:

@@ -27,12 +27,12 @@ To help you get started with or learn more about different features and abilitie
 
 - Customize access to {{site.data.keyword.cos_full_notm}} from the cluster by using a customization script. See  [Script for configuring access to {{site.data.keyword.cos_full_notm}} from the cluster](https://github.com/IBM-Cloud/IBM-Analytics-Engine/blob/master/customization-examples/associate-cos.sh).
 
-  For details, see the [{{site.data.keyword.iae_full_notm}} documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster-script).
+  For details, see [Customizing the cluster using a customization script](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster-script).
 
-- Show you how to use the Hive endpoints. See [JBDC program that shows how the Hive endpoints work](https://github.com/IBM-Cloud/IBM-Analytics-Engine/tree/master/jdbcsamples/TestHive).
+- Show you how to use the Hive endpoints. See [JDBC samples](https://github.com/IBM-Cloud/IBM-Analytics-Engine/tree/master/jdbcsamples/TestHive).
 
-  For details, see the [{{site.data.keyword.iae_full_notm}} documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive).
+  For details, see [Working with Hive and Hive LLAP](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive).
 
 - Show you how to use the Phoenix endpoints. See [Sample JDBC program that shows you how to use the Phoenix endpoints](https://github.com/IBM-Cloud/IBM-Analytics-Engine/tree/master/jdbcsamples/TestPhoenix).
 
-   For details on Phoenix, see the [{{site.data.keyword.iae_full_notm}} documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hbase).
+   For details on Phoenix, see [Accessing Phoenix through client tools](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hbase).

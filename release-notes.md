@@ -251,7 +251,6 @@ Use these notes to learn about the latest features, additions and changes to {{s
   - A fix was added that makes the Hive Metastore transparently recover from PostgreSQL metastore database restarts or network interruption issues. If you are externalizing the Hive metastore to IBM Cloud Databases for PostgreSQL, you need to set the socketTimeout value in the JDBC URL. See [Externalizing the Hive metastore to Databases for PostgreSQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#externalizing-hive-metastore).
   -  Another fix was added so that you no longer need to explicitly grant permissions for the PostgreSQL certificate that you place in `/home/common/wce/clsadmin/` on `mn002`. The folder now has the required permissions and the permissions are retained through restarts.
 
-
 ### 17 October 2020
 
 - New security patches for **AE-1.2.v29**
@@ -481,7 +480,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
 ### 30 January 2019
 
-- {{site.data.keyword.iae_full_notm}} now meets the required IBM controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. See [HIPAA readiness](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-compliance-hipaa).
+- {{site.data.keyword.iae_full_notm}} now meets the required IBM controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. See [HIPAA readiness](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-compliance).
 
 ### 24 January 2019
 

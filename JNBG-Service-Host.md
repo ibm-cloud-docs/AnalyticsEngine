@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2017-11-02"
+  years: 2017, 2021
+lastupdated: "2021-08-23"
 
 subcollection: AnalyticsEngine
 
@@ -20,4 +20,4 @@ subcollection: AnalyticsEngine
 
 The JNBG service is only accessible via the published service endpoints of the cluster.
 
-However, if you need to access the host on which JNBG runs, for example to access the kernel gateway logs or the kernel driver logs, follow the steps [here](/docs/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH) to SSH to the cluster. When you SSH to this endpoint, it leads to the same host where the JNBG service is running.
+However, if you need to access the host on which JNBG runs, for example to access the kernel gateway logs or the kernel driver logs, you need to connect to the cluster using SSH. See [Connecting using SSH](/docs/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH) to SSH to the cluster. When you SSH to this endpoint, it leads to the same host where the JNBG service is running.

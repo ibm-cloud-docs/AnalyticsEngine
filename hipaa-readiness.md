@@ -28,7 +28,7 @@ subcollection: AnalyticsEngine
 - Standard Hourly plan in the Dallas (US South) region
 - Standard Monthly plan in the Dallas (US South) region
 
-HIPAA support from IBM requires that you agree to the terms of the [Business Associate Addendum (BAA) agreement](http://www-03.ibm.com/software/sla/sladb.nsf/sla/baa?OpenDocument){: external} with IBM for your {{site.data.keyword.Bluemix_short}} account. The BAA outlines IBM responsibilities, but also your responsibilities to maintain HIPAA compliance. After you enable HIPAA support in your {{site.data.keyword.Bluemix_short}} account, you cannot disable it. See [{{site.data.keyword.Bluemix_short}} Docs: EU and HIPAA supported settings](/docs/account?topic=account-eu-hipaa-supported){: external}.
+HIPAA support from IBM requires that you agree to the terms of the [Business Associate Addendum (BAA) agreement](https://www.ibm.com/support/customer/csol/terms/){: external} with IBM for your {{site.data.keyword.Bluemix_short}} account. The BAA outlines IBM responsibilities, but also your responsibilities to maintain HIPAA compliance. After you enable HIPAA support in your {{site.data.keyword.Bluemix_short}} account, you cannot disable it. See [Enabling EU support for your account](/docs/account?topic=account-eu-hipaa-supported){: external}.
 
 To enable HIPAA support for your {{site.data.keyword.Bluemix_short}} account:
 1.	Log in to your {{site.data.keyword.Bluemix_short}} account.
@@ -41,4 +41,4 @@ You do not need to reprovision your {{site.data.keyword.iae_full_notm}} service 
 ## Compliance
 {: #compliance}
 
-{{site.data.keyword.iae_full_notm}} is SOC1 Type 2 and SOC2 Type 2 compliant. This can be viewed on the {{site.data.keyword.iae_full_notm}} data processing and protection datasheet. For details, see section 5.4 [Certifications](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=966EB490BB4311E7A229E0F52AF6E722).
+{{site.data.keyword.iae_full_notm}} is SOC1 Type 2 and SOC2 Type 2 compliant. This can be viewed on the {{site.data.keyword.iae_full_notm}} data processing and protection datasheet. For details, see section 5.4 [Certifications](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=966EB490BB4311E7A229E0F52AF6E722){: external}.

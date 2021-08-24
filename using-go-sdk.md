@@ -21,7 +21,8 @@ subcollection: AnalyticsEngine
 
 The {{site.data.keyword.iae_full_notm}} Go SDK allows you to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API.
 
-The source code for the SDK can be found at [GitHub](https://github.com/IBM/ibm-iae-go-sdk){: external}. The `iaesdk` library provides complete access to the {{site.data.keyword.iae_full_notm}} API.
+You can get the source code for the SDK from GitHub. See [
+ibm-iae-go-sdk](https://github.com/IBM/ibm-iae-go-sdk){: external}. The `iaesdk` library provides complete access to the {{site.data.keyword.iae_full_notm}} API.
 
 ## Getting the SDK
 {: #get-go-sdk}
@@ -136,7 +137,7 @@ The Go SDK allows you to construct the service client in one of two ways by:
 The following code samples show how to:
 
 - Access the {{site.data.keyword.iae_full_notm}} service instance:
-  ```go
+  ```
   func main() {
 
       // Construct GetAnalyticsEngineByIdOptions model
@@ -149,7 +150,7 @@ The following code samples show how to:
   ```
   {: codeblock}
 - Get the state of the {{site.data.keyword.iae_full_notm}} cluster:
-  ```go
+  ```
   func main() {
 
       // Construct an instance of the GetAnalyticsEngineStateByIdOptions model
@@ -162,7 +163,7 @@ The following code samples show how to:
   ```
   {: codeblock}
 - Create a customization request:
-  ```go
+  ```
   func main() {
 
       // Construct an instance of the AnalyticsEngineCustomActionScript model
@@ -191,7 +192,7 @@ The following code samples show how to:
   ```
   {: codeblock}
 - Get all customization requests:
-  ```go
+  ```
   func main() {
 
       // Construct an instance of the GetAllCustomizationRequestsOptions model
@@ -205,7 +206,7 @@ The following code samples show how to:
   ```
   {: codeblock}
 - Get the customization requests by ID:
-  ```go
+  ```
   func main() {
 
       // Construct an instance of the GetCustomizationRequestByIdOptions model
@@ -220,7 +221,7 @@ The following code samples show how to:
   ```   
   {: codeblock}
 - Resize the cluster:
-  ```go
+  ```
   func main() {
 
       // Construct an instance of the ResizeClusterOptions model
@@ -235,7 +236,7 @@ The following code samples show how to:
   ```
   {: codeblock}
 - Reset the cluster password:
-  ```go
+  ```
   func main() {
 
       // Construct an instance of the ResetClusterPasswordOptions model
@@ -249,7 +250,7 @@ The following code samples show how to:
   ```
   {: codeblock}
 - Configure logging:
-  ```go
+  ```
   func main() {
 
       // Construct an instance of the AnalyticsEngineLoggingNodeSpec model
@@ -278,7 +279,7 @@ The following code samples show how to:
   ```
   {: codeblock}
 - Get the log configuration:
-  ```go
+  ```
   func main() {
 
       // Construct an instance of the GetLoggingConfigOptions model
@@ -292,7 +293,7 @@ The following code samples show how to:
   ```
   {: codeblock}
 - Delete the log configuration:
-  ```go
+  ```
   func main() {
 
       // Construct an instance of the DeleteLoggingConfigOptions model
@@ -306,7 +307,7 @@ The following code samples show how to:
   ```
   {: codeblock}
 - Update private endpoint whitelist:
-  ```go
+  ```
   func main() {
 
       // Construct an instance of the UpdatePrivateEndpointWhitelistOptions model
