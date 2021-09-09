@@ -35,131 +35,133 @@ manhattan = wkt_reader.read(manhattan_WKT)
 You can use the following topological relation functions:
 
 - `contains`: Returns true if the given geometry is completely contained by this geometry. `contains` returns the exact opposite  of `within`.
-```
->>> westchester.contains(white_plains)
-True
-```
+    ```
+    >>> westchester.contains(white_plains)
+    True
+    ```
 - `within`: Returns true if the given geometry is completely within this geometry. `within` returns the exact opposite of `contains`.
-```
->>> white_plains.within(westchester)
-True
-```
+    ```
+    >>> white_plains.within(westchester)
+    True
+    ```
 - `intersects`: Returns true if the intersection does not result in an empty set. `intersects` is the opposite of `disjoint`.
-```
->>> westchester.intersects(manhattan)
-False
-```
+    ```
+    >>> westchester.intersects(manhattan)
+    False
+    ```
 - `disjoint`: Returns true if the intersection of the two geometries is an empty set. `disjoint` is the opposite of `intersects`.
-```
->>> westchester.disjoint(manhattan)
-True
-```
+    ```
+    >>> westchester.disjoint(manhattan)
+    True
+    ```
 - `touch`: Returns true if none of the points common to both geometries intersect the interiors of both geometries. At least one geometry must be a `linestring`, `polygon`, `multilinestring`, or `multipolygon`.
-```
->>> westchester.touch(manhattan)
-True
-```
+    ```
+    >>> westchester.touch(manhattan)
+    True
+    ```
 - `overlap`: Compares two geometries of the same dimension and returns true if their intersection set results in a geometry different from both but of the same dimension.
-```
->>> westchester.overlap(white_plains)
-True
-```
+    ```
+    >>> westchester.overlap(white_plains)
+    True
+    ```
 - `cross`: Returns true if the intersection results in a geometry whose dimension is one less than the maximum dimension of the two source geometries and the intersection set is interior to both source geometries.
-```
->>> westchester.cross(white_plains)
-False
-```
+    ```
+    >>> westchester.cross(white_plains)
+    False
+    ```
 - `equality`: Compares two geometry A and B and only returns true if A contains B and B contains A.
-```
->>> westchester.equality(westchester)
-True
-```
+    ```
+    >>> westchester.equality(westchester)
+    True
+    ```
 
 ## Topological operations
 
 You can use the following topological operations:
 
 - `intersection`: Returns the intersection of two geometries.
-```
->>> westchester.intersection(white_plains)
-Polygon: Boundary: Ring(LineSegment(Point(41.054, -73.776), Point(41.052, -73.779)), LineSegment(Point(41.052, -73.779), Point(41.049, -73.78)), LineSegment(Point(41.049, -73.78), Point(41.046, -73.779)), ...) Interiors:
->>> westchester.intersection(white_plains).equality(white_plains)
-True
-```
+    ```
+    >>> westchester.intersection(white_plains)
+    Polygon: Boundary: Ring(LineSegment(Point(41.054, -73.776), Point(41.052, -73.779)), LineSegment(Point(41.052, -73.779), Point(41.049, -73.78)), LineSegment(Point(41.049, -73.78), Point(41.046, -73.779)), ...) Interiors:
+    >>> westchester.intersection(white_plains).equality(white_plains)
+    True
+    ```
 - `union`: Returns the union of two geometries.
-```
->>> westchester.union(white_plains)
-Polygon: Boundary: Ring(LineSegment(Point(41.297, -73.547), Point(41.368, -73.541)), LineSegment(Point(41.368, -73.541), Point(41.37, -73.545)), LineSegment(Point(41.37, -73.545), Point(41.363, -73.625)), ...) Interiors:
->>> westchester.union(white_plains).equality(westchester)
-True
-```
+    ```
+    >>> westchester.union(white_plains)
+    Polygon: Boundary: Ring(LineSegment(Point(41.297, -73.547), Point(41.368, -73.541)), LineSegment(Point(41.368, -73.541), Point(41.37, -73.545)), LineSegment(Point(41.37, -73.545), Point(41.363, -73.625)), ...) Interiors:
+    >>> westchester.union(white_plains).equality(westchester)
+    True
+    ```
 - `difference`: Returns the difference of two geometries.
-```
->>> westchester.difference(white_plains)
-Polygon: Boundary: Ring(LineSegment(Point(41.015, -73.717), Point(41.006, -73.716)), LineSegment(Point(41.006, -73.716), Point(41.002, -73.718)), LineSegment(Point(41.002, -73.718), Point(40.988, -73.732)), ...) Interiors: Ring(LineSegment(Point(41.33, -73.948), Point(41.325, -73.984)), LineSegment(Point(41.325, -73.984), Point(41.322, -73.987)), LineSegment(Point(41.322, -73.987), Point(41.315, -73.987)), ...)
-```
+    ```
+    >>> westchester.difference(white_plains)
+    Polygon: Boundary: Ring(LineSegment(Point(41.015, -73.717), Point(41.006, -73.716)), LineSegment(Point(41.006, -73.716), Point(41.002, -73.718)), LineSegment(Point(41.002, -73.718), Point(40.988, -73.732)), ...) Interiors: Ring(LineSegment(Point(41.33, -73.948), Point(41.325, -73.984)), LineSegment(Point(41.325, -73.984), Point(41.322, -73.987)), LineSegment(Point(41.322, -73.987), Point(41.315, -73.987)), ...)
+    ```
 - `symmetric_difference`: Returns the symmetric difference of two geometries.
-```
->>> westchester.symmetric_difference(white_plains)
-Polygon: Boundary: Ring(LineSegment(Point(41.016, -73.72), Point(41.015, -73.717)), LineSegment(Point(41.015, -73.717), Point(41.006, -73.716)), LineSegment(Point(41.006, -73.716), Point(41.002, -73.718)), ...) Interiors: Ring(LineSegment(Point(40.9, -73.854), Point(40.903, -73.853)), LineSegment(Point(40.903, -73.853), Point(40.903, -73.85)), LineSegment(Point(40.903, -73.85), Point(40.9, -73.844)), ...)
-```
+    ```
+    >>> westchester.symmetric_difference(white_plains)
+    Polygon: Boundary: Ring(LineSegment(Point(41.016, -73.72), Point(41.015, -73.717)), LineSegment(Point(41.015, -73.717), Point(41.006, -73.716)), LineSegment(Point(41.006, -73.716), Point(41.002, -73.718)), ...) Interiors: Ring(LineSegment(Point(40.9, -73.854), Point(40.903, -73.853)), LineSegment(Point(40.903, -73.853), Point(40.903, -73.85)), LineSegment(Point(40.903, -73.85), Point(40.9, -73.844)), ...)
+    ```
 - `centroid`: Returns the centroid of the geometry.
-```
->>> westchester.centroid()
-Point(41.15551622739597, -73.7592843233704)
-```
+    ```
+    >>> westchester.centroid()
+    Point(41.15551622739597, -73.7592843233704)
+    ```
 - `buffer`: Encircles a geometry at a specified distance and returns a geometry that is the buffer that surrounds the source geometry.
-```
->>> westchester.buffer(10)
-Polygon: Boundary: Ring(LineSegment(Point(40.88992634549079, -73.84008396708809), Point(40.88991528975788, -73.84003963012559)), LineSegment(Point(40.88991528975788, -73.84003963012559), Point(40.88591860374262, -73.82605122467605)), LineSegment(Point(40.88591860374262, -73.82605122467605), Point(40.88590363932323, -73.82601718861555)), ...) Interiors:
->>> westchester.buffer(10).contains(westchester)
-True
-```
+    ```
+    >>> westchester.buffer(10)
+    Polygon: Boundary: Ring(LineSegment(Point(40.88992634549079, -73.84008396708809), Point(40.88991528975788, -73.84003963012559)), LineSegment(Point(40.88991528975788, -73.84003963012559), Point(40.88591860374262, -73.82605122467605)), LineSegment(Point(40.88591860374262, -73.82605122467605), Point(40.88590363932323, -73.82601718861555)), ...) Interiors:
+    >>> westchester.buffer(10).contains(westchester)
+    True
+    ```
 - `get_bounding_box`: Returns the bounding box of the geometry.
-```
->>> westchester.get_bounding_box()
-BoundingBox: Lower Corner: Point(40.86800000000001, -73.987), Upper Corner: Point(41.36999999999998, -73.479)
-```
+    ```
+    >>> westchester.get_bounding_box()
+    BoundingBox: Lower Corner: Point(40.86800000000001, -73.987), Upper Corner: Point(41.36999999999998, -73.479)
+    ```
 
 ## Topological metrics
 
 You can use the following function for topological metrics:
 
 - `area` : Returns the area of the geometry.
-```
->>> white-plains.area()
-17751
-```
+    ```
+    >>> white-plains.area()
+    17751
+    ```
 - `distance`: Returns the distance between the two geometries.
-```
->>> white_plains.distance(manhattan)
-17751
-```
+    ```
+    >>> white_plains.distance(manhattan)
+    17751
+    ```
 - `get_topological_dimensionality`: Returns the topological dimensionality of the geometry.
-```
->>> white_plains.get_topological_dimensionality()
-2
-```
+    ```
+    >>> white_plains.get_topological_dimensionality()
+    2
+    ```
 
 ## Topological aggregation
 
 You can use the following aggregation functions:
 
 - Get the aggregated bounding box for a list of geometries.
-```
-white_plains_bbox = white_plains.get_bounding_box()
-westchester_bbox = westchester.get_bounding_box()
-manhattan_bbox = manhattan.get_bounding_box()
-aggregated_bbox = white_plains_bbox.get_containing_bb(westchester_bbox).get_containing_bb(manhattan_bbox)
-```
-![Shows the aggregated bounding box for a list of geometries.](images/bbox.png)
+    ```
+    white_plains_bbox = white_plains.get_bounding_box()
+    westchester_bbox = westchester.get_bounding_box()
+    manhattan_bbox = manhattan.get_bounding_box()
+    aggregated_bbox = white_plains_bbox.get_containing_bb(westchester_bbox).get_containing_bb(manhattan_bbox)
+    ```
+
+    ![Shows the aggregated bounding box for a list of geometries.](images/bbox.png)
 
 - Get the aggregated convex hull for a list of geometries:
-```
-white_plains_points = white_plains.get_exterior_ring().get_points()
-westchester_points = westchester.get_exterior_ring().get_points()
-manhattan_points = manhattan.get_exterior_ring().get_points()
-all_points = white_plains_points + westchester_points + manhattan_points
-hull = stc.convex_hull.compute_convex_hull(all_points)
-```
-![Shows the aggregated convex hull for a list of  geometries.](images/convex_hull.png)
+    ```
+    white_plains_points = white_plains.get_exterior_ring().get_points()
+    westchester_points = westchester.get_exterior_ring().get_points()
+    manhattan_points = manhattan.get_exterior_ring().get_points()
+    all_points = white_plains_points + westchester_points + manhattan_points
+    hull = stc.convex_hull.compute_convex_hull(all_points)
+    ```
+
+    ![Shows the aggregated convex hull for a list of  geometries.](images/convex_hull.png)

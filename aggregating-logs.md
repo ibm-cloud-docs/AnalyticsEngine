@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-31"
+lastupdated: "2021-04-06"
 
 subcollection: AnalyticsEngine
 
@@ -60,8 +60,8 @@ The following prerequisites must be met before you can begin collecting cluster 
 
 - You must have an existing {{site.data.keyword.iae_full_notm}} service instance. Presently, REST API is the only mode with which you can configure log aggregation.
 - You must create an {{site.data.keyword.la_full_notm}} service instance. To create an instance in {{site.data.keyword.Bluemix_short}}, see [{{site.data.keyword.la_full_notm}}
-](https://cloud.ibm.com/observe/logging){: external}. For details on monitoring and managing log data with {{site.data.keyword.la_full_notm}}, see [provisioning a service instance](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-provision){: external}.
-- You must have access to the {{site.data.keyword.la_short}}  ingestion key. See [Getting the ingestion key](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-ingestion_key){: external}.
+](https://cloud.ibm.com/observe/logging){: external}. For details on monitoring and managing log data with {{site.data.keyword.la_full_notm}}, see [provisioning a service instance](/docs/log-analysis?topic=log-analysis-provision){: external}.
+- You must have access to the {{site.data.keyword.la_short}}  ingestion key. See [Getting the ingestion key](/docs/log-analysis?topic=log-analysis-ingestion_key){: external}.
 - You must have the following IAM access permissions (roles) to the {{site.data.keyword.iae_full_notm}} service instance and the resource group. Two types of roles exist:
 
     -	**Platform management role**: here you must have viewer access or above to the resource group that contains {{site.data.keyword.iae_full_notm}}.
@@ -70,7 +70,7 @@ The following prerequisites must be met before you can begin collecting cluster 
  See [Granting permissions](/docs/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions){: external}.  
 - You need your IAM access token. See [Retrieving the IAM access token](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token){: external}.
 -	You need the `cluster_management.api_url` for the service endpoints of your {{site.data.keyword.iae_full_notm}} service instance. See [Retrieving service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints){: external}.  
-- When you configure  {{site.data.keyword.iae_full_notm}} to work with the {{site.data.keyword.la_short}} instance, you can select to connect to the **private** endpoints of the instance. We encourage you to use private endpoints as this increases performance and is more cost effective. See [Cloud service endpoints integration](/docs/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
+- When you configure  {{site.data.keyword.iae_full_notm}} to work with the {{site.data.keyword.la_short}} instance, you can select to connect to the **private** endpoints of the instance. We encourage you to use private endpoints as this increases performance and is more cost effective. See [Cloud service endpoints integration](/docs/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration){: external}.
 
 ## Configuring log aggregation
 

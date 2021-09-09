@@ -26,13 +26,12 @@ The following sections describe how the {{site.data.keyword.iae_full_notm}} secu
 
 Typically, you will need to authenticate to access the {{site.data.keyword.iae_full_notm}} service instance for two different kinds of activities:
 
-1. Administrative activities such as adding nodes, tracking provisioning status, tracking the cluster customization request status, deleting a cluster, resetting the cluster password and even provisioning a server instance. These are classified as service instance activities.
+- Administrative activities such as adding nodes, tracking provisioning status, tracking the cluster customization request status, deleting a cluster, resetting the cluster password and even provisioning a server instance. These are classified as service instance activities.
 
- **Administrative activities** on the cluster require **IAM  authentication**. IAM is the Identity and Access Management service of {{site.data.keyword.Bluemix_short}}. User authentication and access control happens through IAM when you log in with your IBMId. See how to [retrieve the IAM token](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token). As an admin or creator of the service instance, you can grant or deny access to  other users with whom you may want to share the service instance.
+    **Administrative activities** on the cluster require **IAM  authentication**. IAM is the Identity and Access Management service of {{site.data.keyword.Bluemix_short}}. User authentication and access control happens through IAM when you log in with your IBMId. See how to [retrieve the IAM token](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token). As an admin or creator of the service instance, you can grant or deny access to  other users with whom you may want to share the service instance.
+- Activities around Spark and Hadoop services such as submitting a Spark job, connecting to a Hive JDBC endpoint, accessing job logs, and so on. These are classified as server or cluster activities.
 
-2. Activities around Spark and Hadoop services such as submitting a Spark job, connecting to a Hive JDBC endpoint, accessing job logs, and so on. These are classified as server or cluster activities.
-
- **Server or cluster activities** require **user-based authentication**. See [retrieving the cluster credentials](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) to get the credentials.
+    **Server or cluster activities** require **user-based authentication**. See [retrieving the cluster credentials](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) to get the credentials.
 
 ## Encrypting at Rest
 

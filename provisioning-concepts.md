@@ -1,0 +1,118 @@
+---
+
+copyright:
+  years: 2017, 2021
+lastupdated: "2021-09-08"
+
+subcollection: analyticsengine
+
+---
+
+<!-- Attribute definitions -->
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:codeblock: .codeblock}
+{:screen: .screen}
+{:pre: .pre}
+{:external: target="_blank" .external}
+
+# Architecture and concepts in serverless instances
+{: #serverless-architecture-concepts}
+
+This topic shows you the architecture of {{site.data.keyword.iae_full_notm}} serverless instances and describes some key concepts and definitions.
+
+## Instance architecture
+{: #serverless-architecture}
+
+The {{site.data.keyword.iae_full_notm}} service is managed by using {{site.data.keyword.Bluemix_short}} Identity and Access Management (IAM). As an {{site.data.keyword.Bluemix_notm}} account owner, you are assigned the account administrator role.
+
+With an {{site.data.keyword.Bluemix_notm}} account, you can provision and manage your serverless {{site.data.keyword.iae_short}} instance by using the:
+- {{site.data.keyword.Bluemix_notm}} console
+- CLI
+- REST API
+
+The {{site.data.keyword.iae_short}} microservices in the control plane, accessed through an API gateway handle instance creation, capacity provisioning, customization and runtime management while your Spark applications run in isolated namespaces in the data plane. Each Spark application that you submit runs in its own Spark cluster, which is a combination of Spark master and executor nodes. See [Isolation and network access](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-model-serverless#isolation-network-access).
+
+Each {{site.data.keyword.iae_short}} instance is associated with an {{site.data.keyword.cos_full_notm}} instance for instance related data that is accessible by all applications that run in the instance. Currently, all Spark events are stored in this instance as well. Spark application logs are aggregated to a {{site.data.keyword.la_short}} log server.
+
+![Shows the {{site.data.keyword.iae_full_notm}} serverless instance architecture.](images/AE-serverless-architecture.svg)
+
+<!--
+You are billed only for the compute resources consumed when your applications run. For more details on billing, see [{{site.data.keyword.iae_full_notm}}   Pricing](https://www.ibm.com/cloud/analytics-engine/pricing){: external}.
+{: note}-->
+
+## Key concepts
+{: #key-concepts}
+
+With {{site.data.keyword.iae_full_notm}} serverless instances, you can spin up Apache Spark clusters as needed and customize the Spark runtime and default Spark configuration options.
+
+The following sections describe key concepts when provisioning serverless instances.
+
+### Default Spark runtime
+{: #default-spark-runtime}
+
+You must select which Spark runtime version to use when the instance is provisioned. Currently, you can only select `Spark 3.1`. The `Spark 3.1` runtime is the default and contains all binaries that you need to quickly get starting to create and run Spark applications in the instance. In addition to Spark 3.1, the runtime also includes the geo-spatio, data skipping and Parquet modular encryption libraries.
+
+In a Spark 3.1 runtime, you can submit Spark applications written in the following languages: `Scala 2.12`, `Python 3.7` and `R 3.6.3`.
+
+### Instance home
+{: #instance-home}
+
+Instance home is the storage attached to the instance for instance related data only, such as custom application libraries and Spark history events. Currently, only {{site.data.keyword.cos_full_notm}} is accepted for instance home. This instance can be an instance in your {{site.data.keyword.Bluemix_short}} account or an instance from a different account.
+
+When you provision an instance using the {{site.data.keyword.Bluemix_notm}} console, the {{site.data.keyword.cos_full_notm}} instances in your {{site.data.keyword.Bluemix_short}} account are autodiscovered and displayed in a list for you to select from. If no {{site.data.keyword.cos_full_notm}} instances are found in your account, you can use the REST APIs to update instance home after instance creation.
+
+You can’t change instance home after instance creation. You can only edit the access keys.
+
+<!--
+### Resource quota
+{: #resource-quota}
+
+A resource quota provides constraints at the service instance level on the amount of resources that can be used at any point in time. By enforcing a quota at the time the instance is created, you can control the hardware resources, such as CPU and memory, that are used by all applications and kernels at any point in time.
+
+You must provide a quota for:
+
+- CPU cores: The total number of virtual CPUs across the instance. The default is 80.
+- Memory in GiB: The total amount of memory in gibibytes that can be requested by applications or kernels across the instance. The default is 100 GiB. -->
+
+### Default Spark configuration
+{: #default-spark-config}
+
+{{site.data.keyword.iae_full_notm}} instances use the default  Apache Spark configuration settings. See [Spark Configuration](https://spark.apache.org/docs/latest/configuration.html){: external}  for a list of the default settings and their values.
+
+The following list shows the default values for Apache Spark configuration settings adapted for {{site.data.keyword.iae_full_notm}} instances:
+
+- `"spark.driver.memory": "4G"`
+- `"spark.driver.cores": "1"`
+- `"spark.executor.memory": "4G"`
+- `"spark.executor.cores": "1"`
+- `"spark.executor.instances": "1"`
+- `"spark.eventLog.enabled": "true"`
+
+
+For the default limits and quotas for {{site.data.keyword.iae_short}} instances and the supported Spark driver and executor vCPU and memory combinations, see [Limits and quotas for {{site.data.keyword.iae_short}} instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-limits).
+
+When you create an instance you can override the open source default Apache Spark configuration settings. Note that you can specify or change configuration options after the instance was created.
+
+You can override or add settings by using the:
+
+<!-- - **IBM Cloud console**. Add or override configuration options for your Spark instance as name-value pairs at instance creation time.-->
+- **API**. See [Spark application REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api)
+
+## Serverless instance features and execution methods
+
+The following table shows the supported serverless instance features by access role and execution methods.
+
+| Operation | Access roles | IBM Console | API | CLI |
+|-----------|--------------|---------|---- |-----|
+| Provision instances | Administrator | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+| Delete instances | Administrator | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+| Grant users permission | Administrator | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+| Manage instance home storage | Administrator | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+| Configure logging | Administrator   \n  Developer   \n  Devops | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | Not available |   
+| Submit Spark applications | Administrator   \n  Developer | Not available | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+| View list of submitted Spark applications | Administrator   \n  Developer   \n  DevOps | Not available | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+| Stop submitted Spark applications | Administrator   \n  Developer   \n  DevOps | Not available | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+| Customize libraries | Administrator   \n  Developer | Not available | ![the confirm icon](images/confirm.png) | Not available |
+| Access job logs | Administrator    \n  Developer   \n  DevOps | ![the confirm icon](images/confirm.png) {{site.data.keyword.la_short}} console | Not applicable | Not applicable |
+| View instance details; shown details might vary depending on access role | Administrator   \n  Developer   \n  DevOps | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |

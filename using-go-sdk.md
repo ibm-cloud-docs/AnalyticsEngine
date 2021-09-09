@@ -47,7 +47,6 @@ For example:
 import (
     "github.com/IBM/go-sdk-core/v3/core"
     "github.com/IBM/ibm-iae-go-sdk/ibmanalyticsengineapiv2"
-)
 ```
 
 ## Creating a client and sourcing credentials
@@ -70,66 +69,69 @@ The Go SDK allows you to construct the service client in one of two ways by:
 
 - By setting client options programmatically
 
-  You can construct an instance of the {{site.data.keyword.iae_full_notm}} service client by specifying various client options, like the authenticator and service endpoint URL, programmatically:
-
-  ```
-  import (
-      "github.com/IBM/go-sdk-core/v3/core"
-      "github.com/IBM/ibm-iae-go-sdk/ibmanalyticsengineapiv2"
-  )
-
-  // Create an IAM authenticator.
-  authenticator := &core.IamAuthenticator{
-      ApiKey: "<IAM_API_KEY>", // eg "0viPHOY7LbLNa9eLftrtHPpTjoGv6hbLD1QalRXikliJ"
-  }
-
-  // Construct an "options" struct for creating the service client.
-  options := &ibmanalyticsengineapiv2.IbmAnalyticsEngineApiV2Options{
-      Authenticator: authenticator,                               
-      URL: "<IAE_ENDPOINT_URL>",  // eg "https://api.us-south.ae.cloud.ibm.com"
-  }
-
-  // Construct the service client.
-  service, err := ibmanalyticsengineapiv2.NewIbmAnalyticsEngineApiV2(options)
-  if err != nil {
-      panic(err)
-  }
-
-  // Service operations can now be invoked using the "service" variable.
-  ```
-- By using external configuration properties
-
-  To avoid hard-coding sourcing credentials, you can store these values in configuration properties outside of your application.
-
-  To use configuration properties:
-
-  1. Define the configuration properties to be used by your application. These properties can be implemented as:
-
-    - Exported environment variables
-    - Values stored in a credentials file
-
-    The following example shows using environment variables. Each environment variable must be prefixed by `IBM_ANALYTICS_ENGINE_API`.
+    You can construct an instance of the {{site.data.keyword.iae_full_notm}} service client by specifying various client options, like the authenticator and service endpoint URL, programmatically:
 
     ```
-    export IBM_ANALYTICS_ENGINE_API_URL=<IAE_ENDPOINT_URL>
-    export IBM_ANALYTICS_ENGINE_API_AUTH_TYPE=iam
-    export IBM_ANALYTICS_ENGINE_API_APIKEY=<IAM_API_KEY>
-    ```
-    `IBM_ANALYTICS_ENGINE_API` is the default service name for the {{site.data.keyword.iae_full_notm}} API  client which means that the SDK will by default look for properties that start with this prefix folded to uppercase.
-  1. Build the service client:
-    ```
-    // Construct service client via config properties using default //service name ("ibm_analytics_engine_api")
-    service, err := ibmanalyticsengineapiv2.NewIbmAnalyticsEngineApiV2UsingExternalConfig(
-          &ibmanalyticsengineapiv2.IbmAnalyticsEngineApiV2Options{})
+    import (
+        "github.com/IBM/go-sdk-core/v3/core"
+        "github.com/IBM/ibm-iae-go-sdk/ibmanalyticsengineapiv2"
+    )
+
+    // Create an IAM authenticator.
+    authenticator := &core.IamAuthenticator{
+        ApiKey: "<IAM_API_KEY>", // eg "0viPHOY7LbLNa9eLftrtHPpTjoGv6hbLD1QalRXikliJ"
+    }
+
+    // Construct an "options" struct for creating the service client.
+    options := &ibmanalyticsengineapiv2.IbmAnalyticsEngineApiV2Options{
+        Authenticator: authenticator,                               
+        URL: "<IAE_ENDPOINT_URL>",  // eg "https://api.us-south.ae.cloud.ibm.com"
+    }
+
+    // Construct the service client.
+    service, err := ibmanalyticsengineapiv2.NewIbmAnalyticsEngineApiV2(options)
     if err != nil {
         panic(err)
     }
+
+    // Service operations can now be invoked using the "service" variable.
     ```
+    {: codeblock}
 
-      The function `NewIbmAnalyticsEngineApiV2UsingExternalConfig`:
+- By using external configuration properties
 
-      - Constructs an IAM authenticator using the API key defined in the corresponding environment variable
-      - Initializes the service client to use the service endpoint URL, also defined the corresponding environment variable
+    To avoid hard-coding sourcing credentials, you can store these values in configuration properties outside of your application.
+
+    To use configuration properties:
+
+    1. Define the configuration properties to be used by your application. These properties can be implemented as:
+
+        - Exported environment variables
+        - Values stored in a credentials file
+
+        The following example shows using environment variables. Each environment variable must be prefixed by `IBM_ANALYTICS_ENGINE_API`.
+
+        ```
+        export IBM_ANALYTICS_ENGINE_API_URL=<IAE_ENDPOINT_URL>
+        export IBM_ANALYTICS_ENGINE_API_AUTH_TYPE=iam
+        export IBM_ANALYTICS_ENGINE_API_APIKEY=<IAM_API_KEY>
+        ```
+        `IBM_ANALYTICS_ENGINE_API` is the default service name for the {{site.data.keyword.iae_full_notm}} API  client which means that the SDK will by default look for properties that start with this prefix folded to uppercase.
+    1. Build the service client:
+        ```
+        // Construct service client via config properties using default //service name ("ibm_analytics_engine_api")
+        service, err := ibmanalyticsengineapiv2.NewIbmAnalyticsEngineApiV2UsingExternalConfig(
+              &ibmanalyticsengineapiv2.IbmAnalyticsEngineApiV2Options{})
+        if err != nil {
+            panic(err)
+        }
+        ```
+        {: codeblock}
+
+        The function `NewIbmAnalyticsEngineApiV2UsingExternalConfig`:
+
+        - Constructs an IAM authenticator using the API key defined in the corresponding environment variable
+        - Initializes the service client to use the service endpoint URL, also defined the corresponding environment variable
 
 ## Code samples using `iaesdk`
 {: #code-samples-go}
@@ -137,34 +139,36 @@ The Go SDK allows you to construct the service client in one of two ways by:
 The following code samples show how to:
 
 - Access the {{site.data.keyword.iae_full_notm}} service instance:
-  ```
-  func main() {
+    ```
+    func main() {
 
-      // Construct GetAnalyticsEngineByIdOptions model
-      getAnalyticsEngineByIdOptionsModel := new(ibmanalyticsengineapiv2.GetAnalyticsEngineByIdOptions)
-      getAnalyticsEngineByIdOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
+        // Construct GetAnalyticsEngineByIdOptions model
+        getAnalyticsEngineByIdOptionsModel := new(ibmanalyticsengineapiv2.GetAnalyticsEngineByIdOptions)
+        getAnalyticsEngineByIdOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
 
-      _, response, _ := service.GetAnalyticsEngineByID(getAnalyticsEngineByIdOptionsModel)
-      fmt.Println(response)
-  }
-  ```
-  {: codeblock}
+        _, response, _ := service.GetAnalyticsEngineByID(getAnalyticsEngineByIdOptionsModel)
+        fmt.Println(response)
+    }
+    ```
+    {: codeblock}
+
 - Get the state of the {{site.data.keyword.iae_full_notm}} cluster:
-  ```
-  func main() {
+    ```
+    func main() {
 
-      // Construct an instance of the GetAnalyticsEngineStateByIdOptions model
-      getAnalyticsEngineStateByIdOptionsModel := new(ibmanalyticsengineapiv2.GetAnalyticsEngineStateByIdOptions)
-      getAnalyticsEngineStateByIdOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
+        // Construct an instance of the GetAnalyticsEngineStateByIdOptions model
+        getAnalyticsEngineStateByIdOptionsModel := new(ibmanalyticsengineapiv2.GetAnalyticsEngineStateByIdOptions)
+        getAnalyticsEngineStateByIdOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
 
-      _, response, _ := service.GetAnalyticsEngineStateByID(getAnalyticsEngineStateByIdOptionsModel)
-      fmt.Println(response)
-  }
-  ```
-  {: codeblock}
+        _, response, _ := service.GetAnalyticsEngineStateByID(getAnalyticsEngineStateByIdOptionsModel)
+        fmt.Println(response)
+    }
+    ```
+    {: codeblock}
+
 - Create a customization request:
-  ```
-  func main() {
+    ```
+    func main() {
 
       // Construct an instance of the AnalyticsEngineCustomActionScript model
       analyticsEngineCustomActionScriptModel := new(ibmanalyticsengineapiv2.AnalyticsEngineCustomActionScript)
@@ -188,137 +192,145 @@ The following code samples show how to:
       // Invoke operation with valid options model (positive test)
       _, response, _ := service.CreateCustomizationRequest(createCustomizationRequestOptionsModel)
       fmt.Println(response)
-  }
-  ```
-  {: codeblock}
+    }
+    ```
+    {: codeblock}
+
 - Get all customization requests:
-  ```
-  func main() {
+    ```
+    func main() {
 
-      // Construct an instance of the GetAllCustomizationRequestsOptions model
-      getAllCustomizationRequestsOptionsModel := new(ibmanalyticsengineapiv2.GetAllCustomizationRequestsOptions)
-      getAllCustomizationRequestsOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
+        // Construct an instance of the GetAllCustomizationRequestsOptions model
+        getAllCustomizationRequestsOptionsModel := new(ibmanalyticsengineapiv2.GetAllCustomizationRequestsOptions)
+        getAllCustomizationRequestsOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
 
-      // Invoke operation with valid options model
-      _, response, _ := service.GetAllCustomizationRequests(getAllCustomizationRequestsOptionsModel)
-      fmt.Println(response)
-  }
-  ```
-  {: codeblock}
-- Get the customization requests by ID:
-  ```
-  func main() {
+        // Invoke operation with valid options model
+        _, response, _ := service.GetAllCustomizationRequests(getAllCustomizationRequestsOptionsModel)
+        fmt.Println(response)
+    }
+    ```
+    {: codeblock}
 
-      // Construct an instance of the GetCustomizationRequestByIdOptions model
-      getCustomizationRequestByIdOptionsModel := new(ibmanalyticsengineapiv2.GetCustomizationRequestByIdOptions)
-      getCustomizationRequestByIdOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
-      getCustomizationRequestByIdOptionsModel.RequestID = core.StringPtr("RequestID")
+- Get the customization request by ID:
+    ```
+    func main() {
 
-      // Invoke operation with valid options model (positive test)
-      _, response, _ := service.GetCustomizationRequestByID(getCustomizationRequestByIdOptionsModel)
-      fmt.Println(response)
-  }
-  ```   
-  {: codeblock}
+        // Construct an instance of the GetCustomizationRequestByIdOptions model
+        getCustomizationRequestByIdOptionsModel := new(ibmanalyticsengineapiv2.GetCustomizationRequestByIdOptions)
+        getCustomizationRequestByIdOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
+        getCustomizationRequestByIdOptionsModel.RequestID = core.StringPtr("RequestID")
+
+        // Invoke operation with valid options model (positive test)
+        _, response, _ := service.GetCustomizationRequestByID(getCustomizationRequestByIdOptionsModel)
+        fmt.Println(response)
+    }
+    ```
+    {: codeblock}
+
 - Resize the cluster:
-  ```
-  func main() {
+    ```
+    func main() {
 
-      // Construct an instance of the ResizeClusterOptions model
-      resizeClusterOptionsModel := new(ibmanalyticsengineapiv2.ResizeClusterOptions)
-      resizeClusterOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
-      resizeClusterOptionsModel.ComputeNodesCount = core.Int64Ptr(int64(computeNodesCount))
+        // Construct an instance of the ResizeClusterOptions model
+        resizeClusterOptionsModel := new(ibmanalyticsengineapiv2.ResizeClusterOptions)
+        resizeClusterOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
+        resizeClusterOptionsModel.ComputeNodesCount = core.Int64Ptr(int64(computeNodesCount))
 
-      // Invoke operation with valid options model (positive test)
-      _, response, _ := service.ResizeCluster(resizeClusterOptionsModel)
-      fmt.Println(response)
-  }
-  ```
-  {: codeblock}
+        // Invoke operation with valid options model (positive test)
+        _, response, _ := service.ResizeCluster(resizeClusterOptionsModel)
+        fmt.Println(response)
+    }
+    ```
+    {: codeblock}
+
 - Reset the cluster password:
-  ```
-  func main() {
+    ```
+    func main() {
 
-      // Construct an instance of the ResetClusterPasswordOptions model
-      resetClusterPasswordOptionsModel := new(ibmanalyticsengineapiv2.ResetClusterPasswordOptions)
-      resetClusterPasswordOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
+        // Construct an instance of the ResetClusterPasswordOptions model
+        resetClusterPasswordOptionsModel := new(ibmanalyticsengineapiv2.ResetClusterPasswordOptions)
+        resetClusterPasswordOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
 
-      // Invoke operation with valid options model (positive test)
-      _, response, _ := service.ResetClusterPassword(resetClusterPasswordOptionsModel)
-      fmt.Println(response)
-  }
-  ```
-  {: codeblock}
+        // Invoke operation with valid options model (positive test)
+        _, response, _ := service.ResetClusterPassword(resetClusterPasswordOptionsModel)
+        fmt.Println(response)
+    }
+    ```
+    {: codeblock}
+
 - Configure logging:
-  ```
-  func main() {
+    ```
+    func main() {
 
-      // Construct an instance of the AnalyticsEngineLoggingNodeSpec model
-      analyticsEngineLoggingNodeSpecModel := new(ibmanalyticsengineapiv2.AnalyticsEngineLoggingNodeSpec)
-      analyticsEngineLoggingNodeSpecModel.NodeType = core.StringPtr("management")
-      analyticsEngineLoggingNodeSpecModel.Components = []string{"ambari-server"}
+        // Construct an instance of the AnalyticsEngineLoggingNodeSpec model
+        analyticsEngineLoggingNodeSpecModel := new(ibmanalyticsengineapiv2.AnalyticsEngineLoggingNodeSpec)
+        analyticsEngineLoggingNodeSpecModel.NodeType = core.StringPtr("management")
+        analyticsEngineLoggingNodeSpecModel.Components = []string{"ambari-server"}
 
-      // Construct an instance of the AnalyticsEngineLoggingServer model
-      analyticsEngineLoggingServerModel := new(ibmanalyticsengineapiv2.AnalyticsEngineLoggingServer)
-      analyticsEngineLoggingServerModel.Type = core.StringPtr("logdna")
-      analyticsEngineLoggingServerModel.Credential = core.StringPtr("testString")
-      analyticsEngineLoggingServerModel.ApiHost = core.StringPtr("testString")
-      analyticsEngineLoggingServerModel.LogHost = core.StringPtr("testString")
-      analyticsEngineLoggingServerModel.Owner = core.StringPtr("testString")
+        // Construct an instance of the AnalyticsEngineLoggingServer model
+        analyticsEngineLoggingServerModel := new(ibmanalyticsengineapiv2.AnalyticsEngineLoggingServer)
+        analyticsEngineLoggingServerModel.Type = core.StringPtr("logdna")
+        analyticsEngineLoggingServerModel.Credential = core.StringPtr("testString")
+        analyticsEngineLoggingServerModel.ApiHost = core.StringPtr("testString")
+        analyticsEngineLoggingServerModel.LogHost = core.StringPtr("testString")
+        analyticsEngineLoggingServerModel.Owner = core.StringPtr("testString")
 
-      // Construct an instance of the ConfigureLoggingOptions model
-      configureLoggingOptionsModel := new(ibmanalyticsengineapiv2.ConfigureLoggingOptions)
-      configureLoggingOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
-      configureLoggingOptionsModel.LogSpecs = []ibmanalyticsengineapiv2.AnalyticsEngineLoggingNodeSpec{*analyticsEngineLoggingNodeSpecModel}
-    configureLoggingOptionsModel.LogServer = analyticsEngineLoggingServerModel
+        // Construct an instance of the ConfigureLoggingOptions model
+        configureLoggingOptionsModel := new(ibmanalyticsengineapiv2.ConfigureLoggingOptions)
+        configureLoggingOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
+        configureLoggingOptionsModel.LogSpecs = []ibmanalyticsengineapiv2.AnalyticsEngineLoggingNodeSpec{*analyticsEngineLoggingNodeSpecModel}
+      configureLoggingOptionsModel.LogServer = analyticsEngineLoggingServerModel
 
-      // Invoke operation with valid options model (positive test)
-      response, _ := service.ConfigureLogging(configureLoggingOptionsModel)
-      fmt.Println(response.StatusCode)
-  }
-  ```
-  {: codeblock}
+        // Invoke operation with valid options model (positive test)
+        response, _ := service.ConfigureLogging(configureLoggingOptionsModel)
+        fmt.Println(response.StatusCode)
+    }
+    ```
+    {: codeblock}
+
 - Get the log configuration:
-  ```
-  func main() {
+    ```
+    func main() {
 
-      // Construct an instance of the GetLoggingConfigOptions model
-      getLoggingConfigOptionsModel := new(ibmanalyticsengineapiv2.GetLoggingConfigOptions)
-      getLoggingConfigOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
+        // Construct an instance of the GetLoggingConfigOptions model
+        getLoggingConfigOptionsModel := new(ibmanalyticsengineapiv2.GetLoggingConfigOptions)
+        getLoggingConfigOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
 
-      // Invoke operation with valid options model (positive test)
-      _, response, _ := service.GetLoggingConfig(getLoggingConfigOptionsModel)
-      fmt.Println(response)
-  }
-  ```
-  {: codeblock}
+        // Invoke operation with valid options model (positive test)
+        _, response, _ := service.GetLoggingConfig(getLoggingConfigOptionsModel)
+        fmt.Println(response)
+    }
+    ```
+    {: codeblock}
+
 - Delete the log configuration:
-  ```
-  func main() {
+    ```
+    func main() {
 
-      // Construct an instance of the DeleteLoggingConfigOptions model
-      deleteLoggingConfigOptionsModel := new(ibmanalyticsengineapiv2.DeleteLoggingConfigOptions)
-      deleteLoggingConfigOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
+        // Construct an instance of the DeleteLoggingConfigOptions model
+        deleteLoggingConfigOptionsModel := new(ibmanalyticsengineapiv2.DeleteLoggingConfigOptions)
+        deleteLoggingConfigOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
 
-      // Invoke operation with valid options model (positive test)
-      response, _ := service.DeleteLoggingConfig(deleteLoggingConfigOptionsModel)
-      fmt.Println(response.StatusCode)
-  }
-  ```
-  {: codeblock}
-- Update private endpoint whitelist:
-  ```
-  func main() {
+        // Invoke operation with valid options model (positive test)
+        response, _ := service.DeleteLoggingConfig(deleteLoggingConfigOptionsModel)
+        fmt.Println(response.StatusCode)
+    }
+    ```
+    {: codeblock}
 
-      // Construct an instance of the UpdatePrivateEndpointWhitelistOptions model
-      updatePrivateEndpointWhitelistOptionsModel := new(ibmanalyticsengineapiv2.UpdatePrivateEndpointWhitelistOptions)
-      updatePrivateEndpointWhitelistOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
-      updatePrivateEndpointWhitelistOptionsModel.IpRanges = []string{"xx.xx.xx.xx/xx"}
-      updatePrivateEndpointWhitelistOptionsModel.Action = core.StringPtr("add")
+- Update private endpoint allowlist:
+    ```
+    func main() {
 
-      // Invoke operation with valid options model (positive test)
-      response, _ := service.UpdatePrivateEndpointWhitelist(updatePrivateEndpointWhitelistOptionsModel)
-      fmt.Println(response.StatusCode)
-  }
-  ```
-  {: codeblock}
+        // Construct an instance of the UpdatePrivateEndpointWhitelistOptions model
+        updatePrivateEndpointWhitelistOptionsModel := new(ibmanalyticsengineapiv2.UpdatePrivateEndpointWhitelistOptions)
+        updatePrivateEndpointWhitelistOptionsModel.InstanceGuid = core.StringPtr(instanceGuid)
+        updatePrivateEndpointWhitelistOptionsModel.IpRanges = []string{"xx.xx.xx.xx/xx"}
+        updatePrivateEndpointWhitelistOptionsModel.Action = core.StringPtr("add")
+
+        // Invoke operation with valid options model (positive test)
+        response, _ := service.UpdatePrivateEndpointWhitelist(updatePrivateEndpointWhitelistOptionsModel)
+        fmt.Println(response.StatusCode)
+    }
+    ```
+    {: codeblock}

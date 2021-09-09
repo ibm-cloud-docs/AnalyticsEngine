@@ -108,16 +108,16 @@ The following tables list the location of the log files for different components
 
 | Component | Node name | Log location |
 |-----------|-----------|--------------|
-|Ambari|mn003|`/var/log/ambari-server` </br> `/var/log/ambari-agent`|
-|Apache Hadoop|mn003|History logs:`/var/log/hadoop-mapreduce/mapred/`</br>hadoop-mapreduce.jobsummary.log: `/var/log/hadoop-yarn/yarn`|
+|Ambari|mn003|`/var/log/ambari-server`  \n`/var/log/ambari-agent`|
+|Apache Hadoop|mn003|History logs:`/var/log/hadoop-mapreduce/mapred/`  \nhadoop-mapreduce.jobsummary.log: `/var/log/hadoop-yarn/yarn`|
 |Apache Livy|mn002|`/var/log/livy2`|
 |Apache Phoenix|mn002|`/var/log/hbase/phoenix-hbase-server.log`|
-|Apache Spark|mn003|`yarn logs –applicationID <appid>`</br>Spark History logs: `hadoop fs -ls /spark2-history`|
+|Apache Spark|mn003|`yarn logs –applicationID <appid>`  \n Spark History logs: `hadoop fs -ls /spark2-history`|
 |Anaconda with Python|mn003|`/var/log/jnbg/kernel-log`|
 |Flume|mn003|`/var/log/flume`|
 |HBase|mn002|`/var/log/hbase`|
 |Hive|mn003|`/var/log/hive2`|
-|Jupyter Enterprise Gateway|mn003|Jupyter Kernel Gateway logs: `/var/log/jnbg/jupyter_kernel_gateway.log`</br>Kernel or driver logs: `/var/log/jnbg/kernel-.log`|
+|Jupyter Enterprise Gateway|mn003|Jupyter Kernel Gateway logs: `/var/log/jnbg/jupyter_kernel_gateway.log`  \nKernel or driver logs: `/var/log/jnbg/kernel-.log`|
 |Knox|mn002|`/var/log/knox/gateway.log`|
 |Oozie|mn002|`/var/log/oozie`|
 |Pig|mn003|`/var/log/ambari-server/tez-view`|

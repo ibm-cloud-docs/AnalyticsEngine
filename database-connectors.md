@@ -19,13 +19,13 @@ subcollection: AnalyticsEngine
 
 The following database connectors are currently provided by default on all {{site.data.keyword.iae_full_notm}} clusters:
 
- - DB2
- - {{site.data.keyword.dashdbshort_notm}}
- - {{site.data.keyword.composeForMySQL}}
+- DB2
+- {{site.data.keyword.dashdbshort_notm}}
+- {{site.data.keyword.composeForMySQL}}
 
 These database connectors can be found under:
-  - `/home/common/lib/dataconnectorDb2/` and
 
-  - `/home/common/lib/R/DatabaseConnector/java`
+- `/home/common/lib/dataconnectorDb2/` and
+- `/home/common/lib/R/DatabaseConnector/java`
 
 For information on how to use these connectors, see [Working with Sqoop](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-sqoop).

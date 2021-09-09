@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-31"
+lastupdated: "2021-04-06"
 
 keywords: activity tracker for {{site.data.keyword.iae_full_notm}}, {{site.data.keyword.la_short}} for {{site.data.keyword.iae_full_notm}}, {{site.data.keyword.iae_full_notm}} events, {{site.data.keyword.iae_full_notm}} security, audit logs for {{site.data.keyword.iae_full_notm}}, viewing {{site.data.keyword.iae_full_notm}} events, {{site.data.keyword.iae_full_notm}} events
 
@@ -15,13 +15,15 @@ subcollection: AnalyticsEngine
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
+{:external: target="_blank" .external}
+
 
 # Auditing events for {{site.data.keyword.iae_full_notm}}
 {: #at_events}
 
 As a security officer, auditor, or manager, you can use the {{site.data.keyword.at_short}} service to track how users and applications interact with {{site.data.keyword.iae_full_notm}} in {{site.data.keyword.cloud}}.
 
-{{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the documentation about the [{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started#getting-started){: new_window}.
+{{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the documentation about the [{{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started){: new_window}.
 
 
 The following table lists the actions that generate an event:
@@ -41,7 +43,7 @@ The following table lists the actions that generate an event:
 | `ibmanalyticsengine.cluster-log-config.create`            | Create a log aggregation configuration |
 | `ibmanalyticsengine.cluster-log-config.read`              | Retrieve the log aggregation configuration details |
 | `ibmanalyticsengine.cluster-log-config.delete`            | Delete a log aggregation configuration |
-| `ibmanalyticsengine.cluster-private-endpoint-allowlist.update` <br/> <br/>and  `ibmanalyticsengine.cluster-private-endpoint-whitelist.update` &#42; | Update cluster private endpoint allowlist |
+| `ibmanalyticsengine.cluster-private-endpoint-allowlist.update`   \n    \n and  `ibmanalyticsengine.cluster-private-endpoint-whitelist.update` &#42; | Update cluster private endpoint allowlist |
 {: caption="Table 1. Actions that generate management events" caption-side="top"}
 
 &#42; The endpoint `ibmanalyticsengine.cluster-private-endpoint-whitelist.update` is deprecated. You should start using `ibmanalyticsengine.cluster-private-endpoint-allowlist.update`.
@@ -60,4 +62,4 @@ Events are available in the following locations:
 * Japan
 * Australia
 
-{{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web UI of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see [Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-launch#launch_cloud_ui).
+{{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web UI of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see [Launching the web UI through the IBM Cloud UI](/docs/activity-tracker?topic=activity-tracker-launch){: new_window}.

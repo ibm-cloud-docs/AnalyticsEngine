@@ -27,39 +27,39 @@ To provide master keys:
 
 1. Pass the explicit master keys, in the following format:
 
-  ```
-  parameter name: "parquet.encryption.key.list"
-  parameter value: "<master key ID>:<master key (base64)> , <master key ID>:<master key (base64)>.."
-  ```
+    ```
+    parameter name: "parquet.encryption.key.list"
+    parameter value: "<master key ID>:<master key (base64)> , <master key ID>:<master key (base64)>.."
+    ```
 
- For example:
- ```
- sc.hadoopConfiguration.set("parquet.encryption.key.list" , "k1:iKwfmI5rDf7HwVBcqeNE6w== , k2:LjxH/aXxMduX6IQcwQgOlw== , k3:rnZHCxhUHr79Y6zvQnxSEQ==")
- ```
- The length of master keys before base64 encoding can be 16, 24 or 32 bytes (128, 192 or 256 bits).
+    For example:
+    ```
+    sc.hadoopConfiguration.set("parquet.encryption.key.list" , "k1:iKwfmI5rDf7HwVBcqeNE6w== , k2:LjxH/aXxMduX6IQcwQgOlw== , k3:rnZHCxhUHr79Y6zvQnxSEQ==")
+    ```
+    The length of master keys before base64 encoding can be 16, 24 or 32 bytes (128, 192 or 256 bits).
 
 ## Writing encrypted data
 
 To write encrypted data:
 
 1. Specify which columns to encrypted, and which master keys to use:
-  ```
-  parameter name:  "parquet.encryption.column.keys"
-  parameter value: "<master key ID>:<column>,<column>;<master key ID>:<column>,..."
-  ```
+    ```
+    parameter name:  "parquet.encryption.column.keys"
+    parameter value: "<master key ID>:<column>,<column>;<master key ID>:<column>,..."
+    ```
 1. Specify the footer key:
-  ```
-  parameter name:  "parquet.encryption.footer.key"
-  parameter value:  "<master key ID>"
-  ```
-  For example:
-  ```
-  dataFrame.write
-  .option("parquet.encryption.footer.key" , "k1")
-  .option("parquet.encryption.column.keys" , "k2:SSN,Address;k3:CreditCard")
-  .parquet("<path to encrypted files>")
-  ```
-  **Note**: If either the `"parquet.encryption.column.keys"` parameter or the  `"parquet.encryption.footer.key"` parameter is not set, an exception will be thrown.
+    ```
+    parameter name:  "parquet.encryption.footer.key"
+    parameter value:  "<master key ID>"
+    ```
+    For example:
+    ```
+    dataFrame.write
+    .option("parquet.encryption.footer.key" , "k1")
+    .option("parquet.encryption.column.keys" , "k2:SSN,Address;k3:CreditCard")
+    .parquet("<path to encrypted files>")
+    ```
+    **Note**: If either the `"parquet.encryption.column.keys"` parameter or the  `"parquet.encryption.footer.key"` parameter is not set, an exception will be thrown.
 
 ## Reading encrypted data
 
@@ -68,14 +68,13 @@ The required metadata is stored in the encrypted Parquet files.
 To read the encrypted data:
 
 1. Provide the encryption keys:
-
-  ```
-  sc.hadoopConfiguration.set("parquet.encryption.key.list" , "k1:iKwfmI5rDf7HwVBcqeNE6w== , k2:LjxH/aXxMduX6IQcwQgOlw== , k3:rnZHCxhUHr79Y6zvQnxSEQ==")
-  ```
+    ```
+    sc.hadoopConfiguration.set("parquet.encryption.key.list" , "k1:iKwfmI5rDf7HwVBcqeNE6w== , k2:LjxH/aXxMduX6IQcwQgOlw== , k3:rnZHCxhUHr79Y6zvQnxSEQ==")
+    ```
 1. Call the regular parquet read commands, such as:
-  ```
-  val dataFrame = spark.read.parquet("<path to encrypted files>")
-  ```
+    ```
+    val dataFrame = spark.read.parquet("<path to encrypted files>")
+    ```
 
 ## Key rotation
 {: #key-rotation-key-mgt-application}

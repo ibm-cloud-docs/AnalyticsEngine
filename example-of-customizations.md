@@ -21,9 +21,9 @@ subcollection: AnalyticsEngine
 
 The following sections show you different examples of how you can customize a cluster.
 
-For details on what to consider when customizing a cluster, see [Customizing a cluster](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
+For details on what to consider when customizing a cluster, see [Customizing a cluster](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster){: new_window}.
 
-The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
+The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options){: new_window}.
 
 ## Example creating a cluster with bootstrap customization using the IBM Cloud CLI
 
@@ -34,18 +34,18 @@ Create a cluster with bootstrap customization using the {{site.data.keyword.Blue
 The following sample shows the parameters in JSON format:
 ```
 "num_compute_nodes": 1,
-	"hardware_config": "default",
-	"software_package": "ae-1.2-hive-spark",
-	"customization": [{
-		"name": "action1",
-		"type": "bootstrap",
-		"script": {
-			"source_type": "https",
-			"source_props": {},
-			"script_path": "https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-cos.sh"
-		},
-		"script_params": ["<s3_endpoint>", "<s3_access_key>", "<s3_secret_key>"]
-	}]
+"hardware_config": "default",
+"software_package": "ae-1.2-hive-spark",
+"customization": [{
+  "name": "action1",
+	"type": "bootstrap",
+	"script": {
+    "source_type": "https",
+		"source_props": {},
+		"script_path": "https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-cos.sh"
+	},
+	"script_params": ["<s3_endpoint>", "<s3_access_key>", "<s3_secret_key>"]
+}]
 ```
 
 Where:
@@ -69,24 +69,23 @@ curl \
 
 cat provision.json
 {
-    "name": "MyServiceInstance",
-    "resource_plan_id": "7715aa8d-fb59-42e8-951e-5f1103d8285e ",
-    "resource_group_id": "XXXXX",
-    "region_id": "us-south",
-    "parameters": {
-        "hardware_config": "default",
-        "num_compute_nodes": "1",
-        "software_package": "ae-1.2-hive-spark",
+  "name": "MyServiceInstance",
+  "resource_plan_id": "7715aa8d-fb59-42e8-951e-5f1103d8285e ",
+  "resource_group_id": "XXXXX",
+  "region_id": "us-south",
+  "parameters": {
+    "hardware_config": "default",
+    "num_compute_nodes": "1",
+    "software_package": "ae-1.2-hive-spark",
 	  “customization”: [<customization details>]
-    }    
+  }    
 }
-
 ```
 
 Consider the following aspects:
-* Possible values for `resource_plan_id` and instructions on how to get the resource group ID are specified [here](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE#creating-a-service-instance-using-the-resource-controller-rest-api).
+* See [Provisioning using the Resource Controller REST API](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE#creating-a-service-instance-using-the-resource-controller-rest-api){: new_window} for possible values for `resource_plan_id` and instructions on how to get the resource group ID.
 * For the United Kingdom region ID, use `eu-gb`. For Germany, use `eu-de` and for Tokyo, use `jp-tok`.
-* To obtain an IAM token, follow these [steps](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token). You also need this token for authentication when using cluster management REST APIs.
+* See [Accessing the IAM token](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token){: new_window}. You also need this token for authentication when using cluster management REST APIs.
 
 ## Example running an adhoc customization script
 
@@ -139,7 +138,7 @@ fi
 
 Anaconda3 environments are installed on all nodes of `AE 1.2` clusters.
 
-For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs).
+For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs){: new_window}.
 
 ### Python 3
 {: #python-3-packages}
@@ -147,13 +146,14 @@ For more information, see [Installing additional libraries](/docs/services/Analy
 The Anaconda3 environment on `AE 1.2` clusters comes with Python 3.7.
 
 To install Python 3.x libraries, your script must install to the `/home/common/conda/miniconda3.7` environment by using:
- ```
- pip install <package-name>
- ```
- If you install from a local or remote archive, use:
- ```
- pip install <archive url or local file path>
- ```
+```
+pip install <package-name>
+```
+
+If you install from a local or remote archive, use:
+```
+pip install <archive url or local file path>
+```
 
 ### R
 {: #r-packages}
@@ -162,28 +162,27 @@ R libraries must be installed to the `~/R` directory. The following steps show y
 
 To install the R package from an archive file:
 1. Download the archive repository:
- ```
-wget <path-to-archive>/<packagename>/<packagename>_<version>.tar.gz
- ```
-
+  ```
+  wget <path-to-archive>/<packagename>/<packagename>_<version>.tar.gz
+  ```
 2. Use the R command to install the package:
- ```
-R CMD INSTALL <packagename>_<version>.tar.gz
- ```
+  ```
+  R CMD INSTALL <packagename>_<version>.tar.gz
+  ```
 
 To install an R package from a CRAN repository:
 1. Enter the following command:
-```
-R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
-```
+  ```
+  R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
+  ```
 
-For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs).
+For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs){: new_window}.
 
 ## Example configuring Object Storage as a data source for Hadoop/Spark
 
-For details on configuring {{site.data.keyword.cos_full_notm}} as a data source for Hadoop/Spark, see [Working with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
+For details on configuring {{site.data.keyword.cos_full_notm}} as a data source for Hadoop/Spark, see [Working with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos){: new_window}.
 
-The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
+The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options){: new_window}.
 
 ## Examples of different kinds of locations of the customization script
 
@@ -195,44 +194,46 @@ The maximum number of characters that can be used in the `"script"` attribute of
 
 ```
 "script": {
-    "source_type": "https",
-    "source_props": {},
-    "script_path": "https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-cos.sh"
+  "source_type": "https",
+  "source_props": {},
+  "script_path": "https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-cos.sh"
 },
 "script_params": ["CHANGEME_ENDPOINT", "CHANGE_ACCESS_KEY", "CHANGE_SECRET"]
 ```
+
+Where:
 `<CHANGEME_ENDPOINT>` is the endpoint of the {{site.data.keyword.cos_full_notm}} instance, for example, `s3.sjc04.cloud-object-storage.appdomain.cloud`.
 `<CHANGE_ACCESS_KEY>` is the access key of the {{site.data.keyword.cos_short}} instance.
 `<CHANGE_SECRET>` is the secret of the {{site.data.keyword.cos_short}} instance.
 
-**NOTE:** The script path should be the raw content path of your script. The example uses a script that associates an {{site.data.keyword.cos_full_notm}} instance with the cluster so that data in {{site.data.keyword.cos_full_notm}} can be used in Hadoop and Spark jobs.
+**Note:** The script path should be the raw content path of your script. The example uses a script that associates an {{site.data.keyword.cos_full_notm}} instance with the cluster so that data in {{site.data.keyword.cos_full_notm}} can be used in Hadoop and Spark jobs.
 
 ###  Example of the script hosted in an HTTPS location (with or without basic authentication)
 
 ```
-    "script": {
-        "source_type": "https",
-        "source_props": {
-             "username": "user",
-             "password": "pwd"
-         },
-         "script_path": "https://host:port/bootstrap.sh"
+"script": {
+  "source_type": "https",
+  "source_props": {
+    "username": "user",
+    "password": "pwd"
     },
-    "script_params": ["arg1", "arg2"]
+  "script_path": "https://host:port/bootstrap.sh"
+},
+"script_params": ["arg1", "arg2"]
 ```
 ### Example of the customization script hosted in  {{site.data.keyword.cos_full_notm}}
 
 ```
-   "script": {
-        "source_type": "CosS3",
-        "source_props": {
-            "auth_endpoint": "s3-api.dal-us-geo.objectstorage.service.networklayer.com",
-            "access_key_id": "xxxxxxx",
-           "secret_access_key": "yyyyyy"
-         },
-         "script_path": "/myBucket/myFolder/bootstrap.sh"
-    },
-    "script_params": ["arg1", "arg2"]
+"script": {
+  "source_type": "CosS3",
+  "source_props": {
+    "auth_endpoint": "s3-api.dal-us-geo.objectstorage.service.networklayer.com",
+    "access_key_id": "xxxxxxx",
+    "secret_access_key": "yyyyyy"
+  },
+  "script_path": "/myBucket/myFolder/bootstrap.sh"
+},
+"script_params": ["arg1", "arg2"]
 ```
 
 ### Example of running an adhoc customization script for configuring Hive with a Postgres external metastore

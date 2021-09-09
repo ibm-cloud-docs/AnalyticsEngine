@@ -52,7 +52,6 @@ The service creation JSON object has an optional `advanced_options` JSON object 
 				"<key2>": "<value2>",
 				"<key3>": "<value3>"
 			}
-
 		}
 	}
 }
@@ -104,18 +103,18 @@ You must add the configuration properties that are relevant to Cloud Object Stor
 
 ```
 {
- "num_compute_nodes": 1,
- "hardware_config": "default",
- "software_package": "ae-1.2-hive-spark",
- "advanced_options": {
-   "ambari_config": {
-     "core-site": {
-       "fs.cos.<servicename>.v2.signer.type": false,
-       "fs.cos.<servicename>.endpoint": "<cosEndpoint>",
-       "fs.cos.<servicename>.iam.api.key": "<cosKey>"
-     }
-   }
- }
+  "num_compute_nodes": 1,
+  "hardware_config": "default",
+  "software_package": "ae-1.2-hive-spark",
+  "advanced_options": {
+     "ambari_config": {
+      "core-site": {
+        "fs.cos.<servicename>.v2.signer.type": false,
+        "fs.cos.<servicename>.endpoint": "<cosEndpoint>",
+        "fs.cos.<servicename>.iam.api.key": "<cosKey>"
+      }
+    }
+  }
 }
 ```
 

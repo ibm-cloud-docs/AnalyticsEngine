@@ -45,10 +45,10 @@ As system administrator, you can:
 
 - Create service IDs with access rights at *instance level*
 
- You determine the degree of access to *all* {{site.data.keyword.cos_short}} buckets in the instance by assigning a service access role to the credential. This can be *Reader*, *Writer* or *Manager* role. If needed, you can create several service IDs for the same instance with different access roles. See [Creating a service ID at instance level](/docs/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials).
+  You determine the degree of access to *all* {{site.data.keyword.cos_short}} buckets in the instance by assigning a service access role to the credential. This can be *Reader*, *Writer* or *Manager* role. If needed, you can create several service IDs for the same instance with different access roles. See [Creating a service ID at instance level](/docs/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials).
 - Create service IDs with access rights at *bucket level*
 
- You specify the {{site.data.keyword.cos_short}} buckets in the instance that can be accessed by the service ID. Here too, if needed, you can create several service IDs with access rights to different buckets. See [Creating a service ID at  bucket level](/docs/cloud-object-storage/iam?topic=cloud-object-storage-iam-bucket-permissions#iam-service-id).
+  You specify the {{site.data.keyword.cos_short}} buckets in the instance that can be accessed by the service ID. Here too, if needed, you can create several service IDs with access rights to different buckets. See [Creating a service ID at  bucket level](/docs/cloud-object-storage/iam?topic=cloud-object-storage-iam-bucket-permissions#iam-service-id).
 
 ### Sharing service IDs
 

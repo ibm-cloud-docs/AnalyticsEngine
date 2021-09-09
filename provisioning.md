@@ -23,7 +23,7 @@ subcollection: AnalyticsEngine
 You can create an {{site.data.keyword.iae_full_notm}} service instance through one of the following ways:
 
 * [From the {{site.data.keyword.Bluemix_notm}} console](#creating-a-service-instance-from-the-ibm-cloud-console)
-* [Using the {{site.data.keyword.Bluemix_notm}} command-line  interface](#creating-a-service-instance-using-the-ibm-cloud-command-line-interface)
+* [Using the command-line interface](#creating-a-service-instance-using-the-ibm-cloud-command-line-interface)
 * [Using the Resource Controller REST API](#creating-a-service-instance-using-the-resource-controller-rest-api)
 
 **Prerequisite**: You must have access to one of the following {{site.data.keyword.Bluemix_short}} regions (locations):
@@ -38,7 +38,7 @@ You can create an {{site.data.keyword.iae_full_notm}} service instance through o
 ## Creating a service instance from the IBM Cloud console
 
 To create an {{site.data.keyword.iae_full_notm}} instance:
-1. Log into the [{{site.data.keyword.Bluemix_short}} console]( https://{DomainName}){: external}.
+1. Log into the [{{site.data.keyword.Bluemix_short}} console](https://{DomainName}){: external}.
 1. Click **Create resource**, search for `{{site.data.keyword.iae_short}}` and then click on the tile to open the service instance creation page.
 1. On the {{site.data.keyword.Bluemix_short}} catalog, choose the region in which you want the service instance to be deployed. {{site.data.keyword.iae_short}} deployments are available in US South, US East, United Kingdom, Germany, Japan, and Australia.
 1. Choose the resource group under which you want to create the service instance.
@@ -63,9 +63,9 @@ A cluster must have at least one compute node but can have no task nodes.
 
 | Plan | Hardware types | Software packages        | Restrictions |
 |------|----------------|------------------------------|--------- |
-| **Lite** |**Default** |- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br> | 1. This plan is available only to institutions that have signed up with IBM to try out the Lite plan. See [How does the Lite plan work](/docs/AnalyticsEngine?topic=AnalyticsEngine-general-faqs#free-usage)?	</br> 2. Maximum of one cluster with up to 1 compute node. No task node support.  </br> 3.	Free usage limit is 50 node hours. This means that the cluster will be disabled after 25 hours.  </br> A grace period of 24 hours is given to upgrade your user account to a paid account, and to upgrade the service instance to the Standard-Hourly plan. </br> If the service instance is not upgraded, then it will expire and be deleted. </br> **Note:** You are entitled to one service instance per month. If you delete the service instance or it expires after the free 50 node hours, you will not be able to create a new one until after the month has passed.|
-| **Standard-Hourly** | **Default** or **Memory intensive** |	- `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br>  | NA |
-| **Standard-Monthly** | **Default** or **memory intensive** | - `AE 1.2 Hive LLAP` </br> - `AE 1.2 Spark and Hive` </br> - `AE 1.2 Spark and Hadoop` </br> | NA |
+| **Lite** |**Default** |- `AE 1.2 Hive LLAP`  \n- `AE 1.2 Spark and Hive`  \n- `AE 1.2 Spark and Hadoop`  \n  | 1. This plan is available only to institutions that have signed up with IBM to try out the Lite plan. See [How does the Lite plan work](/docs/AnalyticsEngine?topic=AnalyticsEngine-general-faqs#free-usage)?  \n2. Maximum of one cluster with up to 1 compute node. No task node support.  \n3. Free usage limit is 50 node hours. This means that the cluster will be disabled after 25 hours.  \nA grace period of 24 hours is given to upgrade your user account to a paid account, and to upgrade the service instance to the Standard-Hourly plan.  \nIf the service instance is not upgraded, then it will expire and be deleted.  \n**Note:** You are entitled to one service instance per month. If you delete the service instance or it expires after the free 50 node hours, you will not be able to create a new one until after the month has passed.|
+| **Standard-Hourly** | **Default** or **Memory intensive** |	- `AE 1.2 Hive LLAP`  \n- `AE 1.2 Spark and Hive`  \n- `AE 1.2 Spark and Hadoop`  \n| NA |
+| **Standard-Monthly** | **Default** or **memory intensive** | - `AE 1.2 Hive LLAP`  \n- `AE 1.2 Spark and Hive`  \n- `AE 1.2 Spark and Hadoop`  \n| NA |
 
 Hardware specifications:
 
@@ -74,21 +74,21 @@ Hardware specifications:
 
 Software packages:
 
-The software packages on `AE 1.2` clusters include components for Horton Dataworks Platform 3.1. See [software packages](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices#software).
+The software packages on `AE 1.2` clusters include components for Horton Dataworks Platform 3.1. See [software packages](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices#software){: new_window}.
 
 
 ### Provisioning recommendations
 
 When provisioning a service instance:
-- Choose the right plan; see [select the plan based on your workload use-case](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices#plan).  
-- Choose the appropriate hardware configuration; see [available hardware  configurations](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices#hardware).
-- Size the cluster appropriately; see [sizing the cluster](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices#cluster-size).
+- Choose the right plan; see [select the plan based on your workload use-case](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices#plan){: new_window}.  
+- Choose the appropriate hardware configuration; see [available hardware  configurations](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices#hardware){: new_window}.
+- Size the cluster appropriately; see [sizing the cluster](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices#cluster-size){: new_window}.
 
 ## Creating a service instance using the IBM Cloud command-line interface
 
 To create a service instance using the {{site.data.keyword.Bluemix_short}} command-line interface:
 
-1. Download and configure the {{site.data.keyword.Bluemix_short}} CLI. Follow the instructions [here](/docs/cli?topic=cli-getting-started).
+1. Download and configure the {{site.data.keyword.Bluemix_short}} CLI. Follow the instructions in [Getting started with the IBM Cloud CLI](/docs/cli?topic=cli-getting-started){: new_window}.
 
 1. Set the API endpoint for your region and log in:
    ```
@@ -123,14 +123,14 @@ The cluster parameters include:
 
 1. **`num_compute_nodes`** (Required): Number of compute nodes in the cluster.
 1. **`num_task_nodes`** (Optional): Number of task nodes in the cluster. You can create a cluster with no task nodes.
-1. **`autoscale_policy`** (Optional): Defines the policy for automatic up or down scaling of task nodes in the cluster. See [Provisioning an auto scaling cluster](/docs/AnalyticsEngine?topic=AnalyticsEngine-autoscaling-clusters).
+1. **`autoscale_policy`** (Optional): Defines the policy for automatic up or down scaling of task nodes in the cluster. See [Provisioning an auto scaling cluster](/docs/AnalyticsEngine?topic=AnalyticsEngine-autoscaling-clusters){: new_window}.
 1. **`hardware_config`** (Required): Represents the instance size of the cluster. Accepted value: _`default`_ and _`memory-intensive`_  
 1. **`software_package`** (Required): Determines the set of services to be installed on the cluster. Accepted value: _`ae-1.2-hive-llap`_, _` ae-1.2-hive-spark`_, _`ae-1.2-hadoop-spark`_
-1. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
-1. **`advanced_options`** (Optional): JSON object with nested JSON objects for various custom configurations for components installed with the cluster. Advantage here is that the custom configurations are baked during cluster creation time which means that the cluster is created based on the provided custom configurations. For details on how to create a cluster with `advanced_options`, see [Using advanced provisioning options](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
-<br>
+1. **`customization`** (Optional): Array of customization actions to be run on all nodes of the cluster once it is created. At the moment, only one customization action can be specified. The various types of customization actions that can be specified are discussed in detail in [Customizing clusters](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster){: new_window}.
+1. **`advanced_options`** (Optional): JSON object with nested JSON objects for various custom configurations for components installed with the cluster. Advantage here is that the custom configurations are baked during cluster creation time which means that the cluster is created based on the provided custom configurations. For details on how to create a cluster with `advanced_options`, see [Using advanced provisioning options](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options){: new_window}.
+  \n
 
-The following sample is the ibmcloud CLI response to the create instance command example previously shown: <br>
+The following sample is the ibmcloud CLI response to the create instance command example previously shown:  \n
 
 ```
 Creating service instance MyServiceInstance in resource group Default of account <account details>...
@@ -141,12 +141,12 @@ MyServiceInstance us-south   inactive  service_instance
 ```
 Service provisioning happens asynchronously. Successful response just means that the provisioning request has been accepted. Service provisioning is considered complete only when the associated cluster is created and is `active`.
 
-You can also specify the type of Cloud service endpoints for your service instance. See [Provisioning an instance with {{site.data.keyword.Bluemix_short}} service endpoints]((/docs/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
+You can also specify the type of Cloud service endpoints for your service instance. See [Provisioning an instance with {{site.data.keyword.Bluemix_short}} service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
 {: note}
 
 ## Provision tracking
 
-For an overview of how a cluster is provisioned and how to check your cluster provisioning state, see [Track cluster provisioning](/docs/AnalyticsEngine?topic=AnalyticsEngine-track-provisioning).
+For an overview of how a cluster is provisioned and how to check your cluster provisioning state, see [Track cluster provisioning](/docs/AnalyticsEngine?topic=AnalyticsEngine-track-provisioning){: new_window}.
 
 
 ## Querying for service provisioning status
@@ -226,9 +226,9 @@ cat provision.json
 ```
 {: codeblock}
 
-For more information on the Resource Controller REST API for creating an instance, see [Create (provision) a new resource instance](/apidocs/resource-controller/resource-controller#create-resource-instance).
+For more information on the Resource Controller REST API for creating an instance, see [Create (provision) a new resource instance](/apidocs/resource-controller/resource-controller#create-resource-instance){: new_window}.
 
-To get the IAM token, perform the following [steps](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
+To get the IAM token, see [Retrieving IAM access tokens](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token){: new_window}.
 
 
 ## Plan upgrading

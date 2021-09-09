@@ -27,20 +27,20 @@ The following table lists the required IAM privileges for user onboarding.
 
 | Operations             | Required IAM permissions      |
 |------------------------|-------------------------------|
-|Create or delete a service |**Access type**: Resource group </br>**Role**: Editor or Administrator |
-|View the service dashboard (the cluster management UI) |**Access type**: Service </br>**Platform role:** Viewer or above </br>    **Service role**: Reader or above    |  
-| View cluster password in the cluster management UI|**Access type**: Service </br>**Platform role**: Viewer or above <br>**Service role**: Writer or Manager|
-|Resize a cluster by using the cluster management UI|**Access type**: Service </br>**Platform role:** Viewer or above </br>**Service role:** Writer or Manager|
-|Create service keys by using the IBM Cloud UI </br>**Note**: A service key created for a Reader role does not reveal the cluster password.|**Access type**: Service </br>**Platform role**: Operator or above |
-|View service keys by using the IBM Cloud UI|**Access type**: Service </br>**Platform role**: Viewer or above|
-|Invoke the cluster management REST API to view cluster details|**Access type**: Service </br>**Service role**: Reader, Writer or Manager </br>**Note**: When the API is invoked with service role as Reader, the response of the API does not reveal the cluster password.|
-|Invoke cluster management REST API to view customization request details or list of customization requests|**Access type**: Service </br>**Service role**: Reader, Writer or Manager|
-|Invoke cluster management REST API to resize cluster|**Access type**: Service </br>**Service role**: Writer or Manager|
-|Invoke cluster management REST API to add an adhoc customization request|**Access type**: Service </br>**Service role**: Writer or Manager|
-|Invoke cluster management REST API to reset cluster password|**Access type**: Service </br>**Service role**: Manager|
-|Invoke cluster management REST API to create or delete log configuration|**Access type**: Service </br>**Service role**: Writer or Manager|
-|Invoke cluster management REST API to retrieve log configuration details|**Access type**: Service </br>**Service role**: Reader|
-|Update cluster private endpoint allowlist|**Access type**: Service </br>**Service role**: Writer or Manager |
+|Create or delete a service |**Access type**: Resource group \n **Role**: Editor or Administrator |
+|View the service dashboard (the cluster management UI) |**Access type**: Service **Platform role:** Viewer or above \n **Service role**: Reader or above    |  
+| View cluster password in the cluster management UI|**Access type**: Service \n  **Platform role**: Viewer or above \n **Service role**: Writer or Manager|
+|Resize a cluster by using the cluster management UI|**Access type**: Service \n  **Platform role:** Viewer or above \n **Service role:** Writer or Manager|
+|Create service keys by using the IBM Cloud UI \n **Note**: A service key created for a Reader role does not reveal the cluster password.|**Access type**: Service \n **Platform role**: Operator or above |
+|View service keys by using the IBM Cloud UI|**Access type**: Service \n  **Platform role**: Viewer or above|
+|Invoke the cluster management REST API to view cluster details|**Access type**: Service \n **Service role**: Reader, Writer or Manager \n **Note**: When the API is invoked with service role as Reader, the response of the API does not reveal the cluster password.|
+|Invoke cluster management REST API to view customization request details or list of customization requests|**Access type**: Service \n **Service role**: Reader, Writer or Manager|
+|Invoke cluster management REST API to resize cluster|**Access type**: Service \n **Service role**: Writer or Manager|
+|Invoke cluster management REST API to add an adhoc customization request|**Access type**: Service \n **Service role**: Writer or Manager|
+|Invoke cluster management REST API to reset cluster password|**Access type**: Service \n **Service role**: Manager|
+|Invoke cluster management REST API to create or delete log configuration|**Access type**: Service \n **Service role**: Writer or Manager|
+|Invoke cluster management REST API to retrieve log configuration details|**Access type**: Service \n **Service role**: Reader|
+|Update cluster private endpoint allowlist|**Access type**: Service \n **Service role**: Writer or Manager |
 
 
 To onboard new users to your account:

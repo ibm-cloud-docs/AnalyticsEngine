@@ -23,15 +23,17 @@ subcollection: AnalyticsEngine
 
 The JNBG service on the cluster provides two endpoints for HTTP operations and the Websocket resource.
 
-* [HTTP resources](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html#http-resources){: external}
+- [HTTP resources](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html#http-resources){: external}
 
- The HTTP API consists of resources for operations like retrieving kernel specifications, listing running kernels, and starting, stopping, and deleting kernels.
+    The HTTP API consists of resources for operations like retrieving kernel specifications, listing running kernels, and starting, stopping, and deleting kernels.
 
-* [Websocket resource](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html#websocket-resources){: external}
+- [Websocket resource](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html#websocket-resources){: external}
 
- The Websocket resource multiplexes the Jupyter kernel messaging protocol over a single Websocket connection to submit code and communicate with the running kernel.
+    The Websocket resource multiplexes the Jupyter kernel messaging protocol over a single Websocket connection to submit code and communicate with the running kernel.
 
-Refer to the instructions [here](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints) on retrieving service s for the {{site.data.keyword.iae_full_notm}} cluster. In the JSON service endpoint details, the HTTP endpoint URL of the JNBG service is listed in `notebook_gateway` and the Websocket endpoint in `notebook_gateway_websocket`. Here is a representative sample of a cluster's service endpoint details:
+See [Retrieving service endpoints](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints){: external} for details on how to retrieve services for the {{site.data.keyword.iae_full_notm}} cluster. In the JSON service endpoint details, the HTTP endpoint URL of the JNBG service is listed in `notebook_gateway` and the Websocket endpoint in `notebook_gateway_websocket`.
+
+Here is a representative sample of a cluster's service endpoint details:
 
 ```
 .
@@ -57,22 +59,22 @@ where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, 
 
 In this sample, notice the following information:
 
-* The JNBG HTTP REST API is accessible on the `https://chs-zbh-288-mn001.<changme>.ae.appdomain.cloud:8443/gateway/default/jkg/` endpoint and,
-* Websocket calls can be made on the  `wss://chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkgws/` endpoint.
+- The JNBG HTTP REST API is accessible on the `https://chs-zbh-288-mn001.<changme>.ae.appdomain.cloud:8443/gateway/default/jkg/` endpoint and,
+- Websocket calls can be made on the  `wss://chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkgws/` endpoint.
 
 ## Authentication
 
-Access to the JNBG service endpoints is SSL secured and requires `BASIC` authentication. See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) for the `user` and `password` values to add to the `BASIC` authentication header in your HTTP and Websocket connection calls to the JNBG service.
+Access to the JNBG service endpoints is SSL secured and requires `BASIC` authentication. See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials){: external} for the `user` and `password` values to add to the `BASIC` authentication header in your HTTP and Websocket connection calls to the JNBG service.
 
 ## Example configuration: notebook server with `nb2kg` extension
 
 Typically, Jupyter Notebook servers use the `nb2kg` extension to connect with remote kernel gateways such as JNBG.
 
-The `nb2kg` package can be downloaded from  [here](https://github.com/jupyter-incubator/nb2kg){: external}. When using the `nb2kg` package, the following configuration is needed to access the cluster's JNBG service:
+Download the [`nb2kg` package](https://github.com/jupyter-incubator/nb2kg){: external}. When using the `nb2kg` package, the following configuration is needed to access the cluster's JNBG service:
 
-* Configure the `KG_WS_URL` to the Websocket endpoint URL of the JKG service
-* Configure the `KG_HTTP_USER` to the cluster user
-* Configure the `KG_HTTP_PASS` to the cluster password
+- Configure the `KG_WS_URL` to the Websocket endpoint URL of the JKG service
+- Configure the `KG_HTTP_USER` to the cluster user
+- Configure the `KG_HTTP_PASS` to the cluster password
 
 For the previous {{site.data.keyword.iae_full_notm}} cluster response details, the configuration would be:
 
@@ -101,7 +103,7 @@ Here are some commonly used REST APIs:
 | POST | /kernels/{kernel_id}/interrupt | Interrupts a kernel |
 | POST | /kernels/{kernel_id}/restart | Restarts a kernel |
 
-For complete details about the API refer the documentation and swagger specifications provided [here](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html){: external}.
+See the [documentation and swagger specifications](http://jupyter-kernel-gateway.readthedocs.io/en/latest/websocket-mode.html){: external}.
 
 ## Examples
 
@@ -116,83 +118,86 @@ This sample application creates the Spark kernel using the IBM Analytics Engine 
 To create a sample application that runs on a Linux system:
 
 1. Prepare the environment in which you run the sample application. Run the following commands to install the required Node packages:
-```
-mkdir ~/spark-example
-cat <<EOT > ~/spark-example/package.json
-{
-  "name": "spark-example",
-  "version": "0.0.0",
-  "private": true,
-  "dependencies": {
-    "jupyter-js-services": "^0.9.0",
-    "ws": "^0.8.0",
-    "xmlhttprequest": "^1.8.0"
-  }
-}
-EOT
-cd ~/spark-example
-yum install -y epel-release nodejs npm; npm install
-```
-2. Create the sample application file. Create a file named spark-interactive-demo.js and copy the following content to the file. See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) for how to get your {{site.data.keyword.iae_full_notm}} service instance credentials and then adjust the `notebook_gateway` and `notebook_gateway_ws`  host variable values to use your credentials.
 
-  For authentication, set the environment variables BASE_GATEWAY_USERNAME and BASE_GATEWAY_PASSWORD to the user name and password values which you retrieved.
+    ```
+    mkdir ~/spark-example
+    cat <<EOT > ~/spark-example/package.json
+    {
+      "name": "spark-example",
+      "version": "0.0.0",
+      "private": true,
+      "dependencies": {
+        "jupyter-js-services": "^0.9.0",
+        "ws": "^0.8.0",
+        "xmlhttprequest": "^1.8.0"
+      }
+    }
+    EOT
+    cd ~/spark-example
+    yum install -y epel-release nodejs npm; npm install
+    ```
+2. Create the sample application file. Create a file named spark-interactive-demo.js and copy the following content to the file. See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials){: external} for how to get your {{site.data.keyword.iae_full_notm}} service instance credentials and then adjust the `notebook_gateway` and `notebook_gateway_ws`  host variable values to use your credentials.
 
- ```
-// Get values for the notebook_gateway from your service keys
-var notebook_gateway = 'https://chs-zys-882-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkg/';
-var notebook_gateway_ws = 'wss://chs-zys-882-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkgws/';
-// Client program variables.
-var xmlhttprequest =require('xmlhttprequest');
-var ws =require('ws');
-global.XMLHttpRequest=xmlhttprequest.XMLHttpRequest;
-global.WebSocket= ws;
-var jupyter =require('jupyter-js-services');
-// Sample source code to run against the Spark kernel.
-var sourceToExecute =`
-import pyspark
-rdd = sc.parallelize(range(1000))
-sample = rdd.takeSample(False, 5)
-print(sample)`
-var ajaxSettings = {};
-// For authentication, set the environment variables:
-// BASE_GATEWAY_USERNAME and BASE_GATEWAY_PASSWORD.
-// See the docs for how to retrieve these values
-if (process.env.BASE_GATEWAY_USERNAME) {
-    ajaxSettings['user'] = process.env.BASE_GATEWAY_USERNAME
-}
-if (process.env.BASE_GATEWAY_PASSWORD) {
-    ajaxSettings['password'] = process.env.BASE_GATEWAY_PASSWORD
-}
-// Start a kernel.
-jupyter.startNewKernel({
-    baseUrl: notebook_gateway,
-    wsUrl: notebook_gateway_ws,
-    name: 'python2-spark21',
-    ajaxSettings: ajaxSettings
-})
-// Run the sample source code against the kernel.
-.then((kernel) => {
-    var future =kernel.execute({ code: sourceToExecute } );
-    future.onDone= () => { process.exit(0); };
-    future.onIOPub= (msg) => { console.log('Received message:', msg); };
-}).catch(req=> {
-    console.log('Error starting new kernel:', req.xhr.statusText);
-    process.exit(1);
-});
- ```
- where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
+    For authentication, set the environment variables BASE_GATEWAY_USERNAME and BASE_GATEWAY_PASSWORD to the user name and password values which you retrieved.
 
- For more information on jupyter-js-services, see [JupyterLab](https://github.com/jupyterlab/jupyterlab){: external}.
+    ```
+    // Get values for the notebook_gateway from your service keys
+    var notebook_gateway = 'https://chs-zys-882-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkg/';
+    var notebook_gateway_ws = 'wss://chs-zys-882-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkgws/';
+    // Client program variables.
+    var xmlhttprequest =require('xmlhttprequest');
+    var ws =require('ws');
+    global.XMLHttpRequest=xmlhttprequest.XMLHttpRequest;
+    global.WebSocket= ws;
+    var jupyter =require('jupyter-js-services');
+    // Sample source code to run against the Spark kernel.
+    var sourceToExecute =`
+    import pyspark
+    rdd = sc.parallelize(range(1000))
+    sample = rdd.takeSample(False, 5)
+    print(sample)`
+    var ajaxSettings = {};
+    // For authentication, set the environment variables:
+    // BASE_GATEWAY_USERNAME and BASE_GATEWAY_PASSWORD.
+    // See the docs for how to retrieve these values
+    if (process.env.BASE_GATEWAY_USERNAME) {
+        ajaxSettings['user'] = process.env.BASE_GATEWAY_USERNAME
+    }
+    if (process.env.BASE_GATEWAY_PASSWORD) {
+        ajaxSettings['password'] = process.env.BASE_GATEWAY_PASSWORD
+    }
+    // Start a kernel.
+    jupyter.startNewKernel({
+        baseUrl: notebook_gateway,
+        wsUrl: notebook_gateway_ws,
+        name: 'python2-spark21',
+        ajaxSettings: ajaxSettings
+    })
+    // Run the sample source code against the kernel.
+    .then((kernel) => {
+        var future =kernel.execute({ code: sourceToExecute } );
+        future.onDone= () => { process.exit(0); };
+        future.onIOPub= (msg) => { console.log('Received message:', msg); };
+    }).catch(req=> {
+        console.log('Error starting new kernel:', req.xhr.statusText);
+        process.exit(1);
+    });
+    ```
+    where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`.
 
+    For more information on jupyter-js-services, see [JupyterLab](https://github.com/jupyterlab/jupyterlab){: external}.
 3. Run the sample application. Enter the following command to run the Node client:
-```
-node ~/spark-example/spark-interactive-demo.js
-```
 
-  The sample Python code `sourceToExecute` that runs against the Spark kernel takes five numbers and then displays them in the JSON output. Example:
-```
-content: { text: '[882, 635, 978, 219, 773]\n', name: 'stdout' },
-```
+    ```
+    node ~/spark-example/spark-interactive-demo.js
+    ```
+
+    The sample Python code `sourceToExecute` that runs against the Spark kernel takes five numbers and then displays them in the JSON output.
+
+    Example:
+    ```
+    content: { text: '[882, 635, 978, 219, 773]\n', name: 'stdout' },
+    ```
 
 **Example 2: Creating a Python 2 Spark application using the IBM Analytics Engine Interactive API**
 
@@ -341,12 +346,14 @@ if __name__ == '__main__':
 
 Update `client.py`:
 
-* Set the `kg_ws_url` variable to the notebook_gateway_websocket value in your cluster service keys.
-* See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials) to get your user credentials.
-    * Set the `auth_username` variable to the user name value you retrieved.
-    * Set the `auth_password` variable to the password value.
+- Set the `kg_ws_url` variable to the notebook_gateway_websocket value in your cluster service keys.
+- See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials){: external} to get your user credentials.
+
+  - Set the `auth_username` variable to the user name value you retrieved.
+  - Set the `auth_password` variable to the password value.
 
 Install pip. If you don't have it, install the Python Tornado package using this command:
+
 ```
 yum install –y python-pip; pip install tornado.
 ```
@@ -362,28 +369,27 @@ python client.py
 
 The previous code creates a Spark 2.1 Scala kernel and submits Scala code to it for execution.
 
-Here are code snippets to show how the kernel name and code variables can be modified in `client.py` to do the same for Python 2 and R kernels.
+Here are code snippets to show how the kernel name and code variables can be modified in `client.py` to do the same for Python 2 and R kernels:
 
-* Python 2
+- Python 2
 
- ```
-kernel_name = "python2-spark21"
-code = '\n'.join(( "print(\"Spark Version: {}\".format(sc.version))", "print(\"Application Name: {}\".format(sc._jsc.sc().appName()))", "print(\"Application ID: {} \".format(sc._jsc.sc().applicationId()))", "sc.parallelize([1,2,3,4,5]).count()" ))
-```
- {: codeblock}
+    ```
+    kernel_name = "python2-spark21"
+    code = '\n'.join(( "print(\"Spark Version: {}\".format(sc.version))", "print(\"Application Name: {}\".format(sc._jsc.sc().appName()))", "print(\"Application ID: {} \".format(sc._jsc.sc().applicationId()))", "sc.parallelize([1,2,3,4,5]).count()" ))
+    ```
+    {: codeblock}
 
+- R
 
-* R
-
- ```
-kernel_name = "r-spark21"
-code = """
- cat("Spark Version: ", sparkR.version())
- conf = sparkR.callJMethod(spark, "conf")
- cat("Application Name: ", sparkR.callJMethod(conf, "get", "spark.app.name"))
- cat("Application ID:", sparkR.callJMethod(conf, "get", "spark.app.id"))
- df <- as.DataFrame(list(1,2,3,4,5))
- cat(count(df))
- """
-```
- {: codeblock}
+    ```
+    kernel_name = "r-spark21"
+    code = """
+     cat("Spark Version: ", sparkR.version())
+     conf = sparkR.callJMethod(spark, "conf")
+     cat("Application Name: ", sparkR.callJMethod(conf, "get", "spark.app.name"))
+     cat("Application ID:", sparkR.callJMethod(conf, "get", "spark.app.id"))
+     df <- as.DataFrame(list(1,2,3,4,5))
+     cat(count(df))
+     """
+    ```
+   {: codeblock}

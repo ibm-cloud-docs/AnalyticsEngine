@@ -51,33 +51,33 @@ To resize a cluster:
 {: #resize-cluster-using-the-rest-api}
 
 To resize cluster using the REST API, you must meet the following prerequisites:
-* You must have Editor access to the service instance. Reach out to your {{site.data.keyword.Bluemix_notm}} account owner, if you do not have sufficient permissions. For more details refer to [Retrieving IAM access tokens](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
-* The API call to resize the cluster requires your IAM bearer token. To obtain the token, see [Create a token using the IBM Cloud REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
+- You must have Editor access to the service instance. Reach out to your {{site.data.keyword.Bluemix_notm}} account owner, if you do not have sufficient permissions. For more details refer to [Retrieving IAM access tokens](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
+- The API call to resize the cluster requires your IAM bearer token. To obtain the token, see [Create a token using the IBM Cloud REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token).
 
 Examples of resizing a cluster:
 
 - To resize the cluster by one compute node, enter:  
-```
-curl -i -X POST  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_guid>/resize -H 'Authorization: Bearer <user's IAM token>' -d '{"compute_nodes_count":2}' -H "Content-Type:application/json"
-```
+    ```
+    curl -i -X POST  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_guid>/resize -H 'Authorization: Bearer <user's IAM token>' -d '{"compute_nodes_count":2}' -H "Content-Type:application/json"
+    ```
 
- For the parameter `compute_nodes_count`, you need to pass the expected size of the cluster, after the resize operation. For example, if your cluster currently has one compute node and you want to add two more nodes to it, then the value for `compute_nodes_count` parameter should be 3.
+    For the parameter `compute_nodes_count`, you need to pass the expected size of the cluster, after the resize operation. For example, if your cluster currently has one compute node and you want to add two more nodes to it, then the value for `compute_nodes_count` parameter should be 3.
 - To resize the cluster to 5 task nodes, enter:
-```
-curl -i -X POST  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_guid>/resize -H 'Authorization: Bearer <user's IAM token>' -d '{"task_nodes_count":5}' -H "Content-Type:application/json"
-```
+    ```
+    curl -i -X POST  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_guid>/resize -H 'Authorization: Bearer <user's IAM token>' -d '{"task_nodes_count":5}' -H "Content-Type:application/json"
+    ```
 
-  The resize API expects the absolute number of compute or task that you expect in the cluster and will scale up or down based on the given value.
+    The resize API expects the absolute number of compute or task that you expect in the cluster and will scale up or down based on the given value.
 
-  If the cluster has 12 task nodes for example, the API call will remove 7 task nodes from the cluster, bringing down the number of task nodes to 5.
+    If the cluster has 12 task nodes for example, the API call will remove 7 task nodes from the cluster, bringing down the number of task nodes to 5.
 
-  Use these endpoints to supported regions:
-  - US South: `https://api.us-south.ae.cloud.ibm.com/`
-  - US East: `(https://api.us-east.ae.cloud.ibm.com`
-  - United Kingdom: `https://api.eu-gb.ae.cloud.ibm.com`
-  - Germany: `https://api.eu-de.ae.cloud.ibm.com`
-  - Japan: `https://api.jp-tok.ae.cloud.ibm.com`
-  - Australia: `https://api.au-syd.ae.cloud.ibm.com`
+    Use these endpoints to supported regions:
+    - US South: `https://api.us-south.ae.cloud.ibm.com/`
+    - US East: `(https://api.us-east.ae.cloud.ibm.com`
+    - United Kingdom: `https://api.eu-gb.ae.cloud.ibm.com`
+    - Germany: `https://api.eu-de.ae.cloud.ibm.com`
+    - Japan: `https://api.jp-tok.ae.cloud.ibm.com`
+    - Australia: `https://api.au-syd.ae.cloud.ibm.com`
 
-  You can scale up both compute and task nodes. You can scale down task nodes. However, you cannot scale down compute nodes.
-  {: note}
+    You can scale up both compute and task nodes. You can scale down task nodes. However, you cannot scale down compute nodes.
+    {: note}

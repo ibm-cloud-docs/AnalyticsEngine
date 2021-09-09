@@ -39,25 +39,25 @@ subcollection: AnalyticsEngine
 {: faq}
 {: support}
 
-{{site.data.keyword.iae_full_notm}} is available on {{site.data.keyword.Bluemix_notm}}. Follow this [link](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started) to learn more about the service and to start using it. You will also find tutorials and code samples to get you off to a fast start.
+{{site.data.keyword.iae_full_notm}} is available on {{site.data.keyword.Bluemix_notm}}. See [Getting started with IBM Analytics Engine](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started){: new_window} to learn more about the service and to start using it. You will also find tutorials and code samples to get you off to a fast start.
 
 ## Which distribution is used in {{site.data.keyword.iae_full_notm}}?
 {: #distribution}
 {: faq}
 
-{{site.data.keyword.iae_full_notm}} is based on open source Hortonworks Data Platform (HDP). To find the currently supported version see the  [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview).
+{{site.data.keyword.iae_full_notm}} is based on open source Hortonworks Data Platform (HDP). To find the currently supported version see [Architecture and concepts on IBM Analytics Engine](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview){: new_window}.
 
 ## Which HDP components are supported in {{site.data.keyword.iae_full_notm}}?
 {: #supported-hdp-components}
 {: faq}
 
-To see the full list of supported components and versions, see the [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview).
+To see the full list of supported components and versions, see the [Architecture and concepts of IBM Analytics Engine](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview){: new_window}.
 
 ## What node sizes are available in {{site.data.keyword.iae_full_notm}}?
 {: #node-sizes}
 {: faq}
 
-To see the currently supported node sizes, see the [documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview).
+To see the currently supported node sizes, see the [Architecture and concepts of IBM Analytics Engine](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview){: new_window}.
 
 ## Why is there so little HDFS space on the clusters?
 {: #hdfs-space}
@@ -65,7 +65,7 @@ To see the currently supported node sizes, see the [documentation](/docs/Analyti
 
 What if I want to run a cluster that has a lot of data to be processed at one time?
 
-The clusters in {{site.data.keyword.iae_full_notm}} are intended to be used as a compute clusters and not as persistent storage for data. Data should be persisted in [{{site.data.keyword.cos_full_notm}}](https://www.ibm.com/cloud/object-storage){: external}. This provides a more flexible, reliable, and cost effective way to build analytics applications. See this [whitepaper](https://www.ibm.com/downloads/cas/KDPB1REE){: external} to learn more about this topic. The Hadoop Distributed File System (HDFS) should be used at most only for intermediate storage during
+The clusters in {{site.data.keyword.iae_full_notm}} are intended to be used as a compute clusters and not as persistent storage for data. Data should be persisted in [{{site.data.keyword.cos_full_notm}}](https://www.ibm.com/cloud/object-storage){: external}. This provides a more flexible, reliable, and cost effective way to build analytics applications. See this whitepaer on [Splitting the load](https://www.ibm.com/downloads/cas/KDPB1REE){: external} to learn more about this topic. The Hadoop Distributed File System (HDFS) should be used at most only for intermediate storage during
 processing. All final data (or even intermediate data) should be written to {{site.data.keyword.cos_full_notm}} before the cluster is deleted. If your intermediate storage requirements exceed the HDFS space  available on a node, you can add more nodes to the cluster.
 
 ## How many {{site.data.keyword.iae_full_notm}} clusters can I spin up?

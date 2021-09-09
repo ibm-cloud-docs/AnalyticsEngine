@@ -31,9 +31,10 @@ All kernel logs are written to the `/var/log/jnbg` directory on the [JNBG servic
 kernel-<kernel-type>-<appname>-<YYYYMMDD_hhmmss>.log
 ```
 where:
-* `<kernel-type>` is: `scala-spark21` for Scala with Spark 2.1, `python2-spark21` for Python 2.7 with a Spark 2.1 kernel, `python3-spark21` for Python 3.5 with a Spark 2.1 kernel and `r` for R with a Spark 2.1 kernel.
-* `<appname>` is the value of the `KERNEL_NAME` parameter used when creating the kernel.
-* `<YYYYMMDD_hhmmss>` is the kernel creation timestamp.
+
+- `<kernel-type>` is: `scala-spark21` for Scala with Spark 2.1, `python2-spark21` for Python 2.7 with a Spark 2.1 kernel, `python3-spark21` for Python 3.5 with a Spark 2.1 kernel and `r` for R with a Spark 2.1 kernel.
+- `<appname>` is the value of the `KERNEL_NAME` parameter used when creating the kernel.
+- `<YYYYMMDD_hhmmss>` is the kernel creation timestamp.
 
 Using the combination of `kernel-type`, `appname` and the `<YYYYMMDD_hhmmss>` timestamp, you can easily locate the kernel log file corresponding to a particular session.
 
@@ -47,23 +48,20 @@ cat /var/log/jnbg/<kernel-log-filename>
 
 You can access Spark Executor logs using one of the following ways:
 
-* Launching the cluster's Ambari console to navigate to the corresponding YARN/Spark application UI and use the links in the web interface to download the logs.
+- Launching the cluster's Ambari console to navigate to the corresponding YARN/Spark application UI and use the links in the web interface to download the logs.
+- Using a command line and REST API interface to download the logs. See [IBM Analytics Engine CLI plug-in for classic instances](/docs/cli?topic=analytics-engine-cli-plugin-CLI_analytics_engine#CLI_analytics_engine) for details on how to download Spark Executor logs.
+- SSHing to the cluster and using the YARN command line interface to obtain the logs. To obtain logs for a particular `application Id` run the following command:
 
-* Using a command line and REST API interface to download the logs. See [IBM Analytics Engine CLI plug-in for classic instances](/docs/cli?topic=analytics-engine-cli-plugin-CLI_analytics_engine#CLI_analytics_engine) for details on how to download Spark Executor logs.
+    ```
+    yarn logs -applicationId <application Id>
+    ```
+    {:codeblock}
 
-* SSHing to the cluster and using the YARN command line interface to obtain the logs. To obtain logs for a particular `application Id` run the following command:
+    This will output to the console all the container logs associated with the `application Id`. Typically these would be the stderr and stdout logs for the Application Master and each Executor launched for the application session.
 
- ```
- yarn logs -applicationId <application Id>
- ```
- {:codeblock}
+    Note that you can obtain the application ID for your notebook or interactive session by executing the following code valid for both Python and Scala:
 
- This will output to the console all the container logs associated with the `application Id`. Typically these would be the stderr and stdout logs for the Application Master and each Executor launched for the application session.
-
- Note that you can obtain the application ID for your notebook or interactive session by executing the following
- code valid for both Python and Scala:
-
- ```
- sc.applicationId
- ```
- {: codeblock}
+    ```
+    sc.applicationId
+    ```
+    {: codeblock}

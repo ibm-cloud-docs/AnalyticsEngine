@@ -45,18 +45,18 @@ Connect to the Hive server by using with Beeline client. The command varies depe
 
 - Without LLAP enabled, issue:
 
- ```
- ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
- beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p **********
- ```
+  ```
+  ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
+  beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/ ;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p **********
+  ```
 - With LLAP, issue:
 
- ```
- ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
- beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive-interactive' -n clsadmin -p **********
- ```
+  ```
+  ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
+  beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive-interactive' -n clsadmin -p **********
+  ```
 
- where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
+  where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
 
 The following examples show useful HiveQL statements.
 
@@ -82,6 +82,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 LOCATION 'cos://<bucketname>.<servicename>/dir1';
 ```
 
+Where:
 `<bucketname>` is the {{site.data.keyword.cos_short}} bucket. The value for `<servicename>` can be any literal such as `iamservice` or `myprodservice`.
 
 
@@ -94,7 +95,7 @@ To change the Hive execution engine from Tez to MR, run the following command in
 ## Externalizing the Hive metastore to Databases for PostgreSQL
 {: #externalizing-hive-metastore}
 
-The Hive metastore is where the schemas of the Hive tables are stored. By default, it is in an embedded MySQL instance within the cluster. You should choose to externalize the metastore to an external database instance outside of the cluster so that you can tear down your cluster without losing any metadata. This, in combination with storing your data in {{site.data.keyword.cos_full_notm}}, helps persisting data across clusters. [Externalizing metadata](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#separate-compute-from-storage) is a best practice when creating a cluster.
+The Hive metastore is where the schemas of the Hive tables are stored. By default, it is in an embedded MySQL instance within the cluster. You should choose to externalize the metastore to an external database instance outside of the cluster so that you can tear down your cluster without losing any metadata. This, in combination with storing your data in {{site.data.keyword.cos_full_notm}}, helps persisting data across clusters. [Externalizing metadata](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-best-practices#separate-compute-from-storage){: new_window} is a best practice when creating a cluster.
 
 ### Accessing Databases for PostgreSQL
 
@@ -110,14 +111,17 @@ The PostgreSQL parameters to set in the Hive metastore include:
 - **DB_PWD**: The database user password with which to connect to the instance
 - **DB_NAME**: The database name, typically 'ibmclouddb'
 - **DB_CXN_URL**: The complete URL of database connection using the format:
-```
-jdbc:postgresql://<hostname>:<port>/<dbname>?sslmode=verify-ca&sslrootcert=<path-to-cert>&socketTimeout=<timeoutValue>
-```
-For example:
-```
-jdbc:postgresql://6b190ee0-44ed-4d84-959a-5b424490ccc6.b8a5e798d2d04f2e860e54e5d042c915.databases.appdomain.cloud:31977/ibmclouddb?sslmode=verify-ca&sslrootcert=/home/wce/clsadmin/postgres.cert&socketTimeout=30
-```
-Note that the socket timeout should be set to at least two to three times the longest running SQL transaction, or to 30 seconds, whichever is longer. See [Timeouts](https://github.com/brettwooldridge/HikariCP/wiki/Rapid-Recovery#tcp-timeouts).
+
+    ```
+    jdbc:postgresql://<hostname>:<port>/<dbname>?sslmode=verify-ca&sslrootcert=<path-to-cert>&socketTimeout=<timeoutValue>
+    ```
+
+    For example:
+    ```
+    jdbc:postgresql://6b190ee0-44ed-4d84-959a-5b424490ccc6.b8a5e798d2d04f2e860e54e5d042c915.databases.appdomain.cloud:31977/ibmclouddb?sslmode=verify-ca&sslrootcert=/home/wce/clsadmin/postgres.cert&socketTimeout=30
+    ```
+
+    Note that the socket timeout should be set to at least two to three times the longest running SQL transaction, or to 30 seconds, whichever is longer. See [Timeouts](https://github.com/brettwooldridge/HikariCP/wiki/Rapid-Recovery#tcp-timeouts){: external}.
 
 ### Copying the PostgreSQL certificate
 
@@ -128,21 +132,24 @@ Use the following steps to copy the instance certificate to the {{site.data.keyw
 1. Copy the certificate information in the Base64 field of the PostGreSQL connection information.
 1. Decode the Base64 string to text and save it to a file. You can use the file name that is provided or use your own name.
 
- Alternatively, you can decode the certificate of your connection by using the following CLI plug-in command:
-```
-ibmcloud cdb deployment-cacert "your-service-name"
-```
-Copy and save the command's output to a file. See [CLI plug-in support for the self-signed certificate](/docs/services/databases-for-postgresql?topic=databases-for-postgresql-external-app#cli-plug-in-support-for-the-self-signed-certificate).
+    Alternatively, you can decode the certificate of your connection by using the following CLI plug-in command:
+
+    ```
+    ibmcloud cdb deployment-cacert "your-service-name"
+    ```
+
+    Copy and save the command's output to a file. See [CLI plug-in support for the self-signed certificate](/docs/services/databases-for-postgresql?topic=databases-for-postgresql-external-app#cli-plug-in-support-for-the-self-signed-certificate){: external}.
 1. Copy the file to `/home/wce/clsadmin` on the `mn002` node. To get to the `mn002` node, first `scp` the file to the `mn003` node from your local machine and then from there `scp` the file to the `mn002` node.
 
-  Alternatively, you can copy directly to the `mn002` node by using the `mn003` as a jump host using the following command:
-  ```
-  scp -J clsadmin@chs-xxxxx-mn003.<region>.ae.appdomain.cloud <post-gres.cert> clsadmin@chs-xxxxx-mn002.<region>.ae.appdomain.cloud:/home/common/wce/clsadmin/
-  ```
+    Alternatively, you can copy directly to the `mn002` node by using the `mn003` as a jump host using the following command:
+
+    ```
+    scp -J clsadmin@chs-xxxxx-mn003.<region>.ae.appdomain.cloud <post-gres.cert> clsadmin@chs-xxxxx-mn002.<region>.ae.appdomain.cloud:/home/common/wce/clsadmin/
+    ```
 
 ### Configuring a cluster to work with PostgreSQL
 
-Adhoc PostgreSQL customization scripts can be used to configure the cluster to work with PostgreSQL. See [Running an adhoc  customization script for configuring Hive with a Postgres external metastore](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-examples#postgres-metastore).
+Adhoc PostgreSQL customization scripts can be used to configure the cluster to work with PostgreSQL. See [Running an adhoc customization script for configuring Hive with a Postgres external metastore](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-cust-examples#postgres-metastore){: new_window}.
 
 Alternatively, you can use the Ambari user interface after you have created a cluster, to add the PostgreSQL connection values to the `hive-site.xml` file.
 
@@ -167,69 +174,73 @@ Parquet is an open source file format for Hadoop. Parquet stores nested data str
 To create Hive tables in Parquet format:
 
 1. SSH to the cluster.
-
 2. Launch Beeline:
-```
-beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword>
-```
 
+    ```
+    beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword>
+    ```
 3. Create a Hive table in Parquet format:
-```
-CREATE TABLE parquet_test (
- id int,
- str string,
- mp MAP<STRING,STRING>,
- lst ARRAY<STRING>,
- strct STRUCT<A:STRING,B:STRING>)
-PARTITIONED BY (part string)
-STORED AS PARQUET;
-```
-4. Create an external table in Parguet format in {{site.data.keyword.cos_full_notm}}. Your cluster needs to be configured to use {{site.data.keyword.cos_short}}. See [Configuring clusters to work with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
-```
-CREATE EXTERNAL TABLE parquet_test1 (
- id int,
- str string,
- mp MAP<STRING,STRING>,
- lst ARRAY<STRING>,
- strct STRUCT<A:STRING,B:STRING>)
-PARTITIONED BY (part string)
-STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir1';
-```
-1. Create another external table in {{site.data.keyword.cos_short}} and view the values stored in Parquet format in the {{site.data.keyword.cos_short}} directory:
-```
-CREATE EXTERNAL TABLE parquet_test2 (x INT, y STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir2';
-insert into parquet_test2 values (1,'Alex');
-select * from parquet_test2;
-```
-1. Load data from a Parquet file stored in {{site.data.keyword.cos_short}} to an external Parguet table. `users-parquet` is a Parquet file stored in the {{site.data.keyword.cos_short}} bucket.
-```
-CREATE EXTERNAL TABLE extparquettable1 (id INT, name STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir3';
-LOAD DATA INPATH 'cos://mybucket.myprodservice/dir6/users-parquet';
-OVERWRITE INTO TABLE extparquettable1;
-select * from extparquettable1;
-```   
-The result is the following:
-```
-| extparquettable1.id  | extparquettable1.name  |
-|----------------------|------------------------|
-| NULL                 | Alyssa                 |
-| NULL                 | Ben                    |
-```
-1. Load data from a Parquet file stored in HDFS into an external Parquet table. The `users.parquet` file is stored in the HDFS path `/user/hive`.
-```
-CREATE EXTERNAL TABLE extparquettable2 (id INT, name STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir1';
-LOAD DATA INPATH 'users-parquet';
-OVERWRITE INTO TABLE extparquettable2;
-select * from extparquettable2;
-```   
-The result is the following:
-```
-| extparquettable2.id  | extparquettable2.name  |
-|----------------------|------------------------|
-| NULL                 | Alyssa                 |
-| NULL                 | Ben                    |
-```
 
+    ```
+    CREATE TABLE parquet_test (
+      id int,
+      str string,
+      mp MAP<STRING,STRING>,
+      lst ARRAY<STRING>,
+      strct STRUCT<A:STRING,B:STRING>)
+    PARTITIONED BY (part string)
+    STORED AS PARQUET;
+    ```
+4. Create an external table in Parguet format in {{site.data.keyword.cos_full_notm}}. Your cluster needs to be configured to use {{site.data.keyword.cos_short}}. See [Configuring clusters to work with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos){: new_window}.
+
+    ```
+    CREATE EXTERNAL TABLE parquet_test1 (
+      id int,
+      str string,
+      mp MAP<STRING,STRING>,
+      lst ARRAY<STRING>,
+      strct STRUCT<A:STRING,B:STRING>)
+    PARTITIONED BY (part string)
+    STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir1';
+    ```
+1. Create another external table in {{site.data.keyword.cos_short}} and view the values stored in Parquet format in the {{site.data.keyword.cos_short}} directory:
+    ```
+    CREATE EXTERNAL TABLE parquet_test2 (x INT, y STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir2';
+    insert into parquet_test2 values (1,'Alex');
+    select * from parquet_test2;
+    ```
+1. Load data from a Parquet file stored in {{site.data.keyword.cos_short}} to an external Parguet table. `users-parquet` is a Parquet file stored in the {{site.data.keyword.cos_short}} bucket.
+
+    ```
+    CREATE EXTERNAL TABLE extparquettable1 (id INT, name STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir3';
+    LOAD DATA INPATH 'cos://mybucket.myprodservice/dir6/users-parquet';
+    OVERWRITE INTO TABLE extparquettable1;
+    select * from extparquettable1;
+    ```
+
+    The result is the following:
+    ```
+    | extparquettable1.id  | extparquettable1.name  |
+    |----------------------|------------------------|
+    | NULL                 | Alyssa                 |
+    | NULL                 | Ben                    |
+    ```
+1. Load data from a Parquet file stored in HDFS into an external Parquet table. The `users.parquet` file is stored in the HDFS path `/user/hive`.
+
+    ```
+    CREATE EXTERNAL TABLE extparquettable2 (id INT, name STRING) STORED AS PARQUET LOCATION 'cos://mybucket.myprodservice/dir1';
+    LOAD DATA INPATH 'users-parquet';
+    OVERWRITE INTO TABLE extparquettable2;
+    select * from extparquettable2;
+    ```   
+
+    The result is the following:
+    ```
+    | extparquettable2.id  | extparquettable2.name  |
+    |----------------------|------------------------|
+    | NULL                 | Alyssa                 |
+    | NULL                 | Ben                    |
+    ```
 
 ## ORC file format in Hive
 {: #orc-format}
@@ -243,21 +254,21 @@ To create Hive tables in ORC format:
  1. SSH to the cluster.
  2. Launch Beeline:
 
- ```
- beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword>
- ```
- 3. Create an external table in ORC format in {{site.data.keyword.cos_full_notm}}. To be able to do this, your cluster must have been [configured to work with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).
+    ```
+    beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword>
+    ```
+ 3. Create an external table in ORC format in {{site.data.keyword.cos_full_notm}}. To be able to do this, your cluster must have been [configured to work with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos){: new_window}.
 
- ```
- CREATE EXTERNAL TABLE orc_table(line STRING) STORED AS ORC LOCATION 'cos://mybucket.myprodservice/ORC';
- ```
+    ```
+    CREATE EXTERNAL TABLE orc_table(line STRING) STORED AS ORC LOCATION 'cos://mybucket.myprodservice/ORC';
+    ```
  4. Load data from an ORC file stored in {{site.data.keyword.cos_short}} into an external parquet table:
 
- ```
- LOAD DATA INPATH 'cos://mybucket.myprodservice/orc-file-11-format.orc' OVERWRITE INTO TABLE orc_table;
-select * from orc_table;
- ```
-`orc-file-11-format.orc` is an ORC file stored in the {{site.data.keyword.cos_short}} bucket.
+    ```
+    LOAD DATA INPATH 'cos://mybucket.myprodservice/orc-file-11-format.orc' OVERWRITE INTO TABLE orc_table;
+    select * from orc_table;
+    ```
+    where `orc-file-11-format.orc` is an ORC file stored in the {{site.data.keyword.cos_short}} bucket.
 
 ## LLAP configuration on the cluster
 {: #llap-config}

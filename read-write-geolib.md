@@ -30,37 +30,37 @@ geojson_writer = stc.geojson_writer()
 The following code snippets show reading live location data in geoJSON format available in Mapbox:
 
 - Read the contents of a GeoJSON file copied to your local machine from Mapbox and display the first three lines of the file:
-```
-! wget -q https://www.mapbox.com/help/data/stations.geojson
-df = geojson_reader.read('stations.geojson')
-df.head(3)
-```
+    ```
+    ! wget -q https://www.mapbox.com/help/data/stations.geojson
+    df = geojson_reader.read('stations.geojson')
+    df.head(3)
+    ```
 - Read content in GeoJSON format from a Python dictionary:
-```
-data = json.load(open('stations.geojson'))
-df = geojson_reader.read(data)
-df.head(3)
-```
+    ```
+    data = json.load(open('stations.geojson'))
+    df = geojson_reader.read(data)
+    df.head(3)
+    ```
 - Read data directly from Mapbox by using a URL and display the first three lines of the file:
-```
-df = geojson_reader.read(‘https://www.mapbox.com/help/data/stations.geojson’) df.head(3)
-```
+    ```
+    df = geojson_reader.read(‘https://www.mapbox.com/help/data/stations.geojson’) df.head(3)
+    ```
 - Read binary data (useful when reading streaming bytes from {{site.data.keyword.cos_full_notm}} for example):
-```
-# Assume station.geojson is in IBM Cloud Object Storage in the bucket "test"
-client = ibm_boto3.client('s3')
-streaming_body_2 = client.get_object(Bucket='test', Key='station.geojson')['Body']
-df = shapefile_reader.read(streaming_body_2.read())
-df.head(3)
-```
+    ```
+    # Assume station.geojson is in IBM Cloud Object Storage in the bucket "test"
+    client = ibm_boto3.client('s3')
+    streaming_body_2 = client.get_object(Bucket='test', Key='station.geojson')['Body']
+    df = shapefile_reader.read(streaming_body_2.read())
+    df.head(3)
+    ```
 - Write the contents in a pandas DataFrame to a Python dictionary:
-```
-geojson_writer.write(df)
-```
+    ```
+    geojson_writer.write(df)
+    ```
 - Write the contents of a pandas DataFrame to a GeoJSON file:
-```
-geojson_writer.write(df, file_name='stations_out.geojson')
-```
+    ```
+    geojson_writer.write(df, file_name='stations_out.geojson')
+    ```
 
 ## WKT strings
 
@@ -73,21 +73,21 @@ wkt_writer = stc.wkt_writer()
 The following code snippets show reading from and writing to a WKT string:
 
 - Read a WKT string to a geometry object:
-```
->>> westchester_WKT = 'POLYGON((-73.984 41.325,-73.948 41.33,-73.78 41.346,-73.625 41.363,-73.545 41.37,-73.541 41.368,-73.547 41.297,-73.485 41.223,-73.479 41.215,-73.479 41.211,-73.493 41.203,-73.509 41.197,-73.623 41.144,-73.628 41.143,-73.632 41.14,-73.722 41.099,-73.714 41.091,-73.701 41.073,-73.68 41.049,-73.68 41.047,-73.673 41.041,-73.672 41.038,-73.668 41.035,-73.652 41.015,-73.651 41.011,-73.656 41,-73.655 40.998,-73.656 40.995,-73.654 40.994,-73.654 40.987,-73.617 40.952,-73.618 40.946,-73.746 40.868,-73.751 40.868,-73.821 40.887,-73.826 40.886,-73.84 40.89,-73.844 40.896,-73.844 40.9,-73.85 40.903,-73.853 40.903,-73.854 40.9,-73.859 40.896,-73.909 40.911,-73.92 40.912,-73.923 40.914,-73.923 40.918,-73.901 40.979,-73.894 41.023,-73.893 41.043,-73.896 41.071,-73.894 41.137,-73.94 41.207,-73.965 41.24,-73.973 41.244,-73.975 41.247,-73.976 41.257,-73.973 41.266,-73.95 41.288,-73.966 41.296,-73.98 41.309,-73.984 41.311,-73.987 41.315,-73.987 41.322,-73.984 41.325))'
->>> westchester = wkt_reader.read(westchester_WKT)
->>> westchester.area()
-1363618331.5760047
->>> westchester.centroid()
-Point(41.15551622739597, -73.7592843233704)
->>> westchester.get_bounding_box()
-BoundingBox: Lower Corner: Point(40.86800000000001, -73.987), Upper Corner: Point(41.36999999999998, -73.479)
-```
+    ```
+    >>> westchester_WKT = 'POLYGON((-73.984 41.325,-73.948 41.33,-73.78 41.346,-73.625 41.363,-73.545 41.37,-73.541 41.368,-73.547 41.297,-73.485 41.223,-73.479 41.215,-73.479 41.211,-73.493 41.203,-73.509 41.197,-73.623 41.144,-73.628 41.143,-73.632 41.14,-73.722 41.099,-73.714 41.091,-73.701 41.073,-73.68 41.049,-73.68 41.047,-73.673 41.041,-73.672 41.038,-73.668 41.035,-73.652 41.015,-73.651 41.011,-73.656 41,-73.655 40.998,-73.656 40.995,-73.654 40.994,-73.654 40.987,-73.617 40.952,-73.618 40.946,-73.746 40.868,-73.751 40.868,-73.821 40.887,-73.826 40.886,-73.84 40.89,-73.844 40.896,-73.844 40.9,-73.85 40.903,-73.853 40.903,-73.854 40.9,-73.859 40.896,-73.909 40.911,-73.92 40.912,-73.923 40.914,-73.923 40.918,-73.901 40.979,-73.894 41.023,-73.893 41.043,-73.896 41.071,-73.894 41.137,-73.94 41.207,-73.965 41.24,-73.973 41.244,-73.975 41.247,-73.976 41.257,-73.973 41.266,-73.95 41.288,-73.966 41.296,-73.98 41.309,-73.984 41.311,-73.987 41.315,-73.987 41.322,-73.984 41.325))'
+    >>> westchester = wkt_reader.read(westchester_WKT)
+    >>> westchester.area()
+    1363618331.5760047
+    >>> westchester.centroid()
+    Point(41.15551622739597, -73.7592843233704)
+    >>> westchester.get_bounding_box()
+    BoundingBox: Lower Corner: Point(40.86800000000001, -73.987), Upper Corner: Point(41.36999999999998, -73.479)
+    ```
 - Write a geometry object to a WKT string:
-```
->>> wkt_writer.write(westchester)
-'POLYGON ((-73.984 41.325, -73.987 41.322, -73.987 41.315, -73.984 41.311, -73.98 41.309, -73.966 41.296, -73.95 41.288, -73.973 41.266, -73.976 41.257, -73.975 41.247, -73.973 41.244, -73.965 41.24, -73.94 41.207, -73.894 41.137, -73.896 41.071, -73.893 41.043, -73.894 41.023, -73.901 40.979, -73.923 40.918, -73.923 40.914, -73.92 40.912, -73.909 40.911, -73.859 40.896, -73.854 40.9, -73.853 40.903, -73.85 40.903, -73.844 40.9, -73.844 40.896, -73.84 40.89, -73.826 40.886, -73.821 40.887, -73.751 40.868, -73.746 40.868, -73.618 40.946, -73.617 40.952, -73.654 40.987, -73.654 40.994, -73.656 40.995, -73.655 40.998, -73.656 41.0, -73.651 41.011, -73.652 41.015, -73.668 41.035, -73.672 41.038, -73.673 41.041, -73.68 41.047, -73.68 41.049, -73.701 41.073, -73.714 41.091, -73.722 41.099, -73.632 41.14, -73.628 41.143, -73.623 41.144, -73.509 41.197, -73.493 41.203, -73.479 41.211, -73.479 41.215, -73.485 41.223, -73.547 41.297, -73.541 41.368, -73.545 41.37, -73.625 41.363, -73.78 41.346, -73.948 41.33, -73.984 41.325))'
-```
+    ```
+    >>> wkt_writer.write(westchester)
+    'POLYGON ((-73.984 41.325, -73.987 41.322, -73.987 41.315, -73.984 41.311, -73.98 41.309, -73.966 41.296, -73.95 41.288, -73.973 41.266, -73.976 41.257, -73.975 41.247, -73.973 41.244, -73.965 41.24, -73.94 41.207, -73.894 41.137, -73.896 41.071, -73.893 41.043, -73.894 41.023, -73.901 40.979, -73.923 40.918, -73.923 40.914, -73.92 40.912, -73.909 40.911, -73.859 40.896, -73.854 40.9, -73.853 40.903, -73.85 40.903, -73.844 40.9, -73.844 40.896, -73.84 40.89, -73.826 40.886, -73.821 40.887, -73.751 40.868, -73.746 40.868, -73.618 40.946, -73.617 40.952, -73.654 40.987, -73.654 40.994, -73.656 40.995, -73.655 40.998, -73.656 41.0, -73.651 41.011, -73.652 41.015, -73.668 41.035, -73.672 41.038, -73.673 41.041, -73.68 41.047, -73.68 41.049, -73.701 41.073, -73.714 41.091, -73.722 41.099, -73.632 41.14, -73.628 41.143, -73.623 41.144, -73.509 41.197, -73.493 41.203, -73.479 41.211, -73.479 41.215, -73.485 41.223, -73.547 41.297, -73.541 41.368, -73.545 41.37, -73.625 41.363, -73.78 41.346, -73.948 41.33, -73.984 41.325))'
+    ```
 
 ## Direct Input
 

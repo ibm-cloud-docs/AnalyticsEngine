@@ -40,18 +40,17 @@ The Anaconda3 environment on `AE 1.2` clusters comes with Python 3.7. See [Insta
 
 To install Python 3.x libraries, your script must install in the `conda3` environment by using:
 
- ```
- pip install <package-name>
- ```
+```
+pip install <package-name>
+```
 
- If you install from a local or remote archive, use:
+If you install from a local or remote archive, use:
 
- ```
- pip install <archive url or local file path>
- ```
+```
+pip install <archive url or local file path>
+```
 
 Note that the additional libraries get installed under `~/pipAnaconda3Packages/`.
-
 
 ### Scala or Java
 {: #install-scala-java}
@@ -71,22 +70,22 @@ To install the R package from an archive file:
 
 1. Download the archive repository:
 
- ```
-wget <path-to-archive>/<packagename>/<packagename>_<version>.tar.gz
- ```
-
+    ```
+    wget <path-to-archive>/<packagename>/<packagename>_<version>.tar.gz
+    ```
 2. Use the R command to install the package:
 
- ```
-R CMD INSTALL <packagename>_<version>.tar.gz
- ```
+    ```
+    R CMD INSTALL <packagename>_<version>.tar.gz
+    ```
 
 To install an R package from a CRAN repository:
 
 1. Use the following command:
-```
-R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
-```
+
+    ```
+    R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
+    ```
 
 Note that in both cases, the packages are installed to the `~/R` directory. This is important as otherwise, the R packages won't be available in your R notebook and Spark environments.
 

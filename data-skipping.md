@@ -38,10 +38,10 @@ In addition to the open source features in Xskipper, the following features are 
 ## Geospatial data skipping
 {: #geospatial-skipping}
 
-You can also use data skipping when querying geospatial data sets using [geospatial functions](https://www.ibm.com/support/knowledgecenter/en/SSCJDQ/com.ibm.swg.im.dashdb.analytics.doc/doc/geo_functions.html) from the [spatio-temporal library](/docs/AnalyticsEngine?topic=AnalyticsEngine-geospatial-geotemporal-lib).
+You can also use data skipping when querying geospatial data sets using [geospatial functions](https://www.ibm.com/support/knowledgecenter/en/SSCJDQ/com.ibm.swg.im.dashdb.analytics.doc/doc/geo_functions.html){: external} from the [spatio-temporal library](/docs/AnalyticsEngine?topic=AnalyticsEngine-geospatial-geotemporal-lib){: external}.
 
 - To benefit from data skipping in data sets with latitude and longitude columns, you can collect the min/max indexes on the latitude and longitude columns.
-- Data skipping can be used in data sets with a geometry column (a UDT column) by using a built-in [Xskipper plugin](https://xskipper.io/api/indexing/#plugins).
+- Data skipping can be used in data sets with a geometry column (a UDT column) by using a built-in [Xskipper plugin](https://xskipper.io/api/indexing/#plugins){: external}.
 
 The next sections show you to work with the geospatial plugin.
 
@@ -148,7 +148,7 @@ When using index encryption, whenever a `key` is configured in any Xskipper API,
 
 To use index encryption:
 
-1. Follow all the steps to make sure PME is enabled. See [PME](/docs/AnalyticsEngine?topic=AnalyticsEngine-parquet-encryption)
+1. Follow all the steps to make sure PME is enabled. See [PME](/docs/AnalyticsEngine?topic=AnalyticsEngine-parquet-encryption){: new_window}.
 1. Perform all *regular* PME configurations, including Key Management configurations.
 1. Create encrypted metadata for a data set:
 

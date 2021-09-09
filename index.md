@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-18"
+lastupdated: "2021-08-02"
 
 subcollection: AnalyticsEngine
 
@@ -17,7 +17,7 @@ subcollection: AnalyticsEngine
 {:pre: .pre}
 {:external: target="_blank" .external}
 
-# Overview of IBM Analytics Engine instances
+#  Architecture and concepts in classic instances
 {: #IAE-overview}
 
 With {{site.data.keyword.iae_full_notm}} you can create Apache Spark and Apache Hadoop clusters in minutes and customize these clusters by using scripts. You can work with data in IBM Cloud Object Storage, as well as integrate other IBM Watson services like {{site.data.keyword.DSX_short}} and Machine Learning.
@@ -38,7 +38,7 @@ You can deploy {{site.data.keyword.iae_full_notm}} service instances in the foll
 
 A cluster consists of a management instance and one or more compute instances. The management instance consists of three management nodes that run in the instance. Each compute and task node runs in a separate compute instance.
 
-You are billed only at the instance level. For more details on billing, see [{{site.data.keyword.iae_full_notm}}   Pricing](https://www.ibm.com/cloud/analytics-engine/pricing){: external}.
+You are billed only at the instance level. For more details on billing, see [{{site.data.keyword.iae_full_notm}} Pricing](https://www.ibm.com/cloud/analytics-engine/pricing){: external}.
 {: note}
 
 ### Management nodes
@@ -75,7 +75,7 @@ The following cluster nodes exist:
 
 ## Outbound and inbound access
 
-Cluster services are made available through various endpoints as described in this [section](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints).
+Cluster services are made available through various endpoints as described in  [Retrieving service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints){: new_window}.
 
 From the endpoint list, you can see that the following ports are open for inbound traffic:
 
@@ -86,7 +86,7 @@ From the endpoint list, you can see that the following ports are open for inboun
 
 -	`22`: The cluster itself is accessible via SSH through the  standard port `22`.
 
- When you SSH to a cluster (as described [here](/docs/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH)) you essentially log in to `mn003`. Once you have logged in to `mn003`, you can SSH to the compute nodes (referred to as `dn001`, `dn002`, and so on) and to `mn002`.
+ When you SSH to a cluster, as described in [Connecting using SSH](/docs/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH)){: new_window}, you essentially log in to `mn003`. Once you have logged in to `mn003`, you can SSH to the compute nodes (referred to as `dn001`, `dn002`, and so on) and to `mn002`.
 
 For example, to log in to a cluster in the US-South region, as given in the endpoint listing, enter:
 ```

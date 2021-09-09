@@ -47,186 +47,186 @@ Getting started with the Python SDK after you have installed it, involves sourci
 The code samples show how to:
 
 - Authenticate to the {{site.data.keyword.iae_full_notm}} service and build a service client:
-  ```python
-  from iaesdk import IbmAnalyticsEngineApiV2
-  from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+    ```python
+    from iaesdk import IbmAnalyticsEngineApiV2
+    from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
-  # Constants for IBM Analytics Engine values
-  IAM_API_KEY = "<api-key>" # eg "W00YiRnLW4a3fTjMB-odB-2ySfTrFBIQQWanc--P3byk"
-  IAE_ENDPOINT_URL = "<endpoint>" # Current list avaiable at https://cloud.ibm.com/apidocs/ibm-analytics-engine#service-endpoints
+    # Constants for IBM Analytics Engine values
+    IAM_API_KEY = "<api-key>" # eg "W00YiRnLW4a3fTjMB-odB-2ySfTrFBIQQWanc--P3byk"
+    IAE_ENDPOINT_URL = "<endpoint>" # Current list avaiable at https://cloud.ibm.com/apidocs/ibm-analytics-engine#service-endpoints
 
-  # Create an IAM authenticator.
-  authenticator = IAMAuthenticator(IAM_API_KEY)
+    # Create an IAM authenticator.
+    authenticator = IAMAuthenticator(IAM_API_KEY)
 
-  # Construct the service client.
-  iaesdk_service = IbmAnalyticsEngineApiV2(authenticator=authenticator)
+    # Construct the service client.
+    iaesdk_service = IbmAnalyticsEngineApiV2(authenticator=authenticator)
 
-  # Set our custom service URL (optional)
-  iaesdk_service.set_service_url(IAE_ENDPOINT_URL)
+    # Set our custom service URL (optional)
+    iaesdk_service.set_service_url(IAE_ENDPOINT_URL)
 
-  # Service operations can now be invoked using the "iaesdk_service" variable.
-  ```
-  {: codeblock}
+    # Service operations can now be invoked using the "iaesdk_service" variable.
+    ```
+    {: codeblock}
 
 - Access the {{site.data.keyword.iae_full_notm}} service instance:
-  ```python
-  def get_analytics_engine_by_id(instance_guid):
-      try:
-          response = iaesdk_service.get_analytics_engine_by_id(instance_guid)
-          print(response.result)
-      except Exception as e:
-          print("Unable to retrieve: {0}".format(e))
-  ```
-  {: codeblock}    
+    ```python
+    def get_analytics_engine_by_id(instance_guid):
+        try:
+            response = iaesdk_service.get_analytics_engine_by_id(instance_guid)
+            print(response.result)
+        except Exception as e:
+            print("Unable to retrieve: {0}".format(e))
+    ```
+    {: codeblock}    
 
 - Get the state of the {{site.data.keyword.iae_full_notm}} cluster:
-  ```python
-  def get_analytics_engine_state_by_id(instance_guid):
-      try:
-          response = iaesdk_service.get_analytics_engine_state_by_id(instance_guid)
-          print(response.result)
-      except Exception as e:
-          print("Unable to retrieve: {0}".format(e))
-  ```
-  {: codeblock}
+    ```python
+    def get_analytics_engine_state_by_id(instance_guid):
+        try:
+            response = iaesdk_service.get_analytics_engine_state_by_id(instance_guid)
+            print(response.result)
+        except Exception as e:
+            print("Unable to retrieve: {0}".format(e))
+    ```
+    {: codeblock}
 
 - Create a customization request:
-  ```python
-  def create_customization_request(instance_guid):
-      try:
-          # Construct a dict representation of a AnalyticsEngineCustomActionScript model
-          analytics_engine_custom_action_script_model =  {
-              'source_type': 'http',
-              'script_path': 'testString',
-              'source_props': 'unknown type: object'
-          }
-          # Construct a dict representation of a AnalyticsEngineCustomAction model
-          analytics_engine_custom_action_model =  {
-              'name': 'testString',
-              'type': 'bootstrap',
-              'script': analytics_engine_custom_action_script_model,
-              'script_params': ['testString']
-          }
+    ```python
+    def create_customization_request(instance_guid):
+        try:
+            # Construct a dict representation of a AnalyticsEngineCustomActionScript model
+            analytics_engine_custom_action_script_model =  {
+                'source_type': 'http',
+                'script_path': 'testString',
+                'source_props': 'unknown type: object'
+            }
+            # Construct a dict representation of a AnalyticsEngineCustomAction model
+            analytics_engine_custom_action_model =  {
+                'name': 'testString',
+                'type': 'bootstrap',
+                'script': analytics_engine_custom_action_script_model,
+                'script_params': ['testString']
+            }
 
-          # Set up parameter values
-          target = 'all'
-          custom_actions = [analytics_engine_custom_action_model]
+            # Set up parameter values
+            target = 'all'
+            custom_actions = [analytics_engine_custom_action_model]
 
-          # Invoke method
-          response = iaesdk_service.create_customization_request(
-              instance_guid,
-              target,
-              custom_actions,
-          )
-          print(response.result)
-      except Exception as e:
-          print("Unable to retrieve: {0}".format(e))
-  ```
-  {: codeblock}
+            # Invoke method
+            response = iaesdk_service.create_customization_request(
+                instance_guid,
+                target,
+                custom_actions,
+            )
+            print(response.result)
+        except Exception as e:
+            print("Unable to retrieve: {0}".format(e))
+    ```
+    {: codeblock}
 
 - Get all customization requests:
-  ```python
-  def get_all_customization_requests(instance_guid):
-      try:
-          response = iaesdk_service.get_all_customization_requests(instance_guid)
-          print(response.result)
-      except Exception as e:
-          print("Unable to retrieve: {0}".format(e))
-  ```
-  {: codeblock}
+    ```python
+    def get_all_customization_requests(instance_guid):
+        try:
+            response = iaesdk_service.get_all_customization_requests(instance_guid)
+            print(response.result)
+        except Exception as e:
+            print("Unable to retrieve: {0}".format(e))
+    ```
+    {: codeblock}
 
 - Get the customization requests by ID:
-  ```python
-  def get_customization_request_by_id(instance_guid, request_id):
-      try:
-          response = iaesdk_service.get_customization_request_by_id(instance_guid, request_id)
-          print(response.result)
-      except Exception as e:
-          print("Unable to retrieve: {0}".format(e))
-  ```
-  {: codeblock}
+    ```python
+    def get_customization_request_by_id(instance_guid, request_id):
+        try:
+            response = iaesdk_service.get_customization_request_by_id(instance_guid, request_id)
+            print(response.result)
+        except Exception as e:
+            print("Unable to retrieve: {0}".format(e))
+    ```
+    {: codeblock}
 - Resize the cluster:
-  ```python
-  def resize_cluster(instance_guid, compute_nodes_count):
-      try:
-          response = iaesdk_service.resize_cluster(instance_guid, compute_nodes_count)
-          print(response.result)
-      except Exception as e:
-          print("Unable to retrieve: {0}".format(e))
-  ```
-  {: codeblock}
+    ```python
+    def resize_cluster(instance_guid, compute_nodes_count):
+        try:
+            response = iaesdk_service.resize_cluster(instance_guid, compute_nodes_count)
+            print(response.result)
+        except Exception as e:
+            print("Unable to retrieve: {0}".format(e))
+    ```
+    {: codeblock}
 
 - Reset the cluster password:
-  ```python
-  def reset_cluster_password(instance_guid):
-      try:
-          response = iaesdk_service.reset_cluster_password(instance_guid)
-          print(response.result)
-      except Exception as e:
-          print("Unable to reset: {0}".format(e))
-  ```
-  {: codeblock}
+    ```python
+    def reset_cluster_password(instance_guid):
+        try:
+            response = iaesdk_service.reset_cluster_password(instance_guid)
+            print(response.result)
+        except Exception as e:
+            print("Unable to reset: {0}".format(e))
+    ```
+    {: codeblock}
 
 - Configure logging:
-  ```python
-  def configure_logging(instance_guid):
-      # Construct a dict representation of a AnalyticsEngineLoggingNodeSpec model
-      analytics_engine_logging_node_spec_model =  {
-          'node_type': 'management',
-          'components': ['ambari-server']
-      }
-      # Construct a dict representation of a AnalyticsEngineLoggingServer model
-      analytics_engine_logging_server_model =  {
-          'type': 'logdna',
-          'credential': 'testString',
-          'api_host': 'testString',
-          'log_host': 'testString',
-          'owner': 'testString'
-      }
+    ```python
+    def configure_logging(instance_guid):
+        # Construct a dict representation of a AnalyticsEngineLoggingNodeSpec model
+        analytics_engine_logging_node_spec_model =  {
+            'node_type': 'management',
+            'components': ['ambari-server']
+        }
+        # Construct a dict representation of a AnalyticsEngineLoggingServer model
+        analytics_engine_logging_server_model =  {
+            'type': 'logdna',
+            'credential': 'testString',
+            'api_host': 'testString',
+            'log_host': 'testString',
+            'owner': 'testString'
+        }
 
-      # Set up parameter values
-      log_specs = [analytics_engine_logging_node_spec_model]
-      log_server = analytics_engine_logging_server_model
-      try:
-          response = iaesdk_service.configure_logging(instance_guid, log_specs, log_server)
-          print(response.status_code)
-      except Exception as e:
-          print("Unable to configure: {0}".format(e))
-  ```
-  {: codeblock}
+        # Set up parameter values
+        log_specs = [analytics_engine_logging_node_spec_model]
+        log_server = analytics_engine_logging_server_model
+        try:
+            response = iaesdk_service.configure_logging(instance_guid, log_specs, log_server)
+            print(response.status_code)
+        except Exception as e:
+            print("Unable to configure: {0}".format(e))
+    ```
+    {: codeblock}
 
 - Get the log configuration:
-  ```python
-  def get_logging_config(instance_guid):
-      try:
-          response = iaesdk_service.get_logging_config(instance_guid)
-          print(response.result)
-      except Exception as e:
-          print("Unable to retrieve: {0}".format(e))
-  ```
-  {: codeblock}
+    ```python
+    def get_logging_config(instance_guid):
+        try:
+            response = iaesdk_service.get_logging_config(instance_guid)
+            print(response.result)
+        except Exception as e:
+            print("Unable to retrieve: {0}".format(e))
+    ```
+    {: codeblock}
 
 - Delete the log configuration:
-  ```python
-  def delete_logging_config(instance_guid):
-      try:
-          response = iaesdk_service.delete_logging_config(instance_guid)
-          print(response.status_code)
-      except Exception as e:
-          print("Unable to delete: {0}".format(e))
-  ```
-  {: codeblock}
+    ```python
+    def delete_logging_config(instance_guid):
+        try:
+            response = iaesdk_service.delete_logging_config(instance_guid)
+            print(response.status_code)
+        except Exception as e:
+            print("Unable to delete: {0}".format(e))
+    ```
+    {: codeblock}
 
-- Update private endpoint whitelist:
-  ```python
-  def update_private_endpoint_whitelist(instance_guid):
-      try:
-          response = iaesdk_service.update_private_endpoint_whitelist(instance_guid)
-               instance_guid,
-               ip_ranges,
-               action,
-              )print(response.status_code)
-      except Exception as e:
-          print("Unable to update: {0}".format(e))
-  ```
-  {: codeblock}
+- Update private endpoint allowlist:
+    ```python
+    def update_private_endpoint_whitelist(instance_guid):
+        try:
+            response = iaesdk_service.update_private_endpoint_whitelist(instance_guid)
+                 instance_guid,
+                 ip_ranges,
+                 action,
+                )print(response.status_code)
+        except Exception as e:
+            print("Unable to update: {0}".format(e))
+    ```
+    {: codeblock}

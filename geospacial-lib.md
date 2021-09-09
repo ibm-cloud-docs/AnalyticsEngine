@@ -50,12 +50,12 @@ stc = STContext(spark.sparkContext._gateway)
 
 After you have registered `STContext` in your notebook, you can begin exploring the spatio-temporal library for:
 
-- [Functions to read and write data](/docs/AnalyticsEngine?topic=AnalyticsEngine-read-write-data)
-- [Topological functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-topological-functions)
-- [Geohashing functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-geohashing-functions)
-- [Geospatial indexing functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-spatial-indexing-functions)
-- [Ellipsoidal functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-ellipsoidal-metrics)
-- [Routing functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-routing-functions)
+- [Functions to read and write data](/docs/AnalyticsEngine?topic=AnalyticsEngine-read-write-data){: new_window}
+- [Topological functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-topological-functions){: new_window}
+- [Geohashing functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-geohashing-functions){: new_window}
+- [Geospatial indexing functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-spatial-indexing-functions){: new_window}
+- [Ellipsoidal functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-ellipsoidal-metrics){: new_window}
+- [Routing functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-routing-functions){: new_window}
 
 ## Learn more
 {: #learn-more-goespatio-lib}

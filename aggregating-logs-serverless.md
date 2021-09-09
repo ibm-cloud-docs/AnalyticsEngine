@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-08-30"
+  years: 2017, 2021
+lastupdated: "2021-03-31"
 
 subcollection: AnalyticsEngine
 
@@ -20,7 +20,7 @@ subcollection: AnalyticsEngine
 # Configuring log aggregation
 {: #log-aggregation-serverless}
 
-{{site.data.keyword.iae_full_notm}} supports aggregating cluster logs to a centralized log server that you own. Currently LogDNA is the only supported log server that you can aggregate logs to.
+{{site.data.keyword.iae_full_notm}} supports aggregating cluster logs to a centralized log server that you own. Currently {{site.data.keyword.la_short}} is the only supported log server that you can aggregate logs to.
 
 You can collect the logs for the following components in an {{site.data.keyword.iae_full_notm}} instance:
 
@@ -39,7 +39,7 @@ You can:
 
 -	[Reconfigure log aggregation](#reconfiguring-log-aggregation) by changing the configuration. For example, you can:
 
-   - Change the LogDNA destination server
+   - Change the {{site.data.keyword.la_short}} destination server
    - Update the ingestion key
    - Change the nodes and components from where you want to aggregate logs.
 
@@ -54,9 +54,9 @@ You can:
 The following prerequisites must be met before you can begin collecting cluster logs to a centralized server:
 
 - You must have an existing {{site.data.keyword.iae_full_notm}} service instance. Presently, REST API is the only mode with which you can configure log aggregation.
-- You must create an IBM Log Analysis with LogDNA service instance. To create an instance in {{site.data.keyword.Bluemix_short}}, see [IBM Log Analysis with LogDNA
-](https://cloud.ibm.com/observe/logging){: external}. For details on monitoring and managing log data with IBM Log Analysis with LogDNA, see [provisioning a service instance](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-provision){: external}.
-- You must have access to the LogDNA ingestion key. See [Getting the ingestion key](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-ingestion_key){: external}.
+- You must create an {{site.data.keyword.la_full_notm}} service instance. To create an instance in {{site.data.keyword.Bluemix_short}}, see [{{site.data.keyword.la_full_notm}}
+](https://cloud.ibm.com/observe/logging){: external}. For details on monitoring and managing log data with {{site.data.keyword.la_full_notm}}, see [provisioning a service instance](/docs/log-analysis?topic=log-analysis-provision){: external}.
+- You must have access to the {{site.data.keyword.la_short}} ingestion key. See [Getting the ingestion key](/docs/log-analysis?topic=log-analysis-ingestion_key){: external}.
 - You must have the following IAM access permissions (roles) to the {{site.data.keyword.iae_full_notm}} service instance and the resource group. Two types of roles exist:
 
     -	**Platform management role**: here you must have viewer access or higher to the resource group that contains {{site.data.keyword.iae_full_notm}}.
@@ -65,7 +65,7 @@ The following prerequisites must be met before you can begin collecting cluster 
  See [Granting permissions](/docs/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions){: external}.  
 - You need your IAM access token. See [Retrieving the IAM access token](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token){: external}.
 -	You need the `cluster_management.api_url` for the service endpoints of your {{site.data.keyword.iae_full_notm}} service instance. See [Retrieving service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints){: external}.  
-- When you configure  {{site.data.keyword.iae_full_notm}} to work with the LogDNA instance, you can select to connect to the **private** endpoints of the instance. We encourage you to use  private endpoints as this increases performance and is more cost effective. See [Cloud service endpoints integration](/docs/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
+- When you configure  {{site.data.keyword.iae_full_notm}} to work with the {{site.data.keyword.la_short}} instance, you can select to connect to the **private** endpoints of the instance. We encourage you to use  private endpoints as this increases performance and is more cost effective. See [Cloud service endpoints integration](/docs/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration){: external}.
 
 ## Configuring log aggregation
 
@@ -97,7 +97,7 @@ This is an example of what the `log-config.json` could look like:
     }
 }
 ```
-For the `api_host` and `log_host` input parameters, use the region specific endpoints of your LogDNA instance. Supported regions of LogDNA service instance are:
+For the `api_host` and `log_host` input parameters, use the region specific endpoints of your {{site.data.keyword.la_short}} instance. Supported regions of {{site.data.keyword.la_short}} service instances are:
 - `us-south` (for Dallas)
 - `eu-gb` (for London)
 - `eu-de` (for Frankfurt)

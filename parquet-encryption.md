@@ -36,8 +36,8 @@ Key features include:
 6. By default, the main Parquet metadata module (the file footer) is encrypted to hide the file schema and list of sensitive columns. However, you can choose not to encrypt the file footers  in order to enable legacy readers (such as other Spark  distributions that don't yet support Parquet encryption) to read the unencrypted columns in the encrypted files.  
 7. Encryption keys can be managed in one of two ways:
 
-    - Directly by your application. See [Key management by application](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-application).
-    - By {{site.data.keyword.keymanagementservicefull}}, a centralized key management system (KMS) for generating, managing, and destroying encryption keys used by {{site.data.keyword.iae_full_notm}}. See [Key management by Key Protect](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-key-protect).
+    - Directly by your application. See [Key management by application](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-application){: new_window}.
+    - By {{site.data.keyword.keymanagementservicefull}}, a centralized key management system (KMS) for generating, managing, and destroying encryption keys used by {{site.data.keyword.iae_full_notm}}. See [Key management by Key Protect](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-key-protect){: new_window}.
 
      {{site.data.keyword.keymanagementservicefull}} helps you manage your encrypted keys by aligning with {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) roles.
 
@@ -56,7 +56,7 @@ Key features include:
     .option("<parameter name>" , "<parameter value>")
     .parquet("<write path>")
     ```
-8. You can use Spark to automatically encrypt content saved in Hive tables by storing the information about which columns to encrypt with which keys in the Apache Hive Metastore. See [Configuring Parquet encryption on Apache Hive tables](/docs/AnalyticsEngine?topic=AnalyticsEngine-parquet-encryption-on-hive-tables).
+8. You can use Spark to automatically encrypt content saved in Hive tables by storing the information about which columns to encrypt with which keys in the Apache Hive Metastore. See [Configuring Parquet encryption on Apache Hive tables](/docs/AnalyticsEngine?topic=AnalyticsEngine-parquet-encryption-on-hive-tables){: new_window}.
 
 ## Running {{site.data.keyword.iae_full_notm}} with Parquet encryption
 
@@ -65,23 +65,23 @@ To enable Parquet encryption in {{site.data.keyword.iae_full_notm}}, set the fol
 1. Navigate to **Ambari > Spark > Config -> Custom spark2-default**.
 1. Add the following two parameters to point explicitly to the location of the JAR files.
 
- Alternatively, you can get the JAR files applied as part of the cluster creation process. See [Advanced Provisioning](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options){: external}.
+    Alternatively, you can get the JAR files applied as part of the cluster creation process. See [Advanced Provisioning](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options){: external}.
 
- ```
- spark.driver.extraClassPath=/home/common/lib/parquetEncryption/ibmparquetkms.jar:/home/common/lib/parquetEncryption/parquetformat.jar:/home/common/lib/parquetEncryption/parquethadoop.jar
- spark.executor.extraClassPath=/home/common/lib/parquetEncryption/ibmparquetkms.jar:/home/common/lib/parquetEncryption/parquetformat.jar:/home/common/lib/parquetEncryption/parquethadoop.jar
- ```
+    ```
+    spark.driver.extraClassPath=/home/common/lib/parquetEncryption/ibmparquetkms.jar:/home/common/lib/parquetEncryption/parquetformat.jar:/home/common/lib/parquetEncryption/parquethadoop.jar
+    spark.executor.extraClassPath=/home/common/lib/parquetEncryption/ibmparquetkms.jar:/home/common/lib/parquetEncryption/parquetformat.jar:/home/common/lib/parquetEncryption/parquethadoop.jar
+    ```
 
 ## Mandatory parameters
 
 The following parameters are required for writing encrypted data:
 
-  - List of columns to encrypt, with the master encryption keys:
+- List of columns to encrypt, with the master encryption keys:
     ```
     parameter name: "parquet.encryption.column.keys"
     parameter value: "<master key ID>:<column>,<column>;<master key ID>:<column>,.."
     ```
-  - The footer key:
+- The footer key:
     ```
     parameter name: "parquet.encryption.footer.key"
     parameter value: "<master key ID>"
@@ -101,23 +101,23 @@ The following parameters are required for writing encrypted data:
 The following optional parameters can be used when writing encrypted data:
 - The encryption algorithm `AES-GCM-CTR`
 
-  By default, Parquet encryption uses the `AES-GCM` algorithm that provides full protection against tampering with data and metadata in Parquet files. However, as Spark 2.3.0 runs on Java 8, which doesn’t support AES acceleration in CPU hardware (this was only added in Java 9), the overhead of data integrity verification can affect workload throughput in certain situations.
+    By default, Parquet encryption uses the `AES-GCM` algorithm that provides full protection against tampering with data and metadata in Parquet files. However, as Spark 2.3.0 runs on Java 8, which doesn’t support AES acceleration in CPU hardware (this was only added in Java 9), the overhead of data integrity verification can affect workload throughput in certain situations.
 
-  To compensate this, you can switch off the data integrity verification support and write the encrypted files with the alternative algorithm `AES-GCM-CTR`, which verifies the integrity of the metadata parts only and not that of the data parts, and has a lower throughput overhead compared to the `AES-GCM` algorithm.
+    To compensate this, you can switch off the data integrity verification support and write the encrypted files with the alternative algorithm `AES-GCM-CTR`, which verifies the integrity of the metadata parts only and not that of the data parts, and has a lower throughput overhead compared to the `AES-GCM` algorithm.
 
-  ```
-  parameter name: "parquet.encryption.algorithm"
-  parameter value: "AES_GCM_CTR_V1"
-  ```
+    ```
+    parameter name: "parquet.encryption.algorithm"
+    parameter value: "AES_GCM_CTR_V1"
+    ```
 - Plain text footer mode for legacy readers
 
-  By default, the main Parquet metadata module (the file footer) is encrypted to hide the file schema and list of sensitive columns. However, you can decide not to encrypt the file footers in order to enable other Spark and Parquet readers (that don't yet support Parquet encryption) to read the unencrypted columns in the encrypted files. To switch off footer encryption, set the following parameter:
+    By default, the main Parquet metadata module (the file footer) is encrypted to hide the file schema and list of sensitive columns. However, you can decide not to encrypt the file footers in order to enable other Spark and Parquet readers (that don't yet support Parquet encryption) to read the unencrypted columns in the encrypted files. To switch off footer encryption, set the following parameter:
 
-  ```
-  parameter name: "parquet.encryption.plaintext.footer"
-  parameter value: "true"
-  ```
-  **Important**: The `"parquet.encryption.footer.key"` parameter must also be specified in the plain text footer mode. Although the footer is not encrypted, the key is used to sign the footer content, which means that new readers could verify its integrity. Legacy readers are not affected by the addition of the footer signature.
+    ```
+    parameter name: "parquet.encryption.plaintext.footer"
+    parameter value: "true"
+    ```
+    **Important**: The `"parquet.encryption.footer.key"` parameter must also be specified in the plain text footer mode. Although the footer is not encrypted, the key is used to sign the footer content, which means that new readers could verify its integrity. Legacy readers are not affected by the addition of the footer signature.
 
 ## Usage examples
 {: #usage-examples-parquet-encryption}
@@ -125,51 +125,51 @@ The following optional parameters can be used when writing encrypted data:
 The following sample code snippets for Python and Scala show how to create data frames, written to encrypted parquet files, and read from encrypted parquet files.
 
 - Python: Writing encrypted data
-```python
-from pyspark.sql import
+    ```python
+    from pyspark.sql import
 
- RowsquaresDF = spark.createDataFrame(
-    sc.parallelize(range(1, 6))
-    .map(lambda i: Row(int_column=i,  square_int_column=i ** 2)))
+     RowsquaresDF = spark.createDataFrame(
+        sc.parallelize(range(1, 6))
+        .map(lambda i: Row(int_column=i,  square_int_column=i ** 2)))
 
- sc._jsc.hadoopConfiguration().set("encryption.key.list",
-    "key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
+     sc._jsc.hadoopConfiguration().set("encryption.key.list",
+        "key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
 
- encryptedParquetPath = "squares.parquet.encrypted"squaresDF.write\
-   .option("parquet.encryption.column.keys", "key1:square_int_column")\
-   .option("parquet.encryption.footer.key", "key2")\
-   .parquet(encryptedParquetPath)
-```
+     encryptedParquetPath = "squares.parquet.encrypted"squaresDF.write\
+       .option("parquet.encryption.column.keys", "key1:square_int_column")\
+       .option("parquet.encryption.footer.key", "key2")\
+       .parquet(encryptedParquetPath)
+    ```
 
 - Python: Reading encrypted data
-```python
-sc._jsc.hadoopConfiguration().set("parquet.encryption.key.list",
-     "key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
+    ```python
+    sc._jsc.hadoopConfiguration().set("parquet.encryption.key.list",
+         "key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
 
- encryptedParquetPath = "squares.parquet.encrypted"
- parquetFile = spark.read.parquet(encryptedParquetPath)
- parquetFile.show()
-```
+     encryptedParquetPath = "squares.parquet.encrypted"
+     parquetFile = spark.read.parquet(encryptedParquetPath)
+     parquetFile.show()
+    ```
 - Scala: Writing encrypted data
-```scala
-case class SquareItem(int_column: Int, square_int_column: Double)
-val dataRange = (1 to 6).toList
-val squares = sc.parallelize(dataRange.map(i => new SquareItem(i, scala.math.pow(i,2))))
-sc.hadoopConfiguration.set("parquet.encryption.key.list","key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
-val encryptedParquetPath = "squares.parquet.encrypted"
-squares.toDS().write
-  .option("parquet.encryption.column.keys", "key1:square_int_column")
-  .option("parquet.encryption.footer.key", "key2")
-  .parquet(encryptedParquetPath)
-```
+    ```scala
+    case class SquareItem(int_column: Int, square_int_column: Double)
+    val dataRange = (1 to 6).toList
+    val squares = sc.parallelize(dataRange.map(i => new SquareItem(i, scala.math.pow(i,2))))
+    sc.hadoopConfiguration.set("parquet.encryption.key.list","key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
+    val encryptedParquetPath = "squares.parquet.encrypted"
+    squares.toDS().write
+      .option("parquet.encryption.column.keys", "key1:square_int_column")
+      .option("parquet.encryption.footer.key", "key2")
+      .parquet(encryptedParquetPath)
+    ```
 
 - Scala: Reading encrypted data
-```scala
-sc.hadoopConfiguration.set("parquet.encryption.key.list","key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
-val encryptedParquetPath = "squares.parquet.encrypted"
-val parquetFile = spark.read.parquet(encryptedParquetPath)
-parquetFile.show()
-```
+    ```scala
+    sc.hadoopConfiguration.set("parquet.encryption.key.list","key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
+    val encryptedParquetPath = "squares.parquet.encrypted"
+    val parquetFile = spark.read.parquet(encryptedParquetPath)
+    parquetFile.show()
+    ```
 
 ## Internals of encryption key handling
 {: #encryption-internals}
@@ -198,8 +198,8 @@ public static void KeyToolkit.rotateMasterKeys(String folderPath, Configuration 
 When key rotation is performed, every KEK in all key material files in `folderPath` is unwrapped with the old MEK version to enable decrypting the DEK. A new KEK is generated for each master key ID, and wrapped with the new MEK version. Creating a new KEK, instead of re-using the old one, doesn't only mean that security is improved but also that the performance of subsequent data read operations is increased. This is because a single key rotation process, run by the administrator, operates across multiple files created by different processes, meaning many different KEKs for the same MEK ID. The key rotation process replaces the old KEKs with a single new KEK, which allows the readers to run a single unwrap interaction with KMS for each master key.
 
 For examples of how to use key rotation:
-- For key management by application, see [Key rotation in key management by application](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-application#key-rotation-key-mgt-application).
-- For key management by Key Protect, see [Key rotation key management by Key Protect](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-key-protect#key-rotation-key-mgt-keyprotect).
+- For key management by application, see [Key rotation in key management by application](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-application#key-rotation-key-mgt-application){: new_window}.
+- For key management by Key Protect, see [Key rotation key management by Key Protect](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-key-protect#key-rotation-key-mgt-keyprotect){: new_window}.
 
 ## Learn more
 {: #learn-more-parquet-encryption}

@@ -5,180 +5,266 @@
 {: .toc subcollection="AnalyticsEngine" category="analytics" audience="service" href="/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started" console-page="/catalog/services/analytics-engine" product-page="https://www.ibm.com/cloud/analytics-engine" path="AnalyticsEngine"}
 Analytics Engine
 
-    {:navgroup: .navgroup}
-    {:topicgroup: .topicgroup}
-    {:download .download}
-
     {: .navgroup id="learn"}
     getting-started.md
-    index.md
-    best-practices.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    iae-git-repos.md
-    solution-tuts.md
-    [IBM Analytics Engine CLI](https://ibm.co/2wid9ec)
-    [IBM Analytics Engine API reference](https://cloud.ibm.com/apidocs/ibm-analytics-engine)
+    {: .topicgroup}
+    Serverless instances
+        user-responsibilities-serverless.md
+
+        {: .topicgroup}
+        Reference links
+            [IBM Analytics Engine V3 API](https://cloud.ibm.com/apidocs/ibm-analytics-engine-v3#introduction)
+            [IBM Analytics Engine serverless CLI](https://cloud.ibm.com/docs/analytics-engine-cli-plugin?topic=analytics-engine-cli-plugin-CLI_analytics_engine)
+
+        {: .topicgroup}
+        IBM Analytics Engine SDK
+            using-node-js-sdk-serverless.md
+            using-python-sdk-serverless.md
+            using-go-sdk-serverless.md
+            using-java-sdk-serverless.md
 
     {: .topicgroup}
-    IBM Analytics Engine SDK
-        using-node-js-sdk.md
-        using-python-sdk.md
-        using-go-sdk.md
-        using-java-sdk.md
+    Classic instances
 
-    {: .topicgroup}
-    Helpful links
-        [Jupyter Kernel Gateway Reference Doc](https://jupyter-kernel-gateway.readthedocs.io/en/latest)
-        [Livy Reference](https://github.com/cloudera/livy/blob/master/README.rst)
-        [Spark History REST API](https://spark.apache.org/docs/2.1.1/monitoring.html#rest-api)
-        [Submitting applications](http://spark.apache.org/docs/2.1.1/submitting-applications.html)
-        [Uploading files to HDFS](http://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/WebHDFS.html)
+        {: .topicgroup}
+        Reference links
+            iae-git-repos.md
+            solution-tuts.md
+            [IBM Analytics Engine CLI](https://ibm.co/2wid9ec)
+            [IBM Analytics Engine V2 API reference](https://cloud.ibm.com/apidocs/ibm-analytics-engine#getallanalyticsengines)
+
+        {: .topicgroup}
+        IBM Analytics Engine SDK
+            using-node-js-sdk.md
+            using-python-sdk.md
+            using-go-sdk.md
+            using-java-sdk.md
+
+        {: .topicgroup}
+        Helpful links
+            [Jupyter Kernel Gateway Reference Doc](https://jupyter-kernel-gateway.readthedocs.io/en/latest)
+            [Livy Reference](https://github.com/cloudera/livy/blob/master/README.rst)
+            [Spark History REST API](https://spark.apache.org/docs/2.1.1/monitoring.html#rest-api)
+            [Submitting applications](http://spark.apache.org/docs/2.1.1/submitting-applications.html)
+            [Uploading files to HDFS](http://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/WebHDFS.html)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     {: .topicgroup}
-    Provisioning a service instance
-        provisioning.md
-        autoscaling-clusters.md
-        service-endpoints-integration.md
-        advanced-provisioning-options.md
-        track-instance-provisioning.md
+    Serverless instances
+
+        provisioning-concepts.md
+
+        {: .topicgroup}
+        Provisioning a service instance
+            provisioning-serverless.md
+            limits.md
+
+        {: .topicgroup}
+        Accessing a service instance
+            Retrieve-service-credentials-serverless.md
+            retrieve-service-guid-serverless.md
+            granting-permissions-serverless.md
+            Retrieve-IAM-access-token-testserver.md
+
+        {: .topicgroup}
+        Customizing a service instance
+            customizing-instance.md
+            create-lib-set.md
+            use-lib-set.md
+            cust-with-script.md
+
+        {: .topicgroup}
+        Managing a service instance
+            managing-serverless.md
+
+        {: .topicgroup}
+        Working with object storage
+            working-with-object-storage-serverless.md
+
+        {: .topicgroup}
+        Working with Spark batch applications
+            Spark-Batch-serverless.md
+            spark-app-rest-api.md
+            livy-api-serverless.md
+            auto-scaling-serverless-apps.md
+
+        {: .topicgroup}
+        Enhancing security
+            security-model-serverless.md
+
+        {: .topicgroup}
+        Logging and monitoring
+            viewing-logs.md
+            at-tracker-serverless.md
 
     {: .topicgroup}
-    Accessing a service instance
-        retrieve-service-credentials.md
-        Retrieve-service-credentials-and-service-end-points.md
-        Connect-using-SSH.md
-        granting-permissions-to-users.md
-        whitelisting-access.md
+    Classic instances
 
-    {: .topicgroup}
-    Managing a service instance
-        Resize-clusters.md
-        delete-instance.md
-        Administer-cluster-using-Ambari-console.md
-        reset-cluster-password.md
-        aggregating-logs.md
+        {: .topicgroup}
+        Conceptual overview
+            index.md
+            getting-started-legacy.md
 
-    {: .topicgroup}
-    Customizing a service instance
-        customizing-cluster.md
-        example-of-customizations.md
 
-    {: .topicgroup}
-    Working with object storage
-        configure-COS-S3-object-storage.md
-        get-cos-credentials.md
-        cos-credentials-in-iae.md
-        configure-iae-to-work-with-cos.md
-        access-objs-in-cos.md
-        specify-properties-at-runtime.md
-        customizing-using-script.md
-        configure-cos-via-ambari.md
-        data-movement-on-cos.md
+        {: .topicgroup}
+        Provisioning a service instance
+            provisioning.md
+            autoscaling-clusters.md
+            best-practices.md
+            service-endpoints-integration.md
+            advanced-provisioning-options.md
+            track-instance-provisioning.md
 
-    {: .topicgroup}
-    Working with Hadoop, Hive, HBase
-        Upload-files-to-HDFS.md
-        hadoop-mapreduce-jobs.md
-        working-with-hive.md
-        working-with-hbase.md
+        {: .topicgroup}
+        Accessing a service instance
+            retrieve-service-credentials.md
+            Retrieve-service-credentials-and-service-end-points.md
+            Connect-using-SSH.md
+            granting-permissions-to-users.md
+            whitelisting-access.md
 
-    {: .topicgroup}
-    Working with Sqoop, Oozie
-        working-with-sqoop.md
-        working-with-oozie.md
+        {: .topicgroup}
+        Managing a service instance
+            Resize-clusters.md
+            delete-instance.md
+            Administer-cluster-using-Ambari-console.md
+            reset-cluster-password.md
+            aggregating-logs.md
 
-    {: .topicgroup}
-    Spark overview
-        Installed-Libraries.md
-        installing-additional-libraries.md
-        Monitor-Applications.md
-        spark-history.md
-        enable-spark-encryption.md
+        {: .topicgroup}
+        Customizing a service instance
+            customizing-cluster.md
+            example-of-customizations.md
 
-    {: .topicgroup}
-    Working with Spark batch
-        Spark-Batch.md
-        Livy-api.md
-        SSH-connection.md
+        {: .topicgroup}
+        Working with object storage
+            configure-COS-S3-object-storage.md
+            get-cos-credentials.md
+            cos-credentials-in-iae.md
+            configure-iae-to-work-with-cos.md
+            access-objs-in-cos.md
+            specify-properties-at-runtime.md
+            customizing-using-script.md
+            configure-cos-via-ambari.md
+            data-movement-on-cos.md
 
-    {: .topicgroup}
-    Working with Spark interactive
-        spark-interactive-notebooks-api.md
-        access-JNBG-service.md
-        Kernel-Settings.md
-        lazy-spark-initialization.md
-        Logs-JNBG.md
-        JNBG-Service-Host.md
-        stop-start-restart-JNBG-service.md
+        {: .topicgroup}
+        Working with Hadoop, Hive, HBase
+            Upload-files-to-HDFS.md
+            hadoop-mapreduce-jobs.md
+            working-with-hive.md
+            working-with-hbase.md
 
-    {: .topicgroup}
-    Working with Spark SQL
-        working-with-spark-sql.md
+        {: .topicgroup}
+        Working with Sqoop, Oozie
+            working-with-sqoop.md
+            working-with-oozie.md
 
-    {: .topicgroup}
-    Working with data skipping libraries
-        data-skipping.md
+        {: .topicgroup}
+        Spark overview
+            Installed-Libraries.md
+            installing-additional-libraries.md
+            Monitor-Applications.md
+            spark-history.md
+            enable-spark-encryption.md
 
-    {: .topicgroup}
-    Working with Parquet encryption
-        parquet-encryption.md
-        key-management-by-application.md
-        key-management-by-kms.md
-        parquet-encryption-on-hive-tables.md
+        {: .topicgroup}
+        Working with Spark batch
+            Spark-Batch.md
+            Livy-api.md
+            SSH-connection.md
 
-    {: .topicgroup}
-    Working with the spatio-temporal library
-        geospacial-lib.md
-        read-write-geolib.md
-        topological-relations.md
-        geohashing-functions.md
-        geospatial-indexing.md
-        ellipsoidal-metrics.md
-        routing-functions.md
+        {: .topicgroup}
+        Working with Spark interactive
+            spark-interactive-notebooks-api.md
+            access-JNBG-service.md
+            Kernel-Settings.md
+            lazy-spark-initialization.md
+            Logs-JNBG.md
+            JNBG-Service-Host.md
+            stop-start-restart-JNBG-service.md
 
-    {: .topicgroup}
-    Working with the time series library
-        time-series.md
-        using-time-series-lib.md
-        time-series-key-functionality.md
-        time-series-functions.md
-        lazy-timeseries-evaluation.md
-        time-reference-system.md
+        {: .topicgroup}
+        Working with Spark SQL
+            working-with-spark-sql.md
 
-    {: .topicgroup}
-    Supported connectors on clusters
-        supported-connectors.md
-        database-connectors.md
+        {: .topicgroup}
+        Working with data skipping libraries
+            data-skipping.md
 
-    {: .topicgroup}
-    Enhancing security
-        security-model.md
-        user-responsibilities.md
-        hipaa-readiness.md
-        at-tracker.md
+        {: .topicgroup}
+        Working with Parquet encryption
+            parquet-encryption.md
+            key-management-by-application.md
+            key-management-by-kms.md
+            parquet-encryption-on-hive-tables.md
 
-    {: .topicgroup}
-    Miscellaneous
-        Retrieve-IAM-access-token.md
-        retrieving-uaa-access-token.md
-        retrieve-service-instance-id.md
+        {: .topicgroup}
+        Working with the spatio-temporal library
+            geospacial-lib.md
+            read-write-geolib.md
+            topological-relations.md
+            geohashing-functions.md
+            geospatial-indexing.md
+            ellipsoidal-metrics.md
+            routing-functions.md
+
+        {: .topicgroup}
+        Working with the time series library
+            time-series.md
+            using-time-series-lib.md
+            time-series-key-functionality.md
+            time-series-functions.md
+            lazy-timeseries-evaluation.md
+            time-reference-system.md
+
+        {: .topicgroup}
+        Supported connectors on clusters
+            supported-connectors.md
+            database-connectors.md
+
+        {: .topicgroup}
+        Enhancing security
+            security-model.md
+            user-responsibilities.md
+            hipaa-readiness.md
+            at-tracker.md
+
+        {: .topicgroup}
+        Miscellaneous
+            Retrieve-IAM-access-token.md
+            retrieving-uaa-access-token.md
+            retrieve-service-instance-id.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
-    release-notes.md
-    troubleshooting.md
-    Known-issues.md
-    unsupported-operations.md
+    {: .topicgroup}
+    Serverless instances
+
+        {: .topicgroup}
+        Support links
+            release-notes-serverless.md
+            faqs-serverless.md
 
     {: .topicgroup}
-    FAQS
-        faqs-general.md
-        faqs-architecture.md
-        faqs-integration.md
-        faqs-operations.md
-        faqs-security.md
+    Classic instances
+
+        {: .topicgroup}
+        Support links
+            release-notes.md
+            troubleshooting.md
+            Known-issues.md
+            unsupported-operations.md
+
+        {: .topicgroup}
+        FAQS
+            faqs-general.md
+            faqs-architecture.md
+            faqs-integration.md
+            faqs-operations.md
+            faqs-security.md
     {: .navgroup-end}

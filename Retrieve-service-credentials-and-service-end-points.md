@@ -39,7 +39,7 @@ ibmcloud resource service-key-create <your_service_key_name> <role> --instance-n
 where:
 - `<your_service_instance_name>` is the name of the service instance you  specified when creating the cluster. You can use `ibmcloud resource service-instances` to find all your service instance names.
 - `<your_service_key_name>` is any name that you want to refer your key as. This name is used to retrieve service keys.  
-- `<role>` is the role you assigned to the IAM API key which was generated for the service credentials. You will be able to perform only those operations that are permitted for the chosen role. For more details on the roles required to perform an operation, refer to section *Required IAM permissions* [here](/docs/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
+- `<role>` is the role you assigned to the IAM API key which was generated for the service credentials. You will be able to perform only those operations that are permitted for the chosen role. For more details on the roles required to perform an operation, refer to section *Required IAM permissions* in  [Granting permissions to users](/docs/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions).
 
 Expected response:
 

@@ -83,12 +83,12 @@ You should use the IBM COS Cross Regional resiliency option that backs up your d
 ### Encryption
 {: #cos-encryption}
 
-{{site.data.keyword.cos_full_notm}} comes with default built-in encryption. You can also configure {{site.data.keyword.cos_short}} to work with the BYOK Key Protect service. See [here](/docs/key-protect?topic=key-protect-getting-started-tutorial#getting-started-tutorial) for more information. Note however that Key Protect is currently only supported for regional buckets. See the [{{site.data.keyword.cos_short}} manage encryption](/docs/cloud-object-storage/basics?topic=cloud-object-storage-encryption#encryption) documentation.
+{{site.data.keyword.cos_full_notm}} comes with default built-in encryption. You can also configure {{site.data.keyword.cos_short}} to work with the BYOK Key Protect service. See [Getting started with encryption keys](/docs/key-protect?topic=key-protect-getting-started-tutorial#getting-started-tutorial) for more information. Note however that Key Protect is currently only supported for regional buckets. See the [{{site.data.keyword.cos_short}} manage encryption](/docs/cloud-object-storage/basics?topic=cloud-object-storage-encryption#encryption) documentation.
 
 ### {{site.data.keyword.cos_full_notm}} credentials
 {: #cos-credentials}
 
-By default, {{site.data.keyword.cos_full_notm}} uses IAM-style credentials. If you want to work with AWS-style credentials, you need to provide the inline configuration parameter `{"HMAC":true}` as shown [here](/docs/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials#service-credentials).
+By default, {{site.data.keyword.cos_full_notm}} uses IAM-style credentials. If you want to work with AWS-style credentials, you need to provide the inline configuration parameter `{"HMAC":true}` as shown in [Service credentials](/docs/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials#service-credentials).
 
 ### Private endpoints for {{site.data.keyword.cos_full_notm}}
 {: #private-endpoint}

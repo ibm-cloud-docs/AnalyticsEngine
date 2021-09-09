@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-03-11"
+  years: 2017, 2021
+lastupdated: "2021-07-27"
 
 subcollection: AnalyticsEngine
 
@@ -17,34 +17,38 @@ subcollection: AnalyticsEngine
 # Getting started tutorial
 {: #getting-started}
 
-{{site.data.keyword.iae_full_notm}} provides a flexible framework to develop and deploy analytics applications in Apache Hadoop and Apache Spark. It allows you to create and manage clusters using the {{site.data.keyword.Bluemix_short}} interface, the {{site.data.keyword.Bluemix_short}} CLI and REST APIs.
+In {{site.data.keyword.iae_full_notm}}, you can create two types of instances:
 
-## Before you begin
+- **Serverless instances**: An instance is allocated compute and memory resources on demand when Spark workloads are deployed. When an application is not in running state, no computing resources are allocated to the {{site.data.keyword.iae_full_notm}} instance. Pricing is based on the actual amount of resources consumed by the instance, billed on a per second basis.
 
-* Get a quick overview of {{site.data.keyword.iae_full_notm}} in this short [video](https://developer.ibm.com/clouddataservices/docs/analytics-engine/).
+  - [Serverless instance architecture and concepts](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts)
+  - [Provisioning a serverless instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-serverless)
 
-## Provision an instance and create a cluster
-* Watch how to [get started using {{site.data.keyword.iae_full_notm}}](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/).
+- **Classic instances**: The classic {{site.data.keyword.iae_short}} clusters that are created are allocated resources determined by a selected software package and hardware type (size). Pricing is set on a per hour or per month basis, irrespective of whether applications are running and consuming resources.
 
-  In this video you will learn how to provision an {{site.data.keyword.iae_full_notm}} cluster from IBM Cloud, find out about options to manage the cluster, and see how to connect {{site.data.keyword.DSX_short}} to {{site.data.keyword.iae_full_notm}} to analyze data.
+  - [Classic instance architecture and concepts](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview)
+  - [Provisioning a classic instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE)
 
- For details about the supported plans and on how to provision and configure your cluster, see the [{{site.data.keyword.iae_full_notm}} documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE).
+## Getting started using serverless {{site.data.keyword.iae_full_notm}} instances
+{: #getting-started}
 
-* Watch how to [provision an {{site.data.keyword.iae_full_notm}} service instance through {{site.data.keyword.DSX_short}}](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/#provision).
+The {{site.data.keyword.iae_full_notm}} Standard serverless plan for Apache Spark offers the ability to spin up {{site.data.keyword.iae_full_notm}} serverless instances within seconds, customize them with library packages of your choice, and run your Spark workloads.
 
-## Run applications on the cluster
+Currently, you can create {{site.data.keyword.iae_full_notm}} serverless instances only in the US South region.
 
-* Watch a [demo](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/#spark-notebook) and run through the tutorial using sample code and data. Copy or download this [notebook](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/e2e70feb00a65760eb1bd683da285364) from the {{site.data.keyword.DSX_short}} community to try it for yourself.
-* Learn how to use [spark-submit](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/#spark-submit) to execute a Python script on an {{site.data.keyword.iae_full_notm}} cluster.
-* Learn how to programmatically use {{site.data.keyword.iae_full_notm}} through this [tutorial](https://github.com/IBM-Cloud/IBM-Analytics-Engine). Get access to sample scripts to start operationalizing your first applications.
-* Get answers to some [frequently asked questions](/docs/AnalyticsEngine?topic=AnalyticsEngine-general-faqs) about using {{site.data.keyword.iae_full_notm}}.
+### Before you begin
 
-## Next steps
-{: #getting-started-next-steps}
+To start running Spark applications in {{site.data.keyword.iae_full_notm}}, you need:
 
-Now that you have provisioned a service instance and have created a cluster, you can start running jobs and managing your cluster:
+- An {{site.data.keyword.Bluemix}} account.
+- Instance home storage space that is referenced from the {{site.data.keyword.iae_full_notm}}. This storage space is used to store Spark History events, which are created by your applications and any custom library sets, which need to be made available to your Spark applications. Currently, the Spark application logs, and the driver and executor logs are also stored in this {{site.data.keyword.cos_short}} bucket. At a later time, you will be able to aggregate these logs to a centralized {{site.data.keyword.la_short}} server that you own.
+- An serverless instance of the {{site.data.keyword.iae_full_notm}} service.
 
-- [Run Hadoop MapReduce jobs](/docs/AnalyticsEngine?topic=AnalyticsEngine-run-hadoop-jobs).
-- [Run Spark Interactive jobs](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-interactive).
-- [Run Spark Batch jobs](/docs/AnalyticsEngine?topic=AnalyticsEngine-livy-api).
-- Manage your cluster by [using the CLI](/docs/cli?topic=analytics-engine-cli-plugin-CLI_analytics_engine#CLI_analytics_engine) for various operations.
+### Running applications
+
+To run Spark applications in an {{site.data.keyword.iae_full_notm}} serverless instance:
+
+1. Optionally, give users access to the provisioned instance to enable collaboration. See [Managing user access to share instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions-serverless).
+1. Optionally, customize the instance to fit the requirements of your applications. See [Customizing the instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-instance).
+1. Submit your Spark application by using the Spark application REST API. See [Running Spark batch applications using the Spark application REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api).
+1. Submit your Spark application by using the Livy batch API. See [Running Spark batch applications using the Livy API](/docs/AnalyticsEngine?topic=AnalyticsEngine-livy-api-serverless).
