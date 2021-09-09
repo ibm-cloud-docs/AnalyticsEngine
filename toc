@@ -2,7 +2,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="AnalyticsEngine" category="analytics" audience="service" href="/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started" console-page="/catalog/services/analytics-engine" product-page="https://www.ibm.com/cloud/analytics-engine" path="AnalyticsEngine"}
+{: .toc subcollection="AnalyticsEngine" version="2" category="analytics" audience="service" href="/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started" console-page="/catalog/services/analytics-engine" product-page="https://www.ibm.com/cloud/analytics-engine" path="AnalyticsEngine"}
 Analytics Engine
 
     {: .navgroup id="learn"}
