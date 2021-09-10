@@ -28,7 +28,7 @@ The {{site.data.keyword.iae_full_notm}} serverless plan provides REST APIs to su
 1. [Stop a running Spark application](#spark-app-stop).
 
 
-For a description of the available APIs, ee the [{{site.data.keyword.iae_full_notm}} REST APIs for the serverless plan](https://test.cloud.ibm.com/apidocs/ibm-analytics-engine-v3#introduction).
+For a description of the available APIs, see the [{{site.data.keyword.iae_full_notm}} REST APIs for the serverless plan](https://test.cloud.ibm.com/apidocs/ibm-analytics-engine-v3#introduction).
 
 The following sections in this topic show samples for each of the Spark application management APIs.
 
