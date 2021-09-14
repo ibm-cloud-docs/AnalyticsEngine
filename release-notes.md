@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-31"
+lastupdated: "2021-09-14"
 
 subcollection: AnalyticsEngine
 
@@ -104,6 +104,8 @@ Use these notes to learn about the latest features, additions and changes to {{s
   - [CVE-2021-27365](https://nvd.nist.gov/vuln/detail/CVE-2021-27365)
   - [CVE-2021-20305](https://nvd.nist.gov/vuln/detail/CVE-2021-20305)
   - [CVE-2021-2163](https://nvd.nist.gov/vuln/detail/CVE-2021-2163)
+  - [RHSA-2021:1071](https://access.redhat.com/errata/RHSA-2021:1071)
+  - [RHSA-2021:1072](https://access.redhat.com/errata/RHSA-2021:1072)
   - [RHSA-2021:1145](https://access.redhat.com/errata/RHSA-2021:1145)
   - [RHSA-2021:1298](https://access.redhat.com/errata/RHSA-2021:1298)
 
@@ -213,6 +215,7 @@ Use these notes to learn about the latest features, additions and changes to {{s
   - [RHSA-2020:5437](https://access.redhat.com/errata/RHSA-2020:5437)
   - [RHSA-2020:5439](https://access.redhat.com/errata/RHSA-2020:5439)
   - [RHSA-2020:5566](https://access.redhat.com/errata/RHSA-2020:5566)
+  - [RHSA-2021:0221](https://access.redhat.com/errata/RHSA-2021:0221)
 
   Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
@@ -226,9 +229,8 @@ Use these notes to learn about the latest features, additions and changes to {{s
 
   - [CVE-2020-25659](https://bugzilla.redhat.com/show_bug.cgi?id=1889988): the python-cryptography package was upgraded to version 3.3
   - [CVE-2020-28928](https://nvd.nist.gov/vuln/detail/CVE-2020-28928)
-  - [CVE-2020-1971](https://nvd.nist.gov/vuln/detail/CVE-2020-1971)
   - [CVE-2020-27350](http://www.ubuntu.com/usn/usn-4667-1)
-  - [RHSA-2021:0221](https://access.redhat.com/errata/RHSA-2021:0221)
+
 
   Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
