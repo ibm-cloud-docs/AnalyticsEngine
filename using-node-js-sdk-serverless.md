@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-27"
+lastupdated: "2021-09-13"
 
 subcollection: AnalyticsEngine
 
@@ -30,6 +30,7 @@ Type the following command into a command line:
 ```
 npm install iaesdk
 ```
+{: codeblock}
 
 You can find the source code in GitHub. See [ibm-iae-node-sdk](https://github.com/ibm/ibm-iae-node-sdk/){: external}. The `iaesdk` library provides complete access to the {{site.data.keyword.iae_full_notm}} API.
 
@@ -58,7 +59,7 @@ The code samples show how to:
       });
 
     // Construct the service client.
-    const IbmAnalyticsEngineServiceClient = new IbmAnalyticsEngineApiV3({
+    const ibmAnalyticsEngineApiService = new IbmAnalyticsEngineApiV3({
       authenticator,
       serviceUrl: IAE_ENDPOINT_URL,
     });
@@ -72,19 +73,20 @@ The code samples show how to:
 
 - Retrieve the details of a single instance:
     ```javascript
-    getInstanceById(params)
+    getInstance(params)
     ```
     {: codeblock}
 
     Example request:
     ```
-    service.getInstanceById({
-      instanceId: "{instanceGuid}",
-    }).then((response) => {
-      const { result, status, headers, statusText } = response;
-      console.log(result)
+    const params = {
+      instanceId: 'e64c907a-e82f-46fd-addc-ccfafbd28b09',
+    };
+    ibmAnalyticsEngineApiService.getInstance(params)
+    .then((res) => {
+      console.log(JSON.stringify(res.result, null, 2));
     }).catch((err) => {
-      console.log(JSON.stringify(err, null, 4));
+      console.warn(err);
     });
     ```
     {: codeblock}
@@ -100,81 +102,77 @@ The code samples show how to:
     // ApplicationRequestApplicationDetails
     const applicationRequestApplicationDetailsModel = {
       application: '/opt/ibm/spark/examples/src/main/python/wordcount.py',
-      application_arguments: ['/opt/ibm/spark/examples/src/main/resources/people.txt'],
+      arguments: ['/opt/ibm/spark/examples/src/main/resources/people.txt'],
     };
 
-    service.createApplication({
-      instanceId: "{instanceGuid}",
+    ibmAnalyticsEngineApiService.createApplication({
+      instanceId: 'e64c907a-e82f-46fd-addc-ccfafbd28b09',
       applicationDetails: applicationRequestApplicationDetailsModel,
-    }).then((response) => {
-      const { result, status, headers, statusText } = response;
-      console.log(result)
+    }).then((res) => {
+      console.log(JSON.stringify(res.result, null, 2));
     }).catch((err) => {
-      console.log(JSON.stringify(err, null, 4));
+      console.warn(err);
     });
     ```
     {: codeblock}
 
 - Retrieve all Spark applications run on a given instance:
     ```javascript
-    getApplications(params)
+    listApplications(params)
     ```
     {: codeblock}
 
     Example request:
     ```
-    service.getApplications({
-      instanceId: "{instanceGuid}",
-    }).then((response) => {
-      const { result, status, headers, statusText } = response;
-      console.log(result)
+    ibmAnalyticsEngineApiService.listApplications({
+      instanceId: 'e64c907a-e82f-46fd-addc-ccfafbd28b09',
+    }).then((res) => {
+      console.log(JSON.stringify(res.result, null, 2));
     }).catch((err) => {
-      console.log(JSON.stringify(err, null, 4));
+      console.warn(err);
     });
     ```
     {: codeblock}
 
 - Retrieve the details of a given Spark application:
     ```javascript
-    getApplicationById(params)
+    getApplication(params)
     ```
     {: codeblock}
 
     Example request:
     ```
-    service.getApplicationById({
-      instanceId: "{instanceGuid}",
-      applicationId: "{applicationId}",
-    }).then((response) => {
-      const { result, status, headers, statusText } = response;
-      console.log(result)
+    ibmAnalyticsEngineApiService.getApplication({
+      instanceId: 'e64c907a-e82f-46fd-addc-ccfafbd28b09',
+      applicationId: 'db933645-0b68-4dcb-80d8-7b71a6c8e542',
+    }).then((res) => {
+      console.log(JSON.stringify(res.result, null, 2));
     }).catch((err) => {
-      console.log(JSON.stringify(err, null, 4));
+      console.warn(err);
     });
     ```
     {: codeblock}
 
 - Stop a running application identified by the `app_id` identifier. This is an idempotent operation. Performs no action if the requested application is already stopped or completed.
     ```javascript
-    deleteApplicationById(params)
+    deleteApplication(params)
     ```
     {: codeblock}
 
     Example request:
     ```
-    service.deleteApplicationById({
-      instanceId: "{instanceGuid}",
-      applicationId: "{applicationId}",
-    }).then((response) => {
-      const { result, status, headers, statusText } = response;
-      console.log(result)
+    ibmAnalyticsEngineApiService.deleteApplication({
+      instanceId: 'e64c907a-e82f-46fd-addc-ccfafbd28b09',
+      applicationId: 'db933645-0b68-4dcb-80d8-7b71a6c8e542',
+    }).then((res) => {
+      console.log(JSON.stringify(res.result, null, 2));
     }).catch((err) => {
-      console.log(JSON.stringify(err, null, 4));
+      console.warn(err);
     });
     ```
     {: codeblock}
 
-- Return the status of the application identified by the `app_id` identifier:
+- Return the state of the application identified by the `app_id` identifier:
     ```javascript
     getApplicationState(params)
     ```
@@ -182,14 +180,13 @@ The code samples show how to:
 
     Example request:
     ```
-    service.getApplicationState({
-      instanceId: "{instanceGuid}",
-      applicationId: "{applicationId}",
-    }).then((response) => {
-      const { result, status, headers, statusText } = response;
-      console.log(result)
+    ibmAnalyticsEngineApiService.getApplicationState({
+      instanceId: 'e64c907a-e82f-46fd-addc-ccfafbd28b09',
+      applicationId: 'db933645-0b68-4dcb-80d8-7b71a6c8e542',
+    }).then((res) => {
+      console.log(JSON.stringify(res.result, null, 2));
     }).catch((err) => {
-      console.log(JSON.stringify(err, null, 4));
+      console.warn(err);
     });
     ```
     {: codeblock}

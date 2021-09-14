@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-27"
+lastupdated: "2021-09-13"
 
 subcollection: AnalyticsEngine
 
@@ -31,11 +31,13 @@ You need to download and install the SDK to use it in your Go applications. You 
 ```
 go get -u github.com/IBM/ibm-iae-go-sdk
 ```
+{:codeblock}
 
 If your application uses Go modules, you can add a suitable import to your Go application, and run:
 ```
 go mod tidy
 ```
+{:codeblock}
 
 ## Importing packages
 {: #go-import-packages}
@@ -49,6 +51,7 @@ import (
   "github.com/IBM/ibm-iae-go-sdk/ibmanalyticsengineapiv3"
 )
 ```
+{:codeblock}
 
 ## Creating a client and sourcing credentials
 {: #go-client-credentials}
@@ -72,7 +75,7 @@ The Go SDK allows you to construct the service client in one of two ways by:
 
     You can construct an instance of the {{site.data.keyword.iae_full_notm}} service client by specifying various client options, like the authenticator and service endpoint URL, programmatically:
 
-    ```
+    ```go
     import (
     "github.com/IBM/go-sdk-core/v3/core"
     "github.com/IBM/ibm-iae-go-sdk/ibmanalyticsengineapiv3"
@@ -91,14 +94,16 @@ The Go SDK allows you to construct the service client in one of two ways by:
         }
 
         // Construct the service client.
-        service, err := ibmanalyticsengineapiv3.NewIbmAnalyticsEngineApiV3(options)
+        ibmAnalyticsEngineApiService, err := ibmanalyticsengineapiv3.NewIbmAnalyticsEngineApiV3(options)
         if err != nil {
             panic(err)
         }
 
-        // Service operations can now be invoked using the "service" variable.
+        // Service operations can now be invoked using the "ibmAnalyticsEngineApiService" variable.
     }
     ```
+    {: codeblock}
+
 - By using external configuration properties
 
     To avoid hard-coding sourcing credentials, you can store these values in configuration properties outside of your application.
@@ -112,31 +117,35 @@ The Go SDK allows you to construct the service client in one of two ways by:
 
         The following example shows using environment variables. Each environment variable must be prefixed by `IBM_ANALYTICS_ENGINE_API`.
 
-        ```
+        ```sh
         export IBM_ANALYTICS_ENGINE_API_URL=<IAE_ENDPOINT_URL>
         export IBM_ANALYTICS_ENGINE_API_AUTH_TYPE=iam
         export IBM_ANALYTICS_ENGINE_API_APIKEY=<IAM_API_KEY>
         ```
+        {: codeblock}
+
         `IBM_ANALYTICS_ENGINE_API` is the default service name for the {{site.data.keyword.iae_full_notm}} API  client which means that the SDK will by default look for properties that start with this prefix folded to uppercase.
     1. Build the service client:
-        ```
+
+        ```go
         // Create an IAM authenticator.
         authenticator := &core.IamAuthenticator{
-            ApiKey: "{apikey}", // eg "0viPHOY7LbLNa9eLftrtHPpTjoGv6hbLD1QalRXikliJ"
+           ApiKey: "{apikey}", // eg "0viPHOY7LbLNa9eLftrtHPpTjoGv6hbLD1QalRXikliJ"
         }
 
         // Construct an "options" struct for creating the service client.
         options := &ibmanalyticsengineapiv3.IbmAnalyticsEngineApiV3Options{
-            Authenticator: authenticator,
-            URL: "{url}",  // eg "https://api.us-south.ae.cloud.ibm.com"
+           Authenticator: authenticator,
+           URL: "{url}",  // eg "https://api.us-south.ae.cloud.ibm.com"
         }
 
         // Construct the service client.
         service, err := ibmanalyticsengineapiv3.NewIbmAnalyticsEngineApiV3(options)
         if err != nil {
-            panic(err)
+           panic(err)
         }
         ```
+        {: codeblock}
 
 ## Code samples using `iaesdk`
 {: #code-samples-go}
@@ -145,19 +154,18 @@ The following code samples show how to:
 
 - Retrieve the details of a single instance:
     ```
-    (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) GetInstanceByID(getInstanceByIdOptions *GetInstanceByIdOptions) (result *InstanceDetails, response *core.DetailedResponse, err error)
-    }
+    (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) GetInstance(getInstanceOptions *GetInstanceOptions) (result *Instance, response *core.DetailedResponse, err error)
     ```
     {: codeblock}
 
     Example request:
     ```
     func main() {
-        // Construct an instance of the GetInstanceByIdOptions model
-        getInstanceByIdOptionsModel := new(ibmanalyticsengineapiv3.GetInstanceByIdOptions)
-        getInstanceByIdOptionsModel.InstanceID = core.StringPtr("dc0e9889-eab2-4t9e-9441-566209499546")
+        // Construct an instance of the GetInstanceOptions model
+        getInstanceOptionsModel := new(ibmanalyticsengineapiv3.GetInstanceOptions)
+        getInstanceOptionsModel.InstanceID = core.StringPtr("dc0e9889-eab2-4t9e-9441-566209499546")
 
-        _, response, _ := service.GetInstanceByID(getInstanceByIdOptionsModel)
+        _, response, _ := ibmAnalyticsEngineApiService.GetInstance(getInstanceOptionsModel)
         fmt.Println(response)
     }
     ```
@@ -175,77 +183,78 @@ The following code samples show how to:
         // Construct an instance of the CreateApplicationOptions model
         createApplicationOptionsModel := new(ibmanalyticsengineapiv3.CreateApplicationOptions)
         createApplicationOptionsModel.InstanceID = core.StringPtr("dc0e9889-eab2-4t9e-9441-566209499546")
-        createApplicationOptionsModel.Application = core.StringPtr("cos://ae-bucket-do-not-delete-dc0e9889-eab2-4t9e-9441-566209499546.s3.us-south.cloud-object-storage.appdomain.cloud/my_spark_application.py")
+        createApplicationOptionsModel.Application = core.StringPtr("cos://bucket_name.my_cos/my_spark_app.py")
         createApplicationOptionsModel.Class = core.StringPtr("IbmAnalyticsEngineApi")
-        createApplicationOptionsModel.ApplicationArguments = []string{"/opt/ibm/spark/examples/src/main/resources/people.txt"}
+        createApplicationOptionsModel.Arguments = []string{"/opt/ibm/spark/examples/src/main/resources/people.txt"}
         createApplicationOptionsModel.Conf = make(map[string]interface{})
         createApplicationOptionsModel.Env = make(map[string]interface{})
 
-        _, response, _ := service.CreateApplication(createApplicationOptionsModel)
+        _, response, _ := ibmAnalyticsEngineApiService.CreateApplication(createApplicationOptionsModel)
         fmt.Println(response)
     }
     ```
     {: codeblock}
 
-- Retrieve all Spark applications run on a given instance:
+- Retrieve all Spark applications:
     ```
-    (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) GetApplications(getApplicationsOptions *GetApplicationsOptions) (result *ApplicationCollection, response *core.DetailedResponse, err error)
+    (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) ListApplications(listApplicationsOptions *ListApplicationsOptions) (result *ApplicationCollection, response *core.DetailedResponse, err error)
     ```
     {: codeblock}
 
     Example request:
     ```
     func main() {
-        // Construct an instance of the GetApplicationsOptions model
-        getApplicationsOptionsModel := new(ibmanalyticsengineapiv3.GetApplicationsOptions)
-        getApplicationsOptionsModel.InstanceID = core.StringPtr("dc0e9889-eab2-4t9e-9441-566209499546")
+        // Construct an instance of the ListApplicationsOptions model
+        listApplicationsOptionsModel := new(ibmanalyticsengineapiv3.ListApplicationsOptions)
+        listApplicationsOptionsModel.InstanceID = core.StringPtr("dc0e9889-eab2-4t9e-9441-566209499546")
 
-        _, response, _ := service.GetApplications(getApplicationsOptionsModel)
+        _, response, _ := ibmAnalyticsEngineApiService.ListApplications(listApplicationsOptionsModel)
         fmt.Println(response)
     }
     ```
-    {: codepage}
+    {: codeblock}
 
 - Retrieve the details of a given Spark application:
     ```
-    (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) GetApplicationByID(getApplicationByIdOptions *GetApplicationByIdOptions) (result *ApplicationGetResponse, response *core.DetailedResponse, err error)
+    (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) GetApplication(getApplicationOptions *GetApplicationOptions) (result *ApplicationGetResponse, response *core.DetailedResponse, err error)
     ```
     {: codeblock}
 
     Example request:
     ```
     func main() {
-        // Construct an instance of the GetApplicationByIdOptions model
-        getApplicationByIdOptionsModel := new(ibmanalyticsengineapiv3.GetApplicationByIdOptions)
-        getApplicationByIdOptionsModel.InstanceID = core.StringPtr("dc0e9889-eab2-4t9e-9441-566209499546")
-        getApplicationByIdOptionsModel.ApplicationID = core.StringPtr("db933645-0b68-4dcb-80d8-7b71a6c8e542")
+        // Construct an instance of the GetApplicationOptions model
+        getApplicationOptionsModel := new(ibmanalyticsengineapiv3.GetApplicationOptions)
+        getApplicationOptionsModel.InstanceID = core.StringPtr("dc0e9889-eab2-4t9e-9441-566209499546")
+        getApplicationOptionsModel.ApplicationID = core.StringPtr("db933645-0b68-4dcb-80d8-7b71a6c8e542")
 
-        _, response, _ := service.GetApplicationByID(getApplicationByIdOptionsModel)
+        _, response, _ := ibmAnalyticsEngineApiService.GetApplication(getApplicationOptionsModel)
         fmt.Println(response)
     }
     ```
+    {: codeblock}
 
 - Stop a running application identified by the `app_id` identifier. This is an idempotent operation. Performs no action if the requested application is already stopped or completed.
     ```
-    (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) DeleteApplicationByID(deleteApplicationByIdOptions *DeleteApplicationByIdOptions) (response *core.DetailedResponse, err error)
+    (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) DeleteApplication(deleteApplicationOptions *DeleteApplicationOptions) (response *core.DetailedResponse, err error)
     ```   
     {: codeblock}
 
     Example request:
     ```
     func main() {
-        // Construct an instance of the DeleteApplicationByIdOptions model
-        deleteApplicationByIdOptionsModel := new(ibmanalyticsengineapiv3.DeleteApplicationByIdOptions)
-        deleteApplicationByIdOptionsModel.InstanceID = core.StringPtr("dc0e9889-eab2-4t9e-9441-566209499546")
-        deleteApplicationByIdOptionsModel.ApplicationID = core.StringPtr("db933645-0b68-4dcb-80d8-7b71a6c8e542")
+        // Construct an instance of the DeleteApplicationOptions model
+        deleteApplicationOptionsModel := new(ibmanalyticsengineapiv3.DeleteApplicationOptions))
+        deleteApplicationOptionsModel.InstanceID = core.StringPtr("dc0e9889-eab2-4t9e-9441-566209499546")
+        deleteApplicationOptionsModel.ApplicationID = core.StringPtr("db933645-0b68-4dcb-80d8-7b71a6c8e542")
 
-        _, response, _ := service.DeleteApplicationByID(deleteApplicationByIdOptionsModel)
+        _, response, _ := ibmAnalyticsEngineApiService.DeleteApplication(deleteApplicationOptionsModel)
         fmt.Println(response)
     }
     ```
     {: codeblock}
 
-- Return the status of the application identified by the `app_id` identifier:
+- Return the state of a given application:
     ```
     (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) GetApplicationState(getApplicationStateOptions *GetApplicationStateOptions) (result *ApplicationGetStateResponse, response *core.DetailedResponse, err error)
     ```
@@ -259,7 +268,7 @@ The following code samples show how to:
         getApplicationStateOptionsModel.InstanceID = core.StringPtr("dc0e9889-eab2-4t9e-9441-566209499546")
         getApplicationStateOptionsModel.ApplicationID = core.StringPtr("db933645-0b68-4dcb-80d8-7b71a6c8e542")
 
-        _, response, _ := service.GetApplicationState(getApplicationStateOptionsModel)
+        _, response, _ := ibmAnalyticsEngineApiService.GetApplicationState(getApplicationStateOptionsModel)
         fmt.Println(response)
     }
     ```

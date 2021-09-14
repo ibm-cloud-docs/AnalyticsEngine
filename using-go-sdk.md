@@ -71,32 +71,32 @@ The Go SDK allows you to construct the service client in one of two ways by:
 
     You can construct an instance of the {{site.data.keyword.iae_full_notm}} service client by specifying various client options, like the authenticator and service endpoint URL, programmatically:
 
-    ```
-    import (
-        "github.com/IBM/go-sdk-core/v3/core"
-        "github.com/IBM/ibm-iae-go-sdk/ibmanalyticsengineapiv2"
-    )
+        ```
+        import (
+            "github.com/IBM/go-sdk-core/v3/core"
+            "github.com/IBM/ibm-iae-go-sdk/ibmanalyticsengineapiv2"
+        )
 
-    // Create an IAM authenticator.
-    authenticator := &core.IamAuthenticator{
-        ApiKey: "<IAM_API_KEY>", // eg "0viPHOY7LbLNa9eLftrtHPpTjoGv6hbLD1QalRXikliJ"
-    }
+        // Create an IAM authenticator.
+        authenticator := &core.IamAuthenticator{
+            ApiKey: "<IAM_API_KEY>", // eg "0viPHOY7LbLNa9eLftrtHPpTjoGv6hbLD1QalRXikliJ"
+        }
 
-    // Construct an "options" struct for creating the service client.
-    options := &ibmanalyticsengineapiv2.IbmAnalyticsEngineApiV2Options{
-        Authenticator: authenticator,                               
-        URL: "<IAE_ENDPOINT_URL>",  // eg "https://api.us-south.ae.cloud.ibm.com"
-    }
+        // Construct an "options" struct for creating the service client.
+        options := &ibmanalyticsengineapiv2.IbmAnalyticsEngineApiV2Options{
+            Authenticator: authenticator,                               
+            URL: "<IAE_ENDPOINT_URL>",  // eg "https://api.us-south.ae.cloud.ibm.com"
+        }
 
-    // Construct the service client.
-    service, err := ibmanalyticsengineapiv2.NewIbmAnalyticsEngineApiV2(options)
-    if err != nil {
-        panic(err)
-    }
+        // Construct the service client.
+        service, err := ibmanalyticsengineapiv2.NewIbmAnalyticsEngineApiV2(options)
+        if err != nil {
+            panic(err)
+        }
 
-    // Service operations can now be invoked using the "service" variable.
-    ```
-    {: codeblock}
+        // Service operations can now be invoked using the "service" variable.
+        ```
+        {: codeblock}
 
 - By using external configuration properties
 
@@ -109,14 +109,14 @@ The Go SDK allows you to construct the service client in one of two ways by:
         - Exported environment variables
         - Values stored in a credentials file
 
-        The following example shows using environment variables. Each environment variable must be prefixed by `IBM_ANALYTICS_ENGINE_API`.
+            The following example shows using environment variables. Each environment variable must be prefixed by `IBM_ANALYTICS_ENGINE_API`.
 
-        ```
-        export IBM_ANALYTICS_ENGINE_API_URL=<IAE_ENDPOINT_URL>
-        export IBM_ANALYTICS_ENGINE_API_AUTH_TYPE=iam
-        export IBM_ANALYTICS_ENGINE_API_APIKEY=<IAM_API_KEY>
-        ```
-        `IBM_ANALYTICS_ENGINE_API` is the default service name for the {{site.data.keyword.iae_full_notm}} API  client which means that the SDK will by default look for properties that start with this prefix folded to uppercase.
+            ```
+            export IBM_ANALYTICS_ENGINE_API_URL=<IAE_ENDPOINT_URL>
+            export IBM_ANALYTICS_ENGINE_API_AUTH_TYPE=iam
+            export IBM_ANALYTICS_ENGINE_API_APIKEY=<IAM_API_KEY>
+            ```
+            `IBM_ANALYTICS_ENGINE_API` is the default service name for the {{site.data.keyword.iae_full_notm}} API  client which means that the SDK will by default look for properties that start with this prefix folded to uppercase.
     1. Build the service client:
         ```
         // Construct service client via config properties using default //service name ("ibm_analytics_engine_api")

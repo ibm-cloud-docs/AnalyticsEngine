@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-27"
+lastupdated: "2021-09-13"
 
 subcollection: AnalyticsEngine
 
@@ -23,7 +23,7 @@ The {{site.data.keyword.iae_full_notm}} SDK can be installed by installing the l
 
 Type the following command into a command line:
 ```
-pip install --upgrade "iaesdk>=1.1.0"
+pip install --upgrade "iaesdk>=1.1.1"
 ```
 {: codeblock}
 
@@ -54,24 +54,25 @@ The code samples show how to:
 
     # Constants for IBM Analytics Engine values
     IAM_API_KEY = "{apikey}" # eg "W00YiRnLW4a3fTjMB-odB-2ySfTrFBIQQWanc--P3byk"
-    IAE_ENDPOINT_URL = "{url}" # Current list available at https://cloud.ibm.com/apidocs/ibm-analytics-engine-v3?code=python#authentication
+    IAE_ENDPOINT_URL = "{url}" # Current list avaiable at https://cloud.ibm.com/apidocs/ibm-analytics-engine#service-endpoints
 
     # Create an IAM authenticator.
     authenticator = IAMAuthenticator(IAM_API_KEY)
 
     # Construct the service client.
-    iaesdk_service = IbmAnalyticsEngineApiV3(authenticator=authenticator)
+    ibm_analytics_engine_api_service = IbmAnalyticsEngineApiV3(authenticator=authenticator)
 
     # Set our custom service URL
-    iaesdk_service.set_service_url(IAE_ENDPOINT_URL)
+    ibm_analytics_engine_api_service.set_service_url(IAE_ENDPOINT_URL)
 
-    # Service operations can now be invoked using the "iaesdk_service" variable.
+    # Service operations can now be invoked using the "ibm_analytics_engine_api_service" variable.
+
     ```
     {: codeblock}
 
 - Retrieve the details of a single instance:
     ```python
-    get_instance_by_id(self,
+    get_instance(self,
         instance_id: str,
         **kwargs
     ) -> DetailedResponse
@@ -80,8 +81,10 @@ The code samples show how to:
 
     Example request:
     ```
-    response = iaesdk_service.get_instance_by_id(instance_id)
-    print(response.result)
+    instance = ibm_analytics_engine_api_service.get_instance(
+    instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
+    ).get_result()
+    print(json.dumps(instance, indent=2))
     ```
     {: codeblock}    
 
@@ -98,13 +101,21 @@ The code samples show how to:
 
     Example request:
     ```
-    response = iaesdk_service.create_application(instance_id)
-    print(response.result)
+    application_request_application_details_model = {
+      'application': '/opt/ibm/spark/examples/src/main/python/wordcount.py'
+      'arguments': ['/opt/ibm/spark/examples/src/main/resources/people.txt']
+      }
+    create_application_response = ibm_analytics_engine_api_service.create_application(
+      instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
+      application_details=application_request_application_details_model
+    ).get_result()
+    print(json.dumps(create_application_response, indent=2))
     ```
+    {: codeblock}
 
 - Retrieve all Spark applications run on a given instance:
     ```python
-    get_applications(self,
+    list_applications(self,
         instance_id: str,
         **kwargs
     ) -> DetailedResponse
@@ -113,14 +124,16 @@ The code samples show how to:
 
     Example request:
     ```
-    response = iaesdk_service.get_applications(instance_id)
-    print(response.result)
+    list_applications_response = ibm_analytics_engine_api_service.list_applications(
+      instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
+      ).get_result()
+    print(json.dumps(list_applications_response, indent=2))
     ```
     {: codeblock}
 
 - Retrieve the details of a given Spark application:
     ```python
-    get_application_by_id(self,
+    get_application(self,
         instance_id: str,
         application_id: str,
         **kwargs
@@ -130,14 +143,17 @@ The code samples show how to:
 
     Example request:
     ```
-    response = iaesdk_service.get_application_by_id(instance_id, application_id)
-    print(response.result)
+    get_application_response = ibm_analytics_engine_api_service.get_application(
+      instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
+      application_id='db933645-0b68-4dcb-80d8-7b71a6c8e542'
+      ).get_result()
+    print(json.dumps(get_application_response, indent=2))
     ```
     {: codeblock}
 
 - Stop a running application identified by the `app_id` identifier. This is an idempotent operation. Performs no action if the requested application is already stopped or completed.
     ```python
-    delete_application_by_id(self,
+    delete_application(self,
         instance_id: str,
         application_id: str,
         **kwargs
@@ -147,12 +163,15 @@ The code samples show how to:
 
     Example request:
     ```
-    response = iaesdk_service.delete_application_by_id(instance_id, application_id)
-    print(response.result)
+    delete_application_by_id_response = ibm_analytics_engine_api_service.delete_application_by_id(
+      instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
+      application_id='db933645-0b68-4dcb-80d8-7b71a6c8e542'
+      ).get_result()
+    print(json.dumps(delete_application_by_id_response, indent=2))
     ```
     {: codeblock}
 
-- Return the status of the application identified by the `app_id` identifier:
+- Return the state of the application identified by the `app_id` identifier:
 
     ```python
     get_application_state(self,
@@ -165,7 +184,10 @@ The code samples show how to:
 
     Example request:
     ```
-    response = iaesdk_service.get_application_state(instance_id, application_id)
-    print(response.result)
+    get_application_state_response = ibm_analytics_engine_api_service.get_application_state(
+      instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
+      application_id='db933645-0b68-4dcb-80d8-7b71a6c8e542'
+      ).get_result()
+    print(json.dumps(get_application_state_response, indent=2))
     ```
     {: codeblock}
