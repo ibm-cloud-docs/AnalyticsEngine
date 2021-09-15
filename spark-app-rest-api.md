@@ -101,7 +101,7 @@ To submit a Spark application:
        "application": "cos://<application-bucket-name>.<cos-reference-name>/my_spark_application.py",
        "arguments": ["arg1", "arg2"],
        "conf": {
-         "spark.hadoop.fs.cos.<cos-reference-name>.endpoint": "https://s3.private.us-south.cloud-object-storage.appdomain.cloud",
+         "spark.hadoop.fs.cos.<cos-reference-name>.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
          "spark.hadoop.fs.cos.<cos-reference-name>.access.key": "<access_key>",
          "spark.hadoop.fs.cos.<cos-reference-name>.secret.key": "<secret_key>",
          "spark.app.name": "MySparkApp"

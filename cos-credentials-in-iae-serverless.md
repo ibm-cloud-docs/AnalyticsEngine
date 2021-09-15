@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-11-18"
+  years: 2017, 2021
+lastupdated: "2021-09-15"
 
 subcollection: AnalyticsEngine
 
@@ -39,7 +39,7 @@ fs.cos.<identifier>.secret.key=<Secret Access Key>
 
 Note that the endpoint URL has the format:
 ```
-s3.private.us.cloud-object-storage.appdomain.cloud
+s3.direct.us.cloud-object-storage.appdomain.cloud
 ```
 It doesn't require the prefix `https://`.
 
@@ -53,6 +53,6 @@ fs.cos.<identifier>.endpoint=<EndPoint URL>
 
 Like for HMAC credentials, the endpoint URL has the format:
 ```
-s3.private.us.cloud-object-storage.appdomain.cloud
+s3.direct.us.cloud-object-storage.appdomain.cloud
 ```
 and doesn't require the prefix `https://`.

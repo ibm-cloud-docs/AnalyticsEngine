@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-07"
+lastupdated: "2021-09-15"
 
 subcollection: analyticsengine
 
@@ -38,10 +38,10 @@ Perform these steps to create a library set using script based customization:
    {
      "application_details": {
      "application": "/opt/ibm/customization-scripts/customize_instance_app.py",
-      "arguments": ["{\"library_set\":{\"action\":\"add\",\"name\":\"customize_integration_custom_lib\",\"script\":{\"source\":\"py_files\",\"params\":[\"https://s3.private.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud\",\"<CHANGEME_BUCKET_NAME>\",\"libcalc.so\",\"<CHANGEME_ACCESS_KEY>\",\"<CHANGEME_SECRET_KEY>\"]}}}"],
+      "arguments": ["{\"library_set\":{\"action\":\"add\",\"name\":\"customize_integration_custom_lib\",\"script\":{\"source\":\"py_files\",\"params\":[\"https://s3.direct.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud\",\"<CHANGEME_BUCKET_NAME>\",\"libcalc.so\",\"<CHANGEME_ACCESS_KEY>\",\"<CHANGEME_SECRET_KEY>\"]}}}"],
       "py-files": "cos://<CHANGEME_BUCKET_NAME>.dev-cos/customization_script.py",
           "conf": {
-            "spark.hadoop.fs.cos.dev-cos.endpoint":"https://s3.private.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud",
+            "spark.hadoop.fs.cos.dev-cos.endpoint":"https://s3.direct.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud",
             "spark.hadoop.fs.cos.dev-cos.access.key":"<CHANGEME_ACCESS_KEY>",
             "spark.hadoop.fs.cos.dev-cos.secret.key":"<CHANGEME_SECRET_KEY>"
        }

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-08"
+lastupdated: "2021-09-15"
 
 subcollection: analyticsengine
 
@@ -38,7 +38,7 @@ To reference a library set when submitting a Spark application:
      "application": "cos://<bucket-name>.<cos-name>/my_spark_application.py",
   	 "arguments": ["arg1", "arg2"],
      "conf": {
-       "spark.hadoop.fs.cos.<cos-name>.endpoint":"https://s3.private.us-south.cloud-object-storage.appdomain.cloud",
+       "spark.hadoop.fs.cos.<cos-name>.endpoint":"https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
        "spark.hadoop.fs.cos.<cos-name>.access.key":"<access_key>",
        "spark.hadoop.fs.cos.<cos-name>.secret.key":"<secret_key>",
        "ae.spark.librarysets":"my_library_set"
