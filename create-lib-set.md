@@ -56,7 +56,7 @@ To create a library set:
    - `"packages"`: List of packages to install.
 
 1. Get the [IAM token](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token-serverless).
-1. Pass the JSON file as `"application_arguments"` in the following REST API call. Make sure that you escape the quotes as required, while passing to the REST API call.
+1. Pass the JSON file as `"arguments"` in the following REST API call. Make sure that you escape the quotes as required, while passing to the REST API call.
    ```
    curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications --header "Authorization: Bearer <IAM token>" -H "content-type: application/json"  -d @createLibraryset.json
    ```
@@ -67,7 +67,7 @@ To create a library set:
    {
     "application_details": {
       "application": "/opt/ibm/customization-scripts/customize_instance_app.py",
-      "application_arguments": ["{\"library_set\":{\"action\":\"add\",\"name\":\"my_library_set\",\"libraries\":{\"conda\":{\"python\":{\"packages\":[\"numpy\"]}}}}}"]
+      "arguments": ["{\"library_set\":{\"action\":\"add\",\"name\":\"my_library_set\",\"libraries\":{\"conda\":{\"python\":{\"packages\":[\"numpy\"]}}}}}"]
      }
    }
    ```

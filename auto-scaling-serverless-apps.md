@@ -34,7 +34,7 @@ https://test.cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-
     {
       "application_details": {
         "application": "/opt/ibm/spark/examples/src/main/python/wordcount.py",
-        "application_arguments": ["/opt/ibm/spark/examples/src/main/resources/people.txt"]
+        "arguments": ["/opt/ibm/spark/examples/src/main/resources/people.txt"]
        },
        "conf": {
          "ae.spark.autoscale.enable":"true"

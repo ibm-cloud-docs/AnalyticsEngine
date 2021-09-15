@@ -31,14 +31,14 @@ Perform these steps to create a library set using script based customization:
 1. Store the `customization_scripts.py` file in {{site.data.keyword.cos_full_notm}} or in GitHub.
 1. Pass the location of the `customization_scrpts.py` file to the customization Spark application through the `--py-files`  parameter.
 
-   The `"application_arguments"` section in the Spark application submission payload must contain a `"library_set"` section with details, like `"action"` and `"name"` as shown in the following sample payload.
+   The `"arguments"` section in the Spark application submission payload must contain a `"library_set"` section with details, like `"action"` and `"name"` as shown in the following sample payload.
 
    Example of the payload:
    ```
    {
      "application_details": {
      "application": "/opt/ibm/customization-scripts/customize_instance_app.py",
-      "application_arguments": ["{\"library_set\":{\"action\":\"add\",\"name\":\"customize_integration_custom_lib\",\"script\":{\"source\":\"py_files\",\"params\":[\"https://s3.private.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud\",\"<CHANGEME_BUCKET_NAME>\",\"libcalc.so\",\"<CHANGEME_ACCESS_KEY>\",\"<CHANGEME_SECRET_KEY>\"]}}}"],
+      "arguments": ["{\"library_set\":{\"action\":\"add\",\"name\":\"customize_integration_custom_lib\",\"script\":{\"source\":\"py_files\",\"params\":[\"https://s3.private.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud\",\"<CHANGEME_BUCKET_NAME>\",\"libcalc.so\",\"<CHANGEME_ACCESS_KEY>\",\"<CHANGEME_SECRET_KEY>\"]}}}"],
       "py-files": "cos://<CHANGEME_BUCKET_NAME>.dev-cos/customization_script.py",
           "conf": {
             "spark.hadoop.fs.cos.dev-cos.endpoint":"https://s3.private.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud",

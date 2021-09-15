@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-08"
+lastupdated: "2021-09-15"
 
 subcollection: analyticsengine
 
@@ -35,7 +35,7 @@ The following sections in this topic show samples for each of the Spark applicat
 ## Required credentials and permissions
 {: #spark-app-creds}
 
-Before you can submit a Spark application, you need to get authentication credentials and set the correct permissions on the  Analytics Engine serverless instance.
+Before you can submit a Spark application, you need to get authentication credentials and set the correct permissions on the Analytics Engine serverless instance.
 
 1. You need the GUID of the service instance you noted down when you provisioned the instance. If you didn't make a note of the GUID, see [Retrieving the GUID of a serverless instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-instance-details).
 1. You must have the correct permissions to perform the required operations. See [User permissions](/docs/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions-serverless).
@@ -44,27 +44,14 @@ Before you can submit a Spark application, you need to get authentication creden
 ## Submitting a Spark application
 {: #spark-submit-app}
 
-When you submit a Spark application, you need to reference the application file. To help you to get started quickly and learn how to use AE serverless Spark APIs, this section begins with an example that uses pre-bundled Spark application files that are referenced in the submit application API payload. The subsequent section shows you how to run applications that are stored in an {{site.data.keyword.cos_short}} bucket.
+{{site.data.keyword.iae_short}} Serverless provides you with a REST interface to submit Spark applications. The payload passed to the REST API maps to various command-line arguments supported by the `spark-submit` command. See [Parameters for submitting Spark applications](#spark-submit-parms) for more details.
 
-
-<!--
- You can save your Spark application file to:
-
-- [A GitHub repository](#file-github)
-- [An AWS S3 bucket](#file-aws)
-- [An {{site.data.keyword.cos_full_notm}} bucket](#file-cos)
-
-### Referencing files from GitHub
-{: #file-github}
-
-### Referencing files from an AWS S3 bucket
-{: #file-aws}
--->
+When you submit a Spark application, you need to reference the application file. To help you to get started quickly and learn how to use the AE serverless Spark APIs, this section begins with an example that uses pre-bundled Spark application files that are referenced in the submit application API payload. The subsequent section shows you how to run applications that are stored in an {{site.data.keyword.cos_short}} bucket.
 
 ### Referencing pre-bundled files
 {: #quick-start}
 
-The provided sample application show you how to reference a .py word count application file and a data file in a job payload.
+The provided sample application show you how to reference a `.py` word count application file and a data file in a job payload.
 
 To learn how to quickly get started using pre-bundled sample application files:
 
@@ -107,7 +94,7 @@ To submit a Spark application:
    ```
    {: codeblock}
 
-1. Prepare the payload JSON file. For example, submit-spark-app.json:
+1. Prepare the payload JSON file. For example, `submit-spark-app.json`:
    ```
    {
      "application_details": {
@@ -118,11 +105,7 @@ To submit a Spark application:
          "spark.hadoop.fs.cos.<cos-reference-name>.access.key": "<access_key>",
          "spark.hadoop.fs.cos.<cos-reference-name>.secret.key": "<secret_key>",
          "spark.app.name": "MySparkApp"
-         },  
-       "env": {
-         "SPARK_ENV_LOADED": "2",
-         "LD_LIBRARY_PATH": "/some/path/to/libs"
-        }
+         }
      }
    }
    ```
@@ -143,10 +126,42 @@ To submit a Spark application:
    ```
 
    Note:  
-   - You can pass Spark application configuration values through the `"conf"` section of the payload.
+   - You can pass Spark application configuration values through the `"conf"` section in the payload. See [Parameters for submitting Spark applications](#spark-submit-parms) for more details.
    - `<cos-reference-name>` in the `"conf"` section of the sample payload is any name given to your {{site.data.keyword.cos_full_notm}} definition, which you are referencing in the URL in the `"application"` parameter.
    - It might take approximately a minute to submit the Spark application. Make sure to set sufficient timeout in the client code.
    - Make a note of the `"id"` returned in the response. You need this value to perform operations such as  getting the state of the application, retrieving the details of the application, or deleting the application.
+
+## Passing the Spark configuration to an application
+{: #pass-config}
+
+You can use the `conf` section in the payload to pass the Spark application configuration. If you specified Spark configurations at the instance level, those are inherited by the Spark applications run on the instance, but can be overridden at the time a Spark application is submitted by including the `conf` section in the payload.
+
+See [Spark configuration in {{site.data.keyword.iae_short}} Serverless](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts#default-spark-config).
+
+## Parameters for submitting Spark applications
+{: #spark-submit-parms}
+
+The following table lists the mapping between the `spark-submit` command parameters and their equivalent to be passed to the  `application_details` section of the Spark application submission REST API payload.
+
+| spark-submit command parameter | Payload to the Analytics Engine Spark submission REST API|
+|----------------------------------|---------------------------------------|
+| `<application binary passed as spark-submit command parameter>` | `application_details` -> `application` |
+| `<application-arguments>` | `application_details` -> `arguments` |
+| `class`| `application_details` -> `class` |
+| `jars` | `application_details` -> `jars` |
+| `name` |	`application_details` -> `name` or `application_details` -> `conf` -> `spark.app.name` |
+| `packages`| `application_details` -> `packages`|
+| `repositories`| `application_details` -> `repositories`|
+| `files`| `application_details` -> `files`|
+| `archives`| `application_details` -> `archives`|
+| `driver-cores`| `application_details` -> `conf` -> `spark.driver.cores`|
+| `driver-memory`| `application_details` -> `conf` -> `spark.driver.memory`|
+| `driver-java-options`| `application_details` -> `conf` -> `spark.driver.defaultJavaOptions`|
+| `driver-library-path` | `application_details` -> `conf` -> `spark.driver.extraLibraryPath`|
+| `driver-class-path` | `application_details` -> `conf` -> `spark.driver.extraClassPath`|
+| `executor-cores`| `application_details` -> `conf` -> `spark.executor.cores`|
+| `executor-memory`| `application_details` -> `conf` -> `spark.executor.memory`|
+| `num-executors`| `application_details` -> `conf` -> `ae.spark.executor.count`|
 
 
 ## Getting the state of a submitted application
@@ -195,7 +210,7 @@ To get the details of a submitted application, enter:
 ## Stopping a submitted application
 {: #spark-app-stop}
 
-To stop a submitted application, enter:
+To stop a submitted application, run the following:
    ```
    curl -X DELETE https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id> --header "Authorization: Bearer $token"
    ```
@@ -204,3 +219,5 @@ To stop a submitted application, enter:
    Returns `204 – No Content`, if the deletion is successful. The state of the application is set to STOPPED.
 
    This API is idempotent. If you attempt to stop an already completed or stopped application, it will still return 204.
+
+   You can use this API to stop an application in the following states: `accepted`, `waiting`, `submitted`, and `running`.

@@ -60,7 +60,7 @@ In a Spark 3.1 runtime, you can submit Spark applications written in the followi
 
 Instance home is the storage attached to the instance for instance related data only, such as custom application libraries and Spark history events. Currently, only {{site.data.keyword.cos_full_notm}} is accepted for instance home. This instance can be an instance in your {{site.data.keyword.Bluemix_short}} account or an instance from a different account.
 
-When you provision an instance using the {{site.data.keyword.Bluemix_notm}} console, the {{site.data.keyword.cos_full_notm}} instances in your {{site.data.keyword.Bluemix_short}} account are autodiscovered and displayed in a list for you to select from. If no {{site.data.keyword.cos_full_notm}} instances are found in your account, you can use the REST APIs to update instance home after instance creation.
+When you provision an instance using the {{site.data.keyword.Bluemix_notm}} console, the {{site.data.keyword.cos_full_notm}} instances in your {{site.data.keyword.Bluemix_short}} account are auto discovered and displayed in a list for you to select from. If no {{site.data.keyword.cos_full_notm}} instances are found in your account, you can use the REST APIs to update instance home after instance creation.
 
 You can’t change instance home after instance creation. You can only edit the access keys.
 
@@ -78,7 +78,20 @@ You must provide a quota for:
 ### Default Spark configuration
 {: #default-spark-config}
 
-{{site.data.keyword.iae_full_notm}} instances use the default  Apache Spark configuration settings. See [Spark Configuration](https://spark.apache.org/docs/latest/configuration.html){: external}  for a list of the default settings and their values.
+You can specify default Spark configurations at the instance level and let that be inherited by Spark applications created on the instance. This is an optional section that you can specify at the time of instance creation. Values specified as instance level defaults can be overridden at the time of submitting Spark applications.
+
+Currently, the following Apache Spark configurations are supported:
+- `spark.driver.memory`
+- `spark.driver.cores`
+- `spark.executor.memory`
+- `spark.executor.cores`
+- `spark.driver.defaultJavaOptions`
+- `spark.driver.extraLibaryPathe`
+- `spark.driver.extraClassPath`
+
+See [Spark Configuration](https://spark.apache.org/docs/latest/configuration.html){: external} to understand more about the Apache Spark properties.
+
+Additionally, you can also specify default values for autoscaling Spark applications at the instance level. See [Autoscaling application configurations](/docs/AnalyticsEngine?topic=AnalyticsEngine-appl-auto-scaling) for details.
 
 The following list shows the default values for Apache Spark configuration settings adapted for {{site.data.keyword.iae_full_notm}} instances:
 
@@ -86,18 +99,13 @@ The following list shows the default values for Apache Spark configuration setti
 - `"spark.driver.cores": "1"`
 - `"spark.executor.memory": "4G"`
 - `"spark.executor.cores": "1"`
-- `"spark.executor.instances": "1"`
 - `"spark.eventLog.enabled": "true"`
+- `"ae.spark.executor.count": "1"`
 
 
 For the default limits and quotas for {{site.data.keyword.iae_short}} instances and the supported Spark driver and executor vCPU and memory combinations, see [Limits and quotas for {{site.data.keyword.iae_short}} instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-limits).
 
-When you create an instance you can override the open source default Apache Spark configuration settings. Note that you can specify or change configuration options after the instance was created.
-
-You can override or add settings by using the:
-
-<!-- - **IBM Cloud console**. Add or override configuration options for your Spark instance as name-value pairs at instance creation time.-->
-- **API**. See [Spark application REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api)
+When you create an instance you can override the open source default Apache Spark configuration settings. Note that you can specify or change configuration options after the instance was created. You can override or add settings by using the REST API. See [Spark application REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api).
 
 ## Serverless instance features and execution methods
 
