@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-14"
+lastupdated: "2021-10-04"
 
 subcollection: AnalyticsEngine
 
@@ -23,6 +23,38 @@ Use these notes to learn about the latest features, additions and changes to {{s
 {: shortdesc}
 
 ## {{site.data.keyword.iae_full_notm}} information
+
+### 01 October 2021
+
+- New security patches for **AE-1.2.v29.11**
+
+  **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.11**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+  Customers are required to review the following CVE information and take appropriate action:
+
+  - [CVE-2021-36222](https://nvd.nist.gov/vuln/detail/CVE-2021-36222)
+  - [CVE-2021-37750](https://nvd.nist.gov/vuln/detail/CVE-2021-37750)
+
+  Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
+
+### 17 September 2021
+
+- New security patches for **AE-1.2.v29.10**
+
+  **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.10**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+  Customers are required to review the following CVE information and take appropriate action:
+
+  - [CVE-2021-25214](https://nvd.nist.gov/vuln/detail/CVE-2021-25214)
+  - [CVE-2021-3621](https://nvd.nist.gov/vuln/detail/CVE-2021-3621)
+  - [RHSA-2021:3325](https://access.redhat.com/errata/RHSA-2021:3325)
+  - [RHSA-2021:3336](https://access.redhat.com/errata/RHSA-2021:3336)
+  - [CVE-2020-13529](https://nvd.nist.gov/vuln/detail/CVE-2020-13529)
+  - [CVE-2021-33560](https://nvd.nist.gov/vuln/detail/CVE-2021-33560)
+  - [CVE-2021-33910](https://nvd.nist.gov/vuln/detail/CVE-2021-33910)
+  - [CVE-2021-40528](https://nvd.nist.gov/vuln/detail/CVE-2021-40528)
+
+  Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
 ### 26 August 2021
 
