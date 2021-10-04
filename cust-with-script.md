@@ -51,28 +51,28 @@ Perform these steps to create a library set using script based customization:
    {: codeblock}
 
    Example of customization_script.py:
-   ```
-   import cos_utils
-   import os
+    ```
+    import cos_utils
+    import os
 
-   def customize(install_path, params):
-     print ("inside base install_misc_package(), override this to implement your own implementation.")
-     for param in params:
-      print(param)
-      endpoint = params[0]
-      bucket_name = params[1]
-      so_file_name = params[2]
-      access_key = params[3]
-      secret_key = params[4]
-      cos = cos_utils.get_cos_object(access_key, secret_key, endpoint)
+    def customize(install_path, params):
+      print ("inside base install_misc_package(), override this to implement your own implementation.")
+      for param in params:
+       print(param)
+       endpoint = params[0]
+       bucket_name = params[1]
+       so_file_name = params[2]
+       access_key = params[3]
+       secret_key = params[4]
+       cos = cos_utils.get_cos_object(access_key, secret_key, endpoint)
 
-      retCode = cos_utils.download_file(so_file_name, cos, bucket_name, "{}/{}".format(install_path, so_file_name))
-      if (retCode != 0):
-          print("non-zero return code while downloading file    {}".format(str(retCode)))
-         sys.exit(retCode)
-        else:
-          print("Successfully downloaded file...")
-   ```
+       retCode = cos_utils.download_file(so_file_name, cos, bucket_name, "{}/{}".format(install_path, so_file_name))
+       if (retCode != 0):
+           print("non-zero return code while downloading file    {}".format(str(retCode)))
+           sys.exit(retCode)
+       else:
+           print("Successfully downloaded file...")
+    ```
    {: codeblock}
 
 ## Using the library set created using script based customization
