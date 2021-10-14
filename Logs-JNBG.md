@@ -55,7 +55,7 @@ You can access Spark Executor logs using one of the following ways:
     ```
     yarn logs -applicationId <application Id>
     ```
-    {:codeblock}
+    {: codeblock}
 
     This will output to the console all the container logs associated with the `application Id`. Typically these would be the stderr and stdout logs for the Application Master and each Executor launched for the application session.
 

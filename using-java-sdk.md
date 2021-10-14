@@ -45,7 +45,7 @@ Maven uses a file that is called `pom.xml` to specify the libraries and their ve
     </dependencies>
 </project>
 ```
-{:codeblock}
+{: codeblock}
 
 ## Creating a client and sourcing credentials
 {: #java-client-credentials}

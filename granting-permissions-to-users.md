@@ -45,32 +45,21 @@ The following table lists the required IAM privileges for user onboarding.
 
 To onboard new users to your account:
 
-1.	Log on to the [{{site.data.keyword.Bluemix_notm}} dashboard](https://{DomainName}){: external}.
+1. Log on to the [{{site.data.keyword.Bluemix_notm}} dashboard](https://{DomainName}){: external}.
+1. Click **Manage -> Account -> Users**.
+1. In the User management page, click **Invite users**.
+1. Enter the IBMid of the user you want to invite.
+1. Under the Access section, expand **Services** and select the following values.
 
-2.	Click **Manage -> Account -> Users**.
+    - To assign access at a resource group level:
 
-3.	In the User management page, click **Invite users**.
+        1. Assign access to: Select **Resource group**.
+        1. Resource group: Choose a resource group to which to grant access.
+        1. Assign access to a resource group: Select the level of access you want to provide.
+    - To assign access at a Resource level:
 
-4.	Enter the IBMid of the user you want to invite.
-
-5.	Under the Access section, expand **Services** and select the following values.
-
- To assign access at a resource group level:
-
-	a.	Assign access to: Select **Resource group**.
-
-	b.	Resource group: Choose a resource group to which to grant access.
-
-	c.	Assign access to a resource group: Select the level of access you want to provide.
-
-  To assign access at a Resource level:
-
-   a. Assign Access to: Select **Resource**.
-
-   b. Services: **{{site.data.keyword.iae_short}}**.
-
-   c. Region: Choose the region, for example **US-South** depending on where your resource resides.
-
-   d. Service Instance: Choose the service instance that you want to grant access to.   
-
-   e. Select roles: Select the levels of access you want to provide.
+        1. Assign Access to: Select **Resource**.
+        1. Services: **{{site.data.keyword.iae_short}}**.
+        1. Region: Choose the region, for example **US-South** depending on where your resource resides.
+        1. Service Instance: Choose the service instance that you want to grant access to.
+        1. Select roles: Select the levels of access you want to provide.

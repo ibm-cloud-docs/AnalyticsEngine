@@ -35,7 +35,7 @@ See [Retrieving service endpoints](/docs/services/AnalyticsEngine?topic=Analytic
 
 Here is a representative sample of a cluster's service endpoint details:
 
-```
+```json
 .
 .
       "cluster": {
@@ -78,7 +78,7 @@ Download the [`nb2kg` package](https://github.com/jupyter-incubator/nb2kg){: ext
 
 For the previous {{site.data.keyword.iae_full_notm}} cluster response details, the configuration would be:
 
-```
+```text
 KG_URL=https://chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkg/
 KG_WS_URL=wss://chs-zbh-288-mn001.<changeme>.ae.appdomain.cloud:8443/gateway/default/jkgws/
 KG_HTTP_USER=clsadmin
@@ -111,7 +111,7 @@ Because the Jupyter Kernel Gateway service exposes an HTTP- and WebSocket-based 
 
 Refer to the following sample applications written for Node.js and Python 2.
 
-**Example 1: Creating an Node.js Spark application using the IBM Analytics Engine interactive API**
+### Example 1: Creating an Node.js Spark application using the IBM Analytics Engine interactive API
 
 This sample application creates the Spark kernel using the IBM Analytics Engine interactive API service and runs Spark code against the kernel.
 
@@ -119,7 +119,7 @@ To create a sample application that runs on a Linux system:
 
 1. Prepare the environment in which you run the sample application. Run the following commands to install the required Node packages:
 
-    ```
+    ```json
     mkdir ~/spark-example
     cat <<EOT > ~/spark-example/package.json
     {
@@ -199,7 +199,7 @@ To create a sample application that runs on a Linux system:
     content: { text: '[882, 635, 978, 219, 773]\n', name: 'stdout' },
     ```
 
-**Example 2: Creating a Python 2 Spark application using the IBM Analytics Engine Interactive API**
+### Example 2: Creating a Python 2 Spark application using the IBM Analytics Engine Interactive API
 
 This Python 2 sample code uses Tornado libraries to make HTTP and WebSocket calls to a Jupyter Kernel Gateway service. You need a Python 2 runtime environment with the Tornado package installed to run this sample code.
 
@@ -373,7 +373,7 @@ Here are code snippets to show how the kernel name and code variables can be mod
 
 - Python 2
 
-    ```
+    ```python
     kernel_name = "python2-spark21"
     code = '\n'.join(( "print(\"Spark Version: {}\".format(sc.version))", "print(\"Application Name: {}\".format(sc._jsc.sc().appName()))", "print(\"Application ID: {} \".format(sc._jsc.sc().applicationId()))", "sc.parallelize([1,2,3,4,5]).count()" ))
     ```
@@ -381,7 +381,7 @@ Here are code snippets to show how the kernel name and code variables can be mod
 
 - R
 
-    ```
+    ```r
     kernel_name = "r-spark21"
     code = """
      cat("Spark Version: ", sparkR.version())

@@ -31,10 +31,10 @@ subcollection: AnalyticsEngine
 HIPAA support from IBM requires that you agree to the terms of the [Business Associate Addendum (BAA) agreement](https://www.ibm.com/support/customer/csol/terms/){: external} with IBM for your {{site.data.keyword.Bluemix_short}} account. The BAA outlines IBM responsibilities, but also your responsibilities to maintain HIPAA compliance. After you enable HIPAA support in your {{site.data.keyword.Bluemix_short}} account, you cannot disable it. See [Enabling EU support for your account](/docs/account?topic=account-eu-hipaa-supported){: external}.
 
 To enable HIPAA support for your {{site.data.keyword.Bluemix_short}} account:
-1.	Log in to your {{site.data.keyword.Bluemix_short}} account.
-2.	Click **Manage > Account** and then **Account settings**.
-3.	In the **HIPAA Supported** section, click **On**.
-4.	Read the BAA and then select **Accept** and click **Submit**.
+1. Log in to your {{site.data.keyword.Bluemix_short}} account.
+2. Click **Manage > Account** and then **Account settings**.
+3. In the **HIPAA Supported** section, click **On**.
+4. Read the BAA and then select **Accept** and click **Submit**.
 
 You do not need to reprovision your {{site.data.keyword.iae_full_notm}} service after you enable HIPAA support.
 

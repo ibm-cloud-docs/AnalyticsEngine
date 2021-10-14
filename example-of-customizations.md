@@ -59,7 +59,7 @@ Currently, only one custom action can be specified in the `customization` array.
 
 Create a cluster with bootstrap customization using the {{site.data.keyword.Bluemix_short}} Resource Controller (rc) REST API:
 
-```
+```sh
 curl \
   --request POST \
   --url 'https://resource-controller.cloud.ibm.com/v1/resource_instances'   \
@@ -91,7 +91,7 @@ Consider the following aspects:
 
 An adhoc customization script can be run any time after the cluster is created and becomes active. Enter the following command to run an adhoc customization script for target `all`:
 
-```
+```sh
 curl -X POST -v " https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d
 '{
 	"target": "all",
@@ -162,19 +162,18 @@ R libraries must be installed to the `~/R` directory. The following steps show y
 
 To install the R package from an archive file:
 1. Download the archive repository:
-  ```
-  wget <path-to-archive>/<packagename>/<packagename>_<version>.tar.gz
-  ```
-2. Use the R command to install the package:
-  ```
-  R CMD INSTALL <packagename>_<version>.tar.gz
-  ```
+    ```
+    wget <path-to-archive>/<packagename>/<packagename>_<version>.tar.gz
+    ```
+1. Use the R command to install the package:
+    ```
+    R CMD INSTALL <packagename>_<version>.tar.gz
+    ```
 
-To install an R package from a CRAN repository:
-1. Enter the following command:
-  ```
-  R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
-  ```
+To install an R package from a CRAN repository, enter the following command:
+    ```
+    R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
+    ```
 
 For more information, see [Installing additional libraries](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-install-additional-libs){: new_window}.
 
@@ -208,7 +207,7 @@ Where:
 
 **Note:** The script path should be the raw content path of your script. The example uses a script that associates an {{site.data.keyword.cos_full_notm}} instance with the cluster so that data in {{site.data.keyword.cos_full_notm}} can be used in Hadoop and Spark jobs.
 
-###  Example of the script hosted in an HTTPS location (with or without basic authentication)
+### Example of the script hosted in an HTTPS location (with or without basic authentication)
 
 ```
 "script": {
@@ -221,7 +220,7 @@ Where:
 },
 "script_params": ["arg1", "arg2"]
 ```
-### Example of the customization script hosted in  {{site.data.keyword.cos_full_notm}}
+### Example of the customization script hosted in {{site.data.keyword.cos_full_notm}}
 
 ```
 "script": {
@@ -245,23 +244,23 @@ The script expects the user ID, password, database name, and database connection
 
 ```
 "script": {
-     "source_type": "http",
-"script_path": "https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-external-metastore-postgresql.sh"
- },
- "script_params": ["<DB_USER_NAME>"," <DB_PWD>" , "<DB_NAME>" , "<DB_CXN_URL>", "<CLSADMIN_PWD>",”<COS_ENDPOINT>”,"<POSTGRES_CERT_LOC_ON_COS>","<COS_ACCESS_KEY_ID>","<COS_SECRET_KEY_ID>"]
+  "source_type": "http",
+  "script_path": "https://raw.githubusercontent.com/IBM-Cloud/IBM-Analytics-Engine/master/customization-examples/associate-external-metastore-postgresql.sh"
+  },
+  "script_params": ["<DB_USER_NAME>"," <DB_PWD>" , "<DB_NAME>" , "<DB_CXN_URL>", "<CLSADMIN_PWD>",”<COS_ENDPOINT>”,"<POSTGRES_CERT_LOC_ON_COS>","<COS_ACCESS_KEY_ID>","<COS_SECRET_KEY_ID>"]
 ```
 The input parameters to the script include:
 
 - `<CLSADMIN_PWD>`: The `clsadmin` user password
 - `<COS_ENDPOINT>` : The {{site.data.keyword.cos_short}} endpoint, for example, `s3.private.us-south.cloud-object-storage.appdomain.cloud`
--	`<POSTGRES_CERT_LOC_ON_COS>`: The relative file path to the decoded POSTgres certificate file in {{site.data.keyword.cos_short}}, for example, `/<bucket_name>/certificates/postgres.cert`
+- `<POSTGRES_CERT_LOC_ON_COS>`: The relative file path to the decoded POSTgres certificate file in {{site.data.keyword.cos_short}}, for example, `/<bucket_name>/certificates/postgres.cert`
 - `<COS_ACCESS_KEY_ID>`: The {{site.data.keyword.cos_short}} access key details to enable downloading the Postgres certificate file from {{site.data.keyword.cos_short}}.
 - `<COS_SECRET_KEY_ID>`: {{site.data.keyword.cos_short}} secret key details (password) to enable downloading the Postgres  certificate file from {{site.data.keyword.cos_short}}.
 
 ### Example of re-running a bootstrap customization script registered during cluster creation
 
 A persisted customization script is registered during cluster creation and can be rerun. Enter the following command to rerun a persisted customization script:
-```
+```sh
 curl -X POST -v " https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests" -d '{"target":"all"}'  -H "Authorization: Bearer <user's IAM access token>" -H "Content-Type: application/json"
 ```
 For the United Kingdom region, use the endpoint `https://api.eu-gb.ae.cloud.ibm.com`. For Germany, use `https://api.eu-de.ae.cloud.ibm.com`, and for Tokyo `https://api.jp-tok.ae.cloud.ibm.com`.

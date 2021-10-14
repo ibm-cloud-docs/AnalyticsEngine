@@ -21,7 +21,7 @@ subcollection: AnalyticsEngine
 
 This topic describes managing column encryption keys by using {{site.data.keyword.keymanagementservicefull}} (Key Protect). It explains how to create a Key Protect instance and to provide master keys and how to write and read encrypted data using these master keys.
 
-### Creating a Key Protect instance and master keys
+## Creating a Key Protect instance and master keys
 
 To create a Key protect instance and master keys:
 
@@ -37,7 +37,7 @@ To write encrypted data:
 
 1. Pass the following parameters to IBM Analytics Engine:
 
-    -	`"parquet.encryption.kms.instance.id"`: The ID of your KeyProtect instance, for example:
+    - `"parquet.encryption.kms.instance.id"`: The ID of your KeyProtect instance, for example:
         ```
         sc.hadoopConfiguration.set("parquet.encryption.kms.instance.id" , "27861a9a-6779-4026-bca4-01e59acf0767")
         ```
@@ -92,17 +92,18 @@ public static void KeyToolkit.rotateMasterKeys(String folderPath, Configuration 
 ```
 
 To enable Parquet key rotation, the following Hadoop configuration properties must be set:
+
 - The parameters `"parquet.encryption.key.access.token"`, `"parquet.encryption.kms.instance.url"`, `"parquet.encryption.kms.instance.id"`
 - The parameter `"parquet.encryption.key.material.store.internally"` must be set to `"false"`
 - The parameter `"parquet.encryption.kms.client.class"` must be set to `"com.ibm.parquet.key.management.KeyProtectClient"`
 
-For example:
-```
-sc.hadoopConfiguration.set("parquet.encryption.kms.instance.id", "27861a9a-6779-4026-bca4-01e59acf0767")
-sc.hadoopConfiguration.set("parquet.encryption.kms.instance.url" , "https://<region>.kms.cloud.ibm.com")
-sc.hadoopConfiguration.set("parquet.encryption.key.access.token" , "<token string>")
-sc.hadoopConfiguration.set("parquet.encryption.kms.client.class" "com.ibm.parquet.key.management.KeyProtectClient")
-sc.hadoopConfiguration.set("parquet.encryption.key.material.store.internally", "false")
+    For example:
+    ```
+    sc.hadoopConfiguration.set("parquet.encryption.kms.instance.id", "27861a9a-6779-4026-bca4-01e59acf0767")
+    sc.hadoopConfiguration.set("parquet.encryption.kms.instance.url" , "https://<region>.kms.cloud.ibm.com")
+    sc.hadoopConfiguration.set("parquet.encryption.key.access.token" , "<token string>")
+    sc.hadoopConfiguration.set("parquet.encryption.kms.client.class" "com.ibm.parquet.key.management.KeyProtectClient")
+    sc.hadoopConfiguration.set("parquet.encryption.key.material.store.internally", "false")
 
-KeyToolkit.rotateMasterKeys("<path to encrypted files>", sc.hadoopConfiguration)
-```
+    KeyToolkit.rotateMasterKeys("<path to encrypted files>", sc.hadoopConfiguration)
+    ```

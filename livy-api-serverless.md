@@ -22,7 +22,7 @@ subcollection: analyticsengine
 Livy batches API is a REST interface for submitting Spark batch jobs. This interface is very similar to the open source Livy REST interface (see [Livy](https://github.com/cloudera/livy)) except for a few limitations which are described in the following topic.
 
 The open source Livy batches log API to retrieve log lines from a batch job is not supported. The logs are added to the {{site.data.keyword.cos_full_notm}} bucket that was referenced as the service instance `"instance_home"`. At a later time during the beta release, the logs can be forwarded to {{site.data.keyword.la_full_notm}}.
-{: .note}
+{: note}
 
 Gets the log lines from this batch.
 
@@ -30,7 +30,7 @@ Gets the log lines from this batch.
 
 To submit a Spark batch job by using the Livy batches API, enter:
 
-```
+```sh
 curl \
 -H 'Authorization: Bearer <TOKEN>' \
 -H 'Content-Type: application/json' \
@@ -65,7 +65,7 @@ Request body for a submitted batch job using the Livy batches API:
 | `conf` | Spark configuration properties |	map of key=val |
 
 The `proxyUser`, `archives` and `queue` properties are not supported in the request body although they are supported in  the open source Livy REST interface.
-{:note}
+{: note}
 
 Response body of a submitted batch job using the Livy batches API:
 
@@ -85,7 +85,7 @@ The following sections show you how to use the Livy batches APIs.
 ### Submit a batch job with job file in  {{site.data.keyword.cos_full_notm}}
 
 To submit a batch job where the job file is located in an {{site.data.keyword.cos_full_notm}} bucket, enter:
-```
+```sh
 curl -i -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance-id>/livy/batches -H 'content-type: application/json' -H "Authorization: Bearer $TOKEN" -d @livypayload.json
 ```
 {: codeblock}
@@ -93,7 +93,7 @@ curl -i -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<inst
 The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, which should preferably match the location of your {{site.data.keyword.iae_short}} instance, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.  
 
 Sample payload:
-```
+```json
 {
   "file": "cos://<bucket>.mycos/wordcount.py",
   "className": "org.apache.spark.deploy.SparkSubmit",
@@ -109,20 +109,20 @@ Sample payload:
 {: codeblock}
 
 Sample response:
-```
+```text
 {"id":13,"app_info":{},"state":"not_started"}
 ```
 
 ### Submit batch job with job file on local disk
 
 To submit a batch job where the job file is located on a local disk enter:
-```
+```sh
 curl -i -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance-id>/livy/batches -H 'content-type: application/json' -H "Authorization: Bearer $TOKEN" -d @livypayload.json
 ```
 {: codeblock}
 
 Sample payload:
-```
+```json
 {
   "file": "/opt/ibm/spark/examples/src/main/python/wordcount.py",
   "args": ["/opt/ibm/spark/examples/src/main/resources/people.txt"],
@@ -132,7 +132,7 @@ Sample payload:
 {: codeblock}
 
 Sample response:
-```
+```text
 {"id":15,"app_info":{},"state":"not_started"}
 ```
 
@@ -142,7 +142,7 @@ The `SparkUiUrl` property in response will have a non-null value when the UI is 
 ### List the details of a job
 
 To list the job details for a particular Spark batch job enter:
-```
+```sh
 curl \
 -H 'Authorization: Bearer <TOKEN>' \
 -H 'Content-Type: application/json' \
@@ -161,12 +161,12 @@ The response body for listing the job details:
 | `state` | State of submitted batch job | string |
 
 An example:
-```
+```sh
 curl -i -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/43f79a18-768c-44c9-b9c2-b19ec78771bf/livy/batches/14 -H 'content-type: application/json' -H "Authorization: Bearer $TOKEN"
 ```
 
 Sample response:
-```
+```text
 {
  "id": 14,
  "appId": "app-20201213175030-0000",
@@ -183,7 +183,7 @@ The `SparkUiUrl` property in response will have a non-null value when the UI is 
 ### Get job state
 
 To get the state of your submitted job enter:
-```
+```sh
 curl \
 -H 'Authorization: Bearer <TOKEN>' \
 -H 'Content-Type: application/json' \
@@ -199,13 +199,13 @@ The response body for getting the state of the batch job:
 | `state` | State of submitted batch job | string |
 
 For example:
-```
+```sh
 curl -i -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/43f79a18-768c-44c9-b9c2-b19ec78771bf/livy/batches/14/state -H 'content-type: application/json' -H "Authorization: Bearer $TOKEN"
 ```
 {: codeblock}
 
 Sample response:
-```
+```text
 {
 	"id": 14,
 	"state": "success"
@@ -215,7 +215,7 @@ Sample response:
 ### List all submitted jobs
 
 To list all of the submitted Spark batch jobs enter:
-```
+```sh
 curl \
 -H 'Authorization: Bearer <TOKEN>' \
 -H 'Content-Type: application/json' \
@@ -224,7 +224,7 @@ curl \
 {: codeblock}
 
 The `from` and `size` properties are not supported in the request body although they are supported in the open source Livy REST interface.
-{:note}
+{: note}
 
 The response body for listing all submitted Spark batch jobs:
 
@@ -235,13 +235,13 @@ The response body for listing all submitted Spark batch jobs:
 | `sessions`| The details for each batch job in a session | list |
 
 For example:
-```
+```sh
 curl -i -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/43f79a18-768c-44c9-b9c2-b19ec78771bf/livy/batches -H 'content-type: application/json' -H "Authorization: Bearer $TOKEN"
 ```
 {: codeblock}
 
 Sample response:
-```
+```text
 {
   "from": 0,
   "sessions": [{
@@ -270,7 +270,7 @@ The `SparkUiUrl` property in response will have a non-null value when the UI is 
 ### Delete a job
 
 To delete a submitted batch job enter:
-```
+```sh
 curl \
 -H 'Authorization: Bearer <TOKEN>' \
 -H 'Content-Type: application/json' \
@@ -279,11 +279,11 @@ curl \
 {: codeblock}
 
 For example:
-```
+```sh
 curl -i -X DELETE https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/43f79a18-768c-44c9-b9c2-b19ec78771bf/livy/batches/14 -H 'content-type: application/json' -H "Authorization: Bearer $TOKEN"
 ```
 Sample response:
-```
+```text
 {
 	"msg": "deleted"
 }

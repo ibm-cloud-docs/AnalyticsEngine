@@ -114,8 +114,7 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
    {: codeblock}
 
    The {{site.data.keyword.Bluemix_short}} response to the create instance command:
-   ```
-
+   ```text
    {
      "instance_id": "dc0e****-eab2-4t9e-94**-56620949****",
      "state": "created",
@@ -125,7 +124,9 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
 
    Make a note of the instance ID from the output. You will need the instance ID when you call instance management or Spark application management APIs. See [Spark application REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api).
    {: important}
+
 1. [Track instance readiness](#instance-readiness).
+
 
 ## Creating a service instance using the Resource Controller REST API
 {: #rest-api-provisioning}

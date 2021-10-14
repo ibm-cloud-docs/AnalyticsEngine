@@ -19,16 +19,14 @@ subcollection: AnalyticsEngine
 # Configuring and viewing logs
 {: #viewing-logs}
 
-Logging can help you troubleshoot issues in {{site.data.keyword.iae_full_notm}}.
+Logging can help you troubleshoot issues in {{site.data.keyword.iae_full_notm}}. When you run applications in {{site.data.keyword.iae_full_notm}} with logging enabled, logs are forwarded to an {{site.data.keyword.la_full_notm}} service where they are indexed, enabling full-text search through all generated messages and convenient querying based on specific fields.
 {: shortdesc}
-
-When you run applications in {{site.data.keyword.iae_full_notm}} with logging enabled, logs are forwarded to an {{site.data.keyword.la_full_notm}} service where they are indexed, enabling full-text search through all generated messages and convenient querying based on specific fields.
 
 ## Platform logs overview
 {: #platform-logs}
 
 *Platform logs* are logs that are exposed to users by various services on the {{site.data.keyword.cloud_notm}} platform. {{site.data.keyword.iae_full_notm}} supports forwarding logs from the {{site.data.keyword.iae_full_notm}} service to an {{site.data.keyword.la_full_notm}} instance that you have enabled to receive platform logs.
-{:shortdesc}
+
 
 - Platform logs are regional.
 

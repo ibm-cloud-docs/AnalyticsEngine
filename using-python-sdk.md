@@ -145,6 +145,7 @@ The code samples show how to:
             print("Unable to retrieve: {0}".format(e))
     ```
     {: codeblock}
+    
 - Resize the cluster:
     ```python
     def resize_cluster(instance_guid, compute_nodes_count):

@@ -31,49 +31,50 @@ Perform these steps to create a library set using script based customization:
 1. Store the `customization_scripts.py` file in {{site.data.keyword.cos_full_notm}} or in GitHub.
 1. Pass the location of the `customization_scrpts.py` file to the customization Spark application through the `--py-files`  parameter.
 
-   The `"arguments"` section in the Spark application submission payload must contain a `"library_set"` section with details, like `"action"` and `"name"` as shown in the following sample payload.
+    The `"arguments"` section in the Spark application submission payload must contain a `"library_set"` section with details, like `"action"` and `"name"` as shown in the following sample payload.
 
-   Example of the payload:
-   ```
-   {
-     "application_details": {
-     "application": "/opt/ibm/customization-scripts/customize_instance_app.py",
-      "arguments": ["{\"library_set\":{\"action\":\"add\",\"name\":\"customize_integration_custom_lib\",\"script\":{\"source\":\"py_files\",\"params\":[\"https://s3.direct.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud\",\"<CHANGEME_BUCKET_NAME>\",\"libcalc.so\",\"<CHANGEME_ACCESS_KEY>\",\"<CHANGEME_SECRET_KEY>\"]}}}"],
-      "py-files": "cos://<CHANGEME_BUCKET_NAME>.dev-cos/customization_script.py",
-          "conf": {
-            "spark.hadoop.fs.cos.dev-cos.endpoint":"https://s3.direct.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud",
-            "spark.hadoop.fs.cos.dev-cos.access.key":"<CHANGEME_ACCESS_KEY>",
-            "spark.hadoop.fs.cos.dev-cos.secret.key":"<CHANGEME_SECRET_KEY>"
-       }
-     }
-   }
-   ```
-   {: codeblock}
+    Example of the payload:
+    ```
+    {
+      "application_details": {
+      "application": "/opt/ibm/customization-scripts/customize_instance_app.py",
+        "arguments": ["{\"library_set\":{\"action\":\"add\",\"name\":\"customize_integration_custom_lib\",\"script\":{\"source\":\"py_files\",\"params\":[\"https://s3.direct.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud\",\"<CHANGEME_BUCKET_NAME>\",\"libcalc.so\",\"<CHANGEME_ACCESS_KEY>\",\"<CHANGEME_SECRET_KEY>\"]}}}"],
+        "py-files": "cos://<CHANGEME_BUCKET_NAME>.dev-cos/customization_script.py",
+            "conf": {
+              "spark.hadoop.fs.cos.dev-cos.endpoint":"https://s3.direct.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud",
+              "spark.hadoop.fs.cos.dev-cos.access.key":"<CHANGEME_ACCESS_KEY>",
+              "spark.hadoop.fs.cos.dev-cos.secret.key":"<CHANGEME_SECRET_KEY>"
+        }
+      }
+    }
+    ```
+    {: codeblock}
 
-   Example of customization_script.py:
+    Example of customization_script.py:
     ```
     import cos_utils
     import os
+    import sys
 
     def customize(install_path, params):
       print ("inside base install_misc_package(), override this to implement your own implementation.")
       for param in params:
        print(param)
-       endpoint = params[0]
-       bucket_name = params[1]
-       so_file_name = params[2]
-       access_key = params[3]
-       secret_key = params[4]
-       cos = cos_utils.get_cos_object(access_key, secret_key, endpoint)
+      endpoint = params[0]
+      bucket_name = params[1]
+      log_config_file = params[2]
+      access_key = params[3]
+      secret_key = params[4]
+      cos = cos_utils.get_cos_object(access_key, secret_key, endpoint)
 
-       retCode = cos_utils.download_file(so_file_name, cos, bucket_name, "{}/{}".format(install_path, so_file_name))
-       if (retCode != 0):
+      retCode = cos_utils.download_file(log_config_file, cos, bucket_name, "{}/{}".format(install_path, log_config_file))
+      if (retCode != 0):
            print("non-zero return code while downloading file    {}".format(str(retCode)))
            sys.exit(retCode)
-       else:
+      else:
            print("Successfully downloaded file...")
     ```
-   {: codeblock}
+    {: codeblock}
 
 ## Using the library set created using script based customization
 {: #script-cust-using}

@@ -63,7 +63,7 @@ where:
 Sample Response:
 Bear in mind that the cluster credentials are not returned in the response.
 
-```
+```json
 {
   "iam_apikey_description": "Auto generated apikey during resource-key operation for Instance - <instance crn>",
   "iam_apikey_name": "<api key name>",
@@ -113,7 +113,7 @@ The API endpoint that handles API service keys is `https://resource-controller.c
 
 
 To create a resource key, enter:
-```
+```sh
 curl -X POST \
   https://resource-controller.cloud.ibm.com/v1/resource_keys \
   -H 'accept: application/json' \
@@ -121,10 +121,10 @@ curl -X POST \
   -H 'content-type: application/json' \
   -d '{"name":"<key name>","source_crn":"<service instance crn>", "parameters":{"role_crn":"<crn of access role>"} }'
 ```
-{:codeblock}
+{: codeblock}
 
 Sample response:
-```
+```text
 {
   "resource_group_id": "43c5c7978b0644f9bd2890fea1fdeadf",
   "deleted_at": null,

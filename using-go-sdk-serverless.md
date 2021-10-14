@@ -31,13 +31,13 @@ You need to download and install the SDK to use it in your Go applications. You 
 ```
 go get -u github.com/IBM/ibm-iae-go-sdk
 ```
-{:codeblock}
+{: codeblock}
 
 If your application uses Go modules, you can add a suitable import to your Go application, and run:
 ```
 go mod tidy
 ```
-{:codeblock}
+{: codeblock}
 
 ## Importing packages
 {: #go-import-packages}
@@ -51,7 +51,7 @@ import (
   "github.com/IBM/ibm-iae-go-sdk/ibmanalyticsengineapiv3"
 )
 ```
-{:codeblock}
+{: codeblock}
 
 ## Creating a client and sourcing credentials
 {: #go-client-credentials}
