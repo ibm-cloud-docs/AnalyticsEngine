@@ -21,6 +21,8 @@ content-type: release-note
 {:external: target="_blank" .external}
 {:release-note: data-hd-content-type='release-note'}
 
+<!-- keywords values above are place holders. Actual values should be pulled from the release notes entries. -->
+
 {{site.data.keyword.attribute-definition-list}}
 
 <!-- You must add the release-note content type in your attribute definitions AND to each release note H2. This will ensure that the release note entry is pulled into the notifications library. -->
