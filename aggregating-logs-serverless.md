@@ -175,6 +175,7 @@ This is a sample response:
     }]
 }
 ```
+
 ## Deleting the log configuration
 
 You delete the log configuration by invoking the DELETE API. This operation stops sending logs to the centralized log server.
