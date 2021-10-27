@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2019
+  years: 2017, 2021
 lastupdated: "2019-06-18"
 
 subcollection: AnalyticsEngine
@@ -107,6 +107,7 @@ For example, for data on a cluster in the US-South region, use:
 ```
 https://XXXXX.us-south.ae.appdomain.cloud:8443/gateway/default/hdfs/explorer.html
 ```
+
 ## Learn more
 {: #hdfs-learn-more}
 

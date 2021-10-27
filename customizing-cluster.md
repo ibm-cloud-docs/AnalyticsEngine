@@ -43,7 +43,7 @@ Bootstrap customization is not recommended for customizing Ambari components lik
 
 Consider the following aspects:
 - The bootstrap customization script is executed on all nodes of the cluster including the management and compute nodes.
--	The bootstrap customization action specified during cluster creation is automatically executed on any new compute node added during the cluster resize operation.
+- The bootstrap customization action specified during cluster creation is automatically executed on any new compute node added during the cluster resize operation.
 - Currently, bootstrap customization is possible only using the Cloud Foundry CLI or the Cloud Foundry REST API modes for creating a cluster. That is, it cannot be specified via the GUI.
 
 ## Adhoc customization
@@ -62,9 +62,10 @@ The main differences between these customization methods is shown in the followi
 
 ## Location of the customization script
 You can add a customization script to the following sources:
-*	HTTP with or without basic authentication
-*	HTTPS with or without basic authentication
-*	{{site.data.keyword.cos_full_notm}}
+
+- HTTP with or without basic authentication
+- HTTPS with or without basic authentication
+- {{site.data.keyword.cos_full_notm}}
 
 Examples for each type are given in the following sections.
 
@@ -72,15 +73,17 @@ Examples for each type are given in the following sections.
 
 As mentioned before, in the case of boostrap customization, the script runs on all nodes.
 You need to specify a target only when you run:
- - An adhoc customization
- - Or when you need to rerun a bootstrap customization script
 
-The target can be one of the following four types
-  - `all`: runs the customization on all nodes of the cluster, including management, compute and task nodes
-  - `task`: runs the customization on all task nodes
-  - `data`: runs the customization on all compute nodes
-  - `management2` or `management3` (the `management-slave1` or `management-slave2` nodes are deprecated): runs on the management2 or management3 node as specified. You may need this for configuring Ambari parameters as give in the example section.
-  - A comma separated list of fully qualified node names: This runs on the given list of nodes only.
+- An adhoc customization
+- Or when you need to rerun a bootstrap customization script
+
+The target can be one of the following four types:
+
+- `all`: runs the customization on all nodes of the cluster, including management, compute and task nodes
+- `task`: runs the customization on all task nodes
+- `data`: runs the customization on all compute nodes
+- `management2` or `management3` (the `management-slave1` or `management-slave2` nodes are deprecated): runs on the management2 or management3 node as specified. You may need this for configuring Ambari parameters as give in the example section.
+- A comma separated list of fully qualified node names: This runs on the given list of nodes only.
 
 If the target is multiple nodes, the customization scripts are executed in parallel.
 
@@ -118,7 +121,7 @@ This is a three step process. First you need to get the customization request ID
 
 Use the following cluster management REST API to get the customization requests for the given instance ID:
 
-```
+```sh
 curl -X GET  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests -H 'Authorization: Bearer <user's IAM access token>'
 ```
 
@@ -138,7 +141,7 @@ Endpoints:
 
 Use the following cluster management REST API to get the details of a specific customization request:
 
-```
+```sh
 curl -X GET  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<service_instance_id>/customization_requests/<request_id> -H 'Authorization: Bearer <user's IAM access token>'
 ```
 
@@ -151,7 +154,7 @@ If there is a failure, you may need to rerun the customization for that target o
 
 For example:
 
-```
+```json
 {
 	"id": "37",
 	"run_status": "Completed",
@@ -192,7 +195,7 @@ where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, 
 
 You can retrieve the log file in `log_file` by using [`ssh/scp`](/docs/AnalyticsEngine?topic=AnalyticsEngine-connect-SSH) to the corresponding node. This log captures the output of script execution, including the `echo` statements. If the script could not be executed due to a bad location or bad credentials specified, you will see details of the error in the log. The following example shows the log for such a case.
 
-```
+```text
 [clsadmin@chs-mwb-189-mn003 ~]$ cat /var/log/chs-mwb-189-mn003.<region>.ae.appdomain.cloud_28.log
 Error while downloading customization script, ResponseCode: 0, Please verify source_props and  script_path properties in bootstrap action
 ```

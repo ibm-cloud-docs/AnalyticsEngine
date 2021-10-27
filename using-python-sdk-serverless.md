@@ -22,7 +22,7 @@ subcollection: AnalyticsEngine
 The {{site.data.keyword.iae_full_notm}} SDK can be installed by installing the library `iaesdk` from the Python Package Index.
 
 Type the following command into a command line:
-```
+```python
 pip install --upgrade "iaesdk>=1.1.1"
 ```
 {: codeblock}
@@ -80,7 +80,7 @@ The code samples show how to:
     {: codeblock}
 
     Example request:
-    ```
+    ```python
     instance = ibm_analytics_engine_api_service.get_instance(
     instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
     ).get_result()
@@ -100,7 +100,7 @@ The code samples show how to:
     {: codeblock}
 
     Example request:
-    ```
+    ```python
     application_request_application_details_model = {
       'application': '/opt/ibm/spark/examples/src/main/python/wordcount.py'
       'arguments': ['/opt/ibm/spark/examples/src/main/resources/people.txt']
@@ -123,7 +123,7 @@ The code samples show how to:
     {: codeblock}
 
     Example request:
-    ```
+    ```python
     list_applications_response = ibm_analytics_engine_api_service.list_applications(
       instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
       ).get_result()
@@ -142,7 +142,7 @@ The code samples show how to:
     {: codeblock}
 
     Example request:
-    ```
+    ```python
     get_application_response = ibm_analytics_engine_api_service.get_application(
       instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
       application_id='db933645-0b68-4dcb-80d8-7b71a6c8e542'
@@ -162,7 +162,7 @@ The code samples show how to:
     {: codeblock}
 
     Example request:
-    ```
+    ```python
     delete_application_by_id_response = ibm_analytics_engine_api_service.delete_application_by_id(
       instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
       application_id='db933645-0b68-4dcb-80d8-7b71a6c8e542'
@@ -183,7 +183,7 @@ The code samples show how to:
     {: codeblock}
 
     Example request:
-    ```
+    ```python
     get_application_state_response = ibm_analytics_engine_api_service.get_application_state(
       instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
       application_id='db933645-0b68-4dcb-80d8-7b71a6c8e542'

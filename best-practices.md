@@ -33,10 +33,10 @@ To help you create and maintain a stateless cluster, you should try to keep to t
 - [Separate compute from storage](#separate-compute-from-storage)
 - [Choose the right Databases for PostgreSQL configuration](#postgre-config)
 - [Choose the right {{site.data.keyword.cos_full_notm}} configuration](#encryption)
-  - [Disaster Recovery Resiliency](#DR-resiliency)
-  - [Encryption](#cos-encryption)
-  - [{{site.data.keyword.cos_full_notm}} credentials](#cos-credentials)
-  - [Private endpoints for {{site.data.keyword.cos_full_notm}}](#private-endpoint)
+    - [Disaster Recovery Resiliency](#DR-resiliency)
+    - [Encryption](#cos-encryption)
+    - [{{site.data.keyword.cos_full_notm}} credentials](#cos-credentials)
+    - [Private endpoints for {{site.data.keyword.cos_full_notm}}](#private-endpoint)
 - [Create a new cluster for new features or packages](#new-packages)
 - [Customize cluster creation using scripts](#use-scripts)
 - [Size the cluster appropriately](#cluster-size)
@@ -117,9 +117,9 @@ If your customization consists only of changes to the configuration of a cluster
 
 Size your cluster depending on your environment and workload:
 
- - For your development environment, create an {{site.data.keyword.iae_full_notm}} cluster  with 1 Management and 2 compute nodes
- - For your staging environment, the cluster size depends on the workloads and job characteristics, as well as the service-level agreement (SLA).
- - For Production environment, the cluster size depends on the workloads and job characteristics, and your SLA. Contact IBM Sales to get suitable sizing for your requirements.
+- For your development environment, create an {{site.data.keyword.iae_full_notm}} cluster  with 1 Management and 2 compute nodes
+- For your staging environment, the cluster size depends on the workloads and job characteristics, as well as the service-level agreement (SLA).
+- For Production environment, the cluster size depends on the workloads and job characteristics, and your SLA. Contact IBM Sales to get suitable sizing for your requirements.
 
 In general, it is advisable to have at least 2 nodes in the cluster so that replication can be done internally by Hadoop for HDFS binaries and data if any.
 
@@ -132,8 +132,8 @@ Task nodes don't run HDFS hence they are more stateless in  nature, which makes 
 {: #plan}
 
 Select the plan based on your workload use-case:
- - For deploy, run and discard use-cases, select hourly plan clusters.
- - For long running clusters, select monthly plan clusters.
+- For deploy, run and discard use-cases, select hourly plan clusters.
+- For long running clusters, select monthly plan clusters.
 
 ## Choose the appropriate hardware configuration
 {: #hardware}
@@ -147,9 +147,9 @@ The software packages on `AE 1.2` clusters include components for Horton Datawor
 
 | AE 1.2  clusters     | Based on HDP 3.1        |
 |-----------------|-----------------------------|
-| `AE 1.2 Hive LLAP` <br>Choose if you are planning to run Hive in interactive mode, with preconfigured settings for Hive LLAP for faster responses. | Hadoop, Livy, Knox, Ambari, Conda-Py, Hive (LLAP mode) |
-| `AE 1.2 Spark and Hive` <br>Choose if you are planning to run Hive and/or Spark workloads.  | Hadoop, Livy, Knox, Spark, JEG, Ambari, Conda Py, Hive (non LLAP mode ) |
-| `AE 1.2 Spark and Hadoop`<br>Choose if you are planning to run Hadoop workloads in addition to Spark workloads. | (AE 1.2 Spark and Hive) +  HBase, Phoenix, Oozie |
+| `AE 1.2 Hive LLAP`  \nChoose if you are planning to run Hive in interactive mode, with preconfigured settings for Hive LLAP for faster responses. | Hadoop, Livy, Knox, Ambari, Conda-Py, Hive (LLAP mode) |
+| `AE 1.2 Spark and Hive`  \nChoose if you are planning to run Hive and/or Spark workloads.  | Hadoop, Livy, Knox, Spark, JEG, Ambari, Conda Py, Hive (non LLAP mode ) |
+| `AE 1.2 Spark and Hadoop`  \nChoose if you are planning to run Hadoop workloads in addition to Spark workloads. | (AE 1.2 Spark and Hive) + HBase, Phoenix, Oozie |
 
 Currently you cannot resize a cluster that uses the `AE 1.2 Hive LLAP` software package.
 {: note}

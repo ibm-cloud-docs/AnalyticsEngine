@@ -57,27 +57,27 @@ To learn how to quickly get started using pre-bundled sample application files:
 
 1. Generate an IAM token if you haven’t already done so. See [Retrieving IAM access tokens](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token-serverless).
 1. Export the token into a variable:
-   ```
-   export token=<token generated>
-   ```
-   {: codeblock}
+    ```sh
+    export token=<token generated>
+    ```
+    {: codeblock}
 
 1. Prepare the payload JSON file. For example, submit-spark-quick-start-app.json:
-   ```
-   {
-     "application_details": {
-       "application": "/opt/ibm/spark/examples/src/main/python/wordcount.py",
-       "arguments": ["/opt/ibm/spark/examples/src/main/resources/people.txt"]
-       }
-   }
-   ```
-   {: codeblock}
+    ```json
+    {
+      "application_details": {
+        "application": "/opt/ibm/spark/examples/src/main/python/wordcount.py",
+        "arguments": ["/opt/ibm/spark/examples/src/main/resources/people.txt"]
+        }
+    }
+    ```
+    {: codeblock}
 
 1. Submit the Spark application:
-   ```
-   curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications --header "Authorization: Bearer $token" -H "content-type: application/json"  -d @submit-spark-quick-start-app.json
-   ```
-   {: codeblock}
+    ```sh
+    curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications --header "Authorization: Bearer $token" -H "content-type: application/json"  -d @submit-spark-quick-start-app.json
+    ```
+    {: codeblock}
 
 
 ### Referencing files from an {{site.data.keyword.cos_short}} bucket
@@ -89,47 +89,47 @@ To submit a Spark application:
 1. Add the application file to the newly created bucket. See [Upload an object](/docs/cloud-object-storage?topic=cloud-object-storage-object-operations#object-operations-put) for adding your application file to the bucket.
 1. Generate an IAM token if you haven’t already done so. See [Retrieving IAM access tokens](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token-serverless).
 1. Export the token into a variable:
-   ```
-   export token=<token generated>
-   ```
+    ```sh
+    export token=<token generated>
+    ```
    {: codeblock}
 
 1. Prepare the payload JSON file. For example, `submit-spark-app.json`:
-   ```
-   {
-     "application_details": {
-       "application": "cos://<application-bucket-name>.<cos-reference-name>/my_spark_application.py",
-       "arguments": ["arg1", "arg2"],
-       "conf": {
-         "spark.hadoop.fs.cos.<cos-reference-name>.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
-         "spark.hadoop.fs.cos.<cos-reference-name>.access.key": "<access_key>",
-         "spark.hadoop.fs.cos.<cos-reference-name>.secret.key": "<secret_key>",
-         "spark.app.name": "MySparkApp"
+    ```json
+    {
+      "application_details": {
+         "application": "cos://<application-bucket-name>.<cos-reference-name>/my_spark_application.py",
+         "arguments": ["arg1", "arg2"],
+         "conf": {
+            "spark.hadoop.fs.cos.<cos-reference-name>.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+            "spark.hadoop.fs.cos.<cos-reference-name>.access.key": "<access_key>",
+            "spark.hadoop.fs.cos.<cos-reference-name>.secret.key": "<secret_key>",
+            "spark.app.name": "MySparkApp"
          }
-     }
+      
    }
    ```
    {: codeblock}
 
 1. Submit the Spark application:
-   ```
-   curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications --header "Authorization: Bearer $token" -H "content-type: application/json"  -d @submit-spark-app.json
-   ```
-   {: codeblock}
+    ```curl
+    curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications --header "Authorization: Bearer $token" -H "content-type: application/json"  -d @submit-spark-app.json
+    ```
+    {: codeblock}
 
-   Sample response:
-   ```
-   {
-     "id": "87e63712-a823-4aa1-9f6e-7291d4e5a113",
-     "state": "accepted"
-   }
-   ```
+    Sample response:
+    ```json
+    {
+      "id": "87e63712-a823-4aa1-9f6e-7291d4e5a113",
+      "state": "accepted"
+    }
+    ```
 
-   Note:  
-   - You can pass Spark application configuration values through the `"conf"` section in the payload. See [Parameters for submitting Spark applications](#spark-submit-parms) for more details.
-   - `<cos-reference-name>` in the `"conf"` section of the sample payload is any name given to your {{site.data.keyword.cos_full_notm}} definition, which you are referencing in the URL in the `"application"` parameter.
-   - It might take approximately a minute to submit the Spark application. Make sure to set sufficient timeout in the client code.
-   - Make a note of the `"id"` returned in the response. You need this value to perform operations such as  getting the state of the application, retrieving the details of the application, or deleting the application.
+    Note:  
+    - You can pass Spark application configuration values through the `"conf"` section in the payload. See [Parameters for submitting Spark applications](#spark-submit-parms) for more details.
+    - `<cos-reference-name>` in the `"conf"` section of the sample payload is any name given to your {{site.data.keyword.cos_full_notm}} definition, which you are referencing in the URL in the `"application"` parameter.
+    - It might take approximately a minute to submit the Spark application. Make sure to set sufficient timeout in the client code.
+    - Make a note of the `"id"` returned in the response. You need this value to perform operations such as  getting the state of the application, retrieving the details of the application, or deleting the application.
 
 ## Passing the Spark configuration to an application
 {: #pass-config}
@@ -168,56 +168,56 @@ The following table lists the mapping between the `spark-submit` command paramet
 {: #spark-app-status}
 
 To get the state of a submitted application, enter:
-   ```bash
-   curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id>/state --header "Authorization: Bearer $token"
-   ```
-   {: codeblock}
+    ```sh
+    curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/ spark_applications/<application_id>/state --header "Authorization: Bearer $token"
+    ```
+    {: codeblock}
 
-   Sample response:
-   ```
-   {
-     "id": "a9a6f328-56d8-4923-8042-97652fff2af3",
-     "state": "finished",
-     "start_time": "2020-11-25T14:14:31.311+0000",
-     "finish_time": "2020-11-25T14:30:43.625+0000"
-   }
-   ```
+    Sample response:
+    ```json
+    {
+       "id": "a9a6f328-56d8-4923-8042-97652fff2af3",
+       "state": "finished",
+       "start_time": "2020-11-25T14:14:31.311+0000",
+       "finish_time": "2020-11-25T14:30:43.625+0000"
+    }
+    ```
 
 ## Getting the details of a submitted application
 {: #spark-app-details}
 
 To get the details of a submitted application, enter:
-   ```bash
-   curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id> --header "Authorization: Bearer $token"
-   ```
-   {: codeblock}
+    ```sh
+    curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/ spark_applications/<application_id> --header "Authorization: Bearer $token"
+    ```
+    {: codeblock}
 
-   Sample response:
-   ```
-   {
-     "application_details": {
-       "application": "/opt/ibm/spark/examples/src/main/python/wordcount.py",
-       "arguments": [
-       "/opt/ibm/spark/examples/src/main/resources/people.txt"
-       ]},
-       "id": "a9a6f328-56d8-4923-8042-97652fff2af3",
-       "state": "finished",
-       "start_time": "2020-11-25T14:14:31.311+0000",
-       "finish_time": "2020-11-25T14:15:53.205+0000"
-   }
-   ```
+    Sample response:
+    ```json
+    {
+      "application_details": {
+        "application": "/opt/ibm/spark/examples/src/main/python/wordcount.py",
+        "arguments": [
+        "/opt/ibm/spark/examples/src/main/resources/people.txt"
+        ]},
+        "id": "a9a6f328-56d8-4923-8042-97652fff2af3",
+        "state": "finished",
+        "start_time": "2020-11-25T14:14:31.311+0000",
+        "finish_time": "2020-11-25T14:15:53.205+0000"
+    }
+    ```
 
 ## Stopping a submitted application
 {: #spark-app-stop}
 
 To stop a submitted application, run the following:
-   ```
-   curl -X DELETE https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id> --header "Authorization: Bearer $token"
-   ```
-   {: codeblock}
+    ```sh
+    curl -X DELETE https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id> --header "Authorization: Bearer $token"
+    ```
+    {: codeblock}
 
-   Returns `204 – No Content`, if the deletion is successful. The state of the application is set to STOPPED.
+    Returns `204 – No Content`, if the deletion is successful. The state of the application is set to STOPPED.
 
-   This API is idempotent. If you attempt to stop an already completed or stopped application, it will still return 204.
+    This API is idempotent. If you attempt to stop an already completed or stopped application, it will still return 204.
 
-   You can use this API to stop an application in the following states: `accepted`, `waiting`, `submitted`, and `running`.
+    You can use this API to stop an application in the following states: `accepted`, `waiting`, `submitted`, and `running`.

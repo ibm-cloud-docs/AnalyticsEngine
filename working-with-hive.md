@@ -45,32 +45,32 @@ Connect to the Hive server by using with Beeline client. The command varies depe
 
 - Without LLAP enabled, issue:
 
-  ```
-  ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
-  beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/ ;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p **********
-  ```
+    ```
+    ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
+    beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/ ;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p **********
+    ```
 - With LLAP, issue:
 
-  ```
-  ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
-  beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive-interactive' -n clsadmin -p **********
-  ```
+    ```
+    ssh clsadmin@chs-xxxxx-mn003.<changeme>.ae.appdomain.cloud
+    beeline -u 'jdbc:hive2://chs-xxxxx-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive-interactive' -n clsadmin -p **********
+    ```
 
-  where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
+    where `<changeme>` is the {{site.data.keyword.Bluemix_short}} hosting location, for example `us-south`, `eu-gb` (for the United Kingdom), `eu-de` (for Germany) or `jp-tok` (for Japan).
 
 The following examples show useful HiveQL statements.
 
 - Example of the CREATE TABLE statement:
 
-	`CREATE TABLE docs (line STRING);`
+    `CREATE TABLE docs (line STRING);`
 
 - Example of the LOAD statement:
 
-	`LOAD DATA INPATH 'path_to_hdfs_data.txt' OVERWRITE INTO TABLE docs;`
+    `LOAD DATA INPATH 'path_to_hdfs_data.txt' OVERWRITE INTO TABLE docs;`
 
 - Example of the SELECT statement:
 
-	`SELECT * from doc;`
+    `SELECT * from doc;`
 
 ## Accessing data in {{site.data.keyword.cos_full_notm}} from Hive  
 
@@ -84,7 +84,6 @@ LOCATION 'cos://<bucketname>.<servicename>/dir1';
 
 Where:
 `<bucketname>` is the {{site.data.keyword.cos_short}} bucket. The value for `<servicename>` can be any literal such as `iamservice` or `myprodservice`.
-
 
 ## Changing the Hive execution engine
 
@@ -219,7 +218,7 @@ To create Hive tables in Parquet format:
     ```
 
     The result is the following:
-    ```
+    ```text
     | extparquettable1.id  | extparquettable1.name  |
     |----------------------|------------------------|
     | NULL                 | Alyssa                 |
@@ -235,7 +234,7 @@ To create Hive tables in Parquet format:
     ```   
 
     The result is the following:
-    ```
+    ```text
     | extparquettable2.id  | extparquettable2.name  |
     |----------------------|------------------------|
     | NULL                 | Alyssa                 |
@@ -251,18 +250,18 @@ The Optimized Row Columnar (ORC) file format provides a highly efficient way to 
 
 To create Hive tables in ORC format:
 
- 1. SSH to the cluster.
- 2. Launch Beeline:
+1. SSH to the cluster.
+2. Launch Beeline:
 
     ```
     beeline -u 'jdbc:hive2://XXXX-mn001.<changeme>.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/hive' -n clsadmin -p <yourClusterPassword>
     ```
- 3. Create an external table in ORC format in {{site.data.keyword.cos_full_notm}}. To be able to do this, your cluster must have been [configured to work with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos){: new_window}.
+3. Create an external table in ORC format in {{site.data.keyword.cos_full_notm}}. To be able to do this, your cluster must have been [configured to work with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos){: new_window}.
 
     ```
     CREATE EXTERNAL TABLE orc_table(line STRING) STORED AS ORC LOCATION 'cos://mybucket.myprodservice/ORC';
     ```
- 4. Load data from an ORC file stored in {{site.data.keyword.cos_short}} into an external parquet table:
+4. Load data from an ORC file stored in {{site.data.keyword.cos_short}} into an external parquet table:
 
     ```
     LOAD DATA INPATH 'cos://mybucket.myprodservice/orc-file-11-format.orc' OVERWRITE INTO TABLE orc_table;
@@ -287,7 +286,6 @@ The following table shows the LLAP configuration for one node for each of the su
 | LLAP daemon size | 11264 MB   | 112640 MB  |
 | Tez coordinator size | 1024 MB  | 1024 MB  |
 | Number of Tez coordinators| 1  |  4  |
-
 
 ## Code samples
 {: #code-samples-hive}

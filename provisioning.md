@@ -64,7 +64,7 @@ A cluster must have at least one compute node but can have no task nodes.
 | Plan | Hardware types | Software packages        | Restrictions |
 |------|----------------|------------------------------|--------- |
 | **Lite** |**Default** |- `AE 1.2 Hive LLAP`  \n- `AE 1.2 Spark and Hive`  \n- `AE 1.2 Spark and Hadoop`  \n  | 1. This plan is available only to institutions that have signed up with IBM to try out the Lite plan. See [How does the Lite plan work](/docs/AnalyticsEngine?topic=AnalyticsEngine-general-faqs#free-usage)?  \n2. Maximum of one cluster with up to 1 compute node. No task node support.  \n3. Free usage limit is 50 node hours. This means that the cluster will be disabled after 25 hours.  \nA grace period of 24 hours is given to upgrade your user account to a paid account, and to upgrade the service instance to the Standard-Hourly plan.  \nIf the service instance is not upgraded, then it will expire and be deleted.  \n**Note:** You are entitled to one service instance per month. If you delete the service instance or it expires after the free 50 node hours, you will not be able to create a new one until after the month has passed.|
-| **Standard-Hourly** | **Default** or **Memory intensive** |	- `AE 1.2 Hive LLAP`  \n- `AE 1.2 Spark and Hive`  \n- `AE 1.2 Spark and Hadoop`  \n| NA |
+| **Standard-Hourly** | **Default** or **Memory intensive** | - `AE 1.2 Hive LLAP`  \n- `AE 1.2 Spark and Hive`  \n- `AE 1.2 Spark and Hadoop`  \n| NA |
 | **Standard-Monthly** | **Default** or **memory intensive** | - `AE 1.2 Hive LLAP`  \n- `AE 1.2 Spark and Hive`  \n- `AE 1.2 Spark and Hadoop`  \n| NA |
 
 Hardware specifications:

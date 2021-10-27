@@ -27,7 +27,7 @@ You can create a serverless {{site.data.keyword.iae_full_notm}} service instance
 - [Using the {{site.data.keyword.Bluemix_notm}} command-line  interface](#cli-provisioning)
 - [Using the Resource Controller REST API](#rest-api-provisioning)
 
-Note that during the beta phase, you are not able to define certain limitation and quota settings while provisioning a serverless instance. These values are predefined. See [Limits and quotas for {{site.data.keyword.iae_short}} instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-limits) for a list of these settings and their values.
+Note that you are not able to define certain limitation and quota settings while provisioning a serverless instance. These values are predefined. See [Limits and quotas for {{site.data.keyword.iae_short}} instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-limits) for a list of these settings and their values.
 
 You must have access to the {{site.data.keyword.Bluemix_short}} `US-South` region.
 {: important}
@@ -49,7 +49,7 @@ To create an {{site.data.keyword.iae_full_notm}} instance:
 1. Add Spark configuration values to override default Apache Spark settings.
 1. Click **Create** to provision the service instance in the background.
 
-  The newly created service is listed in your [{{site.data.keyword.Bluemix_short}} resource list](https://{DomainName}/resources){: external} under **Services*.  
+    The newly created service is listed in your [{{site.data.keyword.Bluemix_short}} resource list](https://{DomainName}/resources){: external} under **Services*.  
 
 ## Creating a service instance using the IBM Cloud command-line interface
 {: #cli-provisioning}
@@ -59,71 +59,69 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
 1. Download and configure the {{site.data.keyword.Bluemix_short}} CLI. Follow the instructions in [Getting started with the {{site.data.keyword.Bluemix_short}} CLI](/docs/cli?topic=cli-getting-started).
 
 1. Set the API endpoint for your region and log in:
-   ```
-   ibmcloud api https://{DomainName}
-   ibmcloud login
-   ```
-   {: codeblock}
+    ```sh
+    ibmcloud api https://{DomainName}
+    ibmcloud login
+    ```
+    {: codeblock}
 
 1. Get the list of the resource groups for your account and select one of the returned resource group as the target resource group in which to create the {{site.data.keyword.iae_full_notm}} serverless instance:
-   ```
-   ibmcloud resource groups
-   ibmcloud target -g <resource_group_name>
-   ```
-   {: codeblock}
+    ```sh
+    ibmcloud resource groups
+    ibmcloud target -g <resource_group_name>
+    ```
+    {: codeblock}
 
 1. Create a service instance:
-   ```
-   ibmcloud resource service-instance-create <service_instance_name> ibmanalyticsengine <plan_name> <region> -p @<path_to JSON file with cluster parameters>
-   ```
-   {: codeblock}
+    ```sh
+    ibmcloud resource service-instance-create <service_instance_name> ibmanalyticsengine <plan_name> <region> -p @<path_to JSON file with cluster parameters>
+    ```
+    {: codeblock}
 
-   For example:
-   ```
-   ibmcloud resource service-instance-create MyServiceInstance ibmanalyticsengine standard-serverless-spark us-south -p @provision.json
-   ```
-   {: codeblock}
+    For example:
+    ```sh
+    ibmcloud resource service-instance-create MyServiceInstance ibmanalyticsengine standard-serverless-spark us-south -p @provision.json
+    ```
+    {: codeblock}
 
-   You can give the service instance any name you choose. Note however that currently, **standard-serverless-spark** is the only supported serverless plan and **us-south** the only supported region.
+    You can give the service instance any name you choose. Note that currently, **standard-serverless-spark** is the only supported serverless plan and **us-south** the only supported region.
 
-   The provision.json file contains the provisioning parameters for the instance you want to create.
+    The provision.json file contains the provisioning parameters for the instance you want to create.
 
-   The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, which should preferably match the location of your {{site.data.keyword.iae_short}} instance, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.
+    The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, which should preferably match the location of your {{site.data.keyword.iae_short}} instance, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.
 
-   This is a sample of what the provision.json file can look like. See [Architecture and concepts in serverless instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts) for a description of the provisioning parameters in the payload.
+    This is a sample of what the provision.json file can look like. See [Architecture and concepts in serverless instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts) for a description of the provisioning parameters in the payload.
 
-   ```json
-   {
-     "default_runtime": {
-       "spark_version": "3.1"
-       },
-     "instance_home": {
-       "provider": "ibm",
-       "type": "objectstore",
-       "region": "us-south",
-       "endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
-       "hmac_access_key": "<your-hmac-access-key",
-       "hmac_secret_key": "<your-hmac-secret-key"
-       },
-     "default_config": {
-       "key1": "value1",
-       "key2": "value2"
-       }
-   }
-   ```
-   {: codeblock}
+    ```json
+    {
+      "default_runtime": {
+        "spark_version": "3.1"
+        },
+      "instance_home": {
+        "region": "us-south",
+        "endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+        "hmac_access_key": "<your-hmac-access-key",
+        "hmac_secret_key": "<your-hmac-secret-key"
+        },
+      "default_config": {
+        "key1": "value1",
+        "key2": "value2"
+        }
+    }
+    ```
+    {: codeblock}
 
-   The {{site.data.keyword.Bluemix_short}} response to the create instance command:
-   ```text
-   {
-     "instance_id": "dc0e****-eab2-4t9e-94**-56620949****",
-     "state": "created",
-     "state_change_time": "2021-04-21T04:24:01Z"
-   }
-   ```
+    The {{site.data.keyword.Bluemix_short}} response to the create instance command:
+    ```text
+    {
+      "instance_id": "dc0e****-eab2-4t9e-94**-56620949****",
+      "state": "created",
+      "state_change_time": "2021-04-21T04:24:01Z"
+    }
+    ```
 
-   Make a note of the instance ID from the output. You will need the instance ID when you call instance management or Spark application management APIs. See [Spark application REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api).
-   {: important}
+    Make a note of the instance ID from the output. You will need the instance ID when you call instance management or Spark application management APIs. See [Spark application REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api).
+    {: important}
 
 1. [Track instance readiness](#instance-readiness).
 
@@ -136,59 +134,57 @@ An {{site.data.keyword.iae_full_notm}} serverless instance must reside in an {{s
 To create a service instance using the Resource Controller REST API:
 
 1. Get the resource group ID by logging into the {{site.data.keyword.Bluemix_short}} CLI and running the following command:
-   ```
-   ibmcloud resource groups
-   ```
-   {: codeblock}
+    ```sh
+    ibmcloud resource groups
+    ```
+    {: codeblock}
 
-   Sample result:
-   ```
-   Retrieving all resource groups under account <Account details..>
-   OK
-   Name      ID      Default Group   State
-   Default   XXXXX   true            ACTIVE
-   ```
+    Sample result:
+    ```text
+    Retrieving all resource groups under account <Account details..>
+    OK
+    Name      ID      Default Group   State
+    Default   XXXXX   true            ACTIVE
+    ```
 1. Use the following resource plan ID for the Standard Serverless for Apache Spark plan:
-   ```
-   8afde05e-5fd8-4359-a597-946d8432dd45
-   ```
-   {: codeblock}
+    ```text
+    8afde05e-5fd8-4359-a597-946d8432dd45
+    ```
+    {: codeblock}
 
 1. Get the IAM token by performing the following [steps](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token-serverless).
 1. Create an instance using the Resource Controller REST API:
-   ```
-   curl --request POST "https://resource-controller.cloud.ibm.com/v2/resource_instances/" \
-   --header "Authorization: Bearer $token"\
-   --header 'Content-Type: application/json' \
-   --data @provision.json
-   ```
-   {: codeblock}
+    ```sh
+    curl --request POST "https://resource-controller.cloud.ibm.com/v2/resource_instances/" \
+    --header "Authorization: Bearer $token"\
+    --header 'Content-Type: application/json' \
+    --data @provision.json
+    ```
+    {: codeblock}
 
-   The provision.json file contains the provisioning parameters for the instance you want to create. See [Architecture and concepts in serverless instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts) for a description of the provisioning parameters in the payload.
+    The provision.json file contains the provisioning parameters for the instance you want to create. See [Architecture and concepts in serverless instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts) for a description of the provisioning parameters in the payload.
 
-   This is a sample of what the provision.json file can look like:
-   ```
-   {
-     "name": "your-service-instance-name",
-     "resource_plan_id": "8afde05e-5fd8-4359-a597-946d8432dd45",
-     "resource_group": "resource-group-id",
-     "target": "us-south",
-     "parameters": {
-       "default_runtime": {
-         "spark_version": "3.1"
-           },
-           "instance_home": {
-             "provider": "ibm-cos",
-             "type": "objectstore",
-             "region": "us-south",
-             "endpoint": "s3.direct.us-south.cloud-object-storage.appdomain.cloud",
-             "hmac_access_key": "your-access-key",
-             "hmac_secret_key": "your-secret-key"
-             }        
-       }
-   }
-   ```
-   {: codeblock}
+    This is a sample of what the provision.json file can look like:
+    ```json
+    {
+      "name": "your-service-instance-name",
+      "resource_plan_id": "8afde05e-5fd8-4359-a597-946d8432dd45",
+      "resource_group": "resource-group-id",
+      "target": "us-south",
+      "parameters": {
+        "default_runtime": {
+          "spark_version": "3.1"
+            },
+            "instance_home": {
+              "region": "us-south",
+              "endpoint": "s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+              "hmac_access_key": "your-access-key",
+              "hmac_secret_key": "your-secret-key"
+              }        
+        }
+    }
+    ```
+    {: codeblock}
 
 1. [Track instance readiness](#instance-readiness).
 
@@ -201,33 +197,33 @@ To run applications on a newly created serverless instance, the instance must be
 
 To track instance readiness:
 1. Enter the following command:
-   ```
-   curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/{instance_id} -H "Authorization: Bearer $token"
-   ```
-   {: codeblock}
+    ```sh
+    curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/{instance_id} -H "Authorization: Bearer $token"
+    ```
+    {: codeblock}
 
-   Sample response:
-   ```
-   {
-     "id": "dc0e****-eab2-4t9e-9441-56620949****",
-     "state": "created",
-     "state_change_time": "2021-04-21T04:24:01Z",
-     "default_runtime": {
-       "spark_version": "3.1",
-       "instance_home": {
-         "provider": "ibm-cos",
-         "type": "objectstore",
-         "region": "us-south",
-         "endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
-         "bucket": "ae-bucket-do-not-delete-dc0e****-eab2-4t**-9441-566209499546",
-         "hmac_access_key": "eH****g=",
-         "hmac_secret_key": "4d********76"
-       },
-       "default_config": {
-         "spark.driver.memory": "4g",
-         "spark.driver.cores": 1
-       }
-     }
-   }
-   ```
+    Sample response:
+    ```json
+    {
+      "id": "dc0e****-eab2-4t9e-9441-56620949****",
+      "state": "created",
+      "state_change_time": "2021-04-21T04:24:01Z",
+      "default_runtime": {
+        "spark_version": "3.1",
+        "instance_home": {
+          "provider": "ibm-cos",
+          "type": "objectstore",
+          "region": "us-south",
+          "endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+          "bucket": "ae-bucket-do-not-delete-dc0e****-eab2-4t**-9441-566209499546",
+          "hmac_access_key": "eH****g=",
+          "hmac_secret_key": "4d********76"
+        },
+        "default_config": {
+          "spark.driver.memory": "4g",
+          "spark.driver.cores": 1
+        }
+      }
+    }
+    ```
 1. Check the value of the `"state"` attribute. It must be `active` before you can start running applications in the instance.

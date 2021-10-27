@@ -55,7 +55,7 @@ The API calls in the following commands require the GUID of the service instance
 
 To enable forwarding {{site.data.keyword.iae_full_notm}} platform logs to {{site.data.keyword.la_full_notm}}, invoke the following API against an existing {{site.data.keyword.iae_short}} instance:
 
-```
+```sh
 curl -X PUT https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_guid>/logging -H "Authorization: Bearer $TOKEN" -H "content-type: application/json" -d '{"enable":true}'
 ```
 {: codeblock}
@@ -65,7 +65,7 @@ curl -X PUT https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance
 
 To disable forwarding {{site.data.keyword.iae_full_notm}} platform logs to {{site.data.keyword.la_full_notm}}, invoke the following API:
 
-```
+```sh
 curl -X PATCH https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_guid>/logging -H "Authorization: Bearer $TOKEN" -H "content-type: application/json" -d '{"enable":false}'
 ```
 {: codeblock}
@@ -75,7 +75,7 @@ curl -X PATCH https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instan
 
 To view the current logging configuration of an {{site.data.keyword.iae_full_notm}} instance, invoke the following API:
 
-```
+```sh
 curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_guid>/logging -H "Authorization: Bearer $TOKEN"
 ```
 {: codeblock}

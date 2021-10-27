@@ -15,28 +15,28 @@ Apache Sqoop is a tool for efficiently transferring bulk data between Apache Had
 
 ## Using Sqoop to connect to DB2 or MySQL
 
-To work with Sqoop, you need your cluster user credentials and the SSH  and the JDBC endpoint details.
+To work with Sqoop, you need your cluster user credentials and the SSH and the JDBC endpoint details.
 
 1. SSH to the cluster.
 
-  - The `db2jcc4.jar` file is in  `/home/common/lib/dataconnectorDb2`.
+    - The `db2jcc4.jar` file is in `/home/common/lib/dataconnectorDb2`.
 
-      ```
-      ls -ltr /home/common/lib/dataconnectorDb2
-      -rwxrwxrwx. 1 root root 3411523 May 23 13:27 /home/common/lib/dataconnectorDb2/db2jcc4.jar
-      ```
-  - The sqljdbc4.jar file is in `/home/common/lib/R/DatabaseConnector/java`.
+        ```
+        ls -ltr /home/common/lib/dataconnectorDb2
+        -rwxrwxrwx. 1 root root 3411523 May 23 13:27 /home/common/lib/dataconnectorDb2/db2jcc4.jar
+        ```
+    - The sqljdbc4.jar file is in `/home/common/lib/R/DatabaseConnector/java`.
 
-      ```
-      ls -ltr /home/common/lib/R/DatabaseConnector/java
-      total 7484
-      -rwxrwxrwx. 1 root root  584207 May 23 14:12 sqljdbc4.jar
-      -rwxrwxrwx. 1 root root 2447255 May 23 14:12 RedshiftJDBC4-1.1.17.1017.jar
-      -rwxrwxrwx. 1 root root  588974 May 23 14:12 postgresql-9.3-1101.jdbc4.jar
-      -rwxrwxrwx. 1 root root 2739616 May 23 14:12 ojdbc6.jar
-      -rwxrwxrwx. 1 root root  954041 May 23 14:12 mysql-connector-java-5.1.30-bin.jar
-      -rwxrwxrwx. 1 root root  317816 May 23 14:12 jtds-1.3.1.jar
-      ```
+        ```
+        ls -ltr /home/common/lib/R/DatabaseConnector/java
+        total 7484
+        -rwxrwxrwx. 1 root root  584207 May 23 14:12 sqljdbc4.jar
+        -rwxrwxrwx. 1 root root 2447255 May 23 14:12 RedshiftJDBC4-1.1.17.1017.jar
+        -rwxrwxrwx. 1 root root  588974 May 23 14:12 postgresql-9.3-1101.jdbc4.jar
+        -rwxrwxrwx. 1 root root 2739616 May 23 14:12 ojdbc6.jar
+        -rwxrwxrwx. 1 root root  954041 May 23 14:12 mysql-connector-java-5.1.30-bin.jar
+        -rwxrwxrwx. 1 root root  317816 May 23 14:12 jtds-1.3.1.jar
+        ```
 2. Create the directory `/sqoop/lib` under `/home/wce/clsadmin`.
 3. Copy the files `/home/common/lib/dataconnectorDb2/db2jcc4.jar` and `/home/common/lib/R/DatabaseConnector/java/sqljdbc4.jar` to `/home/wce/clsadmin/sqoop/lib`. Make sure that the permission of the JAR files and its parent directories is 755.
 
@@ -58,34 +58,34 @@ To work with Sqoop, you need your cluster user credentials and the SSH  and the 
 
     ```
     sqoop eval --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword> --query "show tables"
-    ```   
+    ```
 7. Examples of some commands:
 
-  - To import from a table to HDFS and COS, enter:
+    - To import from a table to HDFS and COS, enter:
 
-    ```
-    sqoop eval --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword> --query "select * from VERSION"
-    ```
-  - To import a table VERSION to HDFS, enter:
+        ```
+        sqoop eval --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword> --query "select * from VERSION"
+        ```
+    - To import a table VERSION to HDFS, enter:
 
-    ```
-    sqoop import --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword>  --table VERSION -m 1 --target-dir /user/VERSION
-    ```
-  - To import a table VERSION to Cloud Object Store bucket, enter:
+        ```
+        sqoop import --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword>  --table VERSION -m 1 --target-dir /user/VERSION
+        ```
+    - To import a table VERSION to Cloud Object Store bucket, enter:
 
-    ```
-    sqoop import --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword>  --table VERSION -m 1 --target-dir cos://<changeMeCOSbucket>.myprodservice/VERSION
-    ```
-  - To connect to Db2, enter:
+        ```
+        sqoop import --connect jdbc:mysql://<changeMeDatabaseHost>:<changeMeDatabasePort>/<changeMeDatabaseName> --username <changeMeDatabaseUser> --password <changeMeDatabasePassword>  --table VERSION -m 1 --target-dir cos://<changeMeCOSbucket>.myprodservice/VERSION
+        ```
+    - To connect to Db2, enter:
 
-    ```
-    cat jdbcprops
-    retrieveMessagesFromServerOnGetMessage=true
-    sslConnection=true
-    sslTrustStoreLocation=/home/wce/clsadmin/truststore.jks
-    sslTrustStorePassword=changeit
+        ```
+        cat jdbcprops
+        retrieveMessagesFromServerOnGetMessage=true
+        sslConnection=true
+        sslTrustStoreLocation=/home/wce/clsadmin/truststore.jks
+        sslTrustStorePassword=changeit
 
-    [clsadmin@chs-fkk-299-mn003 ~]$ sqoop list-tables --connect jdbc:db2:// <changeMeDatabaseHost>/<changeMeDatabaseName> --username <changeMeDatabaseUserName> --password <changeMeDatabasePassword> --connection-param-file jdbcprops
-    ```
+        [clsadmin@chs-fkk-299-mn003 ~]$ sqoop list-tables --connect jdbc:db2:// <changeMeDatabaseHost>/<changeMeDatabaseName> --username <changeMeDatabaseUserName> --password <changeMeDatabasePassword> --connection-param-file jdbcprops
+        ```
 
-  **Note**: You can use the same steps to import data from other databases by adding the respective JAR files to the Sqoop user classpath.  
+        **Note**: You can use the same steps to import data from other databases by adding the respective JAR files to the Sqoop user classpath.  

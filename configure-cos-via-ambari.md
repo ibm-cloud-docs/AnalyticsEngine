@@ -20,13 +20,12 @@ subcollection: AnalyticsEngine
 
 You can configure the cluster to access data objects in IBM Cloud Object Storage by using the Ambari UI. In Ambari, you can add  properties and values to the core-site.xml file on your cluster instance.
 
-1. Open the Ambari console, and then, on the dashboard, click **HDFS** > **Configs** > **Advanced** to see the advanced configuration options for  HDFS.<br>
+1. Open the Ambari console, and then, on the dashboard, click **HDFS** > **Configs** > **Advanced** to see the advanced configuration options for HDFS.
 
     ![The advanced configuration for HDFS in the Ambari UI](images/advanced-config-options-hdfs.png)
 2. Scroll down the page until you see `Custom core-site` and click **Add Property**.
 
     ![Select Custom core-site and to add properties](images/advanced-custom-core-site.png)
-
 3. Enter the desired properties in the Properties field and then click **Add** to save your changes. For information about which properties to add, see [Authentication parameters to Cloud Object Storage](/docs/AnalyticsEngine?topic=AnalyticsEngine-cos-credentials-in-iae).
 
     ![Add properties to the core-site.xml file as key-value pairs](images/add-properties.png)

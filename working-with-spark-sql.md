@@ -41,14 +41,14 @@ You can connect to the Spark SQL server by using the Beeline client.
 
     After its successfully connected, the following message is displayed which shows it is connected to Spark SQL.
 
-     ```
-     Connecting to jdbc:hive2://chs-pqj-477-mn001.eu-de.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/spark
-     Connected to: Spark SQL (version 2.3.0.2.6.5.0-292)
-     Driver: Hive JDBC (version 1.2.1000.2.6.5.0-292)
-     Transaction isolation: TRANSACTION_REPEATABLE_READ
-     Beeline version 1.2.1000.2.6.5.0-292 by Apache Hive
-     0: jdbc:hive2://chs-pqj-477-mn001.eu-de.ae.ap>
-     ```
+    ```
+    Connecting to jdbc:hive2://chs-pqj-477-mn001.eu-de.ae.appdomain.cloud:8443/;ssl=true;transportMode=http;httpPath=gateway/default/spark
+    Connected to: Spark SQL (version 2.3.0.2.6.5.0-292)
+    Driver: Hive JDBC (version 1.2.1000.2.6.5.0-292)
+    Transaction isolation: TRANSACTION_REPEATABLE_READ
+    Beeline version 1.2.1000.2.6.5.0-292 by Apache Hive
+    0: jdbc:hive2://chs-pqj-477-mn001.eu-de.ae.ap>
+    ```
 2. Now you can create an external table in IBM Cloud Object Storage and load data to this table, for example:
 
     ```

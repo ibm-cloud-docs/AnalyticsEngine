@@ -50,20 +50,14 @@ Packages for database interfaces like `DBI`, `RJDBC`, `RODBC`, `RMySQL`, develop
 
 To get a detailed description of the installed packages you can use the following commands:
 
-* System command after SSHing to the cluster:
-
-  `Rscript -e "installed.packages(lib.loc='/home/common/lib/R')"`
-
-* From within an R notebook:
-
-  `installed.packages(lib.loc='/home/common/lib/R')`
+- System command after SSHing to the cluster: `Rscript -e "installed.packages(lib.loc='/home/common/lib/R')"`
+- From within an R notebook: `installed.packages(lib.loc='/home/common/lib/R')`
 
 ## Scala or Java
 
 Scala or Java libraries are added to the following directory that is added to the CLASSPATH of Spark drivers and executors:
 
 - `/home/common/lib/scala/common`: Scala or Java libraries that are not Spark version specific
-
 - `/home/common/lib/scala/spark2`: Scala or Java libraries that are included by default in the Spark2 environment.
 
 To view the list of libraries, simply list the content of these directories by issuing the corresponding commands in a notebook or on the command line after SSH-ing to the cluster.

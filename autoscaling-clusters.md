@@ -36,41 +36,41 @@ You can create an {{site.data.keyword.iae_short}} cluster with auto scaling by u
 
 - {{site.data.keyword.Bluemix_short}} user interface
 
-  You can specify the auto scaling policy on the cluster configuration page.
+    You can specify the auto scaling policy on the cluster configuration page.
 
-  ![Shows the {{site.data.keyword.iae_full_notm}} cluster configuration page.](images/auto-scaling.png)
+    ![Shows the {{site.data.keyword.iae_full_notm}} cluster configuration page.](images/auto-scaling.png)
 - {{site.data.keyword.Bluemix_short}} CLI
 
-  You can provision a cluster with auto scaling using the CLI by following the steps defined in [Creating a service instance using the IBM Cloud command-line interface](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE#creating-a-service-instance-using-the-ibm-cloud-command-line-interface).
+    You can provision a cluster with auto scaling using the CLI by following the steps defined in [Creating a service instance using the IBM Cloud command-line interface](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE#creating-a-service-instance-using-the-ibm-cloud-command-line-interface).
 
-  This is a sample payload with an auto-scaling cluster specification:
-  ```
-  {
-    "num_compute_nodes": "3",
-    "hardware_config": "default",
-    "software_package": "ae-1.2-hive-spark",
-    "autoscale_policy": {
-      "task_nodes": {
-        "num_min_nodes": 1,
-        "num_max_nodes": 10,
-        "scaleup_rule": {
-          "sustained_demand_period_minutes": "10",
-          "percentage_of_demand": "50"
-        },
-        "scaledown_rule": {
-          "sustained_excess_period_minutes": "20",
-          "percentage_of_excess": "25"
+    This is a sample payload with an auto-scaling cluster specification:
+    ```json
+    {
+      "num_compute_nodes": "3",
+      "hardware_config": "default",
+      "software_package": "ae-1.2-hive-spark",
+      "autoscale_policy": {
+        "task_nodes": {
+          "num_min_nodes": 1,
+          "num_max_nodes": 10,
+          "scaleup_rule": {
+            "sustained_demand_period_minutes": "10",
+            "percentage_of_demand": "50"
+          },
+          "scaledown_rule": {
+            "sustained_excess_period_minutes": "20",
+            "percentage_of_excess": "25"
+          }
         }
       }
     }
-  }
-  ```
+    ```
 - Resource Controller API
 
   You can provision a cluster with auto scaling using the Resource Controller API by following the steps defined in [Creating a service instance using the Resource Controller REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE#creating-a-service-instance-using-the-resource-controller-rest-api).
 
   This is a sample payload with an auto-scaling cluster specification:
-  ```
+  ```json
   {
     "name": "MyServiceInstance",
     "resource_plan_id": "3175a5cf-61e3-4e79-aa2a-dff9a4e1f0ae",

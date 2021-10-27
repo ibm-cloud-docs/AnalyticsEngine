@@ -27,7 +27,7 @@ The {{site.data.keyword.iae_full_notm}} Node.js SDK allows you to interact progr
 You can install the {{site.data.keyword.iae_full_notm}} Node.js SDK using the Node package manager (npm).
 
 Type the following command into a command line:
-```
+```javascript
 npm install iaesdk
 ```
 {: codeblock}
@@ -78,7 +78,7 @@ The code samples show how to:
     {: codeblock}
 
     Example request:
-    ```
+    ```javascript
     const params = {
       instanceId: 'e64c907a-e82f-46fd-addc-ccfafbd28b09',
     };
@@ -98,7 +98,7 @@ The code samples show how to:
     {: codeblock}
 
     Example request:
-    ```
+    ```javascript
     // ApplicationRequestApplicationDetails
     const applicationRequestApplicationDetailsModel = {
       application: '/opt/ibm/spark/examples/src/main/python/wordcount.py',
@@ -123,7 +123,7 @@ The code samples show how to:
     {: codeblock}
 
     Example request:
-    ```
+    ```javascript
     ibmAnalyticsEngineApiService.listApplications({
       instanceId: 'e64c907a-e82f-46fd-addc-ccfafbd28b09',
     }).then((res) => {
@@ -141,7 +141,7 @@ The code samples show how to:
     {: codeblock}
 
     Example request:
-    ```
+    ```javascript
     ibmAnalyticsEngineApiService.getApplication({
       instanceId: 'e64c907a-e82f-46fd-addc-ccfafbd28b09',
       applicationId: 'db933645-0b68-4dcb-80d8-7b71a6c8e542',
@@ -160,7 +160,7 @@ The code samples show how to:
     {: codeblock}
 
     Example request:
-    ```
+    ```javascript
     ibmAnalyticsEngineApiService.deleteApplication({
       instanceId: 'e64c907a-e82f-46fd-addc-ccfafbd28b09',
       applicationId: 'db933645-0b68-4dcb-80d8-7b71a6c8e542',
@@ -179,7 +179,7 @@ The code samples show how to:
     {: codeblock}
 
     Example request:
-    ```
+    ```javascript
     ibmAnalyticsEngineApiService.getApplicationState({
       instanceId: 'e64c907a-e82f-46fd-addc-ccfafbd28b09',
       applicationId: 'db933645-0b68-4dcb-80d8-7b71a6c8e542',

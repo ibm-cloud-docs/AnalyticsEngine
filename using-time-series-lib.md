@@ -42,7 +42,7 @@ ts
 ```
 
 The output is as follows:
-```
+```text
 TimeStamp: 0     Value: 5.0
 TimeStamp: 1     Value: 2.0
 TimeStamp: 2     Value: 4.0
@@ -62,7 +62,7 @@ mts = tspy.multi_time_series.dict({
 ```
 
 The output is the following:
-```
+```text
 ts2 time series
 ------------------------------
 TimeStamp: 0     Value: 5.0
@@ -92,7 +92,7 @@ ts
 ```
 
 The output is as follows:
-```
+```text
 TimeStamp: 1990-01-01T00:00Z     Value: 5.0
 TimeStamp: 1990-01-02T00:00Z     Value: 2.0
 TimeStamp: 1990-01-03T00:00Z     Value: 4.0
@@ -124,7 +124,7 @@ add_one_ts
 ```
 
 The output is as follows:
-```
+```text
 TimeStamp: 0     Value: 6.0
 TimeStamp: 1     Value: 3.0
 TimeStamp: 2     Value: 5.0
@@ -140,7 +140,7 @@ joined_ts
 ```
 
 The output is as follows:
-```
+```text
 TimeStamp: 0     Value: [5.0, 1.0]
 TimeStamp: 1     Value: [2.0, 2.0]
 TimeStamp: 2     Value: [4.0, 3.0]
@@ -166,7 +166,7 @@ ts_diff = ts.transform(transformers.difference())
 ```
 
 Here the output is:
-```
+```text
 TimeStamp: 1     Value: -3.0
 TimeStamp: 2     Value: 2.0
 TimeStamp: 3     Value: 2.0
@@ -190,7 +190,7 @@ avg
 ```
 
 This outputs:
-```
+```text
 5.0
 ```
 
@@ -202,7 +202,7 @@ avg_windows_ts = ts.segment(3).transform(reducers.average())
 ```
 
 This results in:
-```
+```text
 imeStamp: 0     Value: 3.6666666666666665
 TimeStamp: 1     Value: 4.0
 TimeStamp: 2     Value: 5.333333333333333
@@ -225,7 +225,7 @@ observations
 ```
 
 This results in:
-```
+```text
 [(0,5.0),(1,2.0),(2,4.0),(3,6.0),(4,6.0),(5,7.0)]
 ```
 
@@ -235,7 +235,7 @@ observations = ts[1:3] # same as ts.get_values(1, 3)
 observations
 ```
 Here the output is:
-```
+```text
 [(1,2.0),(2,4.0),(3,6.0)]
 ```
 
@@ -248,7 +248,7 @@ describe_obj
 ```
 
 The output is:
-```
+```text
 min inter-arrival-time: 1
 max inter-arrival-time: 1
 mean inter-arrival-time: 1.0

@@ -37,11 +37,7 @@ fs.cos.<identifier>.endpoint=<EndPoint URL>
 fs.cos.<identifier>.secret.key=<Secret Access Key>
 ```
 
-Note that the endpoint URL has the format:
-```
-s3.direct.us.cloud-object-storage.appdomain.cloud
-```
-It doesn't require the prefix `https://`.
+Note that the endpoint URL has the format `s3.direct.us.cloud-object-storage.appdomain.cloud` and doesn't require the prefix `https://`.
 
 ## Structure of API key credentials
 
@@ -51,8 +47,4 @@ fs.cos.<identifier>.iam.api.key=<IAM API Key>
 fs.cos.<identifier>.endpoint=<EndPoint URL>
 ```
 
-Like for HMAC credentials, the endpoint URL has the format:
-```
-s3.direct.us.cloud-object-storage.appdomain.cloud
-```
-and doesn't require the prefix `https://`.
+Like for HMAC credentials, the endpoint URL has the format `s3.direct.us.cloud-object-storage.appdomain.cloud` and doesn't require the prefix `https://`.

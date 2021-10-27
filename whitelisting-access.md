@@ -32,7 +32,7 @@ You can add or delete IP ranges to and from the allowlist of an {{site.data.keyw
 Note that the endpoint `private_endpoint_whitelist` is deprecated. The examples in this topic all use the new endpoint `private_endpoint_allowlist`.  
 
 For example, if you created your service instance in the `US-South` {{site.data.keyword.Bluemix_notm}} region, enter:
-```
+```sh
 curl --request PATCH  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/ <service_instance_guid>/private_endpoint_allowlist
 \ -H "Authorization: Bearer <user's IAM token>"
 \ -H "accept: application/json"
@@ -44,37 +44,38 @@ curl --request PATCH  https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines
 
 For the allowlist payload JSON consider the following:
 - `<allowlist-payload.json>` uses the following format:
-  ```
-  {
-    "ip_ranges": ["<ip_range_1>", "<ip_range_2>", ..., "<ip_range_n>"],
-    "action": "<action>"
-  }
-  ```
+    ```json
+    {
+      "ip_ranges": ["<ip_range_1>", "<ip_range_2>", ..., "<ip_range_n>"],
+      "action": "<action>"
+    }
+    ```
+Where:
 
 - `<ip_range>` must use the IPV4 CIDR format:
 
-  For example:
-  ```
-  10.20.5.9/32, 10.50.0.0/16, ...
-  ```
+    For example:
+    ```text
+    10.20.5.9/32, 10.50.0.0/16, ...
+    ```
 - `<action>` has only two valid values: `add` or `delete`
 
-  `add` adds the specified IPs to an existing allowlist. `delete` removes the specified IPs from an existing allowlist.
+    `add` adds the specified IPs to an existing allowlist. `delete` removes the specified IPs from an existing allowlist.
 
-  `<action>` is idempotent. If the same `<ip_range>` is specified more than once, it is added or deleted only once. Similarly, if `delete` is invoked with an `<ip_range>` that doesn't exist in the current allowlist, it ìs ignored.
+    `<action>` is idempotent. If the same `<ip_range>` is specified more than once, it is added or deleted only once. Similarly, if `delete` is invoked with an `<ip_range>` that doesn't exist in the current allowlist, it ìs ignored.
 
-  To remove all of the IPs to the cluster in the allowlist, you need to invoke the `delete` action with all the `<ip_ranges>` that you added. To get the current allowlist, refer to [Retrieving the current IP ranges in the allowlist](#retrieve-ip-range).
+    To remove all of the IPs to the cluster in the allowlist, you need to invoke the `delete` action with all the `<ip_ranges>` that you added. To get the current allowlist, refer to [Retrieving the current IP ranges in the allowlist](#retrieve-ip-range).
 
-A successful response of the `private_endpoint_allowlist`  API  endpoint is an updated list of the `ip_ranges` in the allowlist in this format:
-```
+A successful response of the `private_endpoint_allowlist` API endpoint is an updated list of the `ip_ranges` in the allowlist in this format:
+```json
 { "private_endpoint_allowlist": ["<ip_range_1>", "<ip_range_2>"…/ip_range_n>"] }
 ```
 The following example is a typical response of the API endpoint containing the present allowlist of IP ranges after an addition or deletion:
-```
+```json
 {"private_endpoint_allowlist": ["10.40.4.0/12", "10.50.5.0/19"]}
 ```
 The following example is a response after deleting all of the IP ranges from the allowlist:
-```
+```json
 { "private_endpoint_allowlist": []}
 ```
 

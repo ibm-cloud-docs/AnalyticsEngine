@@ -12,6 +12,7 @@ subcollection: analyticsengine
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
+{:note: .note}
 {:screen: .screen}
 {:pre: .pre}
 
@@ -26,28 +27,29 @@ To reference a library set when submitting a Spark application:
 
 1. Get the IAM token. See [Retrieving IAM access tokens](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token-serverless).
 1. Issue the following cURL command:
-   ```bash
-   curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/instances/<instance_id>/spark_applications --header "Authorization: Bearer <IAM token>" -H "content-type: application/json"  -d @submit-spark-app.json
-   ```
-   {: codeblock}
+    ```sh
+    curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/instances/<instance_id>/spark_applications --header "Authorization: Bearer <IAM token>" -H "content-type: application/json"  -d @submit-spark-app.json
+    ```
+    {: codeblock}
 
-   Example for submit-spark-app.json:
-   ```json
-   {
-     "application_details": {
-     "application": "cos://<bucket-name>.<cos-name>/my_spark_application.py",
-  	 "arguments": ["arg1", "arg2"],
-     "conf": {
-       "spark.hadoop.fs.cos.<cos-name>.endpoint":"https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
-       "spark.hadoop.fs.cos.<cos-name>.access.key":"<access_key>",
-       "spark.hadoop.fs.cos.<cos-name>.secret.key":"<secret_key>",
-       "ae.spark.librarysets":"my_library_set"
+    Example for submit-spark-app.json:
+    ```json
+    {
+      "application_details": {
+      "application": "cos://<bucket-name>.<cos-name>/my_spark_application.py",
+      "arguments": ["arg1", "arg2"],
+      "conf": {
+        "spark.hadoop.fs.cos.<cos-name>.endpoint":"https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+        "spark.hadoop.fs.cos.<cos-name>.access.key":"<access_key>",
+        "spark.hadoop.fs.cos.<cos-name>.secret.key":"<secret_key>",
+        "ae.spark.librarysets":"my_library_set"
         }
-  	}
-   }
-   ```
-   {: codeblock}
+    }
+    }
+    ```
+    {: codeblock}
 
-   **Note**: Currently, only one library set can be referenced during Spark application submission under the `"ae.spark.librarysets"` attribute.
+    Currently, only one library set can be referenced during Spark application submission under the `"ae.spark.librarysets"` attribute.
+    {: note}
 
 1. Track the status of the application by invoking the application status REST API. See [Get the status of an application](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#spark-app-status).

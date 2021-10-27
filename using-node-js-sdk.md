@@ -27,7 +27,7 @@ The {{site.data.keyword.iae_full_notm}} Node.js SDK allows you to interact progr
 You can install the {{site.data.keyword.iae_full_notm}} Node.js SDK using the Node package manager (npm).
 
 Type the following command into a command line:
-```
+```javascript
 npm install iaesdk
 ```
 

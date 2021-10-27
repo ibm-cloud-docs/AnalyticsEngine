@@ -22,7 +22,7 @@ subcollection: AnalyticsEngine
 The {{site.data.keyword.iae_full_notm}} SDK can be installed by installing the library `iaesdk` from the Python Package Index.
 
 Type the following command into a command line:
-```
+```python
 pip install iaesdk
 ```
 {: codeblock}
@@ -77,7 +77,7 @@ The code samples show how to:
         except Exception as e:
             print("Unable to retrieve: {0}".format(e))
     ```
-    {: codeblock}    
+    {: codeblock}
 
 - Get the state of the {{site.data.keyword.iae_full_notm}} cluster:
     ```python

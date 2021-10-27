@@ -46,17 +46,15 @@ For further information on HBase and its features refer to [Apache HBase](https:
 HBase cannot work directly with {{site.data.keyword.cos_full_notm}} at this time, that is you cannot create an HBase table with {{site.data.keyword.cos_short}} as the storage. By default, the storage is HDFS. However, you can export data from HBase to {{site.data.keyword.cos_short}} and import it back again into another cluster with the same HBase table definitions. HBase offers the following export and import utilities:
 
 - **Export Table** set of tools which use MapReduce to scan and copy tables. Be aware when copying large data volumes that this method has a direct impact on the region server performance.
-  - [Exporting an HBase table from HDFS to {{site.data.keyword.cos_short}}](#exporting-an-hbase-table-from-hdfs-to-object-storage)
-
-  - [Importing an HBase table from {{site.data.keyword.cos_short}}  to HDFS](#importing-an-hbase-table-from-object-storage-to-hdfs)
-
+    - [Exporting an HBase table from HDFS to {{site.data.keyword.cos_short}}](#exporting-an-hbase-table-from-hdfs-to-object-storage)
+    - [Importing an HBase table from {{site.data.keyword.cos_short}}  to HDFS](#importing-an-hbase-table-from-object-storage-to-hdfs)
 - **HBase Snapshot** tool which allows you to take a copy of a table (both contents and metadata) with a very small performance impact. Exporting the snapshot to another cluster does not directly affect any of the region servers; export is just a `distcp` with an extra bit of logic.
 
- HBase snapshots can be stored in {{site.data.keyword.cos_full_notm}} instead of in HDFS. To allow for this, your cluster must be configured with {{site.data.keyword.cos_short}}. See [Working with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).  
+    HBase snapshots can be stored in {{site.data.keyword.cos_full_notm}} instead of in HDFS. To allow for this, your cluster must be configured with {{site.data.keyword.cos_short}}. See [Working with {{site.data.keyword.cos_short}}](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-config-cluster-cos).  
 
- - [Exporting a snapshot of an HBase table to {{site.data.keyword.cos_short}}](#exporting-a-snapshot-of-an-hbase-table-to-object-storage)
+    - [Exporting a snapshot of an HBase table to {{site.data.keyword.cos_short}}](#exporting-a-snapshot-of-an-hbase-table-to-object-storage)
 
- - [Importing a snapshot from {{site.data.keyword.cos_short}} to HDFS](#importing-a-snapshot-from-object-storage-to-hdfs)
+    - [Importing a snapshot from {{site.data.keyword.cos_short}} to HDFS](#importing-a-snapshot-from-object-storage-to-hdfs)
 
 ### Exporting an HBase table from HDFS to {{site.data.keyword.cos_short}}
 
@@ -114,9 +112,9 @@ To export a snapshot of an HBase table to  {{site.data.keyword.cos_full_notm}} w
 
     ```
     # hbase shell
-      hbase> snapshot 'testexport', 'mysnapshot'
-      hbase> list_snapshots
-      ```
+    hbase> snapshot 'testexport', 'mysnapshot'
+    hbase> list_snapshots
+    ```
 2. Export the snapshot from the HBase database to {{site.data.keyword.cos_short}}:
 
     ```
@@ -155,8 +153,8 @@ Apache Phoenix enables you to interact with HBase using SQL through Phoenix clie
 2. Navigate to `/usr/hdp/current/phoenix-client/bin`
 3. Launch `sqlline.py` in one of the following ways:
 
-  - By entering: `./sqlline.py` (which will launch a query prompt)
-  - By entering: `./sqlline.py /local_path_to_folder/createTable.sql`
+    - By entering: `./sqlline.py` (which will launch a query prompt)
+    - By entering: `./sqlline.py /local_path_to_folder/createTable.sql`
 
 ### Using the PSQL client
 
@@ -169,7 +167,7 @@ To load data via `psql.py`:
 3. Run `psql.py`:
 
     ```
-	  ./psql.py /local_path_to_folder/createTable.sql /local_path_to_folder/data.csv
+    ./psql.py /local_path_to_folder/createTable.sql /local_path_to_folder/data.csv
     ```
 
 ### Bulk Loading by starting a MapReduce job
@@ -182,18 +180,17 @@ CREATE TABLE example (
     m.fname varchar(50),
     m.lname varchar(50)
     CONSTRAINT pk PRIMARY KEY (id))
-
 ```
 
 To launch the MapReduce loader, use the following Hadoop command with the Phoenix client jar:
 
-  - For CSV data, use:
+    - For CSV data, use:
     ```
-  	HADOOP_CLASSPATH=/usr/hdp/current/hbase-master/lib/hbase-protocol.jar:/usr/hdp/current/hbase-master/conf hadoop jar /usr/hdp/current/phoenix-client/phoenix-<VERSION>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /user/clsadmin/data.csv
+    HADOOP_CLASSPATH=/usr/hdp/current/hbase-master/lib/hbase-protocol.jar:/usr/hdp/current/hbase-master/conf hadoop jar /usr/hdp/current/phoenix-client/phoenix-<VERSION>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /user/clsadmin/data.csv
     ```
-  - For JSON data, use:
+    - For JSON data, use:
     ```
- 	  HADOOP_CLASSPATH=/usr/hdp/current/hbase-master/lib/hbase-protocol.jar:/usr/hdp/current/hbase-master/conf hadoop jar /usr/hdp/current/phoenix-client/phoenix-<VERSION>-client.jar org.apache.phoenix.mapreduce.JsonBulkLoadTool --table EXAMPLE --input /user/clsadmin/data.json
+    HADOOP_CLASSPATH=/usr/hdp/current/hbase-master/lib/hbase-protocol.jar:/usr/hdp/current/hbase-master/conf hadoop jar /usr/hdp/current/phoenix-client/phoenix-<VERSION>-client.jar org.apache.phoenix.mapreduce.JsonBulkLoadTool --table EXAMPLE --input /user/clsadmin/data.json
     ```
 
     **Note:** The JSON data file must be of Hadoop JSON input format which has one JSON record per line. The following example shows the Hadoop JSON input format:
@@ -224,16 +221,16 @@ The following examples show useful SQL statements for the Phoenix Query Server.
     ```
 - Example of the DELETE statement:
 
-  ```
-  DELETE FROM TEST WHERE ID=123;
-  ```
+    ```
+    DELETE FROM TEST WHERE ID=123;
+    ```
 - Examples of the DROP TABLE statement:
 
-  ```
-  DROP TABLE my_schema.my_table;
+    ```
+    DROP TABLE my_schema.my_table;
 
-  DROP TABLE my_schema.my_table CASCADE;
-  ```
+    DROP TABLE my_schema.my_table CASCADE;
+    ```
 
 For the complete list of supported SQL statements, see [Apache Phoenix](https://phoenix.apache.org){: external}.
 
@@ -257,7 +254,7 @@ DriverManager.getConnection(phoenix_jdbc_url, props);
 
 - The Apache Phoenix 4.7 client libraries that are  shipped with HDP 2.6.2 do not support the HTTPS protocol. This is a known [Knox issue](https://issues.apache.org/jira/browse/KNOX-893){: external} and a workaround is to use the Phoenix 4.9 client libraries instead.
 - The tool `sqlline-thin.py` (v1.1.8), which is shipped with HDP 2.6.2 does not support the HTTPS protocol either because of the same known issue mentioned for the Apache Phoenix 4.7 client libraries.
--	The Hortonworks Phoenix ODBC driver currently does not support access to the Apache Phoenix server through the  Knox Gateway.
+- The Hortonworks Phoenix ODBC driver currently does not support access to the Apache Phoenix server through the  Knox Gateway.
 
 ## Learn more
 {: #hbase-learn-more}

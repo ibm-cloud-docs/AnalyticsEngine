@@ -11,6 +11,7 @@ subcollection: analyticsengine
 <!-- Attribute definitions -->
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:note: .note}
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,9 +26,9 @@ Access to {{site.data.keyword.iae_full_notm}} service instances for users in you
 
 - Access policies enable access to be granted at different levels. You can see which access policies are set for you in the [{{site.data.keyword.cloud}} catalog](https://cloud.ibm.com/catalog){: external} console.
 
-  1. Go to [Access IAM users](https://cloud.ibm.com/iam/users){: external}.
-  1. Click your name in the user table.
-  1. Click the **Access policies** tab to see your access policies.
+    1. Go to [Access IAM users](https://cloud.ibm.com/iam/users){: external}.
+    1. Click your name in the user table.
+    1. Click the **Access policies** tab to see your access policies.
 - Roles define the actions that a user or service ID can run. There are different types of roles in the {{site.data.keyword.cloud_notm}}:
 
     - *Resource group* roles. When you create an {{site.data.keyword.iae_full_notm}} service instance, you assign the service to a resource group. This resource group helps you to organize your account resources for access control. Users with resource group roles can create or delete service instances.
@@ -75,6 +76,6 @@ To onboard new users to your account:
 1. Expand the **Add users to access groups** section and add the users to an access group. You can create access groups from here if needed.
 1. Assign those users access to your {{site.data.keyword.iae_full_notm}} service instance by expanding the section **Assign users additional access** and  selecting **IAM services**.
 
-  1. Select **{{site.data.keyword.iae_short}}** from the list of access types.
-  1. Select **Services based on attributes** and choose the {{site.data.keyword.iae_short}} service instance that you want to grant access to in your resource group and at your location.
-  1. Select the level of access you want to enable by choosing the appropriate roles.
+    1. Select **{{site.data.keyword.iae_short}}** from the list of access types.
+    1. Select **Services based on attributes** and choose the {{site.data.keyword.iae_short}} service instance that you want to grant access to in your resource group and at your location.
+    1. Select the level of access you want to enable by choosing the appropriate roles.

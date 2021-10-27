@@ -33,8 +33,10 @@ subcollection: AnalyticsEngine
 {: support}
 
 {{site.data.keyword.iae_full_notm}} is a first class citizen in {{site.data.keyword.DSX_full}}. Projects (or individual notebooks) in
-{{site.data.keyword.DSX_short}} can be associated with {{site.data.keyword.iae_full_notm}}. Once you have an
-IBM Analytics cluster running in {{site.data.keyword.Bluemix_notm}}, log in to {{site.data.keyword.DSX_short}} using the same {{site.data.keyword.Bluemix_notm}} credentials you used for {{site.data.keyword.iae_full_notm}}, create a project, go to the project's Settings page, and then add  the {{site.data.keyword.iae_full_notm}} service instance you created to the  project. For details, including videos and tutorials, see [IBM Watson Learning ](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/){: external}.
+{{site.data.keyword.DSX_short}} can be associated with {{site.data.keyword.iae_full_notm}}. 
+
+Once you have an IBM Analytics cluster running in {{site.data.keyword.Bluemix_notm}}, log in to {{site.data.keyword.DSX_short}} using the same {{site.data.keyword.Bluemix_notm}} credentials you used for {{site.data.keyword.iae_full_notm}}, create a project, go to the project's Settings page, and then add the {{site.data.keyword.iae_full_notm}} service instance you created to the project. For details, including videos and tutorials, see [IBM Watson Learning ](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/){: external}.
+
 After you have added the {{site.data.keyword.iae_full_notm}} service to the project, you can select to run a notebook on the service. For details on how to run code in a notebook, see [Code and run notebooks](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/code-run-notebooks.html){: external}.
 
 ## Can I use Kafka for data ingestion?

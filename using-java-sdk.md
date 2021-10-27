@@ -109,7 +109,7 @@ The Java SDK allows you to construct the service client in one of two ways by:
 
         The following example shows using environment variables. Each environment variable must be prefixed by `IBM_ANALYTICS_ENGINE_API`.
 
-        ```
+        ```java
         export IBM_ANALYTICS_ENGINE_API_URL=<IAE_ENDPOINT_URL>
         export IBM_ANALYTICS_ENGINE_API_AUTH_TYPE=iam
         export IBM_ANALYTICS_ENGINE_API_APIKEY=<IAM_API_KEY>

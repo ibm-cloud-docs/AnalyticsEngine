@@ -75,6 +75,7 @@ TimeStamp: 4     Value: 4.935338359740761
 TimeStamp: 5     Value: 6.03395072999318
 
 ```
+
 ## Segmentation
 {: #time-series-segmentation}
 

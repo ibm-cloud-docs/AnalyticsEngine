@@ -41,10 +41,11 @@ Key aspects of the library include:
 Before you can start using the library in a notebook, you must register `STContext` in your notebook to access the `st` functions.
 
 To register `STContext`:
-```
+```python
 from pyst import STContext
 stc = STContext(spark.sparkContext._gateway)
 ```
+
 ## Next steps
 {: #geospatio-next-steps}
 

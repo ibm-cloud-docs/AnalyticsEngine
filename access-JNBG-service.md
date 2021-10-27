@@ -195,7 +195,7 @@ To create a sample application that runs on a Linux system:
     The sample Python code `sourceToExecute` that runs against the Spark kernel takes five numbers and then displays them in the JSON output.
 
     Example:
-    ```
+    ```text
     content: { text: '[882, 635, 978, 219, 773]\n', name: 'stdout' },
     ```
 
@@ -206,7 +206,7 @@ This Python 2 sample code uses Tornado libraries to make HTTP and WebSocket call
 To create a Python 2 Spark application:
 
 In any working directory create a file `client.py` containing the following code:
-```
+```python
 from uuid import uuid4
 
 from tornado import gen
@@ -348,20 +348,19 @@ Update `client.py`:
 
 - Set the `kg_ws_url` variable to the notebook_gateway_websocket value in your cluster service keys.
 - See [Retrieving cluster credentials](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-retrieve-cluster-credentials){: external} to get your user credentials.
-
-  - Set the `auth_username` variable to the user name value you retrieved.
-  - Set the `auth_password` variable to the password value.
+- Set the `auth_username` variable to the user name value you retrieved.
+- Set the `auth_password` variable to the password value.
 
 Install pip. If you don't have it, install the Python Tornado package using this command:
 
-```
+```python
 yum install –y python-pip; pip install tornado.
 ```
 {: codeblock}
 
 
 Run the demo Python client:
-```
+```python
 python client.py
 ```
 

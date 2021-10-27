@@ -29,8 +29,8 @@ Key features include:
 2. Standard Parquet features, such as encoding, compression, columnar projection and predicate push-down, continue to work as usual on files with Parquet modular encryption format.
 3. You can choose one of the two encryption algorithms that are defined in the Parquet specification. Both algorithms support column encryption, however:
 
-  - The default algorithm `AES-GCM` provides full protection against tampering with data and metadata parts in Parquet files.
-  - The alternative algorithm `AES-GCM-CTR` supports partial integrity protection of Parquet files. Only metadata parts are protected against tampering, not data parts. An advantage of this algorithm is that it has a lower throughput overhead compared to the `AES-GCM` algorithm.
+    - The default algorithm `AES-GCM` provides full protection against tampering with data and metadata parts in Parquet files.
+    - The alternative algorithm `AES-GCM-CTR` supports partial integrity protection of Parquet files. Only metadata parts are protected against tampering, not data parts. An advantage of this algorithm is that it has a lower throughput overhead compared to the `AES-GCM` algorithm.
 4. You can choose which columns to encrypt. Other columns won’t be encrypted, reducing the throughput overhead.
 5. Different columns can be encrypted with different keys.
 6. By default, the main Parquet metadata module (the file footer) is encrypted to hide the file schema and list of sensitive columns. However, you can choose not to encrypt the file footers  in order to enable legacy readers (such as other Spark  distributions that don't yet support Parquet encryption) to read the unencrypted columns in the encrypted files.  
@@ -39,9 +39,9 @@ Key features include:
     - Directly by your application. See [Key management by application](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-application){: new_window}.
     - By {{site.data.keyword.keymanagementservicefull}}, a centralized key management system (KMS) for generating, managing, and destroying encryption keys used by {{site.data.keyword.iae_full_notm}}. See [Key management by Key Protect](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-key-protect){: new_window}.
 
-     {{site.data.keyword.keymanagementservicefull}} helps you manage your encrypted keys by aligning with {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) roles.
+    {{site.data.keyword.keymanagementservicefull}} helps you manage your encrypted keys by aligning with {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) roles.
 
-      **Note**: Only master encryption keys (MEKs) need to be managed (either by your application, or by Key Protect). Data encryption keys (DEKs) are automatically handled by Spark/Parquet. For details on key handling inside Parquet encryption, see  [Internals of encryption key handling](#internals-of-encryption-key-handling).
+    **Note**: Only master encryption keys (MEKs) need to be managed (either by your application, or by Key Protect). Data encryption keys (DEKs) are automatically handled by Spark/Parquet. For details on key handling inside Parquet encryption, see  [Internals of encryption key handling](#internals-of-encryption-key-handling).
 
     For each sensitive column, you must specify which master key to use for encryption. Also, a master key must be specified for the footer of each encrypted file (data frame) - because the footers keep metadata like the schema and list of sensitive columns, that can be sensitive too. By default, the footer key will be used for footer encryption. However, if you choose a plain text footer mode, the footer won’t be encrypted, and the key will be used only for integrity verification of the footer.
 

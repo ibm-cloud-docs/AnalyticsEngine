@@ -50,59 +50,59 @@ The next sections show you to work with the geospatial plugin.
 To use a plugin, load the relevant implementations using the Registration module:
 
 - For Scala:
-  ```scala
-  import com.ibm.xskipper.stmetaindex.filter.STMetaDataFilterFactory
-  import com.ibm.xskipper.stmetaindex.index.STIndexFactory
-  import com.ibm.xskipper.stmetaindex.translation.parquet.{STParquetMetaDataTranslator, STParquetMetadatastoreClauseTranslator}
-  import io.xskipper._
+    ```scala
+    import com.ibm.xskipper.stmetaindex.filter.STMetaDataFilterFactory
+    import com.ibm.xskipper.stmetaindex.index.STIndexFactory
+    import com.ibm.xskipper.stmetaindex.translation.parquet.{STParquetMetaDataTranslator, STParquetMetadatastoreClauseTranslator}
+    import io.xskipper._
 
-  Registration.addIndexFactory(STIndexFactory)
-  Registration.addMetadataFilterFactory(STMetaDataFilterFactory)
-  Registration.addClauseTranslator(STParquetMetadatastoreClauseTranslator)
-  Registration.addMetaDataTranslator(STParquetMetaDataTranslator)
-  ```
+    Registration.addIndexFactory(STIndexFactory)
+    Registration.addMetadataFilterFactory(STMetaDataFilterFactory)
+    Registration.addClauseTranslator(STParquetMetadatastoreClauseTranslator)
+    Registration.addMetaDataTranslator(STParquetMetaDataTranslator)
+    ```
 
 - For Python:
-  ```python
-  from xskipper import Xskipper
-  from xskipper import Registration
+    ```python
+    from xskipper import Xskipper
+    from xskipper import Registration
 
-  Registration.addMetadataFilterFactory(spark, 'com.ibm.xskipper.stmetaindex.filter.STMetaDataFilterFactory')
-  Registration.addIndexFactory(spark, 'com.ibm.xskipper.stmetaindex.index.STIndexFactory')
-  Registration.addMetaDataTranslator(spark, 'com.ibm.xskipper.stmetaindex.translation.parquet.STParquetMetaDataTranslator')
-  Registration.addClauseTranslator(spark, 'com.ibm.xskipper.stmetaindex.translation.parquet.STParquetMetadatastoreClauseTranslator')
-  ```
+    Registration.addMetadataFilterFactory(spark, 'com.ibm.xskipper.stmetaindex.filter.STMetaDataFilterFactory')
+    Registration.addIndexFactory(spark, 'com.ibm.xskipper.stmetaindex.index.STIndexFactory')
+    Registration.addMetaDataTranslator(spark, 'com.ibm.xskipper.stmetaindex.translation.parquet.STParquetMetaDataTranslator')
+    Registration.addClauseTranslator(spark, 'com.ibm.xskipper.stmetaindex.translation.parquet.STParquetMetadatastoreClauseTranslator')
+    ```
 
 ### Index building
 
 To build an index, you can use the `addCustomIndex` API:
 
 - For Scala:
-  ```Scala
-  import com.ibm.xskipper.stmetaindex.implicits._
+    ```scala
+    import com.ibm.xskipper.stmetaindex.implicits._
 
-  // index the dataset
-  val xskipper = new Xskipper(spark, dataset_path)
+    // index the dataset
+    val xskipper = new Xskipper(spark, dataset_path)
 
-  xskipper
-    .indexBuilder()
-    // using the implicit method defined in the plugin implicits
-    .addSTBoundingBoxLocationIndex("location")
-    // equivalent
-    //.addCustomIndex(STBoundingBoxLocationIndex("location"))
-    .build(reader).show(false)
-  ```
+    xskipper
+      .indexBuilder()
+      // using the implicit method defined in the plugin implicits
+      .addSTBoundingBoxLocationIndex("location")
+      // equivalent
+      //.addCustomIndex(STBoundingBoxLocationIndex("location"))
+      .build(reader).show(false)
+    ```
 
 - For Python:
-  ```python
-  xskipper = Xskipper(spark, dataset_path)
+    ```python
+    xskipper = Xskipper(spark, dataset_path)
 
-  # adding the index using the custom index API
-  xskipper.indexBuilder() \
-          .addCustomIndex("com.ibm.xskipper.stmetaindex.index.STBoundingBoxLocationIndex", ['location'], dict()) \
-          .build(reader) \
-          .show(10, False)
-  ```
+    # adding the index using the custom index API
+    xskipper.indexBuilder() \
+            .addCustomIndex("com.ibm.xskipper.stmetaindex.index.STBoundingBoxLocationIndex", ['location'], dict()) \
+            .build(reader) \
+            .show(10, False)
+    ```
 
 ### Supported functions
 
@@ -130,16 +130,16 @@ Index encryption is modular and granular in the following way:
 - Each index can either be encrypted (with a per-index key granularity) or left plaintext
 - Footer + object name column:
     - Footer column of the metadata object which in itself is a Parquet file contains, among other things:
-      - Schema of the metadata object, which reveals the types, parameters and column names for all indexes collected. For  example, you can learn that a `BloomFilter` is defined on column `city` with a false-positive probability of `0.1`.
-      - Full path to the original data set or a table name in case of a Hive metastore table.
+        - Schema of the metadata object, which reveals the types, parameters and column names for all indexes collected. For  example, you can learn that a `BloomFilter` is defined on column `city` with a false-positive probability of `0.1`.
+        - Full path to the original data set or a table name in case of a Hive metastore table.
     - Object name column stores the names of all indexed objects.
 - Footer + metadata column can either be:
     - Both encrypted using the same key. This is the default. In this case, the plain text footer configuration for the Parquet objects comprising the metadata in encrypted footer mode, and the object name column is encrypted using the selected key.
     - Both in plain text. In this case, the Parquet objects comprising the metadata are in plain text footer mode, and the object name column is not encrypted.
 
-    If at least one index is marked as encrypted, then a footer key must be configured regardless of whether plain text footer mode is enabled or not. If plain text footer is set then the footer key is used only for tamper-proofing. Note that in that case the object name column is not tamper  proofed.
+      If at least one index is marked as encrypted, then a footer key must be configured regardless of whether plain text footer mode is enabled or not. If plain text footer is set then the footer key is used only for tamper-proofing. Note that in that case the object name column is not tamper  proofed.
 
-    If a footer key is configured, then at least one index must be encrypted.
+      If a footer key is configured, then at least one index must be encrypted.
 
 Before using index encryption, you should check the documentation on [PME](/docs/AnalyticsEngine?topic=AnalyticsEngine-parquet-encryption) and make sure you are familiar with the concepts.
 
@@ -152,12 +152,12 @@ To use index encryption:
 1. Perform all *regular* PME configurations, including Key Management configurations.
 1. Create encrypted metadata for a data set:
 
-   1. Follow the regular flow for creating metadata.
-   1. Configure a footer key. If you wish to set a plain text footer + object name column, set `io.xskipper.parquet.encryption.plaintext.footer` to `true` (See samples below).
-   1. In `IndexBuilder`, for each index you want to encrypt, add the label of the key to use for that index.
+    1. Follow the regular flow for creating metadata.
+    1. Configure a footer key. If you wish to set a plain text footer + object name column, set `io.xskipper.parquet.encryption.plaintext.footer` to `true` (See samples below).
+    1. In `IndexBuilder`, for each index you want to encrypt, add the label of the key to use for that index.
 
-   To use metadata during query time or to refresh existing metadata, no setup is necessary other than the *regular* PME setup required to make sure the keys are accessible (literally the same configuration needed to read an encrypted data set).
-   {: hint}
+    To use metadata during query time or to refresh existing metadata, no setup is necessary other than the *regular* PME setup required to make sure the keys are accessible (literally the same configuration needed to read an encrypted data set).
+    {: hint}
 
 ## Samples
 {: #samples}
@@ -165,90 +165,90 @@ To use index encryption:
 The following samples show metadata creation using a key named `k1` as a footer + object name key, and a key named `k2` as a key to encrypt a `MinMax` for `temp`, while also creating a `ValueList` for `city`, which is left in plain text.
 
 - For Scala:
-  ```scala
-  // index the dataset
-  val xskipper = new Xskipper(spark, dataset_path)
-  // Configuring the JVM wide parameters
-  val jvmComf = Map(
-    "io.xskipper.parquet.mdlocation" -> md_base_location,
-    "io.xskipper.parquet.mdlocation.type" -> "EXPLICIT_BASE_PATH_LOCATION")
-  Xskipper.setConf(jvmConf)
-  // set the footer key
-  val conf = Map(
-    "io.xskipper.parquet.encryption.footer.key" -> "k1")
-  xskipper.setConf(conf)
-  xskipper
-    .indexBuilder()
-    // Add an encrypted MinMax index for temp
-    .addMinMaxIndex("temp", "k2")
-    // Add a plaintext ValueList index for city
-    .addValueListIndex("city")
-    .build(reader).show(false)
-   ```
+    ```scala
+    // index the dataset
+    val xskipper = new Xskipper(spark, dataset_path)
+    // Configuring the JVM wide parameters
+    val jvmComf = Map(
+      "io.xskipper.parquet.mdlocation" -> md_base_location,
+      "io.xskipper.parquet.mdlocation.type" -> "EXPLICIT_BASE_PATH_LOCATION")
+    Xskipper.setConf(jvmConf)
+    // set the footer key
+    val conf = Map(
+      "io.xskipper.parquet.encryption.footer.key" -> "k1")
+    xskipper.setConf(conf)
+    xskipper
+      .indexBuilder()
+      // Add an encrypted MinMax index for temp
+      .addMinMaxIndex("temp", "k2")
+      // Add a plaintext ValueList index for city
+      .addValueListIndex("city")
+      .build(reader).show(false)
+      ```
 
 - For Python
-   ```python
-   xskipper = Xskipper(spark, dataset_path)
-  # Add JVM Wide configuration
-  jvmConf = dict([
+    ```python
+    xskipper = Xskipper(spark, dataset_path)
+    # Add JVM Wide configuration
+    jvmConf = dict([
     ("io.xskipper.parquet.mdlocation", md_base_location),
     ("io.xskipper.parquet.mdlocation.type", "EXPLICIT_BASE_PATH_LOCATION")])
-  Xskipper.setConf(spark, jvmConf)
-  # configure footer key
-  conf = dict([("io.xskipper.parquet.encryption.footer.key", "k1")])
-  xskipper.setConf(conf)
-  # adding the indexes
-   xskipper.indexBuilder() \
+    Xskipper.setConf(spark, jvmConf)
+    # configure footer key
+    conf = dict([("io.xskipper.parquet.encryption.footer.key", "k1")])
+    xskipper.setConf(conf)
+    # adding the indexes
+    xskipper.indexBuilder() \
             .addMinMaxIndex("temp", "k1") \
             .addValueListIndex("city") \
             .build(reader) \
             .show(10, False)
-   ```
+    ```
 
 If you want the footer + object name to be left in plain text mode (as mentioned above), you need to add the configuration parameter:
 
 - For Scala:
-  ```scala
-  // index the dataset
-  val xskipper = new Xskipper(spark, dataset_path)
-  // Configuring the JVM wide parameters
-  val jvmComf = Map(
-    "io.xskipper.parquet.mdlocation" -> md_base_location,
-    "io.xskipper.parquet.mdlocation.type" -> "EXPLICIT_BASE_PATH_LOCATION")
-  Xskipper.setConf(jvmConf)
-  // set the footer key
-  val conf = Map(
-    "io.xskipper.parquet.encryption.footer.key" -> "k1",
-    "io.xskipper.parquet.encryption.plaintext.footer" -> "true")
-  xskipper.setConf(conf)
-  xskipper
-    .indexBuilder()
-    // Add an encrypted MinMax index for temp
-    .addMinMaxIndex("temp", "k2")
-    // Add a plaintext ValueList index for city
-    .addValueListIndex("city")
-    .build(reader).show(false)
-   ```
+    ```scala
+    // index the dataset
+    val xskipper = new Xskipper(spark, dataset_path)
+    // Configuring the JVM wide parameters
+    val jvmComf = Map(
+      "io.xskipper.parquet.mdlocation" -> md_base_location,
+      "io.xskipper.parquet.mdlocation.type" -> "EXPLICIT_BASE_PATH_LOCATION")
+    Xskipper.setConf(jvmConf)
+    // set the footer key
+    val conf = Map(
+      "io.xskipper.parquet.encryption.footer.key" -> "k1",
+      "io.xskipper.parquet.encryption.plaintext.footer" -> "true")
+    xskipper.setConf(conf)
+    xskipper
+      .indexBuilder()
+      // Add an encrypted MinMax index for temp
+      .addMinMaxIndex("temp", "k2")
+      // Add a plaintext ValueList index for city
+      .addValueListIndex("city")
+      .build(reader).show(false)
+      ```
 
 - For Python
-   ```python
-   xskipper = Xskipper(spark, dataset_path)
-  # Add JVM Wide configuration
-  jvmConf = dict([
+    ```python
+    xskipper = Xskipper(spark, dataset_path)
+    # Add JVM Wide configuration
+    jvmConf = dict([
     ("io.xskipper.parquet.mdlocation", md_base_location),
     ("io.xskipper.parquet.mdlocation.type", "EXPLICIT_BASE_PATH_LOCATION")])
-  Xskipper.setConf(spark, jvmConf)
-  # configure footer key
-  conf = dict([("io.xskipper.parquet.encryption.footer.key", "k1"),
-  ("io.xskipper.parquet.encryption.plaintext.footer", "true")])
-  xskipper.setConf(conf)
-  # adding the indexes
-   xskipper.indexBuilder() \
+    Xskipper.setConf(spark, jvmConf)
+    # configure footer key
+    conf = dict([("io.xskipper.parquet.encryption.footer.key", "k1"),
+    ("io.xskipper.parquet.encryption.plaintext.footer", "true")])
+    xskipper.setConf(conf)
+    # adding the indexes
+    xskipper.indexBuilder() \
             .addMinMaxIndex("temp", "k1") \
             .addValueListIndex("city") \
             .build(reader) \
             .show(10, False)
-   ```
+    ```
 
 ## Support for older metadata
 

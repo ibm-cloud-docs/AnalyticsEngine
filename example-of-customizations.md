@@ -220,6 +220,7 @@ Where:
 },
 "script_params": ["arg1", "arg2"]
 ```
+
 ### Example of the customization script hosted in {{site.data.keyword.cos_full_notm}}
 
 ```

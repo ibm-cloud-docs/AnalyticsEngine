@@ -30,6 +30,7 @@ westchester = wkt_reader.read(westchester_WKT)
 white_plains = wkt_reader.read(white_plains_WKT)
 manhattan = wkt_reader.read(manhattan_WKT)
 ```
+
 ## Topological relations
 
 You can use the following topological relation functions:
