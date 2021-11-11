@@ -74,7 +74,7 @@ You can monitor the status of submitted applications in your {{site.data.keyword
     By clicking the Action icon to the right of a selected application, you can:
 
       - Stop the application
-      - Launch the Spark history UI
+
 
 <!--
 ## Console kernels page
