@@ -50,7 +50,7 @@ toc:
               - customizing-instance.md
               - create-lib-set.md
               - use-lib-set.md
-              - cust-with-script.mdAccessing a service instance
+              - cust-with-script.md
           - topicgroup:
               label: Managing a service instance
               topics:
@@ -158,11 +158,11 @@ toc:
               - working-with-spark-sql.md
           - topicgroup:
               label: Working with data skipping libraries
-              topics: 
+              topics:
               - data-skipping.md
           - topicgroup:
               label: Working with Parquet encryption
-              topics: 
+              topics:
               - parquet-encryption.md
               - key-management-by-application.md
               - key-management-by-kms.md
@@ -193,7 +193,7 @@ toc:
               - database-connectors.md
           - topicgroup:
               label: Enhancing security
-              topics: 
+              topics:
               - security-model.md
               - user-responsibilities.md
               - hipaa-readiness.md
@@ -216,7 +216,7 @@ toc:
           - link:
               label: IBM Analytics Engine V3 API reference
               href: https://{DomainName}/apidocs/ibm-analytics-engine-v3#introduction
-          - link: 
+          - link:
               label: IBM Analytics Engine serverless CLI
               href: https://{DomainName}/docs/analytics-engine-cli-plugin/analytics-engine-cli-plugin-CLI_analytics_engine
           - topicgroup:
@@ -262,7 +262,7 @@ toc:
               - link:
                   label: Uploading files to HDFS
                   href: http://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/WebHDFS.html
-      
+
   - navgroup:
       id: help
       topics:
@@ -279,7 +279,7 @@ toc:
               - migrate-classic-serverless.md
       - topicgroup:
           label: Classic instances
-          topics: 
+          topics:
           - topicgroup:
               label: Support links
               topics:
