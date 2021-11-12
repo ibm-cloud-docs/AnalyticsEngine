@@ -289,22 +289,22 @@ The following code samples show how to:
    {: codeblock}
 
 - Return the state of an application:
-      ```java
-      ServiceCall<ApplicationGetStateResponse> getApplicationState(GetApplicationStateOptions getApplicationStateOptions)
-      ```
-      {: codeblock}
+   ```java
+   ServiceCall<ApplicationGetStateResponse> getApplicationState(GetApplicationStateOptions getApplicationStateOptions)
+   ```
+   {: codeblock}
 
-      Example request:
-      ```java
-      // Construct an instance of the GetApplicationStateOptions model
-      GetApplicationStateOptions getApplicationStateOptionsModel = new GetApplicationStateOptions.Builder()
-      .instanceId("dc0e9889-eab2-4t9e-9441-566209499546")
-      .applicationId("db933645-0b68-4dcb-80d8-7b71a6c8e542")
-      .build();
+   Example request:
+   ```java
+   // Construct an instance of the GetApplicationStateOptions model
+   GetApplicationStateOptions getApplicationStateOptionsModel = new GetApplicationStateOptions.Builder()
+   .instanceId("dc0e9889-eab2-4t9e-9441-566209499546")
+   .applicationId("db933645-0b68-4dcb-80d8-7b71a6c8e542")
+   .build();
 
-      // Invoke operation with valid options model (positive test)
-      Response<ApplicationGetStateResponse> response = ibmAnalyticsEngineApiService.getApplicationState(getApplicationStateOptionsModel).execute();
-      ApplicationGetStateResponse responseObj = response.getResult();
-      System.out.println(String.valueOf(responseObj));
-      ```
-      {: codeblock}
+   // Invoke operation with valid options model (positive test)
+   Response<ApplicationGetStateResponse> response = ibmAnalyticsEngineApiService.getApplicationState(getApplicationStateOptionsModel).execute();
+   ApplicationGetStateResponse responseObj = response.getResult();
+   System.out.println(String.valueOf(responseObj));
+   ```
+   {: codeblock}
