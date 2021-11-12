@@ -8,7 +8,7 @@ subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -153,6 +153,25 @@ The code samples show how to:
     ```
     {: codeblock}
 
+- Return the state of the application indentified by the `app_id`identifier:
+    ```javascript
+    getApplicationState(params)
+    ```
+    {: codeblock}
+
+    Example request:
+    ```javascript
+    ibmAnalyticsEngineApiService.getApplicationState({
+      instanceId: 'e64c907a-e82f-46fd-addc-ccfafbd28b09',
+      applicationId: 'db933645-0b68-4dcb-80d8-7b71a6c8e542',
+    }).then((res) => {
+      console.log(JSON.stringify(res.result, null, 2));
+    }).catch((err) => {
+      console.warn(err);
+    });
+    ```
+    {: codeblock}
+
 - Stop a running application identified by the `app_id` identifier. This is an idempotent operation. Performs no action if the requested application is already stopped or completed.
     ```javascript
     deleteApplication(params)
@@ -172,21 +191,4 @@ The code samples show how to:
     ```
     {: codeblock}
 
-- Return the state of the application identified by the `app_id` identifier:
-    ```javascript
-    getApplicationState(params)
-    ```
-    {: codeblock}
 
-    Example request:
-    ```javascript
-    ibmAnalyticsEngineApiService.getApplicationState({
-      instanceId: 'e64c907a-e82f-46fd-addc-ccfafbd28b09',
-      applicationId: 'db933645-0b68-4dcb-80d8-7b71a6c8e542',
-    }).then((res) => {
-      console.log(JSON.stringify(res.result, null, 2));
-    }).catch((err) => {
-      console.warn(err);
-    });
-    ```
-    {: codeblock}

@@ -141,7 +141,7 @@ See [Spark configuration in {{site.data.keyword.iae_short}} Serverless](/docs/An
 ## Parameters for submitting Spark applications
 {: #spark-submit-parms}
 
-The following table lists the mapping between the `spark-submit` command parameters and their equivalent to be passed to the  `application_details` section of the Spark application submission REST API payload.
+The following table lists the mapping between the `spark-submit` command parameters and their equivalent to be passed to the `application_details` section of the Spark application submission REST API payload.
 
 | spark-submit command parameter | Payload to the Analytics Engine Spark submission REST API|
 |----------------------------------|---------------------------------------|
@@ -162,62 +162,66 @@ The following table lists the mapping between the `spark-submit` command paramet
 | `executor-cores`| `application_details` -> `conf` -> `spark.executor.cores`|
 | `executor-memory`| `application_details` -> `conf` -> `spark.executor.memory`|
 | `num-executors`| `application_details` -> `conf` -> `ae.spark.executor.count`|
+{: caption="Table 1. Mapping between the `spark-submit` command parameters and their equivalents passed to the `application_details` section of the Spark application REST API payload" caption-side="top"}
 
 
 ## Getting the state of a submitted application
 {: #spark-app-status}
 
 To get the state of a submitted application, enter:
-    ```sh
-    curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/ spark_applications/<application_id>/state --header "Authorization: Bearer $token"
-    ```
-    {: codeblock}
 
-    Sample response:
-    ```json
-    {
-       "id": "a9a6f328-56d8-4923-8042-97652fff2af3",
-       "state": "finished",
-       "start_time": "2020-11-25T14:14:31.311+0000",
-       "finish_time": "2020-11-25T14:30:43.625+0000"
-    }
-    ```
+```sh
+curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/ spark_applications/<application_id>/state --header "Authorization: Bearer $token"
+```
+{: codeblock}
+
+Sample response:
+```json
+{
+    "id": "a9a6f328-56d8-4923-8042-97652fff2af3",
+    "state": "finished",
+    "start_time": "2020-11-25T14:14:31.311+0000",
+    "finish_time": "2020-11-25T14:30:43.625+0000"
+}
+```
 
 ## Getting the details of a submitted application
 {: #spark-app-details}
 
 To get the details of a submitted application, enter:
-    ```sh
-    curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/ spark_applications/<application_id> --header "Authorization: Bearer $token"
-    ```
-    {: codeblock}
 
-    Sample response:
-    ```json
-    {
-      "application_details": {
-        "application": "/opt/ibm/spark/examples/src/main/python/wordcount.py",
-        "arguments": [
-        "/opt/ibm/spark/examples/src/main/resources/people.txt"
-        ]},
-        "id": "a9a6f328-56d8-4923-8042-97652fff2af3",
-        "state": "finished",
-        "start_time": "2020-11-25T14:14:31.311+0000",
-        "finish_time": "2020-11-25T14:15:53.205+0000"
-    }
-    ```
+```sh
+curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/ spark_applications/<application_id> --header "Authorization: Bearer $token"
+```
+{: codeblock}
+
+Sample response:
+```json
+{
+  "application_details": {
+    "application": "/opt/ibm/spark/examples/src/main/python/wordcount.py",
+    "arguments": [
+    "/opt/ibm/spark/examples/src/main/resources/people.txt"
+    ]},
+    "id": "a9a6f328-56d8-4923-8042-97652fff2af3",
+    "state": "finished",
+    "start_time": "2020-11-25T14:14:31.311+0000",
+    "finish_time": "2020-11-25T14:15:53.205+0000"
+}
+```
 
 ## Stopping a submitted application
 {: #spark-app-stop}
 
 To stop a submitted application, run the following:
-    ```sh
-    curl -X DELETE https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id> --header "Authorization: Bearer $token"
-    ```
-    {: codeblock}
 
-    Returns `204 – No Content`, if the deletion is successful. The state of the application is set to STOPPED.
+```sh
+curl -X DELETE https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id> --header "Authorization: Bearer $token"
+```
+{: codeblock}
 
-    This API is idempotent. If you attempt to stop an already completed or stopped application, it will still return 204.
+Returns `204 – No Content`, if the deletion is successful. The state of the application is set to STOPPED.
 
-    You can use this API to stop an application in the following states: `accepted`, `waiting`, `submitted`, and `running`.
+This API is idempotent. If you attempt to stop an already completed or stopped application, it will still return 204.
+
+You can use this API to stop an application in the following states: `accepted`, `waiting`, `submitted`, and `running`.
