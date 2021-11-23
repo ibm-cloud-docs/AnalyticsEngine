@@ -26,31 +26,27 @@ The following code samples show you how to create a Python script that reads dat
 
 You can use the same {{site.data.keyword.cos_full_notm}} credentials that you specified at the time you submitted the Spark application or that were set as a default configuration when you created the {{site.data.keyword.iae_full_notm}} service instance to read from {{site.data.keyword.cos_short}} within the application.
 
-Example of the application called `read-employees.py`:
+Example of the application called `read-employees.py`. Insert the {{site.data.keyword.cos_short}} bucket and service name:
 ```python
 from pyspark.sql import SparkSession
-
 
 def init_spark():
   spark = SparkSession.builder.appName("read-write-cos-test").getOrCreate()
   sc = spark.sparkContext
   return spark,sc
 
-
 def read_employees(spark,sc):
   print("Hello 1"  , spark )  
-  employeesDF = spark.read.option("header",True).csv("cos://<BUCKET-CHANGME>.mycosservice/employees.csv")
+  employeesDF = spark.read.option("header",True).csv("cos://mybucketname.mycosservice/employees.csv")
   print("Hello 2" , employeesDF)
   employeesDF.createOrReplaceTempView("empTable")
   seniors = spark.sql("SELECT empTable.NAME FROM empTable WHERE empTable.BAND >= 6")
   print("Hello 3", seniors)
   seniors.show()
 
-
 def main():
   spark,sc = init_spark()
   read_employees(spark,sc)
-
 
 if __name__ == '__main__':
   main()
@@ -68,13 +64,13 @@ Kennedy,7,NN
 Truman,3,TT
 ```
 
-To run the application called `read-employees.py` that reads data from `employees.csv` POST the following JSON payload script called `read-employees-submit.json`:
+To run the application called `read-employees.py` that reads data from `employees.csv` POST the following JSON payload script called `read-employees-submit.json`. Insert the {{site.data.keyword.cos_short}} bucket and service name where the CSV file is located, modify the endpoint path and insert your access key and secret key.
 ```json
 {
   "application_details": {
-    "application": "cos://matrix.mycosservice/read-employees.py",
+    "application": "cos://mycosbucket.mycosservice/read-employees.py",
     "conf": {
-      "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud/<CHANGME-according-to-instance>",
+      "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud/<CHANGME-according-to-instance>",
       "spark.hadoop.fs.cos.mycosservice.access.key": "<CHANGEME>",
       "spark.hadoop.fs.cos.mycosservice.secret.key": "<CHANGEME>"
       }
@@ -97,14 +93,14 @@ def init_spark():
   spark = SparkSession.builder.appName("read-write-cos-test").getOrCreate()
   sc = spark.sparkContext
   hconf=sc._jsc.hadoopConfiguration()
-  hconf.set("fs.cos.testcos.endpoint", "s3.direct.us.cloud-object-storage.appdomain.cloud/CHANGEME-according-to-instance="
+  hconf.set("fs.cos.testcos.endpoint", "s3.us.cloud-object-storage.appdomain.cloud/CHANGEME-according-to-instance="
 ("fs.cos.testcos.iam.api.key","<CHANGEME>")
   return spark,sc
 
 
 def read_employees(spark,sc):
   print("Hello1 "  , spark )  
-  employeesDF = spark.read.option("header",True).csv("cos://<BUCKET-CHANGME>.testcos/employees.csv")
+  employeesDF = spark.read.option("header",True).csv("cos://mycosbucket.testcos/employees.csv")
   print("Hello2" , employeesDF)
   employeesDF.createOrReplaceTempView("empTable")
   juniors = spark.sql("SELECT empTable.NAME FROM empTable WHERE empTable.BAND < 6")
@@ -122,13 +118,13 @@ if __name__ == '__main__':
 ```
 {: codeblock}
 
-Then POST the following payload JSON script called `read-employees-iam-key-cos-submit.json` with your access key and password:
+Then POST the following payload JSON script called `read-employees-iam-key-cos-submit.json` with your access key and password. Insert the {{site.data.keyword.cos_short}} bucket name where the CSV file is located and the modify the endpoint path.
 ```json
 {
   "application_details": {
-    "application": "cos://matrix.mycosservice/read-employees-iam-key-cos.py",
+    "application": "cos://mycosbucket.mycosservice/read-employees-iam-key-cos.py",
     "conf": {
-      "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud/CHANGME-according-to-instnace",
+      "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud/CHANGME-according-to-instance",
       "spark.hadoop.fs.cos.mycosservice.access.key": "<CHANGEME>",
       "spark.hadoop.fs.cos.mycosservice.secret.key": "<CHANGEME>"
       }
@@ -142,7 +138,7 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
 1. Create an Eclipse project of the following format:
 
   ![Shows the Eclipse project format to use in which to develop your Scala jar.](images/eclipse-proj.png)
-1. Add the following application called `ScalaReadWriteIAMCOSExample.scala` to the `analyticsengine` folder. Insert your IAM API key.
+1. Add the following application called `ScalaReadWriteIAMCOSExample.scala` to the `analyticsengine` folder. Insert your IAM API key and the {{site.data.keyword.cos_short}} bucket name.
 
     ```
     package com.ibm.analyticsengine
@@ -154,12 +150,12 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
         val sparkConf = new SparkConf().setAppName("Spark Scala Example")
         val sc = new SparkContext(sparkConf)
             val prefix="fs.cos.iamservice"
-            sc.hadoopConfiguration.set(prefix + ".endpoint", "s3.direct.us.cloud-object-storage.appdomain.cloud")
+            sc.hadoopConfiguration.set(prefix + ".endpoint", "s3.us.cloud-object-storage.appdomain.cloud")
             sc.hadoopConfiguration.set(prefix + ".iam.api.key","<CHANGEME>")
             val data = Array("Sweden", "England", "France", "Tokyo")
             val myData = sc.parallelize(data)
-            myData.saveAsTextFile("cos://matrix.iamservice/2021sep25-1.data")
-            val myRDD=sc.textFile("cos://matrix.iamservice/2021sep25-1.data")
+            myData.saveAsTextFile("cos://mycosbucket.iamservice/2021sep25-1.data")
+            val myRDD=sc.textFile("cos://mycosbucket.iamservice/2021sep25-1.data")
             myRDD.collect().foreach(println)
         }
     }
@@ -186,15 +182,15 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
     sbt package
     upload jar to COS
     ```
-1. Then POST the following payload JSON script called `read-write-cos-scala-submit.json` with your access key and password:
+1. Then POST the following payload JSON script called `read-write-cos-scala-submit.json` with your access key and password. Insert the {{site.data.keyword.cos_short}} bucket name where the CSV file is located and the modify the endpoint path.
 
     ```
     {
       "application_details": {
-        "application": "cos://<CHANGME-BUCKET>.mycosservice/scalareadwriteiamcosexample_2.12-1.0.jar",
+        "application": "cos://mycosbucket.mycosservice/scalareadwriteiamcosexample_2.12-1.0.jar",
         "class":"com.ibm.analyticsengine.ScalaReadWriteIAMCOSExample",
         "conf": {
-          "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud-CHANGME-according-to-instance",
+          "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud-CHANGME-according-to-instance",
           "spark.hadoop.fs.cos.mycosservice.access.key": "<CHANGEME>",
           "spark.hadoop.fs.cos.mycosservice.secret.key": "<CHANGEME>"
           }
@@ -206,13 +202,13 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
 
 ## Submitting application details with IAM API key
 
-The following example show the application details for the application called `read-employees.py` that reads data from `employees.csv` in {{site.data.keyword.cos_short}} using the IAM API key. Insert the {{site.data.keyword.cos_short}} bucket name where the CSV file is located and the API key.
+The following example show the application details for the application called `read-employees.py` that reads data from `employees.csv` in {{site.data.keyword.cos_short}} using the IAM API key. Insert the {{site.data.keyword.cos_short}} bucket and service name where the CSV file is located and the API key.
 ```
 {
   "application_details": {
-    "application": "cos://<CHANGE-BUCKET>.mycosservice/read-employees.py",
+    "application": "cos://mycosbucket.mycosservice/read-employees.py",
     "conf": {
-      "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud-CHANGME-according-to-instance",
+      "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud-CHANGME-according-to-instance",
       "spark.hadoop.fs.cos.mycosservice.iam.api.key": "CHANGME"
       }
   }

@@ -69,7 +69,7 @@ Example of an auto-scaling application payload showing the lower and upper bound
       "spark.dynamicAllocation.initialExecutors": "0",
       "spark.dynamicAllocation.minExecutors": "1",
       "spark.dynamicAllocation.maxExecutors": "10",
-      "spark.hadoop.fs.cos.<cos-reference-name>.endpoint": "s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+      "spark.hadoop.fs.cos.<cos-reference-name>.endpoint": "s3.us-south.cloud-object-storage.appdomain.cloud",
       "spark.hadoop.fs.cos.<cos-reference-name>.iam.api.key": "<iam-api-key-of-application-bucket>"
     }
   }

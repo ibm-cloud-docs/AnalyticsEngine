@@ -88,7 +88,9 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
 
     The provision.json file contains the provisioning parameters for the instance you want to create.
 
-    The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, which should preferably match the location of your {{site.data.keyword.iae_short}} instance, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.
+    The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the public endpoint.
+
+    <!--The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, which should preferably match the location of your {{site.data.keyword.iae_short}} instance, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.-->
 
     This is a sample of what the provision.json file can look like. See [Architecture and concepts in serverless instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts) for a description of the provisioning parameters in the payload.
 
@@ -99,7 +101,7 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
         },
       "instance_home": {
         "region": "us-south",
-        "endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+        "endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud",
         "hmac_access_key": "<your-hmac-access-key",
         "hmac_secret_key": "<your-hmac-secret-key"
         },
@@ -177,7 +179,7 @@ To create a service instance using the Resource Controller REST API:
             },
             "instance_home": {
               "region": "us-south",
-              "endpoint": "s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+              "endpoint": "s3.us-south.cloud-object-storage.appdomain.cloud",
               "hmac_access_key": "your-access-key",
               "hmac_secret_key": "your-secret-key"
               }        
@@ -214,7 +216,7 @@ To track instance readiness:
           "provider": "ibm-cos",
           "type": "objectstore",
           "region": "us-south",
-          "endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+          "endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud",
           "bucket": "ae-bucket-do-not-delete-dc0e****-eab2-4t**-9441-566209499546",
           "hmac_access_key": "eH****g=",
           "hmac_secret_key": "4d********76"

@@ -37,7 +37,7 @@ curl \
 -d '{ "file": "/ cos://<application-bucket-name>.<cos-reference-name>/my_spark_application.py"
 ", \
 "conf": { \
-      "spark.hadoop.fs.cos.<cos-reference-name>.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud", \
+      "spark.hadoop.fs.cos.<cos-reference-name>.endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud", \
       "spark.hadoop.fs.cos.<cos-reference-name>.access.key": "<access_key>", \
       "spark.hadoop.fs.cos.<cos-reference-name>.secret.key": "<secret_key>", \
       "spark.app.name": "MySparkApp" \
@@ -90,7 +90,9 @@ curl -i -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<inst
 ```
 {: codeblock}
 
-The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, which should preferably match the location of your {{site.data.keyword.iae_short}} instance, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.  
+The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the public endpoint.
+<!--
+The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, which should preferably match the location of your {{site.data.keyword.iae_short}} instance, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.  -->
 
 Sample payload:
 ```json
@@ -99,7 +101,7 @@ Sample payload:
   "className": "org.apache.spark.deploy.SparkSubmit",
   "args": ["/opt/ibm/spark/examples/src/main/resources/people.txt"],
   "conf": {
-    "spark.hadoop.fs.cos.mycos.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+    "spark.hadoop.fs.cos.mycos.endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud",
     "spark.hadoop.fs.cos.mycos.access.key": "XXXX",
     "spark.hadoop.fs.cos.mycos.secret.key": "XXXX",
     "spark.app.name": "MySparkApp"
