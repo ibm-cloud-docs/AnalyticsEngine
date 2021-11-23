@@ -79,7 +79,7 @@ To  get the credentials of the {{site.data.keyword.cos_short}} instance you crea
    Note:
 
    - Currently, the {{site.data.keyword.iae_full_notm}} serverless plan supports HMAC style credentials only.
-   - The endpoint to your {{site.data.keyword.cos_full_notm}} instance should be the public endpoint.
+   - Pick public endpoints for consumption.
    <!--- The endpoint to your {{site.data.keyword.cos_full_notm}} instance should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.-->
 
 ## Associate the instance home using REST API
