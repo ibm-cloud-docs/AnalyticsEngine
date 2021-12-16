@@ -34,6 +34,86 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} classic instances that are grouped by date.
 {: shortdesc}
 
+## 16 December 2021
+{: #AnalyticsEngine-dec1621}
+{: release-note}
+
+New security patch for **AE-1.2.v29.15**
+:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.15**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+    Customers are required to review the following CVE information and take appropriate action:
+
+    - [CVE-2021-44228](https://access.redhat.com/security/cve/CVE-2021-44228)
+
+       Based on the advice received from the underlying engine, Hortonworks Data Platform(HDP), the instructions for removing the vulnerable class from log4j 2.x jars for Oozie and Hive were applied. Note that log4j 1.x is not affected by `CVE-2021-44228`. 
+
+       The changes are available in all new clusters built after 16 December 2021. To avail the fix, discard all old clusters and create new ones.
+
+       Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
+
+## 08 December 2021
+{: #AnalyticsEngine-dec0821}
+{: release-note}
+
+New security patches for **AE-1.2.v29.14**
+:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.14**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+    Customers are required to review the following CVE information and take appropriate action:
+
+    - [CVE-2021-42574](https://nvd.nist.gov/vuln/detail/CVE-2021-42574)
+    - [RHSA-2021:4587](https://access.redhat.com/errata/RHSA-2021:4587)
+    - [CVE-2021-28831](https://nvd.nist.gov/vuln/detail/CVE-2021-28831)
+    - [CVE-2021-42374](https://nvd.nist.gov/vuln/detail/CVE-2021-42374)
+    - [CVE-2021-42375](https://nvd.nist.gov/vuln/detail/CVE-2021-42375)
+    - [CVE-2021-42378](https://nvd.nist.gov/vuln/detail/CVE-2021-42378)
+    - [CVE-2021-42379](https://nvd.nist.gov/vuln/detail/CVE-2021-42379)
+    - [CVE-2021-42380](https://nvd.nist.gov/vuln/detail/CVE-2021-42380)
+    - [CVE-2021-42381](https://nvd.nist.gov/vuln/detail/CVE-2021-42381)
+    - [CVE-2021-42382](https://nvd.nist.gov/vuln/detail/CVE-2021-42382)
+    - [CVE-2021-42383](https://nvd.nist.gov/vuln/detail/CVE-2021-42383)
+    - [CVE-2021-42384](https://nvd.nist.gov/vuln/detail/CVE-2021-42384)
+    - [CVE-2021-42385](https://nvd.nist.gov/vuln/detail/CVE-2021-42385)
+    - [CVE-2021-42386](https://nvd.nist.gov/vuln/detail/CVE-2021-42386)
+    - [CVE-2016-4658](https://nvd.nist.gov/vuln/detail/CVE-2016-4658)
+    - [CVE-2021-42574](https://nvd.nist.gov/vuln/detail/CVE-2021-42574)
+    - [CVE-2021-35550](https://nvd.nist.gov/vuln/detail/CVE-2021-35550)
+    - [CVE-2021-35556](https://nvd.nist.gov/vuln/detail/CVE-2021-35556)
+    - [CVE-2021-35559](https://nvd.nist.gov/vuln/detail/CVE-2021-35559)
+    - [CVE-2021-35561](https://nvd.nist.gov/vuln/detail/CVE-2021-35561)
+    - [CVE-2021-35564](https://nvd.nist.gov/vuln/detail/CVE-2021-35564)
+    - [CVE-2021-35565](https://nvd.nist.gov/vuln/detail/CVE-2021-35565)
+    - [CVE-2021-35567](https://nvd.nist.gov/vuln/detail/CVE-2021-35567)
+    - [CVE-2021-35578](https://nvd.nist.gov/vuln/detail/CVE-2021-35578)
+    - [CVE-2021-35586](https://nvd.nist.gov/vuln/detail/CVE-2021-35586)
+    - [CVE-2021-35588](https://nvd.nist.gov/vuln/detail/CVE-2021-35588)
+    - [CVE-2021-35603](https://nvd.nist.gov/vuln/detail/CVE-2021-35603)
+    - [CVE-2021-22543](https://nvd.nist.gov/vuln/detail/CVE-2021-22543)
+    - [CVE-2021-3653](https://nvd.nist.gov/vuln/detail/CVE-2021-3653)
+    - [CVE-2021-3656](https://nvd.nist.gov/vuln/detail/CVE-2021-3656)
+    - [CVE-2021-37576](https://nvd.nist.gov/vuln/detail/CVE-2021-37576)
+
+    Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
+
+
+## 15 November 2021
+{: #AnalyticsEngine-nov1521}
+{: release-note}
+
+New security patches for **AE-1.2.v29.13**
+:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.13**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
+
+## 29 October 2021
+{: #AnalyticsEngine-oct2921}
+{: release-note}
+
+New security patches for **AE-1.2.v29.12**
+:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.12**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
+
+
 ## 1 October 2021
 {: #AnalyticsEngine-oct0121}
 {: release-note}
@@ -188,7 +268,7 @@ New security patches for **AE-1.2.v29.5**
 
     Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
-{{site.data.keyword.iae_full_notm}} is now SOC1 Type 2 and SOC2 Type 2 compliant. 
+{{site.data.keyword.iae_full_notm}} is now SOC1 Type 2 and SOC2 Type 2 compliant.
 :   For details, see [Compliance](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-compliance#compliance).
 
 ## March 2021
@@ -212,14 +292,14 @@ New security patches for **AE-1.2.v29.4**
 
     Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.   
 
-The data skipping library was open sourced and can now be used when developing applications with Spark SQL. 
+The data skipping library was open sourced and can now be used when developing applications with Spark SQL.
 :   See [Data skipping for Spark SQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-data-skipping).
 
 ### 22 March 2021
 {: #AnalyticsEngine-mar2221}
 {: release-note}
 
-You can now create {{site.data.keyword.iae_short}} clusters with auto scaling that will automatically scale nodes up or down in the cluster based on the amount of memory demanded by the applications. 
+You can now create {{site.data.keyword.iae_short}} clusters with auto scaling that will automatically scale nodes up or down in the cluster based on the amount of memory demanded by the applications.
 :   See [Provisioning an auto scaling cluster](/docs/AnalyticsEngine?topic=AnalyticsEngine-autoscaling-clusters).
 
 You can now also scale down a cluster manually by using the cluster resize operation.
@@ -239,7 +319,7 @@ You can now provision {{site.data.keyword.iae_full}} instances in two new region
 {: #AnalyticsEngine-feb2521}
 {: release-note}
 
-All biased IT terminology in {{site.data.keyword.iae_full_notm}} is deprecated and will be removed in favor of more inclusive language. 
+All biased IT terminology in {{site.data.keyword.iae_full_notm}} is deprecated and will be removed in favor of more inclusive language.
 :   This includes changes to terms in the {{site.data.keyword.iae_full_notm}}  documentation and to APIs and cluster node names used in the product itself. See the [Announcement letter](https://cloud.ibm.com/status/announcement?component=ibmanalyticsengine) released end of January 2021.
 
     **What will be changing**:
@@ -251,7 +331,7 @@ All biased IT terminology in {{site.data.keyword.iae_full_notm}} is deprecated a
 
     **Note**:
     - The deprecation period ends at the end of March 2021.
-    - Although you can still use the deprecated API and node names until the end of March 2021, you should start using the new API and recreate clusters that use the new node names. See [Using an allowlist to control network traffic](/docs/AnalyticsEngine?topic=AnalyticsEngine-allowlist-to-cluster-access) for details on the allowlist API. 
+    - Although you can still use the deprecated API and node names until the end of March 2021, you should start using the new API and recreate clusters that use the new node names. See [Using an allowlist to control network traffic](/docs/AnalyticsEngine?topic=AnalyticsEngine-allowlist-to-cluster-access) for details on the allowlist API.
 
 You should migrate your customization scripts to use the new environment variable `NODE_TYP`.
 :   See [Customizing a cluster](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-cluster).
@@ -338,7 +418,7 @@ New security patches for **AE-1.2.v29.1**
 
     Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
-A fix was added that makes the Hive Metastore transparently recover from PostgreSQL metastore database restarts or network interruption issues. 
+A fix was added that makes the Hive Metastore transparently recover from PostgreSQL metastore database restarts or network interruption issues.
 :   If you are externalizing the Hive metastore to IBM Cloud Databases for PostgreSQL, you need to set the socketTimeout value in the JDBC URL. See [Externalizing the Hive metastore to Databases for PostgreSQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#externalizing-hive-metastore).
 
 Another fix was added so that you no longer need to explicitly grant permissions for the PostgreSQL certificate that you place in `/home/common/wce/clsadmin/` on `mn002`.
@@ -366,7 +446,7 @@ New security patches for **AE-1.2.v29**
 {: #AnalyticsEngine-oct0120}
 {: release-note}
 
-A fix was added to alleviate cluster instability issues caused by an error in an underlying Docker runtime. 
+A fix was added to alleviate cluster instability issues caused by an error in an underlying Docker runtime.
 :   If you created a cluster between 23 July 2020 and 01 October 2020, you might have experienced intermittent instability that manifested as connectivity issues or down times in nodes. With today's deployment, the runtime version has been replaced by an earlier stable runtime version.
 
     We strongly urge you to create new clusters and discard all  clusters created between 23 July 2020 and 01 October 2020. If for any reason, you need to retain an old cluster, contact support and request for an in-place fix. Note that this in-place fix will require a disruptive restart of the cluster.
@@ -401,20 +481,20 @@ New security patches for **AE-1.2.v28.4**
     - [CVE-2020-14621](https://nvd.nist.gov/vuln/detail/CVE-2020-14621)
     - [RHSA-2020:2968](https://access.redhat.com/errata/RHSA-2020:2968)
 
-You can now configure log aggregation for the HDFS component. 
+You can now configure log aggregation for the HDFS component.
 :   See [Configuring log aggregation](/docs/AnalyticsEngine?topic=AnalyticsEngine-log-aggregation).
 
 A fix was added that prevents HDFS audit logs from filling up disk space.
 : This was caused by a misconfiguration of the log4j rotation property that disrupted the way clusters should work.
 
-You can now use the time series library in your Spark applications, which provides a rich time series data model and  imputation functions for transforming, reducing, segmenting, joining, and forecasting time series. 
+You can now use the time series library in your Spark applications, which provides a rich time series data model and  imputation functions for transforming, reducing, segmenting, joining, and forecasting time series.
 :   SQL extensions to time series are also provided. See [Time series library](/docs/AnalyticsEngine?topic=AnalyticsEngine-time-series).
 
 ## 20 August 2020
 {: #AnalyticsEngine-aug20}
 {: release-note}
 
-Starting with this deployment, Analytics Engine cluster's build version will be available in `/home/common/aeversion.txt` on the nodes of the cluster. 
+Starting with this deployment, Analytics Engine cluster's build version will be available in `/home/common/aeversion.txt` on the nodes of the cluster.
 :   You can check this file after you SSH to the cluster. This will help in tracking fixes that were made available against a particular version of Analytics Engine. For example, this deployment version is AE-1.2.v28.3.
 
 New security patches for **AE-1.2.v28.3**
@@ -479,10 +559,10 @@ Docker on the underlying Host VMs was upgraded.
 {: #AnalyticsEngine-may2220}
 {: release-note}
 
-You can now use allowlist access to a private endpoint cluster. 
+You can now use allowlist access to a private endpoint cluster.
 :   See [Whitelisting IP addresses to control network traffic](/docs/AnalyticsEngine?topic=AnalyticsEngine-allowlist-to-cluster-access).
 
-You can now use the {{site.data.keyword.iae_full_notm}} Java SDK to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API. 
+You can now use the {{site.data.keyword.iae_full_notm}} Java SDK to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API.
 :   See [Using Java](/docs/AnalyticsEngine?topic=AnalyticsEngine-java).
 
 ### 17 May 2020
@@ -512,17 +592,17 @@ Update if using same IBM Cloud Databases for PostgreSQL instance with all of you
 Spark and Hive share the same metadata store    
 :   Starting from this release, Spark and Hive share the same metadata store.
 
-Security updates to JDK and WLP were applied on all host virtual machines. 
+Security updates to JDK and WLP were applied on all host virtual machines.
 :   Also security updates to JDK on the cluster were installed.
 
-Resizing clusters by using the UI or the API fails for clusters that were created before 12 May 2020. 
+Resizing clusters by using the UI or the API fails for clusters that were created before 12 May 2020.
 :   The reason is an unexpected incompatibility in the Ambari version between HDP 3.1 (used in clusters created before 12 May 2020) and HDP 3.1.5 (used in clusters created after 12 May 2020). The problem does not affect clusters that were created after 12 May 2020. Those clusters can be resized.
 
 ### 05 May 2020
 {: #AnalyticsEngine-may0520}
 {: release-note}
 
-Support for the {{site.data.keyword.iae_full_notm}} Go SDK is now available which you can use to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API. 
+Support for the {{site.data.keyword.iae_full_notm}} Go SDK is now available which you can use to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API.
 :   See [Using the {{site.data.keyword.iae_full_notm}} Go SDK](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-go).
 
 ## April 2020
@@ -532,7 +612,7 @@ Support for the {{site.data.keyword.iae_full_notm}} Go SDK is now available whic
 {: #AnalyticsEngine-apr2120}
 {: release-note}
 
-You can now use the {{site.data.keyword.iae_full_notm}} Node.js and Python SDK to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API. 
+You can now use the {{site.data.keyword.iae_full_notm}} Node.js and Python SDK to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API.
 :   See:
 
     - For Node.js: [Using the {{site.data.keyword.iae_full_notm}} Node.js SDK](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-node-js)
@@ -542,14 +622,14 @@ You can now use the {{site.data.keyword.iae_full_notm}} Node.js and Python SDK t
 {: #AnalyticsEngine-apr0320}
 {: release-note}
 
-Memory tuning enhancements were deployed for standard (default) hardware clusters. 
+Memory tuning enhancements were deployed for standard (default) hardware clusters.
 :   If you have standard hardware clusters that you created before 03 April 2020, you need to delete those clusters and create new ones to avoid running into out memory issues or having unresponsive clusters that need to be rebooted by the IBM Support team.
 
 ### 02 April 2020
 {: #AnalyticsEngine-apr0220}
 {: release-note}
 
-You can now use data skipping libraries to boost the performance of Spark SQL queries by associating a summary metadata with each data object. 
+You can now use data skipping libraries to boost the performance of Spark SQL queries by associating a summary metadata with each data object.
 :   This metadata is used during query evaluation to skip over objects which have no relevant data. See [Data skipping for Spark SQL](/docs/AnalyticsEngine?topic=AnalyticsEngine-data-skipping).
 
 ## February 2020
@@ -583,30 +663,30 @@ New security fixes
 {: #AnalyticsEngine-jan20}
 {: release-note}
 
-You can now work with the geospatio-temporal library to expand your data science analysis in Python notebooks to include location analytics by gathering, manipulating and displaying imagery, GPS, satellite photography and historical data. 
+You can now work with the geospatio-temporal library to expand your data science analysis in Python notebooks to include location analytics by gathering, manipulating and displaying imagery, GPS, satellite photography and historical data.
 :   The documentation includes  sample code snippets of many useful functions and links to sample notebooks in the IBM Watson Studio Gallery. See [Working with the spatio-temporal library](/docs/AnalyticsEngine?topic=AnalyticsEngine-geospatial-geotemporal-lib).
 
-Updates were made to best practices around choosing the right Databases for PostgreSQL configuration, configuring the cluster for log monitoring and troubleshooting and using private endpoints. 
+Updates were made to best practices around choosing the right Databases for PostgreSQL configuration, configuring the cluster for log monitoring and troubleshooting and using private endpoints.
 :   See [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
 
 ### 16 December 2019
 {: #AnalyticsEngine-dec1619}
 {: release-note}
 
-The way that you can use the {{site.data.keyword.iae_full_notm}} Lite plan has changed. 
+The way that you can use the {{site.data.keyword.iae_full_notm}} Lite plan has changed.
 :   The Lite plan is now available only to institutions that have signed up with IBM to try out the Lite plan. See [How to use the Lite plan](/docs/AnalyticsEngine?topic=AnalyticsEngine-general-faqs#lite-plan).
 
-You can now use adhoc PostgreSQL customization scripts to configure the cluster to work with PostgreSQL. 
+You can now use adhoc PostgreSQL customization scripts to configure the cluster to work with PostgreSQL.
 :   See [Running an adhoc customization script for configuring Hive with a Postgres external metastore](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-examples#postgres-metastore).
 
-{{site.data.keyword.iae_full_notm}} now supports Parquet modular encryption that allows encrypting sensitive columns when writing Parquet files and decrypting these columns when reading the encrypted files. 
+{{site.data.keyword.iae_full_notm}} now supports Parquet modular encryption that allows encrypting sensitive columns when writing Parquet files and decrypting these columns when reading the encrypted files.
 :   Besides ensuring privacy, Parquet encryption also protects the integrity of stored data by detecting any tampering with file contents. See [Working with Parquet encryption](/docs/AnalyticsEngine?topic=AnalyticsEngine-parquet-encryption).
 
 ## 25 November 2019
 {: #AnalyticsEngine-nov2519}
 {: release-note}
 
-You can now use the {{site.data.keyword.Bluemix_notm}} service endpoints feature to securely access your {{site.data.keyword.iae_full_notm}} service instances over the {{site.data.keyword.Bluemix_notm}} private network. 
+You can now use the {{site.data.keyword.Bluemix_notm}} service endpoints feature to securely access your {{site.data.keyword.iae_full_notm}} service instances over the {{site.data.keyword.Bluemix_notm}} private network.
 :   You can choose to use either public or private endpoints for the {{site.data.keyword.iae_full_notm}} service. The choice needs to be made at the time you provision the instance. See [Cloud service endpoints integration](/docs/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration).
 
 Fixed broken links
@@ -619,19 +699,19 @@ Other fixes
 {: #AnalyticsEngine-oct0719}
 {: release-note}
 
-IBM Cloud Databases for PostgreSQL is now available for externalizing Hive cluster metadata. 
+IBM Cloud Databases for PostgreSQL is now available for externalizing Hive cluster metadata.
 :   To learn how to configure your cluster to store Hive metadata in PostgreSQL, see [Externalizing the Hive metastore](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#externalizing-hive-metastore).
 
     You should stop using Compose For MySQL as the Hive metastore.
 
-Hive View has been removed from the underlying platform in `AE 1.2`. 
+Hive View has been removed from the underlying platform in `AE 1.2`.
 :   You can use any other JDBC UI based client such as SQuirrel SQL or Eclipse Data Source Explorer instead.
 
 ## 24 September 2019
 {: #AnalyticsEngine-sep2419}
 {: release-note}
 
-`AE 1.1` (based on Hortonworks Data Platform 2.6.5) is deprecated. 
+`AE 1.1` (based on Hortonworks Data Platform 2.6.5) is deprecated.
 :   You can no longer provision `AE 1.1` clusters. You also cannot resize and add additional nodes to an `AE 1.1` cluster.
 
     Although existing clusters will still continue to work and be supported until December 31, 2019,  you should stop using those now and start creating new `AE 1.2` clusters as described in [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
@@ -642,7 +722,7 @@ Hive View has been removed from the underlying platform in `AE 1.2`.
 {: #AnalyticsEngine-aug2119}
 {: release-note}
 
-To enhance log analysis, log monitoring, and troubleshooting, {{site.data.keyword.iae_full_notm}} now supports aggregating cluster logs and job logs to a centralized {{site.data.keyword.la_short}} server of your choice. 
+To enhance log analysis, log monitoring, and troubleshooting, {{site.data.keyword.iae_full_notm}} now supports aggregating cluster logs and job logs to a centralized {{site.data.keyword.la_short}} server of your choice.
 :   See details in [Configuring log aggregation](/docs/AnalyticsEngine?topic=AnalyticsEngine-log-aggregation).
 
     Note that log aggregation can only be configured for  {{site.data.keyword.iae_full_notm}} clusters created on or after  August 21, 2019.
@@ -660,27 +740,27 @@ A new version of {{site.data.keyword.iae_full_notm}} is now available.
 
     See [Provisioning {{site.data.keyword.iae_full_notm}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE).
 
-`AE 1.0` (based on HDP 2.6.2) is deprecated. 
+`AE 1.0` (based on HDP 2.6.2) is deprecated.
 :   You can no longer provision `AE 1.0` clusters. You also cannot resize and add additional nodes to an `AE 1.0` cluster.
 
     Although existing clusters will still continue to work and be supported until September 30, 2019, you should stop using those now and start creating new `AE 1.2` clusters as described in [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
 
     All provisioned instances of AE 1.0 will be deleted after September 30, 2019.
 
-A new software package `AE 1.2 Hive LLAP` was added to `AE 1.2`, which supports realtime interactive queries. 
+A new software package `AE 1.2 Hive LLAP` was added to `AE 1.2`, which supports realtime interactive queries.
 :   Note however that currently you cannot resize a cluster created using this package.
 
-`AE 1.2` supports Python 3.7. 
+`AE 1.2` supports Python 3.7.
 :   Although `AE 1.1` still supports both Python 3.5 and Python 2.7, you should start moving your Python-based applications or code to Python 3.7 now. Especially considering that the open source community has announced the end of support for Python 2.
 
-`AE 1.2` does not support HDFS encryption zones. 
+`AE 1.2` does not support HDFS encryption zones.
 :   To store sensitive data with encryption requirements, select the appropriate COS encryption options. See details in [Best practices](https://cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices#cos-encryption).
 
 ## 18 March 2019
 {: #AnalyticsEngine-mar1619}
 {: release-note}
 
-The cluster credentials can no longer be retrieved via the service endpoints. 
+The cluster credentials can no longer be retrieved via the service endpoints.
 :   You can now only retrieve the cluster password by invoking the {{site.data.keyword.iae_full_notm}} [`reset_password`](/docs/AnalyticsEngine?topic=AnalyticsEngine-reset-cluster-password#reset-cluster-password) REST API and you must have the appropriate user permissions.
 
 Changes to environment variable
@@ -690,10 +770,10 @@ Changes to environment variable
 {: #AnalyticsEngine-feb0619}
 {: release-note}
 
-The Ambari metrics service (AMS) is now available on all the packages, including the Spark and Hive packages. 
+The Ambari metrics service (AMS) is now available on all the packages, including the Spark and Hive packages.
 :   Previously it was available only on the Hadoop package. This service enables you to see metrics like CPU, memory, and so on, which assists you while troubleshooting the cluster or an application.
 
-Spark dynamic allocation is now enabled by default. 
+Spark dynamic allocation is now enabled by default.
 :   The default behavior until now was two executors per Spark application, requiring you to tune cluster resources depending on your application's needs. This behavior has been changed by enabling Spark dynamic allocation, which allows a Spark application to fully utilize the cluster resources. See [Kernel settings](/docs/AnalyticsEngine?topic=AnalyticsEngine-kernel-settings#kernel-settings).
 
 ## January 2019
@@ -703,20 +783,20 @@ Spark dynamic allocation is now enabled by default.
 {: #AnalyticsEngine-jan3019}
 {: release-note}
 
-{{site.data.keyword.iae_full_notm}} now meets the required IBM controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. 
+{{site.data.keyword.iae_full_notm}} now meets the required IBM controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements.
 :   See [HIPAA readiness](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-compliance).
 
 ### 24 January 2019
 {: #AnalyticsEngine-jan2419}
 {: release-note}
 
-Added support for impersonating the user of the Livy APIs by enabling the user to set proxyUser to clsadmin. 
+Added support for impersonating the user of the Livy APIs by enabling the user to set proxyUser to clsadmin.
 :   See [Livy API](/docs/AnalyticsEngine?topic=AnalyticsEngine-livy-api).
 
-The default Python environment is now Python 3. 
+The default Python environment is now Python 3.
 :   Earlier default Spark Python runtime was `Python 2`. See [Installed libraries](/docs/AnalyticsEngine?topic=AnalyticsEngine-installed-libs).
 
-Added the Ambari configuration changes to the custom spark-default.conf file for Python 3 support. 
+Added the Ambari configuration changes to the custom spark-default.conf file for Python 3 support.
 :   See [Installed libraries](/docs/AnalyticsEngine?topic=AnalyticsEngine-installed-libs).
 
 Changes to installation library directory structure
@@ -730,7 +810,7 @@ Changes to installation library directory structure
 {: #AnalyticsEngine-nov3018}
 {: release-note}
 
-You can now track life cycle management actions performed on the cluster by users and applications that have access to your service instance. 
+You can now track life cycle management actions performed on the cluster by users and applications that have access to your service instance.
 :   See [Activity Tracker](/docs/AnalyticsEngine?topic=AnalyticsEngine-at_events).
 
 IAM role to view cluster password
@@ -770,7 +850,7 @@ New {{site.data.keyword.iae_full_notm}} region
 
         -	eu-de: `https://api.eu-de.ae.cloud.ibm.com`
 
-The {{site.data.keyword.iae_full_notm}} cluster is now created using a new domain name to align with {{site.data.keyword.Bluemix_short}} domain name standards. 
+The {{site.data.keyword.iae_full_notm}} cluster is now created using a new domain name to align with {{site.data.keyword.Bluemix_short}} domain name standards.
 :   It has the following format:
 
     ```
@@ -795,7 +875,7 @@ Fixed Spark History links in Ambari UI
 {: #AnalyticsEngine-sep1418}
 {: release-note}
 
-Support for advanced provisioning options to customize Ambari component configurations at the time the {{site.data.keyword.iae_full_notm}} service instance is created was added. 
+Support for advanced provisioning options to customize Ambari component configurations at the time the {{site.data.keyword.iae_full_notm}} service instance is created was added.
 :   See [Advanced provisioning options](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
 
 New location for REST API documentation
@@ -814,7 +894,7 @@ CRON jobs
 
     **Restriction**: You can set this up only on the mn003 node.
 
-Support for Spark SQL JDBC endpoint was added. 
+Support for Spark SQL JDBC endpoint was added.
 :   See [Working with Spark SQL to query data](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-sql).
 
 Stocator library updated
@@ -826,20 +906,20 @@ Fixed broken links
 Optimized performance of Cloud Object Storage workloads
 :   Changes were made at the backend networking level for optimized performance of Cloud Object Storage workloads.
 
-Documented more examples for using HBase and Parquet-Hive. 
+Documented more examples for using HBase and Parquet-Hive.
 :   See [Working with HBase](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hbase#moving-data-between-the-cluster-and-object-storage) and [Working with Hive](/docs/AnalyticsEngine?topic=AnalyticsEngine-working-with-hive#parquet).
 
-Added the {{site.data.keyword.iae_full_notm}} security model. 
+Added the {{site.data.keyword.iae_full_notm}} security model.
 :   See [Security model](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-model).
 
-Documented best practices for creating and maintaining a stateless cluster. 
+Documented best practices for creating and maintaining a stateless cluster.
 :   See [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
 
 ## 6 June 2018
 {: #AnalyticsEngine-jun18}
 {: release-note}
 
-You can no longer provision {{site.data.keyword.iae_full_notm}} service instances using the Cloud Foundry CLI. 
+You can no longer provision {{site.data.keyword.iae_full_notm}} service instances using the Cloud Foundry CLI.
 :   You must use the {{site.data.keyword.Bluemix_short}} CLI.
 
 New software packages
@@ -859,7 +939,7 @@ New software packages
 New {{site.data.keyword.iae_full_notm}} region
 :   {{site.data.keyword.iae_full_notm}} service instances can now also be deployed in the United Kingdom region
 
-Support for Resource Controller APIs and CLI tools to create an {{site.data.keyword.iae_full_notm}} service instance has been added. 
+Support for Resource Controller APIs and CLI tools to create an {{site.data.keyword.iae_full_notm}} service instance has been added.
 :   Resource controller based service instances help you to provide fine grained access control to other users when you want to share your service instance.
 
 New software pack
@@ -869,7 +949,7 @@ New software pack
 {: #AnalyticsEngine-mar18}
 {: release-note}
 
-{{site.data.keyword.iae_full_notm}} now supports Apache Phoenix 4.7. 
+{{site.data.keyword.iae_full_notm}} now supports Apache Phoenix 4.7.
 :   With this support, you can query HBase through SQL.
 
 New version of Jupyter Enterise Gateway added
@@ -879,7 +959,7 @@ New version of Jupyter Enterise Gateway added
 {: #AnalyticsEngine-nov0117}
 {: release-note}
 
-Introducing {{site.data.keyword.iae_full_notm}} 
+Introducing {{site.data.keyword.iae_full_notm}}
 :   {{site.data.keyword.iae_full_notm}} is now generally available. {{site.data.keyword.iae_full_notm}} provides a flexible framework to develop and deploy analytics applications in Apache Hadoop and Apache Spark.
 
 New: {{site.data.keyword.iae_full_notm}} is now GA and offers new service plans.
@@ -889,8 +969,6 @@ New: {{site.data.keyword.iae_full_notm}} is now GA and offers new service plans.
     - Standard-Hourly
     - Standard-Monthly
 
-    You can also select to configure a memory intensive hardware type. 
-  
+    You can also select to configure a memory intensive hardware type.
+
     For details on provisioning instances, see [Provisioning an {{site.data.keyword.iae_full_notm}} service instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE).
-
-
