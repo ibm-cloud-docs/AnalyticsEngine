@@ -28,13 +28,13 @@ ibm-iae-go-sdk](https://github.com/IBM/ibm-iae-go-sdk){: external}. The `iaesdk`
 {: #get-go-sdk}
 
 You need to download and install the SDK to use it in your Go applications. You can do this by entering the following command:
-```
+```go
 go get -u github.com/IBM/ibm-iae-go-sdk
 ```
 {: codeblock}
 
 If your application uses Go modules, you can add a suitable import to your Go application, and run:
-```
+```go
 go mod tidy
 ```
 {: codeblock}
@@ -45,7 +45,7 @@ go mod tidy
 After you have installed the SDK, you need to import the SDK packages that you want to use in your Go applications.
 
 For example:
-```
+```go
 import (
   "github.com/IBM/go-sdk-core/v3/core"
   "github.com/IBM/ibm-iae-go-sdk/ibmanalyticsengineapiv3"
@@ -76,7 +76,10 @@ The Go SDK allows you to construct the service client in one of two ways by:
     You can construct an instance of the {{site.data.keyword.iae_full_notm}} service client by specifying various client options, like the authenticator and service endpoint URL, programmatically:
 
     ```go
+    package main
+
     import (
+     "fmt"    
     "github.com/IBM/go-sdk-core/v3/core"
     "github.com/IBM/ibm-iae-go-sdk/ibmanalyticsengineapiv3"
     )
@@ -85,6 +88,7 @@ The Go SDK allows you to construct the service client in one of two ways by:
         // Create an IAM authenticator.
         authenticator := &core.IamAuthenticator{
             ApiKey: "{apikey}", // eg "0viPHOY7LbLNa9eLftrtHPpTjoGv6hbLD1QalRXikliJ"
+            URL: "{api auth url}", // "https://iam.cloud.ibm.com/identity/token"
         }
 
         // Construct an "options" struct for creating the service client.
@@ -131,6 +135,7 @@ The Go SDK allows you to construct the service client in one of two ways by:
         // Create an IAM authenticator.
         authenticator := &core.IamAuthenticator{
            ApiKey: "{apikey}", // eg "0viPHOY7LbLNa9eLftrtHPpTjoGv6hbLD1QalRXikliJ"
+           URL: "{api auth url}", //https://iam.cloud.ibm.com/identity/token
         }
 
         // Construct an "options" struct for creating the service client.
@@ -153,13 +158,13 @@ The Go SDK allows you to construct the service client in one of two ways by:
 The following code samples show how to:
 
 - Retrieve the details of a single instance:
-    ```
+    ```go
     (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) GetInstance(getInstanceOptions *GetInstanceOptions) (result *Instance, response *core.DetailedResponse, err error)
     ```
     {: codeblock}
 
     Example request:
-    ```
+    ```go
     func main() {
         // Construct an instance of the GetInstanceOptions model
         getInstanceOptionsModel := new(ibmanalyticsengineapiv3.GetInstanceOptions)
@@ -172,13 +177,13 @@ The following code samples show how to:
     {: codeblock}  
 
 - Deploy a Spark application on a given serverless Spark instance:
-    ```
+    ```go
     (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) CreateApplication(createApplicationOptions *CreateApplicationOptions) (result *ApplicationResponse, response *core.DetailedResponse, err error)
     ```
     {: codeblock}
 
     Sample request:
-    ```
+    ```go
     func main() {
         // Construct an instance of the CreateApplicationOptions model
         createApplicationOptionsModel := new(ibmanalyticsengineapiv3.CreateApplicationOptions)
@@ -189,87 +194,87 @@ The following code samples show how to:
         createApplicationOptionsModel.Conf = make(map[string]interface{})
         createApplicationOptionsModel.Env = make(map[string]interface{})
 
-        _, response, _ := ibmAnalyticsEngineApiService.CreateApplication(createApplicationOptionsModel)
-        fmt.Println(response)
+        _, applicationCreationResponse, _ := ibmAnalyticsEngineApiService.CreateApplication(createApplicationOptionsModel)
+        fmt.Println(applicationCreationResponse)
     }
     ```
     {: codeblock}
 
 - Retrieve all Spark applications:
-    ```
+    ```go
     (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) ListApplications(listApplicationsOptions *ListApplicationsOptions) (result *ApplicationCollection, response *core.DetailedResponse, err error)
     ```
     {: codeblock}
 
     Example request:
-    ```
+    ```go
     func main() {
         // Construct an instance of the ListApplicationsOptions model
         listApplicationsOptionsModel := new(ibmanalyticsengineapiv3.ListApplicationsOptions)
         listApplicationsOptionsModel.InstanceID = core.StringPtr("dc0e9889-eab2-4t9e-9441-566209499546")
 
-        _, response, _ := ibmAnalyticsEngineApiService.ListApplications(listApplicationsOptionsModel)
-        fmt.Println(response)
+        _, applicationCollection, _ := ibmAnalyticsEngineApiService.ListApplications(listApplicationsOptionsModel)
+        fmt.Println(applicationCollection)
     }
     ```
     {: codeblock}
 
 - Retrieve the details of a given Spark application:
-    ```
+    ```go
     (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) GetApplication(getApplicationOptions *GetApplicationOptions) (result *ApplicationGetResponse, response *core.DetailedResponse, err error)
     ```
     {: codeblock}
 
     Example request:
-    ```
+    ```go
     func main() {
         // Construct an instance of the GetApplicationOptions model
         getApplicationOptionsModel := new(ibmanalyticsengineapiv3.GetApplicationOptions)
         getApplicationOptionsModel.InstanceID = core.StringPtr("dc0e9889-eab2-4t9e-9441-566209499546")
         getApplicationOptionsModel.ApplicationID = core.StringPtr("db933645-0b68-4dcb-80d8-7b71a6c8e542")
 
-        _, response, _ := ibmAnalyticsEngineApiService.GetApplication(getApplicationOptionsModel)
-        fmt.Println(response)
+        _, applicationGetResponse, _ := ibmAnalyticsEngineApiService.GetApplication(getApplicationOptionsModel)
+        fmt.Println(applicationGetResponse)
     }
     ```
     {: codeblock}
 
 - Stop a running application identified by the `app_id` identifier. This is an idempotent operation. Performs no action if the requested application is already stopped or completed.
-    ```
+    ```go
     (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) DeleteApplication(deleteApplicationOptions *DeleteApplicationOptions) (response *core.DetailedResponse, err error)
     ```   
     {: codeblock}
 
     Example request:
-    ```
+    ```go
     func main() {
         // Construct an instance of the DeleteApplicationOptions model
-        deleteApplicationOptionsModel := new(ibmanalyticsengineapiv3.DeleteApplicationOptions))
+        deleteApplicationOptionsModel := new(ibmanalyticsengineapiv3.DeleteApplicationOptions)
         deleteApplicationOptionsModel.InstanceID = core.StringPtr("dc0e9889-eab2-4t9e-9441-566209499546")
         deleteApplicationOptionsModel.ApplicationID = core.StringPtr("db933645-0b68-4dcb-80d8-7b71a6c8e542")
 
-        _, response, _ := ibmAnalyticsEngineApiService.DeleteApplication(deleteApplicationOptionsModel)
-        fmt.Println(response)
+        applicationDeletionResponse, _ := ibmAnalyticsEngineApiService.DeleteApplication(deleteApplicationOptionsModel)
+        fmt.Println(applicationDeletionResponse)
     }
     ```
     {: codeblock}
 
 - Return the state of a given application:
-    ```
+    ```go
     (ibmAnalyticsEngineApi *IbmAnalyticsEngineApiV3) GetApplicationState(getApplicationStateOptions *GetApplicationStateOptions) (result *ApplicationGetStateResponse, response *core.DetailedResponse, err error)
     ```
     {: codeblock}
 
     Example request:
-    ```
+    ```go
     func main() {
         // Construct an instance of the GetApplicationStateOptions model
         getApplicationStateOptionsModel := new(ibmanalyticsengineapiv3.GetApplicationStateOptions)
         getApplicationStateOptionsModel.InstanceID = core.StringPtr("dc0e9889-eab2-4t9e-9441-566209499546")
         getApplicationStateOptionsModel.ApplicationID = core.StringPtr("db933645-0b68-4dcb-80d8-7b71a6c8e542")
 
-        _, response, _ := ibmAnalyticsEngineApiService.GetApplicationState(getApplicationStateOptionsModel)
-        fmt.Println(response)
+        _, applicationGetStateResponse, _ := ibmAnalyticsEngineApiService.GetApplicationState(getApplicationStateOptionsModel)
+        fmt.Println(applicationGetStateResponse)
     }
     ```
     {: codeblock}    

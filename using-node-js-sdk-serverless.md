@@ -52,17 +52,22 @@ The code samples show how to:
 
     const IAM_API_KEY = "{apikey}" // eg "W00YiRnLW4a3fTjMB-odB-2ySfTrFBIQQWanc--P3byk"
     const IAE_ENDPOINT_URL = "{url}" // Current list available at https://cloud.ibm.com/apidocs/ibm-analytics-engine#service-endpoints
+    const API_AUTH_URL = "{api auth url}" // "https://iam.cloud.ibm.com/identity/token"
+    const DEFAULT_SERVICE_NAME = 'ibm_analytics_engine_api'
+
+    let options = {};
 
     // Create an IAM authenticator.
-    const authenticator = new IamAuthenticator({
+    options.authenticator = new IamAuthenticator({
       apikey: IAM_API_KEY,
-      });
+      url: API_AUTH_URL
+    });
+
+    options.serviceUrl = IAE_ENDPOINT_URL;
+    options.serviceName = DEFAULT_SERVICE_NAME;
 
     // Construct the service client.
-    const ibmAnalyticsEngineApiService = new IbmAnalyticsEngineApiV3({
-      authenticator,
-      serviceUrl: IAE_ENDPOINT_URL,
-    });
+    const ibmAnalyticsEngineApiService = new IbmAnalyticsEngineApiV3.newInstance(options);
     ```
     {: codeblock}
 

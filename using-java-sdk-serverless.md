@@ -62,34 +62,40 @@ The Java SDK allows you to construct the service client in one of two ways by:
 - By setting the client options programmatically
 
    You can construct an instance of the {{site.data.keyword.iae_full_notm}} service client by specifying various client options, like the authenticator and service endpoint URL, programmatically:
+   
+   ```java
+   import com.ibm.cloud.iaesdk.ibm_analytics_engine_api.v3.IbmAnalyticsEngineApi;
+   import com.ibm.cloud.iaesdk.ibm_analytics_engine_api.v3.model.*;
+   import com.ibm.cloud.sdk.core.http.Response;
+   import com.ibm.cloud.sdk.core.security.*;
+   import java.util.HashMap;
 
-      ```java
-      import com.ibm.cloud.iaesdk.ibm_analytics_engine_api.v3.IbmAnalyticsEngineApi;
-      import com.ibm.cloud.iaesdk.ibm_analytics_engine_api.v3.model.*;
-      import com.ibm.cloud.sdk.core.http.Response;
-      import com.ibm.cloud.sdk.core.security.*;
+   private static IbmAnalyticsEngineApi ibmAnalyticsEngineApiService;
 
-      private static IbmAnalyticsEngineApi ibmAnalyticsEngineApiService;
+   private static String IAM_API_KEY = "{apikey}";
+   private static String IAE_ENDPOINT_URL = "{url}";
+   private static String API_AUTH_URL = "{api auth url}";
 
-      private static String IAM_API_KEY = "{apikey}";
-      private static String IAE_ENDPOINT_URL = "{url}";
+   public static void main(String[] args)
+   {  
+      HashMap<String, String> config = new HashMap<String, String>();
+      config.put("APIKEY",IAM_API_KEY );
+      config.put("AUTH_URL", API_AUTH_URL);
 
-      public static void main(String[] args)
-      {
-         try {
-            // Create an IAM authenticator.
-            Authenticator authenticator = new IamAuthenticator(IAM_API_KEY);
-            // Construct the service client.
-            ibmAnalyticsEngineApiService = new IbmAnalyticsEngineApi(IbmAnalyticsEngineApi.DEFAULT_SERVICE_NAME, authenticator);
-            // Set our service URL.
-            ibmAnalyticsEngineApiService.setServiceUrl(IAE_ENDPOINT_URL);
-            }
-            catch (Exception e) {
-            System.out.println("Exception");
-            }
-      }
-      ```
-      {: codeblock}
+      try {
+         // Create an IAM authenticator.
+         Authenticator authenticator = IamAuthenticator.fromConfiguration(config);
+         // Construct the service client.
+         ibmAnalyticsEngineApiService = new IbmAnalyticsEngineApi(IbmAnalyticsEngineApi.DEFAULT_SERVICE_NAME, authenticator);
+         // Set our service URL.
+         ibmAnalyticsEngineApiService.setServiceUrl(IAE_ENDPOINT_URL);
+         }
+         catch (Exception e) {
+         System.out.println("Exception");
+         }
+   }
+   ```
+   {: codeblock}
 
 - By using external configuration properties
 
@@ -118,17 +124,23 @@ The Java SDK allows you to construct the service client in one of two ways by:
       import com.ibm.cloud.iaesdk.ibm_analytics_engine_api.v3.model.*;
       import com.ibm.cloud.sdk.core.http.Response;
       import com.ibm.cloud.sdk.core.security.*;
+      import java.util.HashMap;
 
       private static IbmAnalyticsEngineApi ibmAnalyticsEngineApiService;
 
       private static String IAM_API_KEY = "{apikey}";
       private static String IAE_ENDPOINT_URL = "{url}";
+      private static String API_AUTH_URL = "{api auth url}";
 
       public static void main(String[] args)
       {
+         HashMap<String, String> config = new HashMap<String, String>();
+		   config.put("APIKEY",IAM_API_KEY );
+		   config.put("AUTH_URL", API_AUTH_URL);
+
          try {
             // Create an IAM authenticator.
-            Authenticator authenticator = new IamAuthenticator(IAM_API_KEY);
+            Authenticator authenticator = IamAuthenticator.fromConfiguration(config);
             // Construct the service client.
             ibmAnalyticsEngineApiService = new IbmAnalyticsEngineApi(IbmAnalyticsEngineApi.DEFAULT_SERVICE_NAME, authenticator);
             // Set our service URL.
@@ -153,17 +165,23 @@ The following code samples show how to:
    import com.ibm.cloud.iaesdk.ibm_analytics_engine_api.v3.model.*;
    import com.ibm.cloud.sdk.core.http.Response;
    import com.ibm.cloud.sdk.core.security.*;
+   import java.util.HashMap;
 
    private static IbmAnalyticsEngineApi ibmAnalyticsEngineApiService;
 
    private static String IAM_API_KEY = "{apikey}";
    private static String IAE_ENDPOINT_URL = "{url}";
+   private static String API_AUTH_URL = "{api auth url}";
 
    public static void main(String[] args)
-   {
+   {  
+      HashMap<String, String> config = new HashMap<String, String>();
+		config.put("APIKEY",IAM_API_KEY );
+		config.put("AUTH_URL", API_AUTH_URL);
+
       try {
          // Create an IAM authenticator.
-         Authenticator authenticator = new IamAuthenticator(IAM_API_KEY);
+         Authenticator authenticator = IamAuthenticator.fromConfiguration(config);
          // Construct the service client.
          ibmAnalyticsEngineApiService = new IbmAnalyticsEngineApi(IbmAnalyticsEngineApi.DEFAULT_SERVICE_NAME, authenticator);
          // Set our service URL.

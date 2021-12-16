@@ -51,13 +51,15 @@ The code samples show how to:
     ```python
     from iaesdk import IbmAnalyticsEngineApiV3
     from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+    import json
 
     # Constants for IBM Analytics Engine values
     IAM_API_KEY = "{apikey}" # eg "W00YiRnLW4a3fTjMB-odB-2ySfTrFBIQQWanc--P3byk"
     IAE_ENDPOINT_URL = "{url}" # Current list avaiable at https://cloud.ibm.com/apidocs/ibm-analytics-engine#service-endpoints
+    const API_AUTH_URL = "{api auth url}"  # "https://iam.cloud.ibm.com/identity/token"
 
     # Create an IAM authenticator.
-    authenticator = IAMAuthenticator(IAM_API_KEY)
+    authenticator = IAMAuthenticator(apikey=IAM_API_KEY, url=API_AUTH_URL)
 
     # Construct the service client.
     ibm_analytics_engine_api_service = IbmAnalyticsEngineApiV3(authenticator=authenticator)
@@ -102,11 +104,11 @@ The code samples show how to:
     Example request:
     ```python
     application_request_application_details_model = {
-      'application': '/opt/ibm/spark/examples/src/main/python/wordcount.py'
+      'application': '/opt/ibm/spark/examples/src/main/python/wordcount.py',
       'arguments': ['/opt/ibm/spark/examples/src/main/resources/people.txt']
       }
     create_application_response = ibm_analytics_engine_api_service.create_application(
-      instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
+      instance_id='dc0e9889-eab2-4t9e-9441-566209499546',
       application_details=application_request_application_details_model
     ).get_result()
     print(json.dumps(create_application_response, indent=2))
@@ -144,7 +146,7 @@ The code samples show how to:
     Example request:
     ```python
     get_application_response = ibm_analytics_engine_api_service.get_application(
-      instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
+      instance_id='dc0e9889-eab2-4t9e-9441-566209499546',
       application_id='db933645-0b68-4dcb-80d8-7b71a6c8e542'
       ).get_result()
     print(json.dumps(get_application_response, indent=2))
@@ -163,8 +165,8 @@ The code samples show how to:
 
     Example request:
     ```python
-    delete_application_by_id_response = ibm_analytics_engine_api_service.delete_application_by_id(
-      instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
+    delete_application_by_id_response = ibm_analytics_engine_api_service.delete_application(
+      instance_id='dc0e9889-eab2-4t9e-9441-566209499546',
       application_id='db933645-0b68-4dcb-80d8-7b71a6c8e542'
       ).get_result()
     print(json.dumps(delete_application_by_id_response, indent=2))
@@ -185,7 +187,7 @@ The code samples show how to:
     Example request:
     ```python
     get_application_state_response = ibm_analytics_engine_api_service.get_application_state(
-      instance_id='dc0e9889-eab2-4t9e-9441-566209499546'
+      instance_id='dc0e9889-eab2-4t9e-9441-566209499546',
       application_id='db933645-0b68-4dcb-80d8-7b71a6c8e542'
       ).get_result()
     print(json.dumps(get_application_state_response, indent=2))
