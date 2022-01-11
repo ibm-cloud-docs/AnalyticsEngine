@@ -135,7 +135,8 @@ The following sample code snippets for Python and Scala show how to create data 
      sc._jsc.hadoopConfiguration().set("encryption.key.list",
         "key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
 
-     encryptedParquetPath = "squares.parquet.encrypted"squaresDF.write\
+     encryptedParquetPath = "squares.parquet.encrypted"
+     squaresDF.write\
        .option("parquet.encryption.column.keys", "key1:square_int_column")\
        .option("parquet.encryption.footer.key", "key2")\
        .parquet(encryptedParquetPath)
