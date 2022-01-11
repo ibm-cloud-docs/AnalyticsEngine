@@ -126,9 +126,9 @@ The following sample code snippets for Python and Scala show how to create data 
 
 - Python: Writing encrypted data
     ```python
-    from pyspark.sql import
+    from pyspark.sql import Row
 
-     RowsquaresDF = spark.createDataFrame(
+     squaresDF = spark.createDataFrame(
         sc.parallelize(range(1, 6))
         .map(lambda i: Row(int_column=i,  square_int_column=i ** 2)))
 
