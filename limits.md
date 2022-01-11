@@ -31,6 +31,7 @@ The following table lists the default limits and quotas for {{site.data.keyword.
 | Maximum number of instances per account |                      5 |
 | Maximum cores per instance              |                    100 |
 | Maximum memory per instances            |                 400 GB |
+| Maximum number of executors per job     |                     35 |
 | Shuffle space per core                  |           approx. 8 GB |
 {: caption="Instance limits"}
 
