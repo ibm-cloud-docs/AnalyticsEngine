@@ -100,7 +100,6 @@ The following list shows the default values for Apache Spark configuration setti
 - `"spark.executor.memory": "4G"`
 - `"spark.executor.cores": "1"`
 - `"spark.eventLog.enabled": "true"`
-- `"ae.spark.executor.count": "1"`
 
 
 For the default limits and quotas for {{site.data.keyword.iae_short}} instances and the supported Spark driver and executor vCPU and memory combinations, see [Limits and quotas for {{site.data.keyword.iae_short}} instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-limits).
@@ -124,3 +123,6 @@ The following table shows the supported serverless instance features by access r
 | Customize libraries | Administrator   \n  Developer | Not available | ![the confirm icon](images/confirm.png) | Not available |
 | Access job logs | Administrator    \n  Developer   \n  DevOps | ![the confirm icon](images/confirm.png) {{site.data.keyword.la_short}} console | Not applicable | Not applicable |
 | View instance details; shown details might vary depending on access role | Administrator   \n  Developer   \n  DevOps | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+{: caption="Table 1. Supported serverless instance features by access role and execution methods" caption-side="top"}
+{: #features-table-1}
+{: row-headers}

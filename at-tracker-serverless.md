@@ -31,11 +31,11 @@ The following table lists the actions that generate an event:
 
 | Action                                                    | Description      |
 |-----------------------------------------------------------|------------------|
-|	`ibmanalyticsengine.instance.read`|	Retrieve the details of an instance |
-| `ibmanalyticsengine.instance.update`|	Update the configuration of the instance after instance creation |
+| `ibmanalyticsengine.instance.read`| Retrieve the details of an instance |
+| `ibmanalyticsengine.instance.update`| Update the configuration of the instance after instance creation |
 | `ibmanalyticsengine.instance-logging.create`| Create the logging configuration for an instance |
-| `ibmanalyticsengine.instance-logging.update`|	Update the logging configuration of an instance |
-| `ibmanalyticsengine.instance-logging.read`|	Retrieve the logging configuration details of an instance |
+| `ibmanalyticsengine.instance-logging.update`| Update the logging configuration of an instance |
+| `ibmanalyticsengine.instance-logging.read`| Retrieve the logging configuration details of an instance |
 | `ibmanalyticsengine.instance-logging.delete` | Delete the logging configuration of an instance |
 | `ibmanalyticsengine.application.create`| Deploy a Spark application |
 | `ibmanalyticsengine.application.read` | Retrieve the details of the submitted Spark application including the state and configuration settings |
@@ -44,6 +44,7 @@ The following table lists the actions that generate an event:
 | `ibmanalyticsengine.livybatch.read`| Retrieve the details of a Livy batch application, including the state |
 | `ibmanalyticsengine.livybatch.delete`| Delete a Livy application request or a running Livy batch application |
 {: caption="Table 1. Actions that generate management events" caption-side="top"}
+
 
 ## Viewing events
 {: #at-viewing-events}

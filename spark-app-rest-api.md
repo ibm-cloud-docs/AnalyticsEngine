@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-15"
+  years: 2017, 2022
+lastupdated: "2022-02-03"
 
 subcollection: analyticsengine
 
@@ -162,7 +162,7 @@ The following table lists the mapping between the `spark-submit` command paramet
 | `executor-cores`| `application_details` -> `conf` -> `spark.executor.cores`|
 | `executor-memory`| `application_details` -> `conf` -> `spark.executor.memory`|
 | `num-executors`| `application_details` -> `conf` -> `ae.spark.executor.count`|
-{: caption="Table 1. Mapping between the `spark-submit` command parameters and their equivalents passed to the `application_details` section of the Spark application REST API payload" caption-side="top"}
+{: caption="Table 1. Mapping between the spark-submit command parameters and their equivalents passed to the payload" caption-side="top"}
 
 
 ## Getting the state of a submitted application
@@ -171,7 +171,7 @@ The following table lists the mapping between the `spark-submit` command paramet
 To get the state of a submitted application, enter:
 
 ```sh
-curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/ spark_applications/<application_id>/state --header "Authorization: Bearer $token"
+curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id>/state --header "Authorization: Bearer $token"
 ```
 {: codeblock}
 
@@ -191,22 +191,30 @@ Sample response:
 To get the details of a submitted application, enter:
 
 ```sh
-curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/ spark_applications/<application_id> --header "Authorization: Bearer $token"
+curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id> --header "Authorization: Bearer $token"
 ```
 {: codeblock}
 
 Sample response:
 ```json
 {
+  "id": "ecd608d5-xxxx-xxxx-xxxx-08e27456xxxx",
+  "spark_application_id": "null",
   "application_details": {
-    "application": "/opt/ibm/spark/examples/src/main/python/wordcount.py",
-    "arguments": [
-    "/opt/ibm/spark/examples/src/main/resources/people.txt"
-    ]},
-    "id": "a9a6f328-56d8-4923-8042-97652fff2af3",
-    "state": "finished",
-    "start_time": "2020-11-25T14:14:31.311+0000",
-    "finish_time": "2020-11-25T14:15:53.205+0000"
+      "application": "cos://sbn-test-bucket-serverless-1.mycosservice/my_spark_application.py",
+      "conf": {
+          "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud",
+          "spark.hadoop.fs.cos.mycosservice.access.key": "xxxx",
+          "spark.app.name": "MySparkApp",
+          "spark.hadoop.fs.cos.mycosservice.secret.key": "xxxx"
+      },
+      "arguments": [
+          "arg1",
+          "arg2"
+      ]
+  },
+  "state": "failed",
+    "submission_time": "2021-11-30T18:29:21+0000"
 }
 ```
 

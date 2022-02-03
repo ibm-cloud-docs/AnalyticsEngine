@@ -43,12 +43,13 @@ Platform management roles enable users to perform tasks on service resources at 
 
 Use the following table to identify the platform role that you can grant a user in the {{site.data.keyword.cloud_notm}} to run any of the following platform actions:
 
-
 | Platform actions   | Administrator   | Editor | Operator | Viewer  |
 |--------------------------|:--------------------------:|:-------:|:--------:|:------:|
 | Provision a service instance. | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |          |        |
 | Delete a service instance. | ![the confirm icon](images/confirm.png) |  ![the confirm icon](images/confirm.png)      |          |        |
-{: caption="Table 1. IAM user platform roles and actions" caption-side="top"}
+{: caption="Table 1. Platform roles and actions" caption-side="top"}
+{: #iam-table-1}
+{: row-headers}
 
 
 ## {{site.data.keyword.cloud_notm}} service roles
@@ -56,8 +57,8 @@ Use the following table to identify the platform role that you can grant a user 
 
 Use the following table to identify the service roles that you can grant a user to run any of the following service actions:
 
-| Actions                                                          | Manager                                    | Writer                 | Reader |
-|-------------------------------------------------------------------------|:-------------------------------------------------:|:-----------------------------------:|:------:|
+| Actions  | Manager               | Writer         | Reader |
+|----------|-----------------------|----------------|--------|
 |Invoke the instance management REST API to view instance  details| ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
 |Invoke application management REST API to submit a Spark application | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | |
 |Invoke application management REST API to stop a submitted application | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | |
@@ -65,6 +66,8 @@ Use the following table to identify the service roles that you can grant a user 
 |Invoke application management REST API to view a specific Spark application, by using the application ID | | | ![the confirm icon](images/confirm.png)|
 |Invoke application management REST API to retrieve the state  of a Spark application | | | ![the confirm icon](images/confirm.png) |
 {: caption="Table 2. IAM service roles and actions" caption-side="top"}
+{: #iam-table-2}
+{: row-headers}
 
 
 To onboard new users to your account:

@@ -50,19 +50,21 @@ Request body for a submitted batch job using the Livy batches API:
 
 | Name | Description | Type        |
 |------|-------------|-------------|
-| `file` | File containing the application to execute |	string (required) |
-| `className`	| Application Java/Spark main class	| string |
-| `args` | Command line arguments for the application	| list of string |
+| `file` | File containing the application to execute | string (required) |
+| `className`	| Application Java/Spark main class | string |
+| `args` | Command line arguments for the application | list of string |
 | `jars` | jars to be used in this session | list of string |
-| `pyFiles`	| Python files to be used in this session	| list of string |
+| `pyFiles`	| Python files to be used in this session | list of string |
 | `files` | files to be used in this session | list of string |
-| `driverMemory` | Amount of memory to use for the driver  process |	string |
-| `driverCores`	| Number of cores to use for the driver process |	int |
-| `executorMemory` | Amount of memory to use per executor process |	string |
+| `driverMemory` | Amount of memory to use for the driver process | string |
+| `driverCores`	| Number of cores to use for the driver process | int |
+| `executorMemory` | Amount of memory to use per executor process | string |
 | `executorCores`	| Number of cores to use for each executor | int |
-| `numExecutors` | Number of executors to launch for this session |	int |
-| `name` | The name of this session	| string |
-| `conf` | Spark configuration properties |	map of key=val |
+| `numExecutors` | Number of executors to launch for this session | int |
+| `name` | The name of this session | string |
+| `conf` | Spark configuration properties | map of key=val |
+{: caption="Table 1. Request body for batch jobs" caption-side="top"}
+
 
 The `proxyUser`, `archives` and `queue` properties are not supported in the request body although they are supported in  the open source Livy REST interface.
 {: note}
@@ -75,7 +77,7 @@ Response body of a submitted batch job using the Livy batches API:
 | `appId` | The Spark application ID | string |
 | `appInfo` | Detailed application information |	map of key=val |
 | `state` | State of submitted batch job | string |
-
+{: caption="Table 2. Response body of a submitted batch job" caption-side="top"}
 
 
 ## Examples using the Livy API
@@ -161,6 +163,8 @@ The response body for listing the job details:
 | `appId` | The Spark application ID | string |
 | `appInfo` | Detailed application information |	map of key=val |
 | `state` | State of submitted batch job | string |
+{: caption="Table 3. Response body for listing job details" caption-side="top"}
+
 
 An example:
 ```sh
@@ -199,6 +203,8 @@ The response body for getting the state of the batch job:
 |------|-------------|-------------|
 | `id` |	The batch ID |	int |
 | `state` | State of submitted batch job | string |
+{: caption="Table 4. Response body for getting state of batch job" caption-side="top"}
+
 
 For example:
 ```sh
@@ -235,6 +241,8 @@ The response body for listing all submitted Spark batch jobs:
 | `from` | The start index of the Spark batch jobs that are retrieved |	int |
 | `total` | The total number of batch jobs that are retireved | int |
 | `sessions`| The details for each batch job in a session | list |
+{: caption="Table 5. Response body for listing all submitted batch jobs" caption-side="top"}
+
 
 For example:
 ```sh
