@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-10-01"
+  years: 2019, 2022
+lastupdated: "2022-02-07"
 
 keywords: IBM Analytics Engine release notes
 
@@ -33,6 +33,22 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} classic instances that are grouped by date.
 {: shortdesc}
+
+## 07 February 2022
+{: #AnalyticsEngine-dec1621}
+{: release-note}
+
+New security patch for **AE-1.2.v29.16**
+:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.16**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+    Customers are required to review the following CVE information and take appropriate action:
+
+    - [CVE-2021-3733](https://access.redhat.com/security/cve/CVE-2021-3733)
+    - [CVE-2021-3737](https://access.redhat.com/security/cve/CVE-2021-3737)
+
+    The Python version on clusters was upgraded to Python 3.7.11. All of the dependent packages were upgraded as well.
+
+    Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
 
 ## 16 December 2021
 {: #AnalyticsEngine-dec1621}
