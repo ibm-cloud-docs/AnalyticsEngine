@@ -34,7 +34,7 @@ Perform these steps to create a library set using script based customization:
     The `"arguments"` section in the Spark application submission payload must contain a `"library_set"` section with details, like `"action"` and `"name"` as shown in the following sample payload.
 
     Example of the payload:
-    ```
+    ```json
     {
       "application_details": {
       "application": "/opt/ibm/customization-scripts/customize_instance_app.py",
@@ -51,7 +51,7 @@ Perform these steps to create a library set using script based customization:
     {: codeblock}
 
     Example of customization_script.py:
-    ```
+    ```python
     import cos_utils
     import os
     import sys

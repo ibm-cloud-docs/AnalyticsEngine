@@ -65,7 +65,7 @@ To  get the credentials of the {{site.data.keyword.cos_short}} instance you crea
 
 1. Select the credential name you created and copy the credentials to the clipboard.
 1. View the credentials that you copied. You will see something like what is shown in the following example:
-   ```
+   ```json
    {
      "apikey": "XXXXXXX",
      "cos_hmac_keys": {
@@ -90,12 +90,14 @@ If you did not associate an instance home with your instance at the time you cre
 **Note**: You can associate an instance home only once during the lifetime of the instance.
 
 To associate an instance home:
+```sh
+curl -X PUT https://api.<region>.ae.cloud.ibm.com/v3/analytics_engines/<instance-id>/instance_home --header "Authorization: Bearer <IAM token>" -H "content-type: application/json" -d @instance-home.json
 ```
-curl -X PUT https://api.<region>.ae.cloud.ibm.com/v3/analytics_engines/<instance-id>/instance_home -d @instance-home.json
-```
+{: pre}
+
 where `instance-home.json`  has the following format:
 
-```
+```json
 {
   "instance_id": "CLOUD_OBJECT_STORAGE_INSTANCE_GUID",
   "provider": "ibm-cos",

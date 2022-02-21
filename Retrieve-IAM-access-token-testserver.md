@@ -48,12 +48,12 @@ To create a token in {{site.data.keyword.Bluemix_notm}}:
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=<your iam api key>'
     ```
-    {: codeblock}
+    {: pre}
 
     For details on the API syntax, see [IAM identity token API](/apidocs/iam-identity-token-api#create-an-iam-access-token-for-a-user-or-service-i).
 
     This is a sample of what is returned:
-    ```text
+    ```json
     {
        "access_token": "eyJraWQiOiIyMDE3MDgwOS0wMDowMDowMCIsImFsZyI6…",
        "refresh_token": "zmRTQFKhASUdF76Av6IUzi9dtB7ip8F2XV5fNgoRQ0mbQgD5XCeWkQhjlJ1dZi8K…",
@@ -61,12 +61,12 @@ To create a token in {{site.data.keyword.Bluemix_notm}}:
        "expires_in": 3600,
        "expiration": 1505865282
     }
-   ```
-   
+    ```
+    
 1. Use the value of the `access_token` property for your {{site.data.keyword.iae_full_notm}} API calls. Set the `access_token`  value as the authorization header parameter for requests to the {{site.data.keyword.iae_full_notm}} APIs. The format is `Authorization: Bearer <access_token_value>`.
 
     For example:
-    ```
+    ```text
     Authorization: Bearer eyJraWQiOiIyMDE3MDgwOS0wMDowMDowMCIsImFsZyI6IlJTMjU2In0...
     ```
 
@@ -87,7 +87,7 @@ To create a token using {{site.data.keyword.Bluemix_notm}} CLI:
     ibmcloud api https://cloud.ibm.com
     ibmcloud login <enter your credentials>
     ```
-    {: codeblock}
+    {: pre}
 
     If you have multiple {{site.data.keyword.Bluemix_notm}} accounts, you'll be asked to choose an account for the current session. Also, you'll need to choose an organization and space in {{site.data.keyword.Bluemix_notm}}.
 
@@ -95,7 +95,7 @@ To create a token using {{site.data.keyword.Bluemix_notm}} CLI:
     ```sh
     ibmcloud iam oauth-tokens
     ```
-    {: codeblock}
+    {: pre}
 
     The output returns the IAM token.
 

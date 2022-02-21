@@ -45,6 +45,7 @@ curl \
 }' \
 -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance-id>/livy/batches
 ```
+{: pre}
 
 Request body for a submitted batch job using the Livy batches API:
 
@@ -90,7 +91,7 @@ To submit a batch job where the job file is located in an {{site.data.keyword.co
 ```sh
 curl -i -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance-id>/livy/batches -H 'content-type: application/json' -H "Authorization: Bearer $TOKEN" -d @livypayload.json
 ```
-{: codeblock}
+{: pre}
 
 The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the public endpoint.
 <!--
@@ -113,7 +114,7 @@ Sample payload:
 {: codeblock}
 
 Sample response:
-```text
+```json
 {"id":13,"app_info":{},"state":"not_started"}
 ```
 
@@ -123,7 +124,7 @@ To submit a batch job where the job file is located on a local disk enter:
 ```sh
 curl -i -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance-id>/livy/batches -H 'content-type: application/json' -H "Authorization: Bearer $TOKEN" -d @livypayload.json
 ```
-{: codeblock}
+{: pre}
 
 Sample payload:
 ```json
@@ -136,7 +137,7 @@ Sample payload:
 {: codeblock}
 
 Sample response:
-```text
+```json
 {"id":15,"app_info":{},"state":"not_started"}
 ```
 
@@ -152,8 +153,7 @@ curl \
 -H 'Content-Type: application/json' \
 -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance-id>/livy/batches/<batch-id>
 ```
-{: codeblock}
-
+{: pre}
 
 The response body for listing the job details:
 
@@ -170,9 +170,10 @@ An example:
 ```sh
 curl -i -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/43f79a18-768c-44c9-b9c2-b19ec78771bf/livy/batches/14 -H 'content-type: application/json' -H "Authorization: Bearer $TOKEN"
 ```
+{: pre}
 
 Sample response:
-```text
+```json
 {
  "id": 14,
  "appId": "app-20201213175030-0000",
@@ -195,7 +196,7 @@ curl \
 -H 'Content-Type: application/json' \
 -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance-id>/livy/batches/<batch-id>/state
 ```
-{: codeblock}
+{: pre}
 
 The response body for getting the state of the batch job:
 
@@ -210,10 +211,10 @@ For example:
 ```sh
 curl -i -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/43f79a18-768c-44c9-b9c2-b19ec78771bf/livy/batches/14/state -H 'content-type: application/json' -H "Authorization: Bearer $TOKEN"
 ```
-{: codeblock}
+{: pre}
 
 Sample response:
-```text
+```json
 {
 	"id": 14,
 	"state": "success"
@@ -229,7 +230,7 @@ curl \
 -H 'Content-Type: application/json' \
 -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance-id>/livy/batches
 ```
-{: codeblock}
+{: pre}
 
 The `from` and `size` properties are not supported in the request body although they are supported in the open source Livy REST interface.
 {: note}
@@ -248,10 +249,10 @@ For example:
 ```sh
 curl -i -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/43f79a18-768c-44c9-b9c2-b19ec78771bf/livy/batches -H 'content-type: application/json' -H "Authorization: Bearer $TOKEN"
 ```
-{: codeblock}
+{: pre}
 
 Sample response:
-```text
+```json
 {
   "from": 0,
   "sessions": [{
@@ -286,14 +287,16 @@ curl \
 -H 'Content-Type: application/json' \
 -X DELETE https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance-id>/livy/batches/<batch-id>
 ```
-{: codeblock}
+{: pre}
 
 For example:
 ```sh
 curl -i -X DELETE https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/43f79a18-768c-44c9-b9c2-b19ec78771bf/livy/batches/14 -H 'content-type: application/json' -H "Authorization: Bearer $TOKEN"
 ```
+{: pre}
+
 Sample response:
-```text
+```json
 {
 	"msg": "deleted"
 }

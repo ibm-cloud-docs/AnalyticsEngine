@@ -54,7 +54,7 @@ if __name__ == '__main__':
 {: codeblock}
 
 Example of the CSV file called `employees.csv` that is read by the application called `read-employees.py`:
-```
+```text
 NAME,BAND,DEPT
 Abraham,8,EG
 Barack,6,RT
@@ -63,6 +63,7 @@ Hoover,4,FF
 Kennedy,7,NN
 Truman,3,TT
 ```
+{: codeblock}
 
 To run the application called `read-employees.py` that reads data from `employees.csv` POST the following JSON payload script called `read-employees-submit.json`. Insert the {{site.data.keyword.cos_short}} bucket and service name where the CSV file is located, modify the endpoint path and insert your access key and secret key.
 ```json
@@ -140,7 +141,7 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
   ![Shows the Eclipse project format to use in which to develop your Scala jar.](images/eclipse-proj.png)
 1. Add the following application called `ScalaReadWriteIAMCOSExample.scala` to the `analyticsengine` folder. Insert your IAM API key and the {{site.data.keyword.cos_short}} bucket name.
 
-    ```
+    ```scala
     package com.ibm.analyticsengine
     import org.apache.spark.{SparkConf, SparkContext}
     import org.apache.spark.SparkContext._
@@ -164,7 +165,7 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
 
 1. Put `SparkScalaExample.sbt` in the `src` folder:
 
-    ```
+    ```scala
     name := "ScalaReadWriteIAMCOSExample"
 
     version := "1.0"
@@ -177,14 +178,17 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
 
 1. Build the Scala project using sbt. Upload the resultant jar (`scalareadwriteiamcosexample_2.12-1.0.jar`) into {{site.data.keyword.cos_short}}.
 
-    ```
+    ```sh 
     cd SparkScalaExample
     sbt package
-    upload jar to COS
     ```
+    {: pre}
+
+    Upload jar to Object Storage.
+
 1. Then POST the following payload JSON script called `read-write-cos-scala-submit.json` with your access key and password. Insert the {{site.data.keyword.cos_short}} bucket name where the CSV file is located and the modify the endpoint path.
 
-    ```
+    ```json
     {
       "application_details": {
         "application": "cos://mycosbucket.mycosservice/scalareadwriteiamcosexample_2.12-1.0.jar",
@@ -203,7 +207,7 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
 ## Submitting application details with IAM API key
 
 The following example show the application details for the application called `read-employees.py` that reads data from `employees.csv` in {{site.data.keyword.cos_short}} using the IAM API key. Insert the {{site.data.keyword.cos_short}} bucket and service name where the CSV file is located and the API key.
-```
+```json
 {
   "application_details": {
     "application": "cos://mycosbucket.mycosservice/read-employees.py",

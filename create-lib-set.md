@@ -60,7 +60,7 @@ To create a library set:
     ```sh
     curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications --header "Authorization: Bearer <IAM token>" -H "content-type: application/json" -d @createLibraryset.json
     ```
-    {: codeblock}
+    {: pre}
 
     Example for createLibraryset.json:
     ```json
@@ -76,12 +76,12 @@ To create a library set:
     **Important**: You must escape all double quote characters in the strings that are passed as application arguments.
 
     If the application is accepted, you will receive a response like the following:
-    ```
+    ```json
     {
-      "application_id": "87e63712-a823-4aa1-9f6e-7291d4e5a113",
-      "state": "RUNNING",
-      "start_time": "Thursday 19 November 2020 17:37:02.380+0000"
+      "id": "87e63712-a823-4aa1-9f6e-7291d4e5a113",
+      "state": "accepted"
     }
     ```
+    
     When the state turns to FINISHED, the library set creation is complete.
 1. Track the status of the application by invoking the application status REST API. See [Get the status of an application](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#spark-app-status).

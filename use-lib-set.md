@@ -28,9 +28,9 @@ To reference a library set when submitting a Spark application:
 1. Get the IAM token. See [Retrieving IAM access tokens](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token-serverless).
 1. Issue the following cURL command:
     ```sh
-    curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/instances/<instance_id>/spark_applications --header "Authorization: Bearer <IAM token>" -H "content-type: application/json"  -d @submit-spark-app.json
+    curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications --header "Authorization: Bearer <IAM token>" -H "content-type: application/json"  -d @submit-spark-app.json
     ```
-    {: codeblock}
+    {: pre}
 
     Example for submit-spark-app.json:
     ```json
@@ -52,4 +52,12 @@ To reference a library set when submitting a Spark application:
     Currently, only one library set can be referenced during Spark application submission under the `"ae.spark.librarysets"` attribute.
     {: note}
 
+    If the application is accepted, you will receive a response like the following:
+    ```json
+    {
+      "id": "87e63712-a823-4aa1-9f6e-7291d4e5a113",
+      "state": "accepted"
+    }
+    ```
+    
 1. Track the status of the application by invoking the application status REST API. See [Get the status of an application](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#spark-app-status).
