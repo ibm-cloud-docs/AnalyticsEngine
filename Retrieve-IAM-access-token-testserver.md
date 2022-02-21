@@ -48,7 +48,7 @@ To create a token in {{site.data.keyword.Bluemix_notm}}:
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=<your iam api key>'
     ```
-    {: pre}
+    {: codeblock}
 
     For details on the API syntax, see [IAM identity token API](/apidocs/iam-identity-token-api#create-an-iam-access-token-for-a-user-or-service-i).
 
@@ -87,7 +87,7 @@ To create a token using {{site.data.keyword.Bluemix_notm}} CLI:
     ibmcloud api https://cloud.ibm.com
     ibmcloud login <enter your credentials>
     ```
-    {: pre}
+    {: codeblock}
 
     If you have multiple {{site.data.keyword.Bluemix_notm}} accounts, you'll be asked to choose an account for the current session. Also, you'll need to choose an organization and space in {{site.data.keyword.Bluemix_notm}}.
 
@@ -95,7 +95,7 @@ To create a token using {{site.data.keyword.Bluemix_notm}} CLI:
     ```sh
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
     The output returns the IAM token.
 

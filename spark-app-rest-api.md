@@ -60,7 +60,7 @@ To learn how to quickly get started using pre-bundled sample application files:
     ```sh
     export token=<token generated>
     ```
-    {: pre}
+    {: codeblock}
 
 1. Prepare the payload JSON file. For example, submit-spark-quick-start-app.json:
     ```json
@@ -77,7 +77,7 @@ To learn how to quickly get started using pre-bundled sample application files:
     ```sh
     curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications --header "Authorization: Bearer $token" -H "content-type: application/json"  -d @submit-spark-quick-start-app.json
     ```
-    {: pre}
+    {: codeblock}
 
 ### Referencing files from an {{site.data.keyword.cos_short}} bucket
 {: #file-cos}
@@ -91,7 +91,7 @@ To submit a Spark application:
     ```sh
     export token=<token generated>
     ```
-   {: pre}
+   {: codeblock}
 
 1. Prepare the payload JSON file. For example, `submit-spark-app.json`:
     ```json
@@ -114,7 +114,7 @@ To submit a Spark application:
     ```sh
     curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications --header "Authorization: Bearer $token" -H "content-type: application/json"  -d @submit-spark-app.json
     ```
-    {: pre}
+    {: codeblock}
 
     Sample response:
     ```json
@@ -172,7 +172,7 @@ To get the state of a submitted application, enter:
 ```sh
 curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id>/state --header "Authorization: Bearer $token"
 ```
-{: pre}
+{: codeblock}
 
 Sample response:
 ```json
@@ -192,7 +192,7 @@ To get the details of a submitted application, enter:
 ```sh
 curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id> --header "Authorization: Bearer $token"
 ```
-{: pre}
+{: codeblock}
 
 Sample response:
 ```json
@@ -225,7 +225,7 @@ To stop a submitted application, run the following:
 ```sh
 curl -X DELETE https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id> --header "Authorization: Bearer $token"
 ```
-{: pre}
+{: codeblock}
 
 Returns `204 – No Content`, if the deletion is successful. The state of the application is set to STOPPED.
 

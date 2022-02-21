@@ -63,26 +63,26 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
     ibmcloud api https://{DomainName}
     ibmcloud login
     ```
-    {: pre}
+    {: codeblock}
 
 1. Get the list of the resource groups for your account and select one of the returned resource group as the target resource group in which to create the {{site.data.keyword.iae_full_notm}} serverless instance:
     ```sh
     ibmcloud resource groups
     ibmcloud target -g <resource_group_name>
     ```
-    {: pre}
+    {: codeblock}
 
 1. Create a service instance:
     ```sh
     ibmcloud resource service-instance-create <service_instance_name> ibmanalyticsengine <plan_name> <region> -p @<path_to JSON file with cluster parameters>
     ```
-    {: pre}
+    {: codeblock}
 
     For example:
     ```sh
     ibmcloud resource service-instance-create MyServiceInstance ibmanalyticsengine standard-serverless-spark us-south -p @provision.json
     ```
-    {: pre}
+    {: codeblock}
 
     You can give the service instance any name you choose. Note that currently, **standard-serverless-spark** is the only supported serverless plan and **us-south** the only supported region.
 
@@ -153,7 +153,7 @@ To create a service instance using the Resource Controller REST API:
     ```sh
     ibmcloud resource groups
     ```
-    {: pre}
+    {: codeblock}
 
     Sample result:
     ```text
@@ -174,7 +174,7 @@ To create a service instance using the Resource Controller REST API:
     curl -X POST https://resource-controller.cloud.ibm.com/v2/resource_instances/
     --header "Authorization: Bearer $token" -H 'Content-Type: application/json' -d @provision.json
     ```
-    {: pre}
+    {: codeblock}
 
     The provision.json file contains the provisioning parameters for the instance you want to create. See [Architecture and concepts in serverless instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts) for a description of the provisioning parameters in the payload.
 
@@ -214,7 +214,7 @@ To track instance readiness:
     ```sh
     curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/{instance_id} -H "Authorization: Bearer $token"
     ```
-    {: pre}
+    {: codeblock}
 
     Sample response:
     ```json

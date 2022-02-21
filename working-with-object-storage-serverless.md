@@ -93,7 +93,7 @@ To associate an instance home:
 ```sh
 curl -X PUT https://api.<region>.ae.cloud.ibm.com/v3/analytics_engines/<instance-id>/instance_home --header "Authorization: Bearer <IAM token>" -H "content-type: application/json" -d @instance-home.json
 ```
-{: pre}
+{: codeblock}
 
 where `instance-home.json`  has the following format:
 

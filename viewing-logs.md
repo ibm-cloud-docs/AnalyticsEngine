@@ -58,7 +58,7 @@ To enable forwarding {{site.data.keyword.iae_full_notm}} platform logs to {{site
 ```sh
 curl -X PUT https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_guid>/logging -H "Authorization: Bearer $TOKEN" -H "content-type: application/json" -d '{"enable":true}'
 ```
-{: pre}
+{: codeblock}
 
 ## Disabling platform logging from {{site.data.keyword.iae_full_notm}}
 {: #disable-loggingfrom-iae}
@@ -68,7 +68,7 @@ To disable forwarding {{site.data.keyword.iae_full_notm}} platform logs to {{sit
 ```sh
 curl -X PATCH https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_guid>/logging -H "Authorization: Bearer $TOKEN" -H "content-type: application/json" -d '{"enable":false}'
 ```
-{: pre}
+{: codeblock}
 
 ## Viewing the logging configuration of an instance
 {: #log-config}
@@ -78,7 +78,7 @@ To view the current logging configuration of an {{site.data.keyword.iae_full_not
 ```sh
 curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_guid>/logging -H "Authorization: Bearer $TOKEN"
 ```
-{: pre}
+{: codeblock}
 
 ## Analyzing {{site.data.keyword.iae_full_notm}} logs
 {: #analyzing-logs}

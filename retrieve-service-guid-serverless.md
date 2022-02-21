@@ -34,7 +34,7 @@ To get the details of an instance:
     ```sh
     $ ibmcloud resource service-instances --service-name ibmanalyticsengine
     ```
-	{: pre}
+    {: codeblock}
 
     This call retrieves the instances of type `service_instance` in all resource groups in all locations for your account.
 
@@ -47,7 +47,7 @@ To get the details of an instance:
     ```sh
     $ ibmcloud resource service-instance "Analytics Engine-xyz"
     ```
-	{: pre}
+    {: codeblock}
 
     This retrieves your instance from the resource groups under your account.
 
@@ -87,13 +87,13 @@ To get the details of an instance:
     ```sh
     GET <resource-controller-url>/v2/resource_instances
     ```
-	{: pre}
+	{: codeblock}
 
     Example of a request:
     ```sh
     curl -X GET https://resource-controller.cloud.ibm.com/v2/resource_instances? resource_plan_id=8afxxxx-xxxx-xxxx-xxxx-946d843xxxx -H "Authorization: Bearer <>" \
     ```
-	{: pre}
+	{: codeblock}
 	
     Example response:
     ```json

@@ -182,7 +182,7 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
     cd SparkScalaExample
     sbt package
     ```
-    {: pre}
+    {: codeblock}
 
     Upload jar to Object Storage.
 

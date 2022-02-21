@@ -60,7 +60,7 @@ To create a library set:
     ```sh
     curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications --header "Authorization: Bearer <IAM token>" -H "content-type: application/json" -d @createLibraryset.json
     ```
-    {: pre}
+    {: codeblock}
 
     Example for createLibraryset.json:
     ```json

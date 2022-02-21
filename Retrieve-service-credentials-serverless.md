@@ -37,7 +37,7 @@ To create a service resource key, enter the following command:
 ```sh
 ibmcloud resource service-key-create <your_service_key_name> <role> --instance-name <your_service_instance_name>
 ```
-{: pre}
+{: codeblock}
 
 Required parameters include:
 
@@ -71,7 +71,7 @@ To view your service resource key, enter the following command:
 ```sh
 ibmcloud resource service-key <service_key_name>
 ```
-{: pre}
+{: codeblock}
 
 Required parameter:
 
@@ -111,7 +111,7 @@ curl -X POST \
   -H 'content-type: application/json' \
   -d '{"name":"<key name>","source_crn":"<service instance crn>", "parameters":{"role_crn":"<crn of access role>"} }'
 ```
-{: pre}
+{: codeblock}
 
 Sample response:
 ```json

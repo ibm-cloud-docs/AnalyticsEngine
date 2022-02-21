@@ -30,7 +30,7 @@ To reference a library set when submitting a Spark application:
     ```sh
     curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications --header "Authorization: Bearer <IAM token>" -H "content-type: application/json"  -d @submit-spark-app.json
     ```
-    {: pre}
+    {: codeblock}
 
     Example for submit-spark-app.json:
     ```json
