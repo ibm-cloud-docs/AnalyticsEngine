@@ -29,13 +29,12 @@ The following table lists the default limits and quotas for {{site.data.keyword.
 | Category                                |        Default         |
 | --------------------------------------- | ---------------------- |
 | Maximum number of instances per account |                      5 |
-| Maximum cores per instance              |                    100 |
-| Maximum memory per instances            |                 400 GB |
+| Maximum cores per instance              |                    150 |
+| Maximum memory per instances            |                 600 GB |
 | Maximum number of executors per job     |                     35 |
 | Shuffle space per core                  |           approx. 8 GB |
-{: caption="Table 1. Default limits and quotas for {{site.data.keyword.iae_short}} instances" caption-side="top"}
-{: #quota-table-1}
-{: row-headers}
+{: caption="Default limits and quotas for {{site.data.keyword.iae_short}} instances" caption-side="top"}
+
 
 
 ## Supported Spark driver and executor vCPU and memory combinations
@@ -59,9 +58,7 @@ The following table shows the supported vCPU to memory size combinations.
 | 2 vCPU x 16 GB |
 | 3 vCPU x 24 GB |
 | 4 vCPU x 32GB|
-{: caption="Table 2. Supported vCPU to memory size combinations" caption-side="top"}
-{: #mem-table-1}
-{: row-headers}
+{: caption="Supported vCPU to memory size combinations" caption-side="top"}
 
 
 The default vCPU to memory combinations are:
