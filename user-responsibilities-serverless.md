@@ -89,7 +89,7 @@ Identity and access management includes tasks such as authentication, authorizat
 {: summary="The rows are read from left to right. The first column describes the task that a the customer or IBM might be responsibility for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
 
 ## Security and regulation compliance
-{: #security-compliance}
+{: #security-regulation}
 
 <!-- Use this section description exactly as worded. -->
 <!-- If there is a task that is the customer's responsibility and you have associated docs for how a customer completes that task, link to it from the Your responsibilities column. -->
