@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-03-10"
 
 keywords: IBM Analytics Engine release notes
 
@@ -34,8 +34,35 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} classic instances that are grouped by date.
 {: shortdesc}
 
-## 07 February 2022
-{: #AnalyticsEngine-dec1621}
+## 10 March 2022
+{: #AnalyticsEngine-mar1022}
+{: release-note}
+
+New security patch for **AE-1.2.v29.18**
+:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.18**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+    Customers are required to review the following CVE information and take appropriate action:
+
+    - [CVE-2021-44142](https://access.redhat.com/security/cve/CVE-2021-44142)
+
+    Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
+
+## February 2022
+{: #AnalyticsEngine-feb22}
+
+### 17 February 2022
+{: #AnalyticsEngine-feb1722}
+{: release-note}
+
+New monitoring system for **AE-1.2.v29.17**
+:   All clusters that were created using standard-hourly and standard-monthly plans, with the version **AE-1.2.v29.17** or later, now use a new monitoring system, which is required by IBM Cloud. Proactive monitoring of older clusters, created before 11 February 2022, 15:00 UTC, will be discontinued starting 25 February 2022, 11:30 UTC. 
+ 
+    You can still get support for older clusters through IBM Cloud support tickets. However, as proactive monitoring of these older cluster will be unavailable, you should delete all clusters that were created before 11 February 2022, 15:00 UTC and create new ones to benefit from seamless proactive monitoring available in all new IBM Cloud Analytics Engine clusters.
+
+    Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
+
+### 07 February 2022
+{: #AnalyticsEngine-feb0722}
 {: release-note}
 
 New security patch for **AE-1.2.v29.16**
@@ -50,7 +77,10 @@ New security patch for **AE-1.2.v29.16**
 
     Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
 
-## 16 December 2021
+## December 2021
+{: #AnalyticsEngine-dec21}
+
+### 16 December 2021
 {: #AnalyticsEngine-dec1621}
 {: release-note}
 
@@ -67,7 +97,7 @@ New security patch for **AE-1.2.v29.15**
 
        Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
 
-## 08 December 2021
+### 08 December 2021
 {: #AnalyticsEngine-dec0821}
 {: release-note}
 
@@ -107,6 +137,14 @@ New security patches for **AE-1.2.v29.14**
     - [CVE-2021-3653](https://nvd.nist.gov/vuln/detail/CVE-2021-3653)
     - [CVE-2021-3656](https://nvd.nist.gov/vuln/detail/CVE-2021-3656)
     - [CVE-2021-37576](https://nvd.nist.gov/vuln/detail/CVE-2021-37576)
+    - [CVE-2020-36385](https://nvd.nist.gov/vuln/detail/CVE-2020-36385)
+    - [CVE-2021-20271](https://nvd.nist.gov/vuln/detail/CVE-2021-20271)
+    - [CVE-2021-37750](https://nvd.nist.gov/vuln/detail/CVE-2021-37750)
+    - [CVE-2021-41617](https://nvd.nist.gov/vuln/detail/CVE-2021-41617)
+    - [RHSA-2021:4777](https://access.redhat.com/errata/RHSA-2021:4777)
+    - [RHSA-2021:4782](https://access.redhat.com/errata/RHSA-2021:4782)
+    - [RHSA-2021:4785](https://access.redhat.com/errata/RHSA-2021:4785)
+    - [RHSA-2021:4788](https://access.redhat.com/errata/RHSA-2021:4788)
 
     Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
@@ -120,7 +158,10 @@ New security patches for **AE-1.2.v29.13**
 
 Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
-## 29 October 2021
+## October 2021
+{: #AnalyticsEngine-oct21}
+
+### 29 October 2021
 {: #AnalyticsEngine-oct2921}
 {: release-note}
 
@@ -130,7 +171,7 @@ New security patches for **AE-1.2.v29.12**
 Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
 
-## 1 October 2021
+### 1 October 2021
 {: #AnalyticsEngine-oct0121}
 {: release-note}
 
@@ -174,6 +215,8 @@ New security patches for **AE-1.2.v29.9**
     Customers are required to review the following CVE information and take appropriate action:
 
     - [CVE-2021-36159](https://nvd.nist.gov/vuln/detail/CVE-2021-36159)
+    - [CVE-2021-3711](https://nvd.nist.gov/vuln/detail/CVE-2021-3711)
+    - [CVE-2021-3712](https://nvd.nist.gov/vuln/detail/CVE-2021-3712)
 
     Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
@@ -293,7 +336,6 @@ New security patches for **AE-1.2.v29.5**
 ### 23 March 2021
 {: #AnalyticsEngine-mar2321}
 {: release-note}
-
 
 New security patches for **AE-1.2.v29.4**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.4**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
