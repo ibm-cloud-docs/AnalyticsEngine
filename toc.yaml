@@ -5,6 +5,7 @@
 toc:
   properties:
     subcollection: AnalyticsEngine
+    service-name: ibmanalyticsengine
     category: analytics
     audience: service
     href: /docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started
