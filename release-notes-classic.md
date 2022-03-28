@@ -41,7 +41,9 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 New security patch for **AE-1.2.v29.18**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.18**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.18**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2021-44142](https://access.redhat.com/security/cve/CVE-2021-44142)
 
@@ -68,7 +70,9 @@ New monitoring system for **AE-1.2.v29.17**
 New security patch for **AE-1.2.v29.16**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.16**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.16**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2021-3733](https://access.redhat.com/security/cve/CVE-2021-3733)
     - [CVE-2021-3737](https://access.redhat.com/security/cve/CVE-2021-3737)
@@ -87,15 +91,17 @@ New security patch for **AE-1.2.v29.16**
 New security patch for **AE-1.2.v29.15**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.15**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.15**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2021-44228](https://access.redhat.com/security/cve/CVE-2021-44228)
 
-       Based on the advice received from the underlying engine, Hortonworks Data Platform(HDP), the instructions for removing the vulnerable class from log4j 2.x jars for Oozie and Hive were applied. Note that log4j 1.x is not affected by `CVE-2021-44228`. 
+        Based on the advice received from the underlying engine, Hortonworks Data Platform(HDP), the instructions for removing the vulnerable class from log4j 2.x jars for Oozie and Hive were applied. Note that log4j 1.x is not affected by `CVE-2021-44228`. 
 
-       The changes are available in all new clusters built after 16 December 2021. To avail the fix, discard all old clusters and create new ones.
+        The changes are available in all new clusters built after 16 December 2021. To avail the fix, discard all old clusters and create new ones.
 
-       Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
+    Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
 
 ### 08 December 2021
 {: #AnalyticsEngine-dec0821}
@@ -104,7 +110,9 @@ New security patch for **AE-1.2.v29.15**
 New security patches for **AE-1.2.v29.14**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.14**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.14**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2021-42574](https://nvd.nist.gov/vuln/detail/CVE-2021-42574)
     - [RHSA-2021:4587](https://access.redhat.com/errata/RHSA-2021:4587)
@@ -154,7 +162,9 @@ New security patches for **AE-1.2.v29.14**
 {: release-note}
 
 New security patches for **AE-1.2.v29.13**
-:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.13**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.13**, your cluster is vulnerable to CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.13**, which includes general security fixes.
 
 Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
@@ -166,7 +176,9 @@ Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEng
 {: release-note}
 
 New security patches for **AE-1.2.v29.12**
-:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.12**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.12**, your cluster is vulnerable to CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.12**, which includes general security fixes.
 
 Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
@@ -178,7 +190,9 @@ Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEng
 New security patches for **AE-1.2.v29.11**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.11**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.11**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2021-36222](https://nvd.nist.gov/vuln/detail/CVE-2021-36222)
     - [CVE-2021-37750](https://nvd.nist.gov/vuln/detail/CVE-2021-37750)
@@ -192,7 +206,9 @@ New security patches for **AE-1.2.v29.11**
 New security patches for **AE-1.2.v29.10**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.10**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.10**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2021-25214](https://nvd.nist.gov/vuln/detail/CVE-2021-25214)
     - [CVE-2021-3621](https://nvd.nist.gov/vuln/detail/CVE-2021-3621)
@@ -212,7 +228,9 @@ New security patches for **AE-1.2.v29.10**
 New security patches for **AE-1.2.v29.9**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.9**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.9**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2021-36159](https://nvd.nist.gov/vuln/detail/CVE-2021-36159)
     - [CVE-2021-3711](https://nvd.nist.gov/vuln/detail/CVE-2021-3711)
@@ -227,7 +245,9 @@ New security patches for **AE-1.2.v29.9**
 New security patches for **AE-1.2.v29.8**
 :   **Important**:  Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.8**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE and RHSA  information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.8**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2021-3520](https://nvd.nist.gov/vuln/detail/CVE-2021-3520)
     - [CVE-2021-20254](https://nvd.nist.gov/vuln/detail/CVE-2021-20254)
@@ -255,7 +275,9 @@ New security patches for **AE-1.2.v29.8**
 New security patches for **AE-1.2.v29.7**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.7**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE and RHSA information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.7**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2009-5155](https://nvd.nist.gov/vuln/detail/CVE-2009-5155)
     - [CVE-2020-6096](https://nvd.nist.gov/vuln/detail/CVE-2020-6096)
@@ -285,7 +307,9 @@ New security patches for **AE-1.2.v29.7**
 New security patches for **AE-1.2.v29.6**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.6**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE and RHSA information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.6**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2021-30139](https://nvd.nist.gov/vuln/detail/CVE-2021-30139)
     - [CVE-2021-20277](https://nvd.nist.gov/vuln/detail/CVE-2021-20277)
@@ -308,7 +332,9 @@ New security patches for **AE-1.2.v29.6**
 New security patches for **AE-1.2.v29.5**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.5**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE and RHSA information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.5**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2021-3449](https://nvd.nist.gov/vuln/detail/CVE-2021-3449)
     - [CVE-2021-3450](https://nvd.nist.gov/vuln/detail/CVE-2021-3450)
@@ -340,7 +366,9 @@ New security patches for **AE-1.2.v29.5**
 New security patches for **AE-1.2.v29.4**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.4**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE and RHSA information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.4**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2018-20482](https://nvd.nist.gov/vuln/detail/CVE-2018-20482)
     - [CVE-2019-9923](https://nvd.nist.gov/vuln/detail/CVE-2019-9923)
@@ -401,7 +429,9 @@ You should migrate your customization scripts to use the new environment variabl
 New security patches for **AE-1.2.v29.3**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.3**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE and RHSA  information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.3**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2019-25013](https://nvd.nist.gov/vuln/detail/CVE-2019-25013)
     - [CVE-2020-10029](https://nvd.nist.gov/vuln/detail/CVE-2020-10029)
@@ -440,7 +470,9 @@ New security patches for **AE-1.2.v29.3**
 New security patches for **AE-1.2.v29.2**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.2**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE and RHSA information and take appropriate action:  
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.2**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2020-25659](https://bugzilla.redhat.com/show_bug.cgi?id=1889988): the python-cryptography package was upgraded to version 3.3
     - [CVE-2020-28928](https://nvd.nist.gov/vuln/detail/CVE-2020-28928)
@@ -455,7 +487,9 @@ New security patches for **AE-1.2.v29.2**
 New security patches for **AE-1.2.v29.1**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.1**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE and RHSA information and take appropriate action:  
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.1**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2019-20811](https://nvd.nist.gov/vuln/detail/CVE-2019-20811)
     - [CVE-2019-20907](https://nvd.nist.gov/vuln/detail/CVE-2019-20907)
@@ -492,7 +526,9 @@ Another fix was added so that you no longer need to explicitly grant permissions
 New security patches for **AE-1.2.v29**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
 
     - [CVE-2020-26116](https://exchange.xforce.ibmcloud.com/vulnerabilities/189404)
     - [CVE-2019-20907](https://exchange.xforce.ibmcloud.com/vulnerabilities/185442)
@@ -507,7 +543,7 @@ New security patches for **AE-1.2.v29**
 A fix was added to alleviate cluster instability issues caused by an error in an underlying Docker runtime.
 :   If you created a cluster between 23 July 2020 and 01 October 2020, you might have experienced intermittent instability that manifested as connectivity issues or down times in nodes. With today's deployment, the runtime version has been replaced by an earlier stable runtime version.
 
-    We strongly urge you to create new clusters and discard all  clusters created between 23 July 2020 and 01 October 2020. If for any reason, you need to retain an old cluster, contact support and request for an in-place fix. Note that this in-place fix will require a disruptive restart of the cluster.
+    We strongly urge you to create new clusters and discard all clusters created between 23 July 2020 and 01 October 2020. If for any reason, you need to retain an old cluster, contact support and request for an in-place fix. Note that this in-place fix will require a disruptive restart of the cluster.
 
     In general, you should following the recommendations for creating and deleting clusters as described in [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices).
 
@@ -521,6 +557,8 @@ A fix was added to alleviate cluster instability issues caused by an error in an
 A new stocator version was released for **AE-1.2.v28.5**.
 :   This includes fixes for the [Spark Dynamic Partition Insert issue](https://github.com/CODAIT/stocator/issues/256) and [Ceph Storage list objects issue](https://github.com/CODAIT/stocator/issues/252).
 
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v28.5**.
+
 ### 10 September 2020
 {: #AnalyticsEngine-sep1020}
 {: release-note}
@@ -528,7 +566,10 @@ A new stocator version was released for **AE-1.2.v28.5**.
 New security patches for **AE-1.2.v28.4**
 :   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patch, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v28.4**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE and RHSA  information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v28.4**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
+
     - [CVE-2019-17639](https://www.ibm.com/blogs/psirt/security-bulletin-multiple-vulnerabilities-may-affect-ibm-sdk-java-technology-edition-3/)
     - [CVE-2020-14556](https://nvd.nist.gov/vuln/detail/CVE-2020-14556)
     - [CVE-2020-14577](https://nvd.nist.gov/vuln/detail/CVE-2020-14577)
@@ -560,7 +601,10 @@ New security patches for **AE-1.2.v28.3**
 
     **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v28.3**, your cluster is vulnerable to the following CVEs. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
 
-    Customers are required to review the following CVE, USN, and RHSA information and take appropriate action:
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v28.3**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
+
     - [CVE-2019-11729](https://access.redhat.com/errata/RHSA-2019:4190)
     - [CVE-2019-11745](https://access.redhat.com/errata/RHSA-2019:4190)
     - [CVE-2020-8616](https://access.redhat.com/errata/RHSA-2020:2344)
@@ -704,7 +748,7 @@ Java update
 {: #AnalyticsEngine-feb1220}
 {: release-note}
 
-ou can enable encryption for data in transit for Spark jobs by explicitly configuring the cluster using a combination of Advanced Options and customization.  
+You can enable encryption for data in transit for Spark jobs by explicitly configuring the cluster using a combination of Advanced Options and customization.  
 :   See [Enabling Spark jobs encryption](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-encryption).
 
 ## January 2020
