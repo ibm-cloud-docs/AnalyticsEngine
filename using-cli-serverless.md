@@ -598,3 +598,8 @@ Example
     ```
     {: codeblock}
     
+
+## Learn more
+{: #learn-more-cli}
+
+See the [IBM Analytics Engine serverless CLI reference](/docs/AnalyticsEngine?topic=analytics-engine-cli-plugin-CLI_analytics_engine).

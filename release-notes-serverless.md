@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-08-09"
+  years: 2021, 2022
+lastupdated: "2022-03-30"
 
 keywords: IBM Analytics Engine release notes
 
@@ -38,6 +38,22 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 <!-- If you also have a change log for your API or CLI, include the following tip with a link to the change log.
 For information about changes to the _service-name_ API, see [Change log for _service-name_ API](/docs/link-to-change-log).
 {: tip}  -->
+
+## 30 March 2022
+{: #AnalyticsEngine-mar3022}
+{: release-note}
+
+Start using the {{site.data.keyword.iae_short}} serverless CLI
+: Use this tutorial to help you get started quickly and simply with provisioning an {{site.data.keyword.iae_short}} serverless instance, and submitting and monitoring Spark applications. See [Create service instances and submit applications using the CLI](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-cli).
+
+<!--
+## 24 March 2022
+{: #AnalyticsEngine-mar2422}
+{: release-note}
+
+You can now run a Spark history server on your {{site.data.keyword.iae_full_notm}} serverless instance.
+: [Use the Spark history server](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-history-serverless) to analyze the Spark applications that you have run with your serverless instance.
+-->
 
 ## 9 September 2021
 {: #AnalyticsEngine-sep0921}
