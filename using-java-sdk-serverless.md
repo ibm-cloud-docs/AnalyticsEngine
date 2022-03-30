@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-13"
+  years: 2017, 2022
+lastupdated: "2022-03-28"
 
 subcollection: AnalyticsEngine
 
@@ -157,7 +157,10 @@ The Java SDK allows you to construct the service client in one of two ways by:
 ## Code Samples
 {: #code-samples-java}
 
-The following code samples show how to:
+In addition to the sample code snippets in this section, you can work with Java code samples from the [IBM Analytics Engine V3 API reference](/apidocs/ibm-analytics-engine-v3?code=java#introduction). 
+
+
+The following code samples show you how to:
 
 - Access the {{site.data.keyword.iae_full_notm}} service instance:
    ```java

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-13"
+  years: 2017, 2022
+lastupdated: "2022-03-28"
 
 subcollection: AnalyticsEngine
 
@@ -155,7 +155,10 @@ The Go SDK allows you to construct the service client in one of two ways by:
 ## Code samples using `iaesdk`
 {: #code-samples-go}
 
-The following code samples show how to:
+In addition to the sample code snippets in this section, you can work with Go code samples from the [IBM Analytics Engine V3 API reference](/apidocs/ibm-analytics-engine-v3?code=go#introduction). 
+
+
+The following code samples show you how to:
 
 - Retrieve the details of a single instance:
     ```go

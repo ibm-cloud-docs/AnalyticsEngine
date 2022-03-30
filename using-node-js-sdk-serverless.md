@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-13"
+  years: 2017, 2022
+lastupdated: "2022-03-28"
 
 subcollection: AnalyticsEngine
 
@@ -43,7 +43,9 @@ The service instance ID is also referred to as a instance GUID. You can retrieve
 
 Getting started with the Node.js SDK after you have installed it, involves sourcing credentials to the {{site.data.keyword.iae_full_notm}} service, invoking the service and then issuing different cluster commands as shown in the following sample code snippets.
 
-The code samples show how to:
+In addition to the sample code snippets in this topic, you can work with Node.js code samples from the [IBM Analytics Engine V3 API reference](/apidocs/ibm-analytics-engine-v3?code=node#introduction). 
+
+The following code samples show how to:
 
 - Authenticate to the {{site.data.keyword.iae_full_notm}} service and create a service client:
     ```javascript

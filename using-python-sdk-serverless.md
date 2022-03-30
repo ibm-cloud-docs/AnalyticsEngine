@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-13"
+  years: 2017, 2022
+lastupdated: "2022-03-28"
 
 subcollection: AnalyticsEngine
 
@@ -44,7 +44,9 @@ To use the `iaesdk` library, you need the following values:
 
 Getting started with the Python SDK after you have installed it, involves sourcing credentials to the {{site.data.keyword.iae_full_notm}} service, invoking the service and then issuing different cluster commands as shown in the following sample code snippets. The code examples are written for Python 3.7.
 
-The code samples show how to:
+In addition to the sample code snippets in this topic, you can work with Python code samples from the [IBM Analytics Engine V3 API reference](/apidocs/ibm-analytics-engine-v3?code=python#introduction).
+
+The following code samples show you how to:
 
 - Authenticate to the {{site.data.keyword.iae_full_notm}} service and build a service client:
 

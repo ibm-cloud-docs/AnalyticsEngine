@@ -26,6 +26,11 @@ toc:
           - release-notes-serverless.md
           - release-notes-classic.md
 
+  - navgroup: 
+        id: tutorial
+        topics:
+        - using-cli-serverless.md        
+
   - navgroup:
       id: howto
       topics:
@@ -217,9 +222,10 @@ toc:
           - link:
               label: IBM Analytics Engine V3 API reference
               href: https://{DomainName}/apidocs/ibm-analytics-engine-v3#introduction
-          - link:
+          - topicgroup:
               label: IBM Analytics Engine serverless CLI
-              href: https://{DomainName}/docs/analytics-engine-cli-plugin/analytics-engine-cli-plugin-CLI_analytics_engine
+              topics:
+              - /analytics-engine-cli-plugin/analytics-engine-cli-plugin-CLI_analytics_engine    
           - topicgroup:
               label: IBM Analytics Engine SDK
               topics:
