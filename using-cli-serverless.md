@@ -572,27 +572,29 @@ You can use use the Analytics Engine CLI to enable logging to help you troublesh
 {: #delete-iae-instance-cli}
 {: step}
 
-You can retain an Analytics Engine instance as long as you want and submit your Spark applications against the same instance on an as-needed basis.
-
 You can use the CLI to delete an instance, for example if you need an instance with a completely different configuration to handle greater workloads.
 {: shortdesc}
 
-1. If you want to delete an Analytics Engine instance: 
+You can retain an Analytics Engine instance as long as you want and submit your Spark applications against the same instance on an as-needed basis.
 
-    Action
-    :   Enter:
-        ```sh
-        ibmcloud resource service-instance-delete NAME|ID [-g RESOURCE_GROUP] -f 
-        ```
-        {: codeblock}
+If you want to delete an Analytics Engine instance: 
 
-    Parameters: 
-    - NAME|ID: The value of Name or GUID from the response of the Analytics Engine instance creation call
-    - RESOURCE_GROUP: Optional parameter. The name of resource group in which the serverless instance is resides
+Action
+:   Enter:
+    ```sh
+    ibmcloud resource service-instance-delete NAME|ID [-g RESOURCE_GROUP] -f 
+    ```
+    {: codeblock}
 
-    Example
-    :   Enter:
-        ```sh
-        ibmcloud resource service-instance-delete MyServiceInstance  -g default  -f
-        ```
-        {: codeblock}
+Parameters: 
+- NAME|ID: The value of Name or GUID from the response of the Analytics Engine instance creation call
+- RESOURCE_GROUP: Optional parameter. The name of resource group in which the serverless instance is resides
+
+
+Example
+:   Enter:
+    ```sh
+    ibmcloud resource service-instance-delete MyServiceInstance  -g default  -f
+    ```
+    {: codeblock}
+    
