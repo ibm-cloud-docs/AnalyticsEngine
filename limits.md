@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-09"
+  years: 2017, 2022
+lastupdated: "2022-04-04"
 
 subcollection: AnalyticsEngine
 
@@ -12,7 +12,7 @@ subcollection: AnalyticsEngine
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:pre: .pre}
+
 
 # Limits and quotas for {{site.data.keyword.iae_short}} instances
 {: #limits}
@@ -33,6 +33,7 @@ The following table lists the default limits and quotas for {{site.data.keyword.
 | Maximum memory per instances            |                 600 GB |
 | Maximum number of executors per job     |                     35 |
 | Shuffle space per core                  |           approx. 8 GB |
+| Maximum time applications can run       | 72 hours (Not customizable) | 
 {: caption="Default limits and quotas for {{site.data.keyword.iae_short}} instances" caption-side="top"}
 
 
