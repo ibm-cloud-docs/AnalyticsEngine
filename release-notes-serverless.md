@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-30"
+lastupdated: "2022-04-04"
 
 keywords: IBM Analytics Engine release notes
 
@@ -39,21 +39,26 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 For information about changes to the _service-name_ API, see [Change log for _service-name_ API](/docs/link-to-change-log).
 {: tip}  -->
 
+
+## 04 April 2022
+{: #AnalyticsEngine-apr0422}
+{: release-note}
+
+Limitation on how long Spark applications can run
+:   Spark applications can run for a maximum period of 3 days (72 hours). Any applications that run beyond this period will be auto-cleaned in order to adhere to the security and compliance patch management processes for applications in Analytics Engine.
+
+<!--
+Analyze application runs on the Spark history server
+: You can now run a Spark history server on your {{site.data.keyword.iae_full_notm}} serverless instance. See [Use the Spark history server](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-history-serverless) to analyze the Spark applications that you have run with your serverless instance. -->
+
+
 ## 30 March 2022
 {: #AnalyticsEngine-mar3022}
 {: release-note}
 
 Start using the {{site.data.keyword.iae_short}} serverless CLI
-: Use this tutorial to help you get started quickly and simply with provisioning an {{site.data.keyword.iae_short}} serverless instance, and submitting and monitoring Spark applications. See [Create service instances and submit applications using the CLI](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-cli).
+:   Use this tutorial to help you get started quickly and simply with provisioning an {{site.data.keyword.iae_short}} serverless instance, and submitting and monitoring Spark applications. See [Create service instances and submit applications using the CLI](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-cli).
 
-<!--
-## 24 March 2022
-{: #AnalyticsEngine-mar2422}
-{: release-note}
-
-You can now run a Spark history server on your {{site.data.keyword.iae_full_notm}} serverless instance.
-: [Use the Spark history server](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-history-serverless) to analyze the Spark applications that you have run with your serverless instance.
--->
 
 ## 9 September 2021
 {: #AnalyticsEngine-sep0921}
