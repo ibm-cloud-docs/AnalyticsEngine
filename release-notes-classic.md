@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-03-10"
+lastupdated: "2022-04-06"
 
 keywords: IBM Analytics Engine release notes
 
@@ -33,6 +33,21 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} classic instances that are grouped by date.
 {: shortdesc}
+
+## 07 April 2022 
+{: #AnalyticsEngine-apr0722}
+{: release-note}
+
+New users can no longer create IBM Analytics Engine service instances using the classic plans
+:   The IBM Analytics Engine Classic plans are deprecated and will be removed later this year. 
+
+    New users will not be able to create Lite, Standard-Hourly, or Standard-Monthly IBM Analytics Engine instances beginning 7 April 2022. As a new user, create serverless instances, by selecting the Standard Serverless for Apache Spark plan, to run your Spark applications.
+
+    Existing users can still continue creating IBM Analytics Engine service instances using the classic plans.
+
+
+Migrating from classic instances
+:   To help you move from using classic instances to using serverless instances, see [Differences between classic and serverless instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-differences-between-instances) and the topics under **Migrating from classic instances**.
 
 ## 10 March 2022
 {: #AnalyticsEngine-mar1022}
@@ -218,6 +233,9 @@ New security patches for **AE-1.2.v29.10**
     - [CVE-2021-33560](https://nvd.nist.gov/vuln/detail/CVE-2021-33560)
     - [CVE-2021-33910](https://nvd.nist.gov/vuln/detail/CVE-2021-33910)
     - [CVE-2021-40528](https://nvd.nist.gov/vuln/detail/CVE-2021-40528)
+    - [CVE-2021-20193](https://nvd.nist.gov/vuln/detail/CVE-2021-20193)
+    - [CVE-2017-12424](https://nvd.nist.gov/vuln/detail/CVE-2017-12424)
+    - [CVE-2018-7169](https://nvd.nist.gov/vuln/detail/CVE-2018-7169)
 
     Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) and recycle your clusters regularly.
 
