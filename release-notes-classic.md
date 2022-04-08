@@ -34,12 +34,12 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} classic instances that are grouped by date.
 {: shortdesc}
 
-## 07 April 2022 
+## 07 April 2022
 {: #AnalyticsEngine-apr0722}
 {: release-note}
 
 New users can no longer create IBM Analytics Engine service instances using the classic plans
-:   The IBM Analytics Engine Classic plans are deprecated and will be removed later this year. 
+:   The IBM Analytics Engine Classic plans are deprecated and will be removed later this year.
 
     New users will not be able to create Lite, Standard-Hourly, or Standard-Monthly IBM Analytics Engine instances beginning 7 April 2022. As a new user, create serverless instances, by selecting the Standard Serverless for Apache Spark plan, to run your Spark applications.
 
