@@ -280,10 +280,6 @@ toc:
               label: FAQs
               topics:
               - faqs-serverless.md
-          - topicgroup:
-              label: Migrating from classic instances
-              topics:
-              - migrate-classic-serverless.md
       - topicgroup:
           label: Classic instances
           topics:
@@ -301,3 +297,12 @@ toc:
               - faqs-integration.md
               - faqs-operations.md
               - faqs-security.md
+          - topicgroup:
+              label: Migrating from classic instances
+              topics:
+              - migrate-classic-serverless.md
+              - migrating-inst-creation.md
+              - migrating-service-endpoint.md
+              - migrating-spark-submit.md
+              - migrating-livy.md
+              - migrating-customization.md

@@ -47,5 +47,13 @@ The following table lists the key differences between classic {{site.data.keywor
 | Spark streaming | Checkpointing can be done for {{site.data.keyword.cos_short}}/HDFS | Checkpointing can be done only for {{site.data.keyword.cos_short}}. Make sure to run streaming applications only for 7 days to accommodate for AnalyticsEngine maintenance. |
 | Limits and Quotas | Limit of 20 nodes per cluster | 5 instances per account with limits on cores and cpu per instance. See [Application limits](/docs/AnalyticsEngine?topic=AnalyticsEngine-limits#limits_application). |
 
+## Next steps
+
+- [Migrating from classic instances: instance creation](/docs/AnalyticsEngine?topic=AnalyticsEngine-instance-creation)
+- [Migrating from classic instances: get service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-get-service-endpoints)
+- [Migrating from classic instances: Spark submit](/docs/AnalyticsEngine?topic=AnalyticsEngine-migrate-spark-submit)
+- [Migrating from classic instances: livy API](/docs/AnalyticsEngine?topic=AnalyticsEngine-migrate-livy)
+- [Migrating from classic instances: customization](/docs/AnalyticsEngine?topic=AnalyticsEngine-migrate-customization)
+
 
 <!-- Supports only direct and public endpoints. It is more efficient to use direct endpoints.  See [Retrieving service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints-serverless). -->
