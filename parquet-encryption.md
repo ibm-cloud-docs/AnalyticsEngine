@@ -126,16 +126,17 @@ The following sample code snippets for Python and Scala show how to create data 
 
 - Python: Writing encrypted data
     ```python
-    from pyspark.sql import
+    from pyspark.sql import Row
 
-     RowsquaresDF = spark.createDataFrame(
+     squaresDF = spark.createDataFrame(
         sc.parallelize(range(1, 6))
         .map(lambda i: Row(int_column=i,  square_int_column=i ** 2)))
 
      sc._jsc.hadoopConfiguration().set("encryption.key.list",
         "key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
 
-     encryptedParquetPath = "squares.parquet.encrypted"squaresDF.write\
+     encryptedParquetPath = "squares.parquet.encrypted"
+     squaresDF.write\
        .option("parquet.encryption.column.keys", "key1:square_int_column")\
        .option("parquet.encryption.footer.key", "key2")\
        .parquet(encryptedParquetPath)
