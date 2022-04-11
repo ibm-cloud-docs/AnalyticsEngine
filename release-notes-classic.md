@@ -34,7 +34,7 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} classic instances that are grouped by date.
 {: shortdesc}
 
-### 11 April 2022
+## 11 April 2022
 {: #AnalyticsEngine-apr1122}
 {: release-note}
 
@@ -45,14 +45,9 @@ New security patch for **AE-1.2.v29.19**
 
     The list of CVEs fixed in this release includes but is not limited to the following:
 
-    Volume image CVEs:
-
     - [CVE-2022-28391](https://nvd.nist.gov/vuln/detail/CVE-2022-28391)
     - [CVE-2022-0778](https://nvd.nist.gov/vuln/detail/CVE-2022-0778)
     - [CVE-2018-25032](https://nvd.nist.gov/vuln/detail/CVE-2018-25032)
-
-    LogDNA CVEs:
-
     - [CVE-2021-45960](https://nvd.nist.gov/vuln/detail/CVE-2021-45960)
     - [CVE-2021-46143](https://nvd.nist.gov/vuln/detail/CVE-2021-46143)
     - [CVE-2022-22822](https://nvd.nist.gov/vuln/detail/CVE-2022-22822)
@@ -71,11 +66,9 @@ New security patch for **AE-1.2.v29.19**
     - [CVE-2022-23219](https://nvd.nist.gov/vuln/detail/CVE-2022-23219)
     - [CVE-2021-23177](https://nvd.nist.gov/vuln/detail/CVE-2021-23177)
     - [CVE-2021-31566](https://nvd.nist.gov/vuln/detail/CVE-2021-31566)
-
-    Metrix Exporter CVEs:
-
     - [CVE-2022-0778](https://nvd.nist.gov/vuln/detail/CVE-2022-0778)
     - [CVE-2021-20193](https://nvd.nist.gov/vuln/detail/CVE-2021-20193)
+
 
     Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
 
