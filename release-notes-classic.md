@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-07"
+lastupdated: "2022-04-11"
 
 keywords: IBM Analytics Engine release notes
 
@@ -34,12 +34,57 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} classic instances that are grouped by date.
 {: shortdesc}
 
-## 07 April 2022
+### 11 April 2022
+{: #AnalyticsEngine-apr1122}
+{: release-note}
+
+New security patch for **AE-1.2.v29.19**
+:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.19**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.19**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
+
+    Volume image CVEs:
+
+    - [CVE-2022-28391](https://nvd.nist.gov/vuln/detail/CVE-2022-28391)
+    - [CVE-2022-0778](https://nvd.nist.gov/vuln/detail/CVE-2022-0778)
+    - [CVE-2018-25032](https://nvd.nist.gov/vuln/detail/CVE-2018-25032)
+
+    LogDNA CVEs:
+
+    - [CVE-2021-45960](https://nvd.nist.gov/vuln/detail/CVE-2021-45960)
+    - [CVE-2021-46143](https://nvd.nist.gov/vuln/detail/CVE-2021-46143)
+    - [CVE-2022-22822](https://nvd.nist.gov/vuln/detail/CVE-2022-22822)
+    - [CVE-2022-22823](https://nvd.nist.gov/vuln/detail/CVE-2022-22823)
+    - [CVE-2022-22824](https://nvd.nist.gov/vuln/detail/CVE-2022-22824)
+    - [CVE-2022-22825](https://nvd.nist.gov/vuln/detail/CVE-2022-22825)
+    - [CVE-2022-22826](https://nvd.nist.gov/vuln/detail/CVE-2022-22826)
+    - [CVE-2022-22827](https://nvd.nist.gov/vuln/detail/CVE-2022-22827)
+    - [CVE-2022-23852](https://nvd.nist.gov/vuln/detail/CVE-2022-23852)
+    - [CVE-2022-25235](https://nvd.nist.gov/vuln/detail/CVE-2022-25235)
+    - [CVE-2022-25236](https://nvd.nist.gov/vuln/detail/CVE-2022-25236)
+    - [CVE-2022-25315](https://nvd.nist.gov/vuln/detail/CVE-2022-25315)
+    - [CVE-2022-23308](https://nvd.nist.gov/vuln/detail/CVE-2022-23308)
+    - [CVE-2021-3999](https://nvd.nist.gov/vuln/detail/CVE-2021-3999)
+    - [CVE-2022-23218](https://nvd.nist.gov/vuln/detail/CVE-2022-22218)
+    - [CVE-2022-23219](https://nvd.nist.gov/vuln/detail/CVE-2022-23219)
+    - [CVE-2021-23177](https://nvd.nist.gov/vuln/detail/CVE-2021-23177)
+    - [CVE-2021-31566](https://nvd.nist.gov/vuln/detail/CVE-2021-31566)
+
+    Metrix Exporter CVEs:
+
+    - [CVE-2022-0778](https://nvd.nist.gov/vuln/detail/CVE-2022-0778)
+    - [CVE-2021-20193](https://nvd.nist.gov/vuln/detail/CVE-2021-20193)
+
+    Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
+
+## 07 April 2022 
 {: #AnalyticsEngine-apr0722}
 {: release-note}
 
 New users can no longer create IBM Analytics Engine service instances using the classic plans
-:   The IBM Analytics Engine Classic plans are deprecated and will be removed later this year.
+:   The IBM Analytics Engine Classic plans are deprecated and will be removed later this year. 
 
     New users will not be able to create Lite, Standard-Hourly, or Standard-Monthly IBM Analytics Engine instances beginning 7 April 2022. As a new user, create serverless instances, by selecting the Standard Serverless for Apache Spark plan, to run your Spark applications.
 
