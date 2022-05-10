@@ -195,18 +195,6 @@
     "using spark and cos, what size should my cluster be",
     "what should be my cluster size compared to my data in iae"
   ],
-  "design-multiple-envs": [
-    "design and size multiple environments for different purposes in iae",
-    "have multiple analytics engine environments",
-    "considerations when creating multiple iae environments",
-    "can development environment for hadoop be different from my prod env",
-    "test and production system for Analytics Engine",
-    "have both a test and production environment for Analytics Engine",
-    "multiple hadoop clusters for each test and production environment",
-    "multiple hadoop clusters, must they all be running to access my data",
-    "must multiple hadoop clusters use separate environments",
-    "how does my cos affect multiple spark environments"
-  ],
   "user-management": [
     "how is user management done in iae",
     "how do I manage users in analytics engine",
@@ -293,18 +281,6 @@
     "ACID used in Hive for AE",
     "does hive support ACID in analytics engine",
     "set ACID properties for Hive "
-  ],
-  "time-4-cluster-2-start": [
-    "how much time does it take for an iae cluster to start",
-    "my analytics engine cluster is taking a long time to start",
-    "how do I check on the status starting my spark cluster",
-    "hadoop cluster start too long",
-    "how soon can I start to use my IAE cluster",
-    "when can I start to use my IAE cluster",
-    "why is my cluster taking so long to start spark hadoop",
-    "how long to provision an IAE cluster",
-    "how long to provision a cluster for analytics engine",
-    "how long does it take for the spark cluster to get started for analytics engine"
   ],
   "how-access-cluster": [
     "how can I access my hadoop cluster",
