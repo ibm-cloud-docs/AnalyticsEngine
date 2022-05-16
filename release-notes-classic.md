@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-11"
+lastupdated: "2022-05-13"
 
 keywords: IBM Analytics Engine release notes
 
@@ -33,6 +33,35 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} classic instances that are grouped by date.
 {: shortdesc}
+
+## 13 May 2022
+{: #AnalyticsEngine-may1622}
+{: release-note}
+
+New security patch for **AE-1.2.v29.20**
+:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.20**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.20**.
+
+    The list of CVEs fixed in this release includes but is not limited to the following:
+
+    - [CVE-2018-25032](https://nvd.nist.gov/vuln/detail/CVE-2018-25032)
+    - [CVE-2022-1271](https://nvd.nist.gov/vuln/detail/CVE-2022-1271)
+    - [RHSA-2022:1537](https://access.redhat.com/errata/RHSA-2022:1537)
+    - [RHSA-2022:1642](https://access.redhat.com/errata/RHSA-2022:1642)
+    - [CVE-2019-18276](https://nvd.nist.gov/vuln/detail/CVE-2019-18276)
+    - [CVE-2021-36084](https://nvd.nist.gov/vuln/detail/CVE-2021-36084)
+    - [CVE-2021-36085](https://nvd.nist.gov/vuln/detail/CVE-2021-36085)
+    - [CVE-2021-36086](https://nvd.nist.gov/vuln/detail/CVE-2021-36086)
+    - [CVE-2021-36087](https://nvd.nist.gov/vuln/detail/CVE-2021-36087)
+    - [CVE-2022-1271](https://nvd.nist.gov/vuln/detail/CVE-2022-1271)
+    - [CVE-2022-1292](https://nvd.nist.gov/vuln/detail/CVE-2022-1292)
+    - [CVE-2022-1343](https://nvd.nist.gov/vuln/detail/CVE-2022-1343)
+    - [CVE-2022-1434](https://nvd.nist.gov/vuln/detail/CVE-2022-1434)
+    - [CVE-2022-1473](https://nvd.nist.gov/vuln/detail/CVE-2022-1473)
+     
+     
+    Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
 
 ## 11 April 2022
 {: #AnalyticsEngine-apr1122}
