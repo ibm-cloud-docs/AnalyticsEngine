@@ -85,7 +85,7 @@ For more information on how you can create a library set with custom packages th
         ```
         {: codeblock}
 
-    Parameters: 
+    Parameter values: 
     - RESOURCE_GROUP_NAME: The name of resource group in which the serverless instance is to reside
         
 
@@ -122,7 +122,7 @@ For more information on how you can create a library set with custom packages th
         ```
         {: codeblock}
 
-    Parameters: 
+    Parameter values: 
     - INSTANCE_NAME: Any name of your choice
     - PLAN: The Cloud Object Storage plan to use when creating the instance
 
@@ -162,7 +162,7 @@ For more information on how you can create a library set with custom packages th
         ```
         {: codeblock}
 
-    Parameters: 
+    Parameter values: 
     - ID: The value of ID from the response the of Cloud Object Storage creation call
 
 
@@ -183,7 +183,7 @@ For more information on how you can create a library set with custom packages th
         ```
         {: codeblock}
 
-        Parameters: 
+        Parameter values: 
         - BUCKET_NAME: Any name of your choice
         - ID: The value of GUID from the response the of Cloud Object Storage creation call
         - REGION: The IBM Cloud region in which the Cloud Object Storage instance was created 
@@ -205,7 +205,7 @@ For more information on how you can create a library set with custom packages th
         ```
         {: codeblock}
 
-        Parameters: 
+        Parameter values: 
         - NAME: Any name of your choice
         - [ROLE_NAME]: This parameter is optional. The access role, for example, `Writer` or `Reader` 
         - SERVICE_INSTANCE_ID: The value of GUID from the response the of Cloud Object Storage creation call
@@ -259,7 +259,7 @@ Create an serverless Analytics Engine instance by using the CLI.
         ```
         {: codeblock}
 
-    Parameters:
+    Parameter values:
     - INSTANCE_NAME: Any name of your choice
     - @provision.json: Structure the JSON file as shown in the following example. Use the access and secret key from the response the of Cloud Object Storage service key creation call.
 
@@ -319,7 +319,7 @@ Create an serverless Analytics Engine instance by using the CLI.
         ```
         {: codeblock}
 
-    Parameters:
+    Parameter values:
     - INSTANCE_ID: The value of GUID from the response the of Analytics Engine instance creation call
 
     Example
@@ -370,7 +370,7 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
         ```
         {: codeblock}
 
-    Parameters:
+    Parameter values:
 
     - BUCKET_NAME: Name of bucket used when bucket was created
     - KEY: Application file name
@@ -424,7 +424,7 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
         ```
         {: codeblock}
 
-    Parameters:
+    Parameter values:
     - INSTANCE_ID: The value of GUID from the response the of Analytics Engine instance creation call
 
     Example
@@ -466,7 +466,7 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
         ```
         {: codeblock}
 
-    Parameters: 
+    Parameter values: 
     - INSTANCE_ID: The value of GUID from the response the of Analytics Engine instance creation call
     - APPLICATION_PATH: The file name and path to the Spark application file
 
@@ -493,7 +493,7 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
         ```
         {: codeblock}
 
-    Parameters: 
+    Parameter values: 
     - INSTANCE_ID: The value of GUID from the response the of Analytics Engine creation call
     - APPLICATION_ID: The value of id from the response of the spark-app submit call
 
@@ -530,7 +530,7 @@ You can use use the Analytics Engine CLI to enable logging to help you troublesh
         ```
         {: codeblock}
 
-    Parameters: 
+    Parameter values: 
     - NAME: Any name of your choice for the IBM Log Analysis service instance
     - SERVICE_PLAN_NAME: The name of the service plan. For valid values, see [Service plans](/docs/log-analysis?topic=log-analysis-service_plans).
     - LOCATION: Locations where Analytics Engine is enabled to send logs to IBM Log Analysis. For valid locations, see [Compute serverless services](/docs/log-analysis?topic=log-analysis-cloud_services_locations#cloud_services_locations_serverless).
@@ -556,7 +556,7 @@ You can use use the Analytics Engine CLI to enable logging to help you troublesh
         ```
         {: codeblock}
 
-    Parameters: 
+    Parameter values: 
     - `analytics-engine-v3`: Use `ae-v3` to use the v3 CLI commands
     - COMMAND: Use the `update` command to enable logging
     
@@ -586,7 +586,7 @@ Action
     ```
     {: codeblock}
 
-Parameters: 
+Parameter values: 
 - NAME|ID: The value of Name or GUID from the response of the Analytics Engine instance creation call
 - RESOURCE_GROUP: Optional parameter. The name of resource group in which the serverless instance is resides
 
