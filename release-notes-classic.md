@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-05-13"
+lastupdated: "2022-07-04"
 
 keywords: IBM Analytics Engine release notes
 
@@ -34,6 +34,22 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} classic instances that are grouped by date.
 {: shortdesc}
 
+## 04 July 2022
+{: #AnalyticsEngine-jul0422}
+{: release-note}
+
+New security patch for **AE-1.2.v29.21**
+:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.21**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.21**.
+
+    The CVEs fixed in this release includes but is not limited to the following:
+
+    - [CVE-2022-1271](https://nvd.nist.gov/vuln/detail/CVE-2022-1271)
+          
+    Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
+
+
 ## 13 May 2022
 {: #AnalyticsEngine-may1622}
 {: release-note}
@@ -63,7 +79,10 @@ New security patch for **AE-1.2.v29.20**
      
     Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
 
-## 11 April 2022
+## April 2022
+{: #AnalyticsEngine-apr22}
+
+### 11 April 2022
 {: #AnalyticsEngine-apr1122}
 {: release-note}
 
@@ -101,7 +120,7 @@ New security patch for **AE-1.2.v29.19**
 
     Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
 
-## 07 April 2022 
+### 07 April 2022 
 {: #AnalyticsEngine-apr0722}
 {: release-note}
 
@@ -747,7 +766,7 @@ Docker on the underlying Host VMs was upgraded.
 {: release-note}
 
 You can now use allowlist access to a private endpoint cluster.
-:   See [Whitelisting IP addresses to control network traffic](/docs/AnalyticsEngine?topic=AnalyticsEngine-allowlist-to-cluster-access).
+:   See [Using an allowlist to control network traffic](/docs/AnalyticsEngine?topic=AnalyticsEngine-allowlist-to-cluster-access).
 
 You can now use the {{site.data.keyword.iae_full_notm}} Java SDK to interact programmatically with the {{site.data.keyword.iae_full_notm}} service API.
 :   See [Using Java](/docs/AnalyticsEngine?topic=AnalyticsEngine-java).
