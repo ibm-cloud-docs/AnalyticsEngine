@@ -263,6 +263,7 @@ The code samples show how to:
     ```
     {: codeblock}
 
+<!--
 - Update private endpoint allowlist:
     ```javascript
     function updatePrivateEndpointWhitelist(instanceGuid) {
@@ -278,4 +279,4 @@ The code samples show how to:
       });
     }
     ```
-    {: codeblock}
+    {: codeblock} -->

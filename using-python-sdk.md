@@ -216,8 +216,8 @@ The code samples show how to:
         except Exception as e:
             print("Unable to delete: {0}".format(e))
     ```
-    {: codeblock}
-
+    {: codeblock} 
+<!--
 - Update private endpoint allowlist:
     ```python
     def update_private_endpoint_whitelist(instance_guid):
@@ -230,4 +230,4 @@ The code samples show how to:
         except Exception as e:
             print("Unable to update: {0}".format(e))
     ```
-    {: codeblock}
+    {: codeblock} -->

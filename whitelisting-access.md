@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-02-25"
+  years: 2017, 2022
+lastupdated: "2022-03-15"
 
 subcollection: AnalyticsEngine
 
@@ -28,8 +28,6 @@ When you provision an {{site.data.keyword.iae_full_notm}} instance, you can choo
 ### Updating IP ranges in the allowlist
 
 You can add or delete IP ranges to and from the allowlist of an {{site.data.keyword.iae_full_notm}} instance by invoking the `PATCH` operation on the `private_endpoint_allowlist` endpoint of the {{site.data.keyword.iae_full_notm}} cluster management API.
-
-Note that the endpoint `private_endpoint_whitelist` is deprecated. The examples in this topic all use the new endpoint `private_endpoint_allowlist`.  
 
 For example, if you created your service instance in the `US-South` {{site.data.keyword.Bluemix_notm}} region, enter:
 ```sh

@@ -112,7 +112,7 @@ curl -X POST -v " https://api.us-south.ae.cloud.ibm.com/v2/analytics_engines/<se
 
 ## Example customizing Ambari configurations
 
-The following section shows you a snippet of a customization script that you can use to customize Ambari configurations. This is also an example of how to use the predefined environment variable `NODE_TYP` (the environment variable `NODE_TYPE` and its values `management-slave1` or `management-slave2` are deprecated).
+The following section shows you a snippet of a customization script that you can use to customize Ambari configurations. This is also an example of how to use the predefined environment variable `NODE_TYP`.
 The recommended method to customize Ambari components is to create the {{site.data.keyword.iae_full_notm}} service instance using [advanced custom provisioning options](/docs/services/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options).
 
 The following example makes use of Ambari's in-built `configs.py` script to change the value for `mapreduce.map.memory`. This script is available only on the management nodes. If you specified `target` as `all`  for adhoc customization or if `all` target is implied because of a bootstrap customization, you might want to specify the `NODE_TYP` so that the code will be executed only once and from the `management3` node.

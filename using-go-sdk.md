@@ -317,7 +317,8 @@ The following code samples show how to:
     }
     ```
     {: codeblock}
-
+    
+<!--
 - Update private endpoint allowlist:
     ```
     func main() {
@@ -333,4 +334,4 @@ The following code samples show how to:
         fmt.Println(response.StatusCode)
     }
     ```
-    {: codeblock}
+    {: codeblock} -->

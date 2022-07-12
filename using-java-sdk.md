@@ -377,6 +377,7 @@ The following code samples show how to:
     ```
     {: codeblock}
 
+<!--
 - Update private endpoint allowlist:
     ```java
     public static void UpdatePrivateEndpointWhitelistWOptions() {
@@ -397,4 +398,4 @@ The following code samples show how to:
         }
     }
     ```
-    {: codeblock}
+    {: codeblock} -->

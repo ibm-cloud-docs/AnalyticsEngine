@@ -43,10 +43,8 @@ The following table lists the actions that generate an event:
 | `ibmanalyticsengine.cluster-log-config.create`            | Create a log aggregation configuration |
 | `ibmanalyticsengine.cluster-log-config.read`              | Retrieve the log aggregation configuration details |
 | `ibmanalyticsengine.cluster-log-config.delete`            | Delete a log aggregation configuration |
-| `ibmanalyticsengine.cluster-private-endpoint-allowlist.update`   \n    \n and  `ibmanalyticsengine.cluster-private-endpoint-whitelist.update` &#42; | Update cluster private endpoint allowlist |
+| `ibmanalyticsengine.cluster-private-endpoint-allowlist.update` | Update cluster private endpoint allowlist |
 {: caption="Table 1. Actions that generate management events" caption-side="top"}
-
-&#42; The endpoint `ibmanalyticsengine.cluster-private-endpoint-whitelist.update` is deprecated. You should start using `ibmanalyticsengine.cluster-private-endpoint-allowlist.update`.
 
 
 ## Viewing events
