@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-06-22"
+lastupdated: "2022-07-12"
 
 keywords: IBM Analytics Engine release notes
 
@@ -39,6 +39,18 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 For information about changes to the _service-name_ API, see [Change log for _service-name_ API](/docs/link-to-change-log).
 {: tip}  -->
 
+
+## July 2022
+{: #AnalyticsEngine-jul22}
+
+## 12 July 2022
+{: #AnalyticsEngine-jul1222}
+{: release-note}
+
+You can now provision {{site.data.keyword.iae_full}} serverless instances in a new region.
+:   In addition to the {{site.data.keyword.Bluemix_short}} `us-south` (Dallas) region, you can now also provision serverless instances in the `eu-de` (Frankurt) region.
+
+
 ## 08 July 2022
 {: #AnalyticsEngine-jul0822}
 {: release-note}
@@ -74,6 +86,7 @@ Analyze application runs on the Spark history server
     See [Use the Spark history server](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-history-serverless).
 
 -->
+
 
 ## 04 April 2022
 {: #AnalyticsEngine-apr0422}

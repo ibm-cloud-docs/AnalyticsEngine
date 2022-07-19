@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-09"
+  years: 2017, 2022
+lastupdated: "2022-07-12"
 
 subcollection: analyticsengine
 
@@ -29,7 +29,7 @@ You can create a serverless {{site.data.keyword.iae_full_notm}} service instance
 
 Note that you are not able to define certain limitation and quota settings while provisioning a serverless instance. These values are predefined. See [Limits and quotas for {{site.data.keyword.iae_short}} instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-limits) for a list of these settings and their values.
 
-You must have access to the {{site.data.keyword.Bluemix_short}} `US-South` region.
+You must have access to either the {{site.data.keyword.Bluemix_short}} `us-south` (Dallas) or the `eu-de` (Frankurt) region.
 {: important}
 
 ## Creating a service instance from the IBM Cloud console
@@ -41,7 +41,7 @@ To create an {{site.data.keyword.iae_full_notm}} instance:
 1. Log into the [{{site.data.keyword.Bluemix_short}} console](https://{DomainName}/catalog){: external}.
 1. Click **Sevices** and select the category **Analytics**.
 1. Search for `{{site.data.keyword.iae_short}}` and then click on the tile to open the service instance creation page.
-1. Choose the location in which you want the service instance to be deployed. Currently,  **us-south** is the only supported region.
+1. Choose the location in which you want the service instance to be deployed. Currently,  **us-south** and **eu-de** are the only supported regions.
 1. Select a plan. Currently, **Standard Serverless for Apache Spark** is the only supported serverless plan.
 1. Configure the instance by entering a name of your choice, selecting a resource group and adding tags.
 1. Select the default Spark runtime. Currently only `Spark 3.1` is available. The runtime pre-installs the spatio-temporal, data skipping and Paquet modular encryption packages by default.
@@ -78,13 +78,13 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
     ```
     {: codeblock}
 
-    For example:
+    For example, for the Dallas region:
     ```sh
     ibmcloud resource service-instance-create MyServiceInstance ibmanalyticsengine standard-serverless-spark us-south -p @provision.json
     ```
     {: codeblock}
 
-    You can give the service instance any name you choose. Note that currently, **standard-serverless-spark** is the only supported serverless plan and **us-south** the only supported region.
+    You can give the service instance any name you choose. Note that currently, **standard-serverless-spark** is the only supported serverless plan and **us-south** and **eu-de** the only supported regions.
 
     The provision.json file contains the provisioning parameters for the instance you want to create.
 
