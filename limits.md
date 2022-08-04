@@ -17,7 +17,7 @@ subcollection: AnalyticsEngine
 # Default limits and quotas for {{site.data.keyword.iae_short}} instances
 {: #limits}
 
-The following sections provide details about the default limitation and quota settings for {{site.data.keyword.iae_full_notm}} serverless instances.
+The following sections provide details about the default limit and quota settings for {{site.data.keyword.iae_full_notm}} serverless instances.
 {: shortdesc}
 
 These default values are set to avoid excessive billing, however the values can be set to larger defaults based on user requirements by opening a support ticket.
