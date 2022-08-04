@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-07-04"
+lastupdated: "2022-08-03"
 
 keywords: IBM Analytics Engine release notes
 
@@ -33,6 +33,78 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} classic instances that are grouped by date.
 {: shortdesc}
+
+## 03 August 2022
+{: #AnalyticsEngine-aug0322}
+{: release-note}
+
+New security patch for **AE-1.2.v29.22**
+:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.22**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.22**.
+
+    The CVEs fixed in this release includes but is not limited to the following:
+
+    - [CVE-2009-5155](https://nvd.nist.gov/vuln/detail/CVE-2009-5155)
+    - [CVE-2016-5011](https://nvd.nist.gov/vuln/detail/CVE-2016-5011)
+    - [CVE-2017-10684](https://nvd.nist.gov/vuln/detail/CVE-2017-10684)
+    - [CVE-2017-10685](https://nvd.nist.gov/vuln/detail/CVE-2017-10685)
+    - [CVE-2017-11112](https://nvd.nist.gov/vuln/detail/CVE-2017-11112)
+    - [CVE-2017-11113](https://nvd.nist.gov/vuln/detail/CVE-2017-11113)
+    - [CVE-2017-13728](https://nvd.nist.gov/vuln/detail/CVE-2017-13728)
+    - [CVE-2017-13729](https://nvd.nist.gov/vuln/detail/CVE-2017-13729)
+    - [CVE-2017-13730](https://nvd.nist.gov/vuln/detail/CVE-2017-13730)
+    - [CVE-2017-13731](https://nvd.nist.gov/vuln/detail/CVE-2017-13731)
+    - [CVE-2017-13732](https://nvd.nist.gov/vuln/detail/CVE-2017-13732)
+    - [CVE-2017-13733](https://nvd.nist.gov/vuln/detail/CVE-2017-13733)
+    - [CVE-2017-13734](https://nvd.nist.gov/vuln/detail/CVE-2017-13734)
+    - [CVE-2017-16879](https://nvd.nist.gov/vuln/detail/CVE-2017-16879)
+    - [CVE-2017-12424](https://nvd.nist.gov/vuln/detail/CVE-2017-12424)
+    - [CVE-2018-20482](https://nvd.nist.gov/vuln/detail/CVE-2018-20482)
+    - [CVE-2018-25032](https://nvd.nist.gov/vuln/detail/CVE-2018-25032)
+    - [CVE-2018-7169](https://nvd.nist.gov/vuln/detail/CVE-2018-7169)
+    - [CVE-2018-19211](https://nvd.nist.gov/vuln/detail/CVE-2018-19211)
+    - [CVE-2019-9923](https://nvd.nist.gov/vuln/detail/CVE-2019-9923)
+    - [CVE-2019-17594](https://nvd.nist.gov/vuln/detail/CVE-2019-17594)
+    - [CVE-2019-17595](https://nvd.nist.gov/vuln/detail/CVE-2019-17595)
+    - [CVE-2019-18276](https://nvd.nist.gov/vuln/detail/CVE-2019-18276)
+    - [CVE-2019-20838](https://nvd.nist.gov/vuln/detail/CVE-2019-20838)
+    - [CVE-2020-14155](https://nvd.nist.gov/vuln/detail/CVE-2020-14155)
+    - [CVE-2020-27350](https://nvd.nist.gov/vuln/detail/CVE-2020-27350)
+    - [CVE-2020-13529](https://nvd.nist.gov/vuln/detail/CVE-2020-13529)
+    - [CVE-2020-6096](https://nvd.nist.gov/vuln/detail/CVE-2020-6096)
+    - [CVE-2021-40528](https://nvd.nist.gov/vuln/detail/CVE-2021-40528)
+    - [CVE-2021-3520](https://nvd.nist.gov/vuln/detail/CVE-2021-3520)
+    - [CVE-2021-3999](https://nvd.nist.gov/vuln/detail/CVE-2021-3999)
+    - [CVE-2021-39537](https://nvd.nist.gov/vuln/detail/CVE-2021-39537)
+    - [CVE-2021-36084](https://nvd.nist.gov/vuln/detail/CVE-2021-36084)
+    - [CVE-2021-36085](https://nvd.nist.gov/vuln/detail/CVE-2021-36085)
+    - [CVE-2021-36086](https://nvd.nist.gov/vuln/detail/CVE-2021-36086)
+    - [CVE-2021-36087](https://nvd.nist.gov/vuln/detail/CVE-2021-36087)
+    - [CVE-2021-20193](https://nvd.nist.gov/vuln/detail/CVE-2021-20193)
+    - [CVE-2021-33910](https://nvd.nist.gov/vuln/detail/CVE-2021-33910)
+    - [CVE-2021-33560](https://nvd.nist.gov/vuln/detail/CVE-2021-33560)
+    - [CVE-2022-2097](https://nvd.nist.gov/vuln/detail/CVE-2022-2097)
+    - [CVE-2022-23218](https://nvd.nist.gov/vuln/detail/CVE-2022-23218)
+    - [CVE-2022-23219](https://nvd.nist.gov/vuln/detail/CVE-2022-23219)
+    - [CVE-2022-22576](https://nvd.nist.gov/vuln/detail/CVE-2022-22576)
+    - [CVE-2022-27774](https://nvd.nist.gov/vuln/detail/CVE-2022-27774)
+    - [CVE-2022-27776](https://nvd.nist.gov/vuln/detail/CVE-2022-27776)
+    - [CVE-2022-27782](https://nvd.nist.gov/vuln/detail/CVE-2022-27782)
+    - [CVE-2022-29824](https://nvd.nist.gov/vuln/detail/CVE-2022-29824)
+    - [CVE-2022-25313](https://nvd.nist.gov/vuln/detail/CVE-2022-25313)
+    - [CVE-2022-25314](https://nvd.nist.gov/vuln/detail/CVE-2022-25314)
+    - [CVE-2022-1621](https://nvd.nist.gov/vuln/detail/CVE-2022-1621)
+    - [CVE-2022-1629](https://nvd.nist.gov/vuln/detail/CVE-2022-1629) 
+    - [CVE-2022-29458](https://nvd.nist.gov/vuln/detail/CVE-2022-29458)
+    - [CVE-2022-1271](https://nvd.nist.gov/vuln/detail/CVE-2022-1271)
+    - [CVE-2022-34903](https://nvd.nist.gov/vuln/detail/CVE-2022-34903)
+    - [CVE-2022-1664](https://nvd.nist.gov/vuln/detail/CVE-2022-1664)
+    - [CVE-2022-1304](https://nvd.nist.gov/vuln/detail/CVE-2022-1304)
+    
+          
+    Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
+
 
 ## 04 July 2022
 {: #AnalyticsEngine-jul0422}
