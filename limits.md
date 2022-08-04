@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-04-25"
+lastupdated: "2022-07-04"
 
 subcollection: AnalyticsEngine
 
@@ -14,11 +14,13 @@ subcollection: AnalyticsEngine
 {:screen: .screen}
 
 
-# Limits and quotas for {{site.data.keyword.iae_short}} instances
+# Default limits and quotas for {{site.data.keyword.iae_short}} instances
 {: #limits}
 
-The following sections provide technical details about the limitation and quota settings for {{site.data.keyword.iae_full_notm}} serverless instances.
+The following sections provide details about the default limitation and quota settings for {{site.data.keyword.iae_full_notm}} serverless instances.
 {: shortdesc}
+
+These default values are set to avoid excessive billing, however the values can be set to larger defaults based on user requirements by opening a support ticket.
 
 ## Application limits
 {: #limits_application}

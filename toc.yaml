@@ -29,7 +29,7 @@ toc:
   - navgroup: 
         id: tutorial
         topics:
-        - using-cli-serverless.md        
+        - using-cli-serverless.md
 
   - navgroup:
       id: howto
@@ -38,11 +38,11 @@ toc:
           label: Serverless instances
           topics:
           - provisioning-concepts.md
+          - limits.md
           - topicgroup:
               label: Provisioning a service instance
               topics:
               - provisioning-serverless.md
-              - limits.md
           - topicgroup:
               label: Accessing a service instance
               topics:
@@ -64,6 +64,9 @@ toc:
           - topicgroup:
               label: Working with object storage
               topics:
+              #- object-storage-concepts-serverless.md
+              #- get-cos-credentials-serverless.md
+              #- cos-credentials-serverless.md
               - working-with-object-storage-serverless.md
           - topicgroup:
               label: Working with Spark batch applications
@@ -74,12 +77,20 @@ toc:
               - spark-examples.md
               - auto-scaling-serverless-apps.md
           - topicgroup:
+              label: Working with Parquet Modular Encryption
+              topics:
+              - parquet-encryption-serverless.md
+              - key-management-by-application-serverless.md
+              - key-management-by-kms-serverless.md
+              - parquet-encryption-on-hive-tables-serverless.md
+          - topicgroup:
               label: Enhancing security
               topics:
               - security-model-serverless.md
           - topicgroup:
               label: Logging and monitoring
               topics:
+              #- spark-history-serverless.md
               - viewing-logs.md
               - at-tracker-serverless.md
       - topicgroup:
@@ -243,7 +254,7 @@ toc:
               href: https://{DomainName}/apidocs/ibm-analytics-engine#getallanalyticsengines
           - link:
               label: IBM Analytics Engine CLI
-              href: https://{DomainName}/docs/analytics-engine-cli-plugin/analytics-engine-cli-plugin-CLI_analytics_engine#CLI_analytics_engine
+              href: /analytics-engine-cli-plugin/analytics-engine-cli-plugin-CLI_analytics_engine_classic
           - topicgroup:
               label: IBM Analytics Engine SDK
               topics:
