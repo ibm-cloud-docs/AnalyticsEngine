@@ -1,6 +1,6 @@
 #  Name your file `toc.yaml`
 #  Make sure you include all nav file coding requirements, as defined in https://test.cloud.ibm.com/docs/writing?topic=writing-code-nav
-#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
+#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry 
 ---
 toc:
   properties:
@@ -140,6 +140,13 @@ toc:
               - customizing-using-script.md
               - configure-cos-via-ambari.md
               - data-movement-on-cos.md
+          - topicgroup:
+              label: Working with Hadoop, Hive, HBase
+              topics:
+              - Upload-files-to-HDFS.md
+              - hadoop-mapreduce-jobs.md
+              - working-with-hive.md
+              - working-with-hbase.md    
           - topicgroup:
               label: Working with Sqoop, Oozie
               topics:

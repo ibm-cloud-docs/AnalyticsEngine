@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-07-04"
+lastupdated: "2022-08-25"
 
 subcollection: AnalyticsEngine
 
@@ -33,7 +33,7 @@ The following table lists the default limits and quotas for {{site.data.keyword.
 | Maximum number of instances per account |                      5 |
 | Maximum cores per instance              |                    150 |
 | Maximum memory per instances            |                 600 GB |
-| Shuffle space per core                  |           approx. 8 GB |
+| Shuffle space per core                  | approx. 30 GB (Not customizable) |
 | Maximum time applications can run       | 72 hours (Not customizable) | 
 {: caption="Default limits and quotas for {{site.data.keyword.iae_short}} instances" caption-side="top"}
 
@@ -50,16 +50,31 @@ The following table shows the supported vCPU to memory size combinations.
 
 | vCPU to memory combinations |
 | --------------------------- |
+| 1 vCPU x 2 GB |
 | 1 vCPU x 4 GB |
+| 2 vCPU x 4 GB |
 | 2 vCPU x 8 GB |
+| 3 vCPU x 6 GB |
 | 3 vCPU x 12 GB |
-| 4 vCPU x 16 GB|
+| 4 vCPU x 8 GB |
+| 4 vCPU x 16 GB |
+| 5 vCPU x 10 GB |
 | 5 vCPU x 20 GB |
+| 6 vCPU x 12 GB |
 | 6 vCPU x 24 GB |
+| 7 vCPU x 14 GB |
+| 7 vCPU x 28 GB |
+| 8 vCPU x 16 GB |
+| 8 vCPU x 32 GB |
 | 1 vCPU x 8 GB |
 | 2 vCPU x 16 GB |
 | 3 vCPU x 24 GB |
-| 4 vCPU x 32GB|
+| 4 vCPU x 32 GB |
+| 6 vCPU x 48 GB |
+| 10 vCPU x 20 GB |
+| 10 vCPU x 40 GB |
+| 12 vCPU x 24 GB |
+| 12 vCPU x 48 GB |
 {: caption="Supported vCPU to memory size combinations" caption-side="top"}
 
 

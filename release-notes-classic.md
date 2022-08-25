@@ -34,7 +34,22 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} classic instances that are grouped by date.
 {: shortdesc}
 
-## 03 August 2022
+## August 2022
+{: #AnalyticsEngine-aug22}
+
+### 25 August 2022
+{: #AnalyticsEngine-aug2522}
+{: release-note}
+
+Shutdown of the London and Sydney regions for the IBM Analytics Engine standard-hourly and standard-monthly plans
+:   From September 12th, 2022, you can no longer provision Analytics Engine service standard-hourly and standard-monthly plans on IBM Cloud in the London and Sydney regions.
+
+    Existing users who were added to an allowlist will be able to continue to provision service instances for Analytics Engine standard hourly and standard monthly plans in the regions Dallas, Washington, Frankfurt and Tokyo until the November 9th, 2022. For key dates and other details, see [IBM Analytics Engine announcements](https://cloud.ibm.com/status/announcement?component=ibmanalyticsengine).
+
+    Start using the new serverless plan for a consumption-based usage model where you can optimize resource utilization and control your costs. To get started using the serverless plan, see [Getting started using serverless {{site.data.keyword.iae_full_notm}} instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
+
+
+### 03 August 2022
 {: #AnalyticsEngine-aug0322}
 {: release-note}
 
