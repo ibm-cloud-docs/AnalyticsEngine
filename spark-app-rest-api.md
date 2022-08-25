@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-03"
+lastupdated: "2022-07-04"
 
 subcollection: analyticsengine
 
@@ -82,6 +82,8 @@ To learn how to quickly get started using pre-bundled sample application files:
 ### Referencing files from an {{site.data.keyword.cos_short}} bucket
 {: #file-cos}
 
+To reference your Spark application file from an {{site.data.keyword.cos_short}} bucket, you need to create a bucket, add the file to the bucket and then reference the file from your payload JSON file. 
+
 To submit a Spark application:
 
 1. Create a bucket for your application file. See [Bucket operations](/docs/cloud-object-storage?topic=cloud-object-storage-compatibility-api-bucket-operations) for details on creating buckets.
@@ -93,7 +95,7 @@ To submit a Spark application:
     ```
    {: codeblock}
 
-1. Prepare the payload JSON file. For example, `submit-spark-app.json`:
+1. Prepare the payload JSON file. For example, `submit-spark-app.json`: 
     ```json
     {
       "application_details": {
@@ -105,10 +107,17 @@ To submit a Spark application:
             "spark.hadoop.fs.cos.<cos-reference-name>.secret.key": "<secret_key>",
             "spark.app.name": "MySparkApp"
          }
+      }  
+    }
+    ```
+    {: codeblock}
 
-   }
-   ```
-   {: codeblock}
+
+    Note:  
+    - You can pass Spark application configuration values through the `"conf"` section in the payload. See [Parameters for submitting Spark applications](#spark-submit-parms) for more details.
+    - `<cos-reference-name>` in the `"conf"` section of the sample payload is any name given to your {{site.data.keyword.cos_full_notm}} instance, which you are referencing in the URL in the `"application"` parameter. See [Understanding the {{site.data.keyword.cos_short}} credentials](/docs/AnalyticsEngine?topic=AnalyticsEngine-cos-credentials-in-iae-serverless).
+    - It might take approximately a minute to submit the Spark application. Make sure to set sufficient timeout in the client code. 
+    - Make a note of the `"id"` returned in the response. You need this value to perform operations such as  getting the state of the application, retrieving the details of the application, or deleting the application.
 
 1. Submit the Spark application:
     ```sh
@@ -124,11 +133,7 @@ To submit a Spark application:
     }
     ```
 
-    Note:  
-    - You can pass Spark application configuration values through the `"conf"` section in the payload. See [Parameters for submitting Spark applications](#spark-submit-parms) for more details.
-    - `<cos-reference-name>` in the `"conf"` section of the sample payload is any name given to your {{site.data.keyword.cos_full_notm}} definition, which you are referencing in the URL in the `"application"` parameter.
-    - It might take approximately a minute to submit the Spark application. Make sure to set sufficient timeout in the client code.
-    - Make a note of the `"id"` returned in the response. You need this value to perform operations such as  getting the state of the application, retrieving the details of the application, or deleting the application.
+1. If forward logging was enabled for your instance, you can view the application output in the platform logs that are forwarded to {{site.data.keyword.la_full_notm}}. For details, see [Configuring and viewing logs](/docs/AnalyticsEngine?topic=AnalyticsEngine-viewing-logs).
 
 ## Passing the Spark configuration to an application
 {: #pass-config}
@@ -161,6 +166,7 @@ The following table lists the mapping between the `spark-submit` command paramet
 | `executor-cores`| `application_details` -> `conf` -> `spark.executor.cores`|
 | `executor-memory`| `application_details` -> `conf` -> `spark.executor.memory`|
 | `num-executors`| `application_details` -> `conf` -> `ae.spark.executor.count`|
+| `pyFiles` | `application_details` -> `conf` -> `spark.submit.pyFiles` |
 {: caption="Table 1. Mapping between the spark-submit command parameters and their equivalents passed to the payload" caption-side="top"}
 
 
