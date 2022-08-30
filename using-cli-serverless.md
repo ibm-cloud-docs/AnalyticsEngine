@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-03-29"
+lastupdated: "2022-08-26"
 
 keywords: analytics engine CLI, end-to-end scenario, tutorial for analytics engine cli
 
@@ -391,19 +391,19 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
         import time
         import random
         import cmath
-       ​
+
         def init_spark():
-          spark = SparkSession.builder.appName("test-math").getOrCreate()
-          sc = spark.sparkContext
-          return spark,sc
+        spark = SparkSession.builder.appName("test-math").getOrCreate()
+        sc = spark.sparkContext
+        return spark,sc
 
         def transformFunc(x):
-          return cmath.sqrt(x)+cmath.log(x)+cmath.log10(x)
-          ​
+        return cmath.sqrt(x)+cmath.log(x)+cmath.log10(x)
+        
         def main():
-          spark,sc = init_spark()
-          partitions=[10,5,8,4,9,7,6,3]
-          for i in range (0,8):
+        spark,sc = init_spark()
+        partitions=[10,5]
+        for i in range (0,2):
             data=range(1,20000000)
             v0 = sc.parallelize(data, partitions[i])
             v1 = v0.map(transformFunc)
@@ -470,10 +470,17 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
     - INSTANCE_ID: The value of GUID from the response the of Analytics Engine instance creation call
     - APPLICATION_PATH: The file name and path to the Spark application file
 
-    Example
+    Example for IOS and Linux 
     :   Enter:
         ```sh
-        ibmcloud ae-v3 spark-app submit --instance-id 181ea**9ee01b --app "cos://test-cos-storage-bucket.mycos/test-math.py" --conf '{"spark.hadoop.fs.cos.mycos.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud", "spark.hadoop.fs.cos.mycos.access.key": "21**bf1f4", "spark.hadoop.fs.cos.mycos.secret.key": "c5a**d3e0a6c"}'  
+        ibmcloud ae-v3 spark-app submit --instance-id 181ea**9ee01b --app "cos://test-cos-storage-bucket.mycos/test-math.py" --conf '{"spark.hadoop.fs.cos.mycos.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud", "spark.hadoop.fs.cos.mycos.access.key": "21**bf1f4", "spark.hadoop.fs.cos.mycos.secret.key": "c5a**d3e0a6c"}'
+        ```
+        {: codeblock}
+
+    Example for Windows (Not Powershell). Note that on Windows, the quotes needs to be escaped.
+    :   Enter:
+        ```sh
+        ibmcloud ae-v3 spark-app submit --instance-id myinstanceid --app "cos://matrix.mycos/test-math.py" --conf "{\"spark.hadoop.fs.cos.mycos.endpoint\": \"https://s3.direct.us-south.cloud-object-storage.appdomain.cloud\", \"spark.hadoop.fs.cos.mycos.access.key\": \"mykey\", \"spark.hadoop.fs.cos.mycos.secret.key\": \"mysecret\"}" 
         ```
         {: codeblock}
 
@@ -514,6 +521,9 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
         finish_time           2022-03-01T13:09:14.000Z 
         ```
 
+    The application might take between 2 to 5 minutes to complete.
+    {: note}
+
 ## Create logging service to see logs
 {: #logging-with-cli}
 {: step}
@@ -546,8 +556,12 @@ You can use use the Analytics Engine CLI to enable logging to help you troublesh
     
     Search using the `application_id` or `instance_id`.
     {: tip}
-    
-1. Enable logging:
+
+1. Enable platform logging:
+
+    To view {{site.data.keyword.iae_full_notm}} platform logs, you must use the Observability dashboard in {{site.data.keyword.cloud_notm}} to configure platform logging. See [Configuring platform logs through the Observability dashboard](/docs/log-analysis?topic=log-analysis-config_svc_logs#config_svc_logs_ui) for the steps you need to follow to enable logging through the Observability dashboard.
+
+1. Enable logging for Analytics Engine:
 
     Action
     :   Enter:
