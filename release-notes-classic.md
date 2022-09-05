@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-03"
+lastupdated: "2022-09-02"
 
 keywords: IBM Analytics Engine release notes
 
@@ -33,6 +33,32 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} classic instances that are grouped by date.
 {: shortdesc}
+
+## 02 September 2022
+{: #AnalyticsEngine-sep0222}
+{: release-note}
+
+New security patch for **AE-1.2.v29.23**
+:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.23**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.23**.
+
+    The CVEs fixed in this release includes but is not limited to the following:
+
+    - [CVE-2022-21540](https://nvd.nist.gov/vuln/detail/CVE-2022-21540)
+    - [CVE-2022-21541](https://nvd.nist.gov/vuln/detail/CVE-2022-21541)
+    - [CVE-2022-34169](https://nvd.nist.gov/vuln/detail/CVE-2022-34169)
+    - [CVE-2022-37434](https://nvd.nist.gov/vuln/detail/CVE-2022-37434)
+    - [CVE-2022-1586](https://nvd.nist.gov/vuln/detail/CVE-2022-1586)
+    - [CVE-2022-1292](https://nvd.nist.gov/vuln/detail/CVE-2022-1292)
+    - [CVE-2022-2068](https://nvd.nist.gov/vuln/detail/CVE-2022-2068)
+    - [CVE-2022-2097](https://nvd.nist.gov/vuln/detail/CVE-2022-2097)
+    - [CVE-2022-1785](https://nvd.nist.gov/vuln/detail/CVE-2022-1785)
+    - [CVE-2022-1897](https://nvd.nist.gov/vuln/detail/CVE-2022-1897)
+    - [CVE-2022-1927](https://nvd.nist.gov/vuln/detail/CVE-2022-1927) 
+          
+    Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
+
 
 ## August 2022
 {: #AnalyticsEngine-aug22}
