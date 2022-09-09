@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-07-12"
+lastupdated: "2022-09-09"
 
 keywords: IBM Analytics Engine release notes
 
@@ -39,11 +39,18 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 For information about changes to the _service-name_ API, see [Change log for _service-name_ API](/docs/link-to-change-log).
 {: tip}  -->
 
+## 09 September 2022
+{: #AnalyticsEngine-sep0922}
+{: release-note}
+
+You can now use Hive metastore to manage the metadata related to your applications tables, columns, and partition information when working with Spark SQL.
+:   You could choose to externalize this metastore database to an external data store, like to an {{site.data.keyword.sqlquery_notm}} (previously SQL Query) or an {{site.data.keyword.databases-for-postgresql_full_notm}} instance. For details, see [Working with Spark SQL and an external metastore](/docs/AnalyticsEngine?topic=AnalyticsEngine-external-metastore).
+
 
 ## July 2022
 {: #AnalyticsEngine-jul22}
 
-## 12 July 2022
+### 12 July 2022
 {: #AnalyticsEngine-jul1222}
 {: release-note}
 
@@ -51,7 +58,7 @@ You can now provision {{site.data.keyword.iae_full}} serverless instances in a n
 :   In addition to the {{site.data.keyword.Bluemix_short}} `us-south` (Dallas) region, you can now also provision serverless instances in the `eu-de` (Frankurt) region.
 
 
-## 08 July 2022
+### 08 July 2022
 {: #AnalyticsEngine-jul0822}
 {: release-note}
 

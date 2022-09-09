@@ -69,6 +69,12 @@ toc:
               #- cos-credentials-serverless.md
               - working-with-object-storage-serverless.md
           - topicgroup:
+              label: Working with external metastores
+              topics:
+              - using-external-metastores.md
+              - data-engine-metastore.md
+              - postgresql-metastore.md
+          - topicgroup:
               label: Working with Spark batch applications
               topics:
               - Spark-Batch-serverless.md
