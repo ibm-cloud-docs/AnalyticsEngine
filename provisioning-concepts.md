@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-08"
+  years: 2017, 2022
+lastupdated: "2022-09-29"
 
 subcollection: analyticsengine
 
@@ -51,9 +51,13 @@ The following sections describe key concepts when provisioning serverless instan
 ### Default Spark runtime
 {: #default-spark-runtime}
 
-You must select which Spark runtime version to use when the instance is provisioned. Currently, you can only select `Spark 3.1`. The `Spark 3.1` runtime is the default and contains all binaries that you need to quickly get starting to create and run Spark applications in the instance. In addition to Spark 3.1, the runtime also includes the geo-spatio, data skipping and Parquet modular encryption libraries.
+You can select which Spark version to use when the instance is provisioned. Currently, you can choose between Spark 3.1 and Spark 3.3. If you don't select a Spark runtime version,  Spark 3.1 is taken by default. 
 
-In a Spark 3.1 runtime, you can submit Spark applications written in the following languages: `Scala 2.12`, `Python 3.7` and `R 3.6.3`.
+The runtime contains only open source Spark binaries and is configured to help you to quickly get started to create and run Spark applications in the instance. In addition to the Spark binaries, the runtime also includes the geospatial, data skipping, and Parquet modular encryption libraries.
+
+On a Spark 3.1 or Spark 3.3 runtime, you can submit Spark applications written in the following languages: Scala 2.12, Python 3.9, and R 3.6.3.
+
+Note that the language versions are upgraded periodically to keep the runtime free from any security vulnerabilities.
 
 ### Instance home
 {: #instance-home}
@@ -121,8 +125,10 @@ The following table shows the supported serverless instance features by access r
 | View list of submitted Spark applications | Administrator   \n  Developer   \n  DevOps | Not available | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
 | Stop submitted Spark applications | Administrator   \n  Developer   \n  DevOps | Not available | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
 | Customize libraries | Administrator   \n  Developer | Not available | ![the confirm icon](images/confirm.png) | Not available |
-| Access job logs | Administrator    \n  Developer   \n  DevOps | ![the confirm icon](images/confirm.png) {{site.data.keyword.la_short}} console | Not applicable | Not applicable |
+| Access job logs | Administrator    \n  Developer   \n  DevOps | ![the confirm icon](images/confirm.png) from the {{site.data.keyword.la_short}} console | Not applicable | Not applicable |
 | View instance details; shown details might vary depending on access role | Administrator   \n  Developer   \n  DevOps | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+| Manage Spark history server | Administrator   \n  Developer   | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+| Access Spark history | Administrator   \n  Developer   \n  DevOps | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
 {: caption="Table 1. Supported serverless instance features by access role and execution methods" caption-side="top"}
 {: #features-table-1}
 {: row-headers}

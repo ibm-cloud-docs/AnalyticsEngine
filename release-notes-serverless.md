@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-09-09"
+lastupdated: "2022-09-29"
 
 keywords: IBM Analytics Engine release notes
 
@@ -39,7 +39,18 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 For information about changes to the _service-name_ API, see [Change log for _service-name_ API](/docs/link-to-change-log).
 {: tip}  -->
 
-## 09 September 2022
+## September 2022
+{: #AnalyticsEngine-sep22}
+
+### 21 September 2022
+{: #AnalyticsEngine-sep2122}
+{: release-note}
+
+Support for Spark 3.3
+:   You can now provision {{site.data.keyword.iae_full}} severless plan instances with the default Spark runtime set to Spark 3.3, which enables you to run Spark applications on Spark 3.3.
+
+
+### 09 September 2022
 {: #AnalyticsEngine-sep0922}
 {: release-note}
 
