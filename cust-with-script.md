@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-15"
+  years: 2017, 2022
+lastupdated: "2022-10-06"
 
 subcollection: analyticsengine
 
@@ -26,10 +26,10 @@ With script based customization, you create a Python script using the module nam
 {: #lib-set-script-cust}
 
 Perform these steps to create a library set using script based customization:
-1. Create a Python file named `customization_scripts.py`. {{site.data.keyword.iae_short}}'s customization component looks for a Python module with this name.
-1. In your `customization_scripts.py`, implement a function called `customize(<install_path>, <params>)`, where `<install_path>` is the location where you want to download your libraries to (you can nest directories), and `<params>` is a list of the parameters required by the customization script.
-1. Store the `customization_scripts.py` file in {{site.data.keyword.cos_full_notm}} or in GitHub.
-1. Pass the location of the `customization_scrpts.py` file to the customization Spark application through the `--py-files`  parameter.
+1. Create a Python file named `customization_script.py`. {{site.data.keyword.iae_short}}'s customization component looks for a Python module with this name.
+1. In your `customization_script.py`, implement a function called `customize(<install_path>, <params>)`, where `<install_path>` is the location where you want to download your libraries to (you can nest directories), and `<params>` is a list of the parameters required by the customization script.
+1. Store the `customization_script.py` file in {{site.data.keyword.cos_full_notm}} or in GitHub.
+1. Pass the location of the `customization_script.py` file to the customization Spark application through the `--pyFiles` parameter.
 
     The `"arguments"` section in the Spark application submission payload must contain a `"library_set"` section with details, like `"action"` and `"name"` as shown in the following sample payload.
 
@@ -38,12 +38,12 @@ Perform these steps to create a library set using script based customization:
     {
       "application_details": {
       "application": "/opt/ibm/customization-scripts/customize_instance_app.py",
-        "arguments": ["{\"library_set\":{\"action\":\"add\",\"name\":\"customize_integration_custom_lib\",\"script\":{\"source\":\"py_files\",\"params\":[\"https://s3.direct.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud\",\"<CHANGEME_BUCKET_NAME>\",\"libcalc.so\",\"<CHANGEME_ACCESS_KEY>\",\"<CHANGEME_SECRET_KEY>\"]}}}"],
-        "py-files": "cos://<CHANGEME_BUCKET_NAME>.dev-cos/customization_script.py",
-            "conf": {
-              "spark.hadoop.fs.cos.dev-cos.endpoint":"https://s3.direct.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud",
-              "spark.hadoop.fs.cos.dev-cos.access.key":"<CHANGEME_ACCESS_KEY>",
-              "spark.hadoop.fs.cos.dev-cos.secret.key":"<CHANGEME_SECRET_KEY>"
+        "arguments": ["{\"library_set\":{\"action\":\"add\",\"name\":\"customize_integration_custom_lib\",\"script\":{\"source\":\"pyFiles\",\"params\":[\"https://s3.direct.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud\",\"<CHANGEME_BUCKET_NAME>\",\"libcalc.so\",\"<CHANGEME_ACCESS_KEY>\",\"<CHANGEME_SECRET_KEY>\"]}}}"],
+        "conf": {
+          "spark.hadoop.fs.cos.dev-cos.endpoint":"https://s3.direct.<CHANGEME_REGION>.cloud-object-storage.appdomain.cloud",
+          "spark.hadoop.fs.cos.dev-cos.access.key":"<CHANGEME_ACCESS_KEY>",
+          "spark.hadoop.fs.cos.dev-cos.secret.key":"<CHANGEME_SECRET_KEY>",
+          "spark.submit.pyFiles":"cos://<CHANGEME_BUCKET_NAME>.dev-cos/customization_script.py"
         }
       }
     }
