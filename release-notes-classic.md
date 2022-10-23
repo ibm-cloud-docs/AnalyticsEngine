@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-09-02"
+lastupdated: "2022-10-23"
 
 keywords: IBM Analytics Engine release notes
 
@@ -33,6 +33,26 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} classic instances that are grouped by date.
 {: shortdesc}
+
+## 05 October 2022
+{: #AnalyticsEngine-oct0522}
+{: release-note}
+
+New security patch for **AE-1.2.v29.24**
+:   **Important**: Security patches are not applied to any existing Analytics Engine clusters. To apply the patches, you need to create new clusters. If the version of your cluster is earlier than **AE-1.2.v29.24**, your cluster is vulnerable to the following CVE. You can check the build version of your cluster in `/home/common/aeversion.txt` on the nodes of the cluster.
+
+    You are strongly advised to immediately delete existing instances and move to the version **AE-1.2.v29.24**.
+
+    The CVEs fixed in this release includes but is not limited to the following:
+
+    - [CVE-2022-2526](https://nvd.nist.gov/vuln/detail/CVE-2022-2526)
+    - [CVE-2022-32206](https://nvd.nist.gov/vuln/detail/CVE-2022-32206)
+    - [CVE-2022-32208](https://nvd.nist.gov/vuln/detail/CVE-2022-32208)
+    - [CVE-2015-20107](https://nvd.nist.gov/vuln/detail/CVE-2015-20107)
+    - [CVE-2022-0391](https://nvd.nist.gov/vuln/detail/CVE-2022-0391)
+    - [CVE-2022-34903](https://nvd.nist.gov/vuln/detail/CVE-2022-34903)
+          
+    Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
 
 ## 02 September 2022
 {: #AnalyticsEngine-sep0222}
