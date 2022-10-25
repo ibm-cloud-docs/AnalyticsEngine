@@ -51,6 +51,12 @@ New security patch for **AE-1.2.v29.24**
     - [CVE-2015-20107](https://nvd.nist.gov/vuln/detail/CVE-2015-20107)
     - [CVE-2022-0391](https://nvd.nist.gov/vuln/detail/CVE-2022-0391)
     - [CVE-2022-34903](https://nvd.nist.gov/vuln/detail/CVE-2022-34903)
+    - [CVE-2015-20107](https://nvd.nist.gov/vuln/detail/CVE-2015-20107)
+    - [CVE-2022-0391](https://nvd.nist.gov/vuln/detail/CVE-2022-0391)
+    - [CVE-2022-2526](https://nvd.nist.gov/vuln/detail/CVE-2022-2526)
+    - [CVE-2022-32206](https://nvd.nist.gov/vuln/detail/CVE-2022-32206)
+    - [CVE-2022-32208](https://nvd.nist.gov/vuln/detail/CVE-2022-32208)
+    - [CVE-2022-34903](https://nvd.nist.gov/vuln/detail/CVE-2022-34903)
           
     Follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices) to recycle your clusters regularly.
 
