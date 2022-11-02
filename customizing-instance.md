@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-08"
+  years: 2017, 2022
+lastupdated: "2022-10-31"
 
 subcollection: analyticsengine
 
@@ -35,7 +35,13 @@ When you create an instance you can:
 
 - Specify default values for configuration properties and environment variables supported by the Apache Spark configuration. You can specify configuration properties and environment variables as name-value pairs that are saved at the instance level and passed to all Spark applications that run in the instance. These default configuration parameters can simplify the payload that is passed when submitting a Spark application. You can also override these values at the time a Spark application is submitted.
 
-  For a list of the default Spark configurations and environment variables, see [Spark configurations](https://spark.apache.org/docs/latest/configuration.html).
+    For a list of the default Spark configurations and environment variables, see [Spark configurations](https://spark.apache.org/docs/latest/configuration.html).
 - Customize the instance with libraries required by your Spark applications after instance creation. You can create a library set that packages all libraries to be made available to all Spark applications that run in the instance, and then refer to this defined library set at the time the Spark application is submitted.
 
-  To create a library set, see [Creating a library set](/docs/AnalyticsEngine?topic=AnalyticsEngine-create-lib-set).
+    To create a library set, see [Creating a library set](/docs/AnalyticsEngine?topic=AnalyticsEngine-create-lib-set).
+
+**Note**:
+
+- The maximum size limit of a customization library set is 2 GB.
+- The start time of your Spark application or the time taken for additional executors to get added in an autoscaling scenario, is proportional to the size of the custom library set. Therefore it is a best practice to limit a library set to only the files that are  needed for a specific application. If other applications require different sets of files, it is better to use different library sets.
+

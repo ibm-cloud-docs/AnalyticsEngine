@@ -39,6 +39,7 @@ toc:
           topics:
           - provisioning-concepts.md
           - limits.md
+          - best-practices-serverless.md
           - topicgroup:
               label: Provisioning a service instance
               topics:
@@ -55,8 +56,9 @@ toc:
               topics:
               - customizing-instance.md
               - create-lib-set.md
-              - use-lib-set.md
               - cust-with-script.md
+              - use-lib-set.md
+              - combining-lib-sets.md
           - topicgroup:
               label: Managing a service instance
               topics:
@@ -64,16 +66,16 @@ toc:
           - topicgroup:
               label: Working with object storage
               topics:
-              #- object-storage-concepts-serverless.md
-              #- get-cos-credentials-serverless.md
-              #- cos-credentials-serverless.md
+              - object-storage-concepts-serverless.md
+              - get-cos-credentials-serverless.md
+              - cos-credentials-serverless.md
               - working-with-object-storage-serverless.md
           - topicgroup:
               label: Working with external metastores
               topics:
               - using-external-metastores.md
-              - data-engine-metastore.md
               - postgresql-metastore.md
+              - data-engine-metastore.md
           - topicgroup:
               label: Working with Spark batch applications
               topics:

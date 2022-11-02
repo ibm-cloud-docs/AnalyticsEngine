@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-08"
+  years: 2017, 2022
+lastupdated: "2021-10-31"
 
 subcollection: analyticsengine
 
@@ -15,7 +15,7 @@ subcollection: analyticsengine
 {:screen: .screen}
 {:pre: .pre}
 
-# Creating a library set
+# Creating a library set for Python package install
 {: #create-lib-set}
 
 A library set is a collection of libraries that you can create and reference in Spark applications that consume the libraries. The library set is stored in the instance home storage associated with the instance at the time the instance is created.
@@ -53,7 +53,7 @@ To create a library set:
     - `"libraries"`: Defines a set of libraries. You can specify one or more libraries in this section. This element has one child JSON object per library package manager. Currently, only the `"conda"` and `"pip"` package managers are supported. Use `"pip"` or `"conda"` to install Python packages.
     - `"conda"`: Library package manager.
     - `"python"`: The library language. Currently, only Python is supported.
-    - `"packages"`: List of packages to install.
+    - `"packages"`: List of packages to install. To install a specific version of a package, pass the version using this format: `package_name==version`.
 
 1. Get the [IAM token](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token-serverless).
 1. Pass the JSON file as `"arguments"` in the following REST API call. Make sure that you escape the quotes as required, while passing to the REST API call.

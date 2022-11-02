@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-10-06"
+lastupdated: "2022-10-31"
 
 subcollection: analyticsengine
 
@@ -14,20 +14,25 @@ subcollection: analyticsengine
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:pre: .pre}
+{:note: .note}
 
-# Script based customization
+# Creating a library set for other packages or file download
 {: #cust-script}
 
 If you want to customize your instance by adding libraries to a library set that you fetch from sources other than through the `conda` or `pip` repositories, you should use script based customization.
+{: shortdesc}
 
-With script based customization, you create a Python script using the module naming convention expected by {{site.data.keyword.iae_full_notm}}. Also, you need to implement a Python function that acts as the executable entry point to your script. In this script, you can add your own logic for downloading the libraries and placing them in a predesignated directory so that they become part of the library set and get stored for later consumption in your application.
+If you are only using a set of JAR files or PY files, you should use the  `--py-files` and `--jars` arguments in your Spark application submission payload and only create a library set if this method doesn't work for you.
+{: note}
+
+With script based customization, you create a Python script using the module naming convention expected by {{site.data.keyword.iae_full_notm}}. Also, you need to implement a Python function that acts as the executable entry point to your script. In this script, you can add your own logic for downloading the libraries and placing them in a predesignated directory, which is `/home/spark/shared/user-libs/<libraryset_name>/custom/<subdir_if_applicable>`, so that they become part of the library set and get stored for later consumption in your application.
 
 ## Creating a library set using script based customization
 {: #lib-set-script-cust}
 
 Perform these steps to create a library set using script based customization:
 1. Create a Python file named `customization_script.py`. {{site.data.keyword.iae_short}}'s customization component looks for a Python module with this name.
-1. In your `customization_script.py`, implement a function called `customize(<install_path>, <params>)`, where `<install_path>` is the location where you want to download your libraries to (you can nest directories), and `<params>` is a list of the parameters required by the customization script.
+1. In your `customization_script.py`, implement a function called `customize(<install_path>, <params>)`, where `<install_path>` is the predesignated location where the libraries are downloaded to, namely `/home/spark/shared/user-libs/<libraryset_name>/custom/<subdir_if_applicable>`. You can't change this path. `<params>` is a list of the parameters required by the customization script.
 1. Store the `customization_script.py` file in {{site.data.keyword.cos_full_notm}} or in GitHub.
 1. Pass the location of the `customization_script.py` file to the customization Spark application through the `--pyFiles` parameter.
 
@@ -81,4 +86,23 @@ Perform these steps to create a library set using script based customization:
 
 When you use a library set that you created using a script, you need to include the path of the library in certain environment variables so that the library set can be accessed by your Spark application.
 
-For example, if your custom library is a `.so` file, you need to add `"EXTRA_LD_LIBRARY_PATH"` to the `"env"` section of the Spark  application submit call, with the value `/home/spark/shared/user-libs/<libraryset_name>/custom/<subdir_if_applicable>`. This  prepends `"EXTRA_LD_LIBRARY_PATH"` to `"LD_LIBRARY_PATH"`, ensuring that this is the first path to the `.so` file that is searched.
+For example, if your custom library is a `.so` file, you need to add `"EXTRA_LD_LIBRARY_PATH"` to the `"env"` section of the Spark application submit call, with the value `/home/spark/shared/user-libs/<libraryset_name>/custom/<subdir_if_applicable>`. This prepends `"EXTRA_LD_LIBRARY_PATH"` to `"LD_LIBRARY_PATH"`, ensuring that this is the first path to the `.so` file that is searched.
+
+
+If your custom library is a JAR file and you need it to be accessible on the Spark classpath, you must specify the JAR file in the extra classpath for driver/executor depending on where you require the JAR file. For example, to add it in front of the driver classpath, add the following property, where the library set name is `java_library`:
+
+```
+"spark.driver.extraClassPath":"/home/spark/shared/user-libs/java_library/custom/*"
+```
+
+If your custom library is a certificate file, for example a self signed ICD Postgres certificate, you can specify it in the connection URL in the following way:
+```
+sslrootcert=/home/spark/shared/user-libs/customize_integration_custom_lib/custom/postgres.cert`
+``` 
+
+For details, see [Using {{site.data.keyword.databases-for-postgresql_full_notm}} as external metastore](/docs/AnalyticsEngine?topic=AnalyticsEngine-postgresql-external-metastore).
+
+
+If your custom library is a configuration file, it is made available to the Spark drivers and executors automatically.
+
+

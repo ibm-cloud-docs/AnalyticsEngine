@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-08"
+lastupdated: "2022-10-30"
 
 subcollection: analyticsengine
 
@@ -21,13 +21,19 @@ subcollection: analyticsengine
 # Using {{site.data.keyword.sqlquery_notm}} as external metastore 
 {: #data-engine-external-metastore} 
 
-You can use {{site.data.keyword.sqlquery_notm}} to externalize metadata outside the {{site.data.keyword.iae_full_notm}} Spark cluster. 
+
+{{site.data.keyword.sqlquery_notm}} is IBM Cloud's central service for data lakes. It provides stream ingestion, data preparation, ETL, and data query from {{site.data.keyword.cos_full_notm}} and Kafka. It also manages tables and views in a catalog that is compatible with Hive metastore and other big data engines and services can connect to it. See [Overview of {{site.data.keyword.sqlquery_notm}}](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview).
+{: shortdesc}
+
+Each instance of {{site.data.keyword.sqlquery_notm}} includes a database catalog that you can use to register and manage table definitions for your data on {{site.data.keyword.cos_full_notm}}. Catalog syntax is compatible with Hive metastore syntax. You can use {{site.data.keyword.sqlquery_notm}} to externalize metadata outside the {{site.data.keyword.iae_full_notm}} Spark cluster.
+
 
 1. Create an {{site.data.keyword.sqlquery_notm}} instance using the Standard plan. See [{{site.data.keyword.sqlquery_short}}](http://cloud.ibm.com/catalog/services/data-engine-previously-sql-query).
 
     After you have provisioned the {{site.data.keyword.sqlquery_short}} instance:
-    1. Make a note the CRN of the instance.
+    1. Make a note of the CRN of the instance.
     1. Create an account level API key or service ID level API key with access to the instance.
+    1. This service ID should be granted access to both the {{site.data.keyword.sqlquery_short}} instance as well as the {{site.data.keyword.cos_full_notm}} bucket.
 
     You can then configure your {{site.data.keyword.iae_full_notm}} instance to use the default metastore configuration either at instance level or at application level as needed.
 
@@ -37,11 +43,11 @@ You can use {{site.data.keyword.sqlquery_notm}} to externalize metadata outside 
     "spark.hive.metastore.truststore.password" : "changeit",
     "spark.hive.execution.engine":"spark",
     "spark.hive.metastore.client.plain.password":"<APIKEY-WITH-ACCESS-TO-DATA-ENGINE-INSTANCE>",
-    "spark.hive.metastore.uris":"thrift://catalog.us.dataengine.cloud.ibm.com:9083",
+    "spark.hive.metastore.uris":"CHANGEME-thrift://catalog.us.dataengine.cloud.ibm.com:9083-CHANGEME",
     "spark.hive.metastore.client.auth.mode":"PLAIN",
     "spark.hive.metastore.use.SSL":"true",
     "spark.hive.stats.autogather":"false",
-    "spark.hive.metastore.client.plain.username":"crn:v1:bluemix:public:sql-query:us-south:a/<CRN-DATA-ENGINE-INSTANCE>::",
+    "spark.hive.metastore.client.plain.username":"CHANGEME-crn:v1:bluemix:public:sql-query:us-south:a/abcdefgh::CHANGEME"
     "spark.hive.metastore.truststore.path":"file:///opt/ibm/jdk/jre/lib/security/cacerts",
     "spark.sql.catalogImplementation":"hive",
     "spark.sql.hive.metastore.jars":"/opt/ibm/connectors/data-engine/hms-client/*",
@@ -52,7 +58,11 @@ You can use {{site.data.keyword.sqlquery_notm}} to externalize metadata outside 
     ```
     {: codeblock}
 
-1. Generate and store metadata. Run the following regular PySpark application, called `generate-and-store-data.py` in this example, which stores Parquet data in some location on {{site.data.keyword.cos_full_notm}}. 
+    For the variables:
+    - CHANGEME-thrift: use the thrift endpoint for your region. For valid values, see [Connecting Apache Spark with Data Engine](/docs/sql-query?topic=sql-query-hive_metastore#external_usage). 
+    - CHANGEME-crn: pick the CRN from the {{site.data.keyword.sqlquery_short}} service instance details
+
+1. Generate and store data. Run the following regular PySpark application, called `generate-and-store-data.py` in this example, which stores Parquet data in some location on {{site.data.keyword.cos_full_notm}}. 
 
     ```python
     from pyspark.sql import SparkSession
@@ -62,7 +72,7 @@ You can use {{site.data.keyword.sqlquery_notm}} to externalize metadata outside 
         sc = spark.sparkContext
         return spark,sc
 
-    def generate_and_store_data(spark,sc):
+    def generate_and_store_data(spark):
         data =[("India","New Delhi"),("France","Paris"),("Lithuania","Vilnius"),("Sweden","Stockholm"),("Switzerland","Bern")]
         columns=["Country","Capital"]
         df=spark.createDataFrame(data,columns)
@@ -70,9 +80,7 @@ You can use {{site.data.keyword.sqlquery_notm}} to externalize metadata outside 
 
     def main():
         spark,sc = init_spark()
-        print("mycountries1")
         generate_and_store_data(spark,sc)
-        print("mycountries2")
     if __name__ == '__main__':
         main()
     ```
@@ -117,7 +125,6 @@ You can use {{site.data.keyword.sqlquery_notm}} to externalize metadata outside 
             }
             response = requests.post('https://api.dataengine.cloud.ibm.com/v3/sql_jobs', params=params, headers=headers_token, json=json_data)
             job_id = response.json()['job_id']
-            print(job_id)
             time.sleep(10)
             response = requests.get(f'https://api.dataengine.cloud.ibm.com/v3/sql_jobs/{job_id}', params=params, headers=headers_token)
             if(response.json()['status']=='completed'):
@@ -156,17 +163,14 @@ You can use {{site.data.keyword.sqlquery_notm}} to externalize metadata outside 
       return spark,sc
 
     def select_query_data_engine(spark,sc):
-      print("mydataengine1", spark)
       tablesDF=spark.sql("SHOW TABLES")
       tablesDF.show()
-      print("mydataengine2")
       statesDF=spark.sql("SELECT * from COUNTRIESCAPITALS");
       statesDF.show()
-      print("mydataengine3")
 
     def main():
       spark,sc = init_spark()
-      dataengine_table_test(spark,sc)
+      select_query_data_engine(spark,sc)
 
     if __name__ == '__main__':
       main()
@@ -184,7 +188,7 @@ You can use {{site.data.keyword.sqlquery_notm}} to externalize metadata outside 
                 "spark.hadoop.fs.cos.us-geo.endpoint": "CHANGEME",
                 "spark.hadoop.fs.cos.us-geo.access.key": "CHANGEME",
                 "spark.hadoop.fs.cos.us-geo.secret.key": "CHANGEME",
-                "spark.hive.metastore.truststore.password" : "CHANGEME",
+                "spark.hive.metastore.truststore.password" : "changeit",
                 "spark.hive.execution.engine":"spark",
                 "spark.hive.metastore.client.plain.password":"APIKEY-WITH-ACCESS-TO-DATA-ENGINE-INSTANCE",
                 "spark.hive.metastore.uris":"thrift://catalog.us.dataengine.cloud.ibm.com:9083",
@@ -223,19 +227,14 @@ import sys
 import time
 
 def dataengine_table_test(spark,sc):
-  print("mydataengine1", spark)
   tablesDF=spark.sql("SHOW TABLES")
   tablesDF.show()
-  print("mydataengine2")
   statesDF=spark.sql("SELECT * from COUNTRIESCAPITALS");
   statesDF.show()
-  print("mydataengine3")
 
 def main():
   if __name__ == '__main__':
     if len (sys.argv) < 2:
-        print ("Error : missing one or more arguments")
-        print ("Usage : python {0} <crn> <apikey>".format(sys.argv[0]))
         exit(1)
     else:
         crn = sys.argv[1]

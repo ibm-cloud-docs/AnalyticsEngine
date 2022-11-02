@@ -19,14 +19,15 @@ subcollection: analyticsengine
 # Using {{site.data.keyword.cos_short}} as the instance home
 {: #cos-serverless}
 
+<!--
 {{site.data.keyword.cos_full_notm}} is a highly scalable cloud storage service, designed for high durability, resiliency and security. See [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage){: external}.
 
-In {{site.data.keyword.iae_full_notm}} serverless instances, {{site.data.keyword.cos_full_notm}} must be used as the service instance home in which custom application libraries and Spark history events are stored.
+In {{site.data.keyword.iae_full_notm}} serverless instances, {{site.data.keyword.cos_full_notm}} must be used as the service instance home in which custom application libraries and Spark history events are stored. -->
 
 The instance home can be associated with the {{site.data.keyword.iae_full_notm}} serverless instance:
 
--	At the time the [instance is created](#define-instance)
--	After the instance was created by using the [`instance_home` API](#using-api)
+- At the time the [instance is created](#define-instance)
+- After the instance was created by using the [`instance_home` API](#using-api)
 
 ## Defining {{site.data.keyword.cos_full_notm}} as the instance home
 {: #define-instance}
@@ -48,13 +49,13 @@ To get the {{site.data.keyword.cos_short}} credentials:
 1. Select **Service credentials** in the navigation pane.
 1. Click **New credential** and choose the following options:
 
-  1. Enter a credential name of your choice.
-  1. Choose the `Writer` role.
-  1. Under **Advanced options**:
+    1. Enter a credential name of your choice.
+    1. Choose the `Writer` role.
+    1. Under **Advanced options**:
 
-    - Choose **Auto Generate** for the Service ID.
-    - Turn on the option to include **HMAC credential**.
-  1.	Click **Add**.
+      - Choose **Auto Generate** for the Service ID.
+      - Turn on the option to include **HMAC credential**.
+    1.	Click **Add**.
 
     ![Shows creating Cloud Object storage credentials.](images/create-cos-cred.png)
 
@@ -65,21 +66,21 @@ To  get the credentials of the {{site.data.keyword.cos_short}} instance you crea
 
 1. Select the credential name you created and copy the credentials to the clipboard.
 1. View the credentials that you copied. You will see something like what is shown in the following example:
-   ```json
-   {
-     "apikey": "XXXXXXX",
-     "cos_hmac_keys": {
-       "access_key_id": "aaaa1111bbbbb222222ccccc3333333ddddd44444",
-       "secret_access_key": "ZZZZYYYYYXXXXXXWWWWWVVVVVVUUUUU"
-       },
-       "endpoints": ...
-   }
-   ```
+    ```json
+    {
+      "apikey": "XXXXXXX",
+      "cos_hmac_keys": {
+        "access_key_id": "aaaa1111bbbbb222222ccccc3333333ddddd44444",
+        "secret_access_key": "ZZZZYYYYYXXXXXXWWWWWVVVVVVUUUUU"
+        },
+        "endpoints": ...
+    }
+    ```
 
-   Note:
+    Note:
 
-   - Currently, the {{site.data.keyword.iae_full_notm}} serverless plan supports HMAC style credentials only.
-   - Pick public endpoints for consumption.
+    - Currently, the {{site.data.keyword.iae_full_notm}} serverless plan supports HMAC style credentials only.
+    - Pick public endpoints for consumption.
    <!--- The endpoint to your {{site.data.keyword.cos_full_notm}} instance should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.-->
 
 ## Associate the instance home using REST API
