@@ -39,7 +39,7 @@ toc:
           topics:
           - provisioning-concepts.md
           - limits.md
-          - best-practices-serverless.md
+          #- best-practices-serverless.md
           - topicgroup:
               label: Provisioning a service instance
               topics:
@@ -154,7 +154,7 @@ toc:
               - Upload-files-to-HDFS.md
               - hadoop-mapreduce-jobs.md
               - working-with-hive.md
-              - working-with-hbase.md    
+              - working-with-hbase.md
           - topicgroup:
               label: Working with Sqoop, Oozie
               topics:
