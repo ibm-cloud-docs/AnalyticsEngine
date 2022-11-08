@@ -303,6 +303,10 @@ toc:
           label: Serverless instances
           topics:
           - topicgroup:
+              label: Support links
+              topics:
+              - known-issues-serverless.md
+          - topicgroup:
               label: FAQs
               topics:
               - faqs-serverless.md
