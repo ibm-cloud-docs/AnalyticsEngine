@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-29"
+lastupdated: "2022-10-31"
 
 subcollection: analyticsengine
 
@@ -37,9 +37,6 @@ Each {{site.data.keyword.iae_short}} instance is associated with an {{site.data.
 
 ![Shows the {{site.data.keyword.iae_full_notm}} serverless instance architecture.](images/AE-serverless-architecture.svg)
 
-<!--
-You are billed only for the compute resources consumed when your applications run. For more details on billing, see [{{site.data.keyword.iae_full_notm}}   Pricing](https://www.ibm.com/cloud/analytics-engine/pricing){: external}.
-{: note}-->
 
 ## Key concepts
 {: #key-concepts}
@@ -47,6 +44,21 @@ You are billed only for the compute resources consumed when your applications ru
 With {{site.data.keyword.iae_full_notm}} serverless instances, you can spin up Apache Spark clusters as needed and customize the Spark runtime and default Spark configuration options.
 
 The following sections describe key concepts when provisioning serverless instances.
+
+### {{site.data.keyword.iae_full_notm}} service instance
+{: #service-instance}
+
+An {{site.data.keyword.Bluemix_short}} service is cloud extension that provides ready-for-use functionality, such as database, messaging, and web software for running code, or application management or monitoring capabilities. Services usually do not require installation or maintenance and can be combined to create applications. An instance of a service is an entity that consists of resources that are reserved for a particular application or a service.
+
+When you create an {{site.data.keyword.iae_full_notm}} from the catalog, you will give the service instance a name of your choice, select the default Spark runtime you want to associate with the instance and provide the default Spark configuration to use with the instance. Additionally, you need have to specify the `Instance home`, which is the storage attached to the instance for instance related data only.
+
+**Note**:
+
+- When you create an {{site.data.keyword.iae_full_notm}} service instance, no costs are incurred unless you have Spark applications running or the Spark history server is accessed.
+- Costs are incurred if {{site.data.keyword.cos_full_notm}} if accessed through public endpoints, and when you enable forwarding {{site.data.keyword.iae_full_notm}} logs to {{site.data.keyword.la_full_notm}}.
+- There is a default limit on the number of service instances permitted per {{site.data.keyword.Bluemix_short}} account and on the amount of CPU and memory that can be used in any given {{site.data.keyword.iae_full_notm}} service instance. See [Limits and quotas for {{site.data.keyword.iae_short}} instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-limits). If you need to adjust these limits, open an IBM Support ticket.
+- There is no limit on the number of Spark applications that can be run in an {{site.data.keyword.iae_full_notm}} service instance.
+
 
 ### Default Spark runtime
 {: #default-spark-runtime}
@@ -66,7 +78,7 @@ Instance home is the storage attached to the instance for instance related data 
 
 When you provision an instance using the {{site.data.keyword.Bluemix_notm}} console, the {{site.data.keyword.cos_full_notm}} instances in your {{site.data.keyword.Bluemix_short}} account are auto discovered and displayed in a list for you to select from. If no {{site.data.keyword.cos_full_notm}} instances are found in your account, you can use the REST APIs to update instance home after instance creation.
 
-You can’t change instance home after instance creation. You can only edit the access keys.
+You can't change instance home after instance creation. You can only edit the access keys.
 
 <!--
 ### Resource quota
