@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-10-30"
+lastupdated: "2022-11-14"
 
 subcollection: analyticsengine
 
@@ -47,7 +47,10 @@ Each instance of {{site.data.keyword.sqlquery_notm}} includes a database catalog
     "spark.hive.metastore.client.auth.mode":"PLAIN",
     "spark.hive.metastore.use.SSL":"true",
     "spark.hive.stats.autogather":"false",
-    "spark.hive.metastore.client.plain.username":"CHANGEME-crn:v1:bluemix:public:sql-query:us-south:a/abcdefgh::CHANGEME"
+    "spark.hive.metastore.client.plain.username":"CHANGEME-crn:v1:bluemix:public:sql-query:us-south:a/abcdefgh::CHANGEME",
+    # for spark 3.3
+    "spark.hive.metastore.truststore.path":"/opt/ibm/jdk/lib/security/cacerts",
+    # for spark 3.1, spark 3.2
     "spark.hive.metastore.truststore.path":"file:///opt/ibm/jdk/jre/lib/security/cacerts",
     "spark.sql.catalogImplementation":"hive",
     "spark.sql.hive.metastore.jars":"/opt/ibm/connectors/data-engine/hms-client/*",
@@ -196,7 +199,10 @@ Each instance of {{site.data.keyword.sqlquery_notm}} includes a database catalog
                 "spark.hive.metastore.use.SSL":"true",
                 "spark.hive.stats.autogather":"false",
                 "spark.hive.metastore.client.plain.username":"crn:v1:bluemix:public:sql-query:us-south:a/<CRN-DATA-ENGINE-INSTANCE>::",
-                "spark.hive.metastore.truststore.path":"file:///opt/ibm/jdk/jre/lib/security/cacerts",
+                # for spark 3.3
+                "spark.hive.metastore.truststore.path":"/opt/ibm/jdk/lib/security/cacerts",
+                # for spark 3.1, spark 3.2
+                "spark.hive.metastore.truststore.path":"file:///opt/ibm/jdk/jre/lib/security/cacerts",
                 "spark.sql.catalogImplementation":"hive",
                 "spark.sql.hive.metastore.jars":"/opt/ibm/connectors/data-engine/hms-client/*",
                 "spark.sql.hive.metastore.version":"3.0",
