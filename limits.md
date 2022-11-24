@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-08-25"
+lastupdated: "2022-11-23"
 
 subcollection: AnalyticsEngine
 
@@ -48,33 +48,18 @@ These two vCPU to memory proportions are supported: 1 vCPU to 4 GB of memory and
 
 The following table shows the supported vCPU to memory size combinations.
 
-| vCPU to memory combinations |
-| --------------------------- |
-| 1 vCPU x 2 GB |
-| 1 vCPU x 4 GB |
-| 2 vCPU x 4 GB |
-| 2 vCPU x 8 GB |
-| 3 vCPU x 6 GB |
-| 3 vCPU x 12 GB |
-| 4 vCPU x 8 GB |
-| 4 vCPU x 16 GB |
-| 5 vCPU x 10 GB |
-| 5 vCPU x 20 GB |
-| 6 vCPU x 12 GB |
-| 6 vCPU x 24 GB |
-| 7 vCPU x 14 GB |
-| 7 vCPU x 28 GB |
-| 8 vCPU x 16 GB |
-| 8 vCPU x 32 GB |
-| 1 vCPU x 8 GB |
-| 2 vCPU x 16 GB |
-| 3 vCPU x 24 GB |
-| 4 vCPU x 32 GB |
-| 6 vCPU x 48 GB |
-| 10 vCPU x 20 GB |
-| 10 vCPU x 40 GB |
-| 12 vCPU x 24 GB |
-| 12 vCPU x 48 GB |
+| 1 : 2 ratio | 1 : 4 ratio | 1 : 8 ratio |
+| ------------|-------------|-------------|
+| 1 vCPU x 2 GB | 1 vCPU x 4 GB | 1 vCPU x 8 GB |
+| 2 vCPU x 4 GB | 2 vCPU x 8 GB | 2 vCPU x 16 GB |
+| 3 vCPU x 6 GB | 3 vCPU x 12 GB | 3 vCPU x 24 GB |
+| 4 vCPU x 8 GB | 4 vCPU x 16 GB | 4 vCPU x 32 GB |
+| 5 vCPU x 10 GB | 5 vCPU x 20 GB | |
+| 6 vCPU x 12 GB | 6 vCPU x 24 GB | 6 vCPU x 48 GB|
+| 7 vCPU x 14 GB | 7 vCPU x 28 GB | |
+| 8 vCPU x 16 GB | 8 vCPU x 32 GB | |
+| 10 vCPU x 20 GB | 10 vCPU x 40 GB | |
+| 12 vCPU x 24 GB | 12 vCPU x 48 GB | |
 {: caption="Supported vCPU to memory size combinations" caption-side="top"}
 
 
