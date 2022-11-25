@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-29"
+lastupdated: "2022-10-30"
 
 subcollection: analyticsengine
 
@@ -88,7 +88,7 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
 
     The provision.json file contains the provisioning parameters for the instance you want to create.
 
-    The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the public endpoint.
+    The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the direct endpoint. Direct endpoints provide better performance than  private endpoints and do not incur charges for any outgoing or incoming bandwidth.
 
     <!--The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, which should preferably match the location of your {{site.data.keyword.iae_short}} instance, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.-->
 
@@ -103,7 +103,7 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
         },
       "instance_home": {
         "region": "us-south",
-        "endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud",
+        "endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
         "hmac_access_key": "<your-hmac-access-key",
         "hmac_secret_key": "<your-hmac-secret-key"
         },
@@ -195,7 +195,7 @@ To create a service instance using the Resource Controller REST API:
             },
             "instance_home": {
               "region": "us-south",
-              "endpoint": "s3.us-south.cloud-object-storage.appdomain.cloud",
+              "endpoint": "s3.direct.us-south.cloud-object-storage.appdomain.cloud",
               "hmac_access_key": "your-access-key",
               "hmac_secret_key": "your-secret-key"
               }        
@@ -232,7 +232,7 @@ To track instance readiness:
           "provider": "ibm-cos",
           "type": "objectstore",
           "region": "us-south",
-          "endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud",
+          "endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
           "bucket": "ae-bucket-do-not-delete-dc0e****-eab2-4t**-9441-566209499546",
           "hmac_access_key": "eH****g=",
           "hmac_secret_key": "4d********76"
@@ -245,3 +245,7 @@ To track instance readiness:
     }
     ```
 1. Check the value of the `"state"` attribute. It must be `active` before you can start running applications in the instance.
+
+## Learn more
+
+When provisioning serverless instances, follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices-serverless).

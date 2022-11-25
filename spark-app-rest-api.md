@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-07-04"
+lastupdated: "2022-11-24"
 
 subcollection: analyticsengine
 
@@ -82,7 +82,9 @@ To learn how to quickly get started using pre-bundled sample application files:
 ### Referencing files from an {{site.data.keyword.cos_short}} bucket
 {: #file-cos}
 
-To reference your Spark application file from an {{site.data.keyword.cos_short}} bucket, you need to create a bucket, add the file to the bucket and then reference the file from your payload JSON file. 
+To reference your Spark application file from an {{site.data.keyword.cos_short}} bucket, you need to create a bucket, add the file to the bucket and then reference the file from your payload JSON file.
+
+The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the private endpoint. Direct endpoints provide better performance than public endpoints and do not incur charges for any outgoing or incoming bandwidth.
 
 To submit a Spark application:
 
@@ -102,7 +104,7 @@ To submit a Spark application:
          "application": "cos://<application-bucket-name>.<cos-reference-name>/my_spark_application.py",
          "arguments": ["arg1", "arg2"],
          "conf": {
-            "spark.hadoop.fs.cos.<cos-reference-name>.endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud",
+            "spark.hadoop.fs.cos.<cos-reference-name>.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
             "spark.hadoop.fs.cos.<cos-reference-name>.access.key": "<access_key>",
             "spark.hadoop.fs.cos.<cos-reference-name>.secret.key": "<secret_key>",
             "spark.app.name": "MySparkApp"
@@ -208,7 +210,7 @@ Sample response:
   "application_details": {
       "application": "cos://sbn-test-bucket-serverless-1.mycosservice/my_spark_application.py",
       "conf": {
-          "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud",
+          "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
           "spark.hadoop.fs.cos.mycosservice.access.key": "xxxx",
           "spark.app.name": "MySparkApp",
           "spark.hadoop.fs.cos.mycosservice.secret.key": "xxxx"
@@ -238,3 +240,8 @@ Returns `204 – No Content`, if the deletion is successful. The state of the ap
 This API is idempotent. If you attempt to stop an already completed or stopped application, it will still return 204.
 
 You can use this API to stop an application in the following states: `accepted`, `waiting`, `submitted`, and `running`.
+
+
+# Learn more
+
+When managing your Spark applications, follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices-serverless).

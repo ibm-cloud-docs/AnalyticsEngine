@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-08-30"
+  years: 2017, 2022
+lastupdated: "2022-11-24"
 
 subcollection: analyticsengine
 
@@ -72,7 +72,7 @@ Example of an auto-scaling application payload showing the lower and upper bound
       "spark.dynamicAllocation.initialExecutors": "0",
       "spark.dynamicAllocation.minExecutors": "1",
       "spark.dynamicAllocation.maxExecutors": "10",
-      "spark.hadoop.fs.cos.<cos-reference-name>.endpoint": "s3.us-south.cloud-object-storage.appdomain.cloud",
+      "spark.hadoop.fs.cos.<cos-reference-name>.endpoint": "s3.direct.us-south.cloud-object-storage.appdomain.cloud",
       "spark.hadoop.fs.cos.<cos-reference-name>.iam.api.key": "<iam-api-key-of-application-bucket>"
     }
   }

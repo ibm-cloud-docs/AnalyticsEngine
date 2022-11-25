@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-05"
+  years: 2017, 2022
+lastupdated: "2022-11-24"
 
 subcollection: analyticsengine
 
@@ -20,13 +20,16 @@ subcollection: analyticsengine
 
 You can use the following code samples to learn how to use Spark in different situations.
 
+
+To understand how to access {{site.data.keyword.cos_short}}, see [Understanding the {{site.data.keyword.cos_short}} credentials](/docs/AnalyticsEngine?topic=AnalyticsEngine-cos-credentials-in-iae-serverless).
+
 ## Reading a CSV file from {{site.data.keyword.cos_short}} using already stated  credentials
 
 The following code samples show you how to create a Python script that reads data from a CSV file to a Python DataFrame. Both the Python script and the CSV file are located in {{site.data.keyword.cos_short}}.
 
 You can use the same {{site.data.keyword.cos_full_notm}} credentials that you specified at the time you submitted the Spark application or that were set as a default configuration when you created the {{site.data.keyword.iae_full_notm}} service instance to read from {{site.data.keyword.cos_short}} within the application.
 
-Example of the application called `read-employees.py`. Insert the {{site.data.keyword.cos_short}} bucket and service name:
+Example of the application called `read-employees.py`. Insert the {{site.data.keyword.cos_short}} bucket name and service name. The service name is any name given to your {{site.data.keyword.cos_short}} instance:
 ```python
 from pyspark.sql import SparkSession
 
@@ -37,7 +40,7 @@ def init_spark():
 
 def read_employees(spark,sc):
   print("Hello 1"  , spark )  
-  employeesDF = spark.read.option("header",True).csv("cos://mybucketname.mycosservice/employees.csv")
+  employeesDF = spark.read.option("header",True).csv("cos://cosbucketname.cosservicename/employees.csv")
   print("Hello 2" , employeesDF)
   employeesDF.createOrReplaceTempView("empTable")
   seniors = spark.sql("SELECT empTable.NAME FROM empTable WHERE empTable.BAND >= 6")
@@ -69,11 +72,11 @@ To run the application called `read-employees.py` that reads data from `employee
 ```json
 {
   "application_details": {
-    "application": "cos://mycosbucket.mycosservice/read-employees.py",
+    "application": "cos://cosbucketname.cosservicename/read-employees.py",
     "conf": {
-      "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud/<CHANGME-according-to-instance>",
-      "spark.hadoop.fs.cos.mycosservice.access.key": "<CHANGEME>",
-      "spark.hadoop.fs.cos.mycosservice.secret.key": "<CHANGEME>"
+      "spark.hadoop.fs.cos.cosservicename.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud/<CHANGME-according-to-instance>",
+      "spark.hadoop.fs.cos.cosservicename.access.key": "<CHANGEME>",
+      "spark.hadoop.fs.cos.cosservicename.secret.key": "<CHANGEME>"
       }
   }
 }
@@ -94,14 +97,14 @@ def init_spark():
   spark = SparkSession.builder.appName("read-write-cos-test").getOrCreate()
   sc = spark.sparkContext
   hconf=sc._jsc.hadoopConfiguration()
-  hconf.set("fs.cos.testcos.endpoint", "s3.us.cloud-object-storage.appdomain.cloud/CHANGEME-according-to-instance="
+  hconf.set("fs.cos.testcos.endpoint", "s3.direct.us-south.cloud-object-storage.appdomain.cloud/CHANGEME-according-to-instance="
 ("fs.cos.testcos.iam.api.key","<CHANGEME>")
   return spark,sc
 
 
 def read_employees(spark,sc):
   print("Hello1 "  , spark )  
-  employeesDF = spark.read.option("header",True).csv("cos://mycosbucket.testcos/employees.csv")
+  employeesDF = spark.read.option("header",True).csv("cos://cosbucketname.cosservicename/employees.csv")
   print("Hello2" , employeesDF)
   employeesDF.createOrReplaceTempView("empTable")
   juniors = spark.sql("SELECT empTable.NAME FROM empTable WHERE empTable.BAND < 6")
@@ -123,11 +126,11 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
 ```json
 {
   "application_details": {
-    "application": "cos://mycosbucket.mycosservice/read-employees-iam-key-cos.py",
+    "application": "cos://cosbucketname.cosservicename/read-employees-iam-key-cos.py",
     "conf": {
-      "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud/CHANGME-according-to-instance",
-      "spark.hadoop.fs.cos.mycosservice.access.key": "<CHANGEME>",
-      "spark.hadoop.fs.cos.mycosservice.secret.key": "<CHANGEME>"
+      "spark.hadoop.fs.cos.cosservicename.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud/CHANGME-according-to-instance",
+      "spark.hadoop.fs.cos.cosservicename.access.key": "<CHANGEME>",
+      "spark.hadoop.fs.cos.cosservicename.secret.key": "<CHANGEME>"
       }
   }
 }
@@ -150,13 +153,13 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
       def main(args: Array[String]) {
         val sparkConf = new SparkConf().setAppName("Spark Scala Example")
         val sc = new SparkContext(sparkConf)
-            val prefix="fs.cos.iamservice"
-            sc.hadoopConfiguration.set(prefix + ".endpoint", "s3.us.cloud-object-storage.appdomain.cloud")
+            val prefix="fs.cos.cosservicename"
+            sc.hadoopConfiguration.set(prefix + ".endpoint", "s3.direct.us-south.cloud-object-storage.appdomain.cloud")
             sc.hadoopConfiguration.set(prefix + ".iam.api.key","<CHANGEME>")
             val data = Array("Sweden", "England", "France", "Tokyo")
             val myData = sc.parallelize(data)
-            myData.saveAsTextFile("cos://mycosbucket.iamservice/2021sep25-1.data")
-            val myRDD=sc.textFile("cos://mycosbucket.iamservice/2021sep25-1.data")
+            myData.saveAsTextFile("cos://cosbucketname.cosservicename/2021sep25-1.data")
+            val myRDD=sc.textFile("cos://cosbucketname.cosservicename/2021sep25-1.data")
             myRDD.collect().foreach(println)
         }
     }
@@ -191,12 +194,12 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
     ```json
     {
       "application_details": {
-        "application": "cos://mycosbucket.mycosservice/scalareadwriteiamcosexample_2.12-1.0.jar",
+        "application": "cos://cosbucketname.cosservicename/scalareadwriteiamcosexample_2.12-1.0.jar",
         "class":"com.ibm.analyticsengine.ScalaReadWriteIAMCOSExample",
         "conf": {
-          "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud-CHANGME-according-to-instance",
-          "spark.hadoop.fs.cos.mycosservice.access.key": "<CHANGEME>",
-          "spark.hadoop.fs.cos.mycosservice.secret.key": "<CHANGEME>"
+          "spark.hadoop.fs.cos.cosservicename.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud-CHANGME-according-to-instance",
+          "spark.hadoop.fs.cos.cosservicename.access.key": "<CHANGEME>",
+          "spark.hadoop.fs.cos.cosservicename.secret.key": "<CHANGEME>"
           }
         }
     }
@@ -210,10 +213,10 @@ The following example show the application details for the application called `r
 ```json
 {
   "application_details": {
-    "application": "cos://mycosbucket.mycosservice/read-employees.py",
+    "application": "cos://cosbucketname.cosservicename/read-employees.py",
     "conf": {
-      "spark.hadoop.fs.cos.mycosservice.endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud-CHANGME-according-to-instance",
-      "spark.hadoop.fs.cos.mycosservice.iam.api.key": "CHANGME"
+      "spark.hadoop.fs.cos.cosservicename.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud-CHANGME-according-to-instance",
+      "spark.hadoop.fs.cos.cosservicename.iam.api.key": "CHANGME"
       }
   }
 }
