@@ -88,7 +88,7 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
 
     The provision.json file contains the provisioning parameters for the instance you want to create.
 
-    The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the direct endpoint. Direct endpoints provide better performance than  private endpoints and do not incur charges for any outgoing or incoming bandwidth.
+    The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the direct endpoint. Direct endpoints provide better performance than  public endpoints and do not incur charges for any outgoing or incoming bandwidth.
 
     <!--The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, which should preferably match the location of your {{site.data.keyword.iae_short}} instance, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.-->
 

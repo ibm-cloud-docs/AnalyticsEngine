@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-10-31"
+lastupdated: "2022-11-27"
 
 subcollection: analyticsengine
 
@@ -70,6 +70,8 @@ The runtime contains only open source Spark binaries and is configured to help y
 On a Spark 3.1 or Spark 3.3 runtime, you can submit Spark applications written in the following languages: Scala 2.12, Python 3.9, and R 3.6.3.
 
 Note that the language versions are upgraded periodically to keep the runtime free from any security vulnerabilities.
+
+You can always override the Spark runtime version when you submit an application. For details on what to add to the payload, see [Passing the runtime Spark version when submitting an application](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#pass-spark-version).
 
 ### Instance home
 {: #instance-home}

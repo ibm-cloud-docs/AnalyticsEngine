@@ -39,7 +39,7 @@ toc:
           topics:
           - provisioning-concepts.md
           - limits.md
-          #- best-practices-serverless.md
+          - best-practices-serverless.md
           - topicgroup:
               label: Provisioning a service instance
               topics:
@@ -98,7 +98,7 @@ toc:
           - topicgroup:
               label: Logging and monitoring
               topics:
-              #- spark-history-serverless.md
+              #- spark-history-serverless.md # don't push to prod 
               - viewing-logs.md
               - at-tracker-serverless.md
       - topicgroup:
@@ -305,6 +305,7 @@ toc:
           - topicgroup:
               label: Support links
               topics:
+              - troubleshooting-serverless.md
               - known-issues-serverless.md
           - topicgroup:
               label: FAQs
