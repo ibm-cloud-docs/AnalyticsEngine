@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-07-15"
+  years: 2017, 2022
+lastupdated: "2022-11-25"
 
 subcollection: analyticsengine
 
@@ -80,8 +80,8 @@ To  get the credentials of the {{site.data.keyword.cos_short}} instance you crea
     Note:
 
     - Currently, the {{site.data.keyword.iae_full_notm}} serverless plan supports HMAC style credentials only.
-    - Pick public endpoints for consumption.
-   <!--- The endpoint to your {{site.data.keyword.cos_full_notm}} instance should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.-->
+    - Pick private endpoints for consumption.
+    - The endpoint to your {{site.data.keyword.cos_full_notm}} instance should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.
 
 ## Associate the instance home using REST API
 {: #using-api}
@@ -104,7 +104,7 @@ where `instance-home.json`  has the following format:
   "provider": "ibm-cos",
   "type": "objectstore",
   "region": "REGION_OF_CLOUD_OBJECT_STORAGE_INSTANCE",
-  "endpoint": "https://s3.us-south.cloud-object-storage.appdomain.cloud",
+  "endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
   "hmac_access_key": "CLOUD_OBJECT_STORAGE_HMAC_ACCESS_KEY",
   "hmac_secret_key": "LOUD_OBJECT_STORAGE_HMAC_SECRET_KEYE"
 }
