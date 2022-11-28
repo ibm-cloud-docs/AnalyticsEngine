@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-11-24"
+lastupdated: "2022-11-27"
 
 subcollection: analyticsengine
 
@@ -140,14 +140,14 @@ To submit a Spark application:
 ## Passing the Spark configuration to an application
 {: #pass-config}
 
-You can use the `conf` section in the payload to pass the Spark application configuration. If you specified Spark configurations at the instance level, those are inherited by the Spark applications run on the instance, but can be overridden at the time a Spark application is submitted by including the `conf` section in the payload.
+You can use the `"conf"` section in the payload to pass the Spark application configuration. If you specified Spark configurations at the instance level, those are inherited by the Spark applications run on the instance, but can be overridden at the time a Spark application is submitted by including the `"conf"` section in the payload.
 
 See [Spark configuration in {{site.data.keyword.iae_short}} Serverless](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts#default-spark-config).
 
 ## Parameters for submitting Spark applications
 {: #spark-submit-parms}
 
-The following table lists the mapping between the `spark-submit` command parameters and their equivalent to be passed to the `application_details` section of the Spark application submission REST API payload.
+The following table lists the mapping between the `spark-submit` command parameters and their equivalent to be passed to the `"application_details"` section of the Spark application submission REST API payload.
 
 | spark-submit command parameter | Payload to the Analytics Engine Spark submission REST API|
 |----------------------------------|---------------------------------------|
@@ -240,6 +240,28 @@ Returns `204 – No Content`, if the deletion is successful. The state of the ap
 This API is idempotent. If you attempt to stop an already completed or stopped application, it will still return 204.
 
 You can use this API to stop an application in the following states: `accepted`, `waiting`, `submitted`, and `running`.
+
+## Passing the runtime Spark version when submitting an application
+{: #pass-spark-version}
+
+You can use the `"runtime"` section under `"application_details"`in the payload JSON script to pass the Spark runtime version when submitting an application. The Spark version passed through the `"runtime"` section overrides the default runtime Spark version set at the instance level. To learn more about the default runtime version, see [Default Spark runtime](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts#default-spark-runtime).
+
+Example of the `"runtime"` section to run an application in Spark 3.3:
+
+```json
+{
+    "application_details": {
+        "application": "/opt/ibm/spark/examples/src/main/python/wordcount.py",
+        "arguments": [
+            "/opt/ibm/spark/examples/src/main/resources/people.txt"
+            ],
+        "runtime": {
+            "spark_version": "3.3"
+        }
+    }
+}
+```
+{: codeblock}
 
 
 # Learn more
