@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-09-29"
+  years: 2021, 2023
+lastupdated: "2023-01-05"
 
 keywords: IBM Analytics Engine release notes
 
@@ -38,6 +38,26 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 <!-- If you also have a change log for your API or CLI, include the following tip with a link to the change log.
 For information about changes to the _service-name_ API, see [Change log for _service-name_ API](/docs/link-to-change-log).
 {: tip}  -->
+
+
+
+## 05 January 2023
+{: #AnalyticsEngine-jan0523}
+{: release-note}
+
+Analyze application runs on the Spark history server
+: You can now run a Spark history server on your {{site.data.keyword.iae_full_notm}} serverless instance.
+
+    The Spark history server provides a Web UI to view Spark events that were forwarded to the {{site.data.keyword.cos_short}} bucket that was defined as the instance home. The Web UI helps you analyze how your Spark applications ran by displaying useful information like:
+
+    - A list of the stages that the application goes through when it is run
+    - The number of tasks in each stage
+    - The configuration details such as the running executors and memory usage
+
+    You are charged for the CPU cores and memory consumed by the Spark history server while it is running. The rate is $0.1475 USD per virtual processor core hour and $0.014 USD per gigabyte hour.
+
+    See [Use the Spark history server](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-history-serverless).
+
 
 ## September 2022
 {: #AnalyticsEngine-sep22}
@@ -85,38 +105,12 @@ Support for Python 3.9
 : You can now run Spark applications using Python 3.9. on your {{site.data.keyword.iae_full_notm}} serverless instances.
 
 
-<!--
-## 07 April 2022
-{: #AnalyticsEngine-apr0722}
-{: release-note}
-
-Analyze application runs on the Spark history server
-: You can now run a Spark history server on your {{site.data.keyword.iae_full_notm}} serverless instance. 
-
-    The Spark history server provides a Web UI to view Spark events that were forwarded to the {{site.data.keyword.cos_short}} bucket that was defined as the instance home. The Web UI helps you analyze how your Spark applications ran by displaying useful information like:
-
-    - A list of the stages that the application goes through when it is run
-    - The number of tasks in each stage
-    - The configuration details such as the running executors and memory usage
-
-    You are charged for the CPU cores and memory consumed by the Spark history server while it is running. The rate is $0.1475 USD per virtual processor core hour and $0.014 USD per gigabyte hour.
-
-    See [Use the Spark history server](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-history-serverless).
-
--->
-
-
 ## 04 April 2022
 {: #AnalyticsEngine-apr0422}
 {: release-note}
 
 Limitation on how long Spark applications can run
 :   Spark applications can run for a maximum period of 3 days (72 hours). Any applications that run beyond this period will be auto-cleaned in order to adhere to the security and compliance patch management processes for applications in Analytics Engine.
-
-
-<!--
-Analyze application runs on the Spark history server
-: You can now run a Spark history server on your {{site.data.keyword.iae_full_notm}} serverless instance. See [Use the Spark history server](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-history-serverless) to analyze the Spark applications that you have run with your serverless instance. -->
 
 
 ## 30 March 2022
@@ -132,9 +126,9 @@ Start using the {{site.data.keyword.iae_short}} serverless CLI
 {: release-note}
 
 Introducing {{site.data.keyword.iae_full_notm}} Standard serverless plan for Apache Spark
-:   The {{site.data.keyword.iae_full_notm}} Standard serverless plan for Apache Spark offers the ability to spin up {{site.data.keyword.iae_full_notm}} serverless instances within seconds, customize them with library packages of your choice, and run your Spark workloads. 
+:   The {{site.data.keyword.iae_full_notm}} Standard serverless plan for Apache Spark offers the ability to spin up {{site.data.keyword.iae_full_notm}} serverless instances within seconds, customize them with library packages of your choice, and run your Spark workloads.
 
-New: The {{site.data.keyword.iae_full_notm}} Standard serverless plan for Apache Spark is now GA in the Dallas {{site.data.keyword.Bluemix_notm}} service region. 
+New: The {{site.data.keyword.iae_full_notm}} Standard serverless plan for Apache Spark is now GA in the Dallas {{site.data.keyword.Bluemix_notm}} service region.
 :   This plan offers a new consumption model using Apache Spark whereby resources are allocated and consumed only when Spark workloads are running.
 
     Capabilities available in the {{site.data.keyword.iae_full_notm}} Standard serverless plan for Apache Spark include:
@@ -146,5 +140,3 @@ New: The {{site.data.keyword.iae_full_notm}} Standard serverless plan for Apache
     - Aggregating logs of your Spark workloads to the {{site.data.keyword.la_short}}  server
 
     To get started using the serverless plan, see [Getting started using serverless {{site.data.keyword.iae_full_notm}} instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
-
-

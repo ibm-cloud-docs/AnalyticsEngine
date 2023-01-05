@@ -1,6 +1,6 @@
 #  Name your file `toc.yaml`
 #  Make sure you include all nav file coding requirements, as defined in https://test.cloud.ibm.com/docs/writing?topic=writing-code-nav
-#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry 
+#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
 ---
 toc:
   properties:
@@ -26,7 +26,7 @@ toc:
           - release-notes-serverless.md
           - release-notes-classic.md
 
-  - navgroup: 
+  - navgroup:
         id: tutorial
         topics:
         - using-cli-serverless.md
@@ -98,7 +98,7 @@ toc:
           - topicgroup:
               label: Logging and monitoring
               topics:
-              #- spark-history-serverless.md
+              - spark-history-serverless.md
               - viewing-logs.md
               - at-tracker-serverless.md
       - topicgroup:
@@ -252,7 +252,7 @@ toc:
               label: IBM Analytics Engine serverless CLI
               topics:
               - include: ../analytics-engine-cli-plugin/analytics-engine-serverless-cli.md
-              #- /analytics-engine-cli-plugin/analytics-engine-cli-plugin-CLI_analytics_engine    
+              #- /analytics-engine-cli-plugin/analytics-engine-cli-plugin-CLI_analytics_engine
           - topicgroup:
               label: IBM Analytics Engine SDK
               topics:
