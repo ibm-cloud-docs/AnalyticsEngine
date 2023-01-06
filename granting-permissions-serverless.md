@@ -22,7 +22,7 @@ subcollection: analyticsengine
 
 With an {{site.data.keyword.Bluemix_notm}} account, you have administrative privileges for your account, which enables you to perform all operations on {{site.data.keyword.iae_full_notm}} service instances. However, when you onboard other users to your account, you need to manage their permissions so that they have the required privileges to use {{site.data.keyword.iae_full_notm}} service instances under your account.
 
-Access to {{site.data.keyword.iae_full_notm}} service instances for users in your account is controlled by {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM). Every user that accesses the {{site.data.keyword.iae_full_notm}} service in your account must be assigned an access policy with an IAM role defined. The policy determines what actions a user can perform within the context of the service or instance that you select. The allowable actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles.
+Access to {{site.data.keyword.iae_full_notm}} service instances for users in your account is controlled by {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM). Every user that accesses the {{site.data.keyword.iae_full_notm}} service in your account must be assigned an access policy with an IAM role defined. The policy determines what actions a user can perform within the context of the service or instance. Permitted actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles.
 
 - Access policies enable access to be granted at different levels. You can see which access policies are set for you in the [{{site.data.keyword.cloud}} catalog](https://cloud.ibm.com/catalog){: external} console.
 
@@ -59,12 +59,20 @@ Use the following table to identify the service roles that you can grant a user 
 
 | Actions  | Manager               | Writer         | Reader |
 |----------|-----------------------|----------------|--------|
-|Invoke the instance management REST API to view instance  details| ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+|Invoke the instance management REST API to view instance details| ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+|Invoke the instance management REST API to set instance home| ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |  |
 |Invoke application management REST API to submit a Spark application | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | |
 |Invoke application management REST API to stop a submitted application | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | |
-|Invoke application management REST API to view all submitted Spark applications | | | ![the confirm icon](images/confirm.png) |
-|Invoke application management REST API to view a specific Spark application, by using the application ID | | | ![the confirm icon](images/confirm.png)|
-|Invoke application management REST API to retrieve the state  of a Spark application | | | ![the confirm icon](images/confirm.png) |
+|Invoke application management REST API to view all submitted Spark applications | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+|Invoke application management REST API to view a specific Spark application, by using the application ID | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png)|
+|Invoke application management REST API to retrieve the state  of a Spark application | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+|Invoke instance management REST API to enable or disable logging | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |  |
+|Invoke instance management REST API to view logging configuration | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+|Invoke instance management REST API to start or stop Spark history server | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |  |
+|Invoke instance management REST API to view Spark history server state | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+|View Spark History UI | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+|Invoke Spark History REST API | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
+|Invoke application management REST API to start, view, and stop the Spark history server to monitor Spark application runs |  |  | ![the confirm icon](images/confirm.png) |
 {: caption="Table 2. IAM service roles and actions" caption-side="top"}
 {: #iam-table-2}
 {: row-headers}
