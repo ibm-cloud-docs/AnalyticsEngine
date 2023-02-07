@@ -72,7 +72,6 @@ Use the following table to identify the service roles that you can grant a user 
 |Invoke instance management REST API to view Spark history server state | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
 |View Spark History UI | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
 |Invoke Spark History REST API | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
-|Invoke application management REST API to start, view, and stop the Spark history server to monitor Spark application runs |  |  | ![the confirm icon](images/confirm.png) |
 {: caption="Table 2. IAM service roles and actions" caption-side="top"}
 {: #iam-table-2}
 {: row-headers}

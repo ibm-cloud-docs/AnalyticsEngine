@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-11-27"
+  years: 2017, 2023
+lastupdated: "2023-02-07"
 
 subcollection: analyticsengine
 
@@ -97,7 +97,7 @@ To submit a Spark application:
     ```
    {: codeblock}
 
-1. Prepare the payload JSON file. For example, `submit-spark-app.json`: 
+1. Prepare the payload JSON file. For example, `submit-spark-app.json`:
     ```json
     {
       "application_details": {
@@ -109,16 +109,16 @@ To submit a Spark application:
             "spark.hadoop.fs.cos.<cos-reference-name>.secret.key": "<secret_key>",
             "spark.app.name": "MySparkApp"
          }
-      }  
+      }
     }
     ```
     {: codeblock}
 
 
-    Note:  
+    Note:
     - You can pass Spark application configuration values through the `"conf"` section in the payload. See [Parameters for submitting Spark applications](#spark-submit-parms) for more details.
     - `<cos-reference-name>` in the `"conf"` section of the sample payload is any name given to your {{site.data.keyword.cos_full_notm}} instance, which you are referencing in the URL in the `"application"` parameter. See [Understanding the {{site.data.keyword.cos_short}} credentials](/docs/AnalyticsEngine?topic=AnalyticsEngine-cos-credentials-in-iae-serverless).
-    - It might take approximately a minute to submit the Spark application. Make sure to set sufficient timeout in the client code. 
+    - It might take approximately a minute to submit the Spark application. Make sure to set sufficient timeout in the client code.
     - Make a note of the `"id"` returned in the response. You need this value to perform operations such as  getting the state of the application, retrieving the details of the application, or deleting the application.
 
 1. Submit the Spark application:
@@ -169,6 +169,7 @@ The following table lists the mapping between the `spark-submit` command paramet
 | `executor-memory`| `application_details` -> `conf` -> `spark.executor.memory`|
 | `num-executors`| `application_details` -> `conf` -> `ae.spark.executor.count`|
 | `pyFiles` | `application_details` -> `conf` -> `spark.submit.pyFiles` |
+| `<environment-variables>` | `application_details` -> `env` -> `{"key1" : "value1", "key2" : "value2", ..... "`} |
 {: caption="Table 1. Mapping between the spark-submit command parameters and their equivalents passed to the payload" caption-side="top"}
 
 
@@ -244,7 +245,7 @@ You can use this API to stop an application in the following states: `accepted`,
 ## Passing the runtime Spark version when submitting an application
 {: #pass-spark-version}
 
-You can use the `"runtime"` section under `"application_details"`in the payload JSON script to pass the Spark runtime version when submitting an application. The Spark version passed through the `"runtime"` section overrides the default runtime Spark version set at the instance level. To learn more about the default runtime version, see [Default Spark runtime](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts#default-spark-runtime).
+You can use the `"runtime"` section under `"application_details"` in the payload JSON script to pass the Spark runtime version when submitting an application. The Spark version passed through the `"runtime"` section overrides the default runtime Spark version set at the instance level. To learn more about the default runtime version, see [Default Spark runtime](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts#default-spark-runtime).
 
 Example of the `"runtime"` section to run an application in Spark 3.3:
 
@@ -264,6 +265,72 @@ Example of the `"runtime"` section to run an application in Spark 3.3:
 {: codeblock}
 
 
-# Learn more
+## Using environment variables
+{: #use-env-vars}
+
+When submitting an application, you can use the `"env"` section under `"application_details"` in the payload JSON script to pass environment specific information, which determines the outcome of the application, for example the data sets to use or any secret values.
+
+Example of the `"env"` section in the payload:
+
+```json
+{
+    "application_details": {
+        "application": "cos://<application-bucket-name>.<cos-reference-name>/my_spark_application.py",
+        "arguments": ["arg1", "arg2"],
+        "conf": {
+            "spark.hadoop.fs.cos.<cos-reference-name>.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+            "spark.hadoop.fs.cos.<cos-reference-name>.access.key": "<access_key>",
+            "spark.hadoop.fs.cos.<cos-reference-name>.secret.key": "<secret_key>",
+            "spark.app.name": "MySparkApp"
+            },
+        "env": {
+            "key1": "value1",
+            "key2": "value2",
+            "key3": "value3"
+            }
+        }
+}
+```
+{: codeblock}
+
+
+The environment variables set using `"application_details"` > `"env"` as described here, will be accessible to both executor and driver code.
+
+The environment variables can be set using `"spark.executorEnv.[EnvironmentVariableName]"` configuration (application_details > env) also. They will, however, be accessible only to the tasks running on the executor and not the driver.
+{: note}
+
+Example of pyspark application that accesses the environment variables that are passed using the `"os.getenv"` call.
+
+``` from pyspark.sql import SparkSession
+from pyspark.sql.types import IntegerType
+import os
+
+def init_spark():
+  spark = SparkSession.builder.appName("spark-env-test").getOrCreate()
+  sc = spark.sparkContext
+  return spark,sc
+
+def returnExecutorEnv(x):
+    # Attempt to access environment variable from a task running on executor
+    return os.getenv("TESTENV1")
+
+def main():
+  spark,sc = init_spark()
+
+  # dummy dataframe
+  df=spark.createDataFrame([("1","one")])
+  df.show()
+  df.rdd.map(lambda x: (x[0],returnExecutorEnv(x[0]))).toDF().show()
+  # Attempt to access environment variable on driver
+  print (os.getenv("TESTENV1"))
+  spark.stop()
+
+if __name__ == '__main__':
+  main()
+```
+{: codeblock}
+
+
+## Learn more
 
 When managing your Spark applications, follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices-serverless).

@@ -35,7 +35,7 @@ The {{site.data.keyword.iae_short}} microservices in the control plane, accessed
 
 Each {{site.data.keyword.iae_short}} instance is associated with an {{site.data.keyword.cos_full_notm}} instance for instance related data that is accessible by all applications that run in the instance. Currently, all Spark events are stored in this instance as well. Spark application logs are aggregated to a {{site.data.keyword.la_short}} log server.
 
-![Shows the {{site.data.keyword.iae_full_notm}} serverless instance architecture.](images/AE-serverless-architecture.svg)
+![Shows the {{site.data.keyword.iae_full_notm}} serverless instance architecture.](images/AE-serverless-architecture.svg){: caption="Figure 1. Architecture flow diagram of IBM Analytics Engine" caption-side="bottom"}
 
 
 ## Key concepts

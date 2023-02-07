@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-03-24"
+  years: 2017, 2023
+lastupdated: "2023-02-06"
 
 subcollection: AnalyticsEngine
 
@@ -17,17 +17,16 @@ subcollection: AnalyticsEngine
 # Getting started tutorial
 {: #getting-started}
 
-In {{site.data.keyword.iae_full_notm}}, you can create two types of instances:
+{{site.data.keyword.iae_full_notm}} Serverless instance is allocated to compute and memory resources on demand when Spark workloads are deployed. When an application is not in running state, no computing resources are allocated to the {{site.data.keyword.iae_full_notm}} instance. Pricing is based on the actual amount of resources consumed by the instance, billed on a per second basis.
 
-- **Serverless instances**: An instance is allocated compute and memory resources on demand when Spark workloads are deployed. When an application is not in running state, no computing resources are allocated to the {{site.data.keyword.iae_full_notm}} instance. Pricing is based on the actual amount of resources consumed by the instance, billed on a per second basis.
+- [Serverless instance architecture and concepts](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts)
 
-  - [Serverless instance architecture and concepts](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts)
-  - [Provisioning a serverless instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-serverless)
+- [Provisioning a serverless instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-serverless)
 
-- **Classic instances**: The classic {{site.data.keyword.iae_short}} clusters that are created are allocated resources determined by a selected software package and hardware type (size). Pricing is set on a per hour or per month basis, irrespective of whether applications are running and consuming resources.
+<!-- - **Classic instances**: The classic {{site.data.keyword.iae_short}} clusters that are created are allocated resources determined by a selected software package and hardware type (size). Pricing is set on a per hour or per month basis, irrespective of whether applications are running and consuming resources.
 
   - [Classic instance architecture and concepts](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview)
-  - [Provisioning a classic instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE)
+  - [Provisioning a classic instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE) -->
 
 ## Getting started using serverless {{site.data.keyword.iae_full_notm}} instances
 {: #getting-started}
@@ -62,6 +61,6 @@ To run Spark applications in a serverless {{site.data.keyword.iae_full_notm}} in
 
 ## End-to-end scenario using the {{site.data.keyword.iae_short}} serverless CLI
 
-To help you get started quickly and simply with provisioning an {{site.data.keyword.iae_short}} instance and submitting Spark applications, you can use the {{site.data.keyword.iae_short}} serverless CLI. 
+To help you get started quickly and simply with provisioning an {{site.data.keyword.iae_short}} instance and submitting Spark applications, you can use the {{site.data.keyword.iae_short}} serverless CLI.
 
 For an end-to-end scenario of the steps you need to take, from creating the services that are required, to submitting and managing your Spark applications by using the Analytics Engine CLI, see [Create service instances and submit applications using the CLI](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-cli).
