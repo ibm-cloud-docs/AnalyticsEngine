@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2022-06-22"
+  years: 2017, 2023
+lastupdated: "2023-02-10"
 
 subcollection: AnalyticsEngine
 
@@ -53,9 +53,9 @@ To view {{site.data.keyword.iae_full_notm}} platform logs, you must use the Obse
 
 After you have enabled platform logging through the Observability dashboard, proceed with the steps in the following sections to learn how to use the API endpoints to enable logging, disable logging and view the logging configuration.
 
-The logging API calls require the GUID of the service instance. If you didn't make a note of the GUID, see [Retrieving the GUID of a serverless instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-instance-details). 
+The logging API calls require the GUID of the service instance. If you didn't make a note of the GUID, see [Retrieving the GUID of a serverless instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-instance-details).
 
-At present, two logging API endpoints are exposed: 
+At present, two logging API endpoints are exposed:
 - `log_forwarding_config`
 - `logging`. Note that this API endpoint is deprecated and will be discontinued in the near future. Although you may use this endpoint, you should start using the `log_forwarding_config` endpoint.
 
@@ -73,13 +73,13 @@ There are two methods that you can use to enable forwarding logs:
         ```
         {: codeblock}
 
-    - By using the `logging` API endpoint (deprecated): 
+    - By using the `logging` API endpoint (deprecated):
         ```sh
         curl -X PUT https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_guid>/logging -H "Authorization: Bearer $TOKEN" -H "content-type: application/json" -d '{"enable":true}
         ```
         {: codeblock}
 
-- *Customized*: With this option, you get more control over the log forwarding configuration. For example, you can specify the sources of the logs you want to get forwarded. You can also choose to associate some tags with the logs, which can later be used in {{site.data.keyword.la_full_notm}} as search keywords to narrow down the search on the applicable logs. You can do this in one of the following ways: 
+- *Customized*: With this option, you get more control over the log forwarding configuration. For example, you can specify the sources of the logs you want to get forwarded. You can also choose to associate some tags with the logs, which can later be used in {{site.data.keyword.la_full_notm}} as search keywords to narrow down the search on the applicable logs. You can do this in one of the following ways:
 
     - By using the `log_forwarding_config` API endpoint:
         ```sh
@@ -91,14 +91,14 @@ There are two methods that you can use to enable forwarding logs:
         ```sh
         curl -X PUT https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_guid>/logging -H "Authorization: Bearer $TOKEN" -H "content-type: application/json" -d ' {"enable":true,"components": ["spark-driver", "spark-executor"],"tags": ["<tag_1>", "<tag_2>",...]} '
         ```
-        {: codeblock}    
+        {: codeblock}
 
 ## Disabling platform logging from {{site.data.keyword.iae_full_notm}}
 {: #disable-loggingfrom-iae}
 
 Disable forwarding {{site.data.keyword.iae_full_notm}} platform logs to {{site.data.keyword.la_full_notm}}, in one of the following ways.
 
-- By using the `log_forwarding_config` API endpoint: 
+- By using the `log_forwarding_config` API endpoint:
 
     ```sh
     curl -X PATCH https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_guid>/log_forwarding_config -H "Authorization: Bearer $TOKEN" -H "content-type: application/json" -d '{"enabled":false}'
@@ -117,7 +117,7 @@ Disable forwarding {{site.data.keyword.iae_full_notm}} platform logs to {{site.d
 
 View the current logging configuration of an {{site.data.keyword.iae_full_notm}} instance, in one of the following ways:
 
-- By using the `log_forwarding_config` API endpoint: 
+- By using the `log_forwarding_config` API endpoint:
 
     ```sh
     curl -X GET https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_guid>/log_forwarding_config -H "Authorization: Bearer $TOKEN"
@@ -151,16 +151,16 @@ This section lists examples of how you can search for logs. The examples all use
 
 The following image shows you an example of the returned search results in the {{site.data.keyword.la_short}} dashboard. At the bottom of the image you can see the search entry field where you enter your search queries. In the example, the application ID `5438585f-6413-4bb2-9251-8162d34f3dc3` and the source `spark-driver` were entered.
 
-![Shows the search window for `ibmanalyticsengine` on the {{site.data.keyword.la_short}} dashboard.](images/search-window-log-analysis.png)
+![Shows the search window for `ibmanalyticsengine` on the {{site.data.keyword.la_short}} dashboard.](images/search-window-log-analysis.png){: caption="Figure 1. Log Analysis dashboard displaying search results" caption-side="bottom"}
 
 
 Examples of searches:
 
-- To retrieve the logs for all Spark applications submitted in a specific {{site.data.keyword.iae_full_notm}} instance, pass the instance ID in the search window: 
+- To retrieve the logs for all Spark applications submitted in a specific {{site.data.keyword.iae_full_notm}} instance, pass the instance ID in the search window:
     ```
     4308f7a6-2cfd-4d7e-b7a7-678e71a27957
     ```
-- To fetch the logs for a specific Spark application, you can pass: 
+- To fetch the logs for a specific Spark application, you can pass:
 
     - A combination of the {{site.data.keyword.iae_full_notm}} instance ID and the Spark application ID:
         ```
@@ -170,7 +170,7 @@ Examples of searches:
         ```
         5438585f-6413-4bb2-9251-8162d34f3dc3
         ```
-- To search the Spark master logs of an application, you can pass: 
+- To search the Spark master logs of an application, you can pass:
 
     - A combination of the {{site.data.keyword.iae_full_notm}} instance ID, the Spark application ID and the keyword `spark-driver`:
         ```
@@ -194,4 +194,3 @@ Examples of searches:
     ```
     4308f7a6-2cfd-4d7e-b7a7-678e71a27957 "prod us-south"
     ```
-

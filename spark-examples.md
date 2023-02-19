@@ -39,7 +39,7 @@ def init_spark():
   return spark,sc
 
 def read_employees(spark,sc):
-  print("Hello 1"  , spark )  
+  print("Hello 1"  , spark )
   employeesDF = spark.read.option("header",True).csv("cos://cosbucketname.cosservicename/employees.csv")
   print("Hello 2" , employeesDF)
   employeesDF.createOrReplaceTempView("empTable")
@@ -103,7 +103,7 @@ def init_spark():
 
 
 def read_employees(spark,sc):
-  print("Hello1 "  , spark )  
+  print("Hello1 "  , spark )
   employeesDF = spark.read.option("header",True).csv("cos://cosbucketname.cosservicename/employees.csv")
   print("Hello2" , employeesDF)
   employeesDF.createOrReplaceTempView("empTable")
@@ -141,7 +141,8 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
 
 1. Create an Eclipse project of the following format:
 
-  ![Shows the Eclipse project format to use in which to develop your Scala jar.](images/eclipse-proj.png)
+![Shows the Eclipse project format to use in which to develop your Scala jar.](images/eclipse-proj.png){: caption="Figure 1. Eclipse project folder structure" caption-side="bottom"}
+
 1. Add the following application called `ScalaReadWriteIAMCOSExample.scala` to the `analyticsengine` folder. Insert your IAM API key and the {{site.data.keyword.cos_short}} bucket name.
 
     ```scala
@@ -181,7 +182,7 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
 
 1. Build the Scala project using sbt. Upload the resultant jar (`scalareadwriteiamcosexample_2.12-1.0.jar`) into {{site.data.keyword.cos_short}}.
 
-    ```sh 
+    ```sh
     cd SparkScalaExample
     sbt package
     ```

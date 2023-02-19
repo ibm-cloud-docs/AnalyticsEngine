@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-01-08"
+  years: 2017, 2023
+lastupdated: "2023-02-13"
 
 subcollection: AnalyticsEngine
 
@@ -154,17 +154,17 @@ To calculate a set of geohashes that wholly covers the bounding box:
     ```
     cover = stc.geohash.geohash_cover_at_bit_depth(poly, 36)
     ```
-    ![Shows geohash coverage at a fixed bit depth for a given geometry.](images/cover.png)
+    ![Shows geohash coverage at a fixed bit depth for a given geometry.](images/cover.png){: caption="Figure 1. Geohash coverage at a fixed bit depth for a given geometry" caption-side="bottom"}
 
 3. Compute the buffered geohash cover at a fixed bit depth for a given geometry:
     ```
     buffered_cover = stc.geohash.geohash_cover_at_bit_depth(poly, 36, distance=50)
     ```
-    ![Shows buffered geohash coverage at a fixed bit depth for a given geometry.](images/buffered_cover.png)
+    ![Shows buffered geohash coverage at a fixed bit depth for a given geometry.](images/buffered_cover.png){: caption="Figure 2. Buffered geohash coverage at a fixed bit depth for a given geometry" caption-side="bottom"}
 
 4. Compute a compact geohash cover by computing the fixed depth cover first and then compressing the cover:
     ```
     raw_cover = stc.geohash.geohash_cover_at_bit_depth(poly, 36)
     compact_cover = stc.geohash.geohash_compression(raw_cover)
     ```
-    ![Shows compact geohash coverage at a fixed bit depth for a given geometry.](images/compact_cover.png)
+    ![Shows compact geohash coverage at a fixed bit depth for a given geometry.](images/compact_cover.png){: caption="Figure 3. Compact geohash coverage at a fixed bit depth for a given geometry" caption-side="bottom"}

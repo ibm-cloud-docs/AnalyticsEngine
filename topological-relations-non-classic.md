@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-01-08"
+  years: 2017, 2023
+lastupdated: "2023-02-13"
 
 subcollection: AnalyticsEngine
 
@@ -154,7 +154,7 @@ You can use the following aggregation functions:
     aggregated_bbox = white_plains_bbox.get_containing_bb(westchester_bbox).get_containing_bb(manhattan_bbox)
     ```
 
-    ![Shows the aggregated bounding box for a list of geometries.](images/bbox.png)
+    ![Shows the aggregated bounding box for a list of geometries.](images/bbox.png){: caption="Figure 1. Bounding box for a list of geometries" caption-side="bottom"}
 
 - Get the aggregated convex hull for a list of geometries:
     ```
@@ -165,4 +165,4 @@ You can use the following aggregation functions:
     hull = stc.convex_hull.compute_convex_hull(all_points)
     ```
 
-    ![Shows the aggregated convex hull for a list of  geometries.](images/convex_hull.png)
+    ![Shows the aggregated convex hull for a list of  geometries.](images/convex_hull.png){: caption="Figure 2. Aggregated convex hull for a list of  geometries" caption-side="bottom"}

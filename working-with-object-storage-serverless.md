@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-11-25"
+  years: 2017, 2023
+lastupdated: "2023-02-10"
 
 subcollection: analyticsengine
 
@@ -57,7 +57,7 @@ To get the {{site.data.keyword.cos_short}} credentials:
       - Turn on the option to include **HMAC credential**.
     1.	Click **Add**.
 
-    ![Shows creating Cloud Object storage credentials.](images/create-cos-cred.png)
+    ![Shows creating Cloud Object storage credentials.](images/create-cos-cred.png){: caption="Figure 1. Create credential window" caption-side="bottom"}
 
 ### What are the {{site.data.keyword.cos_short}} credentials
 {: #what-are-cos-creds}
