@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2021
 lastupdated: "2021-09-08"
 
-subcollection: analyticsengine
+subcollection: AnalyticsEngine
 
 ---
 
@@ -51,20 +51,22 @@ Expected response:
 Creating service key of service instance <service_instance_name> under account <your account name> as <your user name>...
 OK
 Service key <service key crn> was created.
-Name:          service-key-name   
-ID:            crn:v1:staging:public:ibmanalyticsengine:us-south:a/d628eae2cxxxxx229f2xxxx:1671b660-xxxx-448f-xxx-e1633a2b97c7:resource-key:4f1b043c-xxxx-xxxx-xxxx-cbf90f6155d0   
-Created At:    Mon Nov 29 11:47:32 UTC 2021   
-State:         active   
-Credentials:                                   
-               apikey:                   xxxxxx      
-               endpoints:                                             
-                                         applications_api:   https://api-staging.us-south.ae.cloud.ibm.com/v3/analytics_engines/xxxx660-7f2x-4xxf-9xx4-exxxxxxxxxc7/spark_applications         
-                                         instance_api:       https://api-staging.us-south.ae.cloud.ibm.com/v3/analytics_engines/xxxx660-7f2x-4xxf-9xx4-exxxxxxxxxc7         
-                                               
-               iam_apikey_description:   Auto-generated for key 4f1xxx3c-7517-xxx-cbfxxxxxx5d0      
-               iam_apikey_name:          service-key-name      
-               iam_role_crn:             crn:v1:bluemix:public:iam::::serviceRole:Writer      
-               iam_serviceid_crn:        crn:v1:staging:public:iam-identity::a/xxxx::serviceid:ServiceId-3543db7f-xxxx-454a-xxxx-1b20333ebeaa  
+Name:          service-key-name
+ID:            crn:v1:staging:public:ibmanalyticsengine:us-south:a/d628eae2cxxxxx229f2xxxx:1671b660-xxxx-448f-xxx-e1633a2b97c7:resource-key:4f1b043c-xxxx-xxxx-xxxx-cbf90f6155d0
+Created At:    Mon Nov 29 11:47:32 UTC 2021
+State:         active
+Credentials:
+               apikey:                   xxxxxx
+               endpoints:
+                                         applications_api:   https://api-staging.us-south.ae.cloud.ibm.com/v3/analytics_engines/xxxx660-7f2x-4xxf-9xx4-exxxxxxxxxc7/spark_applications
+                                         instance_api:       https://api-staging.us-south.ae.cloud.ibm.com/v3/analytics_engines/xxxx660-7f2x-4xxf-9xx4-exxxxxxxxxc7
+					 history_server_ui:  https://spark-console.us-south.ae.cloud.ibm.com/v3/analytics_engines/xxxx660-7f2x-4xxf-9xx4-exxxxxxxxxc7/spark_history_ui
+					 history_server_api: https://spark-console.us-south.ae.cloud.ibm.com/v3/analytics_engines/xxxx660-7f2x-4xxf-9xx4-exxxxxxxxxc7/spark_history_api/v1
+
+               iam_apikey_description:   Auto-generated for key 4f1xxx3c-7517-xxx-cbfxxxxxx5d0
+               iam_apikey_name:          service-key-name
+               iam_role_crn:             crn:v1:bluemix:public:iam::::serviceRole:Writer
+               iam_serviceid_crn:        crn:v1:staging:public:iam-identity::a/xxxx::serviceid:ServiceId-3543db7f-xxxx-454a-xxxx-1b20333ebeaa
 ```
 
 To view your service resource key, enter the following command:
@@ -83,7 +85,9 @@ Sample Response: Bear in mind that the cluster credentials are not returned in t
   "apikey": "xxxxx",
   "endpoints": {
     "applications_api": "https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/xxxx-3bxxxbc-4xxx1-axx6-8xxdxx0xxd/spark_applications",
-    "instance_api": "https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/xxxx-3bxxxbc-4xxx1-axx6-8xxdxx0xxd"
+    "instance_api": "https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/xxxx-3bxxxbc-4xxx1-axx6-8xxdxx0xxd",
+    "history_server_ui": "https://spark-console.us-south.ae.cloud.ibm.com/v3/analytics_engines/xxxx-3bxxxbc-4xxx1-axx6-8xxdxx0xxd/spark_history_ui",
+    "history_server_api":"https://spark-console.us-south.ae.cloud.ibm.com/v3/analytics_engines/xxxx-3bxxxbc-4xxx1-axx6-8xxdxx0xxd/spark_history_api/v1"
   },
   "iam_apikey_description": "Auto-generated for key cabde209-xxxx",
   "iam_apikey_name": "Service credentials-1",
@@ -137,7 +141,9 @@ Sample response:
 		"apikey": "xxxxx",
 		"endpoints": {
 			"applications_api": "https://api-staging.us-south.ae.cloud.ibm.com/v3/analytics_engines/79c757e9-xxxx-xxxx-xxxx-dff7f01xxxx/spark_applications",
-			"instance_api": "https://api-staging.us-south.ae.cloud.ibm.com/v3/analytics_engines/79c757e9-xxxx-xxxx-xxxx-dff7f01xxxx"
+			"instance_api": "https://api-staging.us-south.ae.cloud.ibm.com/v3/analytics_engines/79c757e9-xxxx-xxxx-xxxx-dff7f01xxxx",
+			"history_server_ui": "https://spark-console.us-south.ae.cloud.ibm.com/v3/analytics_engines/79c757e9-xxxx-xxxx-xxxx-dff7f01xxxx/spark_history_ui",
+			"history_server_api":"https://spark-console.us-south.ae.cloud.ibm.com/v3/analytics_engines/79c757e9-xxxx-xxxx-xxxx-dff7f01xxxx/spark_history_api/v1"
 		},
 		"iam_apikey_description": "Auto-generated for key 2278e09d-b815-4c4b-b824-xxxx",
 		"iam_apikey_name": "service_key_02",

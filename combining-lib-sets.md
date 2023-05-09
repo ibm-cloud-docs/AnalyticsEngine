@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2022
 lastupdated: "2022-10-31"
 
-subcollection: analyticsengine
+subcollection: AnalyticsEngine
 
 ---
 
@@ -18,7 +18,7 @@ subcollection: analyticsengine
 # Combining library sets
 {: #combining-lib-sets}
 
-You can install a Python packages via pip or conda, as well as download a file as part of the library set by combining these options when you create the library set and prepare the JSON file tp pass in the REST API call. 
+You can install a Python packages via pip or conda, as well as download a file as part of the library set by combining these options when you create the library set and prepare the JSON file tp pass in the REST API call.
 
 You can use the combination option as shown in the following example:
 

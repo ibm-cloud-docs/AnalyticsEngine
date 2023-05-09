@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2022
 lastupdated: "2022-11-27"
 
-subcollection: analyticsengine
+subcollection: AnalyticsEngine
 
 ---
 
@@ -63,7 +63,7 @@ When you create an {{site.data.keyword.iae_full_notm}} from the catalog, you wil
 ### Default Spark runtime
 {: #default-spark-runtime}
 
-You can select which Spark version to use when the instance is provisioned. Currently, you can choose between Spark 3.1 and Spark 3.3. If you don't select a Spark runtime version,  Spark 3.1 is taken by default. 
+You can select which Spark version to use when the instance is provisioned. Currently, you can choose between Spark 3.1 and Spark 3.3. If you don't select a Spark runtime version,  Spark 3.1 is taken by default.
 
 The runtime contains only open source Spark binaries and is configured to help you to quickly get started to create and run Spark applications in the instance. In addition to the Spark binaries, the runtime also includes the geospatial, data skipping, and Parquet modular encryption libraries.
 
@@ -134,7 +134,7 @@ The following table shows the supported serverless instance features by access r
 | Delete instances | Administrator | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
 | Grant users permission | Administrator | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
 | Manage instance home storage | Administrator | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
-| Configure logging | Administrator   \n  Developer   \n  Devops | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | Not available |   
+| Configure logging | Administrator   \n  Developer   \n  Devops | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | Not available |
 | Submit Spark applications | Administrator   \n  Developer | Not available | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
 | View list of submitted Spark applications | Administrator   \n  Developer   \n  DevOps | Not available | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
 | Stop submitted Spark applications | Administrator   \n  Developer   \n  DevOps | Not available | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |

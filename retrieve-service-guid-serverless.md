@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2021
 lastupdated: "2021-08-25"
 
-subcollection: analyticsengine
+subcollection: AnalyticsEngine
 
 ---
 
@@ -40,8 +40,8 @@ To get the details of an instance:
 
     Example response:
     ```text
-    Name                  Location   State    Type               Resource Group ID   
-    serverless-instance   us-south   active   service_instance   65xxxxxxxxxxxxxxxa3fd 
+    Name                  Location   State    Type               Resource Group ID
+    serverless-instance   us-south   active   service_instance   65xxxxxxxxxxxxxxxa3fd
     ```
 1. Enter the following command with the server instance name of your instance to view the instance details:
     ```sh
@@ -52,23 +52,23 @@ To get the details of an instance:
     This retrieves your instance from the resource groups under your account.
 
     Example response:
-    ```text                   
+    ```text
     Name:                  Analytics Engine-xyz
     ID:
     crn:v1:staging:public:ibmanalyticsengine:us-south:a/XXXXX:XXXXX::
-    GUID:                  XXXXX   
-    Location:              us-south   
-    Service Name:          ibmanalyticsengine   
-    Service Plan Name:     standard-serverless-spark   
-    Resource Group Name:   Default   
-    State:                 active   
-    Type:                  service_instance   
-    Sub Type:                 
-    Created at:            2021-01-06T07:49:12Z   
-    Created by:            XXXXX   
-    Updated at:            2021-01-06T07:51:01Z   
-    Last Operation:                        
-                           status    create succeeded      
+    GUID:                  XXXXX
+    Location:              us-south
+    Service Name:          ibmanalyticsengine
+    Service Plan Name:     standard-serverless-spark
+    Resource Group Name:   Default
+    State:                 active
+    Type:                  service_instance
+    Sub Type:
+    Created at:            2021-01-06T07:49:12Z
+    Created by:            XXXXX
+    Updated at:            2021-01-06T07:51:01Z
+    Last Operation:
+                           status    create succeeded
                            Message   Started create instance operation
     ```
 
@@ -94,7 +94,7 @@ To get the details of an instance:
     curl -X GET https://resource-controller.cloud.ibm.com/v2/resource_instances? resource_plan_id=8afxxxx-xxxx-xxxx-xxxx-946d843xxxx -H "Authorization: Bearer <>" \
     ```
 	{: codeblock}
-	
+
     Example response:
     ```json
     {

@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2021
 lastupdated: "2021-09-15"
 
-subcollection: analyticsengine
+subcollection: AnalyticsEngine
 
 ---
 
@@ -59,5 +59,5 @@ To reference a library set when submitting a Spark application:
       "state": "accepted"
     }
     ```
-    
+
 1. Track the status of the application by invoking the application status REST API. See [Get the status of an application](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#spark-app-status).

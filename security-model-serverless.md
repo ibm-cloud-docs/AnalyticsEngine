@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2021
 lastupdated: "2021-04-19"
 
-subcollection: analyticsengine
+subcollection: AnalyticsEngine
 
 ---
 
@@ -32,11 +32,9 @@ As an administrator or creator of the service instance, you can grant or deny ac
 ## Encrypting at Rest
 {: #encrypting-at-rest}
 
-{{site.data.keyword.cos_full_notm}} is the recommended data store in which to store the data required for executing Spark applications on the instance. {{site.data.keyword.cos_full_notm}} offers encryption of the data stored in it. See Best practices for Cloud Object Storage encryption.
-All scratch data in the cluster's local file system, either on the master or worker nodes, which might be used during Spark application execution is encrypted at disk level.
+{{site.data.keyword.cos_full_notm}} is the recommended data store to store the data required for executing Spark jobs on the cluster. {{site.data.keyword.cos_full_notm}} comes with default built-in encryption. See [Encrypting your data](/docs/cloud-object-storage/basics?topic=cloud-object-storage-encryption#encryption).
 
-{{site.data.keyword.cos_full_notm}} is the recommended data store to store the data required for executing Spark jobs on the cluster.
-{{site.data.keyword.cos_full_notm}} comes with default built-in encryption. See [Encrypting your data](/docs/cloud-object-storage/basics?topic=cloud-object-storage-encryption#encryption).
+In addition, or as an alternative to using {{site.data.keyword.cos_full_notm}} storage encryption in analytic scenarios for large-scale data, you can use Parquet modular encryption, especially when fine-grained access control is important. See [Working with Parquet modular encryption](/docs/AnalyticsEngine?topic=AnalyticsEngine-parquet-encryption-serverless).
 
 ## Encrypting endpoints
 {: #encrypting-endpoints}

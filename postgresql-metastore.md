@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2022
 lastupdated: "2022-10-30"
 
-subcollection: analyticsengine
+subcollection: AnalyticsEngine
 
 ---
 
@@ -21,7 +21,7 @@ subcollection: analyticsengine
 # Using {{site.data.keyword.databases-for-postgresql_full_notm}} as external metastore 
 {: #postgresql-external-metastore}
 
-You can use {{site.data.keyword.databases-for-postgresql_full_notm}} to externalize metadata outside the {{site.data.keyword.iae_full_notm}} Spark cluster. 
+You can use {{site.data.keyword.databases-for-postgresql_full_notm}} to externalize metadata outside the {{site.data.keyword.iae_full_notm}} Spark cluster.
 
 1. Create an {{site.data.keyword.databases-for-postgresql_full_notm}} instance. See [{{site.data.keyword.databases-for-postgresql}}](https://cloud.ibm.com/databases/databases-for-postgresql/create).
 
@@ -33,7 +33,7 @@ You can use {{site.data.keyword.databases-for-postgresql_full_notm}} to external
 
     This step customizes the {{site.data.keyword.iae_full_notm}} instance to make the {{site.data.keyword.databases-for-postgresql}} certificate available to all Spark workloads run against the instance through the library set.
 
-    1. Upload the `customization_script.py` from the page in [Script based customization](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-script) to a {{site.data.keyword.cos_full_notm}} bucket. 
+    1. Upload the `customization_script.py` from the page in [Script based customization](/docs/AnalyticsEngine?topic=AnalyticsEngine-cust-script) to a {{site.data.keyword.cos_full_notm}} bucket.
     1. Run `postgres-cert-customization-submit.json` that uses the spark-submit REST API to customize the instance. Note that the code references `postgres.cert` that you uploaded to {{site.data.keyword.cos_full_notm}}.
 
         ```json
@@ -44,11 +44,11 @@ You can use {{site.data.keyword.databases-for-postgresql_full_notm}} to external
             "arguments": ["{\"library_set\":{\"action\":\"add\",\"name\":\"certificate_library_set\",\"script\":{\"source\":\"py_files\",\"params\":[\"https://s3.direct.<CHANGME>.cloud-object-storage.appdomain.cloud\",\"<CHANGEME_BUCKET_NAME>\",\"postgres.cert\",\"<CHANGEME_ACCESS_KEY>\",\"<CHANGEME_SECRET_KEY>\"]}}}"],
             "py-files": "cos://CHANGEME_BUCKET_NAME.mycosservice/customization_script.py"
             }
-        }         
+        } 
         ```
         {: codeblock}
 
-        Note that the library set name `certificate_library_set` must match the value of the {{site.data.keyword.databases-for-postgresql}} metastore connection parameter `ae.spark.librarysets` that you specified.    
+        Note that the library set name `certificate_library_set` must match the value of the {{site.data.keyword.databases-for-postgresql}} metastore connection parameter `ae.spark.librarysets` that you specified.
 1. Specify the following {{site.data.keyword.databases-for-postgresql}} metastore connection parameters as part of the Spark application payload or as instance defaults. Make sure that you use the private endpoint for the `"spark.hadoop.javax.jdo.option.ConnectionURL"` parameter below:
 
     ```sh
@@ -133,7 +133,3 @@ You can use {{site.data.keyword.databases-for-postgresql_full_notm}} to external
      main()
     ```
     {: codeblock}
-
-
-
-

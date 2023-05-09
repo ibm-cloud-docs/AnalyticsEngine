@@ -328,6 +328,7 @@ toc:
           label: FAQs
           topics:
           - faqs-serverless.md
+      - get-help.md
     #   - topicgroup:
     #       label: Classic instances
     #       topics:

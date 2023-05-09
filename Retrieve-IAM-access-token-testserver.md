@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2021
 lastupdated: "2021-05-05"
 
-subcollection: analyticsengine
+subcollection: AnalyticsEngine
 
 ---
 
@@ -62,7 +62,7 @@ To create a token in {{site.data.keyword.Bluemix_notm}}:
        "expiration": 1505865282
     }
     ```
-    
+
 1. Use the value of the `access_token` property for your {{site.data.keyword.iae_full_notm}} API calls. Set the `access_token`  value as the authorization header parameter for requests to the {{site.data.keyword.iae_full_notm}} APIs. The format is `Authorization: Bearer <access_token_value>`.
 
     For example:

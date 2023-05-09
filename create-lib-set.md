@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2022
 lastupdated: "2021-10-31"
 
-subcollection: analyticsengine
+subcollection: AnalyticsEngine
 
 ---
 
@@ -82,6 +82,6 @@ To create a library set:
       "state": "accepted"
     }
     ```
-    
+
     When the state turns to FINISHED, the library set creation is complete.
 1. Track the status of the application by invoking the application status REST API. See [Get the status of an application](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#spark-app-status).

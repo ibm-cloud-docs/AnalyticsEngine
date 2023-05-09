@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2021
 lastupdated: "2021-05-07"
 
-subcollection: analyticsengine
+subcollection: AnalyticsEngine
 
 ---
 

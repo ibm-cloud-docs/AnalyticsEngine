@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2022
 lastupdated: "2022-10-30"
 
-subcollection: analyticsengine
+subcollection: AnalyticsEngine
 
 ---
 
@@ -49,7 +49,7 @@ To create an {{site.data.keyword.iae_full_notm}} instance:
 1. Add Spark configuration values to override default Apache Spark settings.
 1. Click **Create** to provision the service instance in the background.
 
-    The newly created service is listed in your [{{site.data.keyword.Bluemix_short}} resource list](https://{DomainName}/resources){: external} under **Services*.  
+    The newly created service is listed in your [{{site.data.keyword.Bluemix_short}} resource list](https://{DomainName}/resources){: external} under **Services*.
 
 ## Creating a service instance using the IBM Cloud command-line interface
 {: #cli-provisioning}
@@ -120,22 +120,22 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
     Creating service instance MyServiceInstance in resource group Default of account <your account name> as <your user name>...
     OK
     Service instance MyServiceInstance was created.
-                            
-    Name:                MyServiceInstance   
-    ID:                  crn:v1:staging:public:ibmanalyticsengine:us-south:a/d628eae2cc7e4373bb0c9d2229f2ece5:1e32e***-afd9-483a-b1**-724ba5cf4***::   
-    GUID:                1e32e***-afd9-483a-b1**-724ba5cf4***   
-    Location:            us-south   
-    State:               provisioning   
-    Type:                service_instance   
-    Sub Type:               
-    Service Endpoints:   public   
-    Allow Cleanup:       false   
-    Locked:              false   
-    Created at:          2021-11-29T07:20:40Z   
-    Updated at:          2021-11-29T07:20:42Z   
-    Last Operation:                      
-                        Status    create in progress      
-                        Message   Started create instance operation   
+
+    Name:                MyServiceInstance
+    ID:                  crn:v1:staging:public:ibmanalyticsengine:us-south:a/d628eae2cc7e4373bb0c9d2229f2ece5:1e32e***-afd9-483a-b1**-724ba5cf4***::
+    GUID:                1e32e***-afd9-483a-b1**-724ba5cf4***
+    Location:            us-south
+    State:               provisioning
+    Type:                service_instance
+    Sub Type:
+    Service Endpoints:   public
+    Allow Cleanup:       false
+    Locked:              false
+    Created at:          2021-11-29T07:20:40Z
+    Updated at:          2021-11-29T07:20:42Z
+    Last Operation:
+                        Status    create in progress
+                        Message   Started create instance operation
     ```
 
     Make a note of the instance ID from the output. You will need the instance ID when you call instance management or Spark application management APIs. See [Spark application REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api).
@@ -198,7 +198,7 @@ To create a service instance using the Resource Controller REST API:
               "endpoint": "s3.direct.us-south.cloud-object-storage.appdomain.cloud",
               "hmac_access_key": "your-access-key",
               "hmac_secret_key": "your-secret-key"
-              }        
+              }
         }
     }
     ```

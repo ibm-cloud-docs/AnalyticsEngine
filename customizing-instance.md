@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2022
 lastupdated: "2022-10-31"
 
-subcollection: analyticsengine
+subcollection: AnalyticsEngine
 
 ---
 
@@ -44,4 +44,3 @@ When you create an instance you can:
 
 - The maximum size limit of a customization library set is 2 GB.
 - The start time of your Spark application or the time taken for additional executors to get added in an autoscaling scenario, is proportional to the size of the custom library set. Therefore it is a best practice to limit a library set to only the files that are  needed for a specific application. If other applications require different sets of files, it is better to use different library sets.
-
