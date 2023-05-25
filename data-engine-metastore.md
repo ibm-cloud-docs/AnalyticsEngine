@@ -36,8 +36,8 @@ The following are the pre-requisites:
 * Storing data in Cloud Object Storage
 * Creating schema
 
-    ### **Creating IBM Cloud Data Engine instance**
-    {: #metastore-prerequisite}
+### **Creating IBM Cloud Data Engine instance**
+    {: #metastore-prerequisite_line1}
 
     Create an {{site.data.keyword.sqlquery_notm}} instance by using the Standard plan. See [{{site.data.keyword.sqlquery_short}}](http://cloud.ibm.com/catalog/services/data-engine-previously-sql-query).
 
@@ -53,7 +53,8 @@ The following are the pre-requisites:
     • For more information on the currently supported data engine endpoints, see [Data engine endpoints](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#endpoints)
     {: important}
 
-    ### **Storing data in Cloud Object Storage**
+### **Storing data in Cloud Object Storage**
+{: #metastore-prerequisite_line2}
 
     Generate and store data in cloud object storage. Run the following regular PySpark application, called `generate-and-store-data.py` in this example, which stores Parquet data in some location on {{site.data.keyword.cos_full_notm}}.
 
@@ -82,7 +83,8 @@ The following are the pre-requisites:
     ```
     {: codeblock}
 
-    ### **Creating schema**
+### **Creating schema**
+{: #metastore-prerequisite_line3}
 
     Create the metastore table schema definition in the data engine. Note that you can't use standard Spark SQL syntax to create tables when using {{site.data.keyword.sqlquery_short}} as a metastore. There are two ways that you can use to create a table:
 

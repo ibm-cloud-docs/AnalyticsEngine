@@ -41,6 +41,17 @@ For information about changes to the _service-name_ API, see [Change log for _se
 
 
 
+## 25 May 2023
+{: #AnalyticsEngine-may2523}
+{: release-note}
+
+Pagination of application list in the REST API and CLI
+: You can now limit the number of applications returned by the Analytics Engine serverless REST API endpoint, SDK method and CLI command for [listing applications](https://cloud.ibm.com/apidocs/ibm-analytics-engine/ibm-analytics-engine-v3#list-applications).
+Use the query parameter limit to specify the number of applications to be returned and specify the value of `next.start` or `previous.start` from the API response as the value of the start query parameter to fetch the next or previous page of the results. The applications are listed in descending order based on the submission time, with the newest application being the first.
+
+The pagination is an optional feature in this release. From the next release of the service, the results will be paginated by default.
+{: note}
+
 ## 05 January 2023
 {: #AnalyticsEngine-jan0523}
 {: release-note}
