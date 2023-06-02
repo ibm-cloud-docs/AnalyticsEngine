@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-05"
+lastupdated: "2023-05-29"
 
 keywords: IBM Analytics Engine release notes
 
@@ -39,10 +39,21 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 For information about changes to the _service-name_ API, see [Change log for _service-name_ API](/docs/link-to-change-log).
 {: tip}  -->
 
+## May 2023
+{: #AnalyticsEngine-may23}
 
+### 29 May 2023
+{: #AnalyticsEngine-29may2023}
 
-## 25 May 2023
-{: #AnalyticsEngine-may2523}
+Removal of Python v3.9 support from Spark 3.1 and Spark 3.3 runtimes
+: The IBM Analytics Engine - Serverless Spark application plans to discontinue Python v3.9 support from Spark 3.1 and Spark 3.3 runtimes by June15, 2023. Support for Python v3.10 is already deployed for Spark 3.1 and Spark 3.3 runtime.
+Based on the workload, make sure that you test your spark application with the new version of Python, v 3.10 for any failures before June 15, 2023. Contact IBM Support for any issues. See the procedure for testing the Spark application [Run a Spark application with nondefault language version](https://cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#use-env-varsadd).
+
+<!-- The IBM Analytics Engine - Serverless Spark application now supports Python v 3.10. The previous version of Python, v3.9 will be revoked on June15, 2023. The IBM Analytics Engine - Serverless Spark application (Spark v3.1 and v3.2) does not support Python v3.9 there after and sets Python v3.10 as the default language for the IBM Analytics Engine - Serverless Spark application. See the [announcement](https://cloud.ibm.com/status/announcement?query=ANNOUNCEMENT%3A+Python+3.9+removal+from+IBM+Analytics+Engine+-+Serverless+Spark%0D%0A%0D) for reference.
+Based on the workload, make sure that you test your spark application with the new version of Python, v 3.10 for any failures before June 15, 2023. Contact IBM Support for any issues. See the procedure for testing the Spark application [Run a Spark application with nondefault language version](https://cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#use-env-varsadd). -->
+
+### 25 May 2023
+{: #AnalyticsEngine-25may2023}
 {: release-note}
 
 Pagination of application list in the REST API and CLI

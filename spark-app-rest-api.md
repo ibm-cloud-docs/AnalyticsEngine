@@ -330,6 +330,31 @@ if __name__ == '__main__':
 ```
 {: codeblock}
 
+## Run a Spark application with non-default language version
+
+The Spark runtime support Spark application written in the following languages:
+* Scala
+* Python
+* R
+
+A Spark runtime version comes with default runtime language version. IBM extend support for new language versions and remove the existing language version to keep the runtime free from any security vulnerabilities.
+The system also provides settling time to transition your workloads when ever there is a new language versions. You can test your workload with a language version by passing an environment variable that points to the language version of the application.
+
+Example:
+
+``` {
+	"application_details": {
+		"application": "/opt/ibm/spark/examples/src/main/python/wordcount.py",
+		"arguments": [
+			"/opt/ibm/spark/examples/src/main/resources/people.txt"
+		],
+		"env": {
+			"RUNTIME_PYTHON_ENV": "python310"
+		}
+	}
+}
+```
+{: codeblock}
 
 ## Learn more
 
