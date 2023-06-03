@@ -96,6 +96,10 @@ The following data types are supported in a time series:
 | string array  |	Time series with multivariate observations of type string array, for example: `[(1, ["a", "xq"]), (3, ["b", "zr"]), (5, ["c", "ms"]), (5, ["d", "rt"]), (5, ["e", "wu"]), (7, ["f", "vv"]), (9, ["g", "zw"])]`|
 | segment       | Time series of segments. The output of the `segmentBy` function, can be any type, including numeric, string, numeric array, and string array. For example: `[(1,[(1, 7.2), (3, 4.5)]), (5,[(5, 4.5), (5, 4.6), (5, 7.1)]), (7,[(7, 3.9), (9, 1.1)])]`|
 | dictionary    |	Time series of dictionaries. A dictionary can have arbitrary types inside it |
+{: caption="Table 1. Time series data types" caption-side="bottom"}
+{: #series-table-1}
+{: row-headers}
+
 
 ## Time series functions
 
