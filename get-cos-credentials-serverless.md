@@ -50,7 +50,7 @@ As system administrator, you can:
 - Create service IDs with access rights at *bucket level*
 
     You specify the {{site.data.keyword.cos_short}} buckets in the instance that can be accessed by the service ID. Here too, if needed, you can create several service IDs with access rights to different buckets. See [Creating a service ID at  bucket level](/docs/cloud-object-storage/iam?topic=cloud-object-storage-iam-bucket-permissions&interface=ui#iam-service-id).
-  
+
 ### Sharing service IDs
 
 The service ID credentials can readily be used by one user. However, if the {{site.data.keyword.cos_short}} instance needs to be shared by more than one users, you as the {{site.data.keyword.cos_short}} service administrator can:
@@ -109,4 +109,4 @@ The following table shows you which access method to the Object Storage service 
 | Grant access permissions | Service administrator | Service administrator |
 | Select credential type | HMAC and IAM API keys | IAM API key only |
 | Control access for user roles and data buckets | Yes| Yes|
-{: caption="{{site.data.keyword.cos_short}} access methods" caption-side="top"}
+{: caption="{{site.data.keyword.cos_short}} access methods" caption-side="bottom"}
