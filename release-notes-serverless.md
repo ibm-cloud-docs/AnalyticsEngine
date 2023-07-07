@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-05-29"
+lastupdated: "2023-07-07"
 
 keywords: IBM Analytics Engine release notes
 
@@ -38,6 +38,16 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 <!-- If you also have a change log for your API or CLI, include the following tip with a link to the change log.
 For information about changes to the _service-name_ API, see [Change log for _service-name_ API](/docs/link-to-change-log).
 {: tip}  -->
+
+## July 2023
+{: #AnalyticsEngine-07july2023}
+{: release-note}
+
+### 07 July 2023
+{: #AnalyticsEngine-07july2023}
+
+Spark maintenance release version update for 3.3
+: Spark applications with runtime set to Spark 3.3 will run internally using Spark 3.3.2 from now on. The patch version is now upgraded from 3.3.0 to 3.3.2.
 
 ## May 2023
 {: #AnalyticsEngine-may23}
