@@ -23,10 +23,6 @@ subcollection: AnalyticsEngine
 
 - [Provisioning a serverless instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-serverless)
 
-<!-- - **Classic instances**: The classic {{site.data.keyword.iae_short}} clusters that are created are allocated resources determined by a selected software package and hardware type (size). Pricing is set on a per hour or per month basis, irrespective of whether applications are running and consuming resources.
-
-  - [Classic instance architecture and concepts](/docs/AnalyticsEngine?topic=AnalyticsEngine-IAE-overview)
-  - [Provisioning a classic instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE) -->
 
 ## Getting started using serverless {{site.data.keyword.iae_full_notm}} instances
 {: #getting-started}
@@ -36,6 +32,7 @@ The {{site.data.keyword.iae_full_notm}} Standard Serverless plan for Apache Spar
 Currently, you can create {{site.data.keyword.iae_full_notm}} serverless instances only in the US South region.
 
 ## Before you begin
+{: #getting-started-1}
 
 To start running Spark applications in {{site.data.keyword.iae_full_notm}}, you need:
 
@@ -44,6 +41,7 @@ To start running Spark applications in {{site.data.keyword.iae_full_notm}}, you 
 - An {{site.data.keyword.iae_full_notm}} serverless instance.
 
 ## Provision an instance and create a cluster
+{: #getting-started-2}
 
 To provision an {{site.data.keyword.iae_full_notm}} instance:
 
@@ -51,6 +49,7 @@ To provision an {{site.data.keyword.iae_full_notm}} instance:
 1. [Provision a serverless instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-serverless)
 
 ## Run applications
+{: #getting-started-3}
 
 To run Spark applications in a serverless {{site.data.keyword.iae_full_notm}} instance:
 
@@ -60,6 +59,7 @@ To run Spark applications in a serverless {{site.data.keyword.iae_full_notm}} in
 1. Submit your Spark application by using the Livy batch API. See [Running Spark batch applications using the Livy API](/docs/analyticsengine?topic=AnalyticsEngine-livy-api-serverless).
 
 ## End-to-end scenario using the {{site.data.keyword.iae_short}} serverless CLI
+{: #getting-started-4}
 
 To help you get started quickly and simply with provisioning an {{site.data.keyword.iae_short}} instance and submitting Spark applications, you can use the {{site.data.keyword.iae_short}} serverless CLI.
 

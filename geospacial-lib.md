@@ -26,6 +26,7 @@ The spatio-temporal library is offered in all {{site.data.keyword.iae_full_notm}
 You can use the spatio-temporal lib for applications that run in a standalone {{site.data.keyword.iae_full_notm}} cluster, which you create for your data analysis processing, or in solutions that use {{site.data.keyword.iae_full_notm}}, for example in the Spark environments available in {{site.data.keyword.DSX_full}}.
 
 ## Key functions
+{: #geospatial-geotemporal-lib-1}
 
 The geospatial library includes functions to read and write data, topological functions, geohashing, indexing, ellipsoidal and routing functions.
 
@@ -37,6 +38,7 @@ Key aspects of the library include:
 - The library supports the SQL/MM extensions to Spark SQL.
 
 ## Getting started with the library
+{: #geospatial-geotemporal-lib-2}
 
 Before you can start using the library in a notebook, you must register `STContext` in your notebook to access the `st` functions.
 
@@ -51,12 +53,12 @@ stc = STContext(spark.sparkContext._gateway)
 
 After you have registered `STContext` in your notebook, you can begin exploring the spatio-temporal library for:
 
-- [Functions to read and write data](/docs/AnalyticsEngine?topic=AnalyticsEngine-read-write-data){: new_window}
-- [Topological functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-topological-functions){: new_window}
-- [Geohashing functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-geohashing-functions){: new_window}
-- [Geospatial indexing functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-spatial-indexing-functions){: new_window}
-- [Ellipsoidal functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-ellipsoidal-metrics){: new_window}
-- [Routing functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-routing-functions){: new_window}
+- [Functions to read and write data](/docs/AnalyticsEngine?topic=AnalyticsEngine-read-write-data){: external}
+- [Topological functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-topological-functions){: external}
+- [Geohashing functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-geohashing-functions){: external}
+- [Geospatial indexing functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-spatial-indexing-functions){: external}
+- [Ellipsoidal functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-ellipsoidal-metrics){: external}
+- [Routing functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-routing-functions){: external}
 
 ## Learn more
 {: #learn-more-goespatio-lib}
@@ -65,4 +67,4 @@ Check out the following Python notebooks to learn how to use the spacio-temporal
 
 - [Use the spatio-temporal library for location analytics](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/92c6ab6ea922d1da6a2cc9496a277005){: external}
 - [Use spatial indexing to query spatial data](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/a7432f0c29c5bda2fb42749f3628d981){: external}
-- [Spatial Queries in PySpark](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/27ecffa80bd3a386fffca1d8d1256ba7){: external}  
+- [Spatial Queries in PySpark](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/27ecffa80bd3a386fffca1d8d1256ba7){: external}

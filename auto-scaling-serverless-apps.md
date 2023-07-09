@@ -27,8 +27,7 @@ To assist you in this situation, you can submit a Spark application with auto-sc
 
 The steps to submit an application with autoscaling enabled is the same as the steps to submit an application without autoscaling. The only difference is that you need to add the configuration setting `ae.spark.autoscale.enable=true` to the application payload.
 
-1. [Submit a Spark application](
-https://test.cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#spark-submit-app).
+1. [Submit a Spark application](https://test.cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#spark-submit-app).
 1. Use the following sample JSON payload as an example to enable basic autoscaling:
     ```json
     {
@@ -44,6 +43,7 @@ https://test.cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-
     {: codeblock}
 
 ## Autoscaling application configurations
+{: #appl-auto-app}
 
 You can use the following configuration settings to further control autoscaling the number of executors.
 
@@ -81,5 +81,6 @@ Example of an auto-scaling application payload showing the lower and upper bound
 {: codeblock}
 
 ## Enabling autoscaling on an instance
+{: #appl-auto-2}
 
 By default, application autoscaling is disabled when you create an instance of the {{site.data.keyword.iae_short}} Standard serverless plan. If you want to enable automatic scaling for all applications at the instance level, you can explicitly set "ae.spark.autoscale.enable": "true" as a default Spark configuration when you create the instance. See [Default Spark configuration](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts#default-spark-config).

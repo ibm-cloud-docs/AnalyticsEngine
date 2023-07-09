@@ -40,13 +40,13 @@ The Anaconda3 environment on `AE 1.2` clusters comes with Python 3.7. See [Insta
 
 To install Python 3.x libraries, your script must install in the `conda3` environment by using:
 
- ```
+ ```bash
  pip install <package-name>
  ```
 
  If you install from a local or remote archive, use:
 
- ```
+ ```bash
  pip install <archive url or local file path>
  ```
 
@@ -71,26 +71,28 @@ To install the R package from an archive file:
 
 1. Download the archive repository:
 
- ```
+ ```bash
 wget <path-to-archive>/<packagename>/<packagename>_<version>.tar.gz
  ```
 
 2. Use the R command to install the package:
 
- ```
+ ```bash
 R CMD INSTALL <packagename>_<version>.tar.gz
  ```
 
 To install an R package from a CRAN repository:
 
 1. Use the following command:
-```
+
+```bash
 R -e "install.packages('<package-name>', repos='<cran-repo-base-url>')"
 ```
 
 Note that in both cases, the packages are installed to the `~/R` directory. This is important as otherwise, the R packages won't be available in your R notebook and Spark environments.
 
 ## Notebook or interactive session specific installations
+{: #install-interactive-3}
 
 The Apache Toree based Scala kernel supports the `%AddDeps` and `%AddJar` line magics that can be used to add Scala and Java libraries to the running session.
 
@@ -98,13 +100,13 @@ Installing the libraries into an interactive session in this manner is temporary
 
 `%AddDeps` takes maven coordinates of a library as an argument and can download transitive dependencies from a Maven repository. For example:
 
-```
+```bash
 %AddDeps org.joda joda-money 0.11 --transitive --trace --verbose
 ```
 
 `%AddJar%` takes a URL pointing to a library JAR as an argument which gets downloaded and added to the environment. For example:
 
-```
+```bash
 %AddJar https://repo1.maven.org/maven2/org/joda/joda-money/0.11/joda-money-0.11.jar
 ```
 These libraries are made available to the executors.
@@ -112,10 +114,11 @@ These libraries are made available to the executors.
 See this [tutorial on magics supported by the Apache Toree kernel](https://github.com/apache/incubator-toree/blob/master/etc/examples/notebooks/magic-tutorial.ipynb)  for more details.
 
 ## Local node installation
+{: #install-node}
 
 Python packages can be permanently installed on the host running the JNBG service by executing the following command in a Python notebook or interactive session.
 
-```
+```bash
 !pip install <package-name>
 ```
 

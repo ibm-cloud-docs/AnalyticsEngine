@@ -28,6 +28,7 @@ You can move data:
 The examples in this topic show moving data to and from bucket `b1` in the Object Storage instance that is distinguished using the  `cosinstance1` identifier.
 
 ## Moving data between the local file system of your cluster and {{site.data.keyword.cos_full_notm}}
+{: #data-movement-1}
 
 You can move data to and from the local file system of your cluster and {{site.data.keyword.cos_full_notm}}.
 
@@ -43,6 +44,7 @@ You can move data to and from the local file system of your cluster and {{site.d
     ```
 
 ## Moving data between HDFS and {{site.data.keyword.cos_full_notm}}
+{: #data-movement-2}
 
 You can move data to and from the HDFS file system of your cluster and {{site.data.keyword.cos_full_notm}}. For example:
 
@@ -52,7 +54,7 @@ You can move data to and from the HDFS file system of your cluster and {{site.da
     hadoop distcp cos://b1.cosinstance1/mydir/ /tmp/test.data
     ```
 
-  `hdfs://` is implied. It can also be explicitly specified, if the {{site.data.keyword.Bluemix_short}} hosting location is `us-south` for example:
+    `hdfs://` is implied. It can also be explicitly specified, if the {{site.data.keyword.Bluemix_short}} hosting location is `us-south` for example:
 
     ```java
     hdfs://chs-czq-182-mn002.us-south.ae.appdomain.cloud:8020/tmp/test.data
@@ -64,6 +66,7 @@ You can move data to and from the HDFS file system of your cluster and {{site.da
 For information on how you can use the {{site.data.keyword.cos_short}} API or the UI to work with data objects outside of your cluster, see [Uploading data to  {{site.data.keyword.cos_short}}](/docs/cloud-object-storage?topic=cloud-object-storage-upload).
 
 ## Useful {{site.data.keyword.cos_short}} housekeeping commands
+{: #data-movement-5}
 
 You can issue any of the following commands from your cluster to a {{site.data.keyword.cos_full_notm}} bucket to list, view, create or remove a directory:
 ```java

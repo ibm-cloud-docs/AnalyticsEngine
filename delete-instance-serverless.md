@@ -31,6 +31,7 @@ The underlying cluster is deleted when the service instance is deleted. All data
 **Important**: {{site.data.keyword.iae_full_notm}} service instances, which were created before June 06 2018 in the Cloud Foundry organization and space, can be deleted only by using the {{site.data.keyword.Bluemix_notm}} user interface, the cf CLI, or the cf REST API.
 
 ## {{site.data.keyword.Bluemix_notm}} user interface
+{: #delete-service_1}
 
 To delete an {{site.data.keyword.iae_full_notm}} instance by using the {{site.data.keyword.Bluemix_notm}} user interface:
 
@@ -38,6 +39,7 @@ To delete an {{site.data.keyword.iae_full_notm}} instance by using the {{site.da
 1. From the service instance's Action menu, choose 'Delete Service'.
 
 ## {{site.data.keyword.Bluemix_notm}} CLI
+{: #delete-service_2}
 
 **Prerequisite**: If you have any service keys for your service instance, you must delete them first, before attempting to delete the service instance.
 
@@ -52,6 +54,7 @@ ibmcloud resource service-instance-delete <service_instance_name>
 {: codeblock}
 
 ## Resource Controller REST API
+{: #delete-service_3}
 
 **Prerequisite**: If you have any service keys for your service instance, you must delete them first, before attempting to delete the service instance. See [managing my IBM Cloud resources using the Resource Controller REST API](https://{DomainName}/apidocs/resource-controller) for more about deleting service keys.
 

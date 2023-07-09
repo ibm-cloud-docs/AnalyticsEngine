@@ -46,6 +46,7 @@ You can also use data skipping when querying geospatial data sets using [geospat
 The next sections show you to work with the geospatial plugin.
 
 ### Setting up the geospatial plugin
+{: #geospatial-1}
 
 To use a plugin, load the relevant implementations using the Registration module:
 
@@ -74,6 +75,7 @@ To use a plugin, load the relevant implementations using the Registration module
     ```
 
 ### Index building
+{: #geospatial-2}
 
 To build an index, you can use the `addCustomIndex` API:
 
@@ -105,6 +107,7 @@ To build an index, you can use the `addCustomIndex` API:
     ```
 
 ### Supported functions
+{: #geospatial-3}
 
 The list of supported geospatial functions includes the following:
 
@@ -148,7 +151,7 @@ When using index encryption, whenever a `key` is configured in any Xskipper API,
 
 To use index encryption:
 
-1. Follow all the steps to make sure PME is enabled. See [PME](/docs/AnalyticsEngine?topic=AnalyticsEngine-parquet-encryption){: new_window}.
+1. Follow all the steps to make sure PME is enabled. See [PME](/docs/AnalyticsEngine?topic=AnalyticsEngine-parquet-encryption).
 1. Perform all *regular* PME configurations, including Key Management configurations.
 1. Create encrypted metadata for a data set:
 
@@ -251,6 +254,7 @@ If you want the footer + object name to be left in plain text mode (as mentioned
     ```
 
 ## Support for older metadata
+{: #geospatial-15}
 
 Xskipper supports older metadata created by the MetaIndexManager seamlessly. Older metadata can be used for skipping as updates to the Xskipper metadata are carried out automatically by the next refresh operation.
 

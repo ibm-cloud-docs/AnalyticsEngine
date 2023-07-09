@@ -21,9 +21,10 @@ subcollection: AnalyticsEngine
 The spatio-temporal library includes geohashing functions for proximity search (encoding latitude and longitude and grouping nearby points) in location data analysis.
 
 ## Geohash encoding
+{: #geohashing-functions-1}
 
 - Encode a Point object with a geographic location to a base-32 encoded string of letters or digits:
-    ```
+    ```bash
     >>> p = stc.point(37, -74)
     >>> stc.geohash.string_hash_encode(p)
     'dqe6kpdue5btnubpm9npcd0000'
@@ -31,7 +32,7 @@ The spatio-temporal library includes geohashing functions for proximity search (
     'dqe6k'
     ```
 - Encode a Point object with a geographic location to a BitVector:
-    ```
+    ```bash
     >>> p = stc.point(37, -74)
     >>> bv = stc.geohash.number_hash_encode(p)
     >>> bv
@@ -41,7 +42,7 @@ The spatio-temporal library includes geohashing functions for proximity search (
     BitVector(0110010110)
     ```
 - Encode a pair of latitude and longitude coordinates directly to a geohash:
-    ```
+    ```bash
     >>> stc.geohash.encode(37, -74, precision=5, mode='base32')
     'dqe6k'
     >>> stc.geohash.encode(37, -74, precision=10, mode='bit')
@@ -49,21 +50,22 @@ The spatio-temporal library includes geohashing functions for proximity search (
     ```
 
 ## Geohash decoding
+{: #geohashing-functions-2}
 
 - Decode geographic base 32 digits or a string to a Point object with the decimal longitude or latitude coordinates:
-    ```
+    ```bash
     >>> stc.geohash.string_hash_decode('dqeh4')
     Point(37.265625, -74.443359375)
     ```
 - Decode base-32 encoded characters to a Point object:
-    ```
+    ```bash
     >>> p = stc.point(37, -74)
     >>> bv = geohash.number_hash_encode(p)
     >>> geohash.number_hash_decode(bv)
     Point(37.0, -74.0)
     ```
 - Decode a base-32 or binary string to a pair of latitude and longitude coordinates:
-    ```
+    ```bash
     >>> stc.geohash.decode('dqe6k', mode='base32')
     (36.9580078125, -74.00390625)
     >>> stc.geohash.decode('0110010110', mode='bit')
@@ -71,11 +73,15 @@ The spatio-temporal library includes geohashing functions for proximity search (
     ```
 
 ## Geohash neighbors
+{: #geohashing-functions-3}
+
 The geohash neighbors function returns the neighboring geohash codes around a specified code.
 
 ### Geohash neighbors for a point
+{: #geohashing-functions-4}
+
 - Get the geohash neighbors for the given latitude, longitude and bit_depth:
-    ```
+    ```bash
     >>> stc.geohash.get_all_neighbors(70, -40, 25)
     [BitVector(0111110000001111100101010),
      BitVector(0111110000001111100101011),
@@ -89,7 +95,7 @@ The geohash neighbors function returns the neighboring geohash codes around a sp
     ```
 
 - Get the geohash neighbors for a given latitude, longitude and bit_depth, and only return the results that are within a given distance:
-    ```
+    ```bash
     >>>geohash.get_all_neighbors(70, -40, 25, distance_precision=1000)
     [BitVector(0111110000001111110000001),
      BitVector(0111110000001111110000100),
@@ -98,24 +104,25 @@ The geohash neighbors function returns the neighboring geohash codes around a sp
     ```
 
 ### Geohash neighboring functions
+{: #geohashing-functions-5}
 
 - `expand`: Returns the center code and its neighbors. All 9 geohashes for a location are returned:
-    ```
+    ```bash
     >>> stc.geohash.expand('ezs42')
     ['ezefp', 'ezs40', 'ezs41', 'ezefr', 'ezs42', 'ezs43', 'ezefx', 'ezs48', 'ezs49']
     ```
 - `neighbors`: Returns 8 geohashes, excluding the given geohash itself:
-    ```
+    ```bash
     >>> stc.geohash.neighbors('ezs42')
     ['ezefp', 'ezs40', 'ezs41', 'ezefr', 'ezs43', 'ezefx', 'ezs48', 'ezs49']
     ```
 - `get_east`, `get_west`, `get_north`, `get_south`: Returns the east, west, north, or south geohash for a given geohash:
-    ```
+    ```bash
     >>> stc.geohash.get_east('ezs42')
     'ezs43'
     ```
 - Encode a geohash to a `BitVector`:
-    ```
+    ```bash
     >>> bv = geohash.number_hash_encode(p)
     >>> bv.truncate(25)
     >>> stc.geohash.expand(bv)
@@ -142,28 +149,29 @@ The geohash neighbors function returns the neighboring geohash codes around a sp
     ```
 
 ## Geohash coverage
+{: #geohashing-functions-6}
 
 To calculate a set of geohashes that wholly covers the bounding box:
 
 1. Prepare a sample polygon:
-    ```
+    ```bash
     test_wkt = 'POLYGON((-73.76223024988917 41.04173285255264,-73.7749331917837 41.04121496082817,-73.78197130823878 41.02748934524744,-73.76476225519923 41.023733725449326,-73.75218805933741 41.031633228865495,-73.7558787789419 41.03752486433286,-73.76223024988917 41.04173285255264))'
     poly = wkt_reader.read(test_wkt)
     ```
 2. Compute the geohash cover at a fixed bit depth for a given geometry:
-    ```
+    ```bash
     cover = stc.geohash.geohash_cover_at_bit_depth(poly, 36)
     ```
     ![Shows geohash coverage at a fixed bit depth for a given geometry.](images/cover.png){: caption="Figure 1. Geohash coverage at a fixed bit depth for a given geometry" caption-side="bottom"}
 
 3. Compute the buffered geohash cover at a fixed bit depth for a given geometry:
-    ```
+    ```bash
     buffered_cover = stc.geohash.geohash_cover_at_bit_depth(poly, 36, distance=50)
     ```
     ![Shows buffered geohash coverage at a fixed bit depth for a given geometry.](images/buffered_cover.png){: caption="Figure 2. Buffered geohash coverage at a fixed bit depth for a given geometry" caption-side="bottom"}
 
 4. Compute a compact geohash cover by computing the fixed depth cover first and then compressing the cover:
-    ```
+    ```bash
     raw_cover = stc.geohash.geohash_cover_at_bit_depth(poly, 36)
     compact_cover = stc.geohash.geohash_compression(raw_cover)
     ```

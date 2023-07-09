@@ -22,23 +22,24 @@ subcollection: AnalyticsEngine
 This topic describes how to manage column encryption keys by application. It explains how to provide master keys and how to write and read encrypted data using these master keys.
 
 ## Providing master keys
+{: #key-management-application-serverless-1}
 
 To provide master keys:
 
 1. Set the class implementing EncryptionPropertiesFactory:
-    ```
+    ```bash
     parameter name: "parquet.crypto.factory.class"
     parameter value: "com.ibm.parquet.key.management.IBMKeyToolsFactory"
     ```
 1. Pass the explicit master keys, in the following format:
 
-    ```
+    ```bash
     parameter name: "parquet.encryption.key.list"
     parameter value: "<master key ID>:<master key (base64)> , <master key ID>:<master key (base64)>.."
     ```
 
     For example:
-    ```
+    ```bash
     sc.hadoopConfiguration.set("parquet.crypto.factory.class","com.ibm.parquet.key.management.IBMKeyToolsFactory")
     sc.hadoopConfiguration.set("parquet.encryption.key.list" , "k1:iKwfmI5rDf7HwVBcqeNE6w== , k2:LjxH/aXxMduX6IQcwQgOlw== , k3:rnZHCxhUHr79Y6zvQnxSEQ==")
     ```
@@ -65,25 +66,26 @@ To write encrypted data:
     .option("parquet.encryption.column.keys" , "k2:SSN,Address;k3:CreditCard")
     .parquet("<path to encrypted files>")
     ```
-    
+
     **Note**: If either the `"parquet.encryption.column.keys"` parameter or the  `"parquet.encryption.footer.key"` parameter is not set, an exception will be thrown.
 
 ## Reading encrypted data
+{: #key-management-application-serverless-2}
 
 The required metadata is stored in the encrypted Parquet files.
 
 To read the encrypted data:
 
 1. Set the class implementing EncryptionPropertiesFactory:
-    ```
+    ```bash
     sc.hadoopConfiguration.set("parquet.crypto.factory.class","com.ibm.parquet.key.management.IBMKeyToolsFactory")
     ```
 1. Provide the encryption keys:
-    ```
+    ```bash
     sc.hadoopConfiguration.set("parquet.encryption.key.list" , "k1:iKwfmI5rDf7HwVBcqeNE6w== , k2:LjxH/aXxMduX6IQcwQgOlw== , k3:rnZHCxhUHr79Y6zvQnxSEQ==")
     ```
 1. Call the regular parquet read commands, such as:
-    ```
+    ```bash
     val dataFrame = spark.read.parquet("<path to encrypted files>")
     ```
 
@@ -98,7 +100,7 @@ If key rotation is required, the following Hadoop configuration properties must 
 - The parameter `"parquet.crypto.factory.class"` must be set to `"com.ibm.parquet.key.management.IBMKeyToolsFactory"`
 
 For example:
-```
+```bash
 sc.hadoopConfiguration.set("parquet.encryption.key.list", OLD_KEYS)
 sc.hadoopConfiguration.set("parquet.encryption.new.key.list", NEW_KEYS)
 sc.hadoopConfiguration.set("parquet.encryption.key.material.store.internally", "false")

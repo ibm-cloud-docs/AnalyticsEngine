@@ -32,6 +32,7 @@ Log aggregation can only be configured for  {{site.data.keyword.iae_full_notm}} 
 {: note}
 
 ## Aggregation operations
+{: #log-aggregation-1}
 
 There are different ways for you to aggregate cluster logs.
 You can:
@@ -57,8 +58,7 @@ If log aggregation is configured for data (compute) and task nodes, the configur
 The following prerequisites must be met before you can begin collecting cluster logs to a centralized server:
 
 - You must have an existing {{site.data.keyword.iae_full_notm}} service instance. Presently, REST API is the only mode with which you can configure log aggregation.
-- You must create an {{site.data.keyword.la_full_notm}} service instance. To create an instance in {{site.data.keyword.Bluemix_short}}, see [{{site.data.keyword.la_full_notm}}
-](https://cloud.ibm.com/observe/logging){: external}. For details on monitoring and managing log data with {{site.data.keyword.la_full_notm}}, see [provisioning a service instance](/docs/log-analysis?topic=log-analysis-provision){: external}.
+- You must create an {{site.data.keyword.la_full_notm}} service instance. To create an instance in {{site.data.keyword.Bluemix_short}}, see [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){: external}. For details on monitoring and managing log data with {{site.data.keyword.la_full_notm}}, see [provisioning a service instance](/docs/log-analysis?topic=log-analysis-provision){: external}.
 - You must have access to the {{site.data.keyword.la_short}}  ingestion key. See [Getting the ingestion key](/docs/log-analysis?topic=log-analysis-ingestion_key){: external}.
 - You must have the following IAM access permissions (roles) to the {{site.data.keyword.iae_full_notm}} service instance and the resource group. Two types of roles exist:
 
@@ -67,10 +67,11 @@ The following prerequisites must be met before you can begin collecting cluster 
 
     See [Granting permissions](/docs/AnalyticsEngine?topic=AnalyticsEngine-grant-permissions){: external}.
 - You need your IAM access token. See [Retrieving the IAM access token](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-iam-token){: external}.
-- You need the `cluster_management.api_url` for the service endpoints of your {{site.data.keyword.iae_full_notm}} service instance. See [Retrieving service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints){: external}.  
+- You need the `cluster_management.api_url` for the service endpoints of your {{site.data.keyword.iae_full_notm}} service instance. See [Retrieving service endpoints](/docs/AnalyticsEngine?topic=AnalyticsEngine-retrieve-endpoints){: external}.
 - When you configure  {{site.data.keyword.iae_full_notm}} to work with the {{site.data.keyword.la_short}} instance, you can select to connect to the **private** endpoints of the instance. We encourage you to use private endpoints as this increases performance and is more cost effective. See [Cloud service endpoints integration](/docs/AnalyticsEngine?topic=AnalyticsEngine-service-endpoint-integration){: external}.
 
 ## Configuring log aggregation
+{: #log-aggregation-config}
 
 You configure log aggregation by invoking the PUT operation on the  `log_config` endpoint of the {{site.data.keyword.iae_full_notm}}  cluster management API.
 
@@ -114,7 +115,9 @@ For the `api_host` and `log_host` input parameters, use the region specific endp
 
 You can use the following component names:
 
-**Management node components**  
+**Management node components**
+{: #log-aggregation-node components}
+
 - `ambari-server`
 - `hadoop-mapreduce`
 - `hadoop-yarn`
@@ -129,6 +132,8 @@ You can use the following component names:
 - `spark2`
 
 **Data (compute) node components**
+{: #log-aggregation-data-node-components}
+
 - `hadoop-mapreduce`
 - `hadoop-yarn`
 - `hdfs`
@@ -137,16 +142,20 @@ You can use the following component names:
 - `yarn-apps`
 
 **Task node components**
+{: #log-aggregation-task-node-comp}
+
 - `hadoop-mapreduce`
 - `hadoop-yarn`
 - `spark2`
 - `yarn-apps`
 
 ## Reconfiguring log aggregation
+{: #log-aggregation-reconf-log-aggregation}
 
 You can update the log configuration by invoking the same REST API you used for configuring log aggregation. However, note that when you reconfigure, the existing configuration is overwritten. For example, if you invoked the configure API on both the management and data nodes, and then you reconfigure the API for the data node only, the management node’s log configuration is removed.
 
 ## Retrieving the status of the log configuration
+{: #log-aggregation-retrieving-log-config}
 
 You retrieve the status and details of the log configuration for your cluster by invoking the GET API.
 
@@ -192,6 +201,8 @@ This is a sample response:
 ```
 
 ## Deleting the log configuration
+{: #log-aggregation-deleting-log-config}
+
 
 You delete the log configuration by invoking the DELETE API. This operation stops sending logs to the centralized log server.
 
