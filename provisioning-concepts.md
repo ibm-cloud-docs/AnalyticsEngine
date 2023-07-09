@@ -125,6 +125,7 @@ For the default limits and quotas for {{site.data.keyword.iae_short}} instances 
 When you create an instance you can override the open source default Apache Spark configuration settings. Note that you can specify or change configuration options after the instance was created. You can override or add settings by using the REST API. See [Spark application REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api).
 
 ## Serverless instance features and execution methods
+{: #default-spark-config-1}
 
 The following table shows the supported serverless instance features by access role and execution methods.
 

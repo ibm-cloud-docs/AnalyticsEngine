@@ -112,7 +112,7 @@ window_ts = ts.segment(3, 2)
 window_ts
 ```
 The output is as follows:
-```
+```bash
 TimeStamp: 0     Value: original bounds: (0,2) actual bounds: (0,2) observations: [(0,5.0),(1,2.0),(2,4.0)]
 TimeStamp: 2     Value: original bounds: (2,4) actual bounds: (2,4) observations: [(2,4.0),(3,6.0),(4,6.0)]
 ```
@@ -268,6 +268,7 @@ max:7.0
 ```
 
 ## Learn more
+{: #performing-learn}
 
 - [Time series key functionality](/docs/AnalyticsEngine?topic=AnalyticsEngine-time-series-key-functionality)
 - [Time series functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-time-series-functions)

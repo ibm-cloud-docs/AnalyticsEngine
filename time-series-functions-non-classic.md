@@ -83,58 +83,60 @@ Segmentation or windowing is the process of splitting a time series into multipl
 
 - Window based segmentation
 
-  This type of segmentation of a time series is based on user specified segment sizes. The segments can be record based or time based. There are options that allow for creating tumbling as well as sliding window based segments.
-  ```python
+    This type of segmentation of a time series is based on user specified segment sizes. The segments can be record based or time based. There are options that allow for creating tumbling as well as sliding window based segments.
+
+    ```python
   >>> import sparktspy as tspy
   >>> ts_orig = tspy.builder()
      .add(tspy.observation(1,1.0))
      .add(tspy.observation(2,2.0))
      .add(tspy.observation(6,6.0))
      .result().to_time_series()
-  >>> ts_orig
-  TimeStamp: 1     Value: 1.0
-  TimeStamp: 2     Value: 2.0
-  TimeStamp: 6     Value: 6.0
+    >>> ts_orig
+    TimeStamp: 1     Value: 1.0
+    TimeStamp: 2     Value: 2.0
+    TimeStamp: 6     Value: 6.0
 
-  >>> ts = ts_orig.segment_by_time(3,1)
-  >>> ts
-  TimeStamp: 1     Value: original bounds: (1,3) actual bounds: (1,2) observations: [(1,1.0),(2,2.0)]
-  TimeStamp: 2     Value: original bounds: (2,4) actual bounds: (2,2) observations: [(2,2.0)]
-  TimeStamp: 3     Value: this segment is empty
-  TimeStamp: 4     Value: original bounds: (4,6) actual bounds: (6,6) observations: [(6,6.0)]
-  ```
+    >>> ts = ts_orig.segment_by_time(3,1)
+    >>> ts
+    TimeStamp: 1     Value: original bounds: (1,3) actual bounds: (1,2) observations: [(1,1.0),(2,2.0)]
+    TimeStamp: 2     Value: original bounds: (2,4) actual bounds: (2,2) observations: [(2,2.0)]
+    TimeStamp: 3     Value: this segment is empty
+    TimeStamp: 4     Value: original bounds: (4,6) actual bounds: (6,6) observations: [(6,6.0)]
+    ```
+
 - Anchor based segmentation
 
-  Anchor based segmentation is a very important type of segmentation that creates a segment by anchoring on a specific lambda, which can be a simple value. An example is looking at events that preceded a 500 error or examining values after  observing an anomaly. Variants of anchor based segmentation include providing a range with multiple markers.
-  ```python
-  >>> import sparktspy as tspy
-  >>> ts_orig = tspy.time_series([1.0, 2.0, 3.0, 4.0, 5.0])
-  >>> ts_orig
-  TimeStamp: 0     Value: 1.0
-  TimeStamp: 1     Value: 2.0
-  TimeStamp: 2     Value: 3.0
-  TimeStamp: 3     Value: 4.0
-  TimeStamp: 4     Value: 5.0
+    Anchor based segmentation is a very important type of segmentation that creates a segment by anchoring on a specific lambda, which can be a simple value. An example is looking at events that preceded a 500 error or examining values after  observing an anomaly. Variants of anchor based segmentation include providing a range with multiple markers.
+    ```python
+    >>> import sparktspy as tspy
+    >>> ts_orig = tspy.time_series([1.0, 2.0, 3.0, 4.0, 5.0])
+    >>> ts_orig
+    TimeStamp: 0     Value: 1.0
+    TimeStamp: 1     Value: 2.0
+    TimeStamp: 2     Value: 3.0
+    TimeStamp: 3     Value: 4.0
+    TimeStamp: 4     Value: 5.0
 
-  >>> ts = ts_orig.segment_by_anchor(lambda x: x % 2 == 0, 1, 2)
-  >>> ts
-  TimeStamp: 1     Value: original bounds: (0,3) actual bounds: (0,3) observations: [(0,1.0),(1,2.0),(2,3.0),(3,4.0)]
-  TimeStamp: 3     Value: original bounds: (2,5) actual bounds: (2,4) observations: [(2,3.0),(3,4.0),(4,5.0)]
-  ```
+    >>> ts = ts_orig.segment_by_anchor(lambda x: x % 2 == 0, 1, 2)
+    >>> ts
+    TimeStamp: 1     Value: original bounds: (0,3) actual bounds: (0,3) observations: [(0,1.0),(1,2.0),(2,3.0),(3,4.0)]
+    TimeStamp: 3     Value: original bounds: (2,5) actual bounds: (2,4) observations: [(2,3.0),(3,4.0),(4,5.0)]
+    ```
 - Segmenters
 
-  There are several specialized segmenters provided out of the box by importing the `segmenters` package (using `from tspy.functions import segmenters`). An example segmenter is one that uses regression to segment a time series:
-  ```python
-  >>> ts = tspy.time_series([1.0,2.0,3.0,4.0,5.0,2.0,1.0,-1.0,50.0,53.0,56.0])
-  >>> max_error = .5
-  >>> skip = 1
-  >>> reg_sts = ts.to_segments(segmenters.regression(max_error,skip,use_relative=True))
-  >>> reg_sts
+    There are several specialized segmenters provided out of the box by importing the `segmenters` package (using `from tspy.functions import segmenters`). An example segmenter is one that uses regression to segment a time series:
+    ```python
+    >>> ts = tspy.time_series([1.0,2.0,3.0,4.0,5.0,2.0,1.0,-1.0,50.0,53.0,56.0])
+    >>> max_error = .5
+    >>> skip = 1
+    >>> reg_sts = ts.to_segments(segmenters.regression(max_error,skip,use_relative=True))
+    >>> reg_sts
 
-  TimeStamp: 0     Value:   range: (0, 4)   outliers: {}
-  TimeStamp: 5     Value:   range: (5, 7)   outliers: {}
-  TimeStamp: 8     Value:   range: (8, 10)   outliers: {}
-  ```
+    TimeStamp: 0     Value:   range: (0, 4)   outliers: {}
+    TimeStamp: 5     Value:   range: (5, 7)   outliers: {}
+    TimeStamp: 8     Value:   range: (8, 10)   outliers: {}
+    ```
 
 ## Reducers
 {: #time-series-reducers}
@@ -145,21 +147,21 @@ Several  `reducer` functions are supported, including:
 
 - Distance reducers
 
-  Distance reducers are a class of reducers that compute the distance between two time series. The library supports numeric as well as categorical distance functions on sequences. These include time warping distance measurements such as Itakura  Parallelogram, Sakoe-Chiba Band, DTW non-constrained and DTW non-time warped contraints. Distribution distances such as Hungarian distance and Earth-Movers distance are also available.
+    Distance reducers are a class of reducers that compute the distance between two time series. The library supports numeric as well as categorical distance functions on sequences. These include time warping distance measurements such as Itakura  Parallelogram, Sakoe-Chiba Band, DTW non-constrained and DTW non-time warped contraints. Distribution distances such as Hungarian distance and Earth-Movers distance are also available.
 
-  For categorical time series distance measurements, you can use  Damerau Levenshtein and Jaro-Winkler distance measures.
-  ```python
+    For categorical time series distance measurements, you can use  Damerau Levenshtein and Jaro-Winkler distance measures.
+    ```python
   >>> from tspy.functions import *
   >>> ts = tspy.time_series([1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
   >>> ts2 = ts.transform(transformers.awgn(sd=.3))
   >>> dtw_distance = ts.reduce(ts2,reducers.dtw(lambda obs1, obs2: abs(obs1.value - obs2.value)))
   >>> print(dtw_distance)
   1.8557981638880405
-  ```
+    ```
 - Math reducers
 
-  Several convenient math reducers for numeric time series are provided. These include basic ones such as average, sum, standard deviation, and moments. Entropy, kurtosis, FFT and variants of it, various correlations, and histogram are also included. A convenient basic summarization reducer is the `describe` function that provides basic information about the time series.
-  ```python
+    Several convenient math reducers for numeric time series are provided. These include basic ones such as average, sum, standard deviation, and moments. Entropy, kurtosis, FFT and variants of it, various correlations, and histogram are also included. A convenient basic summarization reducer is the `describe` function that provides basic information about the time series.
+    ```python
   >>> from tspy.functions import *
   >>> ts = tspy.time_series([1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
   >>> ts2 = ts.transform(transformers.awgn(sd=.3))
@@ -176,9 +178,10 @@ Several  `reducer` functions are supported, including:
   >>> granger = ts.reduce(ts2, reducers.granger(1))
   >>> print(granger) #f_stat, p_value, R2
   -1.7123613937876463,-3.874412217575385,1.0
-  ```
+    ```
+
 - Another basic reducer that is very useful for getting a first order understanding of the time series is the describe reducer. The following illustrates this reducer:
-  ```python
+    ```python
   >>> desc = ts.describe()
   >>> print(desc)
   min inter-arrival-time: 1
@@ -197,9 +200,10 @@ Several  `reducer` functions are supported, including:
   25%:1.75
   50%:3.5
   75%:5.25
-  ```
+    ```
 
 ## Temporal joins
+{: #time-Temporal}
 
 The library includes functions for temporal joins or joining time series based on their timestamps. The join functions are similar to those in a database, including left, right, outer, inner, left outer, right outer joins, and so on. The following sample codes shows some of these join functions:
 ```python
@@ -244,6 +248,7 @@ TimeStamp: 9     Value: 5.5
 ```
 
 ## Forecasting
+{: #time-Forecasting}
 
 A key functionality provided by the time series library is forecasting. The library includes functions for simple as well as complex forecasting models, including ARIMA, Exponential, Holt-Winters, and BATS. The following example shows the function to create a Holt-Winters:
 ```python

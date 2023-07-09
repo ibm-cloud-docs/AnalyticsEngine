@@ -27,6 +27,7 @@ The open source Livy batches log API to retrieve log lines from a batch job is n
 Gets the log lines from this batch.
 
 ## Submitting Spark batch jobs
+{: #livy-api-serverless-1}
 
 To submit a Spark batch job by using the Livy batches API, enter:
 
@@ -82,10 +83,12 @@ Response body of a submitted batch job using the Livy batches API:
 
 
 ## Examples using the Livy API
+{: #livy-api-serverless-2}
 
 The following sections show you how to use the Livy batches APIs.
 
 ### Submit a batch job with job file in  {{site.data.keyword.cos_full_notm}}
+{: #livy-api-serverless-13}
 
 To submit a batch job where the job file is located in an {{site.data.keyword.cos_full_notm}} bucket, enter:
 ```sh
@@ -119,6 +122,7 @@ Sample response:
 ```
 
 ### Submit batch job with job file on local disk
+{: #livy-api-serverless-4}
 
 To submit a batch job where the job file is located on a local disk enter:
 ```sh
@@ -145,6 +149,7 @@ The `SparkUiUrl` property in response will have a non-null value when the UI is 
 {: note}
 
 ### List the details of a job
+{: #livy-api-serverless-5}
 
 To list the job details for a particular Spark batch job enter:
 ```sh
@@ -188,6 +193,7 @@ The `SparkUiUrl` property in response will have a non-null value when the UI is 
 {: note}
 
 ### Get job state
+{: #livy-api-serverless-6}
 
 To get the state of your submitted job enter:
 ```sh
@@ -222,6 +228,7 @@ Sample response:
 ```
 
 ### List all submitted jobs
+{: #livy-api-serverless-7}
 
 To list all of the submitted Spark batch jobs enter:
 ```sh
@@ -279,6 +286,7 @@ The `SparkUiUrl` property in response will have a non-null value when the UI is 
 {: note}
 
 ### Delete a job
+{: #livy-api-serverless-8}
 
 To delete a submitted batch job enter:
 ```sh

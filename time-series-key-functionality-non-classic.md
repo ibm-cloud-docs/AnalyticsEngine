@@ -102,9 +102,11 @@ The following data types are supported in a time series:
 
 
 ## Time series functions
+{: #time-series-data-types-1}
 
 You can use different functions in the provided time series packages to analyze time series data to extract meaningful information with which to create models that can be used to predict new values based on previously observed values. See [Time series functions](/docs/AnalyticsEngine?topic=AnalyticsEngine-time-series-functions).
 
 ## Learn more
+{: #time-series-data-types-2}
 
 To use the `tspy` Python SDK, see the [`tspy` Python SDK documentation](https://ibm-cloud.github.io/tspy-docs/).

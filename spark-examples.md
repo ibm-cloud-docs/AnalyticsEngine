@@ -24,6 +24,7 @@ You can use the following code samples to learn how to use Spark in different si
 To understand how to access {{site.data.keyword.cos_short}}, see [Understanding the {{site.data.keyword.cos_short}} credentials](/docs/AnalyticsEngine?topic=AnalyticsEngine-cos-credentials-in-iae-serverless).
 
 ## Reading a CSV file from {{site.data.keyword.cos_short}} using already stated  credentials
+{: #spark-batch-examples-1}
 
 The following code samples show you how to create a Python script that reads data from a CSV file to a Python DataFrame. Both the Python script and the CSV file are located in {{site.data.keyword.cos_short}}.
 
@@ -84,6 +85,7 @@ To run the application called `read-employees.py` that reads data from `employee
 {: codeblock}
 
 ## Reading a CSV file from {{site.data.keyword.cos_short}} using IAM API Key or different HMAC credentials
+{: #spark-batch-examples-2}
 
 The following code samples show you how to create a Python script that reads data from a CSV file to a Python DataFrame. Both the Python script and the CSV file are located in {{site.data.keyword.cos_short}}.
 
@@ -138,6 +140,7 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
 {: codeblock}
 
 ##  Reading and writing to {{site.data.keyword.cos_short}} using IAM in Scala
+{: #spark-batch-examples-3}
 
 1. Create an Eclipse project of the following format:
 
@@ -209,6 +212,7 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
 
 
 ## Submitting application details with IAM API key
+{: #spark-batch-examples-6}
 
 The following example show the application details for the application called `read-employees.py` that reads data from `employees.csv` in {{site.data.keyword.cos_short}} using the IAM API key. Insert the {{site.data.keyword.cos_short}} bucket and service name where the CSV file is located and the API key.
 ```json

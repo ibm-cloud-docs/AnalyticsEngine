@@ -17,6 +17,7 @@ subcollection: AnalyticsEngine
 {:external: target="_blank" .external}
 
 # Accessing the Spark history server
+{: #spark-1}
 
 The Spark history server is a web UI where you can view the status of running and completed Spark applications on a provisioned serverless instance. If you want to analyze how different stages of your Spark application performed, you can view the details in the Spark history server UI.
 

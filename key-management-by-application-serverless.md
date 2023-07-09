@@ -46,21 +46,22 @@ To provide master keys:
     The length of master keys before base64 encoding can be 16, 24 or 32 bytes (128, 192 or 256 bits).
 
 ## Writing encrypted data
+{: #key-management-application-serverless-1}
 
 To write encrypted data:
 
 1. Specify which columns to encrypted, and which master keys to use:
-    ```
+    ```bash
     parameter name:  "parquet.encryption.column.keys"
     parameter value: "<master key ID>:<column>,<column>;<master key ID>:<column>,..."
     ```
 1. Specify the footer key:
-    ```
+    ```bash
     parameter name:  "parquet.encryption.footer.key"
     parameter value:  "<master key ID>"
     ```
     For example:
-    ```
+    ```bash
     dataFrame.write
     .option("parquet.encryption.footer.key" , "k1")
     .option("parquet.encryption.column.keys" , "k2:SSN,Address;k3:CreditCard")

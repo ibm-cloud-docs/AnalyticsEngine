@@ -39,6 +39,7 @@ Use the Spark history server to inspect the run of a completed Spark application
 {: note}
 
 ## Accessing the Spark UI
+{: #spark-user-interface-1}
 
 The Spark UI endpoint of a running Spark application is accessible from the service details page of the IBM Analytics Engine instance.
 
@@ -54,7 +55,7 @@ The Spark UI endpoint of the running Spark application can also be obtained by i
 
 A sample url template for the Spark UI endpoint is as below:
 
-```
+```bash
 https://spark-console.{REGION}.ae.cloud.ibm.com/v3/analytics_engines/{INSTANCE_ID}/spark_applications/{APPLICATION_ID}/spark_ui
 ```
 {: codeblock}
@@ -67,11 +68,13 @@ Parameter values:
 * APPLICATION_ID: Identifier of the application for which Spark UI is accessed.
 
 ## Accessing the Spark UI REST API
+{: #spark-user-interface-2}
+
 In addition to the Web UI, Spark UI APIs are also exposed for programmatic consumption.
 
 For example, enter:
 
-```
+```bash
 curl  "https://spark-console.{REGION}.ae.cloud.ibm.com/v3/analytics_engines/{INSTANCE_ID}/spark_applications/{APPLICATION_ID}/spark_ui_api/v1/applications" --header "Authorization: Bearer {IAM TOKEN}"
 ```
 {: codeblock}

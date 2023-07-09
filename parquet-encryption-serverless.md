@@ -36,8 +36,8 @@ Key features include:
 6. By default, the main Parquet metadata module (the file footer) is encrypted to hide the file schema and list of sensitive columns. However, you can choose not to encrypt the file footers  in order to enable legacy readers (such as other Spark  distributions that don't yet support Parquet encryption) to read the unencrypted columns in the encrypted files.
 7. Encryption keys can be managed in one of two ways:
 
-    - Directly by your application. See [Key management by application](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-application-serverless){: new_window}.
-    - By {{site.data.keyword.keymanagementservicefull}}, a centralized key management system (KMS) for generating, managing, and destroying encryption keys used by {{site.data.keyword.iae_full_notm}}. See [Key management by Key Protect](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-key-protect-serverless){: new_window}.
+    - Directly by your application. See [Key management by application](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-application-serverless){: external}.
+    - By {{site.data.keyword.keymanagementservicefull}}, a centralized key management system (KMS) for generating, managing, and destroying encryption keys used by {{site.data.keyword.iae_full_notm}}. See [Key management by Key Protect](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-key-protect-serverless){: {: external}}.
 
     {{site.data.keyword.keymanagementservicefull}} helps you manage your encrypted keys by aligning with {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) roles.
 
@@ -46,18 +46,19 @@ Key features include:
     For each sensitive column, you must specify which master key to use for encryption. Also, a master key must be specified for the footer of each encrypted file (data frame) - because the footers keep metadata like the schema and list of sensitive columns, that can be sensitive too. By default, the footer key will be used for footer encryption. However, if you choose a plain text footer mode, the footer won’t be encrypted, and the key will be used only for integrity verification of the footer.
 
     The encryption parameters can be passed via the standard Spark Hadoop configuration, for example by setting configuration values in the Hadoop configuration of the application's SparkContext:
-    ```
+    ```bash
     sc.hadoopConfiguration.set("<parameter name>" , "<parameter value>")
     ```
     Alternatively, you can pass parameter values through write options:
 
-    ```
+    ```bash
     <data frame name>.write
     .option("<parameter name>" , "<parameter value>")
     .parquet("<write path>")
     ```
 
 ## Mandatory parameters for running with Parquet encryption
+{: #parquet-encryption-serverless-1}
 
 <!--
 1. Navigate to **Ambari > Spark > Config -> Custom spark2-default**.
@@ -74,17 +75,17 @@ Key features include:
 The following parameters are required for writing encrypted data:
 
 - List of columns to encrypt, with the master encryption keys:
-    ```
+    ```bash
     parameter name: "parquet.encryption.column.keys"
     parameter value: "<master key ID>:<column>,<column>;<master key ID>:<column>,.."
     ```
 - The footer key:
-    ```
+    ```bash
     parameter name: "parquet.encryption.footer.key"
     parameter value: "<master key ID>"
     ```
     For example:
-    ```
+    ```bash
     dataFrame.write
     .option("parquet.encryption.footer.key" , "k1")
     .option("parquet.encryption.column.keys" , "k2:SSN,Address;k3:CreditCard")
@@ -93,7 +94,7 @@ The following parameters are required for writing encrypted data:
 
     **Important**: If neither the `"parquet.encryption.column.keys"` parameter nor the `"parquet.encryption.footer.key"` parameter is set, the file will not be encrypted. If only one of these parameters is set, an exception is thrown, because these parameters are mandatory for encrypted files.
 - The class implementing `EncryptionPropertiesFactory`:
-    ```
+    ```bash
     parameter name: "parquet.crypto.factory.class"
     parameter value: "com.ibm.parquet.key.management.IBMKeyToolsFactory"
     ```
@@ -102,6 +103,7 @@ The following parameters are required for writing encrypted data:
 
 
 ### Optional parameters
+{: #parquet-encryption-serverless-2}
 
 The following optional parameters can be used when writing encrypted data:
 - The encryption algorithm `AES-GCM-CTR`
@@ -110,7 +112,7 @@ The following optional parameters can be used when writing encrypted data:
 
     To compensate this, you can switch off the data integrity verification support and write the encrypted files with the alternative algorithm `AES-GCM-CTR`, which verifies the integrity of the metadata parts only and not that of the data parts, and has a lower throughput overhead compared to the `AES-GCM` algorithm.
 
-    ```
+    ```bash
     parameter name: "parquet.encryption.algorithm"
     parameter value: "AES_GCM_CTR_V1"
     ```
@@ -118,7 +120,7 @@ The following optional parameters can be used when writing encrypted data:
 
     By default, the main Parquet metadata module (the file footer) is encrypted to hide the file schema and list of sensitive columns. However, you can decide not to encrypt the file footers in order to enable other Spark and Parquet readers (that don't yet support Parquet encryption) to read the unencrypted columns in the encrypted files. To switch off footer encryption, set the following parameter:
 
-    ```
+    ```bash
     parameter name: "parquet.encryption.plaintext.footer"
     parameter value: "true"
     ```
@@ -203,14 +205,14 @@ Envelope encryption practice has an advanced option to *rotate* (change) master 
 To enable key rotation in Parquet files, you must set the `"parquet.encryption.key.material.store.internally"` parameter to `"false"` in the Hadoop configuration when writing the parquet files.
 
 With this parameter set, Parquet stores the keys (wrapped with MEKs) in separate small files, instead of inside the Parquet files. When  key rotation is performed, only the small key material files are replaced. No need to modify the Parquet files (which are often immutable). Most KMS systems support key rotation by replacing the contents of the stored master keys and keeping the MEK ID intact (but updating the key version). After a user or administrator has performed the master key rotation inside the KMS instance using the KMS-specific API, the Parquet key rotation mechanism can be triggered (for example, by the same administrator) by calling:
-```
+```bash
 public static void KeyToolkit.rotateMasterKeys(String folderPath, Configuration hadoopConfig)
 ```
 When key rotation is performed, every KEK in all key material files in `folderPath` is unwrapped with the old MEK version to enable decrypting the DEK. A new KEK is generated for each master key ID, and wrapped with the new MEK version. Creating a new KEK, instead of re-using the old one, doesn't only mean that security is improved but also that the performance of subsequent data read operations is increased. This is because a single key rotation process, run by the administrator, operates across multiple files created by different processes, meaning many different KEKs for the same MEK ID. The key rotation process replaces the old KEKs with a single new KEK, which allows the readers to run a single unwrap interaction with KMS for each master key.
 
 For examples of how to use key rotation:
-- For key management by application, see [Key rotation in key management by application](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-application-serverless#key-rotation-key-mgt-application){: new_window}.
-- For key management by Key Protect, see [Key rotation key management by Key Protect](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-key-protect-serverless#key-rotation-key-mgt-keyprotect){: new_window}.
+- For key management by application, see [Key rotation in key management by application](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-application-serverless#key-rotation-key-mgt-application){: external}.
+- For key management by Key Protect, see [Key rotation key management by Key Protect](/docs/AnalyticsEngine?topic=AnalyticsEngine-key-management-key-protect-serverless#key-rotation-key-mgt-keyprotect){: external}.
 
 ## Learn more
 {: #learn-more-parquet-encryption}

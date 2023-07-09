@@ -247,5 +247,6 @@ To track instance readiness:
 1. Check the value of the `"state"` attribute. It must be `active` before you can start running applications in the instance.
 
 ## Learn more
+{: #default-spark-lern}
 
 When provisioning serverless instances, follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices-serverless).

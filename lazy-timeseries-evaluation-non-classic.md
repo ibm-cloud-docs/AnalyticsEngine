@@ -40,13 +40,13 @@ h(t) = +1 if a(t) > threshold_acceleration
 
 This results in a simple execution graph of the form:
 
-```
+```bash
 x(t) --> v(t) --> a(t) --> h(t)
 ```
 
 Evaluations are triggered only when an action is performed, such as `compute h(5...10)`, i.e. `compute h(5), ..., h(10)`. The library captures narrow temporal dependencies between time series. In this example, `h(5...10)` requires `a(5...10)`, which in turn requires `v(4...10)`, which then requires `x(3...10)`. Only the relevant portions of `a(t)`, `v(t)` and `x(t)` are evaluated.
 
-```
+```bash
 h(5...10) <-- a(5...10) <-- v(4...10) <-- x(3...10)
 ```
 Furthermore, evaluations are memoized and can thus be reused in subsequent actions on `h`. For example, when a request for `h(7...12)` follows a request for `h(5...10)`, the memoized values `h(7...10)` would be leveraged; further, `h(11...12)` would be evaluated using `a(11...12), v(10...12)` and `x(9...12)`, which would in turn leverage `v(10)` and `x(9...10)` memoized from the prior computation.
@@ -71,7 +71,7 @@ a(t) = v_smooth(t) - v_smooth(t-1)
 
 In this example `h(l...u)` has the following temporal dependency. Evaluation of `h(l...u)` would strictly adhere to this temporal dependency with memoization.
 
-```
+```bash
 h(l...u) <-- a(l...u) <-- v_smooth(l-1...u) <-- v(l-n-1...u) <-- x(l-n-2...u)
 ```
 
@@ -108,5 +108,6 @@ def harsh(a):
 ```
 
 ## Learn more
+{: #lazy-evaluation-non-classic-1}
 
 To use the `tspy` Python SDK, see the [`tspy` Python SDK documentation](https://ibm-cloud.github.io/tspy-docs/).

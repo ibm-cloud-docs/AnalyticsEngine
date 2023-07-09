@@ -331,6 +331,7 @@ if __name__ == '__main__':
 {: codeblock}
 
 ## Run a Spark application with non-default language version
+{: #spark-app-rest-api-3}
 
 The Spark runtime support Spark application written in the following languages:
 * Scala
@@ -357,5 +358,6 @@ Example:
 {: codeblock}
 
 ## Learn more
+{: #spark-app-rest-api-1}
 
 When managing your Spark applications, follow the recommended [Best practices](/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices-serverless).

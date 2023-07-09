@@ -39,7 +39,7 @@ x = tspy.time_series(values)
 x
 ```
 This returns:
-```
+```bash
 TimeStamp: 0     Value: 1.0
 TimeStamp: 1     Value: 2.0
 TimeStamp: 2     Value: 4.0
@@ -53,7 +53,7 @@ x_trs = tspy.time_series(data, time_tick=datetime.timedelta(minutes=1), start_ti
 x_trs
 ```
 This returns:
-```
+```bash
 TimeStamp: 2019-01-01T00:00Z     Value: 1.0
 TimeStamp: 2019-01-01T00:01Z     Value: 2.0
 TimeStamp: 2019-01-01T00:02Z     Value: 4.0
@@ -68,7 +68,7 @@ x_trs = tspy.time_series(data, time_tick=datetime.timedelta(hours=1), start_time
 x_trs
 ```
 This returns:
-```
+```bash
 TimeStamp: 2019-01-01T00:00-04:00     Value: 1.0
 TimeStamp: 2019-01-01T00:01-04:00     Value: 2.0
 TimeStamp: 2019-01-01T00:02-04:00     Value: 4.0
@@ -80,7 +80,7 @@ Note that the timestamps now indicate an offset of -4 hours from GMT (EDT timezo
 x_trs.print(human_readable=False)
 ```
 This returns:
-```
+```bash
 TimeStamp: 0     Value: 1.0
 TimeStamp: 1     Value: 2.0
 TimeStamp: 2     Value: 4.0
@@ -102,7 +102,7 @@ y.print()
 y.print(human_readable=False)
 ```
 This returns:
-```
+```bash
 TimeStamp: 2019-01-01T00:00Z     Value: 1.0
 TimeStamp: 2019-01-01T00:01Z     Value: 2.0
 TimeStamp: 2019-01-01T00:02Z     Value: 4.0
@@ -120,7 +120,7 @@ y_minutely_1970.print()
 y_minutely_1970.print(human_readable=False)
 ```
 This returns:
-```
+```bash
 TimeStamp: 2019-01-01T00:00Z     Value: 1.0
 TimeStamp: 2019-01-01T00:01Z     Value: 2.0
 TimeStamp: 2019-01-01T00:02Z     Value: 4.0
@@ -138,7 +138,7 @@ y_minutely.print()
 y_minutely.print(human_readable=False)
 ```
 This returns:
-```
+```bash
 TimeStamp: 2019-01-01T00:00Z     Value: 1.0
 TimeStamp: 2019-01-01T00:01Z     Value: 2.0
 TimeStamp: 2019-01-01T00:02Z     Value: 4.0
@@ -157,7 +157,7 @@ print(y_minutely_1970.get_values(0,2))
 print(y_minutely.get_values(0,2))
 ```
 This returns:
-```
+```bash
 # numeric timestamps in y are in the range 1546300800, 1546300920 and thus y.get_values(0,2) is empty
 []
 # numeric timestamps in y_minutely_1970 are in the range 25771680, 25771682 and thus y_minutely_1970.get_values(0,2) is empty
@@ -199,7 +199,7 @@ print(y_hourly)
 print(y_hourly.get_values(0,0))
 ```
 This returns:
-```
+```bash
 # y_minutely - minutely time series
 TimeStamp: 2019-01-01T00:00Z     Value: 1.0
 TimeStamp: 2019-01-01T00:01Z     Value: 2.0
@@ -222,12 +222,13 @@ y_hourly_averaged = y_hourly.transform(transformers.combine_duplicate_time_ticks
 print(y_hourly_averaged.get_values(0,0))
 ```
 This returns:
-```
+```bash
 # values corresponding to the duplicate numeric timestamp 0 have been combined using average
 # average = (1+2+4)/3 = 2.33
 [(0,2.33)]
 ```
 
 ## Learn more
+{: #duplicate-learn}
 
 To use the `tspy` Python SDK, see the [`tspy` Python SDK documentation](https://ibm-cloud.github.io/tspy-docs/).

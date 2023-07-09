@@ -141,6 +141,7 @@ You can narrow down the search for the platform logs related to {{site.data.keyw
 1. To further narrow down your search, you can enter and search for any keywords related to your Spark application in the search window.
 
 ### Examples of searches
+{: #analyzing-logs-1}
 
 This section lists examples of how you can search for logs. The examples all use the following sample values:
 
@@ -157,40 +158,40 @@ The following image shows you an example of the returned search results in the {
 Examples of searches:
 
 - To retrieve the logs for all Spark applications submitted in a specific {{site.data.keyword.iae_full_notm}} instance, pass the instance ID in the search window:
-    ```
+    ```bash
     4308f7a6-2cfd-4d7e-b7a7-678e71a27957
     ```
 - To fetch the logs for a specific Spark application, you can pass:
 
     - A combination of the {{site.data.keyword.iae_full_notm}} instance ID and the Spark application ID:
-        ```
+        ```bash
         4308f7a6-2cfd-4d7e-b7a7-678e71a27957 5438585f-6413-4bb2-9251-8162d34f3dc3
         ```
     - Only the application ID:
-        ```
+        ```bash
         5438585f-6413-4bb2-9251-8162d34f3dc3
         ```
 - To search the Spark master logs of an application, you can pass:
 
     - A combination of the {{site.data.keyword.iae_full_notm}} instance ID, the Spark application ID and the keyword `spark-driver`:
-        ```
+        ```bash
         4308f7a6-2cfd-4d7e-b7a7-678e71a27957 5438585f-6413-4bb2-9251-8162d34f3dc3 spark-driver
         ```
     - A combination of the application ID and the keyword `spark-driver`:
-        ```
+        ```bash
         5438585f-6413-4bb2-9251-8162d34f3dc3 spark-driver
         ```
 - To search by multiple log source names, you can pass:
 
     - A combination of the {{site.data.keyword.iae_full_notm}} instance ID, the Spark application ID and the source names:
-        ```
+        ```bash
         4308f7a6-2cfd-4d7e-b7a7-678e71a27957 5438585f-6413-4bb2-9251-8162d34f3dc3 (spark-driver OR spark-executor-2)
         ```
     - A combination of the application ID and the log source names:
-        ```
+        ```bash
         5438585f-6413-4bb2-9251-8162d34f3dc3 (spark-driver OR spark-executor-2)
         ```
 - To get the logs related to all the applications running in a particular instance within the `us-south` region and the `prod` environment, you can enter the following in the search field:
-    ```
+    ```bash
     4308f7a6-2cfd-4d7e-b7a7-678e71a27957 "prod us-south"
     ```
