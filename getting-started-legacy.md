@@ -25,19 +25,23 @@ subcollection: AnalyticsEngine
 - [Provisioning classic instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE)
 
 ## Before you begin
+{: #getting-started-classic-1}
 
 * Get a quick overview of {{site.data.keyword.iae_full_notm}} in this short [video](https://developer.ibm.com/clouddataservices/docs/analytics-engine/).
 
 ## Provision an instance and create a cluster
+{: #getting-started-classic-2}
+
 * Watch how to [get started using {{site.data.keyword.iae_full_notm}}](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/).
 
-  In this video you will learn how to provision an {{site.data.keyword.iae_full_notm}} cluster from IBM Cloud, find out about options to manage the cluster, and see how to connect {{site.data.keyword.DSX_short}} to {{site.data.keyword.iae_full_notm}} to analyze data.
+    In this video you will learn how to provision an {{site.data.keyword.iae_full_notm}} cluster from IBM Cloud, find out about options to manage the cluster, and see how to connect {{site.data.keyword.DSX_short}} to {{site.data.keyword.iae_full_notm}} to analyze data.
 
  For details about the supported plans and on how to provision and configure your cluster, see the [{{site.data.keyword.iae_full_notm}} documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-IAE).
 
 * Watch how to [provision an {{site.data.keyword.iae_full_notm}} service instance through {{site.data.keyword.DSX_short}}](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/#provision).
 
 ## Run applications on the cluster
+{: #getting-started-classic-3}
 
 * To learn how to get started, watch the video called [Getting started with IBM Analytics Engine in IBM Cloud](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/#spark-notebook) and run through the tutorial using sample code and data. Copy or download the notebook called [Use Spark SQL to explore heating problems in Manhattan](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/e2e70feb00a65760eb1bd683da285364) from the {{site.data.keyword.DSX_short}} community to try it for yourself!
 * Learn how to use [spark-submit](https://developer.ibm.com/clouddataservices/docs/analytics-engine/get-started/#spark-submit) to execute a Python script on an {{site.data.keyword.iae_full_notm}} cluster.

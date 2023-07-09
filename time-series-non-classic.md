@@ -35,9 +35,11 @@ An entry in a time series is called an observation. Each observation comprises a
 The time series library is Python only.
 
 ## Next step
+{: #time-series-1}
 
 - [Working with the time series library](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-time-series-lib)
 
 ## Learn more
+{: #time-series-2}
 
 - [Time series key functionality](/docs/AnalyticsEngine?topic=AnalyticsEngine-time-series-key-functionality)
