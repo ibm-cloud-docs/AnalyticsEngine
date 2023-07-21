@@ -37,31 +37,32 @@ The following are the pre-requisites:
 * Creating schema
 
 ### **Creating IBM Cloud Data Engine instance**
-    {: #metastore-prerequisite_line1}
+{: #metastore-prerequisite_line1}
 
-    Create an {{site.data.keyword.sqlquery_notm}} instance by using the Standard plan. See [{{site.data.keyword.sqlquery_short}}](http://cloud.ibm.com/catalog/services/data-engine-previously-sql-query).
 
-    After you have provisioned the {{site.data.keyword.sqlquery_short}} instance:
-    1. Make a note of the CRN of the instance.
-    1. Create an account-level API key or service ID level API key with access to the instance.
-    1. This service ID should be granted access to both the {{site.data.keyword.sqlquery_short}} instance as well as the {{site.data.keyword.cos_full_notm}} bucket.
+Create an {{site.data.keyword.sqlquery_notm}} instance by using the Standard plan. See [{{site.data.keyword.sqlquery_short}}](http://cloud.ibm.com/catalog/services/data-engine-previously-sql-query).
 
-    You can then configure your {{site.data.keyword.iae_full_notm}} instance to use the default metastore configuration either at instance level or at application level as needed.
+After you have provisioned the {{site.data.keyword.sqlquery_short}} instance:
+1. Make a note of the CRN of the instance.
+1. Create an account-level API key or service ID level API key with access to the instance.
+1. This service ID should be granted access to both the {{site.data.keyword.sqlquery_short}} instance as well as the {{site.data.keyword.cos_full_notm}} bucket.
 
-    {{site.data.keyword.sqlquery_notm}} supports creating instances for different endpoints(location). Within an instance, different IBM Cloud Object Storage buckets are created to store data. The data buckets can be created for different end points(region). The endpoints for the data engine instance(thrift) and the data bucket are different. Ensure that you select the correct endpoints that are supported by the system.\
-    • For more information about the applicable endpoint(thrift) for your region while creating instance, see [Thrift endpoint](https://cloud.ibm.com/docs/sql-query?topic=sql-query-hive_metastore#hive_compatible_client).\
-    • For more information on the currently supported data engine endpoints, see [Data engine endpoints](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#endpoints)
-    {: important}
+You can then configure your {{site.data.keyword.iae_full_notm}} instance to use the default metastore configuration either at instance level or at application level as needed.
+
+{{site.data.keyword.sqlquery_notm}} supports creating instances for different endpoints(location). Within an instance, different IBM Cloud Object Storage buckets are created to store data. The data buckets can be created for different end points(region). The endpoints for the data engine instance(thrift) and the data bucket are different. Ensure that you select the correct endpoints that are supported by the system.\
+• For more information about the applicable endpoint(thrift) for your region while creating instance, see [Thrift endpoint](https://cloud.ibm.com/docs/sql-query?topic=sql-query-hive_metastore#hive_compatible_client).\
+• For more information on the currently supported data engine endpoints, see [Data engine endpoints](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#endpoints)
+{: important}
 
 ### **Storing data in Cloud Object Storage**
 {: #metastore-prerequisite_line2}
 
-    Generate and store data in cloud object storage. Run the following regular PySpark application, called `generate-and-store-data.py` in this example, which stores Parquet data in some location on {{site.data.keyword.cos_full_notm}}.
+Generate and store data in cloud object storage. Run the following regular PySpark application, called `generate-and-store-data.py` in this example, which stores Parquet data in some location on {{site.data.keyword.cos_full_notm}}.
 
-    Example
-    :   Enter:
+Example
+:   Enter:
 
-    ```python
+```python
     from pyspark.sql import SparkSession
 
     def init_spark():
@@ -86,9 +87,9 @@ The following are the pre-requisites:
 ### **Creating schema**
 {: #metastore-prerequisite_line3}
 
-    Create the metastore table schema definition in the data engine. Note that you can't use standard Spark SQL syntax to create tables when using {{site.data.keyword.sqlquery_short}} as a metastore. There are two ways that you can use to create a table:
+Create the metastore table schema definition in the data engine. Note that you can't use standard Spark SQL syntax to create tables when using {{site.data.keyword.sqlquery_short}} as a metastore. There are two ways that you can use to create a table:
 
-    - From the {{site.data.keyword.sqlquery_short}} user interface or by using, the standard {{site.data.keyword.sqlquery_short}} API (see [Data Engine service REST V3 API](https://cloud.ibm.com/apidocs/sql-query-v3#introduction)) or Python SDK (see [ibmcloudsql](https://pypi.org/project/ibmcloudsql/)).
+- From the {{site.data.keyword.sqlquery_short}} user interface or by using, the standard {{site.data.keyword.sqlquery_short}} API (see [Data Engine service REST V3 API](https://cloud.ibm.com/apidocs/sql-query-v3#introduction)) or Python SDK (see [ibmcloudsql](https://pypi.org/project/ibmcloudsql/)).
 
         Example
         :   Enter:
