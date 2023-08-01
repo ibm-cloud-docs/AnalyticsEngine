@@ -59,30 +59,30 @@ You can then configure your {{site.data.keyword.iae_full_notm}} instance to use 
 
 Generate and store data in cloud object storage. Run the following regular PySpark application, called `generate-and-store-data.py` in this example, which stores Parquet data in some location on {{site.data.keyword.cos_full_notm}}.
 
-Example
-:   Enter:
+Example:
+Enter:
 
 ```python
-    from pyspark.sql import SparkSession
+from pyspark.sql import SparkSession
 
-    def init_spark():
-        spark = SparkSession.builder.appName("dataengine-generate-store-parquet-data").getOrCreate()
-        sc = spark.sparkContext
-        return spark,sc
+def init_spark():
+    spark = SparkSession.builder.appName("dataengine-generate-store-parquet-data").getOrCreate()
+    sc = spark.sparkContext
+    return spark,sc
 
-    def generate_and_store_data(spark,sc):
-        data =[("India","New Delhi"),("France","Paris"),("Lithuania","Vilnius"),("Sweden","Stockholm"),("Switzerland","Bern")]
-        columns=["Country","Capital"]
-        df=spark.createDataFrame(data,columns)
-        df.write.mode("overwrite").parquet("cos://mybucket.mycosservice/countriescapitals.parquet")
+def generate_and_store_data(spark,sc):
+    data =[("India","New Delhi"),("France","Paris"),("Lithuania","Vilnius"),("Sweden","Stockholm"),("Switzerland","Bern")]
+    columns=["Country","Capital"]
+    df=spark.createDataFrame(data,columns)
+    df.write.mode("overwrite").parquet("cos://mybucket.mycosservice/countriescapitals.parquet")
 
-    def main():
-        spark,sc = init_spark()
-        generate_and_store_data(spark,sc)
-    if __name__ == '__main__':
-        main()
-    ```
-    {: codeblock}
+def main():
+    spark,sc = init_spark()
+    generate_and_store_data(spark,sc)
+if __name__ == '__main__':
+    main()
+```
+{: codeblock}
 
 ### **Creating schema**
 {: #metastore-prerequisite_line3}
@@ -104,7 +104,7 @@ Create the metastore table schema definition in the data engine. Note that you c
         Parameter values:
         ALIAS NAME: The data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#endpoints). Make sure that you select the standard aliases.
 
-    - Programmatically from within your PySpark application by using the following code snippet for PySpark called `create_table_data_engine.py`:
+- Programmatically from within your PySpark application by using the following code snippet for PySpark called `create_table_data_engine.py`:
 
         Example
         :   Enter:
