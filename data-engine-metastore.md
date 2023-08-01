@@ -158,7 +158,7 @@ Create the metastore table schema definition in the data engine. Note that you c
 
     Enter:
 
-        ```json
+        ```bash
         {
             "application_details": {
                 "conf": {
