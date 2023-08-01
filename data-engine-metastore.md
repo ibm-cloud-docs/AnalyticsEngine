@@ -96,15 +96,16 @@ Create the metastore table schema definition in the data engine. Note that you c
 
     Enter:
 
-        ```sql
+    ```bash
         CREATE TABLE COUNTRIESCAPITALS (Country string,Capital string) 
         USING PARQUET 
         LOCATION cos://ALIAS NAME/mybucket/countriescapitals.parquet
-        ```
-        {: codeblock}
-        {: sql}
+    ```
+    {: codeblock}
+
 
     Parameter values:
+
     ALIAS NAME: The data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#endpoints). Make sure that you select the standard aliases.
 
 - Programmatically from within your PySpark application by using the following code snippet for PySpark called `create_table_data_engine.py`:
@@ -113,7 +114,7 @@ Create the metastore table schema definition in the data engine. Note that you c
 
     Enter:
 
-        ```python
+    ```bash
         import requests
         import time
         def create_data_engine_table(api_key,crn):
@@ -143,14 +144,15 @@ Create the metastore table schema definition in the data engine. Note that you c
             response = requests.get(f'https://api.dataengine.cloud.ibm.com/v3/sql_jobs/{job_id}', params=params, headers=headers_token)
             if(response.json()['status']=='completed'):
                 print(response.json())
-        ```
-        {: codeblock}
-        {: python}
+    ```
+    {: codeblock}
+    {: python}
 
     Parameter values:
+
     ALIAS NAME: Note that for the location URI (`cos://ALIAS NAME/mybucket/countriescapitals.parquet`) you need to pass one of the standard {{site.data.keyword.sqlquery_notm}} aliases. See [Data engine endpoints](/docs/sql-query?topic=sql-query-overview#endpoints)
 
-    The payload for the above application `create_table_data_engine_payload.json` also needs to provide the {{site.data.keyword.sqlquery_short}} credentials with the exact standard {{site.data.keyword.sqlquery_short}} alais, in this case: "ALIAS NAME"
+    The payload for the above application `create_table_data_engine_payload.json` also needs to provide the {{site.data.keyword.sqlquery_short}} credentials with the exact standard {{site.data.keyword.sqlquery_short}} alias, in this case: "ALIAS NAME"
 
     Example:
 
