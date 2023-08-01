@@ -60,6 +60,7 @@ You can then configure your {{site.data.keyword.iae_full_notm}} instance to use 
 Generate and store data in cloud object storage. Run the following regular PySpark application, called `generate-and-store-data.py` in this example, which stores Parquet data in some location on {{site.data.keyword.cos_full_notm}}.
 
 Example:
+
 Enter:
 
 ```python
@@ -91,8 +92,9 @@ Create the metastore table schema definition in the data engine. Note that you c
 
 - From the {{site.data.keyword.sqlquery_short}} user interface or by using, the standard {{site.data.keyword.sqlquery_short}} API (see [Data Engine service REST V3 API](https://cloud.ibm.com/apidocs/sql-query-v3#introduction)) or Python SDK (see [ibmcloudsql](https://pypi.org/project/ibmcloudsql/)).
 
-        Example
-        :   Enter:
+    Example:
+
+    Enter:
 
         ```sql
         CREATE TABLE COUNTRIESCAPITALS (Country string,Capital string) 
@@ -100,14 +102,17 @@ Create the metastore table schema definition in the data engine. Note that you c
         LOCATION cos://ALIAS NAME/mybucket/countriescapitals.parquet
         ```
         {: codeblock}
+        {: sql}
 
-        Parameter values:
-        ALIAS NAME: The data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#endpoints). Make sure that you select the standard aliases.
+    Parameter values:
+    ALIAS NAME: The data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#endpoints). Make sure that you select the standard aliases.
 
 - Programmatically from within your PySpark application by using the following code snippet for PySpark called `create_table_data_engine.py`:
 
-        Example
-        :   Enter:
+    Example:
+
+    Enter:
+
         ```python
         import requests
         import time
@@ -140,14 +145,16 @@ Create the metastore table schema definition in the data engine. Note that you c
                 print(response.json())
         ```
         {: codeblock}
+        {: python}
 
-        Parameter values:
-        ALIAS NAME: Note that for the location URI (`cos://ALIAS NAME/mybucket/countriescapitals.parquet`) you need to pass one of the standard {{site.data.keyword.sqlquery_notm}} aliases. See [Data engine endpoints](/docs/sql-query?topic=sql-query-overview#endpoints)
+    Parameter values:
+    ALIAS NAME: Note that for the location URI (`cos://ALIAS NAME/mybucket/countriescapitals.parquet`) you need to pass one of the standard {{site.data.keyword.sqlquery_notm}} aliases. See [Data engine endpoints](/docs/sql-query?topic=sql-query-overview#endpoints)
 
-        The payload for the above application `create_table_data_engine_payload.json` also needs to provide the {{site.data.keyword.sqlquery_short}} credentials with the exact standard {{site.data.keyword.sqlquery_short}} alais, in this case: "ALIAS NAME"
+    The payload for the above application `create_table_data_engine_payload.json` also needs to provide the {{site.data.keyword.sqlquery_short}} credentials with the exact standard {{site.data.keyword.sqlquery_short}} alais, in this case: "ALIAS NAME"
 
-        Example:
-        Enter:
+    Example:
+
+    Enter:
 
         ```json
         {
@@ -163,13 +170,14 @@ Create the metastore table schema definition in the data engine. Note that you c
         }
         ```
         {: codeblock}
+        {: json}
 
-        Parameter values:
+    Parameter values:
 
-        ALIAS NAME: specify the data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#endpoints).
+    ALIAS NAME: specify the data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#endpoints).
 
-        Make sure that you select the standard aliases.
-        {: important}
+    Make sure that you select the standard aliases.
+    {: important}
 
 ## Reading data from table by passing full list of Data Engine parameters
 {: #full-list-Data-Engine}
@@ -332,8 +340,8 @@ Make sure that you select the standard aliases.
     "spark.hive.stats.autogather":"false",
     "spark.hive.metastore.client.plain.username":"CHANGE-ME-INSTANCE-CRN",
     # for spark 3.3
-    "spark.hive.metastore.truststore.path":"/opt/ibm/jdk/lib/security/cacerts",
-    # for spark 3.1, spark 3.2
+
+
     "spark.hive.metastore.truststore.path":"file:///opt/ibm/jdk/jre/lib/security/cacerts",
     "spark.sql.catalogImplementation":"hive",
     "spark.sql.hive.metastore.jars":"/opt/ibm/connectors/data-engine/hms-client/*",
