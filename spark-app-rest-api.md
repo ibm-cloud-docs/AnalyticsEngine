@@ -343,7 +343,8 @@ The system also provides settling time to transition your workloads when ever th
 
 Sample Python code:
 
-``` {
+```bash
+ {
 	"application_details": {
 		"application": "/opt/ibm/spark/examples/src/main/python/wordcount.py",
 		"arguments": [
@@ -359,7 +360,8 @@ Sample Python code:
 
 Sample R code:
 
-``` {
+``` bash
+{
 	"application_details": {
 		"env": {
 			"RUNTIME_R_ENV": "r42"
