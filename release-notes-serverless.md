@@ -41,6 +41,14 @@ For information about changes to the _service-name_ API, see [Change log for _se
 <!-- Integration with {{site.data.keyword.lakehouse_short}}
 : {{site.data.keyword.iae_full_notm}} now integrates with {{site.data.keyword.lakehouse_full}} to leverage the functional capabilities of {{site.data.keyword.lakehouse_short}}. For more information about the integration and to work with {{site.data.keyword.lakehouse_short}}, see (AnalyticsEngine?topic=AnalyticsEngine-about-integration){: external}. -->
 
+## September 2023
+{: #AnalyticsEngine-sept23}
+
+### 06 September 2023
+{: #AnalyticsEngine-06sept2023}
+
+Support for Spark 3.4
+: You can now provision {{site.data.keyword.iae_full_notm}} severless plan instances with the default Spark runtime set to Spark 3.4, which enables you to run Spark applications on Spark 3.4.
 
 ## August 2023
 {: #AnalyticsEngine-aug23}
