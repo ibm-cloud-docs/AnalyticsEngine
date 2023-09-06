@@ -51,7 +51,7 @@ You can then configure your {{site.data.keyword.iae_full_notm}} instance to use 
 
 {{site.data.keyword.sqlquery_notm}} supports creating instances for different endpoints(location). Within an instance, different IBM Cloud Object Storage buckets are created to store data. The data buckets can be created for different end points(region). The endpoints for the data engine instance(thrift) and the data bucket are different. Ensure that you select the correct endpoints that are supported by the system.\
 • For more information about the applicable endpoint(thrift) for your region while creating instance, see [Thrift endpoint](https://cloud.ibm.com/docs/sql-query?topic=sql-query-hive_metastore#hive_compatible_client).\
-• For more information on the currently supported data engine endpoints, see [Data engine endpoints](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#endpoints)
+• For more information on the currently supported data engine endpoints, see [Data engine endpoints](#aeendpoints).
 {: important}
 
 ### **Storing data in Cloud Object Storage**
@@ -99,14 +99,14 @@ Create the metastore table schema definition in the data engine. Note that you c
     ```bash
         CREATE TABLE COUNTRIESCAPITALS (Country string,Capital string) 
         USING PARQUET 
-        LOCATION cos://ALIAS NAME/mybucket/countriescapitals.parquet
+        LOCATION cos://us-south/mybucket/countriescapitals.parquet
     ```
     {: codeblock}
 
 
-    Parameter values:
-
-    ALIAS NAME: The data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#endpoints). Make sure that you select the standard aliases.
+    In the above example, the location (//us-south/mybucket/countriescapitals.parquet) of the COS bucket is considered as `us-south`, which is the regional bucket. If you are using any other region, select the corresponding alias from the [Data engine endpoints](#aeendpoints).
+<!--
+    us-south: The data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](#aeendpoints). Make sure that you select the standard aliases. -->
 
 - Programmatically from within your PySpark application by using the following code snippet for PySpark called `create_table_data_engine.py`:
 
@@ -136,7 +136,7 @@ Create the metastore table schema definition in the data engine. Note that you c
             'instance_crn': crn,
             }
             json_data = {
-            'statement': 'CREATE TABLE COUNTRIESCAPITALS (Country string,Capital string) USING PARQUET LOCATION cos://ALIAS NAME/mybucket/countriescapitals.parquet',
+            'statement': 'CREATE TABLE COUNTRIESCAPITALS (Country string,Capital string) USING PARQUET LOCATION cos://us-south/mybucket/countriescapitals.parquet',
             }
             response = requests.post('https://api.dataengine.cloud.ibm.com/v3/sql_jobs', params=params, headers=headers_token, json=json_data)
             job_id = response.json()['job_id']
@@ -148,35 +148,37 @@ Create the metastore table schema definition in the data engine. Note that you c
     {: codeblock}
     {: python}
 
-    Parameter values:
+    In the above example, the location (`cos://us-south/mybucket/countriescapitals.parquet`) of the COS bucket is considered as `us-south`, which is the regional bucket. If you are using any other region, select the corresponding alias from the [Data engine endpoints](#aeendpoints).
 
-    ALIAS NAME: Note that for the location URI (`cos://ALIAS NAME/mybucket/countriescapitals.parquet`) you need to pass one of the standard {{site.data.keyword.sqlquery_notm}} aliases. See [Data engine endpoints](/docs/sql-query?topic=sql-query-overview#endpoints)
+    <!-- ALIAS NAME: Note that for the location  (`cos://ALIAS NAME/mybucket/countriescapitals.parquet`) you need to pass one of the standard {{site.data.keyword.sqlquery_notm}} aliases. See [Data engine endpoints](#aeendpoints). -->
 
-    The payload for the above application `create_table_data_engine_payload.json` also needs to provide the {{site.data.keyword.sqlquery_short}} credentials with the exact standard {{site.data.keyword.sqlquery_short}} alias, in this case: "ALIAS NAME"
+    The payload for the above application `create_table_data_engine_payload.json` also needs to provide the {{site.data.keyword.sqlquery_short}} credentials with the exact standard {{site.data.keyword.sqlquery_short}} alias, in this case: "us-south".
 
     Example:
 
     Enter:
 
-        ```bash
+    ```bash
         {
             "application_details": {
                 "conf": {
-                    "spark.hadoop.fs.cos.ALIAS NAME.endpoint": "CHANGEME",
-                    "spark.hadoop.fs.cos.ALIAS NAME.access.key": "CHANGEME",
-                    "spark.hadoop.fs.cos.ALIAS NAME.secret.key": "CHANGEME"
+                    "spark.hadoop.fs.cos.us-south.endpoint": "CHANGEME",
+                    "spark.hadoop.fs.cos.us-south.access.key": "CHANGEME",
+                    "spark.hadoop.fs.cos.us-south.secret.key": "CHANGEME"
                 },
-            "application": "cos://mybucket.ALIAS NAME/create_table_data_engine.py",
+            "application": "cos://mybucket.us-south/create_table_data_engine.py",
             "arguments": ["<CHANGEME-CRN-DATA-ENGINE-INSTANCE>","<APIKEY-WITH-ACCESS-TO-DATA-ENGINE-INSTANCE>"]
             }
         }
-        ```
-        {: codeblock}
-        {: json}
+    ```
+    {: codeblock}
+    {: json}
 
     Parameter values:
 
-    ALIAS NAME: specify the data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#endpoints).
+    In the above example, the regional COS bucket from `us-south`is considered. If you are using any other region, select the corresponding alias from the [Data engine endpoints](#aeendpoints).
+
+    <!-- ALIAS NAME: specify the data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](#aeendpoints). -->
 
     Make sure that you select the standard aliases.
     {: important}
@@ -213,7 +215,7 @@ main()
 ```
 {: codeblock}
 
-Note that for the SELECT command to work, you must pass the {{site.data.keyword.cos_full_notm}} identifiers as one of the standard {{site.data.keyword.sqlquery_short}} aliases, in this example, we have used `ALIAS NAME`. If you do not pass the expected ones, you might see the following error: `Configuration parse exception: Access KEY is empty. Please provide valid access key`.
+Note that for the SELECT command to work, you must pass the {{site.data.keyword.cos_full_notm}} identifiers as one of the standard {{site.data.keyword.sqlquery_short}} aliases, in this example, we have used `us-south`. If you do not pass the expected ones, you might see the following error: `Configuration parse exception: Access KEY is empty. Please provide valid access key`.
 
 
 
@@ -223,18 +225,18 @@ Note that for the SELECT command to work, you must pass the {{site.data.keyword.
 {
         "application_details": {
             "conf": {
-                "spark.hadoop.fs.cos.ALIAS NAME.endpoint": "CHANGEME",
-                "spark.hadoop.fs.cos.ALIAS NAME.access.key": "CHANGEME",
-                "spark.hadoop.fs.cos.ALIAS NAME.secret.key": "CHANGEME",
+                "spark.hadoop.fs.cos.us-south.endpoint": "CHANGEME",
+                "spark.hadoop.fs.cos.us-south.access.key": "CHANGEME",
+                "spark.hadoop.fs.cos.us-south.secret.key": "CHANGEME",
                 "spark.hive.metastore.truststore.password" : "changeit",
                 "spark.hive.execution.engine":"spark",
                 "spark.hive.metastore.client.plain.password":"APIKEY-WITH-ACCESS-TO-DATA-ENGINE-INSTANCE",
-                "spark.hive.metastore.uris":"THRIFT URL",
+                "spark.hive.metastore.uris":"thrift://catalog.us.dataengine.cloud.ibm.com:9083",
                 "spark.hive.metastore.client.auth.mode":"PLAIN",
                 "spark.hive.metastore.use.SSL":"true",
                 "spark.hive.stats.autogather":"false",
                 "spark.hive.metastore.client.plain.username":"<CHANGEME-CRN-DATA-ENGINE-INSTANCE>",
-                # for spark 3.3
+                # for spark 3.3 and spark 3.4
                 "spark.hive.metastore.truststore.path":"/opt/ibm/jdk/lib/security/cacerts",
                 # for spark 3.1, spark 3.2
                 "spark.hive.metastore.truststore.path":"file:///opt/ibm/jdk/jre/lib/security/cacerts",
@@ -245,17 +247,16 @@ Note that for the SELECT command to work, you must pass the {{site.data.keyword.
                 "spark.sql.catalogImplementation":"hive",
                 "spark.hadoop.metastore.catalog.default":"spark"
             },
-            "application": "cos://mybucket.ALIAS NAME/select_query_data_engine.py"
+            "application": "cos://mybucket.us-south/select_query_data_engine.py"
         }
     }
 ```
 {: codeblock} 
 
-Parameter values:
+In the above example, the regional COS bucket from `us-south`is considered. If you are using any other region, select the corresponding alias from the [Data engine endpoints](#aeendpoints).
+Also, the metastore URL is provided as `thrift://catalog.us.dataengine.cloud.ibm.com:9083`. For more information about other applicable endpoints(thrift), see [Thrift endpoint](https://cloud.ibm.com/docs/sql-query?topic=sql-query-hive_metastore#hive_compatible_client).
 
-* ALIAS NAME: specify the data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#endpoints).
-
-* THRIFT URL: specify the region-specific thrift URL. For example, thrift://catalog.us.dataengine.cloud.ibm.com:9083. For more information about the applicable endpoints(thrift), see [Thrift endpoint](https://cloud.ibm.com/docs/sql-query?topic=sql-query-hive_metastore#hive_compatible_client).
+Parameter value:
 
 * CRN-DATA-ENGINE-INSTANCE: specify the crn of the data engine instance.
 
@@ -311,11 +312,11 @@ Enter:
 {
     "application_details": {
         "conf": {
-            "spark.hadoop.fs.cos.ALIAS NAME.endpoint": "CHANGEME",
-            "spark.hadoop.fs.cos.ALIAS NAME.access.key": "CHANGEME",
-            "spark.hadoop.fs.cos.ALIAS NAME.secret.key": "CHANGEME"
+            "spark.hadoop.fs.cos.us-south.endpoint": "CHANGEME",
+            "spark.hadoop.fs.cos.us-south.access.key": "CHANGEME",
+            "spark.hadoop.fs.cos.us-south.secret.key": "CHANGEME"
         }
-        "application": "cos://mybucket.ALIAS NAME/dataengine-job-convenience_api.py",
+        "application": "cos://mybucket.us-south/dataengine-job-convenience_api.py",
         "arguments": ["<CHANGEME-CRN-DATA-ENGINE-INSTANCE>","<APIKEY-WITH-ACCESS-TO-DATA-ENGINE-INSTANCE>"]
     }
 }
@@ -323,8 +324,9 @@ Enter:
 {: codeblock}
 
 Parameter values:
-
-ALIAS NAME: specify the data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#endpoints).
+In the above example, the regional COS bucket from `us-south`is considered. If you are using any other region, select the corresponding alias from the [Data engine endpoints](#aeendpoints).
+<!--
+ALIAS NAME: specify the data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](#aeendpoints). -->
 
 Make sure that you select the standard aliases.
 {: important}
@@ -358,3 +360,29 @@ Make sure that you select the standard aliases.
     - CHANGEME-thrift: use the thrift endpoint for your region. For valid values, see [Connecting Apache Spark with Data Engine](/docs/sql-query?topic=sql-query-hive_metastore#external_usage).
     - CHANGEME-crn: pick the CRN from the {{site.data.keyword.sqlquery_short}} service instance details
     - REGION: specify your region code. For example, 'us-south'. -->
+
+### Cloud {{site.data.keyword.cos_short}} endpoints
+{: #aeendpoints}
+
+Your Cloud {{site.data.keyword.cos_short}} instance has one of the supported endpoints. {{site.data.keyword.sqlquery_short}} supports all [public and private {{site.data.keyword.cos_short}} endpoints](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-endpoints). To save space, you can use the alias that is shown instead of the full endpoint name.
+
+Aliases to tethering endpoints (specific endpoints within cross region domains, for example, `dal-us-geo`) are considered legacy. They continue to work until further notice but are planned to be deprecated sometime in the future. To be prepared, update your applications to use the alias of the corresponding cross region endpoint (for example, `us-geo`).
+
+{{site.data.keyword.sqlquery_short}} always uses the internal endpoint to interact with {{site.data.keyword.cos_short}}, even if an external endpoint was specified in the query. The result location for a query always indicates the external endpoint name. When you interact with {{site.data.keyword.sqlquery_short}} programmatically through the API, you can use the internal endpoint name to read results instead of the external endpoint name that is returned by the API.
+{: note}
+
+The following tables list some examples of currently supported {{site.data.keyword.sqlquery_short}} endpoints.
+
+Cross region endpoint name | Alias
+--- | ---
+`s3.us.cloud-object-storage.appdomain.cloud` | `us-geo`
+`s3.eu.cloud-object-storage.appdomain.cloud` | `eu-geo`
+`s3.ap.cloud-object-storage.appdomain.cloud` | `ap-geo`
+{: caption="Table 1. Cross region endpoints" caption-side="bottom"}
+
+Regional endpoint name | Alias
+--- | ---
+`s3.eu-de.cloud-object-storage.appdomain.cloud` | `eu-de`
+`s3.eu-gb.cloud-object-storage.appdomain.cloud` | `eu-gb`
+`s3.us-south.cloud-object-storage.appdomain.cloud | `us-south`
+{: caption="Table 2. Regional endpoints" caption-side="bottom"}

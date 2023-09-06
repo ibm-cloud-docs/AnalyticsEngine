@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-11-27"
+  years: 2017, 2023
+lastupdated: "2023-09-05"
 
 subcollection: AnalyticsEngine
 
@@ -63,15 +63,39 @@ When you create an {{site.data.keyword.iae_full_notm}} from the catalog, you wil
 ### Default Spark runtime
 {: #default-spark-runtime}
 
-You can select which Spark version to use when the instance is provisioned. Currently, you can choose between Spark 3.1 and Spark 3.3. If you don't select a Spark runtime version,  Spark 3.1 is taken by default.
+At the time of instance provisioning, you can select the Spark version to be used. Currently, you can choose between Spark 3.1, Spark 3.3 and Spark 3.4. Spark 3.3 is considered as the default version.
+
+The runtime includes open source Spark binaries and the configuration helps you to quickly proceed with the instance creation and run Spark applications in the instance. In addition to the Spark binaries, the runtime also includes the geospatial, data skipping, and Parquet modular encryption libraries.
+
+Across all Spark runtime version, you can submit Spark applications written in the following languages:
+* Scala
+* Python
+* R
+
+The following table shows the Spark runtime version and runtime language version.
+
+| Spark version | Apache Spark release	 | status| Supported Languages |
+|-----------|--------------|---------|---- |
+| 3.1 | 3.1.2 | Deprecated | Java 8, Scala 2.12, Python 3.10 and R 4.2 |
+| 3.3 | 3.3.2 | Default | Java 11, Scala 2.12, Python 3.10 and R 4.2 |
+| 3.4 | 3.4.1 | Latest | Java 11, Scala 2.12, Python 3.10 and R 4.2 |
+{: caption="Table 1. Spark runtime version and runtime language version" caption-side="top"}
+{: #features-table-1}
+{: row-headers}
+
+The language versions are upgraded periodically to keep the runtime free from any security vulnerabilities.
+You can always override the Spark runtime version when you submit an application. For details on what to add to the payload, see [Passing the runtime Spark version when submitting an application](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#pass-spark-version).
+{: important}
+
+<!-- You can select which Spark version to use when the instance is provisioned. Currently, you can choose between Spark 3.3 and Spark 3.4. If you don't select a Spark runtime version,  Spark 3.3 is taken by default.
 
 The runtime contains only open source Spark binaries and is configured to help you to quickly get started to create and run Spark applications in the instance. In addition to the Spark binaries, the runtime also includes the geospatial, data skipping, and Parquet modular encryption libraries.
 
-On a Spark 3.1 or Spark 3.3 runtime, you can submit Spark applications written in the following languages: Scala 2.12, Python 3.9, and R 3.6.3.
+On a Spark 3.3 or Spark 3.4 runtime, you can submit Spark applications written in the following languages: Scala 2.12, Python 3.9, and R 3.6.3.
 
 Note that the language versions are upgraded periodically to keep the runtime free from any security vulnerabilities.
 
-You can always override the Spark runtime version when you submit an application. For details on what to add to the payload, see [Passing the runtime Spark version when submitting an application](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#pass-spark-version).
+You can always override the Spark runtime version when you submit an application. For details on what to add to the payload, see [Passing the runtime Spark version when submitting an application](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#pass-spark-version). -->
 
 ### Instance home
 {: #instance-home}
@@ -96,7 +120,12 @@ You must provide a quota for:
 ### Default Spark configuration
 {: #default-spark-config}
 
-You can specify default Spark configurations at the instance level and let that be inherited by Spark applications created on the instance. This is an optional section that you can specify at the time of instance creation. Values specified as instance level defaults can be overridden at the time of submitting Spark applications.
+
+You can specify default Spark configurations at the time of provisioning an {{site.data.keyword.iae_short}} instance (See [Provisioning an {{site.data.keyword.iae_full_notm}} serverless instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-serverless)). The configurations are automatically applied to the Spark applications submitted on the instance. You can also update the configurations after creating the instance. You can edit the configuration from the **Configuration** section in the **{{site.data.keyword.iae_short}} Instance details** page, [{{site.data.keyword.iae_short}} Rest APIs](https://cloud.ibm.com/apidocs/ibm-analytics-engine-v3#replace-instance-default-configs) or [IAE CLI](https://cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-CLI_analytics_engine#analytics-engine-v3-cli-instance-default-configs-command) . Values specified as instance level defaults can be overridden at the time of submitting Spark applications.
+
+To learn more about the various Apache Spark configurations, see [Spark Configuration](https://spark.apache.org/docs/latest/configuration.html).
+
+<!-- You can specify default Spark configurations at the instance level and let that be inherited by Spark applications created on the instance. This is an optional section that you can specify at the time of instance creation. Values specified as instance level defaults can be overridden at the time of submitting Spark applications.
 
 Currently, the following Apache Spark configurations are supported:
 - `spark.driver.memory`
@@ -122,7 +151,7 @@ The following list shows the default values for Apache Spark configuration setti
 
 For the default limits and quotas for {{site.data.keyword.iae_short}} instances and the supported Spark driver and executor vCPU and memory combinations, see [Limits and quotas for {{site.data.keyword.iae_short}} instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-limits).
 
-When you create an instance you can override the open source default Apache Spark configuration settings. Note that you can specify or change configuration options after the instance was created. You can override or add settings by using the REST API. See [Spark application REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api).
+When you create an instance you can override the open source default Apache Spark configuration settings. Note that you can specify or change configuration options after the instance was created. You can override or add settings by using the REST API. See [Spark application REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api). -->
 
 ## Serverless instance features and execution methods
 {: #default-spark-config-1}
@@ -144,6 +173,6 @@ The following table shows the supported serverless instance features by access r
 | View instance details; shown details might vary depending on access role | Administrator   \n  Developer   \n  DevOps | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
 | Manage Spark history server | Administrator   \n  Developer   | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
 | Access Spark history | Administrator   \n  Developer   \n  DevOps | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
-{: caption="Table 1. Supported serverless instance features by access role and execution methods" caption-side="top"}
+{: caption="Table 2 Supported serverless instance features by access role and execution methods" caption-side="top"}
 {: #features-table-1}
 {: row-headers}

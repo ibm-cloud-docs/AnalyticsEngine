@@ -61,81 +61,81 @@ For more information on how you can create a library set with custom packages th
 1. Log in to {{site.data.keyword.Bluemix_short}} using your {{site.data.keyword.Bluemix_short}} account.
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud api <URL>
         ibmcloud login
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Example
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud api https://cloud.ibm.com
         ibmcloud login
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
 1. Select the resource group. Get the list of the resource groups for your account and select one in which to create the IBM Analytics Engine serverless instance:
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud target -g RESOURCE_GROUP_NAME
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Parameter values:
     - RESOURCE_GROUP_NAME: The name of resource group in which the serverless instance is to reside
 
 
     Example
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud resource groups
         ibmcloud target -g default
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
 1. Install the IBM Cloud Object Storage service and then the Analytics Engine V3 CLI:
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud plugin install cloud-object-storage
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud plugin install analytics-engine-v3
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
 1. Create a Cloud Object Storage instance:
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud resource service-instance-create INSTANCE_NAME cloud-object-storage PLAN global
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Parameter values:
     - INSTANCE_NAME: Any name of your choice
     - PLAN: The Cloud Object Storage plan to use when creating the instance
 
     Example
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud resource service-instance-create test-cos-object cloud-object-storage standard global
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Response
-    :   The example returns:
-        ```text
+    :The example returns:
+    ```text
         Service instance test-cos-object was created.
         Name:             test-cos-object
         ID:               crn:v1:bluemix:public:cloud-object-storage:global:a/867d444f64594fd68c7ebf4baf8f6c90:ebad3176-8a1a-41f2-a803-217621bf6309::
@@ -151,37 +151,38 @@ For more information on how you can create a library set with custom packages th
         Last Operation:
                          Status    create succeeded
                          Message   Completed create instance operation
-       ```
+    ```
+
 1. Configure the CRN by copying the value of ID from the response the of Cloud Object Storage creation call in the previous step:
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud cos config crn
         Resource Instance ID CRN: ID
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Parameter values:
     - ID: The value of ID from the response the of Cloud Object Storage creation call
 
 
     Example
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud cos config crn
         Resource Instance ID CRN: crn:v1:bluemix:public:cloud-object-storage:global:a/867d444f64594fd68c7ebf4baf8f6c90:ebad3176-8a1a-41f2-a803-217621bf6309::
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
 1. Create a Cloud Object Storage bucket:
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud cos bucket-create --bucket BUCKET_NAME [--class CLASS_NAME] [--ibm-service-instance-id ID] [--region REGION] [--output FORMAT]
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
         Parameter values:
         - BUCKET_NAME: Any name of your choice
@@ -190,20 +191,20 @@ For more information on how you can create a library set with custom packages th
         - FORMAT: Output format can be JSON or text.
 
     Example
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud cos bucket-create --bucket test-cos-storage-bucket --region us-south --ibm-service-instance-id ebad3176-8a1a-41f2-a803-217621bf6309 --output json
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
 1. Create Cloud Object Storage service keys:
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud resource service-key-create NAME [ROLE_NAME] ( --instance-id SERVICE_INSTANCE_ID | --instance-name SERVICE_INSTANCE_NAME | --alias-id SERVICE_ALIAS_ID | --alias-name SERVICE_ALIAS_NAME) [--service-id SERVICE_ID] [-p, --parameters @JSON_FILE|JSON_TEXT] [-g RESOURCE_GROUP] [--service-endpoint SERVICE_ENDPOINT_TYPE] [--output FORMAT] [-f, --force] [-q, --quiet]
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
         Parameter values:
         - NAME: Any name of your choice
@@ -213,11 +214,11 @@ For more information on how you can create a library set with custom packages th
         - JSON_TEXT: The authentication to access Cloud Object Storage. Currently only HMAC keys are supported.
 
     Example
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud resource service-key-create test-service-key-cos-bucket Writer --instance-name test-cos-object --parameters '{"HMAC":true}'
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Response
     :   The example returns:
@@ -253,40 +254,40 @@ Create an serverless Analytics Engine instance by using the CLI.
 1. Create the Analytics Engine service instance:
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud resource service-instance-create INSTANCE_NAME ibmanalyticsengine standard-serverless-spark us-south -p @provision.json
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Parameter values:
     - INSTANCE_NAME: Any name of your choice
     - @provision.json: Structure the JSON file as shown in the following example. Use the access and secret key from the response the of Cloud Object Storage service key creation call.
 
     Example of the provision.json file
-    :   Sample JSON file:
-        ```json
+    :Sample JSON file:
+    ```json
         {
            "default_runtime": {
-              "spark_version": "3.1" },
+              "spark_version": "3.3" },
               "instance_home": {
                  "region": "us-south",
                  "endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
                  "hmac_access_key": "<your-hmac-access-key>",
                  "hmac_secret_key": "<your-hmac-secret-key>"}
         }
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Example
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud resource service-instance-create test-ae-service ibmanalyticsengine standard-serverless-spark us-south -p @ae_provision.json
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Response
-    :   The example returns:
+    :The example returns:
         ```text
         Creating service instance test-ae-service in resource group <Resource Group Name> of account <Account Name> as <email id>...
 
@@ -313,28 +314,28 @@ Create an serverless Analytics Engine instance by using the CLI.
 1. Check the status of the Analytics Engine service:
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud ae-v3 instance show –id INSTANCE_ID
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Parameter values:
     - INSTANCE_ID: The value of GUID from the response the of Analytics Engine instance creation call
 
     Example
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud ae-v3 instance show –id 181ea**9ee01b
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Response
-    :   The example returns:
-        ```json
+    :The example returns:
+    ```json
         {
            "default_runtime": {
-              "spark_version": "3.1" },
+              "spark_version": "3.3" },
            "id": "181ea**9ee01b ",
            "instance_home": {
               "bucket": "do-not-delete-ae-bucket-e96**5d-b7**a82",
@@ -347,7 +348,7 @@ Create an serverless Analytics Engine instance by using the CLI.
            "state": "active",
            "state_change_time": "**"
         }
-        ```
+    ```
 
     Only submit your Spark application when the state of the Analytics Engine service is active.
     {: note}
@@ -364,11 +365,11 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
 1. Upload the Spark application file:
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud cos upload --bucket BUCKET_NAME --key KEY --file PATH [--concurrency VALUE] [--max-upload-parts PARTS] [--part-size SIZE] [--leave-parts-on-errors] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata STRUCTURE] [--region REGION] [--output FORMAT] [--json]
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Parameter values:
 
@@ -378,11 +379,11 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
 
 
     Example
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud cos upload --bucket test-cos-storage-bucket --key test-math.py --file test-math.py
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Sample application file
     :   Sample of `test-math.py`:
@@ -418,28 +419,28 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
 1. Check the status of the Analytics Engine service:
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud ae-v3 instance show –id INSTANCE ID
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Parameter values:
     - INSTANCE_ID: The value of GUID from the response the of Analytics Engine instance creation call
 
     Example
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud ae-v3 instance show –id 181ea**9ee01b
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Response
-    :   The example returns:
-        ```json
+    :The example returns:
+    ```json
         {
            "default_runtime": {
-              "spark_version": "3.1" },
+              "spark_version": "3.3" },
            "id": "181ea**9ee01b ",
            "instance_home": {
               "bucket": "do-not-delete-ae-bucket-e96**5d-b7**a82",
@@ -452,7 +453,7 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
            "state": "active",
            "state_change_time": "**"
         }
-        ```
+    ```
 
     Only submit your Spark application when the state of the Analytics Engine service is active.
     {: note}
@@ -460,66 +461,66 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
 1. Submit the Spark application:
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud ae-v3 spark-app submit --instance-id INSTANCE_ID -–app APPLICATION_PATH
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Parameter values:
     - INSTANCE_ID: The value of GUID from the response the of Analytics Engine instance creation call
     - APPLICATION_PATH: The file name and path to the Spark application file
 
     Example for IOS and Linux
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud ae-v3 spark-app submit --instance-id 181ea**9ee01b --app "cos://test-cos-storage-bucket.mycos/test-math.py" --conf '{"spark.hadoop.fs.cos.mycos.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud", "spark.hadoop.fs.cos.mycos.access.key": "21**bf1f4", "spark.hadoop.fs.cos.mycos.secret.key": "c5a**d3e0a6c"}'
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Example for Windows (Not Powershell). Note that on Windows, the quotes needs to be escaped.
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud ae-v3 spark-app submit --instance-id myinstanceid --app "cos://matrix.mycos/test-math.py" --conf "{\"spark.hadoop.fs.cos.mycos.endpoint\": \"https://s3.direct.us-south.cloud-object-storage.appdomain.cloud\", \"spark.hadoop.fs.cos.mycos.access.key\": \"mykey\", \"spark.hadoop.fs.cos.mycos.secret.key\": \"mysecret\"}"
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Response
-    :   The example returns:
-        ```text
+    :The example returns:
+    ```text
         id      7f7096d2-5c44-4d9a-ac01-b904c7611b7b
         state   accepted
-        ```
+    ```
 
 1. Check the details or status of the application that you submitted:
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud ae-v3 spark-app show --instance-id INSTANCE_ID --app-id APPLICATION_ID
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Parameter values:
     - INSTANCE_ID: The value of GUID from the response the of Analytics Engine creation call
     - APPLICATION_ID: The value of id from the response of the spark-app submit call
 
     Example
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud ae-v3 spark-app show --instance-id 181ea**9ee01b --app-id 7f7096d2-5c44-4d9a-ac01-b904c7611b7b
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Response
-    :   The example returns:
-        ```text
+    :The example returns:
+    ```text
         application_details   <Nested Object>
         id                    7f7096d2-5c44-4d9a-ac01-b904c7611b7b
         state                 finished
         start_time            2022-03-01T12:58:54.000Z
         finish_time           2022-03-01T13:09:14.000Z
-        ```
+    ```
 
     The application might take between 2 to 5 minutes to complete.
     {: note}
@@ -534,11 +535,11 @@ You can use use the Analytics Engine CLI to enable logging to help you troublesh
 1. Create a logging instance:
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud resource service-instance-create NAME logdna SERVICE_PLAN_NAME LOCATION
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Parameter values:
     - NAME: Any name of your choice for the IBM Log Analysis service instance
@@ -546,10 +547,10 @@ You can use use the Analytics Engine CLI to enable logging to help you troublesh
     - LOCATION: Locations where Analytics Engine is enabled to send logs to IBM Log Analysis. For valid locations, see [Compute serverless services](/docs/log-analysis?topic=log-analysis-cloud_services_locations#cloud_services_locations_serverless).
 
     Example
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud resource service-instance-create my-log-instance logdna 7-day us-south
-        ```
+    ```
         {: codeblock}
 
     Once the logging service is created, you can log in to [{{site.data.keyword.Bluemix_short}}](cloud.ibm.com), search for the logging service instance, and click on the monitoring dashboard. There you can view the driver and executor logs, as well as all application logs for your Spark application.
@@ -564,11 +565,11 @@ You can use use the Analytics Engine CLI to enable logging to help you troublesh
 1. Enable logging for Analytics Engine:
 
     Action
-    :   Enter:
-        ```sh
+    :Enter:
+    ```sh
         ibmcloud analytics-engine-v3 log-config COMMAND [arguments...] [command options]
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
     Parameter values:
     - `analytics-engine-v3`: Use `ae-v3` to use the v3 CLI commands
@@ -576,11 +577,11 @@ You can use use the Analytics Engine CLI to enable logging to help you troublesh
 
 
     Example
-    :   Enter:
-        ```sh
+    :Enter:
+     ```sh
         ibmcloud ae-v3 log-config update --instance-id 181ea**9ee01b --enable --output json
-        ```
-        {: codeblock}
+    ```
+    {: codeblock}
 
 ## Delete Analytics Engine instance
 {: #delete-iae-instance-cli}
@@ -594,11 +595,11 @@ You can retain an Analytics Engine instance as long as you want and submit your 
 If you want to delete an Analytics Engine instance:
 
 Action
-:   Enter:
-    ```sh
+:Enter:
+```sh
     ibmcloud resource service-instance-delete NAME|ID [-g RESOURCE_GROUP] -f
-    ```
-    {: codeblock}
+```
+{: codeblock}
 
 Parameter values:
 - NAME|ID: The value of Name or GUID from the response of the Analytics Engine instance creation call
@@ -606,11 +607,11 @@ Parameter values:
 
 
 Example
-:   Enter:
-    ```sh
+:Enter:
+```sh
     ibmcloud resource service-instance-delete MyServiceInstance  -g default  -f
-    ```
-    {: codeblock}
+```
+{: codeblock}
 
 
 ## Learn more
