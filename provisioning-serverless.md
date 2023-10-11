@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-09-05"
+lastupdated: "2023-10-10"
 
 subcollection: AnalyticsEngine
 
@@ -44,7 +44,7 @@ To create an {{site.data.keyword.iae_full_notm}} instance:
 1. Choose the location in which you want the service instance to be deployed. Currently,  **us-south** and **eu-de** are the only supported regions.
 1. Select a plan. Currently, **Standard Serverless for Apache Spark** is the only supported serverless plan.
 1. Configure the instance by entering a name of your choice, selecting a resource group and adding tags.
-1. Select the default Spark runtime. You can choose between Spark 3.1, Spark 3.3, and Spark 3.4 runtimes. The runtime pre-installs the spatio-temporal, data skipping and Paquet modular encryption packages by default.
+1. Select the default Spark runtime. You can choose between Spark 3.3, and Spark 3.4 runtimes. The runtime pre-installs the spatio-temporal, data skipping and Paquet modular encryption packages by default.
 1. Select the {{site.data.keyword.cos_full_notm}} instance from your account that you want to use as the `instance home` to store instance related data.
 1. Add Spark configuration values to override default Apache Spark settings.
 1. Click **Create** to provision the service instance in the background.
@@ -94,7 +94,7 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
 
     This is a sample of what the provision.json file can look like. See [Architecture and concepts in serverless instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts) for a description of the provisioning parameters in the payload.
 
-    Note that Spark 3.1, Spark 3.3, and Spark 3.4 are supported. If you don't specify a default Spark runtime version when you create a service instance, Spark 3.3 is taken by default.
+    Note that Spark 3.3, and Spark 3.4 are supported. If you don't specify a default Spark runtime version when you create a service instance, Spark 3.3 is taken by default.
 
     ```json
     {
@@ -180,7 +180,7 @@ To create a service instance using the Resource Controller REST API:
 
     The provision.json file contains the provisioning parameters for the instance you want to create. See [Architecture and concepts in serverless instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts) for a description of the provisioning parameters in the payload.
 
-    Note that Spark 3.1, Spark 3.3, and Spark 3.4 are supported. If you don't specify a default  Spark runtime version when you create a service instance, Spark 3.3 is taken by default.
+    Note that Spark 3.3, and Spark 3.4 are supported. If you don't specify a default  Spark runtime version when you create a service instance, Spark 3.3 is taken by default.
 
     This is a sample of what the provision.json file can look like:
     ```json

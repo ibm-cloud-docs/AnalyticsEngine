@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-07"
+lastupdated: "2023-10-10"
 
 keywords: IBM Analytics Engine release notes
 
@@ -40,6 +40,18 @@ For information about changes to the _service-name_ API, see [Change log for _se
 {: tip}  -->
 <!-- Integration with {{site.data.keyword.lakehouse_short}}
 : {{site.data.keyword.iae_full_notm}} now integrates with {{site.data.keyword.lakehouse_full}} to leverage the functional capabilities of {{site.data.keyword.lakehouse_short}}. For more information about the integration and to work with {{site.data.keyword.lakehouse_short}}, see (AnalyticsEngine?topic=AnalyticsEngine-about-integration){: external}. -->
+
+## October 2023
+{: #AnalyticsEngine-oct23}
+
+### 09 October 2023
+{: #AnalyticsEngine-09oct2023}
+
+Removal of Spark 3.1 support
+: {{site.data.keyword.iae_full_notm}} no longer supports Spark 3.1. Upgrade your existing {{site.data.keyword.iae_full_notm}} instances to Spark 3.3 for the latest features and enhancements. For more information about the upgrade, see [Replace Instance Default Runtime](https://cloud.ibm.com/apidocs/ibm-analytics-engine-v3#replace-instance-default-runtime).
+
+From the current release onwards, Spark 3.3 is the default runtime version for {{site.data.keyword.iae_full_notm}} instances.
+{: note}
 
 ## September 2023
 {: #AnalyticsEngine-sept23}

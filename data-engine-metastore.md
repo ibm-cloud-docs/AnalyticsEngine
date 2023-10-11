@@ -238,8 +238,6 @@ Note that for the SELECT command to work, you must pass the {{site.data.keyword.
                 "spark.hive.metastore.client.plain.username":"<CHANGEME-CRN-DATA-ENGINE-INSTANCE>",
                 # for spark 3.3 and spark 3.4
                 "spark.hive.metastore.truststore.path":"/opt/ibm/jdk/lib/security/cacerts",
-                # for spark 3.1, spark 3.2
-                "spark.hive.metastore.truststore.path":"file:///opt/ibm/jdk/jre/lib/security/cacerts",
                 "spark.sql.catalogImplementation":"hive",
                 "spark.sql.hive.metastore.jars":"/opt/ibm/connectors/data-engine/hms-client/*",
                 "spark.sql.hive.metastore.version":"3.0",
