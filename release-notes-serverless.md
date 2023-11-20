@@ -44,6 +44,13 @@ For information about changes to the _service-name_ API, see [Change log for _se
 ## October 2023
 {: #AnalyticsEngine-oct23}
 
+### 19 October 2023
+{: #AnalyticsEngine-19oct2023}
+
+Removal of development(*-devel) packages
+: For security reasons, the *-devel packages (operating system development packages) are not pre-installed on the Spark runtime from now on. If you are already using the development packages,  the programs that use the development packages cannot be compiled . For any queries, contact IBM Support.
+
+
 ### 09 October 2023
 {: #AnalyticsEngine-09oct2023}
 
