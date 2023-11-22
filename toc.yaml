@@ -112,6 +112,12 @@ toc:
           - lazy-timeseries-evaluation-non-classic.md
           - time-reference-system-non-classic.md
       - topicgroup:
+          label: Working with watsonx.data
+          topics:
+          - about-integration.md
+          - provision-wxd.md
+          - getting-started-wxd.md
+      - topicgroup:
           label: Enhancing security
           topics:
           - security-model-serverless.md
@@ -120,8 +126,9 @@ toc:
           topics:
           - spark-user-interface.md
           - spark-history-serverless.md
-          - viewing-logs.md
           - at-tracker-serverless.md
+          - viewing-logs.md
+          - config_log.md
     #   - topicgroup:
     #       label: Classic instances
     #       topics:
