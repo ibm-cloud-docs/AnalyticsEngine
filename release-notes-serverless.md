@@ -48,7 +48,7 @@ For information about changes to the _service-name_ API, see [Change log for _se
 {: #AnalyticsEngine-22nov2023}
 
 Configuring Spark log level information
-: The default log level in the {{site.data.keyword.iae_full_notm}} Serverless Spark application plans shall be changed to 'ERROR' by January 3, 2023. You can change the existing log configuration of logging at the 'INFO' level to display a relevant and concise messages. For more information on changing the log level, see [Configuring Spark log level information](/docs/AnalyticsEngine?topic=AnalyticsEngine-config_log).
+: The default log level in the {{site.data.keyword.iae_full_notm}} Serverless Spark application, shall be changed to 'ERROR' by January 3, 2023. You can change the existing log configuration of logging at the 'INFO' level, to display a relevant and concise messages. For more information on changing the log level, see [Configuring Spark log level information](/docs/AnalyticsEngine?topic=AnalyticsEngine-config_log).
 
 
 ## October 2023
