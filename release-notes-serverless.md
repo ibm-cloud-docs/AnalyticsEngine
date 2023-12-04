@@ -41,6 +41,16 @@ For information about changes to the _service-name_ API, see [Change log for _se
 <!-- Integration with {{site.data.keyword.lakehouse_short}}
 : {{site.data.keyword.iae_full_notm}} now integrates with {{site.data.keyword.lakehouse_full}} to leverage the functional capabilities of {{site.data.keyword.lakehouse_short}}. For more information about the integration and to work with {{site.data.keyword.lakehouse_short}}, see (AnalyticsEngine?topic=AnalyticsEngine-about-integration){: external}. -->
 
+## December 2023
+{: #AnalyticsEngine-dec23}
+
+### 01 December 2023
+{: #AnalyticsEngine-01dec2023}
+
+Encrypting internal network data for Spark workload
+: You can now enable data encryption for the internal network data in transit (internal communication between components of the Spark application) by configuring the {{site.data.keyword.iae_full_notm}} properties at instance level or job level. For more information about encrypting internal network data for Spark workload, see [Encrypting internal network data for Spark workload](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-model-serverless#ency-spk-wrkld).
+
+
 ## November 2023
 {: #AnalyticsEngine-nov23}
 

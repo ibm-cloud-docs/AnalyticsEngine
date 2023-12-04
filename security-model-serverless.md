@@ -59,3 +59,35 @@ Spark workloads in one {{site.data.keyword.iae_full_notm}} instance cannot commu
 You are advised to be cautious when applying libraries or package customization to your instance. You must use secure code from trusted sources only, so as not to compromise the overall security of the instances.
 
 IBM recommends that you scan any source code, libraries, and packages you use before uploading them to your instance. While the use of non-trusted code will not impact others, it might impact you.
+
+## Encrypting internal network data for Spark workload
+{: #ency-spk-wrkld}
+
+{{site.data.keyword.iae_full_notm}} allows encrypting the internal communication between the Spark application components. To enable encryption in the private network, specify the configuration in any of the following two ways:
+
+* At the time of provisioning an IBM Analytics Engine instance, specify the configuration under the default_config attribute.
+
+    Example :
+
+    ```bash
+
+    "default_config": {
+        "spark.ssl.enabled":"true"
+    }
+    ```
+    {: codeblock}
+
+
+* At the time of submitting a job, specify the options in the payload under `conf`.
+
+    Example :
+
+    ```bash
+
+    {
+     "conf": {
+    "spark.ssl.enabled":"true"
+     }
+    }
+    ```
+    {: codeblock}
