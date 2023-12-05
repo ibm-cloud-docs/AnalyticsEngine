@@ -371,16 +371,16 @@ Aliases to tethering endpoints (specific endpoints within cross region domains, 
 
 The following tables list some examples of currently supported {{site.data.keyword.sqlquery_short}} endpoints.
 
-Cross region endpoint name | Alias
---- | ---
-`s3.us.cloud-object-storage.appdomain.cloud` | `us-geo`
-`s3.eu.cloud-object-storage.appdomain.cloud` | `eu-geo`
-`s3.ap.cloud-object-storage.appdomain.cloud` | `ap-geo`
+|Cross region endpoint name | Alias|
+|--- | ---|
+|`s3.us.cloud-object-storage.appdomain.cloud` | `us-geo`|
+|`s3.eu.cloud-object-storage.appdomain.cloud` | `eu-geo`|
+|`s3.ap.cloud-object-storage.appdomain.cloud` | `ap-geo`|
 {: caption="Table 1. Cross region endpoints" caption-side="bottom"}
 
-Regional endpoint name | Alias
---- | ---
-`s3.eu-de.cloud-object-storage.appdomain.cloud` | `eu-de`
-`s3.eu-gb.cloud-object-storage.appdomain.cloud` | `eu-gb`
-`s3.us-south.cloud-object-storage.appdomain.cloud | `us-south`
+|Regional endpoint name | Alias|
+|--- | ---|
+|`s3.eu-de.cloud-object-storage.appdomain.cloud` | `eu-de`|
+|`s3.eu-gb.cloud-object-storage.appdomain.cloud` | `eu-gb`|
+|`s3.us-south.cloud-object-storage.appdomain.cloud | `us-south`|
 {: caption="Table 2. Regional endpoints" caption-side="bottom"}

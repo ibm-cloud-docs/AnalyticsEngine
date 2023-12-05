@@ -65,7 +65,7 @@ The service ID credentials can readily be used by one user. However, if the {{si
 {: #get-cos-credentials-serverless-3}
 
 When you, as user of {{site.data.keyword.cos_short}}, view the service ID credentials of a provisioned service, you will see something like what is shown in the following example:
-```
+```bash
 {
   "apikey": "asdf1234...",
   "cos_hmac_keys": {
@@ -95,7 +95,7 @@ If you, as {{site.data.keyword.cos_short}} administrator, do not want to create 
 {: #get-cos-credentials-serverless-6}
 
 When you, as user of {{site.data.keyword.cos_short}}, view an API key in {{site.data.keyword.Bluemix_short}}, you will notice that it has the following structure:
-```
+```bash
 {
 	"name": "MyAPIKey",
 	"description": "",
