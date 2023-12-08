@@ -111,12 +111,7 @@ toc:
           - time-series-functions-non-classic.md
           - lazy-timeseries-evaluation-non-classic.md
           - time-reference-system-non-classic.md
-      - topicgroup:
-          label: Working with watsonx.data
-          topics:
-          - about-integration.md
-          - provision-wxd.md
-          - getting-started-wxd.md
+      - about-integration.md
       - topicgroup:
           label: Enhancing security
           topics:
