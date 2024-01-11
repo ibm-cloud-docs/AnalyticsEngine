@@ -184,11 +184,11 @@ For more information on how you can create a library set with custom packages th
     ```
     {: codeblock}
 
-        Parameter values:
-        - BUCKET_NAME: Any name of your choice
-        - ID: The value of GUID from the response the of Cloud Object Storage creation call
-        - REGION: The IBM Cloud region in which the Cloud Object Storage instance was created
-        - FORMAT: Output format can be JSON or text.
+    Parameter values:
+    - BUCKET_NAME: Any name of your choice
+    - ID: The value of GUID from the response the of Cloud Object Storage creation call
+    - REGION: The IBM Cloud region in which the Cloud Object Storage instance was created
+    - FORMAT: Output format can be JSON or text.
 
     Example
     :Enter:
@@ -387,21 +387,21 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
 
     Sample application file
     :   Sample of `test-math.py`:
-        ```python
-        from pyspark.sql import SparkSession
-        import time
-        import random
-        import cmath
+    ```python
+    from pyspark.sql import SparkSession
+    import time
+    import random
+    import cmath
 
-        def init_spark():
+    def init_spark():
         spark = SparkSession.builder.appName("test-math").getOrCreate()
         sc = spark.sparkContext
-        return spark,sc
+    return spark,sc
 
-        def transformFunc(x):
+    def transformFunc(x):
         return cmath.sqrt(x)+cmath.log(x)+cmath.log10(x)
 
-        def main():
+    def main():
         spark,sc = init_spark()
         partitions=[10,5]
         for i in range (0,2):
@@ -410,11 +410,10 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
             v1 = v0.map(transformFunc)
             print(f"v1.count is {v1.count()}. Done")
             time.sleep(60)
-
-        if __name__ == '__main__':
-          main()
-        ```
-        {: codeblock}
+            if __name__ == '__main__':
+                main()
+    ```
+    {: codeblock}
 
 1. Check the status of the Analytics Engine service:
 
