@@ -122,7 +122,12 @@ toc:
           - spark-user-interface.md
           - spark-history-serverless.md
           - at-tracker-serverless.md
-          - viewing-logs.md
+          - topicgroup:
+              label: Configuring and viewing logs
+              topics:
+              - viewing-logs.md
+              - log_frwd_inst.md
+              - log_frwd_log_anlys.md
           - config_log.md
     #   - topicgroup:
     #       label: Classic instances
