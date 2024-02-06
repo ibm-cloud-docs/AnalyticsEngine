@@ -43,7 +43,7 @@ aws --endpoint-url https://s3.us-south.cloud-object-storage.appdomain.cloud/ s3 
 ## Changing Spark Log Level
 {: #enable-logging-from-iae_1}
 
-You can edit the `spark log level configuration` to set different log levels like INFO, DEBUG etc for driver and executor logs that are forwraded to instance home.
+You can edit the `spark log level configuration` to set different log levels like INFO, DEBUG for driver and executor logs that are forwarded to instance home.
 
 Disable the logging feature completely by specifying the following driver and (or) executor log level.
 

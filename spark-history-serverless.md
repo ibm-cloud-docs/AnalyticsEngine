@@ -136,6 +136,10 @@ Ensure that the Spark history server is running before you open the Web UI.
 Log links under the Stages and Executors tabs of the Spark history server UI will not work as logs are not preserved with the Spark events. To review the task and executor logs, enable platform logging. For details, see [Configuring and viewing logs](/docs/AnalyticsEngine?topic=AnalyticsEngine-viewing-logs).
 {: note}
 
+To view older applications on Spark history server UI, copy the spark-events from old path to new path by using the command:
+ibmcloud cos object-copy --bucket <destination_bucket> --key <instance-id>/spark-events/<eventlog_app-1> --copy-source <bucket-name>/spark-events/<eventlog_app-1>
+{: important}
+
 ## Accessing the Spark history server REST API
 {: #spark-history-serverless-7}
 
