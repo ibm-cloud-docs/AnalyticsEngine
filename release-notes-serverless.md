@@ -51,7 +51,7 @@ Application logs are now available in the **instance home**
 : The application logs are now forwarded to {{site.data.keyword.iae_short}} **instance home** by default. You can access the log information from the IBM Cloud Object Storage (COS) bucket. You can download the log file for any specific application from the path `<instance_id>/logs/<app_id>` for recording, sharing, and debugging purposes. For more information, see [Forwarding logs to instance home](/docs/AnalyticsEngine?topic=AnalyticsEngine-viewing-logs_1).
 
 New location for logging Spark application events
-: Starting 7 February 2024, the Spark application events are logged on a new path (`/<instance_id>/spark-events`) available in the instance-home bucket. To view the older applications on the Spark history interface, copy the Spark application events to a new location. For more information about copying the events, see [Configuring Spark log level information](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-history-serverless#spark-history-serverless-6)
+: Starting 7 February 2024, the Spark application events are logged on a new path (`/<instance_id>/spark-events`) available in the instance-home bucket. To view the older applications on the Spark history interface, copy the Spark application events to a new location. For more information about copying the events, see [Spark history server](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-history-serverless#spark-history-serverless-6)
 
 ## December 2023
 {: #AnalyticsEngine-dec23}
