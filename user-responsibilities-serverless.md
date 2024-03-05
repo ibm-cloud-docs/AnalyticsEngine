@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-09-08"
+  years: 2019, 2024
+lastupdated: "2024-03-05"
 
 subcollection: AnalyticsEngine
 
@@ -89,20 +89,29 @@ Security and regulation compliance includes tasks such as security controls impl
 
 | Task | IBM Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-| General | - Maintain controls commensurate to various industry compliance standards.  \n- Monitor, isolate, and recover instances.  \n- Monitor and report the health of instances in the various interfaces.   \n- Secure cluster access through TLS/SSH (data plane in the IBM Services account).  \n- Integrate {{site.data.keyword.iae_full_notm}} with {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). | -  Set up and maintain security and regulation compliance for the  {{site.data.keyword.iae_full_notm}} instances. |
+| General | - Maintain controls commensurate to various industry compliance standards.  \n- Monitor, isolate, and recover instances.  \n- Monitor and report the health of instances in the various interfaces.   \n- Secure cluster access through TLS (data plane in the IBM Services account).  \n- Integrate {{site.data.keyword.iae_full_notm}} with {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). | -  Set up and maintain security and regulation compliance for the  {{site.data.keyword.iae_full_notm}} instances. |
 {: caption="Table 4. Responsibilities for security and regulation compliance" caption-side="top"}
 {: summary="The rows are read from left to right. The first column describes the task that a the customer or IBM might be responsibility for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
 
-## Disaster recovery
+## High availability and Disaster recovery
 {: #disaster-recovery}
 
 <!-- Use this section description exactly as worded. -->
 <!-- If there is a task that is the customer's responsibility and you have associated docs for how a customer completes that task, link to it from the Your responsibilities column. -->
 
+High availability (HA) is a core discipline in an IT infrastructure to keep your apps up and running, even after a partial or full site failure. The main purpose of high availability is to eliminate potential points of failures in an IT infrastructure.
+
 Disaster recovery includes tasks such as providing dependencies on disaster recovery sites, provision disaster recovery environments, data and configuration backup, replicating data and configuration to the disaster recovery environment, and failover on disaster events.
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-| General | - Restore or rebuild the provisioning environments in the affected regions.  \n- Restore existing Spark clusters, where possible. | - Track instance state.  \n- Provision new Spark instances in alternatively available regions.   \n- Ensure that the Spark instance is stateless by making sure that all data, metadata and applications reside outside of the cluster. This activity must be completed before disaster recovery can be initiated.  \n- Provision a new service instance in an alternatively available region if the current instances can't be accessed.  \n- Track instance state. |
+| High availability | - IBM ensures that the control plane is deployed on multi zone regions. When a zone becomes unavailable in a multi zone region, the workloads are automatically scheduled on the remaining available zones.  \n- Maintain service replicas to ensure service availability on Pod failure. | No action required|
+| General | - Restore or rebuild the provisioning environments in the affected regions.  \n- Rebuild the existing Spark instance, where possible. | - Track instance state and application state.  \n- Provision a new service instance and re-submit the application in an alternatively available region if the current instances can't be accessed.  \n- Create backup for all Spark instance configuration data and validate the information.  \n- Make sure that all data, metadata and applications reside outside of the cluster. This activity must be completed before disaster recovery can be initiated.  |
 {: caption="Table 5. Responsibilities for disaster recovery" caption-side="top"}
 {: summary="The rows are read from left to right. The first column describes the task that a the customer or IBM might be responsibility for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
+
+## Locations
+{: #loc}
+
+* Frankfurt
+* Dallas
