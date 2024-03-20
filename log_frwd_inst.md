@@ -58,7 +58,7 @@ For more information about configuring the log level information, see [Configuri
 
 
 
-By default the driver log level is ERROR and the executor log level is OFF. You can view only the driver logs in your instance home, if the Spark log level configuration is not specified. To include the executor logs, change the log level to a different value than OFF. For more information, see [Configuring Spark log level information](https://cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-config_log).
+By default the driver log level is `WARN` and the executor log level is `OFF`. You can view only the driver logs in your instance home, if the Spark log level configuration is not specified. To include the executor logs, change the log level to a different value than OFF. For more information, see [Configuring Spark log level information](https://cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-config_log).
 {: note}
 
 

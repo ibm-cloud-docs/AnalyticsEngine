@@ -27,7 +27,7 @@ When you submit applications or Spark workloads in {{site.data.keyword.iae_full_
 {: #viewing-logs_1}
 
 
-When you run applications in {{site.data.keyword.iae_full_notm}}, the application logs (only `Spark Driver ERROR logs`) are forwarded to IBM Cloud Object Storage by default. You can access the log information from your **instance home**. For more information, see [instance home](https://cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-cos-concepts).
+When you run applications in {{site.data.keyword.iae_full_notm}}, the application logs (only `Spark Driver WARN logs`) are forwarded to IBM Cloud Object Storage by default. You can access the log information from your **instance home**. For more information, see [instance home](https://cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-cos-concepts).
 
 
 ## Forwarding logs to instance home
@@ -40,7 +40,7 @@ Application Logs are forwarded to the {{site.data.keyword.iae_short}} **instance
 {: #viewing-logs-3}
 
 
-{{site.data.keyword.la_full_notm}} service allows you to view indexed logs, enable full-text search through all generated messages and query based on specific fields. Enabling the `log forwarding` feature forward the logs to {{site.data.keyword.la_full_notm}} service (in addition to **instance home**). Only the `spark driver ERROR logs` are forwarded by default. To change the behavior to include executor logs, enable it by modifying the payload in the log forwarding API.For more information, see [Forwarding logs to {{site.data.keyword.la_full_notm}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-platform-logs)
+{{site.data.keyword.la_full_notm}} service allows you to view indexed logs, enable full-text search through all generated messages and query based on specific fields. Enabling the `log forwarding` feature forward the logs to {{site.data.keyword.la_full_notm}} service (in addition to **instance home**). Only the `Spark Driver WARN logs` are forwarded by default. To change the behavior to include executor logs, enable it by modifying the payload in the log forwarding API.For more information, see [Forwarding logs to {{site.data.keyword.la_full_notm}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-platform-logs)
 
 ## Changing the Spark Log Levels
 {: #viewing-logs-4}

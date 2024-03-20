@@ -19,7 +19,7 @@ subcollection: AnalyticsEngine
 # Configuring Spark log level information
 {: #config_log}
 
-Review the applications that run and identify the issues that are present by using the logs that the {{site.data.keyword.iae_full_notm}} Spark application generates. The standard logging levels available are ALL, TRACE, DEBUG, INFO, WARN, ERROR, FATAL, and OFF. By default, the {{site.data.keyword.iae_short}} Spark application logs at the Spark INFO level. You can configure the logging level to display relevant, and fewer verbose messages.
+Review the applications that run and identify the issues that are present by using the logs that the {{site.data.keyword.iae_full_notm}} Spark application generates. The standard logging levels available are ALL, TRACE, DEBUG, INFO, WARN, ERROR, FATAL, and OFF. By default, the {{site.data.keyword.iae_short}} Spark application logs at the WARN log level for spark drivers and OFF for spark executors. You can configure the logging level to display relevant, and fewer verbose messages.
 {: shortdesc}
 
 The {{site.data.keyword.iae_full_notm}} logging configuration configures the log level information of the Spark framework. It does not affect the logs written by the user code using commands such as 'logger.info()', 'logger.warn()', 'print()', or'show()' in the Spark application.
@@ -44,7 +44,7 @@ You can specify the following standard log level values:
 * OFF
 
 
-The default value for both driver and executor log level is `INFO`.
+The default value for driver log level is `WARN` and executor log level is `OFF`.
 {: note}
 
 You can apply the configuration in the following two ways:
@@ -111,7 +111,7 @@ Example :
         "spark.hadoop.fs.cos.<cos-reference-name>.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
         "spark.hadoop.fs.cos.<cos-reference-name>.access.key": "<access_key>",
         "spark.hadoop.fs.cos.<cos-reference-name>.secret.key": "<secret_key>",
-        "spark.app.name": "MySparkApp”,
+        "spark.app.name": "MySparkApp",
      "ae.spark.driver.log.level":"INFO",
      "ae.spark.executor.log.level":"INFO",
      }
