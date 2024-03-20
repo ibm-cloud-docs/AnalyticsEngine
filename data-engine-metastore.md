@@ -21,6 +21,7 @@ subcollection: AnalyticsEngine
 # Using {{site.data.keyword.sqlquery_notm}} as external metastore 
 {: #data-engine-external-metastore}
 
+[Deprecated]{: tag-deprecated}
 
 {{site.data.keyword.sqlquery_notm}} is IBM Cloud's central service for data lakes. It provides stream ingestion, data preparation, ETL, and data query from {{site.data.keyword.cos_full_notm}} and Kafka. It also manages tables and views in a catalog that is compatible with Hive metastore and other big data engines and services can connect to it. See [Overview of {{site.data.keyword.sqlquery_notm}}](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview).
 {: shortdesc}
