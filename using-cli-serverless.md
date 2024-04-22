@@ -396,7 +396,7 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
     def init_spark():
         spark = SparkSession.builder.appName("test-math").getOrCreate()
         sc = spark.sparkContext
-    return spark,sc
+        return spark,sc
 
     def transformFunc(x):
         return cmath.sqrt(x)+cmath.log(x)+cmath.log10(x)
@@ -410,8 +410,9 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
             v1 = v0.map(transformFunc)
             print(f"v1.count is {v1.count()}. Done")
             time.sleep(60)
-            if __name__ == '__main__':
-                main()
+
+    if __name__ == '__main__':
+        main()
     ```
     {: codeblock}
 
