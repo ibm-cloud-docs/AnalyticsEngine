@@ -6,7 +6,7 @@ lastupdated: "2021-02-24"
 subcollection: AnalyticsEngine
 
 ---
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}

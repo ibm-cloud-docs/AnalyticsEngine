@@ -37,7 +37,7 @@ Currently, you can create {{site.data.keyword.iae_full_notm}} serverless instanc
 To start running Spark applications in {{site.data.keyword.iae_full_notm}}, you need:
 
 - An {{site.data.keyword.Bluemix}} account.
-- Instance home storage in {{site.data.keyword.cos_full_notm}} that is referenced from the {{site.data.keyword.iae_full_notm}} instance. This storage is used to store Spark History events, which are created by your applications and any custom library sets, which need to be made available to your Spark applications. <!--Currently, the Spark application logs and the driver and executor logs are also stored in this {{site.data.keyword.cos_short}} bucket. At a later time, you will be able to aggregate these logs to a centralized {{site.data.keyword.la_short}} server that you own.-->
+- Instance home storage in {{site.data.keyword.cos_full_notm}} that is referenced from the {{site.data.keyword.iae_full_notm}} instance. This storage is used to store Spark History events, which are created by your applications and any custom library sets, which need to be made available to your Spark applications. 
 - An {{site.data.keyword.iae_full_notm}} serverless instance.
 
 ## Provision an instance and create a cluster

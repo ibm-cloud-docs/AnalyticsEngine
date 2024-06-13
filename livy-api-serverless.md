@@ -8,7 +8,7 @@ subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -97,8 +97,7 @@ curl -i -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<inst
 {: codeblock}
 
 The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the public endpoint.
-<!--
-The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, which should preferably match the location of your {{site.data.keyword.iae_short}} instance, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.  -->
+
 
 Sample payload:
 ```json

@@ -8,7 +8,7 @@ subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -377,25 +377,4 @@ The following code samples show how to:
     ```
     {: codeblock}
 
-<!--
-- Update private endpoint allowlist:
-    ```java
-    public static void UpdatePrivateEndpointWhitelistWOptions() {
 
-        try {
-            // Construct an instance of the UpdatePrivateEndpointWhitelistOptions model
-            UpdatePrivateEndpointWhitelistOptions updatePrivateEndpointWhitelistOptionsModel = new UpdatePrivateEndpointWhitelistOptions.Builder()
-            .instanceGuid("{instanceGuid}")
-            .ipRanges(new ArrayList<String>(Arrays.asList("xx.xx.xx.xx/xx")))
-            .action("add")
-            .build();
-
-            // Invoke operation with valid options model (positive test)
-            Response<AnalyticsEngineWhitelistResponse> response = service.updatePrivateEndpointWhitelist(updatePrivateEndpointWhitelistOptionsModel).execute();
-            System.out.println(Integer.toString(response.getStatusCode()));
-        } catch (Exception e) {
-            System.out.printf("Error: %s\n", e.getMessage());
-        }
-    }
-    ```
-    {: codeblock} -->

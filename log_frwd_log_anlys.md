@@ -9,7 +9,7 @@ subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}

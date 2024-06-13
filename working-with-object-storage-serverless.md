@@ -8,7 +8,7 @@ subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -19,10 +19,7 @@ subcollection: AnalyticsEngine
 # Using {{site.data.keyword.cos_short}} as the instance home
 {: #cos-serverless}
 
-<!--
-{{site.data.keyword.cos_full_notm}} is a highly scalable cloud storage service, designed for high durability, resiliency and security. See [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage){: external}.
 
-In {{site.data.keyword.iae_full_notm}} serverless instances, {{site.data.keyword.cos_full_notm}} must be used as the service instance home in which custom application libraries and Spark history events are stored. -->
 
 The instance home can be associated with the {{site.data.keyword.iae_full_notm}} serverless instance:
 

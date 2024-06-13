@@ -8,7 +8,7 @@ subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -87,15 +87,7 @@ The language versions are upgraded periodically to keep the runtime free from an
 You can always override the Spark runtime version when you submit an application. For details on what to add to the payload, see [Passing the runtime Spark version when submitting an application](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#pass-spark-version).
 {: important}
 
-<!-- You can select which Spark version to use when the instance is provisioned. Currently, you can choose between Spark 3.3 and Spark 3.4. If you don't select a Spark runtime version,  Spark 3.3 is taken by default.
 
-The runtime contains only open source Spark binaries and is configured to help you to quickly get started to create and run Spark applications in the instance. In addition to the Spark binaries, the runtime also includes the geospatial, data skipping, and Parquet modular encryption libraries.
-
-On a Spark 3.3 or Spark 3.4 runtime, you can submit Spark applications written in the following languages: Scala 2.12, Python 3.9, and R 3.6.3.
-
-Note that the language versions are upgraded periodically to keep the runtime free from any security vulnerabilities.
-
-You can always override the Spark runtime version when you submit an application. For details on what to add to the payload, see [Passing the runtime Spark version when submitting an application](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#pass-spark-version). -->
 
 ### Instance home
 {: #instance-home}
@@ -106,16 +98,7 @@ When you provision an instance using the {{site.data.keyword.Bluemix_notm}} cons
 
 You can't change instance home after instance creation. You can only edit the access keys.
 
-<!--
-### Resource quota
-{: #resource-quota}
 
-A resource quota provides constraints at the service instance level on the amount of resources that can be used at any point in time. By enforcing a quota at the time the instance is created, you can control the hardware resources, such as CPU and memory, that are used by all applications and kernels at any point in time.
-
-You must provide a quota for:
-
-- CPU cores: The total number of virtual CPUs across the instance. The default is 80.
-- Memory in GiB: The total amount of memory in gibibytes that can be requested by applications or kernels across the instance. The default is 100 GiB. -->
 
 ### Default Spark configuration
 {: #default-spark-config}
@@ -125,33 +108,7 @@ You can specify default Spark configurations at the time of provisioning an {{si
 
 To learn more about the various Apache Spark configurations, see [Spark Configuration](https://spark.apache.org/docs/latest/configuration.html).
 
-<!-- You can specify default Spark configurations at the instance level and let that be inherited by Spark applications created on the instance. This is an optional section that you can specify at the time of instance creation. Values specified as instance level defaults can be overridden at the time of submitting Spark applications.
 
-Currently, the following Apache Spark configurations are supported:
-- `spark.driver.memory`
-- `spark.driver.cores`
-- `spark.executor.memory`
-- `spark.executor.cores`
-- `spark.driver.defaultJavaOptions`
-- `spark.driver.extraLibaryPathe`
-- `spark.driver.extraClassPath`
-
-See [Spark Configuration](https://spark.apache.org/docs/latest/configuration.html){: external} to understand more about the Apache Spark properties.
-
-Additionally, you can also specify default values for autoscaling Spark applications at the instance level. See [Autoscaling application configurations](/docs/AnalyticsEngine?topic=AnalyticsEngine-appl-auto-scaling) for details.
-
-The following list shows the default values for Apache Spark configuration settings adapted for {{site.data.keyword.iae_full_notm}} instances:
-
-- `"spark.driver.memory": "4G"`
-- `"spark.driver.cores": "1"`
-- `"spark.executor.memory": "4G"`
-- `"spark.executor.cores": "1"`
-- `"spark.eventLog.enabled": "true"`
-
-
-For the default limits and quotas for {{site.data.keyword.iae_short}} instances and the supported Spark driver and executor vCPU and memory combinations, see [Limits and quotas for {{site.data.keyword.iae_short}} instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-limits).
-
-When you create an instance you can override the open source default Apache Spark configuration settings. Note that you can specify or change configuration options after the instance was created. You can override or add settings by using the REST API. See [Spark application REST API](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api). -->
 
 ## Serverless instance features and execution methods
 {: #default-spark-config-1}

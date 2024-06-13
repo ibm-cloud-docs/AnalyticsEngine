@@ -12,7 +12,7 @@ content-type: release-note
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -21,25 +21,22 @@ content-type: release-note
 {:external: target="_blank" .external}
 {:release-note: data-hd-content-type='release-note'}
 
-<!-- keywords values above are place holders. Actual values should be pulled from the release notes entries. -->
+
 
 {{site.data.keyword.attribute-definition-list}}
 
-<!-- You must add the release-note content type in your attribute definitions AND to each release note H2. This will ensure that the release note entry is pulled into the notifications library. -->
+
 
 # Release notes for {{site.data.keyword.iae_full_notm}} serverless instances
 {: #iae-serverless-relnotes}
 
-<!-- The title of your H1 should be Release notes for _service-name_, where _service-name_ is the non-trademarked short version conref. Include your service name as a search keyword at the top of your Markdown file. See the example keywords above. -->
+
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} serverless instances that are grouped by date.
 {: shortdesc}
 
-<!-- If you also have a change log for your API or CLI, include the following tip with a link to the change log.
-For information about changes to the _service-name_ API, see [Change log for _service-name_ API](/docs/link-to-change-log).
-{: tip}  -->
-<!-- Integration with {{site.data.keyword.lakehouse_short}}
-: {{site.data.keyword.iae_full_notm}} now integrates with {{site.data.keyword.lakehouse_full}} to leverage the functional capabilities of {{site.data.keyword.lakehouse_short}}. For more information about the integration and to work with {{site.data.keyword.lakehouse_short}}, see (AnalyticsEngine?topic=AnalyticsEngine-about-integration){: external}. -->
+
+
 
 ## February 2024
 {: #AnalyticsEngine-feb24}
@@ -150,8 +147,7 @@ Removal of Python v3.9 support from Spark 3.1 and Spark 3.3 runtimes
 Based on the workload, make sure that you test your spark application with the new version of Python, v 3.10 for any failures before June 15, 2023. Contact IBM Support for any issues. See the procedure for testing the Spark application [Run a Spark application with nondefault language version]( https://cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#run-a-spark-application-with-non-default-language-version).
 
 
-<!-- The IBM Analytics Engine - Serverless Spark application now supports Python v 3.10. The previous version of Python, v3.9 will be revoked on June15, 2023. The IBM Analytics Engine - Serverless Spark application (Spark v3.1 and v3.2) does not support Python v3.9 there after and sets Python v3.10 as the default language for the IBM Analytics Engine - Serverless Spark application. See the [announcement](https://cloud.ibm.com/status/announcement?query=ANNOUNCEMENT%3A+Python+3.9+removal+from+IBM+Analytics+Engine+-+Serverless+Spark%0D%0A%0D) for reference.
-Based on the workload, make sure that you test your spark application with the new version of Python, v 3.10 for any failures before June 15, 2023. Contact IBM Support for any issues. See the procedure for testing the Spark application [Run a Spark application with nondefault language version](https://cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#use-env-varsadd). -->
+
 
 ### 25 May 2023
 {: #AnalyticsEngine-25may2023}

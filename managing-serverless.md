@@ -8,7 +8,7 @@ subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -54,7 +54,7 @@ You can view and edit the current configuration settings for your {{site.data.ke
 
       For a list of the default Spark configurations set for serverless instances, see [Default Spark configurations](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts#default-spark-config).
 
-<!--From this page you can also specify additional volumes in which to store data and application files. The additional volumes are made available to your Spark applications as mounted file systems. Everything that you store in an additional volume is persisted and not deleted when the instance is deleted. You can add existing volumes or create a new volume.-->
+
 
 ## Console applications tab
 {: #apps-tab}
@@ -76,21 +76,4 @@ You can monitor the status of submitted applications in your {{site.data.keyword
       - Stop the application
 
 
-<!--
-## Console kernels page
-{: #kernels-tab}
 
-You can monitor the kernels that were started on the **Kernels** tab. You can:
-
-If you submitted applications, you can monitor their status on the **Applications** tab. You can:
-
-- Click the Filter icon on the action bar of the result list to narrow your search results to find applications by their status.
-- Click the Settings icon to customize the result list by adjusting the row height or the display columns.
-- Refresh the list
-
-By clicking the arrow to the left of a kernel ID in the result list, you are shown additional properties that are not included in any list columns, for example, the ID assigned to the kernel by Spark.  
-
-By clicking the Action icon to the right of a selected kernel, you can:
-
-  - Stop the kernel
-  - Launch the UI -->

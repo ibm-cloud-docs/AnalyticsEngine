@@ -8,7 +8,7 @@ subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -218,17 +218,4 @@ The code samples show how to:
     ```
     {: codeblock} 
     
-<!--
-- Update private endpoint allowlist:
-    ```python
-    def update_private_endpoint_whitelist(instance_guid):
-        try:
-            response = iaesdk_service.update_private_endpoint_whitelist(instance_guid)
-                 instance_guid,
-                 ip_ranges,
-                 action,
-                )print(response.status_code)
-        except Exception as e:
-            print("Unable to update: {0}".format(e))
-    ```
-    {: codeblock} -->
+
