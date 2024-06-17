@@ -11,7 +11,7 @@ subcollection: AnalyticsEngine
 content-type: release-note
 
 ---
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -20,16 +20,16 @@ content-type: release-note
 {:external: target="_blank" .external}
 {:release-note: data-hd-content-type='release-note'}
 
-<!-- keywords values above are place holders. Actual values should be pulled from the release notes entries. -->
+
 
 {{site.data.keyword.attribute-definition-list}}
 
-<!-- You must add the release-note content type in your attribute definitions AND to each release note H2. This will ensure that the release note entry is pulled into the notifications library. -->
+
 
 # Release notes for {{site.data.keyword.iae_full_notm}} classic instances
 {: #iae-classic-relnotes}
 
-<!-- The title of your H1 should be Release notes for _service-name_, where _service-name_ is the non-trademarked short version conref. Include your service name as a search keyword at the top of your Markdown file. See the example keywords above. -->
+
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.iae_full_notm}} classic instances that are grouped by date.
 {: shortdesc}

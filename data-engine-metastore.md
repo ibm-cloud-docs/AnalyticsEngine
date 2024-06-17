@@ -8,7 +8,7 @@ subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -106,8 +106,7 @@ Create the metastore table schema definition in the data engine. Note that you c
 
 
     In the above example, the location (//us-south/mybucket/countriescapitals.parquet) of the COS bucket is considered as `us-south`, which is the regional bucket. If you are using any other region, select the corresponding alias from the [Data engine endpoints](#aeendpoints).
-<!--
-    us-south: The data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](#aeendpoints). Make sure that you select the standard aliases. -->
+
 
 - Programmatically from within your PySpark application by using the following code snippet for PySpark called `create_table_data_engine.py`:
 
@@ -151,7 +150,7 @@ Create the metastore table schema definition in the data engine. Note that you c
 
     In the above example, the location (`cos://us-south/mybucket/countriescapitals.parquet`) of the COS bucket is considered as `us-south`, which is the regional bucket. If you are using any other region, select the corresponding alias from the [Data engine endpoints](#aeendpoints).
 
-    <!-- ALIAS NAME: Note that for the location  (`cos://ALIAS NAME/mybucket/countriescapitals.parquet`) you need to pass one of the standard {{site.data.keyword.sqlquery_notm}} aliases. See [Data engine endpoints](#aeendpoints). -->
+    
 
     The payload for the above application `create_table_data_engine_payload.json` also needs to provide the {{site.data.keyword.sqlquery_short}} credentials with the exact standard {{site.data.keyword.sqlquery_short}} alias, in this case: "us-south".
 
@@ -179,7 +178,7 @@ Create the metastore table schema definition in the data engine. Note that you c
 
     In the above example, the regional COS bucket from `us-south`is considered. If you are using any other region, select the corresponding alias from the [Data engine endpoints](#aeendpoints).
 
-    <!-- ALIAS NAME: specify the data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](#aeendpoints). -->
+    
 
     Make sure that you select the standard aliases.
     {: important}
@@ -324,41 +323,13 @@ Enter:
 
 Parameter values:
 In the above example, the regional COS bucket from `us-south`is considered. If you are using any other region, select the corresponding alias from the [Data engine endpoints](#aeendpoints).
-<!--
-ALIAS NAME: specify the data engine endpoint for your region. For more information on the currently supported data engine endpoints, see [Data engine endpoints](#aeendpoints). -->
+
 
 Make sure that you select the standard aliases.
 {: important}
 
 
-<!-- 1. Specify the {{site.data.keyword.sqlquery_short}} metastore connection parameters. The following parameters are the additional {{site.data.keyword.sqlquery_short}} metastore parameters that you should pass as part of the Spark application payload or specify as instance defaults if you want to access metastore data across all applications:
 
-    ```sh
-    "spark.hive.metastore.truststore.password" : "changeit",
-    "spark.hive.execution.engine":"spark",
-    "spark.hive.metastore.client.plain.password":"<APIKEY-WITH-ACCESS-TO-DATA-ENGINE-INSTANCE>",
-    "spark.hive.metastore.uris":"CHANGE-ME-REGION-SPECIFIC-THRIFT-URL",
-    "spark.hive.metastore.client.auth.mode":"PLAIN",
-    "spark.hive.metastore.use.SSL":"true",
-    "spark.hive.stats.autogather":"false",
-    "spark.hive.metastore.client.plain.username":"CHANGE-ME-INSTANCE-CRN",
-    # for spark 3.3
-
-
-    "spark.hive.metastore.truststore.path":"file:///opt/ibm/jdk/jre/lib/security/cacerts",
-    "spark.sql.catalogImplementation":"hive",
-    "spark.sql.hive.metastore.jars":"/opt/ibm/connectors/data-engine/hms-client/*",
-    "spark.sql.hive.metastore.version":"3.0",
-    "spark.sql.warehouse.dir":"file:///tmp",
-    "spark.sql.catalogImplementation":"hive",
-    "spark.hadoop.metastore.catalog.default":"spark"
-    ```
-    {: codeblock}
-
-    For the variables:
-    - CHANGEME-thrift: use the thrift endpoint for your region. For valid values, see [Connecting Apache Spark with Data Engine](/docs/sql-query?topic=sql-query-hive_metastore#external_usage).
-    - CHANGEME-crn: pick the CRN from the {{site.data.keyword.sqlquery_short}} service instance details
-    - REGION: specify your region code. For example, 'us-south'. -->
 
 ### Cloud {{site.data.keyword.cos_short}} endpoints
 {: #aeendpoints}

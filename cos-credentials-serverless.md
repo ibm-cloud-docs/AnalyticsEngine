@@ -8,7 +8,7 @@ subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -33,7 +33,7 @@ The diagram shows two {{site.data.keyword.cos_short}} instances with two differe
 {: #cos-credentials-in-1}
 
 For HMAC style authentication, you must define the following parameters in {{site.data.keyword.iae_full_notm}}:
-```
+```bash
 fs.cos.<identifier>.access.key=<Access Key ID>
 fs.cos.<identifier>.endpoint=<EndPoint URL>
 fs.cos.<identifier>.secret.key=<Secret Access Key>
@@ -45,7 +45,7 @@ Note that the endpoint URL has the format `s3.direct.us.cloud-object-storage.app
 {: #cos-credentials-in-2}
 
 For IAM API key style authentication, you must define the following parameters in {{site.data.keyword.iae_full_notm}}:
-```
+```bash
 fs.cos.<identifier>.iam.api.key=<IAM API Key>
 fs.cos.<identifier>.endpoint=<EndPoint URL>
 ```

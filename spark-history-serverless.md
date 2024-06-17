@@ -8,7 +8,7 @@ subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:note: .note}
@@ -41,7 +41,7 @@ The Spark history server can be started and stopped by using:
 - The [{{site.data.keyword.iae_short}} REST API](#rest-api)
 - The [{{site.data.keyword.iae_short}} instance UI](#iae-ui)
 
-<!-- - The [{{site.data.keyword.iae_short}} CLI](#iae-cli) -->
+
 
 
 ### Analytics Engine REST API
@@ -73,34 +73,7 @@ You can use the {{site.data.keyword.iae_short}} REST API:
     {: codeblock}
 
 
-<!--
-### Analytics Engine CLI
-{: #iae-cli}
 
-You can use the {{site.data.keyword.iae_short}} CLI:
-
-1. To view the status of the Spark history server
-
-    ```sh
-    ibmcloud ae-v3 history-server show
-    ```
-    {: codeblock}
-
-1. To start the Spark history server
-
-    ```sh
-    ibmcloud ae-v3 history-server start
-    ```
-    {: codeblock}
-
-1. To stop the Spark history server
-
-    ```sh
-    ibmcloud ae-v3 history-server stop
-    ```
-    {: codeblock}
-
--->
 
 ### {{site.data.keyword.iae_short}} instance UI
 {: #iae-ui}

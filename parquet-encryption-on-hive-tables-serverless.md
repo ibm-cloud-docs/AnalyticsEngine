@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-09-23"
+  years: 2017, 2022
+lastupdated: "2022-01-17"
 
 subcollection: AnalyticsEngine
 
@@ -17,13 +17,13 @@ subcollection: AnalyticsEngine
 {:external: target="_blank" .external}
 
 # Configuring Parquet encryption on Apache Hive tables
-{: #parquet-encryption-on-hive-tables}
+{: #parquet-encryption-on-hive-tables-serverless}
 
 Spark supports reading and writing data stored in Hive tables. If you want to encrypt Parquet file content in Hive tables, the information about which columns to encrypt with which keys can be stored in the Apache Hive Metastore, and is automatically applied by Spark whenever data is saved in the table files.
 
 To configure Parquet encryption on Hive tables:
 
-1. Create a table using the Hive Beeline CLI and configure which Parquet file content columns to encrypt with which keys by using  SERDEPROPERTIES. The following sample code snippet sets the encryption keys to use to encrypt the "credit_card" column (and the footer):
+1. Create a table using the Hive Beeline CLI and configure which Parquet file content columns to encrypt with which keys by using SERDEPROPERTIES. The following sample code snippet sets the encryption keys to use to encrypt the "credit_card" column (and the footer):
 
     ```
     CREATE TABLE my_table(name STRING, credit_card STRING)
@@ -81,6 +81,7 @@ The following examples show you how you can use Parquet encryption on data saved
 
     # setup key protect on the hadoop configuration
     hc = spark.sparkContext._jsc.hadoopConfiguration()
+    hc.set("parquet.crypto.factory.class","com.ibm.parquet.key.management.IBMKeyToolsFactory"
     hc.set("parquet.encryption.kms.instance.url", "https://<region>.kms.cloud.ibm.com")
     hc.set("parquet.encryption.kms.instance.id", KEY_PROTECT_INSTANCE_ID)
     hc.set("parquet.encryption.key.access.token", ACCESS_TOKEN)
@@ -110,6 +111,7 @@ The following examples show you how you can use Parquet encryption on data saved
     # setup explicit keys on the hadoop configuration
     hc = sc._jsc.hadoopConfiguration()
     hc.set("parquet.encryption.key.list", "key1: AAECAwQFBgcICQoLDA0ODw==, key2: AAECAAECAAECAAECAAECAA==")
+    hc.set("parquet.crypto.factory.class","com.ibm.parquet.key.management.IBMKeyToolsFactory")
 
     # load data from CSV
     csvDF = spark.read.format("csv").load("squares.csv")

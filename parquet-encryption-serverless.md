@@ -8,7 +8,7 @@ subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -60,17 +60,7 @@ Key features include:
 ## Mandatory parameters for running with Parquet encryption
 {: #parquet-encryption-serverless-1}
 
-<!--
-1. Navigate to **Ambari > Spark > Config -> Custom spark2-default**.
-1. Add the following two parameters to point explicitly to the location of the JAR files.
 
-    Alternatively, you can get the JAR files applied as part of the cluster creation process. See [Advanced Provisioning](/docs/AnalyticsEngine?topic=AnalyticsEngine-advanced-provisioning-options){: external}.
-
-    ```
-    spark.driver.extraClassPath=/home/common/lib/parquetEncryption/ibmparquetkms.jar:/home/common/lib/parquetEncryption/parquetformat.jar:/home/common/lib/parquetEncryption/parquethadoop.jar
-    spark.executor.extraClassPath=/home/common/lib/parquetEncryption/ibmparquetkms.jar:/home/common/lib/parquetEncryption/parquetformat.jar:/home/common/lib/parquetEncryption/parquethadoop.jar
-    ```
--->
 
 The following parameters are required for writing encrypted data:
 

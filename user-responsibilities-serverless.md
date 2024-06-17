@@ -23,21 +23,21 @@ subcollection: AnalyticsEngine
 # Understanding your responsibilities when using {{site.data.keyword.iae_full_notm}} serverless instances
 {: #responsibilities-serverless}
 
-<!-- The title of your H1 should be Understanding your responsibilities with using _service-name_, where _service-name_ is the non-trademarked short version conref. -->
+
 
 Learn about the management responsibilities and terms and conditions that you have when you use {{site.data.keyword.iae_full_notm}} serverless instances. For a high-level view of the service types in {{site.data.keyword.cloud}} and the breakdown of responsibilities between the customer and {{site.data.keyword.IBM_notm}} for each type, see [Shared responsibilities for {{site.data.keyword.cloud_notm}} offerings](/docs/overview?topic=overview-shared-responsibilities).
 {: shortdesc}
 
 Review the following sections for the specific responsibilities for you and for {{site.data.keyword.IBM_notm}} when you use {{site.data.keyword.iae_full_notm}} serverless instances. For the overall terms of use, see [{{site.data.keyword.cloud}} Terms and Notices](/docs/overview/terms-of-use?topic=overview-terms).
 
-<!-- If you plan to list resource (see resources listed in each table in the platform shared responsibilities topic linked above) responsibility instead of individual tasks, you do not need to include rows for Hypervisor, Physical Servers and memory, Physical storage, Physical network and devices, and Facilities and data centers unless you need to indicate a 'Shared' or 'Customer' responsibility for one of the areas within those Resources. -->
+
 
 
 ## Incident and operations management
 {: #incident-and-ops}
 
-<!-- Use this section description exactly as worded. -->
-<!-- If there is a task that is the customer's responsibility and you have associated docs for how a customer completes that task, link to it from the Your responsibilities column. -->
+
+
 
 Incident and operations management includes tasks such as monitoring, event management, high availability, problem determination, recovery, and full state backup and recovery.
 
@@ -54,8 +54,8 @@ Incident and operations management includes tasks such as monitoring, event mana
 ## Change management
 {: #change-management}
 
-<!-- Use this section description exactly as worded. -->
-<!-- If there is a task that is the customer's responsibility and you have associated docs for how a customer completes that task, link to it from the Your responsibilities column. -->
+
+
 
 Change management includes tasks such as deployment, configuration, upgrades, patching, configuration changes, and deletion.
 
@@ -68,8 +68,8 @@ Change management includes tasks such as deployment, configuration, upgrades, pa
 ## Identity and access management
 {: #iam-responsibilities}
 
-<!-- Use this section description exactly as worded. -->
-<!-- If there is a task that is the customer's responsibility and you have associated docs for how a customer completes that task, link to it from the Your responsibilities column. -->
+
+
 
 Identity and access management includes tasks such as authentication, authorization, access control policies, and approving, granting, and revoking access.
 
@@ -82,8 +82,8 @@ Identity and access management includes tasks such as authentication, authorizat
 ## Security and regulation compliance
 {: #security-regulation}
 
-<!-- Use this section description exactly as worded. -->
-<!-- If there is a task that is the customer's responsibility and you have associated docs for how a customer completes that task, link to it from the Your responsibilities column. -->
+
+
 
 Security and regulation compliance includes tasks such as security controls implementation and compliance certification.
 
@@ -96,8 +96,8 @@ Security and regulation compliance includes tasks such as security controls impl
 ## High availability and Disaster recovery
 {: #disaster-recovery}
 
-<!-- Use this section description exactly as worded. -->
-<!-- If there is a task that is the customer's responsibility and you have associated docs for how a customer completes that task, link to it from the Your responsibilities column. -->
+
+
 
 High availability (HA) is a core discipline in an IT infrastructure to keep your apps up and running, even after a partial or full site failure. The main purpose of high availability is to eliminate potential points of failures in an IT infrastructure.
 

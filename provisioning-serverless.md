@@ -8,7 +8,7 @@ subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -90,7 +90,7 @@ To create a service instance using the {{site.data.keyword.Bluemix_short}} comma
 
     The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the direct endpoint. Direct endpoints provide better performance than  public endpoints and do not incur charges for any outgoing or incoming bandwidth.
 
-    <!--The endpoint to your {{site.data.keyword.cos_full_notm}} instance in the payload JSON file should be the `direct` endpoint. You can find the `direct` endpoint to your {{site.data.keyword.cos_full_notm}} instance on the {{site.data.keyword.Bluemix_short}} dashboard by selecting cross regional resiliency, the location, which should preferably match the location of your {{site.data.keyword.iae_short}} instance, and then clicking on your service instance. You can copy the direct endpoint from the **Endpoints** page.-->
+    
 
     This is a sample of what the provision.json file can look like. See [Architecture and concepts in serverless instances](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts) for a description of the provisioning parameters in the payload.
 

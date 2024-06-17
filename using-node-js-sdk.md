@@ -8,7 +8,7 @@ subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -263,20 +263,4 @@ The code samples show how to:
     ```
     {: codeblock}
 
-<!--
-- Update private endpoint allowlist:
-    ```javascript
-    function updatePrivateEndpointWhitelist(instanceGuid) {
-      IbmAnalyticsEngineServiceClient.updatePrivateEndpointWhitelist({
-        instanceGuid: "{instanceGuid}",
-        ipRanges: ipRanges,
-        action: action,
-      }).then((response) => {
-        const { result, status, headers, statusText } = response;
-        console.log(status)
-      }).catch((err) => {
-        console.log(JSON.stringify(err, null, 4));
-      });
-    }
-    ```
-    {: codeblock} -->
+

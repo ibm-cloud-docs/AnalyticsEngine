@@ -1,14 +1,14 @@
 ---
 
 copyright:
-  years: 2017, 2019
+  years: 2017, 2023
 lastupdated: "2017-11-02"
 
 subcollection: AnalyticsEngine
 
 ---
 
-<!-- Attribute definitions -->
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
