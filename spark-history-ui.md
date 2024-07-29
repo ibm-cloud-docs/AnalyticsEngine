@@ -25,6 +25,7 @@ The history server shows only the running and the completed or completed but fai
 
 To access the link to the Spark history server from an application for your provisioned serverless instance:
 
+
 1. Open your resource list on [IBM Cloud](https://cloud.ibm.com/resources).
 1. Click **Services and software** and select your instance.
 1. Select your instance, click the **Applications** tab.
