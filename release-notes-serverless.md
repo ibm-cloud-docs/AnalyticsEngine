@@ -12,19 +12,7 @@ content-type: release-note
 
 ---
 
-
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:pre: .pre}
-{:external: target="_blank" .external}
-{:release-note: data-hd-content-type='release-note'}
-
-
-
 {{site.data.keyword.attribute-definition-list}}
-
 
 
 # Release notes for {{site.data.keyword.iae_full_notm}} serverless instances
