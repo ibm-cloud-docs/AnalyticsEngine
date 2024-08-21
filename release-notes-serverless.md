@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-03"
+lastupdated: "2024-08-21"
 
 keywords: IBM Analytics Engine release notes
 
