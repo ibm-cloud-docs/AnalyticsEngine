@@ -30,7 +30,8 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: #AnalyticsEngine-aug24}
 
 Deprecating the support for Spark 3.3 runtimes
-: The IBM Analytics Engine deprecates the support for Spark 3.3 runtimes in the near future. To ensure a seamless experience and to leverage the latest features and improvements, switch to Spark 3.4. To upgrade your instance to Spark 3.4, see [Replace Instance Default Runtime](https://cloud.ibm.com/apidocs/ibm-analytics-engine-v3#replace-instance-default-runtime). From this release onwards, Spark 3.4 will be the default runtime version for all new IBM Analytics Engine instances created.
+
+: Support for Spark 3.3 runtime in IBM Analytics Engine will be deprecated on Sep 17, 2024 and the default version will be changed to Spark 3.4 runtime. To ensure a seamless experience and to leverage the latest features and improvements, switch to Spark 3.4. To upgrade your instance to Spark 3.4, see [Replace Instance Default Runtime](https://cloud.ibm.com/apidocs/ibm-analytics-engine-v3#replace-instance-default-runtime).
 
 ## February 2024
 {: #AnalyticsEngine-feb24}
