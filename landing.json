@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "title": "Analytics Engine docs",
+  "introduction": "Welcome to the Analytics Engine product documentation.",
+  "product_page": "https://www.ibm.com/products/product-value",
+  "console_page": "/relative/console/path",
+  "section_topics": {
+    "links": [
+      {
+        "title": "Topic title",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      },
+      {
+        "title": "Topic title",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      },
+      {
+        "title": "Topic title",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      },
+      {
+        "title": "Topic title",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      },
+      {
+        "title": "Topic title",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      }
+    ]
+  },
+  "section_highlights": [
+    {
+      "title": "Resource title",
+      "description": "Short description of resource content.",
+      "href": "https://www.example.ibm.com/link/to/resource",
+      "type": "blog"
+    },
+    {
+      "title": "Db2 Optimization Techniques for SAP Database Migration to the Cloud",
+      "description": "This IBM Redbook provides in-depth recommendations for the source system database export.",
+      "href": "https://www.redbooks.ibm.com/abstracts/sg248531.html",
+      "type": "redbook",
+      "recommended": true
+    }
+  ],
+  "section_devtools": {
+    "api": "/apidocs/acme-test-v1/acme-test-v1.2.0",
+    "cli": "/docs/acme-test",
+    "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_access_group"
+  },
+  "section_updates": {
+    "view_more": "/docs/overview?topic=overview-whatsnew",
+    "tiles": [
+      {
+        "date": "07 August 2024",
+        "title": "Experimental: Access resources from the Resources tab"
+      },
+      {
+        "date": "07 August 2024",
+        "title": "View counts for all resources in the resource summary widget"
+      },
+      {
+        "date": "17 June 2024",
+        "title": "Experimental: Using AI to answer your questions about IBM Cloud"
+      },
+      {
+        "date": "17 June 2024",
+        "title": "Changes to IBM Cloud projects API method to list all deployed resources"
+      }
+    ]
+  }
+}
