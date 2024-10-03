@@ -7,24 +7,16 @@
   "section_topics": {
     "links": [
       {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
+        "title": "Getting started",
+        "href": "/docs/overview?topic=AnalyticsEngine-getting-started"
       },
       {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
+        "title": "Architecture and concepts",
+        "href": "/docs/overview?topic=AnalyticsEngine-serverless-architecture-concepts"
       },
       {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
-      },
-      {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
-      },
-      {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
+        "title": "Best practices",
+        "href": "/docs/overview?topic=AnalyticsEngine-best-practices-serverless"
       }
     ]
   },
