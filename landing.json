@@ -22,43 +22,18 @@
   },
   "section_highlights": [
     {
-      "title": "Resource title",
-      "description": "Short description of resource content.",
-      "href": "https://www.example.ibm.com/link/to/resource",
-      "type": "blog"
-    },
-    {
-      "title": "Db2 Optimization Techniques for SAP Database Migration to the Cloud",
-      "description": "This IBM Redbook provides in-depth recommendations for the source system database export.",
-      "href": "https://www.redbooks.ibm.com/abstracts/sg248531.html",
-      "type": "redbook",
-      "recommended": true
+      "title": "IBM Training",
+      "description": "Training offered for IBM Analytics Engine.",
+      "href": "https://www.ibm.com/training/data-analytics",
+      "type": "training"
     }
   ],
   "section_devtools": {
-    "api": "/apidocs/acme-test-v1/acme-test-v1.2.0",
-    "cli": "/docs/acme-test",
+    "api": "/apidocs/ibm-analytics-engine-v3#introduction",
+    "cli": "/docs/AnalyticsEngine?topic=AnalyticsEngine-CLI_analytics_engine",
     "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_access_group"
   },
   "section_updates": {
-    "view_more": "/docs/AnalyticsEngine?topic=AnalyticsEngine-iae-serverless-relnotes",
-    "tiles": [
-      {
-        "date": "07 August 2024",
-        "title": "Experimental: Access resources from the Resources tab"
-      },
-      {
-        "date": "07 August 2024",
-        "title": "View counts for all resources in the resource summary widget"
-      },
-      {
-        "date": "17 June 2024",
-        "title": "Experimental: Using AI to answer your questions about IBM Cloud"
-      },
-      {
-        "date": "17 June 2024",
-        "title": "Changes to IBM Cloud projects API method to list all deployed resources"
-      }
-    ]
+    "view_more": "/docs/AnalyticsEngine?topic=AnalyticsEngine-iae-serverless-relnotes"
   }
 }
