@@ -41,7 +41,7 @@
     "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_access_group"
   },
   "section_updates": {
-    "view_more": "/docs/overview?topic=AnalyticsEngine-iae-serverless-relnotes",
+    "view_more": "/docs/AnalyticsEngine?topic=AnalyticsEngine-iae-serverless-relnotes",
     "tiles": [
       {
         "date": "07 August 2024",
