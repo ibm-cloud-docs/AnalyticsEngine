@@ -29,7 +29,7 @@
     }
   ],
   "section_devtools": {
-    "api": "/apidocs/ibm-analytics-engine-v3#introduction",
+    "api": "/apidocs/ibm-analytics-engine",
     "cli": "/docs/AnalyticsEngine?topic=AnalyticsEngine-CLI_analytics_engine",
     "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_access_group"
   },
