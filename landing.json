@@ -2,25 +2,21 @@
   "version": 2,
   "title": "Analytics Engine docs",
   "introduction": "Welcome to the Analytics Engine product documentation.",
-  "product_page": "https://www.ibm.com/products/product-value",
-  "console_page": "/relative/console/path",
+  "product_page": "https://www.ibm.com/products/analytics-engine?",
+  "console_page": "/catalog/services/analytics-engine",
   "section_topics": {
     "links": [
       {
         "title": "Getting started",
-        "href": "/docs/overview?topic=AnalyticsEngine-getting-started"
+        "href": "/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started"
       },
       {
         "title": "Architecture and concepts",
-        "href": "/docs/overview?topic=AnalyticsEngine-serverless-architecture-concepts"
+        "href": "/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts"
       },
       {
         "title": "Best practices",
-        "href": "/docs/overview?topic=AnalyticsEngine-best-practices-serverless"
-      },
-      {
-        "title": "Best practices",
-        "href": "/docs/overview?topic=AnalyticsEngine-best-practices-serverless"
+        "href": "/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices-serverless"
       }
     ]
   },
@@ -45,7 +41,7 @@
     "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_access_group"
   },
   "section_updates": {
-    "view_more": "/docs/overview?topic=overview-whatsnew",
+    "view_more": "/docs/overview?topic=AnalyticsEngine-iae-serverless-relnotes",
     "tiles": [
       {
         "date": "07 August 2024",
