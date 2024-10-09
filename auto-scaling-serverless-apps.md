@@ -56,7 +56,7 @@ You can use the following configuration settings to further control autoscaling 
 | `ae.spark.autoscale.scaleupDemandPercentage` | Specifies the percentage of the executors demanded by Spark Application that should be fulfilled by the application auto-scaler. For example, if at a certain stage a Spark application requests 10 executors and the value for this configuration is set to 50 percent, the application auto-scaler will scale up the number of executors by 5 executors. The default value of this configuration is 100 percent which essentially means that any number of executors requested by an application's demand can be added by the application auto-scaler. | 100 |
 | `ae.spark.autoscale.scaledownExcessPercentage` | Specifies the percentage of the idle executors held up by the Spark application that are to be removed by the application auto-scaler. For example, if after completing a certain stage in a Spark application, there are 20 idle executors held up by the application and the value for this configuration is set to 25 percent, the application auto-scaler will scale down the executors in the application by 4 executors. The default value for this configuration is 100 percent which means that the application auto-scaler can scale down all idle executors. | 100 |
 | `ae.spark.autoscale.frequency`| The frequency in seconds at which the application auto-scaler scales up executors or scales down executors in an  application. | 10s |
-{: caption="Table 1. Configuration settings for autoscaling" caption-side="top"}
+{: caption="Configuration settings for autoscaling" caption-side="top"}
 {: #autoscaling-table-1}
 {: row-headers}
 

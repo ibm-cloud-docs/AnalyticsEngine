@@ -46,7 +46,7 @@ The following table lists the actions that generate an event:
 | `ibmanalyticsengine.historyserver.start` | Start the Spark history server of an instance |
 | `ibmanalyticsengine.historyserver.stop` | Stop the Spark history server of an instance |
 | `ibmanalyticsengine.historyserver.read` | Retrieve the details of the Spark history server of an instance |
-{: caption="Table 1. Actions that generate management events" caption-side="top"}
+{: caption="Actions that generate management events" caption-side="top"}
 
 
 ## Viewing events

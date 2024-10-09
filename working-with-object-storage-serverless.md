@@ -54,7 +54,7 @@ To get the {{site.data.keyword.cos_short}} credentials:
       - Turn on the option to include **HMAC credential**.
     1.	Click **Add**.
 
-    ![Shows creating Cloud Object storage credentials.](images/create-cos-cred.png){: caption="Figure 1. Create credential window" caption-side="bottom"}
+    ![Shows creating Cloud Object storage credentials.](images/create-cos-cred.png){: caption="Create credential window" caption-side="bottom"}
 
 ### What are the {{site.data.keyword.cos_short}} credentials
 {: #what-are-cos-creds}

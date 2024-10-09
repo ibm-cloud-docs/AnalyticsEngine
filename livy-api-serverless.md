@@ -65,7 +65,7 @@ Request body for a submitted batch job using the Livy batches API:
 | `numExecutors` | Number of executors to launch for this session | int |
 | `name` | The name of this session | string |
 | `conf` | Spark configuration properties | map of key=val |
-{: caption="Table 1. Request body for batch jobs" caption-side="top"}
+{: caption="Request body for batch jobs" caption-side="top"}
 
 
 The `proxyUser`, `archives` and `queue` properties are not supported in the request body although they are supported in  the open source Livy REST interface.
@@ -79,7 +79,7 @@ Response body of a submitted batch job using the Livy batches API:
 | `appId` | The Spark application ID | string |
 | `appInfo` | Detailed application information |	map of key=val |
 | `state` | State of submitted batch job | string |
-{: caption="Table 2. Response body of a submitted batch job" caption-side="top"}
+{: caption="Response body of a submitted batch job" caption-side="top"}
 
 
 ## Examples using the Livy API
@@ -167,7 +167,7 @@ The response body for listing the job details:
 | `appId` | The Spark application ID | string |
 | `appInfo` | Detailed application information |	map of key=val |
 | `state` | State of submitted batch job | string |
-{: caption="Table 3. Response body for listing job details" caption-side="top"}
+{: caption="Response body for listing job details" caption-side="top"}
 
 
 An example:
@@ -209,7 +209,7 @@ The response body for getting the state of the batch job:
 |------|-------------|-------------|
 | `id` |	The batch ID |	int |
 | `state` | State of submitted batch job | string |
-{: caption="Table 4. Response body for getting state of batch job" caption-side="top"}
+{: caption="Response body for getting state of batch job" caption-side="top"}
 
 
 For example:
@@ -248,7 +248,7 @@ The response body for listing all submitted Spark batch jobs:
 | `from` | The start index of the Spark batch jobs that are retrieved |	int |
 | `total` | The total number of batch jobs that are retireved | int |
 | `sessions`| The details for each batch job in a session | list |
-{: caption="Table 5. Response body for listing all submitted batch jobs" caption-side="top"}
+{: caption="Response body for listing all submitted batch jobs" caption-side="top"}
 
 
 For example:

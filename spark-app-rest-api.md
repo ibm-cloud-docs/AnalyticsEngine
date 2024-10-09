@@ -170,7 +170,7 @@ The following table lists the mapping between the `spark-submit` command paramet
 | `num-executors`| `application_details` -> `conf` -> `ae.spark.executor.count`|
 | `pyFiles` | `application_details` -> `conf` -> `spark.submit.pyFiles` |
 | `<environment-variables>` | `application_details` -> `env` -> `{"key1" : "value1", "key2" : "value2", ..... "`} |
-{: caption="Table 1. Mapping between the spark-submit command parameters and their equivalents passed to the payload" caption-side="top"}
+{: caption="Mapping between the spark-submit command parameters and their equivalents passed to the payload" caption-side="top"}
 
 
 ## Getting the state of a submitted application

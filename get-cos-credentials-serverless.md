@@ -31,7 +31,7 @@ To securely authenticate to {{site.data.keyword.cos_short}}, you need to underst
 
 The following diagram illustrates access management to {{site.data.keyword.cos_short}}.
 
-![Access management in {{site.data.keyword.cos_short}}](images/iam-overview.svg){: caption="Figure 1. Access management to IBM Cloud Object Storage" caption-side="bottom"}
+![Access management in {{site.data.keyword.cos_short}}](images/iam-overview.svg){: caption="Access management to IBM Cloud Object Storage" caption-side="bottom"}
 
 
 As the {{site.data.keyword.cos_short}} administrator, you can:

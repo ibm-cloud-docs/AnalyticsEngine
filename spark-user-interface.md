@@ -45,7 +45,7 @@ The Spark UI endpoint of a running Spark application is accessible from the serv
 
 The following image shows you an example of the Application tab with the link to the Spark UI of a running application.
 
-![Shows the ink to Spark-ui of a running application](images/spark_ui.png){: caption="Figure 1. Application tab of IBM Analytics Engine service details page" caption-side="bottom"}
+![Shows the ink to Spark-ui of a running application](images/spark_ui.png){: caption="Application tab of IBM Analytics Engine service details page" caption-side="bottom"}
 
 The Spark UI endpoint of the running Spark application can also be obtained by invoking the following IBM Analytics Engine REST API endpoints or corresponding SDK methods:
 
