@@ -144,7 +144,7 @@ Then POST the following payload JSON script called `read-employees-iam-key-cos-s
 
 1. Create an Eclipse project of the following format:
 
-![Shows the Eclipse project format to use in which to develop your Scala jar.](images/eclipse-proj.png){: caption="Figure 1. Eclipse project folder structure" caption-side="bottom"}
+![Shows the Eclipse project format to use in which to develop your Scala jar.](images/eclipse-proj.png){: caption="Eclipse project folder structure" caption-side="bottom"}
 
 1. Add the following application called `ScalaReadWriteIAMCOSExample.scala` to the `analyticsengine` folder. Insert your IAM API key and the {{site.data.keyword.cos_short}} bucket name.
 

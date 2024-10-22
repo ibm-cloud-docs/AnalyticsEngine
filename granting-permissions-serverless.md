@@ -47,7 +47,7 @@ Use the following table to identify the platform role that you can grant a user 
 |--------------------------|:--------------------------:|:-------:|:--------:|:------:|
 | Provision a service instance. | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |          |        |
 | Delete a service instance. | ![the confirm icon](images/confirm.png) |  ![the confirm icon](images/confirm.png)      |          |        |
-{: caption="Table 1. Platform roles and actions" caption-side="top"}
+{: caption="Platform roles and actions" caption-side="top"}
 {: #iam-table-1}
 {: row-headers}
 
@@ -72,7 +72,7 @@ Use the following table to identify the service roles that you can grant a user 
 |Invoke instance management REST API to view Spark history server state | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
 |View Spark History UI | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
 |Invoke Spark History REST API | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) | ![the confirm icon](images/confirm.png) |
-{: caption="Table 2. IAM service roles and actions" caption-side="top"}
+{: caption="IAM service roles and actions" caption-side="top"}
 {: #iam-table-2}
 {: row-headers}
 

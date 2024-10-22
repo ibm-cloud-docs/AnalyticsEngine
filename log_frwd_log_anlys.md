@@ -147,7 +147,7 @@ This section lists examples of how you can search for logs. The examples all use
 
 The following image shows you an example of the returned search results in the {{site.data.keyword.la_short}} dashboard. At the bottom of the image you can see the search entry field where you enter your search queries. In the example, the application ID `5438585f-6413-4bb2-9251-8162d34f3dc3` and the source `spark-driver` were entered.
 
-![Shows the search window for `ibmanalyticsengine` on the {{site.data.keyword.la_short}} dashboard.](images/search-window-log-analysis.png){: caption="Figure 1. Log Analysis dashboard displaying search results" caption-side="bottom"}
+![Shows the search window for `ibmanalyticsengine` on the {{site.data.keyword.la_short}} dashboard.](images/search-window-log-analysis.png){: caption="Log Analysis dashboard displaying search results" caption-side="bottom"}
 
 
 Examples of searches:

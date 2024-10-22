@@ -1,0 +1,39 @@
+{
+  "version": 2,
+  "title": "Analytics Engine docs",
+  "introduction": "Welcome to the Analytics Engine product documentation.",
+  "product_page": "https://www.ibm.com/products/analytics-engine?",
+  "console_page": "/catalog/services/analytics-engine",
+  "section_topics": {
+    "links": [
+      {
+        "title": "Getting started",
+        "href": "/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started"
+      },
+      {
+        "title": "Architecture and concepts",
+        "href": "/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts"
+      },
+      {
+        "title": "Best practices",
+        "href": "/docs/AnalyticsEngine?topic=AnalyticsEngine-best-practices-serverless"
+      }
+    ]
+  },
+  "section_highlights": [
+    {
+      "title": "IBM Training",
+      "description": "Training offered for IBM Analytics Engine.",
+      "href": "https://www.ibm.com/training/data-analytics",
+      "type": "training"
+    }
+  ],
+  "section_devtools": {
+    "api": "/apidocs/ibm-analytics-engine",
+    "cli": "/docs/AnalyticsEngine?topic=AnalyticsEngine-CLI_analytics_engine",
+    "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_access_group"
+  },
+  "section_updates": {
+    "view_more": "/docs/AnalyticsEngine?topic=AnalyticsEngine-iae-serverless-relnotes"
+  }
+}

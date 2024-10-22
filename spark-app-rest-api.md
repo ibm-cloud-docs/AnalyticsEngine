@@ -170,7 +170,7 @@ The following table lists the mapping between the `spark-submit` command paramet
 | `num-executors`| `application_details` -> `conf` -> `ae.spark.executor.count`|
 | `pyFiles` | `application_details` -> `conf` -> `spark.submit.pyFiles` |
 | `<environment-variables>` | `application_details` -> `env` -> `{"key1" : "value1", "key2" : "value2", ..... "`} |
-{: caption="Table 1. Mapping between the spark-submit command parameters and their equivalents passed to the payload" caption-side="top"}
+{: caption="Mapping between the spark-submit command parameters and their equivalents passed to the payload" caption-side="top"}
 
 
 ## Getting the state of a submitted application
@@ -297,6 +297,9 @@ Example of the `"env"` section in the payload:
 The environment variables set using `"application_details"` > `"env"` as described here, will be accessible to both executor and driver code.
 
 The environment variables can be set using `"spark.executorEnv.[EnvironmentVariableName]"` configuration (application_details > env) also. They will, however, be accessible only to the tasks running on the executor and not the driver.
+{: note}
+
+The environment variable names in the Shell consist of uppercase letters, digits, and the <underscore> ( '_' ) and do not begin with a digit.
 {: note}
 
 Example of pyspark application that accesses the environment variables that are passed using the `"os.getenv"` call.

@@ -28,6 +28,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 
 ## August 2024
 {: #AnalyticsEngine-aug24}
+{: release-note}
 
 Deprecating the support for Spark 3.3 runtimes
 
@@ -38,6 +39,7 @@ Deprecating the support for Spark 3.3 runtimes
 
 ### 02 February 2024
 {: #AnalyticsEngine-02feb2024}
+{: release-note}
 
 Application logs are now available in the **instance home**
 : The application logs are now forwarded to {{site.data.keyword.iae_short}} **instance home** by default. You can access the log information from the IBM Cloud Object Storage (COS) bucket. You can download the log file for any specific application from the path `<instance_id>/logs/<app_id>` for recording, sharing, and debugging purposes. For more information, see [Forwarding logs to instance home](/docs/AnalyticsEngine?topic=AnalyticsEngine-viewing-logs_1).
@@ -50,6 +52,7 @@ New location for logging Spark application events
 
 ### 01 December 2023
 {: #AnalyticsEngine-01dec2023}
+{: release-note}
 
 Encrypting internal network data for Spark workload
 : You can now enable data encryption for the internal network data in transit (internal communication between components of the Spark application) by configuring the {{site.data.keyword.iae_full_notm}} properties at instance level or job level. For more information about encrypting internal network data for Spark workload, see [Encrypting internal network data for Spark workload](/docs/AnalyticsEngine?topic=AnalyticsEngine-security-model-serverless#ency-spk-wrkld).
@@ -60,6 +63,8 @@ Encrypting internal network data for Spark workload
 
 ### 22 November 2023
 {: #AnalyticsEngine-22nov2023}
+{: release-note}
+
 
 Configuring Spark log level information
 : The default log level in the {{site.data.keyword.iae_full_notm}} Serverless Spark application, shall be changed to 'ERROR' by January 3, 2023. You can change the existing log configuration of logging at the 'INFO' level, to display a relevant and concise messages. For more information on changing the log level, see [Configuring Spark log level information](/docs/AnalyticsEngine?topic=AnalyticsEngine-config_log).

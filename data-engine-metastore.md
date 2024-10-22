@@ -348,11 +348,11 @@ The following tables list some examples of currently supported {{site.data.keywo
 |`s3.us.cloud-object-storage.appdomain.cloud` | `us-geo`|
 |`s3.eu.cloud-object-storage.appdomain.cloud` | `eu-geo`|
 |`s3.ap.cloud-object-storage.appdomain.cloud` | `ap-geo`|
-{: caption="Table 1. Cross region endpoints" caption-side="bottom"}
+{: caption="Cross region endpoints" caption-side="bottom"}
 
 |Regional endpoint name | Alias|
 |--- | ---|
 |`s3.eu-de.cloud-object-storage.appdomain.cloud` | `eu-de`|
 |`s3.eu-gb.cloud-object-storage.appdomain.cloud` | `eu-gb`|
 |`s3.us-south.cloud-object-storage.appdomain.cloud | `us-south`|
-{: caption="Table 2. Regional endpoints" caption-side="bottom"}
+{: caption="Regional endpoints" caption-side="bottom"}

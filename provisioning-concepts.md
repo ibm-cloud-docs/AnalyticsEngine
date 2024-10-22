@@ -35,7 +35,7 @@ The {{site.data.keyword.iae_short}} microservices in the control plane, accessed
 
 Each {{site.data.keyword.iae_short}} instance is associated with an {{site.data.keyword.cos_full_notm}} instance for instance related data that is accessible by all applications that run in the instance. Currently, all Spark events are stored in this instance as well. Spark application logs are aggregated to a {{site.data.keyword.la_short}} log server.
 
-![Shows the {{site.data.keyword.iae_full_notm}} serverless instance architecture.](images/AE-serverless-architecture.svg){: caption="Figure 1. Architecture flow diagram of IBM Analytics Engine" caption-side="bottom"}
+![Shows the {{site.data.keyword.iae_full_notm}} serverless instance architecture.](images/AE-serverless-architecture.svg){: caption="Architecture flow diagram of IBM Analytics Engine" caption-side="bottom"}
 
 
 ## Key concepts
@@ -79,7 +79,7 @@ The following table shows the Spark runtime version and runtime language version
 | 3.1 | 3.1.2 | Removed(Not Supported) | Java 8, Scala 2.12, Python 3.10 and R 4.2 |
 | 3.3 | 3.3.2 | Default | Java 11, Scala 2.12, Python 3.10 and R 4.2 |
 | 3.4 | 3.4.1 | Latest | Java 11, Scala 2.12, Python 3.10 and R 4.2 |
-{: caption="Table 1. Spark runtime version and runtime language version" caption-side="top"}
+{: caption="Spark runtime version and runtime language version" caption-side="top"}
 {: #features-table-1}
 {: row-headers}
 
