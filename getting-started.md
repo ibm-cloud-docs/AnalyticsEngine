@@ -45,7 +45,7 @@ To start running Spark applications in {{site.data.keyword.iae_full_notm}}, you 
 
 To provision an {{site.data.keyword.iae_full_notm}} instance:
 
-1. Get a basic understanding of the architecture and key concepts. See [Serverless instance architecture and concepts](/docs/analyticsengine?-serverless-architecture-concepts).
+1. Get a basic understanding of the architecture and key concepts. See [Serverless instance architecture and concepts](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts).
 1. [Provision a serverless instance](/docs/AnalyticsEngine?topic=AnalyticsEngine-provisioning-serverless)
 
 ## Run applications
