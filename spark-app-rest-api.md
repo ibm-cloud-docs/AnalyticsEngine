@@ -299,6 +299,9 @@ The environment variables set using `"application_details"` > `"env"` as describ
 The environment variables can be set using `"spark.executorEnv.[EnvironmentVariableName]"` configuration (application_details > env) also. They will, however, be accessible only to the tasks running on the executor and not the driver.
 {: note}
 
+The environment variable names in the Shell consist of uppercase letters, digits, and the <underscore> ( '_' ) and do not begin with a digit.
+{: note}
+
 Example of pyspark application that accesses the environment variables that are passed using the `"os.getenv"` call.
 
 ``` from pyspark.sql import SparkSession
