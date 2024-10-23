@@ -19,7 +19,7 @@ subcollection: AnalyticsEngine
 # Overview
 {: #viewing-logs}
 
-When you submit applications or Spark workloads in {{site.data.keyword.iae_full_notm}}, you can monitor the application execution. {{site.data.keyword.iae_full_notm}} allows to debug the application errors or trace the application execution by monitoring the application-generated logs and the Spark-generated logs. Log analysis together with monitoring feature of the **Spark History** page provides better troubleshooting of the applications.
+When you submit applications or Spark workloads in {{site.data.keyword.iae_full_notm}}, you can monitor the application execution. {{site.data.keyword.iae_full_notm}} allows to debug the application errors or trace the application execution by monitoring the application-generated logs and the Spark-generated logs. IBM Cloud Logs together with monitoring feature of the **Spark History** page provides better troubleshooting of the applications.
 
 {{site.data.keyword.iae_full_notm}} allows you to forward application logs to the **instance home** or (and) to {{site.data.keyword.la_full_notm}} service.
 
