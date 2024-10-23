@@ -26,6 +26,15 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 
 
 
+## September 2024
+{: #AnalyticsEngine-sept24}
+{: release-note}
+
+Deprecating the support for Spark 3.3 runtimes
+
+: As of 28 March 2024, the IBM Log Analysis and IBM Cloud Activity Tracker services are deprecated and will no longer be supported as of 30 March 2025. You will need to migrate to IBM Cloud Logs, which replaces these two services, prior to 30 March 2025.
+
+
 ## August 2024
 {: #AnalyticsEngine-aug24}
 {: release-note}
