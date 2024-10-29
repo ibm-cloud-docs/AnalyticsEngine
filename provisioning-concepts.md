@@ -63,7 +63,7 @@ When you create an {{site.data.keyword.iae_full_notm}} from the catalog, you wil
 ### Default Spark runtime
 {: #default-spark-runtime}
 
-At the time of instance provisioning, you can select the Spark version to be used. Currently, you can choose between Spark 3.3 and Spark 3.4. Spark 3.3 is considered as the default version.
+At the time of instance provisioning, you can select the Spark version to be used. Spark 3.4. is the default version.
 
 The runtime includes open source Spark binaries and the configuration helps you to quickly proceed with the instance creation and run Spark applications in the instance. In addition to the Spark binaries, the runtime also includes the geospatial, data skipping, and Parquet modular encryption libraries.
 
@@ -77,7 +77,7 @@ The following table shows the Spark runtime version and runtime language version
 | Spark version | Apache Spark release	 | status| Supported Languages |
 |-----------|--------------|---------|---- |
 | 3.1 | 3.1.2 | Removed(Not Supported) | Java 8, Scala 2.12, Python 3.10 and R 4.2 |
-| 3.3 | 3.3.2 | Default | Java 11, Scala 2.12, Python 3.10 and R 4.2 |
+| 3.3 | 3.3.2 | Removed(Not Supported) | Java 11, Scala 2.12, Python 3.10 and R 4.2 |
 | 3.4 | 3.4.1 | Latest | Java 11, Scala 2.12, Python 3.10 and R 4.2 |
 {: caption="Spark runtime version and runtime language version" caption-side="top"}
 {: #features-table-1}

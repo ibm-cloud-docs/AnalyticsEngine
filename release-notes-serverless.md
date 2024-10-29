@@ -26,6 +26,15 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 
 
 
+## September 2024
+{: #AnalyticsEngine-sept24}
+{: release-note}
+
+Deprecating the support for IBM Log Analysis
+
+: IBM Log Analysis is deprecated and will no longer be supported as of 30 March 2025. You must migrate to IBM Cloud Logs. For information about how to migrate, see [Migrating to IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-migration-intro).
+
+
 ## August 2024
 {: #AnalyticsEngine-aug24}
 {: release-note}
