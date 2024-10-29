@@ -269,7 +269,7 @@ Create an serverless Analytics Engine instance by using the CLI.
     ```json
         {
            "default_runtime": {
-              "spark_version": "3.3" },
+              "spark_version": "3.4" },
               "instance_home": {
                  "region": "us-south",
                  "endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
@@ -335,7 +335,7 @@ Create an serverless Analytics Engine instance by using the CLI.
     ```json
         {
            "default_runtime": {
-              "spark_version": "3.3" },
+              "spark_version": "3.4" },
            "id": "181ea**9ee01b ",
            "instance_home": {
               "bucket": "do-not-delete-ae-bucket-e96**5d-b7**a82",
@@ -440,7 +440,7 @@ This tutorial shows you how to add the Spark application to the Cloud Object Sto
     ```json
         {
            "default_runtime": {
-              "spark_version": "3.3" },
+              "spark_version": "3.4" },
            "id": "181ea**9ee01b ",
            "instance_home": {
               "bucket": "do-not-delete-ae-bucket-e96**5d-b7**a82",

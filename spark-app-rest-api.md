@@ -247,7 +247,7 @@ You can use this API to stop an application in the following states: `accepted`,
 
 You can use the `"runtime"` section under `"application_details"` in the payload JSON script to pass the Spark runtime version when submitting an application. The Spark version passed through the `"runtime"` section overrides the default runtime Spark version set at the instance level. To learn more about the default runtime version, see [Default Spark runtime](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts#default-spark-runtime).
 
-Example of the `"runtime"` section to run an application in Spark 3.3:
+Example of the `"runtime"` section to run an application in Spark 3.4:
 
 ```json
 {
@@ -257,7 +257,7 @@ Example of the `"runtime"` section to run an application in Spark 3.3:
             "/opt/ibm/spark/examples/src/main/resources/people.txt"
             ],
         "runtime": {
-            "spark_version": "3.3"
+            "spark_version": "3.4"
         }
     }
 }

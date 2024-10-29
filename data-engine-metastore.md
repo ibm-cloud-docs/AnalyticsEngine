@@ -236,7 +236,7 @@ Note that for the SELECT command to work, you must pass the {{site.data.keyword.
                 "spark.hive.metastore.use.SSL":"true",
                 "spark.hive.stats.autogather":"false",
                 "spark.hive.metastore.client.plain.username":"<CHANGEME-CRN-DATA-ENGINE-INSTANCE>",
-                # for spark 3.3 and spark 3.4
+                # for spark 3.4
                 "spark.hive.metastore.truststore.path":"/opt/ibm/jdk/lib/security/cacerts",
                 "spark.sql.catalogImplementation":"hive",
                 "spark.sql.hive.metastore.jars":"/opt/ibm/connectors/data-engine/hms-client/*",
