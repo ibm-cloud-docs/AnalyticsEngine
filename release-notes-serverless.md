@@ -26,6 +26,12 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 
 
 
+## February 2025
+{: #AnalyticsEngine-feb25}
+{: release-note}
+
+You can now use Spark version,  3.5.4 to run the applications in IBM Analytics Engine. In IBM Analytics Engine, Apache Spark 3.4.4 and Apache Spark 3.5.4 are the supported versions.
+
 ## September 2024
 {: #AnalyticsEngine-sept24}
 {: release-note}
