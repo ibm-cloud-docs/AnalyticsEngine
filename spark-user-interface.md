@@ -43,6 +43,9 @@ Use the Spark history server to inspect the run of a completed Spark application
 
 The Spark UI endpoint of a running Spark application is accessible from the service details page of the IBM Analytics Engine instance.
 
+Log links under the Stages and Executors tabs of the Spark history server UI will not work as logs are not preserved with the Spark events. To review the task and executor logs, enable platform logging. For details, see [Configuring and viewing logs](/docs/AnalyticsEngine?topic=AnalyticsEngine-viewing-logs).
+{: note}
+
 The following image shows you an example of the Application tab with the link to the Spark UI of a running application.
 
 ![Shows the ink to Spark-ui of a running application](images/spark_ui.png){: caption="Application tab of IBM Analytics Engine service details page" caption-side="bottom"}
