@@ -1,8 +1,7 @@
 includes:
-  - https://github.ibm.com/cloud-docs/analytics-engine-cli-plugin
+
 translation:
   exclude:
     byFilePath:
       - file-dont-translate.md
       - folder-dont-translate/
-
