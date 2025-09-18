@@ -273,8 +273,8 @@ toc:
       - topicgroup:
           label: IBM Analytics Engine serverless CLI
           topics:
-          - include: ../analytics-engine-cli-plugin/analytics-engine-serverless-cli.md
-          #- /analytics-engine-cli-plugin/analytics-engine-cli-plugin-CLI_analytics_engine
+          - analytics-engine-serverless-cli.md
+          #- analytics-engine-service-cli.md
       - topicgroup:
           label: IBM Analytics Engine SDK
           topics:
