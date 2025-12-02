@@ -26,6 +26,20 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 
 
 
+## December 2025
+{: #AnalyticsEngine-dec25}
+{: release-note}
+
+Support for Spark 4.0 runtimes
+
+: You can now use Spark version,  4.0 to run the applications in IBM Analytics Engine. In IBM Analytics Engine, Apache Spark 3.5.4 and Apache Spark 4.0 are the supported versions.
+
+
+Deprecating the support for Spark 3.4 runtimes
+
+: Support for Apache Spark 3.4 runtime is deprecated and will no longer be supported in a future release. You must upgrade to Spark 3.5 or 4.0.
+
+
 ## February 2025
 {: #AnalyticsEngine-feb25}
 {: release-note}
