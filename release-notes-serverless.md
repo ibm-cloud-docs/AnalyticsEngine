@@ -36,8 +36,6 @@ Support for Spark 4.0 runtimes
 
 
 
-
-
 ## February 2025
 {: #AnalyticsEngine-feb25}
 {: release-note}
