@@ -26,6 +26,16 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 
 
 
+
+## March 2026
+{: #AnalyticsEngine-mar26}
+{: release-note}
+
+Service deprecation
+
+: Service deprecation: The {{site.data.keyword.iae_full_notm}} is now deprecated. No new instances can be created or purchased starting on `DD Month YYYY`. The service will no longer be supported by {{site.data.keyword.cloud}} as of `DD Month YYYY`. At the end-of-support date, any instances of service-name that are still running will be permanently disabled and deprovisioned. You can migrate to watsonx.data Spark engine starting today. To migrate the existing data to watsonx.data and start using watsonx.data Spark engine, see [Quick Guide: Migrating from IBM Analytics Engine (IAE) to watsonx.data Spark Engine](). To start using watsonx.data Spark engine, see [watsonx.data Spark engine](https://cloud.ibm.com/docs/watsonxdata?group=working-with-watsonxdata-spark).
+
+
 ## December 2025
 {: #AnalyticsEngine-dec25}
 {: release-note}
