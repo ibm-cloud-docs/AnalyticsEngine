@@ -27,7 +27,7 @@ To assist you in this situation, you can submit a Spark application with auto-sc
 
 The steps to submit an application with autoscaling enabled is the same as the steps to submit an application without autoscaling. The only difference is that you need to add the configuration setting `ae.spark.autoscale.enable=true` to the application payload.
 
-1. [Submit a Spark application](https://test.cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#spark-submit-app).
+1. [Submit a Spark application](/docs/AnalyticsEngine?topic=AnalyticsEngine-spark-app-rest-api#spark-submit-app).
 1. Use the following sample JSON payload as an example to enable basic autoscaling:
     ```json
     {

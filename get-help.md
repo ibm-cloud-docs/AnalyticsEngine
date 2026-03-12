@@ -22,8 +22,8 @@ subcollection: help
 If you experience an issue or have questions when using {{site.data.keyword.iae_full_notm}}, you can use the following resources before you open a support case.
 {: shortdesc}
 
-* Review the [FAQs](https://test.cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-faqs-serverless) in the product documentation.
-* Review the [troubleshooting documentation](https://test.cloud.ibm.com/docs/AnalyticsEngine?topic=AnalyticsEngine-troubleshooting-serverless) to troubleshoot and resolve common issues.
+* Review the [FAQs](/docs/AnalyticsEngine?topic=AnalyticsEngine-faqs-serverless) in the product documentation.
+* Review the [troubleshooting documentation](/docs/AnalyticsEngine?topic=AnalyticsEngine-troubleshooting-serverless) to troubleshoot and resolve common issues.
 * Check the status of the {{site.data.keyword.Bluemix_notm}} platform and resources by going to the [Status page](https://cloud.ibm.com/status){: external}.
 * Review [Stack Overflow](https://stackoverflow.com/questions/tagged/ibm-cloud){: external} to see whether other users experienced the same problem. When you ask a question, tag the question with `ibm-cloud` and `service-Name`, so that it's seen by the {{site.data.keyword.Bluemix_notm}} development teams.
 
