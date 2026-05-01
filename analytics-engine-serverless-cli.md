@@ -8,6 +8,8 @@ subcollection: AnalyticsEngine
 
 keywords: Analytics Engine CLI, Analytics Engine command line , Analytics Engine terminal, Analytics Engine shell, Spark, Spark CLI
 
+content-type: cli-docs
+
 ---
 
 {:shortdesc: .shortdesc}
