@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-12"
+lastupdated: "2026-05-12"
 
 keywords:deprecation of service
 
@@ -21,7 +21,7 @@ subcollection: AnalyticsEngine
 
 
 
-{{site.data.keyword.iae_full_notm}} is deprecated as of ``DD Month YYYY``, and no new instances can be created or purchased starting on ``DD Month YYYY``. The service will no longer be supported by {{site.data.keyword.cloud}} as of ``DD Month YYYY``. At the end-of-support date, any instances of {{site.data.keyword.iae_full_notm}} that are still running will be permanently disabled and deprovisioned.
+{{site.data.keyword.iae_full_notm}} is deprecated, and no new instances can be created or purchased starting on `May 8, 2026`. The service will no longer be supported by {{site.data.keyword.cloud}} as of `April 8, 2027`. At the end-of-support date, any instances of {{site.data.keyword.iae_full_notm}} that are still running will be permanently disabled and deprovisioned.
 {: shortdesc}
 
 
@@ -85,4 +85,3 @@ If you don't manually delete your instances and data before `DD Month YYYY`, it 
 1. 
 
 For more details about data deletion policies, see [Securing your data](/docs/xxx).
-
