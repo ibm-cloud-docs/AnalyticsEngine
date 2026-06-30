@@ -1,7 +1,6 @@
-includes:
-
+includes: null
 translation:
   exclude:
     byFilePath:
-      - file-dont-translate.md
-      - folder-dont-translate/
+    - file-dont-translate.md
+    - folder-dont-translate/

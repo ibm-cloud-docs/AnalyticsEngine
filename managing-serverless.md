@@ -22,14 +22,14 @@ subcollection: AnalyticsEngine
 You can manage your severless instance by:
 
 - Changing configuration settings, for example, to include library add-ons or to configure instance home after you created the instance.
-- Monitoring the status of submitted applications and kernels created in the instance.    
+- Monitoring the status of submitted applications and kernels created in the instance.
 
 ## Console configuration tab
 {: #config-tab}
 
 You can view and edit the current configuration settings for your {{site.data.keyword.iae_full_notm}} serverless instance from the {{site.data.keyword.Bluemix_short}} Resource list.
 
-1. Access the [{{site.data.keyword.Bluemix_short}} Resource list](https://test.cloud.ibm.com/resources).
+1. Access the {{site.data.keyword.Bluemix_short}} Resource list.
 1. Click **Services and software**, find your  {{site.data.keyword.iae_full_notm}} serverless instance and click the instance to see the details.
 1. Click **Manage > Configuration** to view:
 
@@ -47,9 +47,9 @@ You can view and edit the current configuration settings for your {{site.data.ke
               - The HMAC access and secret key
         - You can change the access credentials of an existing `instance home` volume. For this instance, you need to enter:
 
-             - The new HMAC access and secret key   
+             - The new HMAC access and secret key
 
-         For details on how to access Object Storage, see [Using IBM Object Storage as the instance home volume](/docs/AnalyticsEngine?topic=AnalyticsEngine-cos-serverless).      
+         For details on how to access Object Storage, see [Using IBM Object Storage as the instance home volume](/docs/AnalyticsEngine?topic=AnalyticsEngine-cos-serverless).
     - The `default Spark configuration` options to override configuration settings.
 
       For a list of the default Spark configurations set for serverless instances, see [Default Spark configurations](/docs/AnalyticsEngine?topic=AnalyticsEngine-serverless-architecture-concepts#default-spark-config).
@@ -61,7 +61,7 @@ You can view and edit the current configuration settings for your {{site.data.ke
 
 You can monitor the status of submitted applications in your {{site.data.keyword.iae_full_notm}} serverless instance from the {{site.data.keyword.Bluemix_short}} Resource list.
 
-1. Access your [{{site.data.keyword.Bluemix_short}} Resource list](https://test.cloud.ibm.com/resources).
+1. Access your {{site.data.keyword.Bluemix_short}} Resource list.
 1. Click **Services and software**, find the   {{site.data.keyword.iae_full_notm}} serverless instance and click the instance to see its details.
 1. Click **Manage > Applications** to list the submitted applications. You can:
 
@@ -69,11 +69,8 @@ You can monitor the status of submitted applications in your {{site.data.keyword
     - Click the Settings icon to customize the result list by adjusting the row height or the display columns.
     - Refresh the list
 
-    By clicking the arrow to the left of an application ID in the result list, you are shown additional properties that are not included in any list columns, for example, the ID assigned to the application by Spark.  
+    By clicking the arrow to the left of an application ID in the result list, you are shown additional properties that are not included in any list columns, for example, the ID assigned to the application by Spark.
 
     By clicking the Action icon to the right of a selected application, you can:
 
       - Stop the application
-
-
-
