@@ -13,7 +13,6 @@ toc:
   - navgroup:
       id: learn
       topics:
-      - deprecation.md
       - getting-started.md
       - release-notes-serverless.md
   - navgroup:
