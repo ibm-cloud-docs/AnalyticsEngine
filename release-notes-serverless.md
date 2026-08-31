@@ -33,7 +33,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 
 Service deprecation
 
-: Service deprecation: The {{site.data.keyword.iae_full_notm}} is now deprecated. No new instances can be created or purchased starting on `May 8, 2026`. The service will no longer be supported by {{site.data.keyword.cloud}} as of `April 8, 2027`. At the end-of-support date, any instances of service-name that are still running will be permanently disabled and deprovisioned. You can migrate to watsonx.data Spark engine starting today. To start using watsonx.data Spark engine, see [watsonx.data Spark engine](https://cloud.ibm.com/docs/watsonxdata?group=working-with-watsonxdata-spark).
+: Service deprecation: The {{site.data.keyword.iae_full_notm}} is now deprecated. No new instances can be created or purchased starting on May 8, 2026. The service will no longer be supported by {{site.data.keyword.cloud}} as of April 8, 2027. At the end-of-support date, any instances of service-name that are still running will be permanently disabled and deprovisioned. You can migrate to watsonx.data Spark engine starting today. To start using watsonx.data Spark engine, see [watsonx.data Spark engine](https://cloud.ibm.com/docs/watsonxdata?group=working-with-watsonxdata-spark).
 
 
 ## December 2025
